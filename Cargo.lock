@@ -104,15 +104,16 @@ dependencies = [
  "anyhow",
  "bindgen",
  "cc",
+ "regex",
 ]
 
 [[package]]
 name = "hc32f448_driver_sys"
-version = "0.1.1"
+version = "0.2.0"
 
 [[package]]
 name = "hc32f460_driver_sys"
-version = "0.1.1"
+version = "0.2.0"
 
 [[package]]
 name = "itertools"

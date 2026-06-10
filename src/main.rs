@@ -7,6 +7,7 @@ fn hc32f448() -> anyhow::Result<()> {
 
     _ = std::fs::remove_dir_all("build");
     _ = std::fs::remove_dir_all("src");
+    std::fs::create_dir_all("src")?;
 
     let mut cc = cc::Build::new();
     cc.host(env!("HOST"));
@@ -46,34 +47,18 @@ fn hc32f448() -> anyhow::Result<()> {
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Include");
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Device/HDSC/hc32f4xx/Include");
     bindgen = bindgen.clang_arg("-Idrivers/hc32_ll_driver/inc");
+    bindgen = bindgen.raw_line("#![no_std]");
 
-    std::fs::create_dir_all("src")?;
-
-    let mut lib_rs = std::fs::File::create("src/lib.rs")?;
-    writeln!(lib_rs, "#![no_std]")?;
-    writeln!(lib_rs)?;
-
-    {
-        writeln!(lib_rs, "pub mod hc32f4xx;")?;
-        let mut bindgen = bindgen.clone();
-        bindgen = bindgen.header("drivers/cmsis/Device/HDSC/hc32f4xx/Include/hc32f4xx.h");
-        bindgen = bindgen.allowlist_file(".*hc32f4xx.*");
-        bindgen
-            .generate()?
-            .write_to_file(PathBuf::from("src").join("hc32f4xx.rs"))?;
-    }
-
+    bindgen = bindgen.header("drivers/cmsis/Device/HDSC/hc32f4xx/Include/hc32f4xx.h");
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("hc32f4xx.h")));
     for i in std::fs::read_dir("drivers/hc32_ll_driver/inc")? {
         let i = i?;
-        let mut bindgen = bindgen.clone();
         bindgen = bindgen.header(i.path().display().to_string());
-        let module = i.path().file_stem().unwrap().display().to_string();
-        writeln!(lib_rs, "pub mod {};", module)?;
-        bindgen = bindgen.allowlist_file(format!(".*{}.*", module));
-        bindgen
-            .generate()?
-            .write_to_file(PathBuf::from("src").join(module).with_extension("rs"))?;
+        let module = i.path().file_name().unwrap().display().to_string();
+        bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape(&module)));
     }
+
+    bindgen.generate()?.write_to_file("src/lib.rs")?;
 
     Ok(())
 }
@@ -83,6 +68,7 @@ fn hc32f460() -> anyhow::Result<()> {
 
     _ = std::fs::remove_dir_all("build");
     _ = std::fs::remove_dir_all("src");
+    std::fs::create_dir_all("src")?;
 
     let mut cc = cc::Build::new();
     cc.host(env!("HOST"));
@@ -122,51 +108,21 @@ fn hc32f460() -> anyhow::Result<()> {
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Include");
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Device/HDSC/hc32f4xx/Include");
     bindgen = bindgen.clang_arg("-Idrivers/hc32_ll_driver/inc");
+    bindgen = bindgen.raw_line("#![no_std]");
 
-    std::fs::create_dir_all("src")?;
-
-    let mut lib_rs = std::fs::File::create("src/lib.rs")?;
-    writeln!(lib_rs, "#![no_std]")?;
-    writeln!(lib_rs)?;
-    {
-        writeln!(lib_rs, "pub mod hc32f4xx;")?;
-        let mut bindgen = bindgen.clone();
-        bindgen = bindgen.header("drivers/cmsis/Device/HDSC/hc32f4xx/Include/hc32f4xx.h");
-        bindgen = bindgen.allowlist_file(".*hc32f4xx.*");
-        bindgen
-            .generate()?
-            .write_to_file(PathBuf::from("src").join("hc32f4xx.rs"))?;
-    }
-    {
-        writeln!(lib_rs, "pub mod usb_bsp;")?;
-        let mut bindgen = bindgen.clone();
-        bindgen = bindgen.header("drivers/usb_bsp.h");
-        bindgen = bindgen.allowlist_file(".*usb_bsp.*");
-        bindgen
-            .generate()?
-            .write_to_file(PathBuf::from("src").join("usb_bsp.rs"))?;
-    }
-    {
-        writeln!(lib_rs, "pub mod usb_lib;")?;
-        let mut bindgen = bindgen.clone();
-        bindgen = bindgen.header("drivers/usb_lib.h");
-        bindgen = bindgen.allowlist_file(".*usb_lib.*");
-        bindgen
-            .generate()?
-            .write_to_file(PathBuf::from("src").join("usb_lib.rs"))?;
-    }
-
+    bindgen = bindgen.header("drivers/cmsis/Device/HDSC/hc32f4xx/Include/hc32f4xx.h");
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("hc32f4xx.h")));
+    bindgen = bindgen.header("drivers/usb_lib.h");
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("usb_lib.h")));
+    bindgen = bindgen.header("drivers/usb_bsp.h");
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("usb_bsp.h")));
     for i in std::fs::read_dir("drivers/hc32_ll_driver/inc")? {
         let i = i?;
-        let mut bindgen = bindgen.clone();
         bindgen = bindgen.header(i.path().display().to_string());
-        let module = i.path().file_stem().unwrap().display().to_string();
-        writeln!(lib_rs, "pub mod {};", module)?;
-        bindgen = bindgen.allowlist_file(format!(".*{}.*", module));
-        bindgen
-            .generate()?
-            .write_to_file(PathBuf::from("src").join(module).with_extension("rs"))?;
+        let module = i.path().file_name().unwrap().display().to_string();
+        bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape(&module)));
     }
+    bindgen.generate()?.write_to_file("src/lib.rs")?;
 
     Ok(())
 }

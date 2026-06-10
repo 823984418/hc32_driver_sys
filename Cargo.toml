@@ -17,6 +17,9 @@ repository = "https://github.com/823984418/hc32_driver_sys"
 
 [dependencies]
 
+[dependencies.regex]
+version = "1.12.4"
+
 [dependencies.anyhow]
 version = "1.0.102"
 
