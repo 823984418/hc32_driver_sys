@@ -11,3 +11,4 @@ exclude = [
 
 [lints.rust]
 nonstandard_style = "allow"
+unpredictable_function_pointer_comparisons = "allow"
