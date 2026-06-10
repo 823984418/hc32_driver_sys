@@ -1,0 +1,13 @@
+[package]
+name = "hc32f460_driver_sys"
+version = "0.1.0"
+edition = "2024"
+exclude = [
+    "build",
+    "driver",
+]
+
+[dependencies]
+
+[lints.rust]
+nonstandard_style = "allow"

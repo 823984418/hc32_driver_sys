@@ -1,0 +1,22 @@
+[workspace]
+resolver = "3"
+members = [
+    "hc32f448",
+    "hc32f460",
+]
+
+[package]
+name = "hc32_driver_sys"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[dependencies.anyhow]
+version = "1.0.102"
+
+[dependencies.cc]
+version = "1.2.63"
+
+[dependencies.bindgen]
+version = "0.72.1"
