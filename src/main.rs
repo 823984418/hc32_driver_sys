@@ -1,5 +1,4 @@
 use std::collections::HashSet;
-use std::io::Write;
 use std::path::PathBuf;
 
 fn hc32f448() -> anyhow::Result<()> {
@@ -48,9 +47,12 @@ fn hc32f448() -> anyhow::Result<()> {
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Device/HDSC/hc32f4xx/Include");
     bindgen = bindgen.clang_arg("-Idrivers/hc32_ll_driver/inc");
     bindgen = bindgen.raw_line("#![no_std]");
+    bindgen = bindgen.sort_semantically(true);
 
     bindgen = bindgen.header("drivers/cmsis/Device/HDSC/hc32f4xx/Include/hc32f4xx.h");
     bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("hc32f4xx.h")));
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("hc32f448.h")));
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("system_hcf448.h")));
     for i in std::fs::read_dir("drivers/hc32_ll_driver/inc")? {
         let i = i?;
         bindgen = bindgen.header(i.path().display().to_string());
@@ -109,9 +111,12 @@ fn hc32f460() -> anyhow::Result<()> {
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Device/HDSC/hc32f4xx/Include");
     bindgen = bindgen.clang_arg("-Idrivers/hc32_ll_driver/inc");
     bindgen = bindgen.raw_line("#![no_std]");
+    bindgen = bindgen.sort_semantically(true);
 
     bindgen = bindgen.header("drivers/cmsis/Device/HDSC/hc32f4xx/Include/hc32f4xx.h");
     bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("hc32f4xx.h")));
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("hc32f460.h")));
+    bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("system_hcf460.h")));
     bindgen = bindgen.header("drivers/usb_lib.h");
     bindgen = bindgen.allowlist_file(format!(".*{}", regex::escape("usb_lib.h")));
     bindgen = bindgen.header("drivers/usb_bsp.h");
