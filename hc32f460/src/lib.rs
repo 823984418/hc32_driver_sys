@@ -1,6 +1,8 @@
 #![no_std]
 
 pub mod hc32f4xx;
+pub mod usb_bsp;
+pub mod usb_lib;
 pub mod hc32f460_ll_interrupts_share;
 pub mod hc32_ll;
 pub mod hc32_ll_adc;
