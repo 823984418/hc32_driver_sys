@@ -64,6 +64,16 @@
  * @{
  */
 
+
+#if !defined (XTAL_VALUE)
+uint32_t XTAL_VALUE = 8000000UL;
+#endif
+
+#if !defined (XTAL32_VALUE)
+uint32_t XTAL32_VALUE = 32768UL;
+#endif
+
+
 /*!< System clock frequency (Core clock) */
 __NO_INIT uint32_t SystemCoreClock;
 /*!< High speed RC frequency (HCR clock) */

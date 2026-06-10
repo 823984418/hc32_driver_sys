@@ -4832,8 +4832,6 @@ pub const BSP_WM8731_ENABLE: u32 = 0;
 pub const MRC_VALUE: u32 = 8000000;
 pub const LRC_VALUE: u32 = 32768;
 pub const SWDTLRC_VALUE: u32 = 10000;
-pub const XTAL_VALUE: u32 = 8000000;
-pub const XTAL32_VALUE: u32 = 32768;
 pub const IRQn_Type_NMI_IRQn: IRQn_Type = -14;
 pub const IRQn_Type_HardFault_IRQn: IRQn_Type = -13;
 pub const IRQn_Type_MemManageFault_IRQn: IRQn_Type = -12;
@@ -10993,6 +10991,10 @@ pub struct bCM_WDT_TypeDef {
     pub SR_b: stc_wdt_sr_bit_t,
 }
 unsafe extern "C" {
+    #[doc = "< External high speed OSC freq."]
+    pub static mut XTAL_VALUE: u32;
+    #[doc = "< External low speed OSC freq."]
+    pub static mut XTAL32_VALUE: u32;
     #[doc = "< System clock frequency (Core clock)"]
     pub static mut SystemCoreClock: u32;
     #[doc = "< HRC frequency"]
