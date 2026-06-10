@@ -1,6 +1,6 @@
 [package]
 name = "hc32f460_driver_sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Provide driver function binding for HDSC's HC32F460 MCU."
 keywords = ["HC32", "bindgen", "no_std", "bare-metal"]
