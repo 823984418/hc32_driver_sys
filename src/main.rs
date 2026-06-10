@@ -24,6 +24,7 @@ fn hc32f448() -> anyhow::Result<()> {
     cc.include("drivers/cmsis/Device/HDSC/hc32f4xx/Include");
     cc.include("drivers/hc32_ll_driver/inc");
 
+    cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f448.c");
     for i in std::fs::read_dir("drivers/hc32_ll_driver/src")? {
         cc.file(i?.path());
     }
@@ -99,6 +100,7 @@ fn hc32f460() -> anyhow::Result<()> {
     cc.include("drivers/cmsis/Device/HDSC/hc32f4xx/Include");
     cc.include("drivers/hc32_ll_driver/inc");
 
+    cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f460.c");
     for i in std::fs::read_dir("drivers/hc32_ll_driver/src")? {
         cc.file(i?.path());
     }
@@ -173,6 +175,7 @@ fn main() -> anyhow::Result<()> {
     let mcu = std::env::args().skip(1).collect::<HashSet<_>>();
     if mcu.is_empty() {
         hc32f448()?;
+        hc32f460()?;
     } else {
         for i in &mcu {
             match i.as_str() {
