@@ -2,7293 +2,215 @@
 
 #![no_std]
 
-#[doc = " Interrupt Number Definition"]
-pub type IRQn_Type = ::core::ffi::c_int;
-#[doc = " \\brief Event number enumeration"]
-pub type en_event_src_t = ::core::ffi::c_uint;
-#[doc = " \\brief Interrupt number enumeration"]
-pub type en_int_src_t = ::core::ffi::c_uint;
-#[doc = " @brief Single precision floating point number (4 byte)"]
-pub type float32_t = f32;
-#[doc = " @brief Double precision floating point number (8 byte)"]
-pub type float64_t = f64;
-#[doc = " @brief Function pointer type to void/void function"]
-pub type func_ptr_t = ::core::option::Option<unsafe extern "C" fn()>;
-#[doc = " @brief Functional state"]
-pub type en_functional_state_t = ::core::ffi::c_uint;
-#[doc = " @brief Flag status"]
-pub type en_flag_status_t = ::core::ffi::c_uint;
-#[doc = " @brief  Event Pin Set and Reset enumeration"]
-pub type en_ep_state_t = ::core::ffi::c_uint;
-#[doc = " @brief  GPIO Pin Set and Reset enumeration"]
-pub type en_pin_state_t = ::core::ffi::c_uint;
+pub const CM_ADC1: *mut CM_ADC_TypeDef = CM_ADC1_BASE as _;
+pub const CM_ADC2: *mut CM_ADC_TypeDef = CM_ADC2_BASE as _;
+pub const CM_ADC3: *mut CM_ADC_TypeDef = CM_ADC3_BASE as _;
+pub const CM_AES: *mut CM_AES_TypeDef = CM_AES_BASE as _;
+pub const CM_AOS: *mut CM_AOS_TypeDef = CM_AOS_BASE as _;
+pub const CM_CMP1: *mut CM_CMP_TypeDef = CM_CMP1_BASE as _;
+pub const CM_CMP2: *mut CM_CMP_TypeDef = CM_CMP2_BASE as _;
+pub const CM_CMP3: *mut CM_CMP_TypeDef = CM_CMP3_BASE as _;
+pub const CM_CMP4: *mut CM_CMP_TypeDef = CM_CMP4_BASE as _;
+pub const CM_CMU: *mut CM_CMU_TypeDef = CM_CMU_BASE as _;
+pub const CM_CRC: *mut CM_CRC_TypeDef = CM_CRC_BASE as _;
+pub const CM_CTC: *mut CM_CTC_TypeDef = CM_CTC_BASE as _;
+pub const CM_DAC: *mut CM_DAC_TypeDef = CM_DAC_BASE as _;
+pub const CM_DBGC: *mut CM_DBGC_TypeDef = CM_DBGC_BASE as _;
+pub const CM_DCU1: *mut CM_DCU_TypeDef = CM_DCU1_BASE as _;
+pub const CM_DCU2: *mut CM_DCU_TypeDef = CM_DCU2_BASE as _;
+pub const CM_DCU3: *mut CM_DCU_TypeDef = CM_DCU3_BASE as _;
+pub const CM_DCU4: *mut CM_DCU_TypeDef = CM_DCU4_BASE as _;
+pub const CM_DMA1: *mut CM_DMA_TypeDef = CM_DMA1_BASE as _;
+pub const CM_DMA2: *mut CM_DMA_TypeDef = CM_DMA2_BASE as _;
+pub const CM_EFM: *mut CM_EFM_TypeDef = CM_EFM_BASE as _;
+pub const CM_EMB0: *mut CM_EMB_TypeDef = CM_EMB0_BASE as _;
+pub const CM_EMB1: *mut CM_EMB_TypeDef = CM_EMB1_BASE as _;
+pub const CM_EMB2: *mut CM_EMB_TypeDef = CM_EMB2_BASE as _;
+pub const CM_EMB3: *mut CM_EMB_TypeDef = CM_EMB3_BASE as _;
+pub const CM_FCM: *mut CM_FCM_TypeDef = CM_FCM_BASE as _;
+pub const CM_GPIO: *mut CM_GPIO_TypeDef = CM_GPIO_BASE as _;
+pub const CM_HASH: *mut CM_HASH_TypeDef = CM_HASH_BASE as _;
+pub const CM_I2C1: *mut CM_I2C_TypeDef = CM_I2C1_BASE as _;
+pub const CM_I2C2: *mut CM_I2C_TypeDef = CM_I2C2_BASE as _;
+pub const CM_ICG: *mut CM_ICG_TypeDef = CM_ICG_BASE as _;
+pub const CM_INTC: *mut CM_INTC_TypeDef = CM_INTC_BASE as _;
+pub const CM_KEYSCAN: *mut CM_KEYSCAN_TypeDef = CM_KEYSCAN_BASE as _;
+pub const CM_MCAN1: *mut CM_MCAN_TypeDef = CM_MCAN1_BASE as _;
+pub const CM_MCAN2: *mut CM_MCAN_TypeDef = CM_MCAN2_BASE as _;
+pub const CM_MPU: *mut CM_MPU_TypeDef = CM_MPU_BASE as _;
+pub const CM_PERIC: *mut CM_PERIC_TypeDef = CM_PERIC_BASE as _;
+pub const CM_PWC: *mut CM_PWC_TypeDef = CM_PWC_BASE as _;
+pub const CM_QSPI: *mut CM_QSPI_TypeDef = CM_QSPI_BASE as _;
+pub const CM_RMU: *mut CM_RMU_TypeDef = CM_RMU_BASE as _;
+pub const CM_RTC: *mut CM_RTC_TypeDef = CM_RTC_BASE as _;
+pub const CM_SMC: *mut CM_SMC_TypeDef = CM_SMC_BASE as _;
+pub const CM_SPI1: *mut CM_SPI_TypeDef = CM_SPI1_BASE as _;
+pub const CM_SPI2: *mut CM_SPI_TypeDef = CM_SPI2_BASE as _;
+pub const CM_SPI3: *mut CM_SPI_TypeDef = CM_SPI3_BASE as _;
+pub const CM_SRAMC: *mut CM_SRAMC_TypeDef = CM_SRAMC_BASE as _;
+pub const CM_SWDT: *mut CM_SWDT_TypeDef = CM_SWDT_BASE as _;
+pub const CM_TMR0_1: *mut CM_TMR0_TypeDef = CM_TMR0_1_BASE as _;
+pub const CM_TMR0_2: *mut CM_TMR0_TypeDef = CM_TMR0_2_BASE as _;
+pub const CM_TMR4_1: *mut CM_TMR4_TypeDef = CM_TMR4_1_BASE as _;
+pub const CM_TMR4_2: *mut CM_TMR4_TypeDef = CM_TMR4_2_BASE as _;
+pub const CM_TMR4_3: *mut CM_TMR4_TypeDef = CM_TMR4_3_BASE as _;
+pub const CM_TMR6_1: *mut CM_TMR6_TypeDef = CM_TMR6_1_BASE as _;
+pub const CM_TMR6_2: *mut CM_TMR6_TypeDef = CM_TMR6_2_BASE as _;
+pub const CM_TMR6_COMMON: *mut CM_TMR6_COMMON_TypeDef = CM_TMR6_COMMON_BASE as _;
+pub const CM_TMRA_1: *mut CM_TMRA_TypeDef = CM_TMRA_1_BASE as _;
+pub const CM_TMRA_2: *mut CM_TMRA_TypeDef = CM_TMRA_2_BASE as _;
+pub const CM_TMRA_3: *mut CM_TMRA_TypeDef = CM_TMRA_3_BASE as _;
+pub const CM_TMRA_4: *mut CM_TMRA_TypeDef = CM_TMRA_4_BASE as _;
+pub const CM_TMRA_5: *mut CM_TMRA_TypeDef = CM_TMRA_5_BASE as _;
+pub const CM_TRNG: *mut CM_TRNG_TypeDef = CM_TRNG_BASE as _;
+pub const CM_USART1: *mut CM_USART_TypeDef = CM_USART1_BASE as _;
+pub const CM_USART2: *mut CM_USART_TypeDef = CM_USART2_BASE as _;
+pub const CM_USART3: *mut CM_USART_TypeDef = CM_USART3_BASE as _;
+pub const CM_USART4: *mut CM_USART_TypeDef = CM_USART4_BASE as _;
+pub const CM_USART5: *mut CM_USART_TypeDef = CM_USART5_BASE as _;
+pub const CM_USART6: *mut CM_USART_TypeDef = CM_USART6_BASE as _;
+pub const CM_WDT: *mut CM_WDT_TypeDef = CM_WDT_BASE as _;
+
+
 #[repr(C)]
 #[derive(Copy, Clone, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct __BindgenBitfieldUnit<Storage> {
     storage: Storage,
 }
-#[doc = " @brief ADC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_ADC_TypeDef {
-    pub STR: u8,
-    pub RESERVED0: [u8; 1usize],
-    pub CR0: u16,
-    pub CR1: u16,
-    pub CR2: u16,
-    pub RESERVED1: [u8; 2usize],
-    pub TRGSR: u16,
-    pub CHSELRA: u32,
-    pub CHSELRB: u32,
-    pub AVCHSELR: u32,
-    pub EXCHSELR: u8,
-    pub RESERVED2: [u8; 7usize],
-    pub SSTR0: u8,
-    pub SSTR1: u8,
-    pub SSTR2: u8,
-    pub SSTR3: u8,
-    pub SSTR4: u8,
-    pub SSTR5: u8,
-    pub SSTR6: u8,
-    pub SSTR7: u8,
-    pub SSTR8: u8,
-    pub SSTR9: u8,
-    pub SSTR10: u8,
-    pub SSTR11: u8,
-    pub SSTR12: u8,
-    pub SSTR13: u8,
-    pub SSTR14: u8,
-    pub SSTR15: u8,
-    pub RESERVED3: [u8; 8usize],
-    pub CHMUXR0: u16,
-    pub CHMUXR1: u16,
-    pub CHMUXR2: u16,
-    pub CHMUXR3: u16,
-    pub RESERVED4: [u8; 4usize],
-    pub ISR: u8,
-    pub ICR: u8,
-    pub ISCLRR: u8,
-    pub RESERVED5: [u8; 5usize],
-    pub SYNCCR: u16,
-    pub RESERVED6: [u8; 2usize],
-    pub DR0: u16,
-    pub DR1: u16,
-    pub DR2: u16,
-    pub DR3: u16,
-    pub DR4: u16,
-    pub DR5: u16,
-    pub DR6: u16,
-    pub DR7: u16,
-    pub DR8: u16,
-    pub DR9: u16,
-    pub DR10: u16,
-    pub DR11: u16,
-    pub DR12: u16,
-    pub DR13: u16,
-    pub DR14: u16,
-    pub DR15: u16,
-    pub RESERVED7: [u8; 48usize],
-    pub AWDCR: u16,
-    pub AWDSR: u8,
-    pub AWDSCLRR: u8,
-    pub AWD0DR0: u16,
-    pub AWD0DR1: u16,
-    pub AWD0CHSR: u8,
-    pub RESERVED8: [u8; 3usize],
-    pub AWD1DR0: u16,
-    pub AWD1DR1: u16,
-    pub AWD1CHSR: u8,
-}
-#[doc = " @brief AES"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_AES_TypeDef {
-    pub CR: u32,
-    pub RESERVED0: [u8; 12usize],
-    pub DR0: u32,
-    pub DR1: u32,
-    pub DR2: u32,
-    pub DR3: u32,
-    pub KR0: u32,
-    pub KR1: u32,
-    pub KR2: u32,
-    pub KR3: u32,
-    pub KR4: u32,
-    pub KR5: u32,
-    pub KR6: u32,
-    pub KR7: u32,
-}
-#[doc = " @brief AOS"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_AOS_TypeDef {
-    pub INTSFTTRG: u32,
-    pub DCU_TRGSEL1: u32,
-    pub DCU_TRGSEL2: u32,
-    pub DCU_TRGSEL3: u32,
-    pub DCU_TRGSEL4: u32,
-    pub DMA1_TRGSEL0: u32,
-    pub DMA1_TRGSEL1: u32,
-    pub DMA1_TRGSEL2: u32,
-    pub DMA1_TRGSEL3: u32,
-    pub DMA1_TRGSEL4: u32,
-    pub DMA1_TRGSEL5: u32,
-    pub DMA2_TRGSEL0: u32,
-    pub DMA2_TRGSEL1: u32,
-    pub DMA2_TRGSEL2: u32,
-    pub DMA2_TRGSEL3: u32,
-    pub DMA2_TRGSEL4: u32,
-    pub DMA2_TRGSEL5: u32,
-    pub DMA_RC_TRGSEL: u32,
-    pub TMR6_TRGSEL0: u32,
-    pub TMR6_TRGSEL1: u32,
-    pub TMR4_TRGSEL0: u32,
-    pub TMR4_TRGSEL1: u32,
-    pub TMR4_TRGSEL2: u32,
-    pub PEVNT_TRGSEL12: u32,
-    pub PEVNT_TRGSEL34: u32,
-    pub TMR0_TRGSEL: u32,
-    pub TMRA_TRGSEL0: u32,
-    pub TMRA_TRGSEL1: u32,
-    pub TMRA_TRGSEL2: u32,
-    pub TMRA_TRGSEL3: u32,
-    pub ADC1_TRGSEL0: u32,
-    pub ADC1_TRGSEL1: u32,
-    pub ADC2_TRGSEL0: u32,
-    pub ADC2_TRGSEL1: u32,
-    pub ADC3_TRGSEL0: u32,
-    pub ADC3_TRGSEL1: u32,
-    pub COMTRGSEL1: u32,
-    pub COMTRGSEL2: u32,
-    pub RESERVED0: [u8; 104usize],
-    pub PEVNTDIRR1: u32,
-    pub PEVNTIDR1: u32,
-    pub PEVNTODR1: u32,
-    pub PEVNTORR1: u32,
-    pub PEVNTOSR1: u32,
-    pub PEVNTRISR1: u32,
-    pub PEVNTFALR1: u32,
-    pub PEVNTDIRR2: u32,
-    pub PEVNTIDR2: u32,
-    pub PEVNTODR2: u32,
-    pub PEVNTORR2: u32,
-    pub PEVNTOSR2: u32,
-    pub PEVNTRISR2: u32,
-    pub PEVNTFALR2: u32,
-    pub PEVNTDIRR3: u32,
-    pub PEVNTIDR3: u32,
-    pub PEVNTODR3: u32,
-    pub PEVNTORR3: u32,
-    pub PEVNTOSR3: u32,
-    pub PEVNTRISR3: u32,
-    pub PEVNTFALR3: u32,
-    pub PEVNTDIRR4: u32,
-    pub PEVNTIDR4: u32,
-    pub PEVNTODR4: u32,
-    pub PEVNTORR4: u32,
-    pub PEVNTOSR4: u32,
-    pub PEVNTRISR4: u32,
-    pub PEVNTFALR4: u32,
-    pub PEVNTNFCR: u32,
-    pub RESERVED1: [u8; 140usize],
-    pub PLU0_CR: u32,
-    pub PLU1_CR: u32,
-    pub PLU2_CR: u32,
-    pub PLU3_CR: u32,
-    pub PLU0_TRGSELA: u32,
-    pub PLU0_TRGSELB: u32,
-    pub PLU0_TRGSELC: u32,
-    pub PLU0_TRGSELD: u32,
-    pub PLU1_TRGSELA: u32,
-    pub PLU1_TRGSELB: u32,
-    pub PLU1_TRGSELC: u32,
-    pub PLU1_TRGSELD: u32,
-    pub PLU2_TRGSELA: u32,
-    pub PLU2_TRGSELB: u32,
-    pub PLU2_TRGSELC: u32,
-    pub PLU2_TRGSELD: u32,
-    pub PLU3_TRGSELA: u32,
-    pub PLU3_TRGSELB: u32,
-    pub PLU3_TRGSELC: u32,
-    pub PLU3_TRGSELD: u32,
-}
-#[doc = " @brief CMP"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_CMP_TypeDef {
-    pub MDR: u8,
-    pub FIR: u8,
-    pub OCR: u8,
-    pub RESERVED0: [u8; 1usize],
-    pub PMSR: u32,
-    pub RESERVED1: [u8; 8usize],
-    pub BWSR1: u32,
-    pub BWSR2: u16,
-    pub RESERVED2: [u8; 2usize],
-    pub SCCR: u32,
-    pub SCMR: u32,
-}
-#[doc = " @brief CMU"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_CMU_TypeDef {
-    pub RESERVED0: [u8; 24usize],
-    pub XTALDIVR: u32,
-    pub XTALDIVCR: u32,
-    pub RESERVED1: [u8; 19504usize],
-    pub XTALCFGR: u8,
-    pub RESERVED2: [u8; 3usize],
-    pub XTAL32CR: u8,
-    pub RESERVED3: [u8; 3usize],
-    pub XTAL32CFGR: u8,
-    pub RESERVED4: [u8; 15usize],
-    pub XTAL32NFR: u8,
-    pub RESERVED5: [u8; 3usize],
-    pub LRCCR: u8,
-    pub RESERVED6: [u8; 7usize],
-    pub LRCTRM: u8,
-    pub RESERVED7: [u8; 29595usize],
-    pub PERICKSEL: u16,
-    pub RESERVED8: [u8; 6usize],
-    pub CANCKCFGR: u16,
-    pub RESERVED9: [u8; 6usize],
-    pub SCFGR: u32,
-    pub RESERVED10: [u8; 2usize],
-    pub CKSWR: u8,
-    pub RESERVED11: [u8; 3usize],
-    pub PLLHCR: u8,
-    pub RESERVED12: [u8; 7usize],
-    pub XTALCR: u8,
-    pub RESERVED13: [u8; 3usize],
-    pub HRCCR: u8,
-    pub RESERVED14: [u8; 1usize],
-    pub MRCCR: u8,
-    pub RESERVED15: [u8; 3usize],
-    pub OSCSTBSR: u8,
-    pub MCO1CFGR: u8,
-    pub MCO2CFGR: u8,
-    pub TPIUCKCFGR: u8,
-    pub XTALSTDCR: u8,
-    pub XTALSTDSR: u8,
-    pub RESERVED16: [u8; 31usize],
-    pub MRCTRM: u8,
-    pub HRCTRM: u8,
-    pub RESERVED17: [u8; 63usize],
-    pub XTALSTBCR: u8,
-    pub RESERVED18: [u8; 93usize],
-    pub PLLHCFGR: u32,
-}
-#[doc = " @brief CRC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_CRC_TypeDef {
-    pub CR: u32,
-    pub RESLT: u32,
-    pub RESERVED0: [u8; 120usize],
-    pub DAT0: u32,
-    pub DAT1: u32,
-    pub DAT2: u32,
-    pub DAT3: u32,
-    pub DAT4: u32,
-    pub DAT5: u32,
-    pub DAT6: u32,
-    pub DAT7: u32,
-    pub DAT8: u32,
-    pub DAT9: u32,
-    pub DAT10: u32,
-    pub DAT11: u32,
-    pub DAT12: u32,
-    pub DAT13: u32,
-    pub DAT14: u32,
-    pub DAT15: u32,
-    pub DAT16: u32,
-    pub DAT17: u32,
-    pub DAT18: u32,
-    pub DAT19: u32,
-    pub DAT20: u32,
-    pub DAT21: u32,
-    pub DAT22: u32,
-    pub DAT23: u32,
-    pub DAT24: u32,
-    pub DAT25: u32,
-    pub DAT26: u32,
-    pub DAT27: u32,
-    pub DAT28: u32,
-    pub DAT29: u32,
-    pub DAT30: u32,
-    pub DAT31: u32,
-}
-#[doc = " @brief CTC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_CTC_TypeDef {
-    pub CR1: u32,
-    pub CR2: u32,
-    pub STR: u32,
-    pub CNT: u16,
-}
-#[doc = " @brief DAC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_DAC_TypeDef {
-    pub DADR1: u16,
-    pub DADR2: u16,
-    pub DACR: u16,
-    pub DAADPCR: u16,
-    pub RESERVED0: [u8; 20usize],
-    pub DAOCR: u16,
-}
-#[doc = " @brief DBGC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_DBGC_TypeDef {
-    pub RESERVED0: [u8; 12usize],
-    pub CHIPID: u32,
-    pub RESERVED1: [u8; 12usize],
-    pub MCUDBGCSTAT: u32,
-    pub MCUSTPCTL: u32,
-    pub MCUTRACECTL: u32,
-    pub MCUSTPCTL2: u32,
-}
-#[doc = " @brief DCU"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_DCU_TypeDef {
-    pub CTL: u32,
-    pub FLAG: u32,
-    pub DATA0: u32,
-    pub DATA1: u32,
-    pub DATA2: u32,
-    pub FLAGCLR: u32,
-    pub INTEVTSEL: u32,
-}
-#[doc = " @brief DMA"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct CM_DMA_TypeDef {
-    pub EN: u32,
-    pub INTSTAT0: u32,
-    pub INTSTAT1: u32,
-    pub INTMASK0: u32,
-    pub INTMASK1: u32,
-    pub INTCLR0: u32,
-    pub INTCLR1: u32,
-    pub CHEN: u32,
-    pub REQSTAT: u32,
-    pub CHSTAT: u32,
-    pub RESERVED0: [u8; 4usize],
-    pub RCFGCTL: u32,
-    pub SWREQ: u32,
-    pub CHENCLR: u32,
-    pub RESERVED1: [u8; 8usize],
-    pub SAR0: u32,
-    pub DAR0: u32,
-    pub DTCTL0: u32,
-    pub __bindgen_anon_1: CM_DMA_TypeDef__bindgen_ty_1,
-    pub __bindgen_anon_2: CM_DMA_TypeDef__bindgen_ty_2,
-    pub __bindgen_anon_3: CM_DMA_TypeDef__bindgen_ty_3,
-    pub LLP0: u32,
-    pub CHCTL0: u32,
-    pub MONSAR0: u32,
-    pub MONDAR0: u32,
-    pub MONDTCTL0: u32,
-    pub MONRPT0: u32,
-    pub MONSNSEQCTL0: u32,
-    pub MONDNSEQCTL0: u32,
-    pub RESERVED2: [u8; 8usize],
-    pub SAR1: u32,
-    pub DAR1: u32,
-    pub DTCTL1: u32,
-    pub __bindgen_anon_4: CM_DMA_TypeDef__bindgen_ty_4,
-    pub __bindgen_anon_5: CM_DMA_TypeDef__bindgen_ty_5,
-    pub __bindgen_anon_6: CM_DMA_TypeDef__bindgen_ty_6,
-    pub LLP1: u32,
-    pub CHCTL1: u32,
-    pub MONSAR1: u32,
-    pub MONDAR1: u32,
-    pub MONDTCTL1: u32,
-    pub MONRPT1: u32,
-    pub MONSNSEQCTL1: u32,
-    pub MONDNSEQCTL1: u32,
-    pub RESERVED3: [u8; 8usize],
-    pub SAR2: u32,
-    pub DAR2: u32,
-    pub DTCTL2: u32,
-    pub __bindgen_anon_7: CM_DMA_TypeDef__bindgen_ty_7,
-    pub __bindgen_anon_8: CM_DMA_TypeDef__bindgen_ty_8,
-    pub __bindgen_anon_9: CM_DMA_TypeDef__bindgen_ty_9,
-    pub LLP2: u32,
-    pub CHCTL2: u32,
-    pub MONSAR2: u32,
-    pub MONDAR2: u32,
-    pub MONDTCTL2: u32,
-    pub MONRPT2: u32,
-    pub MONSNSEQCTL2: u32,
-    pub MONDNSEQCTL2: u32,
-    pub RESERVED4: [u8; 8usize],
-    pub SAR3: u32,
-    pub DAR3: u32,
-    pub DTCTL3: u32,
-    pub __bindgen_anon_10: CM_DMA_TypeDef__bindgen_ty_10,
-    pub __bindgen_anon_11: CM_DMA_TypeDef__bindgen_ty_11,
-    pub __bindgen_anon_12: CM_DMA_TypeDef__bindgen_ty_12,
-    pub LLP3: u32,
-    pub CHCTL3: u32,
-    pub MONSAR3: u32,
-    pub MONDAR3: u32,
-    pub MONDTCTL3: u32,
-    pub MONRPT3: u32,
-    pub MONSNSEQCTL3: u32,
-    pub MONDNSEQCTL3: u32,
-    pub RESERVED5: [u8; 8usize],
-    pub SAR4: u32,
-    pub DAR4: u32,
-    pub DTCTL4: u32,
-    pub __bindgen_anon_13: CM_DMA_TypeDef__bindgen_ty_13,
-    pub __bindgen_anon_14: CM_DMA_TypeDef__bindgen_ty_14,
-    pub __bindgen_anon_15: CM_DMA_TypeDef__bindgen_ty_15,
-    pub LLP4: u32,
-    pub CHCTL4: u32,
-    pub MONSAR4: u32,
-    pub MONDAR4: u32,
-    pub MONDTCTL4: u32,
-    pub MONRPT4: u32,
-    pub MONSNSEQCTL4: u32,
-    pub MONDNSEQCTL4: u32,
-    pub RESERVED6: [u8; 8usize],
-    pub SAR5: u32,
-    pub DAR5: u32,
-    pub DTCTL5: u32,
-    pub __bindgen_anon_16: CM_DMA_TypeDef__bindgen_ty_16,
-    pub __bindgen_anon_17: CM_DMA_TypeDef__bindgen_ty_17,
-    pub __bindgen_anon_18: CM_DMA_TypeDef__bindgen_ty_18,
-    pub LLP5: u32,
-    pub CHCTL5: u32,
-    pub MONSAR5: u32,
-    pub MONDAR5: u32,
-    pub MONDTCTL5: u32,
-    pub MONRPT5: u32,
-    pub MONSNSEQCTL5: u32,
-    pub MONDNSEQCTL5: u32,
-}
-#[doc = " @brief EFM"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_EFM_TypeDef {
-    pub FAPRT: u32,
-    pub KEY1: u32,
-    pub KEY2: u32,
-    pub RESERVED0: [u8; 8usize],
-    pub FSTP: u32,
-    pub FRMC: u32,
-    pub FWMC: u32,
-    pub FSR: u32,
-    pub FSCLR: u32,
-    pub FITE: u32,
-    pub FSWP: u32,
-    pub RESERVED1: [u8; 16usize],
-    pub CHIPID: u32,
-    pub RESERVED2: [u8; 12usize],
-    pub UQID0: u32,
-    pub UQID1: u32,
-    pub UQID2: u32,
-    pub RESERVED3: [u8; 164usize],
-    pub MMF_REMPRT: u32,
-    pub MMF_REMCR0: u32,
-    pub MMF_REMCR1: u32,
-    pub RESERVED4: [u8; 116usize],
-    pub WLOCK: u32,
-    pub RESERVED5: [u8; 12usize],
-    pub F0NWPRT: u32,
-}
-#[doc = " @brief EMB"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_EMB_TypeDef {
-    pub CTL1: u32,
-    pub CTL2: u32,
-    pub SOE: u32,
-    pub STAT: u32,
-    pub STATCLR: u32,
-    pub INTEN: u32,
-    pub RLSSEL: u32,
-}
-#[doc = " @brief FCM"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_FCM_TypeDef {
-    pub LVR: u32,
-    pub UVR: u32,
-    pub CNTR: u32,
-    pub STR: u32,
-    pub MCCR: u32,
-    pub RCCR: u32,
-    pub RIER: u32,
-    pub SR: u32,
-    pub CLR: u32,
-}
-#[doc = " @brief GPIO"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_GPIO_TypeDef {
-    pub PIDRA: u16,
-    pub RESERVED0: [u8; 2usize],
-    pub PODRA: u16,
-    pub POERA: u16,
-    pub POSRA: u16,
-    pub PORRA: u16,
-    pub POTRA: u16,
-    pub RESERVED1: [u8; 2usize],
-    pub PIDRB: u16,
-    pub RESERVED2: [u8; 2usize],
-    pub PODRB: u16,
-    pub POERB: u16,
-    pub POSRB: u16,
-    pub PORRB: u16,
-    pub POTRB: u16,
-    pub RESERVED3: [u8; 2usize],
-    pub PIDRC: u16,
-    pub RESERVED4: [u8; 2usize],
-    pub PODRC: u16,
-    pub POERC: u16,
-    pub POSRC: u16,
-    pub PORRC: u16,
-    pub POTRC: u16,
-    pub RESERVED5: [u8; 2usize],
-    pub PIDRD: u16,
-    pub RESERVED6: [u8; 2usize],
-    pub PODRD: u16,
-    pub POERD: u16,
-    pub POSRD: u16,
-    pub PORRD: u16,
-    pub POTRD: u16,
-    pub RESERVED7: [u8; 2usize],
-    pub PIDRE: u16,
-    pub RESERVED8: [u8; 2usize],
-    pub PODRE: u16,
-    pub POERE: u16,
-    pub POSRE: u16,
-    pub PORRE: u16,
-    pub POTRE: u16,
-    pub RESERVED9: [u8; 2usize],
-    pub PIDRH: u16,
-    pub RESERVED10: [u8; 2usize],
-    pub PODRH: u16,
-    pub POERH: u16,
-    pub POSRH: u16,
-    pub PORRH: u16,
-    pub POTRH: u16,
-    pub RESERVED11: [u8; 918usize],
-    pub PSPCR: u16,
-    pub RESERVED12: [u8; 2usize],
-    pub PCCR: u16,
-    pub RESERVED13: [u8; 2usize],
-    pub PWPR: u16,
-    pub RESERVED14: [u8; 2usize],
-    pub PCRA0: u16,
-    pub PFSRA0: u16,
-    pub PCRA1: u16,
-    pub PFSRA1: u16,
-    pub PCRA2: u16,
-    pub PFSRA2: u16,
-    pub PCRA3: u16,
-    pub PFSRA3: u16,
-    pub PCRA4: u16,
-    pub PFSRA4: u16,
-    pub PCRA5: u16,
-    pub PFSRA5: u16,
-    pub PCRA6: u16,
-    pub PFSRA6: u16,
-    pub PCRA7: u16,
-    pub PFSRA7: u16,
-    pub PCRA8: u16,
-    pub PFSRA8: u16,
-    pub PCRA9: u16,
-    pub PFSRA9: u16,
-    pub PCRA10: u16,
-    pub PFSRA10: u16,
-    pub PCRA11: u16,
-    pub PFSRA11: u16,
-    pub PCRA12: u16,
-    pub PFSRA12: u16,
-    pub PCRA13: u16,
-    pub PFSRA13: u16,
-    pub PCRA14: u16,
-    pub PFSRA14: u16,
-    pub PCRA15: u16,
-    pub PFSRA15: u16,
-    pub PCRB0: u16,
-    pub PFSRB0: u16,
-    pub PCRB1: u16,
-    pub PFSRB1: u16,
-    pub PCRB2: u16,
-    pub PFSRB2: u16,
-    pub PCRB3: u16,
-    pub PFSRB3: u16,
-    pub PCRB4: u16,
-    pub PFSRB4: u16,
-    pub PCRB5: u16,
-    pub PFSRB5: u16,
-    pub PCRB6: u16,
-    pub PFSRB6: u16,
-    pub PCRB7: u16,
-    pub PFSRB7: u16,
-    pub PCRB8: u16,
-    pub PFSRB8: u16,
-    pub PCRB9: u16,
-    pub PFSRB9: u16,
-    pub PCRB10: u16,
-    pub PFSRB10: u16,
-    pub PCRB11: u16,
-    pub PFSRB11: u16,
-    pub PCRB12: u16,
-    pub PFSRB12: u16,
-    pub PCRB13: u16,
-    pub PFSRB13: u16,
-    pub PCRB14: u16,
-    pub PFSRB14: u16,
-    pub PCRB15: u16,
-    pub PFSRB15: u16,
-    pub PCRC0: u16,
-    pub PFSRC0: u16,
-    pub PCRC1: u16,
-    pub PFSRC1: u16,
-    pub PCRC2: u16,
-    pub PFSRC2: u16,
-    pub PCRC3: u16,
-    pub PFSRC3: u16,
-    pub PCRC4: u16,
-    pub PFSRC4: u16,
-    pub PCRC5: u16,
-    pub PFSRC5: u16,
-    pub PCRC6: u16,
-    pub PFSRC6: u16,
-    pub PCRC7: u16,
-    pub PFSRC7: u16,
-    pub PCRC8: u16,
-    pub PFSRC8: u16,
-    pub PCRC9: u16,
-    pub PFSRC9: u16,
-    pub PCRC10: u16,
-    pub PFSRC10: u16,
-    pub PCRC11: u16,
-    pub PFSRC11: u16,
-    pub PCRC12: u16,
-    pub PFSRC12: u16,
-    pub PCRC13: u16,
-    pub PFSRC13: u16,
-    pub PCRC14: u16,
-    pub PFSRC14: u16,
-    pub PCRC15: u16,
-    pub PFSRC15: u16,
-    pub PCRD0: u16,
-    pub PFSRD0: u16,
-    pub PCRD1: u16,
-    pub PFSRD1: u16,
-    pub PCRD2: u16,
-    pub PFSRD2: u16,
-    pub RESERVED15: [u8; 20usize],
-    pub PCRD8: u16,
-    pub PFSRD8: u16,
-    pub PCRD9: u16,
-    pub PFSRD9: u16,
-    pub PCRD10: u16,
-    pub PFSRD10: u16,
-    pub PCRD11: u16,
-    pub PFSRD11: u16,
-    pub RESERVED16: [u8; 16usize],
-    pub PCRE0: u16,
-    pub PFSRE0: u16,
-    pub PCRE1: u16,
-    pub PFSRE1: u16,
-    pub PCRE2: u16,
-    pub PFSRE2: u16,
-    pub PCRE3: u16,
-    pub PFSRE3: u16,
-    pub PCRE4: u16,
-    pub PFSRE4: u16,
-    pub RESERVED17: [u8; 28usize],
-    pub PCRE12: u16,
-    pub PFSRE12: u16,
-    pub PCRE13: u16,
-    pub PFSRE13: u16,
-    pub PCRE14: u16,
-    pub PFSRE14: u16,
-    pub PCRE15: u16,
-    pub PFSRE15: u16,
-    pub PCRH0: u16,
-    pub PFSRH0: u16,
-    pub PCRH1: u16,
-    pub PFSRH1: u16,
-    pub PCRH2: u16,
-    pub PFSRH2: u16,
-}
-#[doc = " @brief HASH"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_HASH_TypeDef {
-    pub CR: u32,
-    pub RESERVED0: [u8; 12usize],
-    pub HR7: u32,
-    pub HR6: u32,
-    pub HR5: u32,
-    pub HR4: u32,
-    pub HR3: u32,
-    pub HR2: u32,
-    pub HR1: u32,
-    pub HR0: u32,
-    pub RESERVED1: [u8; 16usize],
-    pub DR15: u32,
-    pub DR14: u32,
-    pub DR13: u32,
-    pub DR12: u32,
-    pub DR11: u32,
-    pub DR10: u32,
-    pub DR9: u32,
-    pub DR8: u32,
-    pub DR7: u32,
-    pub DR6: u32,
-    pub DR5: u32,
-    pub DR4: u32,
-    pub DR3: u32,
-    pub DR2: u32,
-    pub DR1: u32,
-    pub DR0: u32,
-}
-#[doc = " @brief I2C"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_I2C_TypeDef {
-    pub CR1: u32,
-    pub CR2: u32,
-    pub CR3: u32,
-    pub CR4: u32,
-    pub SLR0: u32,
-    pub SLR1: u32,
-    pub SLTR: u32,
-    pub SR: u32,
-    pub CLR: u32,
-    pub DTR: u8,
-    pub RESERVED0: [u8; 3usize],
-    pub DRR: u8,
-    pub RESERVED1: [u8; 3usize],
-    pub CCR: u32,
-    pub FLTR: u32,
-    pub FSTR: u32,
-    pub SLVADDR: u32,
-}
-#[doc = " @brief ICG"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_ICG_TypeDef {
-    pub ICG0: u32,
-    pub ICG1: u32,
-    pub RESERVED0: [u8; 4usize],
-    pub ICG3: u32,
-}
-#[doc = " @brief INTC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_INTC_TypeDef {
-    pub RESERVED0: [u8; 4usize],
-    pub NMIER: u32,
-    pub NMIFR: u32,
-    pub NMIFCR: u32,
-    pub EIRQCR0: u32,
-    pub EIRQCR1: u32,
-    pub EIRQCR2: u32,
-    pub EIRQCR3: u32,
-    pub EIRQCR4: u32,
-    pub EIRQCR5: u32,
-    pub EIRQCR6: u32,
-    pub EIRQCR7: u32,
-    pub EIRQCR8: u32,
-    pub EIRQCR9: u32,
-    pub EIRQCR10: u32,
-    pub EIRQCR11: u32,
-    pub EIRQCR12: u32,
-    pub EIRQCR13: u32,
-    pub EIRQCR14: u32,
-    pub EIRQCR15: u32,
-    pub WKEN: u32,
-    pub EIFR: u32,
-    pub EIFCR: u32,
-    pub INTSEL0: u32,
-    pub INTSEL1: u32,
-    pub INTSEL2: u32,
-    pub INTSEL3: u32,
-    pub INTSEL4: u32,
-    pub INTSEL5: u32,
-    pub INTSEL6: u32,
-    pub INTSEL7: u32,
-    pub INTSEL8: u32,
-    pub INTSEL9: u32,
-    pub INTSEL10: u32,
-    pub INTSEL11: u32,
-    pub INTSEL12: u32,
-    pub INTSEL13: u32,
-    pub INTSEL14: u32,
-    pub INTSEL15: u32,
-    pub INTEN0: u32,
-    pub INTEN1: u32,
-    pub INTEN2: u32,
-    pub INTEN3: u32,
-    pub INTEN4: u32,
-    pub INTEN5: u32,
-    pub INTEN6: u32,
-    pub INTEN7: u32,
-    pub INTEN8: u32,
-    pub INTEN9: u32,
-    pub INTEN10: u32,
-    pub INTEN11: u32,
-    pub INTEN12: u32,
-    pub INTEN13: u32,
-    pub INTEN14: u32,
-    pub INTEN15: u32,
-    pub SWIER: u32,
-    pub EVTER: u32,
-    pub IER: u32,
-}
-#[doc = " @brief KEYSCAN"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_KEYSCAN_TypeDef {
-    pub SCR: u32,
-    pub SER: u32,
-    pub SSR: u32,
-}
-#[doc = " @brief MCAN"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_MCAN_TypeDef {
-    pub RESERVED0: [u8; 4usize],
-    pub ENDN: u32,
-    pub RESERVED1: [u8; 4usize],
-    pub DBTP: u32,
-    pub TEST: u32,
-    pub RWD: u32,
-    pub CCCR: u32,
-    pub NBTP: u32,
-    pub TSCC: u32,
-    pub TSCV: u32,
-    pub TOCC: u32,
-    pub TOCV: u32,
-    pub RESERVED2: [u8; 16usize],
-    pub ECR: u32,
-    pub PSR: u32,
-    pub TDCR: u32,
-    pub RESERVED3: [u8; 4usize],
-    pub IR: u32,
-    pub IE: u32,
-    pub ILS: u32,
-    pub ILE: u32,
-    pub RESERVED4: [u8; 32usize],
-    pub GFC: u32,
-    pub SIDFC: u32,
-    pub XIDFC: u32,
-    pub RESERVED5: [u8; 4usize],
-    pub XIDAM: u32,
-    pub HPMS: u32,
-    pub NDAT1: u32,
-    pub NDAT2: u32,
-    pub RXF0C: u32,
-    pub RXF0S: u32,
-    pub RXF0A: u32,
-    pub RXBC: u32,
-    pub RXF1C: u32,
-    pub RXF1S: u32,
-    pub RXF1A: u32,
-    pub RXESC: u32,
-    pub TXBC: u32,
-    pub TXFQS: u32,
-    pub TXESC: u32,
-    pub TXBRP: u32,
-    pub TXBAR: u32,
-    pub TXBCR: u32,
-    pub TXBTO: u32,
-    pub TXBCF: u32,
-    pub TXBTIE: u32,
-    pub TXBCIE: u32,
-    pub RESERVED6: [u8; 8usize],
-    pub TXEFC: u32,
-    pub TXEFS: u32,
-    pub TXEFA: u32,
-}
-#[doc = " @brief MPU"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_MPU_TypeDef {
-    pub RGD0: u32,
-    pub RGD1: u32,
-    pub RGD2: u32,
-    pub RGD3: u32,
-    pub RGD4: u32,
-    pub RGD5: u32,
-    pub RGD6: u32,
-    pub RGD7: u32,
-    pub RGD8: u32,
-    pub RGD9: u32,
-    pub RGD10: u32,
-    pub RGD11: u32,
-    pub RGD12: u32,
-    pub RGD13: u32,
-    pub RGD14: u32,
-    pub RGD15: u32,
-    pub SR: u32,
-    pub ECLR: u32,
-    pub WP: u32,
-    pub IPPR: u32,
-    pub MSPPBA: u32,
-    pub MSPPCTL: u32,
-    pub PSPPBA: u32,
-    pub PSPPCTL: u32,
-    pub S1RGE: u32,
-    pub S1RGWP: u32,
-    pub S1RGRP: u32,
-    pub S1CR: u32,
-    pub S2RGE: u32,
-    pub S2RGWP: u32,
-    pub S2RGRP: u32,
-    pub S2CR: u32,
-}
-#[doc = " @brief PERIC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_PERIC_TypeDef {
-    pub RESERVED0: [u8; 12usize],
-    pub SMC_ENAR: u32,
-    pub RESERVED1: [u8; 4usize],
-    pub TMR_SYNENR: u32,
-    pub RESERVED2: [u8; 4usize],
-    pub USART1_NFC: u32,
-}
-#[doc = " @brief PWC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_PWC_TypeDef {
-    pub FCG0: u32,
-    pub FCG1: u32,
-    pub FCG2: u32,
-    pub FCG3: u32,
-    pub FCG0PC: u32,
-    pub RESERVED0: [u8; 17388usize],
-    pub WKTCR: u16,
-    pub RESERVED1: [u8; 2046usize],
-    pub PWRC0: u8,
-    pub RESERVED2: [u8; 3usize],
-    pub PWRC1: u8,
-    pub RESERVED3: [u8; 3usize],
-    pub PWRC2: u8,
-    pub RESERVED4: [u8; 3usize],
-    pub PWRC3: u8,
-    pub RESERVED5: [u8; 3usize],
-    pub PWRC4: u8,
-    pub RESERVED6: [u8; 3usize],
-    pub PVDCR0: u8,
-    pub RESERVED7: [u8; 3usize],
-    pub PVDCR1: u8,
-    pub RESERVED8: [u8; 3usize],
-    pub PVDFCR: u8,
-    pub RESERVED9: [u8; 3usize],
-    pub PVDLCR: u8,
-    pub RESERVED10: [u8; 7usize],
-    pub PDWKE0: u8,
-    pub RESERVED11: [u8; 3usize],
-    pub PDWKE1: u8,
-    pub RESERVED12: [u8; 3usize],
-    pub PDWKE2: u8,
-    pub RESERVED13: [u8; 3usize],
-    pub PDWKES: u8,
-    pub RESERVED14: [u8; 3usize],
-    pub PDWKF0: u8,
-    pub RESERVED15: [u8; 3usize],
-    pub PDWKF1: u8,
-    pub RESERVED16: [u8; 3usize],
-    pub PWRC5: u8,
-    pub RESERVED17: [u8; 3usize],
-    pub PWRC6: u8,
-    pub RESERVED18: [u8; 123usize],
-    pub PVDICR: u8,
-    pub RESERVED19: [u8; 3usize],
-    pub PVDDSR: u8,
-    pub RESERVED20: [u8; 3usize],
-    pub RAMPC0: u32,
-    pub RAMOPM: u32,
-    pub PRAMLPC: u32,
-    pub RESERVED21: [u8; 29496usize],
-    pub STPMCR: u16,
-    pub RESERVED22: [u8; 1008usize],
-    pub FPRC: u16,
-}
-#[doc = " @brief QSPI"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_QSPI_TypeDef {
-    pub CR: u32,
-    pub CSCR: u32,
-    pub FCR: u32,
-    pub SR: u32,
-    pub DCOM: u32,
-    pub CCMD: u32,
-    pub XCMD: u32,
-    pub RESERVED0: [u8; 8usize],
-    pub CLR: u32,
-    pub RESERVED1: [u8; 2012usize],
-    pub EXAR: u32,
-}
-#[doc = " @brief RMU"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_RMU_TypeDef {
-    pub FRST0: u32,
-    pub FRST1: u32,
-    pub FRST2: u32,
-    pub FRST3: u32,
-    pub PRSTCR0: u8,
-    pub RESERVED0: [u8; 3usize],
-    pub RSTF0: u32,
-}
-#[doc = " @brief RTC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_RTC_TypeDef {
-    pub CR0: u8,
-    pub RESERVED0: [u8; 3usize],
-    pub CR1: u8,
-    pub RESERVED1: [u8; 3usize],
-    pub CR2: u8,
-    pub RESERVED2: [u8; 3usize],
-    pub CR3: u8,
-    pub RESERVED3: [u8; 3usize],
-    pub SEC: u8,
-    pub RESERVED4: [u8; 3usize],
-    pub MIN: u8,
-    pub RESERVED5: [u8; 3usize],
-    pub HOUR: u8,
-    pub RESERVED6: [u8; 3usize],
-    pub WEEK: u8,
-    pub RESERVED7: [u8; 3usize],
-    pub DAY: u8,
-    pub RESERVED8: [u8; 3usize],
-    pub MON: u8,
-    pub RESERVED9: [u8; 3usize],
-    pub YEAR: u8,
-    pub RESERVED10: [u8; 3usize],
-    pub ALMMIN: u8,
-    pub RESERVED11: [u8; 3usize],
-    pub ALMHOUR: u8,
-    pub RESERVED12: [u8; 3usize],
-    pub ALMWEEK: u8,
-    pub RESERVED13: [u8; 3usize],
-    pub ERRCRH: u8,
-    pub RESERVED14: [u8; 3usize],
-    pub ERRCRL: u8,
-}
-#[doc = " @brief SMC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_SMC_TypeDef {
-    pub STSR: u32,
-    pub RESERVED0: [u8; 4usize],
-    pub STCR0: u32,
-    pub STCR1: u32,
-    pub CMDR: u32,
-    pub TMCR: u32,
-    pub CPCR: u32,
-    pub RESERVED1: [u8; 4usize],
-    pub RFTR: u32,
-    pub RESERVED2: [u8; 220usize],
-    pub TMSR0: u32,
-    pub CPSR0: u32,
-    pub RESERVED3: [u8; 248usize],
-    pub BACR: u32,
-    pub RESERVED4: [u8; 4usize],
-    pub CSCR0: u32,
-    pub CSCR1: u32,
-}
-#[doc = " @brief SPI"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_SPI_TypeDef {
-    pub DR: u32,
-    pub CR: u32,
-    pub RESERVED0: [u8; 4usize],
-    pub CFG1: u32,
-    pub RESERVED1: [u8; 4usize],
-    pub SR: u32,
-    pub CFG2: u32,
-}
-#[doc = " @brief SRAMC"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_SRAMC_TypeDef {
-    pub RESERVED0: [u8; 8usize],
-    pub CKCR: u32,
-    pub CKPR: u32,
-    pub CKSR: u32,
-    pub SRAM0_EIEN: u32,
-    pub SRAM0_EIBIT0: u32,
-    pub SRAM0_EIBIT1: u32,
-    pub SRAM0_ECCERRADDR: u32,
-    pub SRAMB_EIEN: u32,
-    pub SRAMB_EIBIT0: u32,
-    pub SRAMB_EIBIT1: u32,
-    pub SRAMB_ECCERRADDR: u32,
-}
-#[doc = " @brief SWDT"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_SWDT_TypeDef {
-    pub CR: u32,
-    pub SR: u32,
-    pub RR: u32,
-}
-#[doc = " @brief TMR0"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_TMR0_TypeDef {
-    pub CNTAR: u32,
-    pub CNTBR: u32,
-    pub CMPAR: u32,
-    pub CMPBR: u32,
-    pub BCONR: u32,
-    pub STFLR: u32,
-}
-#[doc = " @brief TMR4"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_TMR4_TypeDef {
-    pub OCCRUH: u16,
-    pub RESERVED0: [u8; 2usize],
-    pub OCCRUL: u16,
-    pub RESERVED1: [u8; 2usize],
-    pub OCCRVH: u16,
-    pub RESERVED2: [u8; 2usize],
-    pub OCCRVL: u16,
-    pub RESERVED3: [u8; 2usize],
-    pub OCCRWH: u16,
-    pub RESERVED4: [u8; 2usize],
-    pub OCCRWL: u16,
-    pub RESERVED5: [u8; 2usize],
-    pub OCCRXH: u16,
-    pub RESERVED6: [u8; 2usize],
-    pub OCCRXL: u16,
-    pub RESERVED7: [u8; 2usize],
-    pub OCSRU: u16,
-    pub OCERU: u16,
-    pub OCSRV: u16,
-    pub OCERV: u16,
-    pub OCSRW: u16,
-    pub OCERW: u16,
-    pub OCSRX: u16,
-    pub OCERX: u16,
-    pub OCMRUH: u16,
-    pub RESERVED8: [u8; 2usize],
-    pub OCMRUL: u32,
-    pub OCMRVH: u16,
-    pub RESERVED9: [u8; 2usize],
-    pub OCMRVL: u32,
-    pub OCMRWH: u16,
-    pub RESERVED10: [u8; 2usize],
-    pub OCMRWL: u32,
-    pub OCMRXH: u16,
-    pub RESERVED11: [u8; 2usize],
-    pub OCMRXL: u32,
-    pub CPSR: u16,
-    pub RESERVED12: [u8; 2usize],
-    pub CNTR: u16,
-    pub RESERVED13: [u8; 2usize],
-    pub CCSR: u16,
-    pub CVPR: u16,
-    pub PSCR: u32,
-    pub RESERVED14: [u8; 34usize],
-    pub PFSRU: u16,
-    pub PDARU: u16,
-    pub PDBRU: u16,
-    pub RESERVED15: [u8; 2usize],
-    pub PFSRV: u16,
-    pub PDARV: u16,
-    pub PDBRV: u16,
-    pub RESERVED16: [u8; 2usize],
-    pub PFSRW: u16,
-    pub PDARW: u16,
-    pub PDBRW: u16,
-    pub RESERVED17: [u8; 2usize],
-    pub PFSRX: u16,
-    pub PDARX: u16,
-    pub PDBRX: u16,
-    pub POCRU: u16,
-    pub RESERVED18: [u8; 2usize],
-    pub POCRV: u16,
-    pub RESERVED19: [u8; 2usize],
-    pub POCRW: u16,
-    pub RESERVED20: [u8; 2usize],
-    pub POCRX: u16,
-    pub RESERVED21: [u8; 2usize],
-    pub SCCRUH: u16,
-    pub RESERVED22: [u8; 2usize],
-    pub SCCRUL: u16,
-    pub RESERVED23: [u8; 2usize],
-    pub SCCRVH: u16,
-    pub RESERVED24: [u8; 2usize],
-    pub SCCRVL: u16,
-    pub RESERVED25: [u8; 2usize],
-    pub SCCRWH: u16,
-    pub RESERVED26: [u8; 2usize],
-    pub SCCRWL: u16,
-    pub RESERVED27: [u8; 2usize],
-    pub SCCRXH: u16,
-    pub RESERVED28: [u8; 2usize],
-    pub SCCRXL: u16,
-    pub RESERVED29: [u8; 2usize],
-    pub SCSRUH: u16,
-    pub SCMRUH: u16,
-    pub SCSRUL: u16,
-    pub SCMRUL: u16,
-    pub SCSRVH: u16,
-    pub SCMRVH: u16,
-    pub SCSRVL: u16,
-    pub SCMRVL: u16,
-    pub SCSRWH: u16,
-    pub SCMRWH: u16,
-    pub SCSRWL: u16,
-    pub SCMRWL: u16,
-    pub SCSRXH: u16,
-    pub SCMRXH: u16,
-    pub SCSRXL: u16,
-    pub SCMRXL: u16,
-    pub SCER: u16,
-    pub RESERVED30: [u8; 2usize],
-    pub RCSR: u32,
-    pub SCIR: u16,
-    pub RESERVED31: [u8; 2usize],
-    pub SCFR: u16,
-}
-#[doc = " @brief TMR6"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_TMR6_TypeDef {
-    pub CNTER: u32,
-    pub UPDAR: u32,
-    pub RESERVED0: [u8; 56usize],
-    pub PERAR: u32,
-    pub PERBR: u32,
-    pub PERCR: u32,
-    pub RESERVED1: [u8; 52usize],
-    pub GCMAR: u32,
-    pub GCMBR: u32,
-    pub GCMCR: u32,
-    pub GCMDR: u32,
-    pub GCMER: u32,
-    pub GCMFR: u32,
-    pub RESERVED2: [u8; 40usize],
-    pub SCMAR: u32,
-    pub SCMBR: u32,
-    pub SCMCR: u32,
-    pub SCMDR: u32,
-    pub SCMER: u32,
-    pub SCMFR: u32,
-    pub RESERVED3: [u8; 40usize],
-    pub DTUAR: u32,
-    pub DTDAR: u32,
-    pub DTUBR: u32,
-    pub DTDBR: u32,
-    pub RESERVED4: [u8; 48usize],
-    pub GCONR: u32,
-    pub ICONR: u32,
-    pub BCONR: u32,
-    pub DCONR: u32,
-    pub RESERVED5: [u8; 4usize],
-    pub PCNAR: u32,
-    pub PCNBR: u32,
-    pub FCNGR: u32,
-    pub VPERR: u32,
-    pub STFLR: u32,
-    pub RESERVED6: [u8; 24usize],
-    pub HSTAR: u32,
-    pub HSTPR: u32,
-    pub HCLRR: u32,
-    pub HUPDR: u32,
-    pub HCPAR: u32,
-    pub HCPBR: u32,
-    pub HCUPR: u32,
-    pub HCDOR: u32,
-}
-#[doc = " @brief TMR6_COMMON"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_TMR6_COMMON_TypeDef {
-    pub RESERVED0: [u8; 236usize],
-    pub FCNTR: u32,
-    pub SSTAR: u32,
-    pub SSTPR: u32,
-    pub SCLRR: u32,
-    pub SUPDR: u32,
-}
-#[doc = " @brief TMRA"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_TMRA_TypeDef {
-    pub CNTER: u32,
-    pub PERAR: u32,
-    pub RESERVED0: [u8; 56usize],
-    pub CMPAR1: u32,
-    pub CMPAR2: u32,
-    pub CMPAR3: u32,
-    pub CMPAR4: u32,
-    pub CMPAR5: u32,
-    pub CMPAR6: u32,
-    pub CMPAR7: u32,
-    pub CMPAR8: u32,
-    pub RESERVED1: [u8; 32usize],
-    pub BCSTRL: u8,
-    pub BCSTRH: u8,
-    pub RESERVED2: [u8; 2usize],
-    pub HCONR: u16,
-    pub RESERVED3: [u8; 2usize],
-    pub HCUPR: u16,
-    pub RESERVED4: [u8; 2usize],
-    pub HCDOR: u16,
-    pub RESERVED5: [u8; 2usize],
-    pub ICONR: u16,
-    pub RESERVED6: [u8; 2usize],
-    pub ECONR: u16,
-    pub RESERVED7: [u8; 2usize],
-    pub FCONR: u16,
-    pub RESERVED8: [u8; 2usize],
-    pub STFLR: u16,
-    pub RESERVED9: [u8; 34usize],
-    pub BCONR1: u16,
-    pub RESERVED10: [u8; 6usize],
-    pub BCONR2: u16,
-    pub RESERVED11: [u8; 6usize],
-    pub BCONR3: u16,
-    pub RESERVED12: [u8; 6usize],
-    pub BCONR4: u16,
-    pub RESERVED13: [u8; 38usize],
-    pub CCONR1: u16,
-    pub RESERVED14: [u8; 2usize],
-    pub CCONR2: u16,
-    pub RESERVED15: [u8; 2usize],
-    pub CCONR3: u16,
-    pub RESERVED16: [u8; 2usize],
-    pub CCONR4: u16,
-    pub RESERVED17: [u8; 2usize],
-    pub CCONR5: u16,
-    pub RESERVED18: [u8; 2usize],
-    pub CCONR6: u16,
-    pub RESERVED19: [u8; 2usize],
-    pub CCONR7: u16,
-    pub RESERVED20: [u8; 2usize],
-    pub CCONR8: u16,
-    pub RESERVED21: [u8; 34usize],
-    pub PCONR1: u16,
-    pub RESERVED22: [u8; 2usize],
-    pub PCONR2: u16,
-    pub RESERVED23: [u8; 2usize],
-    pub PCONR3: u16,
-    pub RESERVED24: [u8; 2usize],
-    pub PCONR4: u16,
-    pub RESERVED25: [u8; 2usize],
-    pub PCONR5: u16,
-    pub RESERVED26: [u8; 2usize],
-    pub PCONR6: u16,
-    pub RESERVED27: [u8; 2usize],
-    pub PCONR7: u16,
-    pub RESERVED28: [u8; 2usize],
-    pub PCONR8: u16,
-}
-#[doc = " @brief TRNG"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_TRNG_TypeDef {
-    pub CR: u32,
-    pub MR: u32,
-    pub RESERVED0: [u8; 4usize],
-    pub DR0: u32,
-    pub DR1: u32,
-}
-#[doc = " @brief USART"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_USART_TypeDef {
-    pub SR: u32,
-    pub TDR: u16,
-    pub RDR: u16,
-    pub BRR: u32,
-    pub CR1: u32,
-    pub CR2: u32,
-    pub CR3: u32,
-    pub PR: u32,
-    pub LBMC: u32,
-}
-#[doc = " @brief WDT"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct CM_WDT_TypeDef {
-    pub CR: u32,
-    pub SR: u32,
-    pub RR: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_str_bit_t {
-    pub STRT: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_cr0_bit_t {
-    pub RESERVED0: [u32; 6usize],
-    pub CLREN: u32,
-    pub DFMT: u32,
-    pub RESERVED1: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_cr1_bit_t {
-    pub RESERVED0: [u32; 2usize],
-    pub RSCHSEL: u32,
-    pub RESERVED1: [u32; 13usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_cr2_bit_t {
-    pub RESERVED0: [u32; 12usize],
-    pub OVSMOD: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_trgsr_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub TRGENA: u32,
-    pub RESERVED1: [u32; 7usize],
-    pub TRGENB: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_exchselr_bit_t {
-    pub EXCHSEL: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_isr_bit_t {
-    pub EOCAF: u32,
-    pub EOCBF: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub SASTPDF: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_icr_bit_t {
-    pub EOCAIEN: u32,
-    pub EOCBIEN: u32,
-    pub RESERVED0: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_isclrr_bit_t {
-    pub CLREOCAF: u32,
-    pub CLREOCBF: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub CLRSASTPDF: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_synccr_bit_t {
-    pub SYNCEN: u32,
-    pub RESERVED0: [u32; 15usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_awdcr_bit_t {
-    pub AWD0EN: u32,
-    pub AWD0IEN: u32,
-    pub AWD0MD: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub AWD1EN: u32,
-    pub AWD1IEN: u32,
-    pub AWD1MD: u32,
-    pub RESERVED1: [u32; 9usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_awdsr_bit_t {
-    pub AWD0F: u32,
-    pub AWD1F: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub AWDCMF: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_awdsclrr_bit_t {
-    pub CLRAWD0F: u32,
-    pub CLRAWD1F: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub CLRAWDCMF: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_aes_cr_bit_t {
-    pub START: u32,
-    pub MODE: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_aos_intsfttrg_bit_t {
-    pub STRG: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_aos_pevntnfcr_bit_t {
-    pub NFEN1: u32,
-    pub RESERVED0: [u32; 7usize],
-    pub NFEN2: u32,
-    pub RESERVED1: [u32; 7usize],
-    pub NFEN3: u32,
-    pub RESERVED2: [u32; 7usize],
-    pub NFEN4: u32,
-    pub RESERVED3: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_mdr_bit_t {
-    pub CENA: u32,
-    pub CWDE: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub CSST: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub CMON: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_fir_bit_t {
-    pub RESERVED0: [u32; 3usize],
-    pub CIEN: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub CFF: u32,
-    pub CRF: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_ocr_bit_t {
-    pub COEN: u32,
-    pub COPS: u32,
-    pub CPOE: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub BWEN: u32,
-    pub BWMD: u32,
-    pub RESERVED1: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_bwsr1_bit_t {
-    pub CTWS0: u32,
-    pub CTWS1: u32,
-    pub CTWS2: u32,
-    pub CTWS3: u32,
-    pub CTWS4: u32,
-    pub CTWS5: u32,
-    pub CTWS6: u32,
-    pub CTWS7: u32,
-    pub CTWS8: u32,
-    pub CTWS9: u32,
-    pub CTWS10: u32,
-    pub CTWS11: u32,
-    pub CTWS12: u32,
-    pub CTWS13: u32,
-    pub CTWS14: u32,
-    pub CTWS15: u32,
-    pub CTWP0: u32,
-    pub CTWP1: u32,
-    pub CTWP2: u32,
-    pub CTWP3: u32,
-    pub CTWP4: u32,
-    pub CTWP5: u32,
-    pub CTWP6: u32,
-    pub CTWP7: u32,
-    pub CTWP8: u32,
-    pub CTWP9: u32,
-    pub CTWP10: u32,
-    pub CTWP11: u32,
-    pub CTWP12: u32,
-    pub CTWP13: u32,
-    pub CTWP14: u32,
-    pub CTWP15: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_xtaldivcr_bit_t {
-    pub FRADIVEN: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_xtalcfgr_bit_t {
-    pub RESERVED0: [u32; 6usize],
-    pub XTALMS: u32,
-    pub RESERVED1: [u32; 1usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_xtal32cr_bit_t {
-    pub XTAL32STP: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_lrccr_bit_t {
-    pub LRCSTP: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_pllhcr_bit_t {
-    pub PLLHOFF: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_xtalcr_bit_t {
-    pub XTALSTP: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_hrccr_bit_t {
-    pub HRCSTP: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_mrccr_bit_t {
-    pub MRCSTP: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_oscstbsr_bit_t {
-    pub HRCSTBF: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub XTALSTBF: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub PLLHSTBF: u32,
-    pub RESERVED2: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_mcocfgr_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub MCOEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_tpiuckcfgr_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub TPIUCKOE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_xtalstdcr_bit_t {
-    pub XTALSTDIE: u32,
-    pub XTALSTDRE: u32,
-    pub XTALSTDRIS: u32,
-    pub RESERVED0: [u32; 4usize],
-    pub XTALSTDE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_xtalstdsr_bit_t {
-    pub XTALSTDF: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmu_pllhcfgr_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub PLLSRC: u32,
-    pub RESERVED1: [u32; 24usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_crc_cr_bit_t {
-    pub CR: u32,
-    pub FLAG: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_ctc_cr1_bit_t {
-    pub RESERVED0: [u32; 6usize],
-    pub ERRIE: u32,
-    pub CTCEN: u32,
-    pub RESERVED1: [u32; 24usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_ctc_str_bit_t {
-    pub TRIMOK: u32,
-    pub TRMOVF: u32,
-    pub TRMUDF: u32,
-    pub CTCBSY: u32,
-    pub RESERVED0: [u32; 28usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dac_dadr1_bit_t {
-    pub DR0: u32,
-    pub DR1: u32,
-    pub DR2: u32,
-    pub DR3: u32,
-    pub DL0R4: u32,
-    pub DL1R5: u32,
-    pub DL2R6: u32,
-    pub DL3R7: u32,
-    pub DL4R8: u32,
-    pub DL5R9: u32,
-    pub DL6R10: u32,
-    pub DL7R11: u32,
-    pub DL8: u32,
-    pub DL9: u32,
-    pub DL10: u32,
-    pub DL11: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dac_dadr2_bit_t {
-    pub DR0: u32,
-    pub DR1: u32,
-    pub DR2: u32,
-    pub DR3: u32,
-    pub DL0R4: u32,
-    pub DL1R5: u32,
-    pub DL2R6: u32,
-    pub DL3R7: u32,
-    pub DL4R8: u32,
-    pub DL5R9: u32,
-    pub DL6R10: u32,
-    pub DL7R11: u32,
-    pub DL8: u32,
-    pub DL9: u32,
-    pub DL10: u32,
-    pub DL11: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dac_dacr_bit_t {
-    pub DAE: u32,
-    pub DA1E: u32,
-    pub DA2E: u32,
-    pub RESERVED0: [u32; 5usize],
-    pub DPSEL: u32,
-    pub DAAMP1: u32,
-    pub DAAMP2: u32,
-    pub EXTDSL1: u32,
-    pub EXTDSL2: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dac_daadpcr_bit_t {
-    pub ADCSL1: u32,
-    pub ADCSL2: u32,
-    pub ADCSL3: u32,
-    pub RESERVED0: [u32; 5usize],
-    pub DA1SF: u32,
-    pub DA2SF: u32,
-    pub RESERVED1: [u32; 5usize],
-    pub ADPEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dac_daocr_bit_t {
-    pub RESERVED0: [u32; 14usize],
-    pub DAODIS1: u32,
-    pub DAODIS2: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dcu_ctl_bit_t {
-    pub RESERVED0: [u32; 8usize],
-    pub COMPTRG: u32,
-    pub RESERVED1: [u32; 22usize],
-    pub INTEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dcu_flag_bit_t {
-    pub FLAG_OP: u32,
-    pub FLAG_LS2: u32,
-    pub FLAG_EQ2: u32,
-    pub FLAG_GT2: u32,
-    pub FLAG_LS1: u32,
-    pub FLAG_EQ1: u32,
-    pub FLAG_GT1: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub FLAG_RLD: u32,
-    pub FLAG_BTM: u32,
-    pub FLAG_TOP: u32,
-    pub RESERVED1: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dcu_flagclr_bit_t {
-    pub CLR_OP: u32,
-    pub CLR_LS2: u32,
-    pub CLR_EQ2: u32,
-    pub CLR_GT2: u32,
-    pub CLR_LS1: u32,
-    pub CLR_EQ1: u32,
-    pub CLR_GT1: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub CLR_RLD: u32,
-    pub CLR_BTM: u32,
-    pub CLR_TOP: u32,
-    pub RESERVED1: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dcu_intevtsel_bit_t {
-    pub SEL_OP: u32,
-    pub SEL_LS2: u32,
-    pub SEL_EQ2: u32,
-    pub SEL_GT2: u32,
-    pub SEL_LS1: u32,
-    pub SEL_EQ1: u32,
-    pub SEL_GT1: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub SEL_BTM: u32,
-    pub SEL_TOP: u32,
-    pub RESERVED1: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_en_bit_t {
-    pub EN: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_intstat0_bit_t {
-    pub TRNERR0: u32,
-    pub TRNERR1: u32,
-    pub TRNERR2: u32,
-    pub TRNERR3: u32,
-    pub TRNERR4: u32,
-    pub TRNERR5: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub REQERR0: u32,
-    pub REQERR1: u32,
-    pub REQERR2: u32,
-    pub REQERR3: u32,
-    pub REQERR4: u32,
-    pub REQERR5: u32,
-    pub RESERVED1: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_intstat1_bit_t {
-    pub TC0: u32,
-    pub TC1: u32,
-    pub TC2: u32,
-    pub TC3: u32,
-    pub TC4: u32,
-    pub TC5: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub BTC0: u32,
-    pub BTC1: u32,
-    pub BTC2: u32,
-    pub BTC3: u32,
-    pub BTC4: u32,
-    pub BTC5: u32,
-    pub RESERVED1: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_intmask0_bit_t {
-    pub MSKTRNERR0: u32,
-    pub MSKTRNERR1: u32,
-    pub MSKTRNERR2: u32,
-    pub MSKTRNERR3: u32,
-    pub MSKTRNERR4: u32,
-    pub MSKTRNERR5: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub MSKREQERR0: u32,
-    pub MSKREQERR1: u32,
-    pub MSKREQERR2: u32,
-    pub MSKREQERR3: u32,
-    pub MSKREQERR4: u32,
-    pub MSKREQERR5: u32,
-    pub RESERVED1: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_intmask1_bit_t {
-    pub MSKTC0: u32,
-    pub MSKTC1: u32,
-    pub MSKTC2: u32,
-    pub MSKTC3: u32,
-    pub MSKTC4: u32,
-    pub MSKTC5: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub MSKBTC0: u32,
-    pub MSKBTC1: u32,
-    pub MSKBTC2: u32,
-    pub MSKBTC3: u32,
-    pub MSKBTC4: u32,
-    pub MSKBTC5: u32,
-    pub RESERVED1: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_intclr0_bit_t {
-    pub CLRTRNERR0: u32,
-    pub CLRTRNERR1: u32,
-    pub CLRTRNERR2: u32,
-    pub CLRTRNERR3: u32,
-    pub CLRTRNERR4: u32,
-    pub CLRTRNERR5: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub CLRREQERR0: u32,
-    pub CLRREQERR1: u32,
-    pub CLRREQERR2: u32,
-    pub CLRREQERR3: u32,
-    pub CLRREQERR4: u32,
-    pub CLRREQERR5: u32,
-    pub RESERVED1: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_intclr1_bit_t {
-    pub CLRTC0: u32,
-    pub CLRTC1: u32,
-    pub CLRTC2: u32,
-    pub CLRTC3: u32,
-    pub CLRTC4: u32,
-    pub CLRTC5: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub CLRBTC0: u32,
-    pub CLRBTC1: u32,
-    pub CLRBTC2: u32,
-    pub CLRBTC3: u32,
-    pub CLRBTC4: u32,
-    pub CLRBTC5: u32,
-    pub RESERVED1: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_reqstat_bit_t {
-    pub RESERVED0: [u32; 15usize],
-    pub RCFGREQ: u32,
-    pub RESERVED1: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_chstat_bit_t {
-    pub DMAACT: u32,
-    pub RCFGACT: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_rcfgctl_bit_t {
-    pub RCFGEN: u32,
-    pub RCFGLLP: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_swreq_bit_t {
-    pub SWREQ0: u32,
-    pub SWREQ1: u32,
-    pub SWREQ2: u32,
-    pub SWREQ3: u32,
-    pub SWREQ4: u32,
-    pub SWREQ5: u32,
-    pub SWREQ6: u32,
-    pub SWREQ7: u32,
-    pub RESERVED0: [u32; 7usize],
-    pub SWRCFGREQ: u32,
-    pub RESERVED1: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_chctl_bit_t {
-    pub RESERVED0: [u32; 4usize],
-    pub SRPTEN: u32,
-    pub DRPTEN: u32,
-    pub SNSEQEN: u32,
-    pub DNSEQEN: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub LLPEN: u32,
-    pub LLPRUN: u32,
-    pub IE: u32,
-    pub RESERVED2: [u32; 19usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_fstp_bit_t {
-    pub FSTP: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_frmc_bit_t {
-    pub RESERVED0: [u32; 8usize],
-    pub LVM: u32,
-    pub RESERVED1: [u32; 7usize],
-    pub ICACHE: u32,
-    pub DCACHE: u32,
-    pub PREFETE: u32,
-    pub CRST: u32,
-    pub RESERVED2: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_fwmc_bit_t {
-    pub RESERVED0: [u32; 8usize],
-    pub BUSHLDCTL: u32,
-    pub RESERVED1: [u32; 7usize],
-    pub KEY1LOCK: u32,
-    pub KEY2LOCK: u32,
-    pub RESERVED2: [u32; 14usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_fsr_bit_t {
-    pub OTPWERR: u32,
-    pub PRTWERR: u32,
-    pub PGSZERR: u32,
-    pub MISMTCH: u32,
-    pub OPTEND: u32,
-    pub COLERR: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub RDY: u32,
-    pub RESERVED1: [u32; 23usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_fsclr_bit_t {
-    pub OTPWERRCLR: u32,
-    pub PRTWERRCLR: u32,
-    pub PGSZERRCLR: u32,
-    pub MISMTCHCLR: u32,
-    pub OPTENDCLR: u32,
-    pub COLERRCLR: u32,
-    pub RESERVED0: [u32; 26usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_fite_bit_t {
-    pub PEERRITE: u32,
-    pub OPTENDITE: u32,
-    pub COLERRITE: u32,
-    pub RESERVED0: [u32; 29usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_fswp_bit_t {
-    pub FSWP: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_mmf_remcr_bit_t {
-    pub RESERVED0: [u32; 31usize],
-    pub EN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_wlock_bit_t {
-    pub WLOCK0: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_f0nwprt_bit_t {
-    pub F0NWPRT0: u32,
-    pub F0NWPRT1: u32,
-    pub F0NWPRT2: u32,
-    pub F0NWPRT3: u32,
-    pub F0NWPRT4: u32,
-    pub F0NWPRT5: u32,
-    pub F0NWPRT6: u32,
-    pub F0NWPRT7: u32,
-    pub F0NWPRT8: u32,
-    pub F0NWPRT9: u32,
-    pub F0NWPRT10: u32,
-    pub F0NWPRT11: u32,
-    pub F0NWPRT12: u32,
-    pub F0NWPRT13: u32,
-    pub F0NWPRT14: u32,
-    pub F0NWPRT15: u32,
-    pub F0NWPRT16: u32,
-    pub F0NWPRT17: u32,
-    pub F0NWPRT18: u32,
-    pub F0NWPRT19: u32,
-    pub F0NWPRT20: u32,
-    pub F0NWPRT21: u32,
-    pub F0NWPRT22: u32,
-    pub F0NWPRT23: u32,
-    pub F0NWPRT24: u32,
-    pub F0NWPRT25: u32,
-    pub F0NWPRT26: u32,
-    pub F0NWPRT27: u32,
-    pub F0NWPRT28: u32,
-    pub F0NWPRT29: u32,
-    pub F0NWPRT30: u32,
-    pub F0NWPRT31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_ctl1_bit_t {
-    pub CMPEN1: u32,
-    pub CMPEN2: u32,
-    pub CMPEN3: u32,
-    pub CMPEN4: u32,
-    pub SYSEN: u32,
-    pub PWMSEN0: u32,
-    pub PWMSEN1: u32,
-    pub PWMSEN2: u32,
-    pub PWMSEN3: u32,
-    pub RESERVED0: [u32; 7usize],
-    pub PORTINEN1: u32,
-    pub PORTINEN2: u32,
-    pub PORTINEN3: u32,
-    pub PORTINEN4: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub INVSEL1: u32,
-    pub INVSEL2: u32,
-    pub INVSEL3: u32,
-    pub INVSEL4: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub OSCSTPEN: u32,
-    pub SRAMECCERREN: u32,
-    pub SRAMPYERREN: u32,
-    pub LOCKUPEN: u32,
-    pub PVDEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_ctl2_bit_t {
-    pub PWMLV0: u32,
-    pub PWMLV1: u32,
-    pub PWMLV2: u32,
-    pub PWMLV3: u32,
-    pub RESERVED0: [u32; 14usize],
-    pub NFEN1: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub NFEN2: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub NFEN3: u32,
-    pub RESERVED3: [u32; 2usize],
-    pub NFEN4: u32,
-    pub RESERVED4: [u32; 4usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_soe_bit_t {
-    pub SOE: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_stat_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub PWMSF: u32,
-    pub CMPF: u32,
-    pub SYSF: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub PWMST: u32,
-    pub CMPST: u32,
-    pub SYSST: u32,
-    pub PORTINF1: u32,
-    pub PORTINF2: u32,
-    pub PORTINF3: u32,
-    pub PORTINF4: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub PORTINST1: u32,
-    pub PORTINST2: u32,
-    pub PORTINST3: u32,
-    pub PORTINST4: u32,
-    pub RESERVED3: [u32; 14usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_statclr_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub PWMSFCLR: u32,
-    pub CMPFCLR: u32,
-    pub SYSFCLR: u32,
-    pub RESERVED1: [u32; 4usize],
-    pub PORTINFCLR1: u32,
-    pub PORTINFCLR2: u32,
-    pub PORTINFCLR3: u32,
-    pub PORTINFCLR4: u32,
-    pub RESERVED2: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_inten_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub PWMSINTEN: u32,
-    pub CMPINTEN: u32,
-    pub SYSINTEN: u32,
-    pub RESERVED1: [u32; 4usize],
-    pub PORTININTEN1: u32,
-    pub PORTININTEN2: u32,
-    pub PORTININTEN3: u32,
-    pub PORTININTEN4: u32,
-    pub RESERVED2: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_rlssel_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub PWMRSEL: u32,
-    pub CMPRSEL: u32,
-    pub SYSRSEL: u32,
-    pub RESERVED1: [u32; 4usize],
-    pub PORTINRSEL1: u32,
-    pub PORTINRSEL2: u32,
-    pub PORTINRSEL3: u32,
-    pub PORTINRSEL4: u32,
-    pub RESERVED2: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_fcm_str_bit_t {
-    pub START: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_fcm_rccr_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub INEXS: u32,
-    pub RESERVED1: [u32; 7usize],
-    pub EXREFE: u32,
-    pub RESERVED2: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_fcm_rier_bit_t {
-    pub ERRIE: u32,
-    pub MENDIE: u32,
-    pub OVFIE: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub ERRINTRS: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub ERRE: u32,
-    pub RESERVED2: [u32; 24usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_fcm_sr_bit_t {
-    pub ERRF: u32,
-    pub MENDF: u32,
-    pub OVF: u32,
-    pub RESERVED0: [u32; 29usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_fcm_clr_bit_t {
-    pub ERRFCLR: u32,
-    pub MENDFCLR: u32,
-    pub OVFCLR: u32,
-    pub RESERVED0: [u32; 29usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_pidr_bit_t {
-    pub PIN00: u32,
-    pub PIN01: u32,
-    pub PIN02: u32,
-    pub PIN03: u32,
-    pub PIN04: u32,
-    pub PIN05: u32,
-    pub PIN06: u32,
-    pub PIN07: u32,
-    pub PIN08: u32,
-    pub PIN09: u32,
-    pub PIN10: u32,
-    pub PIN11: u32,
-    pub PIN12: u32,
-    pub PIN13: u32,
-    pub PIN14: u32,
-    pub PIN15: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_podr_bit_t {
-    pub POUT00: u32,
-    pub POUT01: u32,
-    pub POUT02: u32,
-    pub POUT03: u32,
-    pub POUT04: u32,
-    pub POUT05: u32,
-    pub POUT06: u32,
-    pub POUT07: u32,
-    pub POUT08: u32,
-    pub POUT09: u32,
-    pub POUT10: u32,
-    pub POUT11: u32,
-    pub POUT12: u32,
-    pub POUT13: u32,
-    pub POUT14: u32,
-    pub POUT15: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_poer_bit_t {
-    pub POUTE00: u32,
-    pub POUTE01: u32,
-    pub POUTE02: u32,
-    pub POUTE03: u32,
-    pub POUTE04: u32,
-    pub POUTE05: u32,
-    pub POUTE06: u32,
-    pub POUTE07: u32,
-    pub POUTE08: u32,
-    pub POUTE09: u32,
-    pub POUTE10: u32,
-    pub POUTE11: u32,
-    pub POUTE12: u32,
-    pub POUTE13: u32,
-    pub POUTE14: u32,
-    pub POUTE15: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_posr_bit_t {
-    pub POS00: u32,
-    pub POS01: u32,
-    pub POS02: u32,
-    pub POS03: u32,
-    pub POS04: u32,
-    pub POS05: u32,
-    pub POS06: u32,
-    pub POS07: u32,
-    pub POS08: u32,
-    pub POS09: u32,
-    pub POS10: u32,
-    pub POS11: u32,
-    pub POS12: u32,
-    pub POS13: u32,
-    pub POS14: u32,
-    pub POS15: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_porr_bit_t {
-    pub POR00: u32,
-    pub POR01: u32,
-    pub POR02: u32,
-    pub POR03: u32,
-    pub POR04: u32,
-    pub POR05: u32,
-    pub POR06: u32,
-    pub POR07: u32,
-    pub POR08: u32,
-    pub POR09: u32,
-    pub POR10: u32,
-    pub POR11: u32,
-    pub POR12: u32,
-    pub POR13: u32,
-    pub POR14: u32,
-    pub POR15: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_potr_bit_t {
-    pub POT00: u32,
-    pub POT01: u32,
-    pub POT02: u32,
-    pub POT03: u32,
-    pub POT04: u32,
-    pub POT05: u32,
-    pub POT06: u32,
-    pub POT07: u32,
-    pub POT08: u32,
-    pub POT09: u32,
-    pub POT10: u32,
-    pub POT11: u32,
-    pub POT12: u32,
-    pub POT13: u32,
-    pub POT14: u32,
-    pub POT15: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_pwpr_bit_t {
-    pub WE: u32,
-    pub RESERVED0: [u32; 15usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_pcr_bit_t {
-    pub POUT: u32,
-    pub POUTE: u32,
-    pub NOD: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub PUU: u32,
-    pub PUD: u32,
-    pub PIN: u32,
-    pub INVE: u32,
-    pub CINSEL: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub INTE: u32,
-    pub PINAE: u32,
-    pub LTE: u32,
-    pub DDIS: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_pfsr_bit_t {
-    pub RESERVED0: [u32; 8usize],
-    pub BFE: u32,
-    pub RESERVED1: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_hash_cr_bit_t {
-    pub START: u32,
-    pub FST_GRP: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_cr1_bit_t {
-    pub PE: u32,
-    pub SMBUS: u32,
-    pub SMBALRTEN: u32,
-    pub SMBDEFAULTEN: u32,
-    pub SMBHOSTEN: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub GCEN: u32,
-    pub RESTART: u32,
-    pub START: u32,
-    pub STOP: u32,
-    pub ACK: u32,
-    pub RESERVED1: [u32; 4usize],
-    pub SWRST: u32,
-    pub RESERVED2: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_cr2_bit_t {
-    pub STARTIE: u32,
-    pub SLADDR0IE: u32,
-    pub SLADDR1IE: u32,
-    pub TENDIE: u32,
-    pub STOPIE: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub RFULLIE: u32,
-    pub TEMPTYIE: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub ARLOIE: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub RFREQIE: u32,
-    pub NACKIE: u32,
-    pub RESERVED3: [u32; 1usize],
-    pub TMOUTIE: u32,
-    pub RESERVED4: [u32; 5usize],
-    pub GENCALLIE: u32,
-    pub SMBDEFAULTIE: u32,
-    pub SMBHOSTIE: u32,
-    pub SMBALRTIE: u32,
-    pub RESERVED5: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_cr3_bit_t {
-    pub TMOUTEN: u32,
-    pub LTMOUT: u32,
-    pub HTMOUT: u32,
-    pub RESERVED0: [u32; 4usize],
-    pub FACKEN: u32,
-    pub RESERVED1: [u32; 24usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_cr4_bit_t {
-    pub RESERVED0: [u32; 10usize],
-    pub BUSWAIT: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub BUSFREE_CLREN: u32,
-    pub RESERVED2: [u32; 19usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_slr0_bit_t {
-    pub RESERVED0: [u32; 12usize],
-    pub SLADDR0EN: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub ADDRMOD0: u32,
-    pub RESERVED2: [u32; 10usize],
-    pub MASK0EN: u32,
-    pub RESERVED3: [u32; 5usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_slr1_bit_t {
-    pub RESERVED0: [u32; 12usize],
-    pub SLADDR1EN: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub ADDRMOD1: u32,
-    pub RESERVED2: [u32; 10usize],
-    pub MASK1EN: u32,
-    pub RESERVED3: [u32; 5usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_sr_bit_t {
-    pub STARTF: u32,
-    pub SLADDR0F: u32,
-    pub SLADDR1F: u32,
-    pub TENDF: u32,
-    pub STOPF: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub RFULLF: u32,
-    pub TEMPTYF: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub ARLOF: u32,
-    pub ACKRF: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub NACKF: u32,
-    pub RESERVED3: [u32; 1usize],
-    pub TMOUTF: u32,
-    pub RESERVED4: [u32; 1usize],
-    pub MSL: u32,
-    pub BUSY: u32,
-    pub TRA: u32,
-    pub RESERVED5: [u32; 1usize],
-    pub GENCALLF: u32,
-    pub SMBDEFAULTF: u32,
-    pub SMBHOSTF: u32,
-    pub SMBALRTF: u32,
-    pub TFEMPTY: u32,
-    pub TFFULL: u32,
-    pub RFEMPTY: u32,
-    pub RFFULL: u32,
-    pub RESERVED6: [u32; 3usize],
-    pub RFREQ: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_clr_bit_t {
-    pub STARTFCLR: u32,
-    pub SLADDR0FCLR: u32,
-    pub SLADDR1FCLR: u32,
-    pub TENDFCLR: u32,
-    pub STOPFCLR: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub RFULLFCLR: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub ARLOFCLR: u32,
-    pub RFREQCLR: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub NACKFCLR: u32,
-    pub RESERVED3: [u32; 1usize],
-    pub TMOUTFCLR: u32,
-    pub RESERVED4: [u32; 5usize],
-    pub GENCALLFCLR: u32,
-    pub SMBDEFAULTFCLR: u32,
-    pub SMBHOSTFCLR: u32,
-    pub SMBALRTFCLR: u32,
-    pub RESERVED5: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_fltr_bit_t {
-    pub RESERVED0: [u32; 4usize],
-    pub DNFEN: u32,
-    pub ANFEN: u32,
-    pub RESERVED1: [u32; 26usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_fstr_bit_t {
-    pub FEN: u32,
-    pub TFFLUSH: u32,
-    pub RFFLUSH: u32,
-    pub NACKTFFLUSH: u32,
-    pub RESERVED0: [u32; 28usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_icg_icg0_bit_t {
-    pub SWDTAUTS: u32,
-    pub SWDTITS: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub SWDTSLPOFF: u32,
-    pub RESERVED1: [u32; 3usize],
-    pub WDTAUTS: u32,
-    pub WDTITS: u32,
-    pub RESERVED2: [u32; 10usize],
-    pub WDTSLPOFF: u32,
-    pub RESERVED3: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_icg_icg1_bit_t {
-    pub HRCFREQSEL: u32,
-    pub RESERVED0: [u32; 7usize],
-    pub HRCSTOP: u32,
-    pub RESERVED1: [u32; 9usize],
-    pub BORDIS: u32,
-    pub RESERVED2: [u32; 13usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_nmier_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub SWDTEN: u32,
-    pub PVD1EN: u32,
-    pub PVD2EN: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub XTALSTPEN: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub RPARERREN: u32,
-    pub RECCERREN: u32,
-    pub BUSERREN: u32,
-    pub WDTEN: u32,
-    pub RESERVED3: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_nmifr_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub SWDTF: u32,
-    pub PVD1F: u32,
-    pub PVD2F: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub XTALSTPF: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub RPARERRF: u32,
-    pub RECCERRF: u32,
-    pub BUSERRF: u32,
-    pub WDTF: u32,
-    pub RESERVED3: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_nmifcr_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub SWDTFCLR: u32,
-    pub PVD1FCLR: u32,
-    pub PVD2FCLR: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub XTALSTPFCLR: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub RPARERRFCLR: u32,
-    pub RECCERRFCLR: u32,
-    pub BUSERRFCLR: u32,
-    pub WDTFCLR: u32,
-    pub RESERVED3: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_eirqcr_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub EFEN: u32,
-    pub RESERVED1: [u32; 7usize],
-    pub NOCEN: u32,
-    pub RESERVED2: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_wken_bit_t {
-    pub RESERVED0: [u32; 16usize],
-    pub SWDTWKEN: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub CMP1WKEN: u32,
-    pub WKTMWKEN: u32,
-    pub RTCALMWKEN: u32,
-    pub RTCPRDWKEN: u32,
-    pub TMR0CMPWKEN: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub RXWKEN: u32,
-    pub RESERVED3: [u32; 2usize],
-    pub CMP2WKEN: u32,
-    pub CMP3WKEN: u32,
-    pub CMP4WKEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_eifr_bit_t {
-    pub EIF0: u32,
-    pub EIF1: u32,
-    pub EIF2: u32,
-    pub EIF3: u32,
-    pub EIF4: u32,
-    pub EIF5: u32,
-    pub EIF6: u32,
-    pub EIF7: u32,
-    pub EIF8: u32,
-    pub EIF9: u32,
-    pub EIF10: u32,
-    pub EIF11: u32,
-    pub EIF12: u32,
-    pub EIF13: u32,
-    pub EIF14: u32,
-    pub EIF15: u32,
-    pub RESERVED0: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_eifcr_bit_t {
-    pub EIFCLR0: u32,
-    pub EIFCLR1: u32,
-    pub EIFCLR2: u32,
-    pub EIFCLR3: u32,
-    pub EIFCLR4: u32,
-    pub EIFCLR5: u32,
-    pub EIFCLR6: u32,
-    pub EIFCLR7: u32,
-    pub EIFCLR8: u32,
-    pub EIFCLR9: u32,
-    pub EIFCLR10: u32,
-    pub EIFCLR11: u32,
-    pub EIFCLR12: u32,
-    pub EIFCLR13: u32,
-    pub EIFCLR14: u32,
-    pub EIFCLR15: u32,
-    pub RESERVED0: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_swier_bit_t {
-    pub SWIE0: u32,
-    pub SWIE1: u32,
-    pub SWIE2: u32,
-    pub SWIE3: u32,
-    pub SWIE4: u32,
-    pub SWIE5: u32,
-    pub SWIE6: u32,
-    pub SWIE7: u32,
-    pub SWIE8: u32,
-    pub SWIE9: u32,
-    pub SWIE10: u32,
-    pub SWIE11: u32,
-    pub SWIE12: u32,
-    pub SWIE13: u32,
-    pub SWIE14: u32,
-    pub SWIE15: u32,
-    pub SWIE16: u32,
-    pub SWIE17: u32,
-    pub SWIE18: u32,
-    pub SWIE19: u32,
-    pub SWIE20: u32,
-    pub SWIE21: u32,
-    pub SWIE22: u32,
-    pub SWIE23: u32,
-    pub SWIE24: u32,
-    pub SWIE25: u32,
-    pub SWIE26: u32,
-    pub SWIE27: u32,
-    pub SWIE28: u32,
-    pub SWIE29: u32,
-    pub SWIE30: u32,
-    pub SWIE31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_evter_bit_t {
-    pub EVTE0: u32,
-    pub EVTE1: u32,
-    pub EVTE2: u32,
-    pub EVTE3: u32,
-    pub EVTE4: u32,
-    pub EVTE5: u32,
-    pub EVTE6: u32,
-    pub EVTE7: u32,
-    pub EVTE8: u32,
-    pub EVTE9: u32,
-    pub EVTE10: u32,
-    pub EVTE11: u32,
-    pub EVTE12: u32,
-    pub EVTE13: u32,
-    pub EVTE14: u32,
-    pub EVTE15: u32,
-    pub EVTE16: u32,
-    pub EVTE17: u32,
-    pub EVTE18: u32,
-    pub EVTE19: u32,
-    pub EVTE20: u32,
-    pub EVTE21: u32,
-    pub EVTE22: u32,
-    pub EVTE23: u32,
-    pub EVTE24: u32,
-    pub EVTE25: u32,
-    pub EVTE26: u32,
-    pub EVTE27: u32,
-    pub EVTE28: u32,
-    pub EVTE29: u32,
-    pub EVTE30: u32,
-    pub EVTE31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_intc_ier_bit_t {
-    pub IEN0: u32,
-    pub IEN1: u32,
-    pub IEN2: u32,
-    pub IEN3: u32,
-    pub IEN4: u32,
-    pub IEN5: u32,
-    pub IEN6: u32,
-    pub IEN7: u32,
-    pub IEN8: u32,
-    pub IEN9: u32,
-    pub IEN10: u32,
-    pub IEN11: u32,
-    pub IEN12: u32,
-    pub IEN13: u32,
-    pub IEN14: u32,
-    pub IEN15: u32,
-    pub IEN16: u32,
-    pub IEN17: u32,
-    pub IEN18: u32,
-    pub IEN19: u32,
-    pub IEN20: u32,
-    pub IEN21: u32,
-    pub IEN22: u32,
-    pub IEN23: u32,
-    pub IEN24: u32,
-    pub IEN25: u32,
-    pub IEN26: u32,
-    pub IEN27: u32,
-    pub IEN28: u32,
-    pub IEN29: u32,
-    pub IEN30: u32,
-    pub IEN31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_keyscan_ser_bit_t {
-    pub SEN: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_dbtp_bit_t {
-    pub RESERVED0: [u32; 23usize],
-    pub TDC: u32,
-    pub RESERVED1: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_test_bit_t {
-    pub RESERVED0: [u32; 4usize],
-    pub LBCK: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub RX: u32,
-    pub RESERVED2: [u32; 5usize],
-    pub PVAL: u32,
-    pub RESERVED3: [u32; 7usize],
-    pub SVAL: u32,
-    pub RESERVED4: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_cccr_bit_t {
-    pub INIT: u32,
-    pub CCE: u32,
-    pub ASM: u32,
-    pub CSA: u32,
-    pub CSR: u32,
-    pub MON: u32,
-    pub DAR: u32,
-    pub TEST: u32,
-    pub FDOE: u32,
-    pub BRSE: u32,
-    pub UTSU: u32,
-    pub WMM: u32,
-    pub PXHD: u32,
-    pub EFBI: u32,
-    pub TXP: u32,
-    pub NISO: u32,
-    pub RESERVED0: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_tocc_bit_t {
-    pub ETOC: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_ecr_bit_t {
-    pub RESERVED0: [u32; 15usize],
-    pub RP: u32,
-    pub RESERVED1: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_psr_bit_t {
-    pub RESERVED0: [u32; 5usize],
-    pub EP: u32,
-    pub EW: u32,
-    pub BO: u32,
-    pub RESERVED1: [u32; 3usize],
-    pub RESI: u32,
-    pub RBRS: u32,
-    pub RFDF: u32,
-    pub PXE: u32,
-    pub RESERVED2: [u32; 17usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_ir_bit_t {
-    pub RF0N: u32,
-    pub RF0W: u32,
-    pub RF0F: u32,
-    pub RF0L: u32,
-    pub RF1N: u32,
-    pub RF1W: u32,
-    pub RF1F: u32,
-    pub RF1L: u32,
-    pub HPM: u32,
-    pub TC: u32,
-    pub TCF: u32,
-    pub TFE: u32,
-    pub TEFN: u32,
-    pub TEFW: u32,
-    pub TEFF: u32,
-    pub TEFL: u32,
-    pub TSW: u32,
-    pub MRAF: u32,
-    pub TOO: u32,
-    pub DRX: u32,
-    pub BEC: u32,
-    pub BEU: u32,
-    pub ELO: u32,
-    pub EP: u32,
-    pub EW: u32,
-    pub BO: u32,
-    pub WDI: u32,
-    pub PEA: u32,
-    pub PED: u32,
-    pub ARA: u32,
-    pub RESERVED0: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_ie_bit_t {
-    pub RF0NE: u32,
-    pub RF0WE: u32,
-    pub RF0FE: u32,
-    pub RF0LE: u32,
-    pub RF1NE: u32,
-    pub RF1WE: u32,
-    pub RF1FE: u32,
-    pub RF1LE: u32,
-    pub HPME: u32,
-    pub TCE: u32,
-    pub TCFE: u32,
-    pub TFEE: u32,
-    pub TEFNE: u32,
-    pub TEFWE: u32,
-    pub TEFFE: u32,
-    pub TEFLE: u32,
-    pub TSWE: u32,
-    pub MRAFE: u32,
-    pub TOOE: u32,
-    pub DRXE: u32,
-    pub BECE: u32,
-    pub BEUE: u32,
-    pub ELOE: u32,
-    pub EPE: u32,
-    pub EWE: u32,
-    pub BOE: u32,
-    pub WDIE: u32,
-    pub PEAE: u32,
-    pub PEDE: u32,
-    pub ARAE: u32,
-    pub RESERVED0: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_ils_bit_t {
-    pub RF0NL: u32,
-    pub RF0WL: u32,
-    pub RF0FL: u32,
-    pub RF0LL: u32,
-    pub RF1NL: u32,
-    pub RF1WL: u32,
-    pub RF1FL: u32,
-    pub RF1LL: u32,
-    pub HPML: u32,
-    pub TCL: u32,
-    pub TCFL: u32,
-    pub TFEL: u32,
-    pub TEFNL: u32,
-    pub TEFWL: u32,
-    pub TEFFL: u32,
-    pub TEFLL: u32,
-    pub TSWL: u32,
-    pub MRAFL: u32,
-    pub TOOL: u32,
-    pub DRXL: u32,
-    pub BECL: u32,
-    pub BEUL: u32,
-    pub ELOL: u32,
-    pub EPL: u32,
-    pub EWL: u32,
-    pub BOL: u32,
-    pub WDIL: u32,
-    pub PEAL: u32,
-    pub PEDL: u32,
-    pub ARAL: u32,
-    pub RESERVED0: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_ile_bit_t {
-    pub EINT0: u32,
-    pub EINT1: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_gfc_bit_t {
-    pub RRFE: u32,
-    pub RRFS: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_hpms_bit_t {
-    pub RESERVED0: [u32; 15usize],
-    pub FLST: u32,
-    pub RESERVED1: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_ndat1_bit_t {
-    pub ND0: u32,
-    pub ND1: u32,
-    pub ND2: u32,
-    pub ND3: u32,
-    pub ND4: u32,
-    pub ND5: u32,
-    pub ND6: u32,
-    pub ND7: u32,
-    pub ND8: u32,
-    pub ND9: u32,
-    pub ND10: u32,
-    pub ND11: u32,
-    pub ND12: u32,
-    pub ND13: u32,
-    pub ND14: u32,
-    pub ND15: u32,
-    pub ND16: u32,
-    pub ND17: u32,
-    pub ND18: u32,
-    pub ND19: u32,
-    pub ND20: u32,
-    pub ND21: u32,
-    pub ND22: u32,
-    pub ND23: u32,
-    pub ND24: u32,
-    pub ND25: u32,
-    pub ND26: u32,
-    pub ND27: u32,
-    pub ND28: u32,
-    pub ND29: u32,
-    pub ND30: u32,
-    pub ND31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_ndat2_bit_t {
-    pub ND32: u32,
-    pub ND33: u32,
-    pub ND34: u32,
-    pub ND35: u32,
-    pub ND36: u32,
-    pub ND37: u32,
-    pub ND38: u32,
-    pub ND39: u32,
-    pub ND40: u32,
-    pub ND41: u32,
-    pub ND42: u32,
-    pub ND43: u32,
-    pub ND44: u32,
-    pub ND45: u32,
-    pub ND46: u32,
-    pub ND47: u32,
-    pub ND48: u32,
-    pub ND49: u32,
-    pub ND50: u32,
-    pub ND51: u32,
-    pub ND52: u32,
-    pub ND53: u32,
-    pub ND54: u32,
-    pub ND55: u32,
-    pub ND56: u32,
-    pub ND57: u32,
-    pub ND58: u32,
-    pub ND59: u32,
-    pub ND60: u32,
-    pub ND61: u32,
-    pub ND62: u32,
-    pub ND63: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_rxf0c_bit_t {
-    pub RESERVED0: [u32; 31usize],
-    pub F0OM: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_rxf0s_bit_t {
-    pub RESERVED0: [u32; 24usize],
-    pub F0F: u32,
-    pub RF0L: u32,
-    pub RESERVED1: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_rxf1c_bit_t {
-    pub RESERVED0: [u32; 31usize],
-    pub F1OM: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_rxf1s_bit_t {
-    pub RESERVED0: [u32; 24usize],
-    pub F1F: u32,
-    pub RF1L: u32,
-    pub RESERVED1: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbc_bit_t {
-    pub RESERVED0: [u32; 30usize],
-    pub TFQM: u32,
-    pub RESERVED1: [u32; 1usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txfqs_bit_t {
-    pub RESERVED0: [u32; 21usize],
-    pub TFQF: u32,
-    pub RESERVED1: [u32; 10usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbrp_bit_t {
-    pub TRP0: u32,
-    pub TRP1: u32,
-    pub TRP2: u32,
-    pub TRP3: u32,
-    pub TRP4: u32,
-    pub TRP5: u32,
-    pub TRP6: u32,
-    pub TRP7: u32,
-    pub TRP8: u32,
-    pub TRP9: u32,
-    pub TRP10: u32,
-    pub TRP11: u32,
-    pub TRP12: u32,
-    pub TRP13: u32,
-    pub TRP14: u32,
-    pub TRP15: u32,
-    pub TRP16: u32,
-    pub TRP17: u32,
-    pub TRP18: u32,
-    pub TRP19: u32,
-    pub TRP20: u32,
-    pub TRP21: u32,
-    pub TRP22: u32,
-    pub TRP23: u32,
-    pub TRP24: u32,
-    pub TRP25: u32,
-    pub TRP26: u32,
-    pub TRP27: u32,
-    pub TRP28: u32,
-    pub TRP29: u32,
-    pub TRP30: u32,
-    pub TRP31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbar_bit_t {
-    pub AR0: u32,
-    pub AR1: u32,
-    pub AR2: u32,
-    pub AR3: u32,
-    pub AR4: u32,
-    pub AR5: u32,
-    pub AR6: u32,
-    pub AR7: u32,
-    pub AR8: u32,
-    pub AR9: u32,
-    pub AR10: u32,
-    pub AR11: u32,
-    pub AR12: u32,
-    pub AR13: u32,
-    pub AR14: u32,
-    pub AR15: u32,
-    pub AR16: u32,
-    pub AR17: u32,
-    pub AR18: u32,
-    pub AR19: u32,
-    pub AR20: u32,
-    pub AR21: u32,
-    pub AR22: u32,
-    pub AR23: u32,
-    pub AR24: u32,
-    pub AR25: u32,
-    pub AR26: u32,
-    pub AR27: u32,
-    pub AR28: u32,
-    pub AR29: u32,
-    pub AR30: u32,
-    pub AR31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbcr_bit_t {
-    pub CR0: u32,
-    pub CR1: u32,
-    pub CR2: u32,
-    pub CR3: u32,
-    pub CR4: u32,
-    pub CR5: u32,
-    pub CR6: u32,
-    pub CR7: u32,
-    pub CR8: u32,
-    pub CR9: u32,
-    pub CR10: u32,
-    pub CR11: u32,
-    pub CR12: u32,
-    pub CR13: u32,
-    pub CR14: u32,
-    pub CR15: u32,
-    pub CR16: u32,
-    pub CR17: u32,
-    pub CR18: u32,
-    pub CR19: u32,
-    pub CR20: u32,
-    pub CR21: u32,
-    pub CR22: u32,
-    pub CR23: u32,
-    pub CR24: u32,
-    pub CR25: u32,
-    pub CR26: u32,
-    pub CR27: u32,
-    pub CR28: u32,
-    pub CR29: u32,
-    pub CR30: u32,
-    pub CR31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbto_bit_t {
-    pub TO0: u32,
-    pub TO1: u32,
-    pub TO2: u32,
-    pub TO3: u32,
-    pub TO4: u32,
-    pub TO5: u32,
-    pub TO6: u32,
-    pub TO7: u32,
-    pub TO8: u32,
-    pub TO9: u32,
-    pub TO10: u32,
-    pub TO11: u32,
-    pub TO12: u32,
-    pub TO13: u32,
-    pub TO14: u32,
-    pub TO15: u32,
-    pub TO16: u32,
-    pub TO17: u32,
-    pub TO18: u32,
-    pub TO19: u32,
-    pub TO20: u32,
-    pub TO21: u32,
-    pub TO22: u32,
-    pub TO23: u32,
-    pub TO24: u32,
-    pub TO25: u32,
-    pub TO26: u32,
-    pub TO27: u32,
-    pub TO28: u32,
-    pub TO29: u32,
-    pub TO30: u32,
-    pub TO31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbcf_bit_t {
-    pub CF0: u32,
-    pub CF1: u32,
-    pub CF2: u32,
-    pub CF3: u32,
-    pub CF4: u32,
-    pub CF5: u32,
-    pub CF6: u32,
-    pub CF7: u32,
-    pub CF8: u32,
-    pub CF9: u32,
-    pub CF10: u32,
-    pub CF11: u32,
-    pub CF12: u32,
-    pub CF13: u32,
-    pub CF14: u32,
-    pub CF15: u32,
-    pub CF16: u32,
-    pub CF17: u32,
-    pub CF18: u32,
-    pub CF19: u32,
-    pub CF20: u32,
-    pub CF21: u32,
-    pub CF22: u32,
-    pub CF23: u32,
-    pub CF24: u32,
-    pub CF25: u32,
-    pub CF26: u32,
-    pub CF27: u32,
-    pub CF28: u32,
-    pub CF29: u32,
-    pub CF30: u32,
-    pub CF31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbtie_bit_t {
-    pub TIE0: u32,
-    pub TIE1: u32,
-    pub TIE2: u32,
-    pub TIE3: u32,
-    pub TIE4: u32,
-    pub TIE5: u32,
-    pub TIE6: u32,
-    pub TIE7: u32,
-    pub TIE8: u32,
-    pub TIE9: u32,
-    pub TIE10: u32,
-    pub TIE11: u32,
-    pub TIE12: u32,
-    pub TIE13: u32,
-    pub TIE14: u32,
-    pub TIE15: u32,
-    pub TIE16: u32,
-    pub TIE17: u32,
-    pub TIE18: u32,
-    pub TIE19: u32,
-    pub TIE20: u32,
-    pub TIE21: u32,
-    pub TIE22: u32,
-    pub TIE23: u32,
-    pub TIE24: u32,
-    pub TIE25: u32,
-    pub TIE26: u32,
-    pub TIE27: u32,
-    pub TIE28: u32,
-    pub TIE29: u32,
-    pub TIE30: u32,
-    pub TIE31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txbcie_bit_t {
-    pub CFIE0: u32,
-    pub CFIE1: u32,
-    pub CFIE2: u32,
-    pub CFIE3: u32,
-    pub CFIE4: u32,
-    pub CFIE5: u32,
-    pub CFIE6: u32,
-    pub CFIE7: u32,
-    pub CFIE8: u32,
-    pub CFIE9: u32,
-    pub CFIE10: u32,
-    pub CFIE11: u32,
-    pub CFIE12: u32,
-    pub CFIE13: u32,
-    pub CFIE14: u32,
-    pub CFIE15: u32,
-    pub CFIE16: u32,
-    pub CFIE17: u32,
-    pub CFIE18: u32,
-    pub CFIE19: u32,
-    pub CFIE20: u32,
-    pub CFIE21: u32,
-    pub CFIE22: u32,
-    pub CFIE23: u32,
-    pub CFIE24: u32,
-    pub CFIE25: u32,
-    pub CFIE26: u32,
-    pub CFIE27: u32,
-    pub CFIE28: u32,
-    pub CFIE29: u32,
-    pub CFIE30: u32,
-    pub CFIE31: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_txefs_bit_t {
-    pub RESERVED0: [u32; 24usize],
-    pub EFF: u32,
-    pub TEFL: u32,
-    pub RESERVED1: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_sr_bit_t {
-    pub SMPU1EAF: u32,
-    pub SMPU2EAF: u32,
-    pub PSPEF: u32,
-    pub MSPEF: u32,
-    pub RESERVED0: [u32; 28usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_eclr_bit_t {
-    pub SMPU1ECLR: u32,
-    pub SMPU2ECLR: u32,
-    pub PSPECLR: u32,
-    pub MSPECLR: u32,
-    pub RESERVED0: [u32; 28usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_wp_bit_t {
-    pub MPUWE: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_ippr_bit_t {
-    pub AESRDP: u32,
-    pub AESWRP: u32,
-    pub HASHRDP: u32,
-    pub HASHWRP: u32,
-    pub TRNGRDP: u32,
-    pub TRNGWRP: u32,
-    pub CRCRDP: u32,
-    pub CRCWRP: u32,
-    pub EFMRDP: u32,
-    pub EFMWRP: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub WDTRDP: u32,
-    pub WDTWRP: u32,
-    pub SWDTRDP: u32,
-    pub SWDTWRP: u32,
-    pub BKSRAMRDP: u32,
-    pub BKSRAMWRP: u32,
-    pub RTCRDP: u32,
-    pub RTCWRP: u32,
-    pub DMPURDP: u32,
-    pub DMPUWRP: u32,
-    pub SRAMCRDP: u32,
-    pub SRAMCWRP: u32,
-    pub INTCRDP: u32,
-    pub INTCWRP: u32,
-    pub SYSCRDP: u32,
-    pub SYSCWRP: u32,
-    pub MSTPRDP: u32,
-    pub MSPTWRP: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub BUSERRE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_msppctl_bit_t {
-    pub RESERVED0: [u32; 30usize],
-    pub MSPPACT: u32,
-    pub MSPPE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_psppctl_bit_t {
-    pub RESERVED0: [u32; 30usize],
-    pub PSPPACT: u32,
-    pub PSPPE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_srge_bit_t {
-    pub RG0E: u32,
-    pub RG1E: u32,
-    pub RG2E: u32,
-    pub RG3E: u32,
-    pub RG4E: u32,
-    pub RG5E: u32,
-    pub RG6E: u32,
-    pub RG7E: u32,
-    pub RG8E: u32,
-    pub RG9E: u32,
-    pub RG10E: u32,
-    pub RG11E: u32,
-    pub RG12E: u32,
-    pub RG13E: u32,
-    pub RG14E: u32,
-    pub RG15E: u32,
-    pub RESERVED0: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_srgwp_bit_t {
-    pub RG0WP: u32,
-    pub RG1WP: u32,
-    pub RG2WP: u32,
-    pub RG3WP: u32,
-    pub RG4WP: u32,
-    pub RG5WP: u32,
-    pub RG6WP: u32,
-    pub RG7WP: u32,
-    pub RG8WP: u32,
-    pub RG9WP: u32,
-    pub RG10WP: u32,
-    pub RG11WP: u32,
-    pub RG12WP: u32,
-    pub RG13WP: u32,
-    pub RG14WP: u32,
-    pub RG15WP: u32,
-    pub RESERVED0: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_srgrp_bit_t {
-    pub RG0RP: u32,
-    pub RG1RP: u32,
-    pub RG2RP: u32,
-    pub RG3RP: u32,
-    pub RG4RP: u32,
-    pub RG5RP: u32,
-    pub RG6RP: u32,
-    pub RG7RP: u32,
-    pub RG8RP: u32,
-    pub RG9RP: u32,
-    pub RG10RP: u32,
-    pub RG11RP: u32,
-    pub RG12RP: u32,
-    pub RG13RP: u32,
-    pub RG14RP: u32,
-    pub RG15RP: u32,
-    pub RESERVED0: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_scr_bit_t {
-    pub SMPUBRP: u32,
-    pub SMPUBWP: u32,
-    pub RESERVED0: [u32; 5usize],
-    pub SMPUE: u32,
-    pub RESERVED1: [u32; 24usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_peric_smc_enar_bit_t {
-    pub RESERVED0: [u32; 1usize],
-    pub SMCEN: u32,
-    pub RESERVED1: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_peric_tmr_synenr_bit_t {
-    pub TMR0U1A: u32,
-    pub TMR0U1B: u32,
-    pub TMR0U2A: u32,
-    pub TMR0U2B: u32,
-    pub TMR4U1: u32,
-    pub TMR4U2: u32,
-    pub TMR4U3: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub TMR6U1: u32,
-    pub TMR6U2: u32,
-    pub TMRAU1: u32,
-    pub TMRAU2: u32,
-    pub TMRAU3: u32,
-    pub TMRAU4: u32,
-    pub TMRAU5: u32,
-    pub RESERVED1: [u32; 17usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_peric_usart1_nfc_bit_t {
-    pub RESERVED0: [u32; 2usize],
-    pub USART1_NFE: u32,
-    pub RESERVED1: [u32; 29usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_fcg0_bit_t {
-    pub SRAMH: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub SRAM0: u32,
-    pub RESERVED1: [u32; 5usize],
-    pub SRAMB: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub KEY: u32,
-    pub DMA1: u32,
-    pub DMA2: u32,
-    pub FCM: u32,
-    pub AOS: u32,
-    pub CTC: u32,
-    pub RESERVED3: [u32; 1usize],
-    pub AES: u32,
-    pub HASH: u32,
-    pub TRNG: u32,
-    pub CRC: u32,
-    pub DCU1: u32,
-    pub DCU2: u32,
-    pub DCU3: u32,
-    pub DCU4: u32,
-    pub RESERVED4: [u32; 4usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_fcg1_bit_t {
-    pub MCAN1: u32,
-    pub MCAN2: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub QSPI: u32,
-    pub I2C1: u32,
-    pub I2C2: u32,
-    pub RESERVED1: [u32; 10usize],
-    pub SPI1: u32,
-    pub SPI2: u32,
-    pub SPI3: u32,
-    pub RESERVED2: [u32; 13usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_fcg2_bit_t {
-    pub TMR6_1: u32,
-    pub TMR6_2: u32,
-    pub RESERVED0: [u32; 7usize],
-    pub TMR4_1: u32,
-    pub TMR4_2: u32,
-    pub TMR4_3: u32,
-    pub TMR0_1: u32,
-    pub TMR0_2: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub EMB: u32,
-    pub RESERVED2: [u32; 4usize],
-    pub TMRA_1: u32,
-    pub TMRA_2: u32,
-    pub TMRA_3: u32,
-    pub TMRA_4: u32,
-    pub TMRA_5: u32,
-    pub RESERVED3: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_fcg3_bit_t {
-    pub ADC1: u32,
-    pub ADC2: u32,
-    pub ADC3: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub DAC: u32,
-    pub RESERVED1: [u32; 3usize],
-    pub CMP12: u32,
-    pub CMP34: u32,
-    pub RESERVED2: [u32; 6usize],
-    pub SMC: u32,
-    pub RESERVED3: [u32; 3usize],
-    pub USART1: u32,
-    pub USART2: u32,
-    pub USART3: u32,
-    pub USART4: u32,
-    pub USART5: u32,
-    pub USART6: u32,
-    pub RESERVED4: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_fcg0pc_bit_t {
-    pub PRT0: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_wktcr_bit_t {
-    pub RESERVED0: [u32; 12usize],
-    pub WKOVF: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub WKTCE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pwrc0_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub PWDN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pwrc1_bit_t {
-    pub RESERVED0: [u32; 2usize],
-    pub VHRCSD: u32,
-    pub PDTS: u32,
-    pub RESERVED1: [u32; 4usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pwrc4_bit_t {
-    pub RESERVED0: [u32; 7usize],
-    pub ADBUFE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pvdcr0_bit_t {
-    pub EXVCCINEN: u32,
-    pub RESERVED0: [u32; 4usize],
-    pub PVD1EN: u32,
-    pub PVD2EN: u32,
-    pub RESERVED1: [u32; 1usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pvdcr1_bit_t {
-    pub PVD1IRE: u32,
-    pub PVD1IRS: u32,
-    pub PVD1CMPOE: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub PVD2IRE: u32,
-    pub PVD2IRS: u32,
-    pub PVD2CMPOE: u32,
-    pub RESERVED1: [u32; 1usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pvdfcr_bit_t {
-    pub PVD1NFDIS: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub PVD2NFDIS: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pdwke0_bit_t {
-    pub WKE00: u32,
-    pub WKE01: u32,
-    pub WKE02: u32,
-    pub WKE03: u32,
-    pub WKE10: u32,
-    pub WKE11: u32,
-    pub WKE12: u32,
-    pub WKE13: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pdwke1_bit_t {
-    pub WKE20: u32,
-    pub WKE21: u32,
-    pub WKE22: u32,
-    pub WKE23: u32,
-    pub WKE30: u32,
-    pub WKE31: u32,
-    pub WKE32: u32,
-    pub WKE33: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pdwke2_bit_t {
-    pub VD1WKE: u32,
-    pub VD2WKE: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub RTCPRDWKE: u32,
-    pub RTCALMWKE: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub WKTMWKE: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pdwkes_bit_t {
-    pub WK0EGS: u32,
-    pub WK1EGS: u32,
-    pub WK2EGS: u32,
-    pub WK3EGS: u32,
-    pub VD1EGS: u32,
-    pub VD2EGS: u32,
-    pub RESERVED0: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pdwkf0_bit_t {
-    pub PTWK0F: u32,
-    pub PTWK1F: u32,
-    pub PTWK2F: u32,
-    pub PTWK3F: u32,
-    pub VD1WKF: u32,
-    pub VD2WKF: u32,
-    pub RESERVED0: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pdwkf1_bit_t {
-    pub RESERVED0: [u32; 3usize],
-    pub RXD0WKF: u32,
-    pub RTCPRDWKF: u32,
-    pub RTCALMWKF: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub WKTMWKF: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pwrc5_bit_t {
-    pub VVDRSD: u32,
-    pub SRAMBSD: u32,
-    pub RESERVED0: [u32; 5usize],
-    pub CSDIS: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pvddsr_bit_t {
-    pub PVD1MON: u32,
-    pub PVD1DETFLG: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub PVD2MON: u32,
-    pub PVD2DETFLG: u32,
-    pub RESERVED1: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_rampc0_bit_t {
-    pub RAMPDC0: u32,
-    pub RESERVED0: [u32; 9usize],
-    pub RAMPDC10: u32,
-    pub RESERVED1: [u32; 21usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pramlpc_bit_t {
-    pub PRAMPDC0: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub PRAMPDC2: u32,
-    pub RESERVED1: [u32; 29usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_stpmcr_bit_t {
-    pub FLNWT: u32,
-    pub CKSMRC: u32,
-    pub RESERVED0: [u32; 12usize],
-    pub EXBUSOE: u32,
-    pub STOP: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_fprc_bit_t {
-    pub FPRCB0: u32,
-    pub FPRCB1: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub FPRCB3: u32,
-    pub RESERVED1: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rmu_frst0_bit_t {
-    pub RESERVED0: [u32; 13usize],
-    pub KEY: u32,
-    pub DMA1: u32,
-    pub DMA2: u32,
-    pub FCM: u32,
-    pub AOS: u32,
-    pub CTC: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub AES: u32,
-    pub HASH: u32,
-    pub TRNG: u32,
-    pub CRC: u32,
-    pub DCU1: u32,
-    pub DCU2: u32,
-    pub DCU3: u32,
-    pub DCU4: u32,
-    pub RESERVED2: [u32; 4usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rmu_frst1_bit_t {
-    pub RESERVED0: [u32; 3usize],
-    pub QSPI: u32,
-    pub RESERVED1: [u32; 12usize],
-    pub SPI1: u32,
-    pub SPI2: u32,
-    pub SPI3: u32,
-    pub RESERVED2: [u32; 13usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rmu_frst2_bit_t {
-    pub TMR6: u32,
-    pub RESERVED0: [u32; 9usize],
-    pub TMR4: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub TMR0: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub EMB: u32,
-    pub RESERVED3: [u32; 4usize],
-    pub TMRA: u32,
-    pub RESERVED4: [u32; 11usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rmu_frst3_bit_t {
-    pub ADC1: u32,
-    pub ADC2: u32,
-    pub ADC3: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub DAC: u32,
-    pub RESERVED1: [u32; 3usize],
-    pub CMP12: u32,
-    pub CMP34: u32,
-    pub RESERVED2: [u32; 6usize],
-    pub SMC: u32,
-    pub RESERVED3: [u32; 3usize],
-    pub USART1: u32,
-    pub USART2: u32,
-    pub USART3: u32,
-    pub USART4: u32,
-    pub USART5: u32,
-    pub USART6: u32,
-    pub RESERVED4: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rmu_prstcr0_bit_t {
-    pub RESERVED0: [u32; 5usize],
-    pub LKUPREN: u32,
-    pub RESERVED1: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rmu_rstf0_bit_t {
-    pub PORF: u32,
-    pub PINRF: u32,
-    pub BORF: u32,
-    pub PVD1RF: u32,
-    pub PVD2RF: u32,
-    pub WDRF: u32,
-    pub SWDRF: u32,
-    pub PDRF: u32,
-    pub SWRF: u32,
-    pub MPUERF: u32,
-    pub RAPERF: u32,
-    pub RAECRF: u32,
-    pub CKFERF: u32,
-    pub XTALERF: u32,
-    pub LKUPRF: u32,
-    pub RESERVED0: [u32; 15usize],
-    pub MULTIRF: u32,
-    pub CLRF: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_cr0_bit_t {
-    pub RESET: u32,
-    pub RESERVED0: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_cr1_bit_t {
-    pub RESERVED0: [u32; 3usize],
-    pub AMPM: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub ONEHZOE: u32,
-    pub ONEHZSEL: u32,
-    pub START: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_cr2_bit_t {
-    pub RWREQ: u32,
-    pub RWEN: u32,
-    pub PRDF: u32,
-    pub ALMF: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub PRDIE: u32,
-    pub ALMIE: u32,
-    pub ALME: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_cr3_bit_t {
-    pub RESERVED0: [u32; 4usize],
-    pub LRCEN: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub RCKSEL: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_errcrh_bit_t {
-    pub COMP8: u32,
-    pub RESERVED0: [u32; 6usize],
-    pub COMPEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_cr_bit_t {
-    pub SPIMDS: u32,
-    pub TXMDS: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub MSTR: u32,
-    pub SPLPBK: u32,
-    pub SPLPBK2: u32,
-    pub SPE: u32,
-    pub CSUSPE: u32,
-    pub EIE: u32,
-    pub TXIE: u32,
-    pub RXIE: u32,
-    pub IDIE: u32,
-    pub MODFE: u32,
-    pub PATE: u32,
-    pub PAOE: u32,
-    pub PAE: u32,
-    pub RESERVED1: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_cfg1_bit_t {
-    pub RESERVED0: [u32; 2usize],
-    pub CTMDS: u32,
-    pub RESERVED1: [u32; 3usize],
-    pub SPRDTD: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub SS0PV: u32,
-    pub SS1PV: u32,
-    pub SS2PV: u32,
-    pub SS3PV: u32,
-    pub RESERVED3: [u32; 20usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_sr_bit_t {
-    pub OVRERF: u32,
-    pub IDLNF: u32,
-    pub MODFERF: u32,
-    pub PERF: u32,
-    pub UDRERF: u32,
-    pub TDEF: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub RDFF: u32,
-    pub RESERVED1: [u32; 24usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_cfg2_bit_t {
-    pub CPHA: u32,
-    pub CPOL: u32,
-    pub RESERVED0: [u32; 10usize],
-    pub LSBF: u32,
-    pub MIDIE: u32,
-    pub MSSDLE: u32,
-    pub MSSIE: u32,
-    pub RESERVED1: [u32; 16usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sramc_ckcr_bit_t {
-    pub PYOAD: u32,
-    pub RESERVED0: [u32; 15usize],
-    pub ECCOAD: u32,
-    pub BECCOAD: u32,
-    pub RESERVED1: [u32; 14usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sramc_ckpr_bit_t {
-    pub CKPRC: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sramc_cksr_bit_t {
-    pub RESERVED0: [u32; 3usize],
-    pub SRAMH_PYERR: u32,
-    pub SRAM0_1ERR: u32,
-    pub SRAM0_2ERR: u32,
-    pub SRAMB_1ERR: u32,
-    pub SRAMB_2ERR: u32,
-    pub CACHE_PYERR: u32,
-    pub RESERVED1: [u32; 23usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sramc_sram0_eien_bit_t {
-    pub EIEN: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sramc_sramb_eien_bit_t {
-    pub EIEN: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_swdt_cr_bit_t {
-    pub RESERVED0: [u32; 16usize],
-    pub SLPOFF: u32,
-    pub RESERVED1: [u32; 14usize],
-    pub ITS: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_swdt_sr_bit_t {
-    pub RESERVED0: [u32; 16usize],
-    pub UDF: u32,
-    pub REF: u32,
-    pub RESERVED1: [u32; 14usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr0_bconr_bit_t {
-    pub CSTA: u32,
-    pub CAPMDA: u32,
-    pub CMENA: u32,
-    pub OVENA: u32,
-    pub RESERVED0: [u32; 4usize],
-    pub SYNSA: u32,
-    pub SYNCLKA: u32,
-    pub ASYNCLKA: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub HSTAA: u32,
-    pub HSTPA: u32,
-    pub HCLEA: u32,
-    pub HICPA: u32,
-    pub CSTB: u32,
-    pub CAPMDB: u32,
-    pub CMENB: u32,
-    pub OVENB: u32,
-    pub RESERVED2: [u32; 4usize],
-    pub SYNSB: u32,
-    pub SYNCLKB: u32,
-    pub ASYNCLKB: u32,
-    pub RESERVED3: [u32; 1usize],
-    pub HSTAB: u32,
-    pub HSTPB: u32,
-    pub HCLEB: u32,
-    pub HICPB: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr0_stflr_bit_t {
-    pub CMFA: u32,
-    pub OVFA: u32,
-    pub ICPA: u32,
-    pub RESERVED0: [u32; 13usize],
-    pub CMFB: u32,
-    pub OVFB: u32,
-    pub ICPB: u32,
-    pub RESERVED1: [u32; 13usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_ocsr_bit_t {
-    pub OCEH: u32,
-    pub OCEL: u32,
-    pub OCPH: u32,
-    pub OCPL: u32,
-    pub OCIEH: u32,
-    pub OCIEL: u32,
-    pub OCFH: u32,
-    pub OCFL: u32,
-    pub RESERVED0: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_ocer_bit_t {
-    pub RESERVED0: [u32; 8usize],
-    pub LMCH: u32,
-    pub LMCL: u32,
-    pub LMMH: u32,
-    pub LMML: u32,
-    pub MCECH: u32,
-    pub MCECL: u32,
-    pub RESERVED1: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_ocmrh_bit_t {
-    pub OCFDCH: u32,
-    pub OCFPKH: u32,
-    pub OCFUCH: u32,
-    pub OCFZRH: u32,
-    pub RESERVED0: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_ocmrl_bit_t {
-    pub OCFDCL: u32,
-    pub OCFPKL: u32,
-    pub OCFUCL: u32,
-    pub OCFZRL: u32,
-    pub RESERVED0: [u32; 28usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_ccsr_bit_t {
-    pub RESERVED0: [u32; 4usize],
-    pub CLEAR: u32,
-    pub MODE: u32,
-    pub STOP: u32,
-    pub BUFEN: u32,
-    pub IRQPEN: u32,
-    pub IRQPF: u32,
-    pub IRQZEN: u32,
-    pub IRQZF: u32,
-    pub SYNST: u32,
-    pub HST: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub ECKEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_pscr_bit_t {
-    pub OEUH: u32,
-    pub OEUL: u32,
-    pub OEVH: u32,
-    pub OEVL: u32,
-    pub OEWH: u32,
-    pub OEWL: u32,
-    pub OEXH: u32,
-    pub OEXL: u32,
-    pub MOE: u32,
-    pub AOE: u32,
-    pub RESERVED0: [u32; 22usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_scsr_bit_t {
-    pub RESERVED0: [u32; 5usize],
-    pub LMC: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub EVTMS: u32,
-    pub EVTDS: u32,
-    pub RESERVED2: [u32; 2usize],
-    pub DEN: u32,
-    pub PEN: u32,
-    pub UEN: u32,
-    pub ZEN: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_scmr_bit_t {
-    pub RESERVED0: [u32; 6usize],
-    pub MZCE: u32,
-    pub MPCE: u32,
-    pub RESERVED1: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_scer_bit_t {
-    pub RESERVED0: [u32; 8usize],
-    pub PCTS: u32,
-    pub RESERVED1: [u32; 7usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_rcsr_bit_t {
-    pub RTIDU: u32,
-    pub RTIDV: u32,
-    pub RTIDW: u32,
-    pub RTIDX: u32,
-    pub RTIFU: u32,
-    pub RTICU: u32,
-    pub RTEU: u32,
-    pub RTSU: u32,
-    pub RTIFV: u32,
-    pub RTICV: u32,
-    pub RTEV: u32,
-    pub RTSV: u32,
-    pub RTIFW: u32,
-    pub RTICW: u32,
-    pub RTEW: u32,
-    pub RTSW: u32,
-    pub RTIFX: u32,
-    pub RTICX: u32,
-    pub RTEX: u32,
-    pub RTSX: u32,
-    pub RESERVED0: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_scir_bit_t {
-    pub ITEN0: u32,
-    pub ITEN1: u32,
-    pub ITEN2: u32,
-    pub ITEN3: u32,
-    pub ITEN4: u32,
-    pub ITEN5: u32,
-    pub ITEN6: u32,
-    pub ITEN7: u32,
-    pub RESERVED0: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_scfr_bit_t {
-    pub SF0: u32,
-    pub SF1: u32,
-    pub SF2: u32,
-    pub SF3: u32,
-    pub SF4: u32,
-    pub SF5: u32,
-    pub SF6: u32,
-    pub SF7: u32,
-    pub RESERVED0: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_gconr_bit_t {
-    pub START: u32,
-    pub DIR: u32,
-    pub MODE: u32,
-    pub RESERVED0: [u32; 5usize],
-    pub OVSTP: u32,
-    pub RESERVED1: [u32; 7usize],
-    pub ZMSKREV: u32,
-    pub ZMSKPOS: u32,
-    pub RESERVED2: [u32; 14usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_iconr_bit_t {
-    pub INTENA: u32,
-    pub INTENB: u32,
-    pub INTENC: u32,
-    pub INTEND: u32,
-    pub INTENE: u32,
-    pub INTENF: u32,
-    pub INTENOVF: u32,
-    pub INTENUDF: u32,
-    pub INTENDTE: u32,
-    pub RESERVED0: [u32; 7usize],
-    pub INTENSAU: u32,
-    pub INTENSAD: u32,
-    pub INTENSBU: u32,
-    pub INTENSBD: u32,
-    pub RESERVED1: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_bconr_bit_t {
-    pub BENA: u32,
-    pub BSEA: u32,
-    pub BTRUA: u32,
-    pub BTRDA: u32,
-    pub BENB: u32,
-    pub BSEB: u32,
-    pub BTRUB: u32,
-    pub BTRDB: u32,
-    pub BENP: u32,
-    pub BSEP: u32,
-    pub BTRUP: u32,
-    pub BTRDP: u32,
-    pub RESERVED0: [u32; 4usize],
-    pub BENSPA: u32,
-    pub BSESPA: u32,
-    pub BTRUSPA: u32,
-    pub BTRDSPA: u32,
-    pub BENSPB: u32,
-    pub BSESPB: u32,
-    pub BTRUSPB: u32,
-    pub BTRDSPB: u32,
-    pub RESERVED1: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_dconr_bit_t {
-    pub DTCEN: u32,
-    pub SEPA: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub DTBENU: u32,
-    pub DTBEND: u32,
-    pub DTBTRU: u32,
-    pub DTBTRD: u32,
-    pub RESERVED1: [u32; 24usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_pcnar_bit_t {
-    pub RESERVED0: [u32; 28usize],
-    pub OUTENA: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub CAPMDA: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_pcnbr_bit_t {
-    pub RESERVED0: [u32; 28usize],
-    pub OUTENB: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub CAPMDB: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_fcngr_bit_t {
-    pub NOFIENGA: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub NOFIENGB: u32,
-    pub RESERVED1: [u32; 27usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_vperr_bit_t {
-    pub RESERVED0: [u32; 8usize],
-    pub SPPERIA: u32,
-    pub SPPERIB: u32,
-    pub RESERVED1: [u32; 22usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_stflr_bit_t {
-    pub CMAF: u32,
-    pub CMBF: u32,
-    pub CMCF: u32,
-    pub CMDF: u32,
-    pub CMEF: u32,
-    pub CMFF: u32,
-    pub OVFF: u32,
-    pub UDFF: u32,
-    pub DTEF: u32,
-    pub CMSAUF: u32,
-    pub CMSADF: u32,
-    pub CMSBUF: u32,
-    pub CMSBDF: u32,
-    pub RESERVED0: [u32; 13usize],
-    pub CMAF2: u32,
-    pub CMBF2: u32,
-    pub RESERVED1: [u32; 3usize],
-    pub DIRF: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hstar_bit_t {
-    pub HSTA0: u32,
-    pub HSTA1: u32,
-    pub HSTA2: u32,
-    pub HSTA3: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub STAS: u32,
-    pub HSTA8: u32,
-    pub HSTA9: u32,
-    pub RESERVED1: [u32; 6usize],
-    pub HSTA16: u32,
-    pub HSTA17: u32,
-    pub HSTA18: u32,
-    pub HSTA19: u32,
-    pub RESERVED2: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hstpr_bit_t {
-    pub HSTP0: u32,
-    pub HSTP1: u32,
-    pub HSTP2: u32,
-    pub HSTP3: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub STPS: u32,
-    pub HSTP8: u32,
-    pub HSTP9: u32,
-    pub RESERVED1: [u32; 6usize],
-    pub HSTP16: u32,
-    pub HSTP17: u32,
-    pub HSTP18: u32,
-    pub HSTP19: u32,
-    pub RESERVED2: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hclrr_bit_t {
-    pub HCLE0: u32,
-    pub HCLE1: u32,
-    pub HCLE2: u32,
-    pub HCLE3: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub CLES: u32,
-    pub HCLE8: u32,
-    pub HCLE9: u32,
-    pub RESERVED1: [u32; 6usize],
-    pub HCLE16: u32,
-    pub HCLE17: u32,
-    pub HCLE18: u32,
-    pub HCLE19: u32,
-    pub RESERVED2: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hupdr_bit_t {
-    pub HUPD0: u32,
-    pub HUPD1: u32,
-    pub HUPD2: u32,
-    pub HUPD3: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub UPDS: u32,
-    pub HUPD8: u32,
-    pub HUPD9: u32,
-    pub RESERVED1: [u32; 6usize],
-    pub HUPD16: u32,
-    pub HUPD17: u32,
-    pub HUPD18: u32,
-    pub HUPD19: u32,
-    pub RESERVED2: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hcpar_bit_t {
-    pub HCPA0: u32,
-    pub HCPA1: u32,
-    pub HCPA2: u32,
-    pub HCPA3: u32,
-    pub RESERVED0: [u32; 4usize],
-    pub HCPA8: u32,
-    pub HCPA9: u32,
-    pub RESERVED1: [u32; 6usize],
-    pub HCPA16: u32,
-    pub HCPA17: u32,
-    pub HCPA18: u32,
-    pub HCPA19: u32,
-    pub RESERVED2: [u32; 4usize],
-    pub HCPA24: u32,
-    pub HCPA25: u32,
-    pub RESERVED3: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hcpbr_bit_t {
-    pub HCPB0: u32,
-    pub HCPB1: u32,
-    pub HCPB2: u32,
-    pub HCPB3: u32,
-    pub RESERVED0: [u32; 4usize],
-    pub HCPB8: u32,
-    pub HCPB9: u32,
-    pub RESERVED1: [u32; 6usize],
-    pub HCPB16: u32,
-    pub HCPB17: u32,
-    pub HCPB18: u32,
-    pub HCPB19: u32,
-    pub RESERVED2: [u32; 4usize],
-    pub HCPB24: u32,
-    pub HCPB25: u32,
-    pub RESERVED3: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hcupr_bit_t {
-    pub HCUP0: u32,
-    pub HCUP1: u32,
-    pub HCUP2: u32,
-    pub HCUP3: u32,
-    pub HCUP4: u32,
-    pub HCUP5: u32,
-    pub HCUP6: u32,
-    pub HCUP7: u32,
-    pub HCUP8: u32,
-    pub HCUP9: u32,
-    pub RESERVED0: [u32; 6usize],
-    pub HCUP16: u32,
-    pub HCUP17: u32,
-    pub HCUP18: u32,
-    pub HCUP19: u32,
-    pub RESERVED1: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_hcdor_bit_t {
-    pub HCDO0: u32,
-    pub HCDO1: u32,
-    pub HCDO2: u32,
-    pub HCDO3: u32,
-    pub HCDO4: u32,
-    pub HCDO5: u32,
-    pub HCDO6: u32,
-    pub HCDO7: u32,
-    pub HCDO8: u32,
-    pub HCDO9: u32,
-    pub RESERVED0: [u32; 6usize],
-    pub HCDO16: u32,
-    pub HCDO17: u32,
-    pub HCDO18: u32,
-    pub HCDO19: u32,
-    pub RESERVED1: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_common_fcntr_bit_t {
-    pub NOFIENTA: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub NOFIENTB: u32,
-    pub RESERVED1: [u32; 27usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_common_sstar_bit_t {
-    pub SSTA1: u32,
-    pub SSTA2: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_common_sstpr_bit_t {
-    pub SSTP1: u32,
-    pub SSTP2: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_common_sclrr_bit_t {
-    pub SCLE1: u32,
-    pub SCLE2: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_common_supdr_bit_t {
-    pub SUPD1: u32,
-    pub SUPD2: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_bcstrl_bit_t {
-    pub START: u32,
-    pub DIR: u32,
-    pub MODE: u32,
-    pub SYNST: u32,
-    pub RESERVED0: [u32; 4usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_bcstrh_bit_t {
-    pub OVSTP: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub ITENOVF: u32,
-    pub ITENUDF: u32,
-    pub OVFF: u32,
-    pub UDFF: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_hconr_bit_t {
-    pub HSTA0: u32,
-    pub HSTA1: u32,
-    pub HSTA2: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub HSTP0: u32,
-    pub HSTP1: u32,
-    pub HSTP2: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub HCLE0: u32,
-    pub HCLE1: u32,
-    pub HCLE2: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub HCLE3: u32,
-    pub HCLE4: u32,
-    pub HCLE5: u32,
-    pub HCLE6: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_hcupr_bit_t {
-    pub HCUP0: u32,
-    pub HCUP1: u32,
-    pub HCUP2: u32,
-    pub HCUP3: u32,
-    pub HCUP4: u32,
-    pub HCUP5: u32,
-    pub HCUP6: u32,
-    pub HCUP7: u32,
-    pub HCUP8: u32,
-    pub HCUP9: u32,
-    pub HCUP10: u32,
-    pub HCUP11: u32,
-    pub HCUP12: u32,
-    pub RESERVED0: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_hcdor_bit_t {
-    pub HCDO0: u32,
-    pub HCDO1: u32,
-    pub HCDO2: u32,
-    pub HCDO3: u32,
-    pub HCDO4: u32,
-    pub HCDO5: u32,
-    pub HCDO6: u32,
-    pub HCDO7: u32,
-    pub HCDO8: u32,
-    pub HCDO9: u32,
-    pub HCDO10: u32,
-    pub HCDO11: u32,
-    pub HCDO12: u32,
-    pub RESERVED0: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_iconr_bit_t {
-    pub ITEN1: u32,
-    pub ITEN2: u32,
-    pub ITEN3: u32,
-    pub ITEN4: u32,
-    pub ITEN5: u32,
-    pub ITEN6: u32,
-    pub ITEN7: u32,
-    pub ITEN8: u32,
-    pub RESERVED0: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_econr_bit_t {
-    pub ETEN1: u32,
-    pub ETEN2: u32,
-    pub ETEN3: u32,
-    pub ETEN4: u32,
-    pub ETEN5: u32,
-    pub ETEN6: u32,
-    pub ETEN7: u32,
-    pub ETEN8: u32,
-    pub RESERVED0: [u32; 8usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_fconr_bit_t {
-    pub NOFIENTG: u32,
-    pub RESERVED0: [u32; 7usize],
-    pub NOFIENCA: u32,
-    pub RESERVED1: [u32; 3usize],
-    pub NOFIENCB: u32,
-    pub RESERVED2: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_stflr_bit_t {
-    pub CMPF1: u32,
-    pub CMPF2: u32,
-    pub CMPF3: u32,
-    pub CMPF4: u32,
-    pub CMPF5: u32,
-    pub CMPF6: u32,
-    pub CMPF7: u32,
-    pub CMPF8: u32,
-    pub ICPF1: u32,
-    pub ICPF2: u32,
-    pub ICPF3: u32,
-    pub ICPF4: u32,
-    pub ICPF5: u32,
-    pub ICPF6: u32,
-    pub ICPF7: u32,
-    pub ICPF8: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_bconr_bit_t {
-    pub BEN: u32,
-    pub BSE0: u32,
-    pub BSE1: u32,
-    pub BSEN: u32,
-    pub RESERVED0: [u32; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_cconr_bit_t {
-    pub CAPMD: u32,
-    pub RESERVED0: [u32; 3usize],
-    pub HICP0: u32,
-    pub HICP1: u32,
-    pub HICP2: u32,
-    pub RESERVED1: [u32; 1usize],
-    pub HICP3: u32,
-    pub HICP4: u32,
-    pub HICP5: u32,
-    pub HICP6: u32,
-    pub NOFIENCP: u32,
-    pub RESERVED2: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_pconr_bit_t {
-    pub RESERVED0: [u32; 12usize],
-    pub OUTEN: u32,
-    pub RESERVED1: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_trng_cr_bit_t {
-    pub EN: u32,
-    pub RUN: u32,
-    pub RESERVED0: [u32; 30usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_trng_mr_bit_t {
-    pub LOAD: u32,
-    pub RESERVED0: [u32; 31usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_sr_bit_t {
-    pub PE: u32,
-    pub FE: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub ORE: u32,
-    pub BE: u32,
-    pub RXNE: u32,
-    pub TC: u32,
-    pub TXE: u32,
-    pub RTOF: u32,
-    pub WKUP: u32,
-    pub LBD: u32,
-    pub TEND: u32,
-    pub RESERVED1: [u32; 4usize],
-    pub MPB: u32,
-    pub RESERVED2: [u32; 15usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_tdr_bit_t {
-    pub RESERVED0: [u32; 9usize],
-    pub MPID: u32,
-    pub RESERVED1: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_cr1_bit_t {
-    pub RTOE: u32,
-    pub RTOIE: u32,
-    pub RE: u32,
-    pub TE: u32,
-    pub SLME: u32,
-    pub RIE: u32,
-    pub TCIE: u32,
-    pub TXEIE: u32,
-    pub TENDIE: u32,
-    pub PS: u32,
-    pub PCE: u32,
-    pub RESERVED0: [u32; 1usize],
-    pub M: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub OVER8: u32,
-    pub CPE: u32,
-    pub CFE: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub CORE: u32,
-    pub CRTOF: u32,
-    pub CBE: u32,
-    pub CWKUP: u32,
-    pub CLBD: u32,
-    pub MS: u32,
-    pub CTEND: u32,
-    pub RESERVED3: [u32; 2usize],
-    pub ML: u32,
-    pub FBME: u32,
-    pub NFE: u32,
-    pub SBS: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_cr2_bit_t {
-    pub MPE: u32,
-    pub WKUPIE: u32,
-    pub BEIE: u32,
-    pub BEE: u32,
-    pub LBDIE: u32,
-    pub LBDL: u32,
-    pub RESERVED0: [u32; 2usize],
-    pub WKUPE: u32,
-    pub RESERVED1: [u32; 4usize],
-    pub STOP: u32,
-    pub LINEN: u32,
-    pub RESERVED2: [u32; 1usize],
-    pub SBK: u32,
-    pub SBKM: u32,
-    pub RESERVED3: [u32; 14usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_cr3_bit_t {
-    pub RESERVED0: [u32; 3usize],
-    pub HDSEL: u32,
-    pub LOOP: u32,
-    pub SCEN: u32,
-    pub RESERVED1: [u32; 2usize],
-    pub RTSE: u32,
-    pub CTSE: u32,
-    pub RESERVED2: [u32; 22usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_pr_bit_t {
-    pub RESERVED0: [u32; 4usize],
-    pub ULBREN: u32,
-    pub RESERVED1: [u32; 27usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_wdt_cr_bit_t {
-    pub RESERVED0: [u32; 16usize],
-    pub SLPOFF: u32,
-    pub RESERVED1: [u32; 14usize],
-    pub ITS: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_wdt_sr_bit_t {
-    pub RESERVED0: [u32; 16usize],
-    pub UDF: u32,
-    pub REF: u32,
-    pub RESERVED1: [u32; 14usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_ADC_TypeDef {
-    pub STR_b: stc_adc_str_bit_t,
-    pub RESERVED0: [u32; 8usize],
-    pub CR0_b: stc_adc_cr0_bit_t,
-    pub CR1_b: stc_adc_cr1_bit_t,
-    pub CR2_b: stc_adc_cr2_bit_t,
-    pub RESERVED1: [u32; 16usize],
-    pub TRGSR_b: stc_adc_trgsr_bit_t,
-    pub RESERVED2: [u32; 96usize],
-    pub EXCHSELR_b: stc_adc_exchselr_bit_t,
-    pub RESERVED3: [u32; 344usize],
-    pub ISR_b: stc_adc_isr_bit_t,
-    pub ICR_b: stc_adc_icr_bit_t,
-    pub ISCLRR_b: stc_adc_isclrr_bit_t,
-    pub RESERVED4: [u32; 40usize],
-    pub SYNCCR_b: stc_adc_synccr_bit_t,
-    pub RESERVED5: [u32; 656usize],
-    pub AWDCR_b: stc_adc_awdcr_bit_t,
-    pub AWDSR_b: stc_adc_awdsr_bit_t,
-    pub AWDSCLRR_b: stc_adc_awdsclrr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_AES_TypeDef {
-    pub CR_b: stc_aes_cr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_AOS_TypeDef {
-    pub INTSFTTRG_b: stc_aos_intsfttrg_bit_t,
-    pub RESERVED0: [u32; 2912usize],
-    pub PEVNTNFCR_b: stc_aos_pevntnfcr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_CMP_TypeDef {
-    pub MDR_b: stc_cmp_mdr_bit_t,
-    pub FIR_b: stc_cmp_fir_bit_t,
-    pub OCR_b: stc_cmp_ocr_bit_t,
-    pub RESERVED0: [u32; 104usize],
-    pub BWSR1_b: stc_cmp_bwsr1_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_CMU_TypeDef {
-    pub RESERVED0: [u32; 224usize],
-    pub XTALDIVCR_b: stc_cmu_xtaldivcr_bit_t,
-    pub RESERVED1: [u32; 156032usize],
-    pub XTALCFGR_b: stc_cmu_xtalcfgr_bit_t,
-    pub RESERVED2: [u32; 24usize],
-    pub XTAL32CR_b: stc_cmu_xtal32cr_bit_t,
-    pub RESERVED3: [u32; 184usize],
-    pub LRCCR_b: stc_cmu_lrccr_bit_t,
-    pub RESERVED4: [u32; 237032usize],
-    pub PLLHCR_b: stc_cmu_pllhcr_bit_t,
-    pub RESERVED5: [u32; 56usize],
-    pub XTALCR_b: stc_cmu_xtalcr_bit_t,
-    pub RESERVED6: [u32; 24usize],
-    pub HRCCR_b: stc_cmu_hrccr_bit_t,
-    pub RESERVED7: [u32; 8usize],
-    pub MRCCR_b: stc_cmu_mrccr_bit_t,
-    pub RESERVED8: [u32; 24usize],
-    pub OSCSTBSR_b: stc_cmu_oscstbsr_bit_t,
-    pub MCO1CFGR_b: stc_cmu_mcocfgr_bit_t,
-    pub MCO2CFGR_b: stc_cmu_mcocfgr_bit_t,
-    pub TPIUCKCFGR_b: stc_cmu_tpiuckcfgr_bit_t,
-    pub XTALSTDCR_b: stc_cmu_xtalstdcr_bit_t,
-    pub XTALSTDSR_b: stc_cmu_xtalstdsr_bit_t,
-    pub RESERVED9: [u32; 1520usize],
-    pub PLLHCFGR_b: stc_cmu_pllhcfgr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_CRC_TypeDef {
-    pub CR_b: stc_crc_cr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_CTC_TypeDef {
-    pub CR1_b: stc_ctc_cr1_bit_t,
-    pub RESERVED0: [u32; 32usize],
-    pub STR_b: stc_ctc_str_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_DAC_TypeDef {
-    pub DADR1_b: stc_dac_dadr1_bit_t,
-    pub DADR2_b: stc_dac_dadr2_bit_t,
-    pub DACR_b: stc_dac_dacr_bit_t,
-    pub DAADPCR_b: stc_dac_daadpcr_bit_t,
-    pub RESERVED0: [u32; 160usize],
-    pub DAOCR_b: stc_dac_daocr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_DCU_TypeDef {
-    pub CTL_b: stc_dcu_ctl_bit_t,
-    pub FLAG_b: stc_dcu_flag_bit_t,
-    pub RESERVED0: [u32; 96usize],
-    pub FLAGCLR_b: stc_dcu_flagclr_bit_t,
-    pub INTEVTSEL_b: stc_dcu_intevtsel_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_DMA_TypeDef {
-    pub EN_b: stc_dma_en_bit_t,
-    pub INTSTAT0_b: stc_dma_intstat0_bit_t,
-    pub INTSTAT1_b: stc_dma_intstat1_bit_t,
-    pub INTMASK0_b: stc_dma_intmask0_bit_t,
-    pub INTMASK1_b: stc_dma_intmask1_bit_t,
-    pub INTCLR0_b: stc_dma_intclr0_bit_t,
-    pub INTCLR1_b: stc_dma_intclr1_bit_t,
-    pub RESERVED0: [u32; 32usize],
-    pub REQSTAT_b: stc_dma_reqstat_bit_t,
-    pub CHSTAT_b: stc_dma_chstat_bit_t,
-    pub RESERVED1: [u32; 32usize],
-    pub RCFGCTL_b: stc_dma_rcfgctl_bit_t,
-    pub SWREQ_b: stc_dma_swreq_bit_t,
-    pub RESERVED2: [u32; 320usize],
-    pub CHCTL0_b: stc_dma_chctl_bit_t,
-    pub RESERVED3: [u32; 480usize],
-    pub CHCTL1_b: stc_dma_chctl_bit_t,
-    pub RESERVED4: [u32; 480usize],
-    pub CHCTL2_b: stc_dma_chctl_bit_t,
-    pub RESERVED5: [u32; 480usize],
-    pub CHCTL3_b: stc_dma_chctl_bit_t,
-    pub RESERVED6: [u32; 480usize],
-    pub CHCTL4_b: stc_dma_chctl_bit_t,
-    pub RESERVED7: [u32; 480usize],
-    pub CHCTL5_b: stc_dma_chctl_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_EFM_TypeDef {
-    pub RESERVED0: [u32; 160usize],
-    pub FSTP_b: stc_efm_fstp_bit_t,
-    pub FRMC_b: stc_efm_frmc_bit_t,
-    pub FWMC_b: stc_efm_fwmc_bit_t,
-    pub FSR_b: stc_efm_fsr_bit_t,
-    pub FSCLR_b: stc_efm_fsclr_bit_t,
-    pub FITE_b: stc_efm_fite_bit_t,
-    pub FSWP_b: stc_efm_fswp_bit_t,
-    pub RESERVED1: [u32; 1696usize],
-    pub MMF_REMCR0_b: stc_efm_mmf_remcr_bit_t,
-    pub MMF_REMCR1_b: stc_efm_mmf_remcr_bit_t,
-    pub RESERVED2: [u32; 928usize],
-    pub WLOCK_b: stc_efm_wlock_bit_t,
-    pub RESERVED3: [u32; 96usize],
-    pub F0NWPRT_b: stc_efm_f0nwprt_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_EMB_TypeDef {
-    pub CTL1_b: stc_emb_ctl1_bit_t,
-    pub CTL2_b: stc_emb_ctl2_bit_t,
-    pub SOE_b: stc_emb_soe_bit_t,
-    pub STAT_b: stc_emb_stat_bit_t,
-    pub STATCLR_b: stc_emb_statclr_bit_t,
-    pub INTEN_b: stc_emb_inten_bit_t,
-    pub RLSSEL_b: stc_emb_rlssel_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_FCM_TypeDef {
-    pub RESERVED0: [u32; 96usize],
-    pub STR_b: stc_fcm_str_bit_t,
-    pub RESERVED1: [u32; 32usize],
-    pub RCCR_b: stc_fcm_rccr_bit_t,
-    pub RIER_b: stc_fcm_rier_bit_t,
-    pub SR_b: stc_fcm_sr_bit_t,
-    pub CLR_b: stc_fcm_clr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_GPIO_TypeDef {
-    pub PIDRA_b: stc_gpio_pidr_bit_t,
-    pub RESERVED0: [u32; 16usize],
-    pub PODRA_b: stc_gpio_podr_bit_t,
-    pub POERA_b: stc_gpio_poer_bit_t,
-    pub POSRA_b: stc_gpio_posr_bit_t,
-    pub PORRA_b: stc_gpio_porr_bit_t,
-    pub POTRA_b: stc_gpio_potr_bit_t,
-    pub RESERVED1: [u32; 16usize],
-    pub PIDRB_b: stc_gpio_pidr_bit_t,
-    pub RESERVED2: [u32; 16usize],
-    pub PODRB_b: stc_gpio_podr_bit_t,
-    pub POERB_b: stc_gpio_poer_bit_t,
-    pub POSRB_b: stc_gpio_posr_bit_t,
-    pub PORRB_b: stc_gpio_porr_bit_t,
-    pub POTRB_b: stc_gpio_potr_bit_t,
-    pub RESERVED3: [u32; 16usize],
-    pub PIDRC_b: stc_gpio_pidr_bit_t,
-    pub RESERVED4: [u32; 16usize],
-    pub PODRC_b: stc_gpio_podr_bit_t,
-    pub POERC_b: stc_gpio_poer_bit_t,
-    pub POSRC_b: stc_gpio_posr_bit_t,
-    pub PORRC_b: stc_gpio_porr_bit_t,
-    pub POTRC_b: stc_gpio_potr_bit_t,
-    pub RESERVED5: [u32; 16usize],
-    pub PIDRD_b: stc_gpio_pidr_bit_t,
-    pub RESERVED6: [u32; 16usize],
-    pub PODRD_b: stc_gpio_podr_bit_t,
-    pub POERD_b: stc_gpio_poer_bit_t,
-    pub POSRD_b: stc_gpio_posr_bit_t,
-    pub PORRD_b: stc_gpio_porr_bit_t,
-    pub POTRD_b: stc_gpio_potr_bit_t,
-    pub RESERVED7: [u32; 16usize],
-    pub PIDRE_b: stc_gpio_pidr_bit_t,
-    pub RESERVED8: [u32; 16usize],
-    pub PODRE_b: stc_gpio_podr_bit_t,
-    pub POERE_b: stc_gpio_poer_bit_t,
-    pub POSRE_b: stc_gpio_posr_bit_t,
-    pub PORRE_b: stc_gpio_porr_bit_t,
-    pub POTRE_b: stc_gpio_potr_bit_t,
-    pub RESERVED9: [u32; 16usize],
-    pub PIDRH_b: stc_gpio_pidr_bit_t,
-    pub RESERVED10: [u32; 16usize],
-    pub PODRH_b: stc_gpio_podr_bit_t,
-    pub POERH_b: stc_gpio_poer_bit_t,
-    pub POSRH_b: stc_gpio_posr_bit_t,
-    pub PORRH_b: stc_gpio_porr_bit_t,
-    pub POTRH_b: stc_gpio_potr_bit_t,
-    pub RESERVED11: [u32; 7408usize],
-    pub PWPR_b: stc_gpio_pwpr_bit_t,
-    pub RESERVED12: [u32; 16usize],
-    pub PCRA0_b: stc_gpio_pcr_bit_t,
-    pub PFSRA0_b: stc_gpio_pfsr_bit_t,
-    pub PCRA1_b: stc_gpio_pcr_bit_t,
-    pub PFSRA1_b: stc_gpio_pfsr_bit_t,
-    pub PCRA2_b: stc_gpio_pcr_bit_t,
-    pub PFSRA2_b: stc_gpio_pfsr_bit_t,
-    pub PCRA3_b: stc_gpio_pcr_bit_t,
-    pub PFSRA3_b: stc_gpio_pfsr_bit_t,
-    pub PCRA4_b: stc_gpio_pcr_bit_t,
-    pub PFSRA4_b: stc_gpio_pfsr_bit_t,
-    pub PCRA5_b: stc_gpio_pcr_bit_t,
-    pub PFSRA5_b: stc_gpio_pfsr_bit_t,
-    pub PCRA6_b: stc_gpio_pcr_bit_t,
-    pub PFSRA6_b: stc_gpio_pfsr_bit_t,
-    pub PCRA7_b: stc_gpio_pcr_bit_t,
-    pub PFSRA7_b: stc_gpio_pfsr_bit_t,
-    pub PCRA8_b: stc_gpio_pcr_bit_t,
-    pub PFSRA8_b: stc_gpio_pfsr_bit_t,
-    pub PCRA9_b: stc_gpio_pcr_bit_t,
-    pub PFSRA9_b: stc_gpio_pfsr_bit_t,
-    pub PCRA10_b: stc_gpio_pcr_bit_t,
-    pub PFSRA10_b: stc_gpio_pfsr_bit_t,
-    pub PCRA11_b: stc_gpio_pcr_bit_t,
-    pub PFSRA11_b: stc_gpio_pfsr_bit_t,
-    pub PCRA12_b: stc_gpio_pcr_bit_t,
-    pub PFSRA12_b: stc_gpio_pfsr_bit_t,
-    pub PCRA13_b: stc_gpio_pcr_bit_t,
-    pub PFSRA13_b: stc_gpio_pfsr_bit_t,
-    pub PCRA14_b: stc_gpio_pcr_bit_t,
-    pub PFSRA14_b: stc_gpio_pfsr_bit_t,
-    pub PCRA15_b: stc_gpio_pcr_bit_t,
-    pub PFSRA15_b: stc_gpio_pfsr_bit_t,
-    pub PCRB0_b: stc_gpio_pcr_bit_t,
-    pub PFSRB0_b: stc_gpio_pfsr_bit_t,
-    pub PCRB1_b: stc_gpio_pcr_bit_t,
-    pub PFSRB1_b: stc_gpio_pfsr_bit_t,
-    pub PCRB2_b: stc_gpio_pcr_bit_t,
-    pub PFSRB2_b: stc_gpio_pfsr_bit_t,
-    pub PCRB3_b: stc_gpio_pcr_bit_t,
-    pub PFSRB3_b: stc_gpio_pfsr_bit_t,
-    pub PCRB4_b: stc_gpio_pcr_bit_t,
-    pub PFSRB4_b: stc_gpio_pfsr_bit_t,
-    pub PCRB5_b: stc_gpio_pcr_bit_t,
-    pub PFSRB5_b: stc_gpio_pfsr_bit_t,
-    pub PCRB6_b: stc_gpio_pcr_bit_t,
-    pub PFSRB6_b: stc_gpio_pfsr_bit_t,
-    pub PCRB7_b: stc_gpio_pcr_bit_t,
-    pub PFSRB7_b: stc_gpio_pfsr_bit_t,
-    pub PCRB8_b: stc_gpio_pcr_bit_t,
-    pub PFSRB8_b: stc_gpio_pfsr_bit_t,
-    pub PCRB9_b: stc_gpio_pcr_bit_t,
-    pub PFSRB9_b: stc_gpio_pfsr_bit_t,
-    pub PCRB10_b: stc_gpio_pcr_bit_t,
-    pub PFSRB10_b: stc_gpio_pfsr_bit_t,
-    pub PCRB11_b: stc_gpio_pcr_bit_t,
-    pub PFSRB11_b: stc_gpio_pfsr_bit_t,
-    pub PCRB12_b: stc_gpio_pcr_bit_t,
-    pub PFSRB12_b: stc_gpio_pfsr_bit_t,
-    pub PCRB13_b: stc_gpio_pcr_bit_t,
-    pub PFSRB13_b: stc_gpio_pfsr_bit_t,
-    pub PCRB14_b: stc_gpio_pcr_bit_t,
-    pub PFSRB14_b: stc_gpio_pfsr_bit_t,
-    pub PCRB15_b: stc_gpio_pcr_bit_t,
-    pub PFSRB15_b: stc_gpio_pfsr_bit_t,
-    pub PCRC0_b: stc_gpio_pcr_bit_t,
-    pub PFSRC0_b: stc_gpio_pfsr_bit_t,
-    pub PCRC1_b: stc_gpio_pcr_bit_t,
-    pub PFSRC1_b: stc_gpio_pfsr_bit_t,
-    pub PCRC2_b: stc_gpio_pcr_bit_t,
-    pub PFSRC2_b: stc_gpio_pfsr_bit_t,
-    pub PCRC3_b: stc_gpio_pcr_bit_t,
-    pub PFSRC3_b: stc_gpio_pfsr_bit_t,
-    pub PCRC4_b: stc_gpio_pcr_bit_t,
-    pub PFSRC4_b: stc_gpio_pfsr_bit_t,
-    pub PCRC5_b: stc_gpio_pcr_bit_t,
-    pub PFSRC5_b: stc_gpio_pfsr_bit_t,
-    pub PCRC6_b: stc_gpio_pcr_bit_t,
-    pub PFSRC6_b: stc_gpio_pfsr_bit_t,
-    pub PCRC7_b: stc_gpio_pcr_bit_t,
-    pub PFSRC7_b: stc_gpio_pfsr_bit_t,
-    pub PCRC8_b: stc_gpio_pcr_bit_t,
-    pub PFSRC8_b: stc_gpio_pfsr_bit_t,
-    pub PCRC9_b: stc_gpio_pcr_bit_t,
-    pub PFSRC9_b: stc_gpio_pfsr_bit_t,
-    pub PCRC10_b: stc_gpio_pcr_bit_t,
-    pub PFSRC10_b: stc_gpio_pfsr_bit_t,
-    pub PCRC11_b: stc_gpio_pcr_bit_t,
-    pub PFSRC11_b: stc_gpio_pfsr_bit_t,
-    pub PCRC12_b: stc_gpio_pcr_bit_t,
-    pub PFSRC12_b: stc_gpio_pfsr_bit_t,
-    pub PCRC13_b: stc_gpio_pcr_bit_t,
-    pub PFSRC13_b: stc_gpio_pfsr_bit_t,
-    pub PCRC14_b: stc_gpio_pcr_bit_t,
-    pub PFSRC14_b: stc_gpio_pfsr_bit_t,
-    pub PCRC15_b: stc_gpio_pcr_bit_t,
-    pub PFSRC15_b: stc_gpio_pfsr_bit_t,
-    pub PCRD0_b: stc_gpio_pcr_bit_t,
-    pub PFSRD0_b: stc_gpio_pfsr_bit_t,
-    pub PCRD1_b: stc_gpio_pcr_bit_t,
-    pub PFSRD1_b: stc_gpio_pfsr_bit_t,
-    pub PCRD2_b: stc_gpio_pcr_bit_t,
-    pub PFSRD2_b: stc_gpio_pfsr_bit_t,
-    pub RESERVED13: [u32; 160usize],
-    pub PCRD8_b: stc_gpio_pcr_bit_t,
-    pub PFSRD8_b: stc_gpio_pfsr_bit_t,
-    pub PCRD9_b: stc_gpio_pcr_bit_t,
-    pub PFSRD9_b: stc_gpio_pfsr_bit_t,
-    pub PCRD10_b: stc_gpio_pcr_bit_t,
-    pub PFSRD10_b: stc_gpio_pfsr_bit_t,
-    pub PCRD11_b: stc_gpio_pcr_bit_t,
-    pub PFSRD11_b: stc_gpio_pfsr_bit_t,
-    pub RESERVED14: [u32; 128usize],
-    pub PCRE0_b: stc_gpio_pcr_bit_t,
-    pub PFSRE0_b: stc_gpio_pfsr_bit_t,
-    pub PCRE1_b: stc_gpio_pcr_bit_t,
-    pub PFSRE1_b: stc_gpio_pfsr_bit_t,
-    pub PCRE2_b: stc_gpio_pcr_bit_t,
-    pub PFSRE2_b: stc_gpio_pfsr_bit_t,
-    pub PCRE3_b: stc_gpio_pcr_bit_t,
-    pub PFSRE3_b: stc_gpio_pfsr_bit_t,
-    pub PCRE4_b: stc_gpio_pcr_bit_t,
-    pub PFSRE4_b: stc_gpio_pfsr_bit_t,
-    pub RESERVED15: [u32; 224usize],
-    pub PCRE12_b: stc_gpio_pcr_bit_t,
-    pub PFSRE12_b: stc_gpio_pfsr_bit_t,
-    pub PCRE13_b: stc_gpio_pcr_bit_t,
-    pub PFSRE13_b: stc_gpio_pfsr_bit_t,
-    pub PCRE14_b: stc_gpio_pcr_bit_t,
-    pub PFSRE14_b: stc_gpio_pfsr_bit_t,
-    pub PCRE15_b: stc_gpio_pcr_bit_t,
-    pub PFSRE15_b: stc_gpio_pfsr_bit_t,
-    pub PCRH0_b: stc_gpio_pcr_bit_t,
-    pub PFSRH0_b: stc_gpio_pfsr_bit_t,
-    pub PCRH1_b: stc_gpio_pcr_bit_t,
-    pub PFSRH1_b: stc_gpio_pfsr_bit_t,
-    pub PCRH2_b: stc_gpio_pcr_bit_t,
-    pub PFSRH2_b: stc_gpio_pfsr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_HASH_TypeDef {
-    pub CR_b: stc_hash_cr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_I2C_TypeDef {
-    pub CR1_b: stc_i2c_cr1_bit_t,
-    pub CR2_b: stc_i2c_cr2_bit_t,
-    pub CR3_b: stc_i2c_cr3_bit_t,
-    pub CR4_b: stc_i2c_cr4_bit_t,
-    pub SLR0_b: stc_i2c_slr0_bit_t,
-    pub SLR1_b: stc_i2c_slr1_bit_t,
-    pub RESERVED0: [u32; 32usize],
-    pub SR_b: stc_i2c_sr_bit_t,
-    pub CLR_b: stc_i2c_clr_bit_t,
-    pub RESERVED1: [u32; 96usize],
-    pub FLTR_b: stc_i2c_fltr_bit_t,
-    pub FSTR_b: stc_i2c_fstr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_ICG_TypeDef {
-    pub ICG0_b: stc_icg_icg0_bit_t,
-    pub ICG1_b: stc_icg_icg1_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_INTC_TypeDef {
-    pub RESERVED0: [u32; 32usize],
-    pub NMIER_b: stc_intc_nmier_bit_t,
-    pub NMIFR_b: stc_intc_nmifr_bit_t,
-    pub NMIFCR_b: stc_intc_nmifcr_bit_t,
-    pub EIRQCR0_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR1_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR2_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR3_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR4_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR5_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR6_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR7_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR8_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR9_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR10_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR11_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR12_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR13_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR14_b: stc_intc_eirqcr_bit_t,
-    pub EIRQCR15_b: stc_intc_eirqcr_bit_t,
-    pub WKEN_b: stc_intc_wken_bit_t,
-    pub EIFR_b: stc_intc_eifr_bit_t,
-    pub EIFCR_b: stc_intc_eifcr_bit_t,
-    pub RESERVED1: [u32; 1024usize],
-    pub SWIER_b: stc_intc_swier_bit_t,
-    pub EVTER_b: stc_intc_evter_bit_t,
-    pub IER_b: stc_intc_ier_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_KEYSCAN_TypeDef {
-    pub RESERVED0: [u32; 32usize],
-    pub SER_b: stc_keyscan_ser_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_MCAN_TypeDef {
-    pub RESERVED0: [u32; 96usize],
-    pub DBTP_b: stc_mcan_dbtp_bit_t,
-    pub TEST_b: stc_mcan_test_bit_t,
-    pub RESERVED1: [u32; 32usize],
-    pub CCCR_b: stc_mcan_cccr_bit_t,
-    pub RESERVED2: [u32; 96usize],
-    pub TOCC_b: stc_mcan_tocc_bit_t,
-    pub RESERVED3: [u32; 160usize],
-    pub ECR_b: stc_mcan_ecr_bit_t,
-    pub PSR_b: stc_mcan_psr_bit_t,
-    pub RESERVED4: [u32; 64usize],
-    pub IR_b: stc_mcan_ir_bit_t,
-    pub IE_b: stc_mcan_ie_bit_t,
-    pub ILS_b: stc_mcan_ils_bit_t,
-    pub ILE_b: stc_mcan_ile_bit_t,
-    pub RESERVED5: [u32; 256usize],
-    pub GFC_b: stc_mcan_gfc_bit_t,
-    pub RESERVED6: [u32; 128usize],
-    pub HPMS_b: stc_mcan_hpms_bit_t,
-    pub NDAT1_b: stc_mcan_ndat1_bit_t,
-    pub NDAT2_b: stc_mcan_ndat2_bit_t,
-    pub RXF0C_b: stc_mcan_rxf0c_bit_t,
-    pub RXF0S_b: stc_mcan_rxf0s_bit_t,
-    pub RESERVED7: [u32; 64usize],
-    pub RXF1C_b: stc_mcan_rxf1c_bit_t,
-    pub RXF1S_b: stc_mcan_rxf1s_bit_t,
-    pub RESERVED8: [u32; 64usize],
-    pub TXBC_b: stc_mcan_txbc_bit_t,
-    pub TXFQS_b: stc_mcan_txfqs_bit_t,
-    pub RESERVED9: [u32; 32usize],
-    pub TXBRP_b: stc_mcan_txbrp_bit_t,
-    pub TXBAR_b: stc_mcan_txbar_bit_t,
-    pub TXBCR_b: stc_mcan_txbcr_bit_t,
-    pub TXBTO_b: stc_mcan_txbto_bit_t,
-    pub TXBCF_b: stc_mcan_txbcf_bit_t,
-    pub TXBTIE_b: stc_mcan_txbtie_bit_t,
-    pub TXBCIE_b: stc_mcan_txbcie_bit_t,
-    pub RESERVED10: [u32; 96usize],
-    pub TXEFS_b: stc_mcan_txefs_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_MPU_TypeDef {
-    pub RESERVED0: [u32; 512usize],
-    pub SR_b: stc_mpu_sr_bit_t,
-    pub ECLR_b: stc_mpu_eclr_bit_t,
-    pub WP_b: stc_mpu_wp_bit_t,
-    pub IPPR_b: stc_mpu_ippr_bit_t,
-    pub RESERVED1: [u32; 32usize],
-    pub MSPPCTL_b: stc_mpu_msppctl_bit_t,
-    pub RESERVED2: [u32; 32usize],
-    pub PSPPCTL_b: stc_mpu_psppctl_bit_t,
-    pub S1RGE_b: stc_mpu_srge_bit_t,
-    pub S1RGWP_b: stc_mpu_srgwp_bit_t,
-    pub S1RGRP_b: stc_mpu_srgrp_bit_t,
-    pub S1CR_b: stc_mpu_scr_bit_t,
-    pub S2RGE_b: stc_mpu_srge_bit_t,
-    pub S2RGWP_b: stc_mpu_srgwp_bit_t,
-    pub S2RGRP_b: stc_mpu_srgrp_bit_t,
-    pub S2CR_b: stc_mpu_scr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_PERIC_TypeDef {
-    pub RESERVED0: [u32; 96usize],
-    pub SMC_ENAR_b: stc_peric_smc_enar_bit_t,
-    pub RESERVED1: [u32; 32usize],
-    pub TMR_SYNENR_b: stc_peric_tmr_synenr_bit_t,
-    pub RESERVED2: [u32; 32usize],
-    pub USART1_NFC_b: stc_peric_usart1_nfc_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_PWC_TypeDef {
-    pub FCG0_b: stc_pwc_fcg0_bit_t,
-    pub FCG1_b: stc_pwc_fcg1_bit_t,
-    pub FCG2_b: stc_pwc_fcg2_bit_t,
-    pub FCG3_b: stc_pwc_fcg3_bit_t,
-    pub FCG0PC_b: stc_pwc_fcg0pc_bit_t,
-    pub RESERVED0: [u32; 139104usize],
-    pub WKTCR_b: stc_pwc_wktcr_bit_t,
-    pub RESERVED1: [u32; 16368usize],
-    pub PWRC0_b: stc_pwc_pwrc0_bit_t,
-    pub RESERVED2: [u32; 24usize],
-    pub PWRC1_b: stc_pwc_pwrc1_bit_t,
-    pub RESERVED3: [u32; 88usize],
-    pub PWRC4_b: stc_pwc_pwrc4_bit_t,
-    pub RESERVED4: [u32; 24usize],
-    pub PVDCR0_b: stc_pwc_pvdcr0_bit_t,
-    pub RESERVED5: [u32; 24usize],
-    pub PVDCR1_b: stc_pwc_pvdcr1_bit_t,
-    pub RESERVED6: [u32; 24usize],
-    pub PVDFCR_b: stc_pwc_pvdfcr_bit_t,
-    pub RESERVED7: [u32; 88usize],
-    pub PDWKE0_b: stc_pwc_pdwke0_bit_t,
-    pub RESERVED8: [u32; 24usize],
-    pub PDWKE1_b: stc_pwc_pdwke1_bit_t,
-    pub RESERVED9: [u32; 24usize],
-    pub PDWKE2_b: stc_pwc_pdwke2_bit_t,
-    pub RESERVED10: [u32; 24usize],
-    pub PDWKES_b: stc_pwc_pdwkes_bit_t,
-    pub RESERVED11: [u32; 24usize],
-    pub PDWKF0_b: stc_pwc_pdwkf0_bit_t,
-    pub RESERVED12: [u32; 24usize],
-    pub PDWKF1_b: stc_pwc_pdwkf1_bit_t,
-    pub RESERVED13: [u32; 24usize],
-    pub PWRC5_b: stc_pwc_pwrc5_bit_t,
-    pub RESERVED14: [u32; 1048usize],
-    pub PVDDSR_b: stc_pwc_pvddsr_bit_t,
-    pub RESERVED15: [u32; 24usize],
-    pub RAMPC0_b: stc_pwc_rampc0_bit_t,
-    pub RESERVED16: [u32; 32usize],
-    pub PRAMLPC_b: stc_pwc_pramlpc_bit_t,
-    pub RESERVED17: [u32; 235968usize],
-    pub STPMCR_b: stc_pwc_stpmcr_bit_t,
-    pub RESERVED18: [u32; 8064usize],
-    pub FPRC_b: stc_pwc_fprc_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_RMU_TypeDef {
-    pub FRST0_b: stc_rmu_frst0_bit_t,
-    pub FRST1_b: stc_rmu_frst1_bit_t,
-    pub FRST2_b: stc_rmu_frst2_bit_t,
-    pub FRST3_b: stc_rmu_frst3_bit_t,
-    pub PRSTCR0_b: stc_rmu_prstcr0_bit_t,
-    pub RESERVED0: [u32; 24usize],
-    pub RSTF0_b: stc_rmu_rstf0_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_RTC_TypeDef {
-    pub CR0_b: stc_rtc_cr0_bit_t,
-    pub RESERVED0: [u32; 24usize],
-    pub CR1_b: stc_rtc_cr1_bit_t,
-    pub RESERVED1: [u32; 24usize],
-    pub CR2_b: stc_rtc_cr2_bit_t,
-    pub RESERVED2: [u32; 24usize],
-    pub CR3_b: stc_rtc_cr3_bit_t,
-    pub RESERVED3: [u32; 344usize],
-    pub ERRCRH_b: stc_rtc_errcrh_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_SPI_TypeDef {
-    pub RESERVED0: [u32; 32usize],
-    pub CR_b: stc_spi_cr_bit_t,
-    pub RESERVED1: [u32; 32usize],
-    pub CFG1_b: stc_spi_cfg1_bit_t,
-    pub RESERVED2: [u32; 32usize],
-    pub SR_b: stc_spi_sr_bit_t,
-    pub CFG2_b: stc_spi_cfg2_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_SRAMC_TypeDef {
-    pub RESERVED0: [u32; 64usize],
-    pub CKCR_b: stc_sramc_ckcr_bit_t,
-    pub CKPR_b: stc_sramc_ckpr_bit_t,
-    pub CKSR_b: stc_sramc_cksr_bit_t,
-    pub SRAM0_EIEN_b: stc_sramc_sram0_eien_bit_t,
-    pub RESERVED1: [u32; 96usize],
-    pub SRAMB_EIEN_b: stc_sramc_sramb_eien_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_SWDT_TypeDef {
-    pub CR_b: stc_swdt_cr_bit_t,
-    pub SR_b: stc_swdt_sr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_TMR0_TypeDef {
-    pub RESERVED0: [u32; 128usize],
-    pub BCONR_b: stc_tmr0_bconr_bit_t,
-    pub STFLR_b: stc_tmr0_stflr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_TMR4_TypeDef {
-    pub RESERVED0: [u32; 256usize],
-    pub OCSRU_b: stc_tmr4_ocsr_bit_t,
-    pub OCERU_b: stc_tmr4_ocer_bit_t,
-    pub OCSRV_b: stc_tmr4_ocsr_bit_t,
-    pub OCERV_b: stc_tmr4_ocer_bit_t,
-    pub OCSRW_b: stc_tmr4_ocsr_bit_t,
-    pub OCERW_b: stc_tmr4_ocer_bit_t,
-    pub OCSRX_b: stc_tmr4_ocsr_bit_t,
-    pub OCERX_b: stc_tmr4_ocer_bit_t,
-    pub OCMRUH_b: stc_tmr4_ocmrh_bit_t,
-    pub RESERVED1: [u32; 16usize],
-    pub OCMRUL_b: stc_tmr4_ocmrl_bit_t,
-    pub OCMRVH_b: stc_tmr4_ocmrh_bit_t,
-    pub RESERVED2: [u32; 16usize],
-    pub OCMRVL_b: stc_tmr4_ocmrl_bit_t,
-    pub OCMRWH_b: stc_tmr4_ocmrh_bit_t,
-    pub RESERVED3: [u32; 16usize],
-    pub OCMRWL_b: stc_tmr4_ocmrl_bit_t,
-    pub OCMRXH_b: stc_tmr4_ocmrh_bit_t,
-    pub RESERVED4: [u32; 16usize],
-    pub OCMRXL_b: stc_tmr4_ocmrl_bit_t,
-    pub RESERVED5: [u32; 64usize],
-    pub CCSR_b: stc_tmr4_ccsr_bit_t,
-    pub RESERVED6: [u32; 16usize],
-    pub PSCR_b: stc_tmr4_pscr_bit_t,
-    pub RESERVED7: [u32; 896usize],
-    pub SCSRUH_b: stc_tmr4_scsr_bit_t,
-    pub SCMRUH_b: stc_tmr4_scmr_bit_t,
-    pub SCSRUL_b: stc_tmr4_scsr_bit_t,
-    pub SCMRUL_b: stc_tmr4_scmr_bit_t,
-    pub SCSRVH_b: stc_tmr4_scsr_bit_t,
-    pub SCMRVH_b: stc_tmr4_scmr_bit_t,
-    pub SCSRVL_b: stc_tmr4_scsr_bit_t,
-    pub SCMRVL_b: stc_tmr4_scmr_bit_t,
-    pub SCSRWH_b: stc_tmr4_scsr_bit_t,
-    pub SCMRWH_b: stc_tmr4_scmr_bit_t,
-    pub SCSRWL_b: stc_tmr4_scsr_bit_t,
-    pub SCMRWL_b: stc_tmr4_scmr_bit_t,
-    pub SCSRXH_b: stc_tmr4_scsr_bit_t,
-    pub SCMRXH_b: stc_tmr4_scmr_bit_t,
-    pub SCSRXL_b: stc_tmr4_scsr_bit_t,
-    pub SCMRXL_b: stc_tmr4_scmr_bit_t,
-    pub SCER_b: stc_tmr4_scer_bit_t,
-    pub RESERVED8: [u32; 16usize],
-    pub RCSR_b: stc_tmr4_rcsr_bit_t,
-    pub SCIR_b: stc_tmr4_scir_bit_t,
-    pub RESERVED9: [u32; 16usize],
-    pub SCFR_b: stc_tmr4_scfr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_TMR6_TypeDef {
-    pub RESERVED0: [u32; 2560usize],
-    pub GCONR_b: stc_tmr6_gconr_bit_t,
-    pub ICONR_b: stc_tmr6_iconr_bit_t,
-    pub BCONR_b: stc_tmr6_bconr_bit_t,
-    pub DCONR_b: stc_tmr6_dconr_bit_t,
-    pub RESERVED1: [u32; 32usize],
-    pub PCNAR_b: stc_tmr6_pcnar_bit_t,
-    pub PCNBR_b: stc_tmr6_pcnbr_bit_t,
-    pub FCNGR_b: stc_tmr6_fcngr_bit_t,
-    pub VPERR_b: stc_tmr6_vperr_bit_t,
-    pub STFLR_b: stc_tmr6_stflr_bit_t,
-    pub RESERVED2: [u32; 192usize],
-    pub HSTAR_b: stc_tmr6_hstar_bit_t,
-    pub HSTPR_b: stc_tmr6_hstpr_bit_t,
-    pub HCLRR_b: stc_tmr6_hclrr_bit_t,
-    pub HUPDR_b: stc_tmr6_hupdr_bit_t,
-    pub HCPAR_b: stc_tmr6_hcpar_bit_t,
-    pub HCPBR_b: stc_tmr6_hcpbr_bit_t,
-    pub HCUPR_b: stc_tmr6_hcupr_bit_t,
-    pub HCDOR_b: stc_tmr6_hcdor_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_TMR6_COMMON_TypeDef {
-    pub RESERVED0: [u32; 1888usize],
-    pub FCNTR_b: stc_tmr6_common_fcntr_bit_t,
-    pub SSTAR_b: stc_tmr6_common_sstar_bit_t,
-    pub SSTPR_b: stc_tmr6_common_sstpr_bit_t,
-    pub SCLRR_b: stc_tmr6_common_sclrr_bit_t,
-    pub SUPDR_b: stc_tmr6_common_supdr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_TMRA_TypeDef {
-    pub RESERVED0: [u32; 1024usize],
-    pub BCSTRL_b: stc_tmra_bcstrl_bit_t,
-    pub BCSTRH_b: stc_tmra_bcstrh_bit_t,
-    pub RESERVED1: [u32; 16usize],
-    pub HCONR_b: stc_tmra_hconr_bit_t,
-    pub RESERVED2: [u32; 16usize],
-    pub HCUPR_b: stc_tmra_hcupr_bit_t,
-    pub RESERVED3: [u32; 16usize],
-    pub HCDOR_b: stc_tmra_hcdor_bit_t,
-    pub RESERVED4: [u32; 16usize],
-    pub ICONR_b: stc_tmra_iconr_bit_t,
-    pub RESERVED5: [u32; 16usize],
-    pub ECONR_b: stc_tmra_econr_bit_t,
-    pub RESERVED6: [u32; 16usize],
-    pub FCONR_b: stc_tmra_fconr_bit_t,
-    pub RESERVED7: [u32; 16usize],
-    pub STFLR_b: stc_tmra_stflr_bit_t,
-    pub RESERVED8: [u32; 272usize],
-    pub BCONR1_b: stc_tmra_bconr_bit_t,
-    pub RESERVED9: [u32; 48usize],
-    pub BCONR2_b: stc_tmra_bconr_bit_t,
-    pub RESERVED10: [u32; 48usize],
-    pub BCONR3_b: stc_tmra_bconr_bit_t,
-    pub RESERVED11: [u32; 48usize],
-    pub BCONR4_b: stc_tmra_bconr_bit_t,
-    pub RESERVED12: [u32; 304usize],
-    pub CCONR1_b: stc_tmra_cconr_bit_t,
-    pub RESERVED13: [u32; 16usize],
-    pub CCONR2_b: stc_tmra_cconr_bit_t,
-    pub RESERVED14: [u32; 16usize],
-    pub CCONR3_b: stc_tmra_cconr_bit_t,
-    pub RESERVED15: [u32; 16usize],
-    pub CCONR4_b: stc_tmra_cconr_bit_t,
-    pub RESERVED16: [u32; 16usize],
-    pub CCONR5_b: stc_tmra_cconr_bit_t,
-    pub RESERVED17: [u32; 16usize],
-    pub CCONR6_b: stc_tmra_cconr_bit_t,
-    pub RESERVED18: [u32; 16usize],
-    pub CCONR7_b: stc_tmra_cconr_bit_t,
-    pub RESERVED19: [u32; 16usize],
-    pub CCONR8_b: stc_tmra_cconr_bit_t,
-    pub RESERVED20: [u32; 272usize],
-    pub PCONR1_b: stc_tmra_pconr_bit_t,
-    pub RESERVED21: [u32; 16usize],
-    pub PCONR2_b: stc_tmra_pconr_bit_t,
-    pub RESERVED22: [u32; 16usize],
-    pub PCONR3_b: stc_tmra_pconr_bit_t,
-    pub RESERVED23: [u32; 16usize],
-    pub PCONR4_b: stc_tmra_pconr_bit_t,
-    pub RESERVED24: [u32; 16usize],
-    pub PCONR5_b: stc_tmra_pconr_bit_t,
-    pub RESERVED25: [u32; 16usize],
-    pub PCONR6_b: stc_tmra_pconr_bit_t,
-    pub RESERVED26: [u32; 16usize],
-    pub PCONR7_b: stc_tmra_pconr_bit_t,
-    pub RESERVED27: [u32; 16usize],
-    pub PCONR8_b: stc_tmra_pconr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_TRNG_TypeDef {
-    pub CR_b: stc_trng_cr_bit_t,
-    pub MR_b: stc_trng_mr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_USART_TypeDef {
-    pub SR_b: stc_usart_sr_bit_t,
-    pub TDR_b: stc_usart_tdr_bit_t,
-    pub RESERVED0: [u32; 48usize],
-    pub CR1_b: stc_usart_cr1_bit_t,
-    pub CR2_b: stc_usart_cr2_bit_t,
-    pub CR3_b: stc_usart_cr3_bit_t,
-    pub PR_b: stc_usart_pr_bit_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct bCM_WDT_TypeDef {
-    pub CR_b: stc_wdt_cr_bit_t,
-    pub SR_b: stc_wdt_sr_bit_t,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup ADC_Global_Types ADC Global Types\n @{\n/\n/**\n @brief Structure definition of analog watchdog(AWD) configuration."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_awd_config_t {
-    #[doc = "< Specifies the ADC analog watchdog mode.\nThis parameter can be a value of @ref ADC_AWD_Mode"]
-    pub u16WatchdogMode: u16,
-    #[doc = "< Specifies the ADC analog watchdog Low threshold value."]
-    pub u16LowThreshold: u16,
-    #[doc = "< Specifies the ADC analog watchdog High threshold value."]
-    pub u16HighThreshold: u16,
-}
-#[doc = " @brief Structure definition of ADC initialization."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_adc_init_t {
-    #[doc = "< Specifies the ADC scan convert mode.\nThis parameter can be a value of @ref ADC_Scan_Mode"]
-    pub u16ScanMode: u16,
-    #[doc = "< Specifies the ADC resolution.\nThis parameter can be a value of @ref ADC_Resolution"]
-    pub u16Resolution: u16,
-    #[doc = "< Specifies ADC data alignment.\nThis parameter can be a value of @ref ADC_Data_Align"]
-    pub u16DataAlign: u16,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup CLK_Global_Types CLK Global Types\n @{\n/\n/**\n @brief  CLK XTAL configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_xtal_init_t {
-    #[doc = "< The new state of the XTAL.\nThis parameter can be a value of @ref CLK_XTAL_State"]
-    pub u8State: u8,
-    #[doc = "< The XTAL drive ability, only valid in OSC mode.\nThis parameter can be a value of @ref CLK_XTAL_Driver"]
-    pub u8Drv: u8,
-    #[doc = "< The XTAL mode selection osc or exclk.\nThis parameter can be a value of @ref CLK_XTAL_Mode_Selection"]
-    pub u8Mode: u8,
-    #[doc = "< The XTAL stable time selection.\nThis parameter can be a value of @ref CLK_XTAL_Stable_Time_Selection"]
-    pub u8StableTime: u8,
-}
-#[doc = " @brief  CLK XTAL divide structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_xtaldiv_init_t {
-    #[doc = "< The new state of the XTAL divide.\nThis parameter can be a value of @ref CLK_XTALDIV_State"]
-    pub u32State: u32,
-    #[doc = "< The numerator of XTAL divide."]
-    pub u32Num: u32,
-    #[doc = "< The denominator of XTAL divide."]
-    pub u32Den: u32,
-}
-#[doc = " @brief  CLK XTAL32 configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_xtal32_init_t {
-    #[doc = "< The new state of the XTAL32 divide.\nThis parameter can be a value of @ref CLK_XTAL32_State"]
-    pub u8State: u8,
-    #[doc = "< The Xtal32 drive ability setting,\nThis parameter can be a value of @ref CLK_XTAL32_Drive"]
-    pub u8Drv: u8,
-    #[doc = "< Xtal32 noise filter setting,\nThis parameter can be a value of@ref CLK_XTAL32_Filter_Selection"]
-    pub u8Filter: u8,
-}
-#[doc = " @brief  CLK clock frequency configuration structure definition"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct stc_clock_scale_t {
-    pub __bindgen_anon_1: stc_clock_scale_t__bindgen_ty_1,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief  CLK PLL configuration structure definition"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct stc_clock_pll_init_t {
-    #[doc = "< PLL new state, @ref CLK_PLL_State for details"]
-    pub u8PLLState: u8,
-    pub __bindgen_anon_1: stc_clock_pll_init_t__bindgen_ty_1,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
-    pub _bitfield_align_1: [u16; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief  CLK bus frequency structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_freq_t {
-    #[doc = "< System clock frequency."]
-    pub u32SysclkFreq: u32,
-    #[doc = "< Hclk frequency."]
-    pub u32HclkFreq: u32,
-    #[doc = "< Pclk0 frequency."]
-    pub u32Pclk0Freq: u32,
-    #[doc = "< Pclk1 frequency."]
-    pub u32Pclk1Freq: u32,
-    #[doc = "< Pclk2 frequency."]
-    pub u32Pclk2Freq: u32,
-    #[doc = "< Pclk3 frequency."]
-    pub u32Pclk3Freq: u32,
-    #[doc = "< Pclk4 frequency."]
-    pub u32Pclk4Freq: u32,
-    #[doc = "< Exclk frequency."]
-    pub u32ExclkFreq: u32,
-}
-#[doc = " @brief  CLK PLL clock frequency structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pll_clock_freq_t {
-    #[doc = "< PLL vcin clock frequency."]
-    pub u32PllVcin: u32,
-    #[doc = "< PLL vco clock frequency."]
-    pub u32PllVco: u32,
-    #[doc = "< PLLp clock frequency."]
-    pub u32PllP: u32,
-    #[doc = "< PLLq clock frequency."]
-    pub u32PllQ: u32,
-    #[doc = "< PLLr clock frequency."]
-    pub u32PllR: u32,
-}
-#[doc = " @brief CMP normal mode configuration structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_init_t {
-    #[doc = "< Positive(compare voltage) input @ref CMP_Positive_Input_Select"]
-    pub u16PositiveInput: u16,
-    #[doc = "< Negative(Reference voltage) input @ref CMP_Negative_Input_Select"]
-    pub u16NegativeInput: u16,
-    #[doc = "< Output polarity select, @ref CMP_Out_Polarity_Select"]
-    pub u16OutPolarity: u16,
-    #[doc = "< Output detect edge, @ref CMP_Out_Detect_Edge_Select"]
-    pub u16OutDetectEdge: u16,
-    #[doc = "< Output Filter, @ref CMP_Out_Filter"]
-    pub u16OutFilter: u16,
-}
-#[doc = " @brief CMP window mode configuration structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_window_init_t {
-    #[doc = "< Window mode Positive(compare voltage) input @ref CMP_Window_Positive_Select"]
-    pub u16PositiveInput: u16,
-    #[doc = "< CMP reference low voltage for window mode @ref CMP_Window_Low_Select"]
-    pub u32WinVolLow: u32,
-    #[doc = "< CMP reference high voltage for window mode @ref CMP_Window_High_Select"]
-    pub u32WinVolHigh: u32,
-    #[doc = "< Output polarity select, @ref CMP_Out_Polarity_Select"]
-    pub u16OutPolarity: u16,
-    #[doc = "< Output detect edge, @ref CMP_Out_Detect_Edge_Select"]
-    pub u16OutDetectEdge: u16,
-    #[doc = "< Output Filter, @ref CMP_Out_Filter"]
-    pub u16OutFilter: u16,
-}
-#[doc = " @brief CMP blank window function configuration structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_blankwindow_t {
-    #[doc = "< blank window mode select, @ref CMP_BlankWindow_Mode"]
-    pub u8Mode: u8,
-    #[doc = "< blank window source select,\ncan be any combination of @ref CMP_BlankWindow_Src"]
-    pub u16Src: u16,
-    #[doc = "< Valid level for blank window level mode @ref CMP_BlankWindow_Valid_Level\nValid edge for blank window edge mode @ref CMP_BlankWindow_Valid_Edge"]
-    pub u16ValidLevelEdge: u16,
-    #[doc = "< Mask width when valid edge occurs for blank window edge mode, which range\nfrom 0~255"]
-    pub u16MaskWidth: u16,
-    #[doc = "< CMP output level when blank window valid @ref CMP_BlankWindow_output_Level"]
-    pub u8OutLevel: u8,
-}
-#[doc = " @brief CMP input scan mode configuration structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_scan_config_t {
-    #[doc = "< Scan mode @ref CMP_Scan_Mode"]
-    pub u16Mode: u16,
-    #[doc = "< Scan input source @ref CMP_Scan_Inm_Inp_Src"]
-    pub u16Src: u16,
-    #[doc = "< Scan stable time value, range [0x00U ~ 0x3FU],\nThe CMP stable time = T(CMP clock) x u16Stable,\nThe stable time is recommended greater than 100nS"]
-    pub u16Stable: u16,
-    #[doc = "< Scan period value, range [0x08 ~ 0xFF],\nu16Period > (u16Stable + u16OutFilter * 4 + CMP_SCAN_PERIOD_IMME)\nu16OutFilter is configured in CMP_NormalModeInit() function."]
-    pub u16Period: u16,
-}
-#[doc = " @brief CRC initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_crc_init_t {
-    #[doc = "< Specifies CRC Protocol.\nThis parameter can be a value of @ref CRC_Protocol_Control_Bit"]
-    pub u32Protocol: u32,
-    #[doc = "< Specifies initial CRC value.\nThis parameter can be CRC_INIT_VALUE_DEFAULT @ref CRC_Init_Value_Default"]
-    pub u32InitValue: u32,
-}
-#[doc = " @brief CTC continuous trim initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_ctc_ct_init_t {
-    #[doc = "< HRC clock division\nThis parameter can be a value of @ref CTC_HRC_Clock_Division"]
-    pub u32HrcClockDiv: u32,
-    #[doc = "< Reference clock frequency\nThis parameter should refer user manual recommended values"]
-    pub u32RefClockFreq: u32,
-    #[doc = "< Reference clock source selection\nThis parameter can be a value of @ref CTC_Continuous_Trim_Reference_Clock_Source"]
-    pub u32RefClockSrc: u32,
-    #[doc = "< Reference clock division\nThis parameter can be a value of @ref CTC_Reference_Clock_Division"]
-    pub u32RefClockDiv: u32,
-    #[doc = "< CTC tolerance deviation\nThis parameter can be a value between Min_Data=0.0 and Max_Data=1.0(100%)"]
-    pub f32TolerantErrRate: float32_t,
-    #[doc = "< CTC TRMVAL value\nThis parameter can be a value between Min_Data=0 and Max_Data=0x3F"]
-    pub u8TrimValue: u8,
-}
-#[doc = " @brief CTC single trim initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_ctc_st_init_t {
-    #[doc = "< HRC clock division\nThis parameter can be a value of @ref CTC_HRC_Clock_Division"]
-    pub u32HrcClockDiv: u32,
-    #[doc = "< CTCREF edge\nThis parameter can be a value of @ref CTC_Single_Trim_CTCREF_Edge"]
-    pub u32CtcRefEdge: u32,
-    #[doc = "< CTCREF edge time(unit:S)\nThis parameter should refer user actual CTCREF edge time"]
-    pub f32CtcRefEdgeTime: float32_t,
-    #[doc = "< CTC tolerance deviation\nThis parameter can be a value between Min_Data=0.0 and Max_Data=1.0(100%)"]
-    pub f32TolerantErrRate: float32_t,
-    #[doc = "< CTC TRMVAL value\nThis parameter can be a value between Min_Data=0 and Max_Data=0x3F"]
-    pub u8TrimValue: u8,
-}
-#[doc = " @brief Structure definition of DAC initialization."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dac_init_t {
-    #[doc = "< Data source to be converted\nThis parameter can be a value of @ref DAC_DATA_SRC"]
-    pub u16Src: u16,
-    #[doc = "< Specify the data alignment\nThis parameter can be a value of @ref DAC_DATAREG_ALIGN_PATTERN"]
-    pub u16Align: u16,
-    #[doc = "< Enable or disable analog output\nThis parameter can be a value of @ref en_functional_state_t"]
-    pub enOutput: en_functional_state_t,
-}
-#[doc = " @brief DCU initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dcu_init_t {
-    #[doc = "< Specifies DCU operation.\nThis parameter can be a value of @ref DCU_Mode"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies DCU data width.\nThis parameter can be a value of @ref DCU_Data_Width"]
-    pub u32DataWidth: u32,
-}
-#[doc = " @brief DCU wave output configure structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dcu_wave_config_t {
-    #[doc = "< Defines the wave lower limit of the wave amplitude.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF"]
-    pub u32LowerLimit: u32,
-    #[doc = "< Defines the upper limit of the wave amplitude.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF"]
-    pub u32UpperLimit: u32,
-    #[doc = "< Defines the increasing/decreasing step.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF"]
-    pub u32Step: u32,
-}
-#[doc = " @brief  DMA basic configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_init_t {
-    #[doc = "< Specifies the DMA interrupt function.\nThis parameter can be a value of @ref DMA_Int_Config"]
-    pub u32IntEn: u32,
-    #[doc = "< Specifies the DMA source address."]
-    pub u32SrcAddr: u32,
-    #[doc = "< Specifies the DMA destination address."]
-    pub u32DestAddr: u32,
-    #[doc = "< Specifies the DMA transfer data width.\nThis parameter can be a value of @ref DMA_DataWidth_Sel"]
-    pub u32DataWidth: u32,
-    #[doc = "< Specifies the DMA block size."]
-    pub u32BlockSize: u32,
-    #[doc = "< Specifies the DMA transfer count."]
-    pub u32TransCount: u32,
-    #[doc = "< Specifies the source address increment mode.\nThis parameter can be a value of @ref DMA_SrcAddr_Incremented_Mode"]
-    pub u32SrcAddrInc: u32,
-    #[doc = "< Specifies the destination address increment mode.\nThis parameter can be a value of @ref DMA_DesAddr_Incremented_Mode"]
-    pub u32DestAddrInc: u32,
-}
-#[doc = " @brief  DMA repeat mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_repeat_init_t {
-    #[doc = "< Specifies the DMA source repeat function.\nThis parameter can be a value of @ref DMA_Repeat_Config"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA source repeat size."]
-    pub u32SrcCount: u32,
-    #[doc = "< Specifies the DMA destination repeat size."]
-    pub u32DestCount: u32,
-}
-#[doc = " @brief  DMA non-sequence mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_nonseq_init_t {
-    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA source non-sequence function count."]
-    pub u32SrcCount: u32,
-    #[doc = "< Specifies the DMA source non-sequence function offset."]
-    pub u32SrcOffset: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function count."]
-    pub u32DestCount: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function offset."]
-    pub u32DestOffset: u32,
-}
-#[doc = " @brief  DMA Link List Pointer (LLP) mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_llp_init_t {
-    #[doc = "< Specifies the DMA LLP function.\nThis parameter can be a value of @ref DMA_Llp_En"]
-    pub u32State: u32,
-    #[doc = "< Specifies the DMA LLP auto or wait REQ.\nThis parameter can be a value of @ref DMA_Llp_Mode"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA list pointer address for LLP function."]
-    pub u32Addr: u32,
-}
-#[doc = " @brief  DMA re-config function configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_reconfig_init_t {
-    #[doc = "< Specifies the DMA reconfig function count mode.\nThis parameter can be a value of @ref DMA_Reconfig_Count_Sel"]
-    pub u32CountMode: u32,
-    #[doc = "< Specifies the DMA reconfig function destination address mode.\nThis parameter can be a value of @ref DMA_Reconfig_DestAddr_Sel"]
-    pub u32DestAddrMode: u32,
-    #[doc = "< Specifies the DMA reconfig function source address mode.\nThis parameter can be a value of @ref DMA_Reconfig_SrcAddr_Sel"]
-    pub u32SrcAddrMode: u32,
-}
-#[doc = " @brief  DMA re-config non-sequence mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_rc_nonseq_init_t {
-    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA source non-sequence function count."]
-    pub u32SrcCount: u32,
-    #[doc = "< Specifies the DMA source non-sequence function distance."]
-    pub u32SrcDist: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function count."]
-    pub u32DestCount: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function distance."]
-    pub u32DestDist: u32,
-}
-#[doc = " @brief  Dma LLP(linked list pointer) descriptor structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_llp_descriptor_t {
-    #[doc = "< LLP source address"]
-    pub SARx: u32,
-    #[doc = "< LLP destination address"]
-    pub DARx: u32,
-    #[doc = "< LLP transfer count and block size"]
-    pub DTCTLx: u32,
-    #[doc = "< LLP source & destination repeat size"]
-    pub RPTx: u32,
-    #[doc = "< LLP source non-seq count and offset"]
-    pub SNSEQCTLx: u32,
-    #[doc = "< LLP destination non-seq count and offset"]
-    pub DNSEQCTLx: u32,
-    #[doc = "< LLP next list pointer"]
-    pub LLPx: u32,
-    #[doc = "< LLP channel control"]
-    pub CHCTLx: u32,
-}
-#[doc = " @brief EFM unique ID definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_unique_id_t {
-    #[doc = "< unique ID 0."]
-    pub u32UniqueID0: u32,
-    #[doc = "< unique ID 1."]
-    pub u32UniqueID1: u32,
-    #[doc = "< unique ID 2."]
-    pub u32UniqueID2: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_remap_init_t {
-    pub u32State: u32,
-    pub u32Addr: u32,
-    pub u32Size: u32,
-}
-#[doc = " @brief EFM location definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_location_t {
-    #[doc = "< X location."]
-    pub u8X_Location: u8,
-    #[doc = "< Y location."]
-    pub u8Y_Location: u8,
-}
-#[doc = " @brief EMB monitor system exception configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_sys_t {
-    #[doc = "< Enable or disable EMB detect OSC failure function\nThis parameter can be a value of @ref EMB_OSC_Selection"]
-    pub u32Osc: u32,
-    #[doc = "< EMB detect SRAM ECC error function\nThis parameter can be a value of @ref EMB_SRAM_ECC_Error_Selection"]
-    pub u32SramEccError: u32,
-    #[doc = "< EMB detect SRAM parity error function\nThis parameter can be a value of @ref EMB_SRAM_Parity_Error_Selection"]
-    pub u32SramParityError: u32,
-    #[doc = "< EMB detect lockup function\nThis parameter can be a value of @ref EMB_Lockup_Selection"]
-    pub u32Lockup: u32,
-    #[doc = "< EMB detect LVD function\nThis parameter can be a value of @ref EMB_LVD_Selection"]
-    pub u32Lvd: u32,
-}
-#[doc = " @brief EMB monitor EMB port configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_port_config_t {
-    #[doc = "< Enable or disable EMB detect port in control function\nThis parameter can be a value of @ref EMB_Port_Selection"]
-    pub u32PortState: u32,
-    #[doc = "< EMB detect port level\nThis parameter can be a value of @ref EMB_Detect_Port_Level"]
-    pub u32PortLevel: u32,
-    #[doc = "< EMB port filter division\nThis parameter can be a value of @ref EMB_Port_Filter_Clock_Division"]
-    pub u32PortFilterDiv: u32,
-    #[doc = "< Enable or disable EMB detect port filter in control function\nThis parameter can be a value of @ref EMB_Port_Filter_Selection"]
-    pub u32PortFilterState: u32,
-}
-#[doc = " @brief EMB monitor PWM configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_tmr_pwm_t {
-    #[doc = "< Enable or disable EMB detect timer same phase function\nThis parameter can be a value of @ref EMB_Detect_PWM state."]
-    pub u32PwmState: u32,
-    #[doc = "< Detect timer polarity level\nThis parameter can be a value of @ref EMB_Detect_PWM level"]
-    pub u32PwmLevel: u32,
-}
-#[doc = " @brief EMB monitor port in configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_port_t {
-    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
-    pub stcPort1: stc_emb_monitor_port_config_t,
-    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
-    pub stcPort2: stc_emb_monitor_port_config_t,
-    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
-    pub stcPort3: stc_emb_monitor_port_config_t,
-    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
-    pub stcPort4: stc_emb_monitor_port_config_t,
-}
-#[doc = " @brief EMB monitor CMP configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_cmp_t {
-    #[doc = "< Enable or disable EMB detect CMP1 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
-    pub u32Cmp1State: u32,
-    #[doc = "< Enable or disable EMB detect CMP2 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
-    pub u32Cmp2State: u32,
-    #[doc = "< Enable or disable EMB detect CMP3 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
-    pub u32Cmp3State: u32,
-    #[doc = "< Enable or disable EMB detect CMP4 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
-    pub u32Cmp4State: u32,
-}
-#[doc = " @brief EMB monitor TMR4 configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_tmr4_t {
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr4PwmU: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr4PwmV: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr4PwmW: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr4PwmX: stc_emb_monitor_tmr_pwm_t,
-}
-#[doc = " @brief EMB control TMR4 initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_tmr4_init_t {
-    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
-    pub stcCmp: stc_emb_monitor_cmp_t,
-    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
-    pub stcPort: stc_emb_monitor_port_t,
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr4_t structure"]
-    pub stcTmr4: stc_emb_monitor_tmr4_t,
-    #[doc = "< EMB detect System function\nThis parameter details refer @ref stc_emb_monitor_sys_t structure"]
-    pub stcSys: stc_emb_monitor_sys_t,
-}
-#[doc = " @brief EMB monitor TMR6 configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_tmr6_t {
-    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr6_1: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr6_2: stc_emb_monitor_tmr_pwm_t,
-}
-#[doc = " @brief EMB control TMR6 initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_tmr6_init_t {
-    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
-    pub stcCmp: stc_emb_monitor_cmp_t,
-    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
-    pub stcPort: stc_emb_monitor_port_t,
-    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr6_t structure"]
-    pub stcTmr6: stc_emb_monitor_tmr6_t,
-    #[doc = "< EMB detect System function\nThis parameter details refer @ref stc_emb_monitor_sys_t structure"]
-    pub stcSys: stc_emb_monitor_sys_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_ep_init_t {
-    #[doc = "< Input/Output setting, @ref EP_PinDirection_Sel for details"]
-    pub u32PinDir: u32,
-    #[doc = "< Corresponding pin initial state, @ref en_ep_state_t for details"]
-    pub enPinState: en_ep_state_t,
-    #[doc = "< Corresponding pin state after triggered, @ref EP_TriggerOps_Sel for details"]
-    pub u32PinTriggerOps: u32,
-    #[doc = "< Event port trigger edge, @ref EP_Trigger_Sel for details"]
-    pub u32Edge: u32,
-    #[doc = "< Filter clock function setting, @ref EP_FilterClock_Sel for details"]
-    pub u32Filter: u32,
-    #[doc = "< Filter clock, ref@ EP_FilterClock_Div for details"]
-    pub u32FilterClock: u32,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup FCM_Global_Types FCM Global Types\n @{\n/\n/**\n @brief  FCM Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_fcm_init_t {
-    #[doc = "< FCM lower limit value"]
-    pub u16LowerLimit: u16,
-    #[doc = "< FCM upper limit value"]
-    pub u16UpperLimit: u16,
-    #[doc = "< FCM target clock source selection, @ref FCM_Target_Clock_Src"]
-    pub u32TargetClock: u32,
-    #[doc = "< FCM target clock source division selection, @ref FCM_Target_Clock_Div"]
-    pub u32TargetClockDiv: u32,
-    #[doc = "< FCM external reference clock function config, @ref FCM_Ext_Ref_Clock_Config"]
-    pub u32ExtRefClockEnable: u32,
-    #[doc = "< FCM reference clock trigger edge selection, @ref FCM_Ref_Clock_Edge"]
-    pub u32RefClockEdge: u32,
-    #[doc = "< FCM digital filter function config, @ref FCM_Digital_Filter_Config"]
-    pub u32DigitalFilter: u32,
-    #[doc = "< FCM reference clock source selection, @ref FCM_Ref_Clock_Src"]
-    pub u32RefClock: u32,
-    #[doc = "< FCM reference clock source division selection, @ref FCM_Ref_Clock_Div"]
-    pub u32RefClockDiv: u32,
-    #[doc = "< FCM exception type select,  @ref FCM_Exception_Type"]
-    pub u32ExceptionType: u32,
-}
-#[doc = " @brief  GPIO Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_init_t {
-    #[doc = "< Set pin state to High or Low, @ref GPIO_PinState_Sel for details"]
-    pub u16PinState: u16,
-    #[doc = "< Pin mode setting, @ref GPIO_PinDirection_Sel for details"]
-    pub u16PinDir: u16,
-    #[doc = "< Output type setting, @ref GPIO_PinOutType_Sel for details"]
-    pub u16PinOutputType: u16,
-    #[doc = "< Pin drive capacity setting, @ref GPIO_PinDrv_Sel for details"]
-    pub u16PinDrv: u16,
-    #[doc = "< Pin latch setting, @ref GPIO_PinLatch_Sel for details"]
-    pub u16Latch: u16,
-    #[doc = "< Internal pull-up resistor setting, @ref GPIO_PinPU_Sel for details"]
-    pub u16PullUp: u16,
-    #[doc = "< Internal pull-down register setting, @ref GPIO_PinPD_Sel for details"]
-    pub u16PullDown: u16,
-    #[doc = "< Input MOS always on selection, @ref GPIO_PinInputMOS_Sel for details"]
-    pub u16InputMos: u16,
-    #[doc = "< Pin input/output invert setting, @ref GPIO_PinInvert_Sel for details"]
-    pub u16Invert: u16,
-    #[doc = "< External interrupt pin setting, @ref GPIO_PinExtInt_Sel for details"]
-    pub u16ExtInt: u16,
-    #[doc = "< Input type setting, @ref GPIO_PinInType_Sel for details"]
-    pub u16PinInputType: u16,
-    #[doc = "< Digital or analog attribute setting, @ref GPIO_PinMode_Sel for details"]
-    pub u16PinAttr: u16,
-}
-#[doc = " @brief I2c configuration structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_init_t {
-    #[doc = "< I2C clock division for i2c source clock"]
-    pub u32ClockDiv: u32,
-    #[doc = "< I2C baudrate config"]
-    pub u32Baudrate: u32,
-    #[doc = "< The SCL rising and falling time, count of T(i2c source clock after frequency divider)"]
-    pub u32SclTime: u32,
-}
-#[doc = " @brief  Interrupt registration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_irq_signin_config_t {
-    #[doc = "< Peripheral interrupt number, can be any value @ref en_int_src_t"]
-    pub enIntSrc: en_int_src_t,
-    #[doc = "< Peripheral IRQ type, can be INT000_IRQn~INT127_IRQn @ref IRQn_Type"]
-    pub enIRQn: IRQn_Type,
-    #[doc = "< Callback function for corresponding peripheral IRQ"]
-    pub pfnCallback: func_ptr_t,
-}
-#[doc = " @brief  NMI initialize configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_nmi_init_t {
-    #[doc = "< NMI trigger source, @ref NMI_TriggerSrc_Sel for details"]
-    pub u32Src: u32,
-}
-#[doc = " @brief  EXTINT initialize configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_extint_init_t {
-    #[doc = "< ExtInt filter (A) function setting, @ref EXTINT_FilterClock_Sel for details"]
-    pub u32Filter: u32,
-    #[doc = "< ExtInt filter (A) clock division, @ref EXTINT_FilterClock_Div for details"]
-    pub u32FilterClock: u32,
-    #[doc = "< ExtInt trigger edge, @ref EXTINT_Trigger_Sel for details"]
-    pub u32Edge: u32,
-    #[doc = "< ExtInt filter B function setting, @ref EXTINT_FilterBClock_Sel for details"]
-    pub u32FilterB: u32,
-    #[doc = "< ExtInt filter B time, @ref EXTINT_FilterBTim_Sel for details"]
-    pub u32FilterBClock: u32,
-}
-#[doc = " @brief  KEYSCAN configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_keyscan_init_t {
-    #[doc = "< Specifies the KEYSCAN Hiz cycles.\nThis parameter can be a value of @ref KEYSCAN_Hiz_Cycle_Sel"]
-    pub u32HizCycle: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Low_Cycle_Sel"]
-    pub u32LowCycle: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Clock_Sel"]
-    pub u32KeyClock: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyout_Sel"]
-    pub u32KeyOut: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyin_Sel"]
-    pub u32KeyIn: u32,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup MCAN_Global_Types MCAN Global Types\n @{\n/\n/**\n @brief MCAN bit time configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_bit_time_config_t {
-    #[doc = "< Specifies the nominal bit rate prescaler.\nThis parameter must be a number between 1 and 512"]
-    pub u32NominalPrescaler: u32,
-    #[doc = "< Specifies the nominal time segment before sample point(the sum of Sync_Seg,\nProp_Seg and Phase_Seg1).\nThis parameter must be a number between 3 and 257"]
-    pub u32NominalTimeSeg1: u32,
-    #[doc = "< Specifies the nominal time segment after sample point(Phase_Seg2).\nThis parameter must be a number between 2 and 128"]
-    pub u32NominalTimeSeg2: u32,
-    #[doc = "< Specifies the nominal (re)synchronization jump width(SJW).\nThis parameter must be a number between 1 and 128"]
-    pub u32NominalSyncJumpWidth: u32,
-    #[doc = "< Specifies the data bit rate prescaler.\nThis parameter must be a number between 1 and 32\nNOTE: when u32TDC is MCAN_FD_TDC_ENABLE, the range is limited to 1, 2"]
-    pub u32DataPrescaler: u32,
-    #[doc = "< Specifies the data time segment before sample point(the sum of Sync_Seg,\nProp_Seg and Phase_Seg1).\nThis parameter must be a number between 2 and 33"]
-    pub u32DataTimeSeg1: u32,
-    #[doc = "< Specifies the data time segment after sample point(Phase_Seg2).\nThis parameter must be a number between 2 and 16"]
-    pub u32DataTimeSeg2: u32,
-    #[doc = "< Specifies the data (re)synchronization jump width(SJW).\nThis parameter must be a number between 1 and 16"]
-    pub u32DataSyncJumpWidth: u32,
-    #[doc = "< Enable or disable TDC(Transmitter Delay Compensation).\nThis parameter can be a value of @ref MCAN_TDC_Enable"]
-    pub u32TDC: u32,
-    #[doc = "< Specifies the transmitter delay compensation SSP offset.\nThis parameter must be a number between 0 and 127(MCAN clock)"]
-    pub u32SspOffset: u32,
-    #[doc = "< Specifies the transmitter delay compensation filter window length.\nThis parameter defines the minimum value for the SSP position.\nThe feature is enabled when this parameter is configured to a value\ngreater than u32SspOffset.\nThis parameter must be a number between 0 and 127(MCAN clock)"]
-    pub u32TdcFilter: u32,
-}
-#[doc = " @brief MCAN message RAM address blocks"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_msg_ram_addr_t {
-    #[doc = "< Output parameter. Indicates the standard filter list start address."]
-    pub u32StdFilterStartAddr: u32,
-    #[doc = "< Output parameter. Indicates the extended filter list start address."]
-    pub u32ExtFilterStartAddr: u32,
-    #[doc = "< Output parameter. Indicates the Rx FIFO 0 start address."]
-    pub u32RxFifo0StartAddr: u32,
-    #[doc = "< Output parameter. Indicates the Rx FIFO 1 start address."]
-    pub u32RxFifo1StartAddr: u32,
-    #[doc = "< Output parameter. Indicates the Rx buffer start address."]
-    pub u32RxBufferStartAddr: u32,
-    #[doc = "< Output parameter. Indicates the Tx event FIFO start address."]
-    pub u32TxEventStartAddr: u32,
-    #[doc = "< Output parameter. Indicates the Tx buffers start address."]
-    pub u32TxBufferStartAddr: u32,
-    #[doc = "< Output parameter. Indicates the Tx FIFO/Queue start address."]
-    pub u32TxFifoQueueStartAddr: u32,
-    #[doc = "< Output parameter. Indicates the end address of the allocated RAM."]
-    pub u32EndAddr: u32,
-    #[doc = "< Pointer to an address that used to store each standard ID filter element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32StdFilterAddrList: *mut u32,
-    #[doc = "< Pointer to an address that used to store each extended ID filter element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32ExtFilterAddrList: *mut u32,
-    #[doc = "< Pointer to an address that used to store each Rx FIFO0 element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32RxFifo0AddrList: *mut u32,
-    #[doc = "< Pointer to an address that used to store each Rx FIFO1 element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32RxFifo1AddrList: *mut u32,
-    #[doc = "< Pointer to an address that used to store each Rx buffer element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32RxBufferAddrList: *mut u32,
-    #[doc = "< Pointer to an address that used to store each Tx event FIFO element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32TxEventAddrList: *mut u32,
-    #[doc = "< Pointer to an address that used to store each dedicated Tx buffer element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32TxBufferAddrList: *mut u32,
-    #[doc = "< Pointer to an address that used to store each Tx FIFO/queue element address.\nSet it to NULL if you do not need the element address information."]
-    pub pu32TxFifoQueueAddrList: *mut u32,
-}
-#[doc = " @brief MCAN message RAM configuration structure definition\n @note The message RAM is 2K bytes and shared by MCAN1 and MCAN2."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_msg_ram_config_t {
-    #[doc = "< Specifies the message RAM start address, word alignment."]
-    pub u32AddrOffset: u32,
-    #[doc = "< Specifies the number of standard message ID filters.\nThis parameter is used to allocate RAM to standard ID filters.\nThis parameter must be a number between 0 and 128"]
-    pub u32StdFilterNum: u32,
-    #[doc = "< Specifies the number of extended message ID filters.\nThis parameter is used to allocate RAM to extended ID filters.\nThis parameter must be a number between 0 and 64"]
-    pub u32ExtFilterNum: u32,
-    #[doc = "< Specifies the number of Rx FIFO0 elements.\nu32RxFifo0Num and u32RxFifo0DataSize are used to allocate RAM to Rx FIFO0.\nThis parameter must be a number between 0 and 64"]
-    pub u32RxFifo0Num: u32,
-    #[doc = "< Specifies the data field size in an Rx FIFO 0 element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
-    pub u32RxFifo0DataSize: u32,
-    #[doc = "< Specifies the number of Rx FIFO 1 elements.\nu32RxFifo1Num and u32RxFifo1DataSize are used to allocate RAM to Rx FIFO1.\nThis parameter must be a number between 0 and 64"]
-    pub u32RxFifo1Num: u32,
-    #[doc = "< Specifies the data field size in an Rx FIFO 1 element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
-    pub u32RxFifo1DataSize: u32,
-    #[doc = "< Specifies the number of dedicated Rx buffer elements.\nu32RxBufferNum and u32RxBufferDataSize are used to allocate RAM to Rx buffer.\nThis parameter must be a number between 0 and 64"]
-    pub u32RxBufferNum: u32,
-    #[doc = "< Specifies the data field size in an Rx buffer element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
-    pub u32RxBufferDataSize: u32,
-    #[doc = "< Specifies the number of Tx event FIFO elements.\nThis parameter is used to allocate RAM to Tx event FIFO.\nThis parameter must be a number between 0 and 32"]
-    pub u32TxEventNum: u32,
-    #[doc = "< Specifies the number of dedicated Tx buffers.\nu32TxBufferNum and u32TxFifoQueueNum and u32TxDataSize are used to allocate RAM for Tx messages.\nThe sum of u32TxBufferNum and u32TxFifoQueueNum must be a number between 0 and 32"]
-    pub u32TxBufferNum: u32,
-    #[doc = "< Specifies the number of Tx buffers used for Tx FIFO/queue.\nThe sum of u32TxFifoQueueNum and u32TxBufferNum must be a number between 0 and 32"]
-    pub u32TxFifoQueueNum: u32,
-    #[doc = "< Specifies Tx FIFO/Queue operation mode.\nThis parameter can be a value of @ref MCAN_Tx_FIFO_Queue_Mode"]
-    pub u32TxFifoQueueMode: u32,
-    #[doc = "< Specifies the data field size in a Tx element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
-    pub u32TxDataSize: u32,
-    #[doc = "< Output parameter. Indicates the message RAM size that allocated to the configured MCAN.\nThe \"u32AddrOffset+u32AllocatedSize\" of the current configured MCAN is the minimum start\naddress(u32AddrOffset) of the next MCAN(shares message RAM with the configured MCAN before) to be configured."]
-    pub u32AllocatedSize: u32,
-}
-#[doc = " @brief MCAN filter structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_filter_t {
-    #[doc = "< Specifies the ID type.\nThis parameter can be a value of @ref MCAN_ID_Type"]
-    pub u32IdType: u32,
-    #[doc = "< Specifies the filter which will be initialized.\nThis parameter must be a number between:\n- 0 and stc_mcan_msg_ram_config_t.u32StdFilterNum-1(@ref stc_mcan_msg_ram_config_t), if u32IdType is MCAN_STD_ID.\n- 0 and stc_mcan_msg_ram_config_t.u32ExtFilterNum-1(@ref stc_mcan_msg_ram_config_t), if u32IdType is MCAN_EXT_ID.\nNOTE: When configuring filter elements sequence by calling API MCAN_Init(), this parameter can be ignored. The local function\nwill handle this parameter.\nWhen configuring filter element one by one by calling API MCAN_FilterConfig(), it is required to specify\nthe index of the target filter through this parameter."]
-    pub u32FilterIndex: u32,
-    #[doc = "< Specifies the filter type.\nThis parameter can be a value of @ref MCAN_Filter_Type\nThe value MCAN_FILTER_RANGE_NO_EIDM is permitted only when u32IdType is MCAN_EXT_ID.\nThis parameter is ignored if u32FilterConfig is set to MCAN_FILTER_TO_RX_BUF"]
-    pub u32FilterType: u32,
-    #[doc = "< Specifies the filter configuration.\nThis parameter can be a value of @ref MCAN_Filter_Config"]
-    pub u32FilterConfig: u32,
-    #[doc = "< Specifies the filter ID1.\nThis parameter must be a number between:\n- 0 and 0x7FF, if u32IdType is MCAN_STD_ID\n- 0 and 0x1FFFFFFF, if u32IdType is MCAN_EXT_ID"]
-    pub u32FilterId1: u32,
-    #[doc = "< Specifies the filter ID2.\nThis parameter is ignored if u32FilterConfig is set to MCAN_FILTER_TO_RX_BUF.\nThis parameter must be a number between:\n- 0 and 0x7FF, if u32IdType is MCAN_STD_ID\n- 0 and 0x1FFFFFFF, if u32IdType is MCAN_EXT_ID"]
-    pub u32FilterId2: u32,
-    #[doc = "< Specifies the dedicated Rx buffer in which the matching message will be stored.\nThis parameter must be a number between 0 and 63, and less than or equal to\nu32RxBufferNum of @ref stc_mcan_msg_ram_config_t\nThis parameter is ignored if u32FilterConfig is different from MCAN_FILTER_TO_RX_BUF"]
-    pub u32RxBufferIndex: u32,
-}
-#[doc = " @brief MCAN filter initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_filter_config_t {
-    #[doc = "< Pointer to the standard ID filter elements list.\nThese filter elements can be configured only when:\npstcStdFilterList != NULL and\nu32StdFilterConfigNum > 0 and\nu32StdFilterConfigNum <= u32StdFilterNum of @ref stc_mcan_msg_ram_config_t"]
-    pub pstcStdFilterList: *mut stc_mcan_filter_t,
-    #[doc = "< Pointer to the extended ID filter elements list.\nThese filter elements can be configured only when:\npstcExtFilterList != NULL and\nu32ExtFilterConfigNum > 0 and\nu32ExtFilterConfigNum <= u32ExtFilterNum of @ref stc_mcan_msg_ram_config_t"]
-    pub pstcExtFilterList: *mut stc_mcan_filter_t,
-    #[doc = "< Number of the standard ID filter elements which to be configured.\nThis parameter must less than or equal to u32StdFilterNum\nof @ref stc_mcan_msg_ram_config_t"]
-    pub u32StdFilterConfigNum: u32,
-    #[doc = "< Number of the extended ID filter elements which to be configured.\nThis parameter must less than or equal to u32ExtFilterNum\nof @ref stc_mcan_msg_ram_config_t"]
-    pub u32ExtFilterConfigNum: u32,
-}
-#[doc = " @brief MCAN initialization structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_init_t {
-    #[doc = "< Specifies MCAN operating mode.\nThis parameter can be a value of @ref MCAN_Operating_Mode"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the frame format supported by MCAN hardware.\nThis parameter can be a value of @ref MCAN_Frame_Format"]
-    pub u32FrameFormat: u32,
-    #[doc = "< Enable or disable automatic retransmission.\nThis parameter can be a value of @ref MCAN_Auto_Retx_Enable"]
-    pub u32AutoRetx: u32,
-    #[doc = "< Enable or disable transmit pause.\nIf transmit pause is enabled, MCAN pauses for two CAN bit times before starting\nthe next transmission after itself has successfully transmitted a frame.\nThis parameter can be a value of @ref MCAN_Tx_Pause_Enable"]
-    pub u32TxPause: u32,
-    #[doc = "< Enable or disable protocol exception handling.\nWhen this function is disabled, MCAN will transmit an error frame\nwhen it detects a protocol exception condition.\nThis parameter can be a value of @ref MCAN_Protocol_Exception_Enable"]
-    pub u32ProtocolException: u32,
-    #[doc = "< MCAN bit time configuration structure"]
-    pub stcBitTime: stc_mcan_bit_time_config_t,
-    #[doc = "< Message RAM configuration structure."]
-    pub stcMsgRam: stc_mcan_msg_ram_config_t,
-    #[doc = "< Acceptance filter configuration structure."]
-    pub stcFilter: stc_mcan_filter_config_t,
-}
-#[doc = " @brief MCAN Tx message structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_tx_msg_t {
-    #[doc = "< Specifies the ID.\nThis parameter must be a number between:\n- 0 and 0x7FF, if IDE is 0\n- 0 and 0x1FFFFFFF, if IDE is 1"]
-    pub ID: u32,
-    #[doc = "< IDentifier Extension bit. Specifies the ID type for the transmitted message.\nThis parameter can be a value of:\n- 0: 11-bit standard ID\n- 1: 29-bit extended ID"]
-    pub IDE: u32,
-    #[doc = "< Remote Transmission Request. Specifies the frame type of the transmitted message.\nThis parameter can be a value of:\n- 0: Data frame to be transmitted\n- 1: Remote frame to be transmitted"]
-    pub RTR: u32,
-    #[doc = "< Data Length Code. Specifies the length of the data field of the transmitted frame.\nThis parameter can be a value of @ref MCAN_Data_Length_Code"]
-    pub DLC: u32,
-    #[doc = "< Error State Indicator. Specifies the error state indicator.\nThis parameter can be a value of:\n- 0: Transmitting node is error active\n- 1: Transmitting node is error passive"]
-    pub ESI: u32,
-    #[doc = "< Bit Rate Switch. Specifies whether the Tx frame is transmitted with or without bit rate switching.\nThis parameter can be a value of:\n- 0: Frame transmitted without bit rate switching\n- 1: Frame transmitted with bit rate switching"]
-    pub BRS: u32,
-    #[doc = "< FD Format indicator. Specifies whether the Tx frame is transmitted in classic or FD format.\nThis parameter can be a value of:\n- 0: Classical CAN frame format\n- 1: CAN FD frame format (new DLC-coding and CRC)"]
-    pub FDF: u32,
-    #[doc = "< Specifies the event FIFO control.\nThis parameter can be a value of:\n- 0: DO NOT store tx event\n- 1: Store tx event into TX event FIFO"]
-    pub u32StoreTxEvent: u32,
-    #[doc = "< Specifies the message marker to be copied into Tx event FIFO\nelement for identification of Tx message status.\nThis parameter must be a number between:\n- 0 and 0xFF if 8-bit message marker used(CCCR.WMM == 0)\n- 0 and 0xFFFF if 16-bit-width message marker used(CCCR.WMM == 1)"]
-    pub u32MsgMarker: u32,
-    #[doc = "< Specifies the dedicated Tx buffer that used to transmit the message.\nThis parameter can be a value of @ref MCAN_Tx_Location\nThis parameter valid when Tx via dedicated Tx buffer."]
-    pub u32TxBuffer: u32,
-    #[doc = "< Data payload of the message that to be transmitted."]
-    pub au8Data: [u8; 64usize],
-    #[doc = "< Output parameter of Tx buffer index of last Tx FIFO/queue request.\nThis parameter valid when Tx via FIFO or queue."]
-    pub u32LastTxFifoQueueRequest: u32,
-}
-#[doc = " @brief MCAN Rx message structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_rx_msg_t {
-    #[doc = "< Specifies the ID.\nThis parameter must be a number between:\n- 0 and 0x7FF, if IDE is 0\n- 0 and 0x1FFFFFFF, if IDE is 1"]
-    pub ID: u32,
-    #[doc = "< IDentifier Extension bit. Specifies the ID type for the received message.\nThis parameter can be a value of:\n- 0: 11-bit standard ID\n- 1: 29-bit extended ID"]
-    pub IDE: u32,
-    #[doc = "< Remote Transmission Request. Specifies the frame type of the received message.\nThis parameter can be a value of:\n- 0: Data frame received\n- 1: Remote frame received"]
-    pub RTR: u32,
-    #[doc = "< Data Length Code. Specifies the length of data filed of the received frame.\nThis parameter can be a value of @ref MCAN_Data_Length_Code"]
-    pub DLC: u32,
-    #[doc = "< Error State Indicator. Specifies the error state indicator.\nThis parameter can be a value of:\n- 0: Transmitting node is error active\n- 1: Transmitting node is error passive"]
-    pub ESI: u32,
-    #[doc = "< Bit Rate Switch. Specifies whether the Tx frame is received with or without bit rate switching.\nThis parameter can be a value of:\n- 0: Frame received without bit rate switching\n- 1: Frame received with bit rate switching"]
-    pub BRS: u32,
-    #[doc = "< FD Format indicator. Specifies whether the Tx frame is received in classic or FD format.\nThis parameter can be a value of:\n- 0: Classical CAN frame format\n- 1: CAN FD frame format (new DLC-coding and CRC)"]
-    pub FDF: u32,
-    #[doc = "< Specifies the timestamp counter value captured on start of frame reception.\nThis parameter must be a number between 0 and 0xFFFF"]
-    pub u32RxTimestamp: u32,
-    #[doc = "< Specifies the index of matching Rx acceptance filter element.\nThis parameter must be a number between:\n- 0 and 127, if IDE is 0\n- 0 and 63, if IDE is 1"]
-    pub u32FilterIndex: u32,
-    #[doc = "< Specifies whether the accepted frame did not match any Rx filter.\nAcceptance of non-matching frames may be configured via @ref MCAN_GlobalFilterConfig()\nThis parameter can be:\n- 0: Received frame matching filter index u32FilterIndex\n- 1: Received frame did not match any Rx filter element"]
-    pub u32NmfFlag: u32,
-    #[doc = "< Data payload of the received message"]
-    pub au8Data: [u8; 64usize],
-    #[doc = "< Size of Rx data payload"]
-    pub u32DataSize: u32,
-}
-#[doc = " @brief MCAN Tx event structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_tx_event_t {
-    #[doc = "< Specifies the ID.\nThis parameter must be a number between:\n- 0 and 0x7FF, if IDE is 0\n- 0 and 0x1FFFFFFF, if IDE is 1"]
-    pub ID: u32,
-    #[doc = "< IDentifier Extension bit. Specifies the ID type for the transmitted message.\nThis parameter can be a value of:\n- 0: 11-bit standard ID\n- 1: 29-bit extended ID"]
-    pub IDE: u32,
-    #[doc = "< Remote Transmission Request. Specifies the frame type of the transmitted message.\nThis parameter can be a value of:\n- 0: Data frame transmitted\n- 1: Remote frame transmitted"]
-    pub RTR: u32,
-    #[doc = "< Data Length Code. Specifies the length of the transmitted frame.\nThis parameter can be a value of @ref MCAN_Data_Length_Code"]
-    pub DLC: u32,
-    #[doc = "< Error State Indicator. Specifies the error state indicator.\nThis parameter can be a value of:\n- 0: Transmitting node is error active\n- 1: Transmitting node is error passive"]
-    pub ESI: u32,
-    #[doc = "< Bit Rate Switch. Specifies whether the Tx frame is transmitted with or without bit rate switching.\nThis parameter can be a value of:\n- 0: Frame transmitted without bit rate switching\n- 1: Frame transmitted with bit rate switching"]
-    pub BRS: u32,
-    #[doc = "< FD Format indicator. Specifies whether the Tx frame is transmitted in classic or FD format.\nThis parameter can be a value of:\n- 0: Classical CAN frame format\n- 1: CAN FD frame format (new DLC-coding and CRC)"]
-    pub FDF: u32,
-    #[doc = "< Specifies the timestamp counter value captured on start of frame transmission.\nThis parameter is valid only when 8-bit message marker used.\nThis parameter must be a number between 0 and 0xFFFF."]
-    pub u32TxTimestamp: u32,
-    #[doc = "< Specifies the message marker copied into Tx Event FIFO element for identification of Tx message status.\nThis parameter must be a number between:\n- 0 and 0xFF if 8-bit message marker used(CCCR.WMM == 0)\n- 0 and 0xFFFF if 16-bit-width message marker used(CCCR.WMM == 1)"]
-    pub u32MsgMarker: u32,
-    #[doc = "< Specifies the event type.\nThis parameter can be a value of @ref MCAN_Evt_Type"]
-    pub u32EventType: u32,
-}
-#[doc = " @brief MCAN high priority message status structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_hpm_status_t {
-    #[doc = "< Specifies the filter list of the matching filter element.\nThis parameter can be:\n- 0: Standard filter list\n- 1: Extended filter list"]
-    pub u8FilterListType: u8,
-    #[doc = "< Specifies the index of matching filter element.\nThis parameter can be a number between:\n- 0 and 127, if u8FilterListType is 0 (Standard)\n- 0 and 63, if u8FilterListType is 1 (Extended)"]
-    pub u8FilterIndex: u8,
-    #[doc = "< Specifies the high priority message storage.\nThis parameter can be a value of @ref MCAN_HPM_Storage"]
-    pub u8MsgStorage: u8,
-    #[doc = "< Specifies the index of Rx FIFO element to which the message was stored.\nThis parameter is valid only when u8MsgStorage is:\nMCAN_HPM_STORED_IN_RX_FIFO0 or MCAN_HPM_STORED_IN_RX_FIFO1"]
-    pub u8MsgIndex: u8,
-}
-#[doc = " @brief MCAN protocol status structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_protocol_status_t {
-    #[doc = "< Specifies the type of the last error that occurred on the CAN bus.\nThis parameter can be a value of @ref MCAN_Protocol_Error_Code"]
-    pub u8LastErrorCode: u8,
-    #[doc = "< Specifies the type of the last error that occurred in the data phase of a CAN FD format\nframe with its BRS flag set.\nThis parameter can be a value of @ref MCAN_Protocol_Error_Code"]
-    pub u8DataLastErrorCode: u8,
-    #[doc = "< Specifies the CAN module communication state.\nThis parameter can be a value of @ref MCAN_Com_State"]
-    pub u8ComState: u8,
-    #[doc = "< Specifies the CAN module error status.\nThis parameter can be:\n- 0: The CAN is in the Error_Active state\n- 1: The CAN is in the Error_Passive state"]
-    pub u8ErrorPassiveFlag: u8,
-    #[doc = "< Specifies the CAN module warning status.\nThis parameter can be:\n- 0: Both error counters are below the Error_Warning limit of 96\n- 1: At least one of error counter has reached the Error_Warning limit of 96"]
-    pub u8WarningFlag: u8,
-    #[doc = "< Specifies the CAN module Bus_Off status.\nThis parameter can be:\n- 0: The CAN is not in Bus_Off state\n- 1: The CAN is in Bus_Off state"]
-    pub u8BusOffFlag: u8,
-    #[doc = "< Specifies ESI flag of last received CAN FD message.\nThis parameter can be:\n- 0: Last received CAN FD message did not have its ESI flag set\n- 1: Last received CAN FD message had its ESI flag set"]
-    pub u8RxESIFlag: u8,
-    #[doc = "< Specifies BRS flag of last received CAN FD message.\nThis parameter can be:\n- 0: Last received CAN FD message did not have its BRS flag set\n- 1: Last received CAN FD message had its BRS flag set"]
-    pub u8RxBRSFlag: u8,
-    #[doc = "< Specifies if CAN FD message (FDF flag set) has been received since last protocol status.\nThis parameter can be:\n- 0: Since this bit was reset by the CPU, no CAN FD message has been received\n- 1: Message in CAN FD format with FDF flag set has been received"]
-    pub u8RxFDFFlag: u8,
-    #[doc = "< Specifies the CAN module protocol exception status.\nThis parameter can be:\n- 0: No protocol exception event occurred since last read access\n- 1: Protocol exception event occurred"]
-    pub u8ProtocolExceptionFlag: u8,
-    #[doc = "< Specifies the Transmitter Delay Compensation Value.\nThis parameter can be a number between 0 and 127"]
-    pub u8TdcValue: u8,
-}
-#[doc = " @brief MCAN error counters structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mcan_error_counter_t {
-    #[doc = "< Specifies the Transmit Error Counter Value.\nThis parameter can be a number between 0 and 255"]
-    pub u8TxErrorCount: u8,
-    #[doc = "< Specifies the Receive Error Counter Value.\nThis parameter can be a number between 0 and 127"]
-    pub u8RxErrorCount: u8,
-    #[doc = "< Specifies the Receive Error Passive status.\nThis parameter can be:\n- 0: The Receive Error Counter (u8RxErrorCount) is below the error passive level of 128\n- 1: The Receive Error Counter (u8RxErrorCount) has reached the error passive level of 128"]
-    pub u8RxErrorPassive: u8,
-    #[doc = "< Specifies the Transmit/Receive error logging counter value.\nThis parameter can be a number between 0 and 255.\nThis counter is incremented each time when a CAN protocol error causes the u8TxErrorCount\nor the u8RxErrorCount to be incremented. The counter stops at 255; the next increment of\nu8TxErrorCount or u8RxErrorCount sets interrupt flag MCAN_FLAG_ERR_LOG_OVF"]
-    pub u8ErrorLogging: u8,
-}
-#[doc = " @brief MPU Unit configure structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_unit_config_t {
-    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
-    pub u32ExceptionType: u32,
-    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
-    pub u32BackgroundWrite: u32,
-    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
-    pub u32BackgroundRead: u32,
-}
-#[doc = " @brief MPU Unit initialize structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_unit_init_t {
-    #[doc = "< Specifies the unit's state of mpu\nThis parameter can be a value of @ref MPU_Unit_State"]
-    pub u32MpuState: u32,
-    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
-    pub u32ExceptionType: u32,
-    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
-    pub u32BackgroundWrite: u32,
-    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
-    pub u32BackgroundRead: u32,
-}
-#[doc = " @brief MPU Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_init_t {
-    #[doc = "< Configure storage protection unit of DMA1"]
-    pub stcDma1: stc_mpu_unit_config_t,
-    #[doc = "< Configure storage protection unit of DMA2"]
-    pub stcDma2: stc_mpu_unit_config_t,
-}
-#[doc = " @brief MPU Region Permission structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_region_permission_t {
-    #[doc = "< Specifies the unit's write permission for the region.\nThis parameter can be a value of @ref MPU_Region_Write_Permission"]
-    pub u32RegionWrite: u32,
-    #[doc = "< Specifies the unit's read permission  for the region.\nThis parameter can be a value of @ref MPU_Region_Read_Permission"]
-    pub u32RegionRead: u32,
-}
-#[doc = " @brief MPU region initialization structure definition\n @note  The effective bits of the 'u32BaseAddr' are related to the 'u32Size' of the region,\n        and the low 'u32Size+1' bits are fixed at 0."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_region_init_t {
-    #[doc = "< Specifies the base address of the region.\nThis parameter can be a number between 0UL and 0xFFFFFFE0UL"]
-    pub u32BaseAddr: u32,
-    #[doc = "< Specifies the size of the region.\nThis parameter can be a value of @ref MPU_Region_Size"]
-    pub u32Size: u32,
-    #[doc = "< Specifies the DMA1 access permission for the region"]
-    pub stcDma1: stc_mpu_region_permission_t,
-    #[doc = "< Specifies the DMA2 access permission for the region"]
-    pub stcDma2: stc_mpu_region_permission_t,
-}
-#[doc = " @brief MPU Stack Pointer initialization structure definition\n @note  The parameters 'u32Addr' and 'u32Size' must satisfy four-byte alignment."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_sp_init_t {
-    #[doc = "< Specifies the type of exception that occurs when the SP access outside specified range.\nThis parameter can be a value of @ref MPU_SP_Exception_Type"]
-    pub u32ExceptionType: u32,
-    #[doc = "< Specifies the start address that the SP is allowed to access.\nThis parameter can be a number between 0UL and 0xFFFFFFFCUL"]
-    pub u32Addr: u32,
-    #[doc = "< Specifies the allowed access range for the SP.\nThis parameter can be a number between 4UL and 65536UL"]
-    pub u32Size: u32,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup PWC_Global_Types PWC Global Types\n @{\n/\n/**\n @brief PWC LVD Init"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_lvd_init_t {
-    #[doc = "< LVD function setting, @ref PWC_LVD_Config for details"]
-    pub u32State: u32,
-    #[doc = "< LVD compare output function setting, @ref PWC_LVD_CMP_Config for details"]
-    pub u32CompareOutputState: u32,
-    #[doc = "< LVD interrupt or reset selection, @ref PWC_LVD_Exception_Type_Sel for details"]
-    pub u32ExceptionType: u32,
-    #[doc = "< LVD digital filter function setting, @ref PWC_LVD_DF_Config for details"]
-    pub u32Filter: u32,
-    #[doc = "< LVD digital filter clock setting, @ref PWC_LVD_DFS_Clk_Sel for details"]
-    pub u32FilterClock: u32,
-    #[doc = "< LVD detect voltage setting, @ref PWC_LVD_Detection_Voltage_Sel for details"]
-    pub u32ThresholdVoltage: u32,
-    #[doc = "< LVD trigger setting, @ref PWC_LVD_TRIG_Sel for details"]
-    pub u32TriggerEdge: u32,
-}
-#[doc = " @brief PWC power down mode innit"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pd_mode_config_t {
-    #[doc = "< Power down mode, @ref PWC_PDMode_Sel for details."]
-    pub u8Mode: u8,
-    #[doc = "< IO state in power down mode, @ref PWC_PDMode_IO_Sel for details."]
-    pub u8IOState: u8,
-    #[doc = "< Power down Wakeup time control, @ref PWC_PD_VCAP_Sel for details."]
-    pub u8VcapCtrl: u8,
-}
-#[doc = " @brief PWC Stop mode Init"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_stop_mode_config_t {
-    #[doc = "< System clock setting after wake-up from stop mode,\n@ref PWC_STOP_CLK_Sel for details."]
-    pub u16Clock: u16,
-    #[doc = "< Stop mode drive capacity,\n@ref PWC_STOP_DRV_Sel for details."]
-    pub u8StopDrv: u8,
-    #[doc = "< Expos status in stop mode,\n@ref PWC_STOP_EXBUS_Sel for details."]
-    pub u16ExBusHold: u16,
-    #[doc = "< Waiting flash stable after wake-up from stop mode,\n@ref PWC_STOP_Flash_Wait_Sel for details."]
-    pub u16FlashWait: u16,
-}
-#[doc = " @brief QSPI initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_qspi_init_t {
-    #[doc = "< Specifies the clock division.\nThis parameter can be a value of @ref QSPI_Clock_Division"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Specifies the SPI mode.\nThis parameter can be a value of @ref QSPI_SPI_Mode"]
-    pub u32SpiMode: u32,
-    #[doc = "< Specifies the prefetch mode.\nThis parameter can be a value of @ref QSPI_Prefetch_Mode"]
-    pub u32PrefetchMode: u32,
-    #[doc = "< Specifies the read mode.\nThis parameter can be a value of @ref QSPI_Read_Mode"]
-    pub u32ReadMode: u32,
-    #[doc = "< Specifies the number of dummy cycles.\nThis parameter can be a value of @ref QSPI_Dummy_Cycle"]
-    pub u32DummyCycle: u32,
-    #[doc = "< Specifies the address width.\nThis parameter can be a value of @ref QSPI_Addr_Width"]
-    pub u32AddrWidth: u32,
-    #[doc = "< Specifies the advance time of QSSN setup.\nThis parameter can be a value of @ref QSPI_QSSN_Setup_Time"]
-    pub u32SetupTime: u32,
-    #[doc = "< Specifies the delay time of QSSN release.\nThis parameter can be a value of @ref QSPI_QSSN_Release_Time"]
-    pub u32ReleaseTime: u32,
-    #[doc = "< Specifies the minimum interval time of QSSN.\nThis parameter can be a value of @ref QSPI_QSSN_Interval_Time"]
-    pub u32IntervalTime: u32,
-}
-#[doc = " @brief QSPI Custom read mode structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_qspi_custom_mode_t {
-    #[doc = "< Specifies the instruction stage protocol.\nThis parameter can be a value of @ref QSPI_Instruction_Protocol"]
-    pub u32InstrProtocol: u32,
-    #[doc = "< Specifies the address stage protocol.\nThis parameter can be a value of @ref QSPI_Addr_Protocol"]
-    pub u32AddrProtocol: u32,
-    #[doc = "< Specifies the data stage protocol.\nThis parameter can be a value of @ref QSPI_Data_Protocol"]
-    pub u32DataProtocol: u32,
-    #[doc = "< Specifies the instruction code in custom read mode.\nThis parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFF"]
-    pub u8InstrCode: u8,
-}
-#[doc = " @brief RTC Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_init_t {
-    #[doc = "< Specifies the RTC clock source.\nThis parameter can be a value of @ref RTC_Clock_Source"]
-    pub u8ClockSrc: u8,
-    #[doc = "< Specifies the RTC hour format.\nThis parameter can be a value of @ref RTC_Hour_Format"]
-    pub u8HourFormat: u8,
-    #[doc = "< Specifies the RTC interrupt period.\nThis parameter can be a value of @ref RTC_Interrupt_Period"]
-    pub u8IntPeriod: u8,
-    #[doc = "< Specifies the validity of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation"]
-    pub u8ClockCompen: u8,
-    #[doc = "< Specifies the mode of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation_Mode"]
-    pub u8CompenMode: u8,
-    #[doc = "< Specifies the value of RTC clock compensation.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 0x1FF"]
-    pub u16CompenValue: u16,
-}
-#[doc = " @brief RTC Date structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_date_t {
-    #[doc = "< Specifies the RTC Year.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 99"]
-    pub u8Year: u8,
-    #[doc = "< Specifies the RTC Month (in Decimal format).\nThis parameter can be a value of @ref RTC_Month"]
-    pub u8Month: u8,
-    #[doc = "< Specifies the RTC Day.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 31"]
-    pub u8Day: u8,
-    #[doc = "< Specifies the RTC Weekday.\nThis parameter can be a value of @ref RTC_Weekday"]
-    pub u8Weekday: u8,
-}
-#[doc = " @brief RTC Time structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_time_t {
-    #[doc = "< Specifies the RTC Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
-    pub u8Hour: u8,
-    #[doc = "< Specifies the RTC Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
-    pub u8Minute: u8,
-    #[doc = "< Specifies the RTC Second.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
-    pub u8Second: u8,
-    #[doc = "< Specifies the RTC Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
-    pub u8AmPm: u8,
-}
-#[doc = " @brief RTC Alarm structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_alarm_t {
-    #[doc = "< Specifies the RTC Alarm Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
-    pub u8AlarmHour: u8,
-    #[doc = "< Specifies the RTC Alarm Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
-    pub u8AlarmMinute: u8,
-    #[doc = "< Specifies the RTC Alarm Weekday.\nThis parameter can be a value of @ref RTC_Alarm_Weekday"]
-    pub u8AlarmWeekday: u8,
-    #[doc = "< Specifies the RTC Alarm Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
-    pub u8AlarmAmPm: u8,
-}
-#[doc = " @brief  EXMC_SMC Chip Configuration Structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_exmc_smc_chip_config_t {
-    #[doc = "< Defines the read sync enable.\nThis parameter can be a value of @ref EXMC_SMC_Memory_Read_Mode"]
-    pub u32ReadMode: u32,
-    #[doc = "< Defines the write sync enable.\nThis parameter can be a value of @ref EXMC_SMC_Memory_Write_Mode"]
-    pub u32WriteMode: u32,
-    #[doc = "< Defines the SMC memory width.\nThis parameter can be a value of @ref EXMC_SMC_Memory_Width."]
-    pub u32MemoryWidth: u32,
-    #[doc = "< Defines the SMC BAA signal enable.\nThis parameter can be a value of @ref EXMC_SMC_BAA_Port_Selection."]
-    pub u32BAA: u32,
-    #[doc = "< Defines the SMC ADVS signal enable.\nThis parameter can be a value of @ref EXMC_SMC_ADV_Port_Selection."]
-    pub u32ADV: u32,
-    #[doc = "< Defines the SMC BLS signal selection.\nThis parameter can be a value of @ref EXMC_SMC_BLS_Synchronization_Selection."]
-    pub u32BLS: u32,
-    #[doc = "< Defines the address match.\nThis parameter can be a value between Min_Data = 0x60 and Max_Data = 0x7F"]
-    pub u32AddrMatch: u32,
-    #[doc = "< Defines the address mask.\nThis parameter can be a value of @ref EXMC_SMC_Mask_Address."]
-    pub u32AddrMask: u32,
-}
-#[doc = " @brief  EXMC_SMC Timing Configuration Structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_exmc_smc_timing_config_t {
-    #[doc = "< Defines the RC in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0x0F"]
-    pub u8RC: u8,
-    #[doc = "< Defines the WC in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0x0F"]
-    pub u8WC: u8,
-    #[doc = "< Defines the CEOE in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
-    pub u8CEOE: u8,
-    #[doc = "< Defines the WP in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
-    pub u8WP: u8,
-    #[doc = "< Defines the TR in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
-    pub u8TR: u8,
-    #[doc = "< Defines the ADV in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
-    pub u8ADV: u8,
-}
-#[doc = " @brief  EXMC_SMC Initialization Structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_exmc_smc_init_t {
-    #[doc = "< SMC memory chip configure.\nThis structure details refer @ref stc_exmc_smc_chip_config_t."]
-    pub stcChipConfig: stc_exmc_smc_chip_config_t,
-    #[doc = "< SMC memory timing configure.\nThis structure details refer @ref stc_exmc_smc_timing_config_t."]
-    pub stcTimingConfig: stc_exmc_smc_timing_config_t,
-}
-#[doc = " @brief Structure definition of SPI initialization.\n @note The parameter u32BaudRatePrescaler is invalid while slave mode"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_init_t {
-    #[doc = "< SPI wire mode, 3 wire mode or 4 wire mode.\nThis parameter can be a value of @ref SPI_Wire_Mode_Define"]
-    pub u32WireMode: u32,
-    #[doc = "< SPI transfer mode, send only or full duplex.\nThis parameter can be a value of @ref SPI_Trans_Mode_Define"]
-    pub u32TransMode: u32,
-    #[doc = "< SPI master/slave mode.\nThis parameter can be a value of @ref SPI_Master_Slave_Mode_Define"]
-    pub u32MasterSlave: u32,
-    #[doc = "< SPI mode fault detect command.\nThis parameter can be a value of @ref SPI_Mode_Fault_Detect_Command_Define"]
-    pub u32ModeFaultDetect: u32,
-    #[doc = "< SPI parity check selection.\nThis parameter can be a value of @ref SPI_Parity_Check_Define"]
-    pub u32Parity: u32,
-    #[doc = "< SPI mode.\nThis parameter can be a value of @ref SPI_Mode_Define"]
-    pub u32SpiMode: u32,
-    #[doc = "< SPI baud rate prescaler.\nThis parameter can be a value of @ref SPI_Baud_Rate_Prescaler_Define"]
-    pub u32BaudRatePrescaler: u32,
-    #[doc = "< SPI data bits, 4 bits ~ 32 bits.\nThis parameter can be a value of @ref SPI_Data_Size_Define"]
-    pub u32DataBits: u32,
-    #[doc = "< MSB first or LSB first.\nThis parameter can be a value of @ref SPI_First_Bit_Define"]
-    pub u32FirstBit: u32,
-    #[doc = "< SPI communication suspend function.\nThis parameter can be a value of @ref SPI_Com_Suspend_Func_Define"]
-    pub u32SuspendMode: u32,
-    #[doc = "< SPI frame level, SPI_1_FRAME ~ SPI_4_FRAME.\nThis parameter can be a value of @ref SPI_Frame_Level_Define"]
-    pub u32FrameLevel: u32,
-}
-#[doc = " @brief Structure definition of SPI delay time configuration."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_delay_t {
-    #[doc = "< SPI interval time delay (Next access delay time)\nThis parameter can be a value of @ref SPI_Interval_Delay_Time_define"]
-    pub u32IntervalDelay: u32,
-    #[doc = "< SPI release time delay (SCK invalid delay time)\nThis parameter can be a value of @ref SPI_Release_Delay_Time_define"]
-    pub u32ReleaseDelay: u32,
-    #[doc = "< SPI Setup time delay (SCK valid delay time) define\nThis parameter can be a value of @ref SPI_Setup_Delay_Time_define"]
-    pub u32SetupDelay: u32,
-}
-#[doc = " @brief SWDT Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_swdt_init_t {
-    #[doc = "< Specifies the counting period of SWDT.\nThis parameter can be a value of @ref SWDT_Count_Period"]
-    pub u32CountPeriod: u32,
-    #[doc = "< Specifies the clock division factor of SWDT.\nThis parameter can be a value of @ref SWDT_Clock_Division"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Specifies the allow refresh range of SWDT.\nThis parameter can be a value of @ref SWDT_Refresh_Range"]
-    pub u32RefreshRange: u32,
-    #[doc = "< Specifies the count state in Low Power Mode (Sleep/Stop Mode).\nThis parameter can be a value of @ref SWDT_LPM_Count"]
-    pub u32LPMCount: u32,
-    #[doc = "< Specifies the type of exception response for SWDT.\nThis parameter can be a value of @ref SWDT_Exception_Type"]
-    pub u32ExceptionType: u32,
-}
-#[doc = " @brief TMR0 initialization structure definition\n @note  The 'u32ClockDiv' is invalid when the value of 'u32ClockSrc' is \"TMR0_CLK_SRC_SPEC_EVT\"."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr0_init_t {
-    #[doc = "< Specifies the clock source of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Specifies the clock division of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Division"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Specifies the function of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Function"]
-    pub u32Func: u32,
-    #[doc = "< Specifies the compare value of TMR0 channel.\nThis parameter can be a value of half-word"]
-    pub u16CompareValue: u16,
-}
-#[doc = " @brief TMR4 Counter function initialization configuration\n @note The TMR4 division(u16ClockDiv) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_init_t {
-    #[doc = "< TMR4 counter clock source.\nThis parameter can be a value of @ref TMR4_Count_Clock_Source"]
-    pub u16ClockSrc: u16,
-    #[doc = "< TMR4 counter internal clock division.\nThis parameter can be a value of @ref TMR4_Count_Clock_Division."]
-    pub u16ClockDiv: u16,
-    #[doc = "< TMR4 counter mode.\nThis parameter can be a value of @ref TMR4_Count_Mode"]
-    pub u16CountMode: u16,
-    #[doc = "< TMR4 counter period value.\nThis parameter can be a value of half-word"]
-    pub u16PeriodValue: u16,
-}
-#[repr(C)]
-#[repr(align(2))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief TMR4 Output-Compare(OC) initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_oc_init_t {
-    #[doc = "< TMR4 OC compare match value.\nThis parameter can be a value of half-word."]
-    pub u16CompareValue: u16,
-    #[doc = "< Port output polarity when OC is disabled.\nThis parameter can be a value of @ref TMR4_OC_Invalid_Output_Polarity."]
-    pub u16OcInvalidPolarity: u16,
-    #[doc = "< Register OCMR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
-    pub u16CompareModeBufCond: u16,
-    #[doc = "< Register OCCR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
-    pub u16CompareValueBufCond: u16,
-    #[doc = "< Enable the specified buffer register object linked transfer with the counter interrupt mask.\nThis parameter can be one or any combination of @ref TMR4_OC_Buffer_Object."]
-    pub u16BufLinkTransObject: u16,
-}
-#[doc = " @brief TMR4 PWM initialization configuration\n @note The clock division(u16ClockDiv) is valid when TMR4 clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_pwm_init_t {
-    #[doc = "< Select PWM mode\nThis parameter can be a value of @ref TMR4_PWM_Mode"]
-    pub u16Mode: u16,
-    #[doc = "< The internal clock division of PWM timer.\nThis parameter can be a value of @ref TMR4_PWM_Clock_Division."]
-    pub u16ClockDiv: u16,
-    #[doc = "< TMR4 PWM polarity\nThis parameter can be a value of @ref TMR4_PWM_Polarity"]
-    pub u16Polarity: u16,
-}
-#[doc = " @brief TMR4 Special-Event(EVT) initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_evt_init_t {
-    #[doc = "< TMR4 event mode\nThis parameter can be a value of @ref TMR4_Event_Mode"]
-    pub u16Mode: u16,
-    #[doc = "< TMR4 event compare match value.\nThis parameter can be a value of half-word"]
-    pub u16CompareValue: u16,
-    #[doc = "< TMR4 event output event when match count compare condition.\nThis parameter can be a value of @ref TMR4_Event_Output_Event"]
-    pub u16OutputEvent: u16,
-    #[doc = "< Enable the specified count compare type with counter count to generate event.\nThis parameter can be a value of @ref TMR4_Event_Match_Condition"]
-    pub u16MatchCond: u16,
-}
-#[doc = " @brief Timer6 count function structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_init_t {
-    #[doc = "< Specifies the count source @ref TMR6_Count_Src_Define"]
-    pub u8CountSrc: u8,
-    pub sw_count: stc_tmr6_init_t__bindgen_ty_1,
-    pub hw_count: stc_tmr6_init_t__bindgen_ty_2,
-    #[doc = "< The period reference value. (0x00 ~ 0xFFFF) or (0x00 ~ 0xFFFFFFFF)"]
-    pub u32PeriodValue: u32,
-    #[doc = "< Count reload after overflow @ref TMR6_Count_Reload_Define"]
-    pub u32CountReload: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_init_t__bindgen_ty_1 {
-    #[doc = "< Count clock division select, @ref TMR6_Count_Clock_Define"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Count mode, @ref TMR6_Count_Mode_Define"]
-    pub u32CountMode: u32,
-    #[doc = "< Count direction, @ref TMR6_Count_Dir_Define"]
-    pub u32CountDir: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_init_t__bindgen_ty_2 {
-    #[doc = "< Hardware count up condition. @ref TMR6_HW_Count_Up_Cond_Define"]
-    pub u32CountUpCond: u32,
-    #[doc = "< Hardware count down condition. @ref TMR6_HW_Count_Down_Cond_Define"]
-    pub u32CountDownCond: u32,
-}
-#[doc = " @brief Timer6 pwm output function structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_pwm_init_t {
-    #[doc = "< Range (0 ~ 0xFFFF) or (0 ~ 0xFFFFFFFF)"]
-    pub u32CompareValue: u32,
-    #[doc = "< Pin polarity when count start @ref TMR6_Pin_Polarity_Define"]
-    pub u32StartPolarity: u32,
-    #[doc = "< Pin polarity when count stop @ref TMR6_Pin_Polarity_Define"]
-    pub u32StopPolarity: u32,
-    #[doc = "< Port state when match compare register A(GCMAR) at count-up mode \\\n@ref TMR6_Pin_Polarity_Define"]
-    pub u32CountUpMatchAPolarity: u32,
-    #[doc = "< Port state when match compare register A(GCMAR) at count-down mode \\\n@ref TMR6_Pin_Polarity_Define"]
-    pub u32CountDownMatchAPolarity: u32,
-    #[doc = "< Port state when match compare register B(GCMBR) at count-up mode \\\n@ref TMR6_Pin_Polarity_Define"]
-    pub u32CountUpMatchBPolarity: u32,
-    #[doc = "< Port state when match compare register B(GCMBR) at count-down mode\\\n@ref TMR6_Pin_Polarity_Define"]
-    pub u32CountDownMatchBPolarity: u32,
-    #[doc = "< Pin polarity when underflow @ref TMR6_Pin_Polarity_Define"]
-    pub u32UdfPolarity: u32,
-    #[doc = "< Pin polarity when overflow @ref TMR6_Pin_Polarity_Define"]
-    pub u32OvfPolarity: u32,
-}
-#[doc = " @brief Timer6 buffer function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_buf_config_t {
-    #[doc = "< The buffer number, and this parameter can be a value of \\\n@ref TMR6_Buf_Num_Define"]
-    pub u32BufNum: u32,
-    #[doc = "< The buffer send time, and this parameter can be a value of \\\n@ref TMR6_Buf_Trans_Cond_Define"]
-    pub u32BufTransCond: u32,
-}
-#[doc = " @brief Timer6 Valid period function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_valid_period_config_t {
-    #[doc = "< The count condition, and this parameter can be a value of \\\n@ref TMR6_Valid_Period_Count_Cond_Define"]
-    pub u32CountCond: u32,
-    #[doc = "< The interval of the valid period @ref TMR6_Valid_Period_Count_Define"]
-    pub u32PeriodInterval: u32,
-}
-#[doc = " @brief Timer6 EMB configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_emb_config_t {
-    #[doc = "< Valid EMB event channel @ref TMR6_Emb_Ch_Define"]
-    pub u32ValidCh: u32,
-    #[doc = "< Pin release mode when EMB event invalid @ref TMR6_Emb_Release_Mode_Define"]
-    pub u32ReleaseMode: u32,
-    #[doc = "< Pin output status when EMB event valid @ref TMR6_Emb_Pin_Status_Define"]
-    pub u32PinStatus: u32,
-}
-#[doc = " @brief Timer6 Dead time function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_deadtime_config_t {
-    #[doc = "< Enable down count dead time register equal to up count DT register \\\n@ref TMR6_DeadTime_Reg_Equal_Func_Define"]
-    pub u32EqualUpDown: u32,
-    #[doc = "< Enable buffer transfer for up count dead time register (DTUBR-->DTUAR) \\\n@ref TMR6_DeadTime_CountUp_Buf_Func_Define"]
-    pub u32BufUp: u32,
-    #[doc = "< Enable buffer transfer for down count dead time register (DTDBR-->DTDAR) \\\n@ref TMR6_DeadTime_CountDown_Buf_Func_Define"]
-    pub u32BufDown: u32,
-    #[doc = "< Buffer transfer condition for triangular wave mode \\\n@ref TMR6_DeadTime_Buf_Trans_Cond_Define"]
-    pub u32BufTransCond: u32,
-}
-#[doc = " @brief Timer6 Dead time function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_zmask_config_t {
-    #[doc = "< Z phase input mask periods selection @ref TMR6_Zmask_Cycle_Define"]
-    pub u32ZMaskCycle: u32,
-    #[doc = "< As position count timer, clear function enable(TRUE) or disable(FALSE) during \\\nthe time of Z phase input mask @ref TMR6_Zmask_Pos_Unit_Clear_Func_Define"]
-    pub u32PosCountMaskFunc: u32,
-    #[doc = "< As revolution count timer, the counter function enable(TRUE) or disable(FALSE) \\\nduring the time of Z phase input mask \\\n@ref TMR6_Zmask_Revo_Unit_Count_Func_Define"]
-    pub u32RevoCountMaskFunc: u32,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup TMRA_Global_Types TMRA Global Types\n @{\n/\n/**\n @brief TMRA initialization structure."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_init_t {
-    #[doc = "< Specifies the count source of TMRA.\nThis parameter can be a value of @ref TMRA_Count_Src"]
-    pub u8CountSrc: u8,
-    pub sw_count: stc_tmra_init_t__bindgen_ty_1,
-    pub hw_count: stc_tmra_init_t__bindgen_ty_2,
-    #[doc = "< Specifies the period reference value.\nThis parameter can be a number between 0U and 0xFFFFU, inclusive."]
-    pub u32PeriodValue: u32,
-    #[doc = "< Continue counting or stop when counter overflow/underflow.\nThis parameter can be a value of @ref TMRA_Count_Reload_En"]
-    pub u8CountReload: u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_init_t__bindgen_ty_1 {
-    #[doc = "< Specifies the divider of software clock source.\nThis parameter can be a value of @ref TMRA_Clock_Divider"]
-    pub u8ClockDiv: u8,
-    #[doc = "< Specifies count mode.\nThis parameter can be a value of @ref TMRA_Count_Mode"]
-    pub u8CountMode: u8,
-    #[doc = "< Specifies count direction.\nThis parameter can be a value of @ref TMRA_Count_Dir"]
-    pub u8CountDir: u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_init_t__bindgen_ty_2 {
-    #[doc = "< Hardware count up condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Up_Condition"]
-    pub u16CountUpCond: u16,
-    #[doc = "< Hardware count down condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Down_Condition"]
-    pub u16CountDownCond: u16,
-}
-#[doc = " @brief TMRA PWM configuration structure."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_pwm_init_t {
-    #[doc = "< Specifies compare value of the TMRA channel.\nThis parameter can be a number between:\n0UL and 0xFFFFFFFFUL for 32-bit TimerA units.\n0UL and 0xFFFFUL for 16-bit TimerA units."]
-    pub u32CompareValue: u32,
-    #[doc = "< Specifies the polarity when the counter start counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity\nNOTE: CAN NOT be specified as TMRA_PWM_LOW or TMRA_PWM_HIGH when\nsw_count.u16ClockDiv of @ref stc_tmra_init_t is NOT specified\nas @ref TMRA_CLK_DIV1"]
-    pub u16StartPolarity: u16,
-    #[doc = "< Specifies the polarity when the counter stop counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
-    pub u16StopPolarity: u16,
-    #[doc = "< Specifies the polarity when the counter matches the compare register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
-    pub u16CompareMatchPolarity: u16,
-    #[doc = "< Specifies the polarity when the counter matches the period register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
-    pub u16PeriodMatchPolarity: u16,
-}
-#[doc = " @brief clock synchronization mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_clocksync_init_t {
-    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
-    pub u32HWFlowControl: u32,
-}
-#[doc = " @brief UART multiple-processor initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_multiprocessor_init_t {
-    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
-    pub u32CKOutput: u32,
-    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
-    pub u32DataWidth: u32,
-    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
-    pub u32StopBit: u32,
-    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
-    pub u32OverSampleBit: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
-    pub u32StartBitPolarity: u32,
-    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
-    pub u32HWFlowControl: u32,
-}
-#[doc = " @brief UART mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_uart_init_t {
-    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
-    pub u32CKOutput: u32,
-    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
-    pub u32DataWidth: u32,
-    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
-    pub u32StopBit: u32,
-    #[doc = "< Parity format.\nThis parameter can be a value of @ref USART_Parity_Control"]
-    pub u32Parity: u32,
-    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
-    pub u32OverSampleBit: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
-    pub u32StartBitPolarity: u32,
-    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
-    pub u32HWFlowControl: u32,
-}
-#[doc = " @brief LIN mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_lin_init_t {
-    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
-    pub u32CKOutput: u32,
-    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
-    pub u32OverSampleBit: u32,
-    #[doc = "< BMC clock division.\nThis parameter can be a value of @ref USART_LIN_BMC_Clock_Division.\n@note The clock division is valid when clock source is the internal clock."]
-    pub u32BmcClockDiv: u32,
-    #[doc = "< Detect break length.\nThis parameter can be a value of @ref USART_LIN_Detect_Break_Length"]
-    pub u32DetectBreakLen: u32,
-    #[doc = "< Send break length.\nThis parameter can be a value of @ref USART_LIN_Send_Break_Length"]
-    pub u32SendBreakLen: u32,
-    #[doc = "< Send break mode.\nThis parameter can be a value of @ref USART_LIN_Send_Break_Mode"]
-    pub u32SendBreakMode: u32,
-}
-#[doc = " @brief Smartcard mode initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_smartcard_init_t {
-    #[doc = "< Clock division. This parameter can be a value of @ref USART_Clock_Division.\n@note This parameter is valid when clock source is the internal clock."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART_CK output selection. This parameter can be a value of @ref USART_CK_Output_Selection.\n@note This parameter is valid when clock source is the internal clock."]
-    pub u32CKOutput: u32,
-    #[doc = "< USART baudrate.\nThis parameter is calculated according with smartcard default ETU and clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-}
-#[doc = " @brief WDT Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_wdt_init_t {
-    #[doc = "< Specifies the counting period of WDT.\nThis parameter can be a value of @ref WDT_Count_Period"]
-    pub u32CountPeriod: u32,
-    #[doc = "< Specifies the clock division factor of WDT.\nThis parameter can be a value of @ref WDT_Clock_Division"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Specifies the allow refresh range of WDT.\nThis parameter can be a value of @ref WDT_Refresh_Range"]
-    pub u32RefreshRange: u32,
-    #[doc = "< Specifies the count state in Low Power Mode (Sleep Mode).\nThis parameter can be a value of @ref WDT_LPM_Count"]
-    pub u32LPMCount: u32,
-    #[doc = "< Specifies the type of exception response for WDT.\nThis parameter can be a value of @ref WDT_Exception_Type"]
-    pub u32ExceptionType: u32,
+impl<Storage> __BindgenBitfieldUnit<Storage> {
+    #[inline]
+    pub const fn new(storage: Storage) -> Self {
+        Self { storage }
+    }
+}
+impl<Storage> __BindgenBitfieldUnit<Storage>
+where
+    Storage: AsRef<[u8]> + AsMut<[u8]>,
+{
+    #[inline]
+    fn extract_bit(byte: u8, index: usize) -> bool {
+        let bit_index = if cfg!(target_endian = "big") {
+            7 - (index % 8)
+        } else {
+            index % 8
+        };
+        let mask = 1 << bit_index;
+        byte & mask == mask
+    }
+    #[inline]
+    pub fn get_bit(&self, index: usize) -> bool {
+        debug_assert!(index / 8 < self.storage.as_ref().len());
+        let byte_index = index / 8;
+        let byte = self.storage.as_ref()[byte_index];
+        Self::extract_bit(byte, index)
+    }
+    #[inline]
+    pub unsafe fn raw_get_bit(this: *const Self, index: usize) -> bool {
+        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
+        let byte_index = index / 8;
+        let byte = unsafe {
+            *(core::ptr::addr_of!((*this).storage) as *const u8).offset(byte_index as isize)
+        };
+        Self::extract_bit(byte, index)
+    }
+    #[inline]
+    fn change_bit(byte: u8, index: usize, val: bool) -> u8 {
+        let bit_index = if cfg!(target_endian = "big") {
+            7 - (index % 8)
+        } else {
+            index % 8
+        };
+        let mask = 1 << bit_index;
+        if val {
+            byte | mask
+        } else {
+            byte & !mask
+        }
+    }
+    #[inline]
+    pub fn set_bit(&mut self, index: usize, val: bool) {
+        debug_assert!(index / 8 < self.storage.as_ref().len());
+        let byte_index = index / 8;
+        let byte = &mut self.storage.as_mut()[byte_index];
+        *byte = Self::change_bit(*byte, index, val);
+    }
+    #[inline]
+    pub unsafe fn raw_set_bit(this: *mut Self, index: usize, val: bool) {
+        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
+        let byte_index = index / 8;
+        let byte = unsafe {
+            (core::ptr::addr_of_mut!((*this).storage) as *mut u8).offset(byte_index as isize)
+        };
+        unsafe { *byte = Self::change_bit(*byte, index, val) };
+    }
+    #[inline]
+    pub fn get(&self, bit_offset: usize, bit_width: u8) -> u64 {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
+        let mut val = 0;
+        for i in 0..(bit_width as usize) {
+            if self.get_bit(i + bit_offset) {
+                let index = if cfg!(target_endian = "big") {
+                    bit_width as usize - 1 - i
+                } else {
+                    i
+                };
+                val |= 1 << index;
+            }
+        }
+        val
+    }
+    #[inline]
+    pub unsafe fn raw_get(this: *const Self, bit_offset: usize, bit_width: u8) -> u64 {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
+        let mut val = 0;
+        for i in 0..(bit_width as usize) {
+            if unsafe { Self::raw_get_bit(this, i + bit_offset) } {
+                let index = if cfg!(target_endian = "big") {
+                    bit_width as usize - 1 - i
+                } else {
+                    i
+                };
+                val |= 1 << index;
+            }
+        }
+        val
+    }
+    #[inline]
+    pub fn set(&mut self, bit_offset: usize, bit_width: u8, val: u64) {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
+        for i in 0..(bit_width as usize) {
+            let mask = 1 << i;
+            let val_bit_is_set = val & mask == mask;
+            let index = if cfg!(target_endian = "big") {
+                bit_width as usize - 1 - i
+            } else {
+                i
+            };
+            self.set_bit(index + bit_offset, val_bit_is_set);
+        }
+    }
+    #[inline]
+    pub unsafe fn raw_set(this: *mut Self, bit_offset: usize, bit_width: u8, val: u64) {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
+        for i in 0..(bit_width as usize) {
+            let mask = 1 << i;
+            let val_bit_is_set = val & mask == mask;
+            let index = if cfg!(target_endian = "big") {
+                bit_width as usize - 1 - i
+            } else {
+                i
+            };
+            unsafe { Self::raw_set_bit(this, index + bit_offset, val_bit_is_set) };
+        }
+    }
 }
 pub const __MPU_PRESENT: u32 = 1;
 pub const __VTOR_PRESENT: u32 = 1;
@@ -13084,6 +6006,56 @@ pub const BIT_MASK_28: u32 = 268435456;
 pub const BIT_MASK_29: u32 = 536870912;
 pub const BIT_MASK_30: u32 = 1073741824;
 pub const BIT_MASK_31: u32 = 2147483648;
+pub const LL_ICG_ENABLE: u32 = 1;
+pub const LL_UTILITY_ENABLE: u32 = 1;
+pub const LL_PRINT_ENABLE: u32 = 0;
+pub const LL_ADC_ENABLE: u32 = 1;
+pub const LL_AES_ENABLE: u32 = 1;
+pub const LL_AOS_ENABLE: u32 = 1;
+pub const LL_CLK_ENABLE: u32 = 1;
+pub const LL_CMP_ENABLE: u32 = 1;
+pub const LL_CRC_ENABLE: u32 = 1;
+pub const LL_CTC_ENABLE: u32 = 1;
+pub const LL_DAC_ENABLE: u32 = 1;
+pub const LL_DBGC_ENABLE: u32 = 1;
+pub const LL_DCU_ENABLE: u32 = 1;
+pub const LL_DMA_ENABLE: u32 = 1;
+pub const LL_EFM_ENABLE: u32 = 1;
+pub const LL_EMB_ENABLE: u32 = 1;
+pub const LL_EVENT_PORT_ENABLE: u32 = 1;
+pub const LL_FCG_ENABLE: u32 = 1;
+pub const LL_FCM_ENABLE: u32 = 1;
+pub const LL_GPIO_ENABLE: u32 = 1;
+pub const LL_HASH_ENABLE: u32 = 1;
+pub const LL_I2C_ENABLE: u32 = 1;
+pub const LL_INTERRUPTS_ENABLE: u32 = 1;
+pub const LL_KEYSCAN_ENABLE: u32 = 1;
+pub const LL_MCAN_ENABLE: u32 = 1;
+pub const LL_MPU_ENABLE: u32 = 1;
+pub const LL_PWC_ENABLE: u32 = 1;
+pub const LL_QSPI_ENABLE: u32 = 1;
+pub const LL_RMU_ENABLE: u32 = 1;
+pub const LL_RTC_ENABLE: u32 = 1;
+pub const LL_SMC_ENABLE: u32 = 1;
+pub const LL_SPI_ENABLE: u32 = 1;
+pub const LL_SRAM_ENABLE: u32 = 1;
+pub const LL_SWDT_ENABLE: u32 = 1;
+pub const LL_TMR0_ENABLE: u32 = 1;
+pub const LL_TMR4_ENABLE: u32 = 1;
+pub const LL_TMR6_ENABLE: u32 = 1;
+pub const LL_TMRA_ENABLE: u32 = 1;
+pub const LL_TRNG_ENABLE: u32 = 1;
+pub const LL_USART_ENABLE: u32 = 1;
+pub const LL_WDT_ENABLE: u32 = 1;
+pub const BSP_EV_HC32F448_LQFP80: u32 = 9;
+pub const BSP_EV_HC32F4XX: u32 = 0;
+pub const BSP_24CXX_ENABLE: u32 = 0;
+pub const BSP_GT9XX_ENABLE: u32 = 0;
+pub const BSP_IS61LV6416_ENABLE: u32 = 0;
+pub const BSP_NT35510_ENABLE: u32 = 0;
+pub const BSP_TCA9539_ENABLE: u32 = 0;
+pub const BSP_W25QXX_ENABLE: u32 = 0;
+pub const BSP_INT_KEY_ENABLE: u32 = 0;
 pub const MRC_VALUE: u32 = 8000000;
 pub const LRC_VALUE: u32 = 32768;
 pub const SWDTLRC_VALUE: u32 = 10000;
@@ -16537,6 +9509,8 @@ pub const IRQn_Type_ADC1_IRQn: IRQn_Type = 128;
 pub const IRQn_Type_ADC2_IRQn: IRQn_Type = 129;
 pub const IRQn_Type_ADC3_IRQn: IRQn_Type = 130;
 pub const IRQn_Type_TRNG_IRQn: IRQn_Type = 131;
+#[doc = " Interrupt Number Definition"]
+pub type IRQn_Type = ::core::ffi::c_int;
 pub const en_event_src_t_EVT_SRC_SWI_IRQ0: en_event_src_t = 0;
 pub const en_event_src_t_EVT_SRC_SWI_IRQ1: en_event_src_t = 1;
 pub const en_event_src_t_EVT_SRC_SWI_IRQ2: en_event_src_t = 2;
@@ -16804,6 +9778,8 @@ pub const en_event_src_t_EVT_SRC_ADC3_CMP0: en_event_src_t = 490;
 pub const en_event_src_t_EVT_SRC_ADC3_CMP1: en_event_src_t = 491;
 pub const en_event_src_t_EVT_SRC_TRNG_END: en_event_src_t = 492;
 pub const en_event_src_t_EVT_SRC_MAX: en_event_src_t = 511;
+#[doc = " \\brief Event number enumeration"]
+pub type en_event_src_t = ::core::ffi::c_uint;
 pub const en_int_src_t_INT_SRC_SWI_IRQ0: en_int_src_t = 0;
 pub const en_int_src_t_INT_SRC_SWI_IRQ1: en_int_src_t = 1;
 pub const en_int_src_t_INT_SRC_SWI_IRQ2: en_int_src_t = 2;
@@ -17094,18 +10070,452 @@ pub const en_int_src_t_INT_SRC_ADC3_CMP0: en_int_src_t = 490;
 pub const en_int_src_t_INT_SRC_ADC3_CMP1: en_int_src_t = 491;
 pub const en_int_src_t_INT_SRC_TRNG_END: en_int_src_t = 492;
 pub const en_int_src_t_INT_SRC_MAX: en_int_src_t = 511;
-pub const en_functional_state_t_DISABLE: en_functional_state_t = 0;
-pub const en_functional_state_t_ENABLE: en_functional_state_t = 1;
-pub const en_flag_status_t_RESET: en_flag_status_t = 0;
-pub const en_flag_status_t_SET: en_flag_status_t = 1;
-#[doc = "< Pin reset"]
-pub const en_ep_state_t_EVT_PIN_RESET: en_ep_state_t = 0;
-#[doc = "< Pin set"]
-pub const en_ep_state_t_EVT_PIN_SET: en_ep_state_t = 1;
-#[doc = "< Pin reset"]
-pub const en_pin_state_t_PIN_RESET: en_pin_state_t = 0;
-#[doc = "< Pin set"]
-pub const en_pin_state_t_PIN_SET: en_pin_state_t = 1;
+#[doc = " \\brief Interrupt number enumeration"]
+pub type en_int_src_t = ::core::ffi::c_uint;
+#[doc = " @brief ADC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_ADC_TypeDef {
+    pub STR: u8,
+    pub RESERVED0: [u8; 1usize],
+    pub CR0: u16,
+    pub CR1: u16,
+    pub CR2: u16,
+    pub RESERVED1: [u8; 2usize],
+    pub TRGSR: u16,
+    pub CHSELRA: u32,
+    pub CHSELRB: u32,
+    pub AVCHSELR: u32,
+    pub EXCHSELR: u8,
+    pub RESERVED2: [u8; 7usize],
+    pub SSTR0: u8,
+    pub SSTR1: u8,
+    pub SSTR2: u8,
+    pub SSTR3: u8,
+    pub SSTR4: u8,
+    pub SSTR5: u8,
+    pub SSTR6: u8,
+    pub SSTR7: u8,
+    pub SSTR8: u8,
+    pub SSTR9: u8,
+    pub SSTR10: u8,
+    pub SSTR11: u8,
+    pub SSTR12: u8,
+    pub SSTR13: u8,
+    pub SSTR14: u8,
+    pub SSTR15: u8,
+    pub RESERVED3: [u8; 8usize],
+    pub CHMUXR0: u16,
+    pub CHMUXR1: u16,
+    pub CHMUXR2: u16,
+    pub CHMUXR3: u16,
+    pub RESERVED4: [u8; 4usize],
+    pub ISR: u8,
+    pub ICR: u8,
+    pub ISCLRR: u8,
+    pub RESERVED5: [u8; 5usize],
+    pub SYNCCR: u16,
+    pub RESERVED6: [u8; 2usize],
+    pub DR0: u16,
+    pub DR1: u16,
+    pub DR2: u16,
+    pub DR3: u16,
+    pub DR4: u16,
+    pub DR5: u16,
+    pub DR6: u16,
+    pub DR7: u16,
+    pub DR8: u16,
+    pub DR9: u16,
+    pub DR10: u16,
+    pub DR11: u16,
+    pub DR12: u16,
+    pub DR13: u16,
+    pub DR14: u16,
+    pub DR15: u16,
+    pub RESERVED7: [u8; 48usize],
+    pub AWDCR: u16,
+    pub AWDSR: u8,
+    pub AWDSCLRR: u8,
+    pub AWD0DR0: u16,
+    pub AWD0DR1: u16,
+    pub AWD0CHSR: u8,
+    pub RESERVED8: [u8; 3usize],
+    pub AWD1DR0: u16,
+    pub AWD1DR1: u16,
+    pub AWD1CHSR: u8,
+}
+#[doc = " @brief AES"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_AES_TypeDef {
+    pub CR: u32,
+    pub RESERVED0: [u8; 12usize],
+    pub DR0: u32,
+    pub DR1: u32,
+    pub DR2: u32,
+    pub DR3: u32,
+    pub KR0: u32,
+    pub KR1: u32,
+    pub KR2: u32,
+    pub KR3: u32,
+    pub KR4: u32,
+    pub KR5: u32,
+    pub KR6: u32,
+    pub KR7: u32,
+}
+#[doc = " @brief AOS"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_AOS_TypeDef {
+    pub INTSFTTRG: u32,
+    pub DCU_TRGSEL1: u32,
+    pub DCU_TRGSEL2: u32,
+    pub DCU_TRGSEL3: u32,
+    pub DCU_TRGSEL4: u32,
+    pub DMA1_TRGSEL0: u32,
+    pub DMA1_TRGSEL1: u32,
+    pub DMA1_TRGSEL2: u32,
+    pub DMA1_TRGSEL3: u32,
+    pub DMA1_TRGSEL4: u32,
+    pub DMA1_TRGSEL5: u32,
+    pub DMA2_TRGSEL0: u32,
+    pub DMA2_TRGSEL1: u32,
+    pub DMA2_TRGSEL2: u32,
+    pub DMA2_TRGSEL3: u32,
+    pub DMA2_TRGSEL4: u32,
+    pub DMA2_TRGSEL5: u32,
+    pub DMA_RC_TRGSEL: u32,
+    pub TMR6_TRGSEL0: u32,
+    pub TMR6_TRGSEL1: u32,
+    pub TMR4_TRGSEL0: u32,
+    pub TMR4_TRGSEL1: u32,
+    pub TMR4_TRGSEL2: u32,
+    pub PEVNT_TRGSEL12: u32,
+    pub PEVNT_TRGSEL34: u32,
+    pub TMR0_TRGSEL: u32,
+    pub TMRA_TRGSEL0: u32,
+    pub TMRA_TRGSEL1: u32,
+    pub TMRA_TRGSEL2: u32,
+    pub TMRA_TRGSEL3: u32,
+    pub ADC1_TRGSEL0: u32,
+    pub ADC1_TRGSEL1: u32,
+    pub ADC2_TRGSEL0: u32,
+    pub ADC2_TRGSEL1: u32,
+    pub ADC3_TRGSEL0: u32,
+    pub ADC3_TRGSEL1: u32,
+    pub COMTRGSEL1: u32,
+    pub COMTRGSEL2: u32,
+    pub RESERVED0: [u8; 104usize],
+    pub PEVNTDIRR1: u32,
+    pub PEVNTIDR1: u32,
+    pub PEVNTODR1: u32,
+    pub PEVNTORR1: u32,
+    pub PEVNTOSR1: u32,
+    pub PEVNTRISR1: u32,
+    pub PEVNTFALR1: u32,
+    pub PEVNTDIRR2: u32,
+    pub PEVNTIDR2: u32,
+    pub PEVNTODR2: u32,
+    pub PEVNTORR2: u32,
+    pub PEVNTOSR2: u32,
+    pub PEVNTRISR2: u32,
+    pub PEVNTFALR2: u32,
+    pub PEVNTDIRR3: u32,
+    pub PEVNTIDR3: u32,
+    pub PEVNTODR3: u32,
+    pub PEVNTORR3: u32,
+    pub PEVNTOSR3: u32,
+    pub PEVNTRISR3: u32,
+    pub PEVNTFALR3: u32,
+    pub PEVNTDIRR4: u32,
+    pub PEVNTIDR4: u32,
+    pub PEVNTODR4: u32,
+    pub PEVNTORR4: u32,
+    pub PEVNTOSR4: u32,
+    pub PEVNTRISR4: u32,
+    pub PEVNTFALR4: u32,
+    pub PEVNTNFCR: u32,
+    pub RESERVED1: [u8; 140usize],
+    pub PLU0_CR: u32,
+    pub PLU1_CR: u32,
+    pub PLU2_CR: u32,
+    pub PLU3_CR: u32,
+    pub PLU0_TRGSELA: u32,
+    pub PLU0_TRGSELB: u32,
+    pub PLU0_TRGSELC: u32,
+    pub PLU0_TRGSELD: u32,
+    pub PLU1_TRGSELA: u32,
+    pub PLU1_TRGSELB: u32,
+    pub PLU1_TRGSELC: u32,
+    pub PLU1_TRGSELD: u32,
+    pub PLU2_TRGSELA: u32,
+    pub PLU2_TRGSELB: u32,
+    pub PLU2_TRGSELC: u32,
+    pub PLU2_TRGSELD: u32,
+    pub PLU3_TRGSELA: u32,
+    pub PLU3_TRGSELB: u32,
+    pub PLU3_TRGSELC: u32,
+    pub PLU3_TRGSELD: u32,
+}
+#[doc = " @brief CMP"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_CMP_TypeDef {
+    pub MDR: u8,
+    pub FIR: u8,
+    pub OCR: u8,
+    pub RESERVED0: [u8; 1usize],
+    pub PMSR: u32,
+    pub RESERVED1: [u8; 8usize],
+    pub BWSR1: u32,
+    pub BWSR2: u16,
+    pub RESERVED2: [u8; 2usize],
+    pub SCCR: u32,
+    pub SCMR: u32,
+}
+#[doc = " @brief CMU"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_CMU_TypeDef {
+    pub RESERVED0: [u8; 24usize],
+    pub XTALDIVR: u32,
+    pub XTALDIVCR: u32,
+    pub RESERVED1: [u8; 19504usize],
+    pub XTALCFGR: u8,
+    pub RESERVED2: [u8; 3usize],
+    pub XTAL32CR: u8,
+    pub RESERVED3: [u8; 3usize],
+    pub XTAL32CFGR: u8,
+    pub RESERVED4: [u8; 15usize],
+    pub XTAL32NFR: u8,
+    pub RESERVED5: [u8; 3usize],
+    pub LRCCR: u8,
+    pub RESERVED6: [u8; 7usize],
+    pub LRCTRM: u8,
+    pub RESERVED7: [u8; 29595usize],
+    pub PERICKSEL: u16,
+    pub RESERVED8: [u8; 6usize],
+    pub CANCKCFGR: u16,
+    pub RESERVED9: [u8; 6usize],
+    pub SCFGR: u32,
+    pub RESERVED10: [u8; 2usize],
+    pub CKSWR: u8,
+    pub RESERVED11: [u8; 3usize],
+    pub PLLHCR: u8,
+    pub RESERVED12: [u8; 7usize],
+    pub XTALCR: u8,
+    pub RESERVED13: [u8; 3usize],
+    pub HRCCR: u8,
+    pub RESERVED14: [u8; 1usize],
+    pub MRCCR: u8,
+    pub RESERVED15: [u8; 3usize],
+    pub OSCSTBSR: u8,
+    pub MCO1CFGR: u8,
+    pub MCO2CFGR: u8,
+    pub TPIUCKCFGR: u8,
+    pub XTALSTDCR: u8,
+    pub XTALSTDSR: u8,
+    pub RESERVED16: [u8; 31usize],
+    pub MRCTRM: u8,
+    pub HRCTRM: u8,
+    pub RESERVED17: [u8; 63usize],
+    pub XTALSTBCR: u8,
+    pub RESERVED18: [u8; 93usize],
+    pub PLLHCFGR: u32,
+}
+#[doc = " @brief CRC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_CRC_TypeDef {
+    pub CR: u32,
+    pub RESLT: u32,
+    pub RESERVED0: [u8; 120usize],
+    pub DAT0: u32,
+    pub DAT1: u32,
+    pub DAT2: u32,
+    pub DAT3: u32,
+    pub DAT4: u32,
+    pub DAT5: u32,
+    pub DAT6: u32,
+    pub DAT7: u32,
+    pub DAT8: u32,
+    pub DAT9: u32,
+    pub DAT10: u32,
+    pub DAT11: u32,
+    pub DAT12: u32,
+    pub DAT13: u32,
+    pub DAT14: u32,
+    pub DAT15: u32,
+    pub DAT16: u32,
+    pub DAT17: u32,
+    pub DAT18: u32,
+    pub DAT19: u32,
+    pub DAT20: u32,
+    pub DAT21: u32,
+    pub DAT22: u32,
+    pub DAT23: u32,
+    pub DAT24: u32,
+    pub DAT25: u32,
+    pub DAT26: u32,
+    pub DAT27: u32,
+    pub DAT28: u32,
+    pub DAT29: u32,
+    pub DAT30: u32,
+    pub DAT31: u32,
+}
+#[doc = " @brief CTC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_CTC_TypeDef {
+    pub CR1: u32,
+    pub CR2: u32,
+    pub STR: u32,
+    pub CNT: u16,
+}
+#[doc = " @brief DAC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_DAC_TypeDef {
+    pub DADR1: u16,
+    pub DADR2: u16,
+    pub DACR: u16,
+    pub DAADPCR: u16,
+    pub RESERVED0: [u8; 20usize],
+    pub DAOCR: u16,
+}
+#[doc = " @brief DBGC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_DBGC_TypeDef {
+    pub RESERVED0: [u8; 12usize],
+    pub CHIPID: u32,
+    pub RESERVED1: [u8; 12usize],
+    pub MCUDBGCSTAT: u32,
+    pub MCUSTPCTL: u32,
+    pub MCUTRACECTL: u32,
+    pub MCUSTPCTL2: u32,
+}
+#[doc = " @brief DCU"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_DCU_TypeDef {
+    pub CTL: u32,
+    pub FLAG: u32,
+    pub DATA0: u32,
+    pub DATA1: u32,
+    pub DATA2: u32,
+    pub FLAGCLR: u32,
+    pub INTEVTSEL: u32,
+}
+#[doc = " @brief DMA"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct CM_DMA_TypeDef {
+    pub EN: u32,
+    pub INTSTAT0: u32,
+    pub INTSTAT1: u32,
+    pub INTMASK0: u32,
+    pub INTMASK1: u32,
+    pub INTCLR0: u32,
+    pub INTCLR1: u32,
+    pub CHEN: u32,
+    pub REQSTAT: u32,
+    pub CHSTAT: u32,
+    pub RESERVED0: [u8; 4usize],
+    pub RCFGCTL: u32,
+    pub SWREQ: u32,
+    pub CHENCLR: u32,
+    pub RESERVED1: [u8; 8usize],
+    pub SAR0: u32,
+    pub DAR0: u32,
+    pub DTCTL0: u32,
+    pub __bindgen_anon_1: CM_DMA_TypeDef__bindgen_ty_1,
+    pub __bindgen_anon_2: CM_DMA_TypeDef__bindgen_ty_2,
+    pub __bindgen_anon_3: CM_DMA_TypeDef__bindgen_ty_3,
+    pub LLP0: u32,
+    pub CHCTL0: u32,
+    pub MONSAR0: u32,
+    pub MONDAR0: u32,
+    pub MONDTCTL0: u32,
+    pub MONRPT0: u32,
+    pub MONSNSEQCTL0: u32,
+    pub MONDNSEQCTL0: u32,
+    pub RESERVED2: [u8; 8usize],
+    pub SAR1: u32,
+    pub DAR1: u32,
+    pub DTCTL1: u32,
+    pub __bindgen_anon_4: CM_DMA_TypeDef__bindgen_ty_4,
+    pub __bindgen_anon_5: CM_DMA_TypeDef__bindgen_ty_5,
+    pub __bindgen_anon_6: CM_DMA_TypeDef__bindgen_ty_6,
+    pub LLP1: u32,
+    pub CHCTL1: u32,
+    pub MONSAR1: u32,
+    pub MONDAR1: u32,
+    pub MONDTCTL1: u32,
+    pub MONRPT1: u32,
+    pub MONSNSEQCTL1: u32,
+    pub MONDNSEQCTL1: u32,
+    pub RESERVED3: [u8; 8usize],
+    pub SAR2: u32,
+    pub DAR2: u32,
+    pub DTCTL2: u32,
+    pub __bindgen_anon_7: CM_DMA_TypeDef__bindgen_ty_7,
+    pub __bindgen_anon_8: CM_DMA_TypeDef__bindgen_ty_8,
+    pub __bindgen_anon_9: CM_DMA_TypeDef__bindgen_ty_9,
+    pub LLP2: u32,
+    pub CHCTL2: u32,
+    pub MONSAR2: u32,
+    pub MONDAR2: u32,
+    pub MONDTCTL2: u32,
+    pub MONRPT2: u32,
+    pub MONSNSEQCTL2: u32,
+    pub MONDNSEQCTL2: u32,
+    pub RESERVED4: [u8; 8usize],
+    pub SAR3: u32,
+    pub DAR3: u32,
+    pub DTCTL3: u32,
+    pub __bindgen_anon_10: CM_DMA_TypeDef__bindgen_ty_10,
+    pub __bindgen_anon_11: CM_DMA_TypeDef__bindgen_ty_11,
+    pub __bindgen_anon_12: CM_DMA_TypeDef__bindgen_ty_12,
+    pub LLP3: u32,
+    pub CHCTL3: u32,
+    pub MONSAR3: u32,
+    pub MONDAR3: u32,
+    pub MONDTCTL3: u32,
+    pub MONRPT3: u32,
+    pub MONSNSEQCTL3: u32,
+    pub MONDNSEQCTL3: u32,
+    pub RESERVED5: [u8; 8usize],
+    pub SAR4: u32,
+    pub DAR4: u32,
+    pub DTCTL4: u32,
+    pub __bindgen_anon_13: CM_DMA_TypeDef__bindgen_ty_13,
+    pub __bindgen_anon_14: CM_DMA_TypeDef__bindgen_ty_14,
+    pub __bindgen_anon_15: CM_DMA_TypeDef__bindgen_ty_15,
+    pub LLP4: u32,
+    pub CHCTL4: u32,
+    pub MONSAR4: u32,
+    pub MONDAR4: u32,
+    pub MONDTCTL4: u32,
+    pub MONRPT4: u32,
+    pub MONSNSEQCTL4: u32,
+    pub MONDNSEQCTL4: u32,
+    pub RESERVED6: [u8; 8usize],
+    pub SAR5: u32,
+    pub DAR5: u32,
+    pub DTCTL5: u32,
+    pub __bindgen_anon_16: CM_DMA_TypeDef__bindgen_ty_16,
+    pub __bindgen_anon_17: CM_DMA_TypeDef__bindgen_ty_17,
+    pub __bindgen_anon_18: CM_DMA_TypeDef__bindgen_ty_18,
+    pub LLP5: u32,
+    pub CHCTL5: u32,
+    pub MONSAR5: u32,
+    pub MONDAR5: u32,
+    pub MONDTCTL5: u32,
+    pub MONRPT5: u32,
+    pub MONSNSEQCTL5: u32,
+    pub MONDNSEQCTL5: u32,
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union CM_DMA_TypeDef__bindgen_ty_1 {
@@ -17214,6 +10624,5338 @@ pub union CM_DMA_TypeDef__bindgen_ty_18 {
     pub DNSEQCTL5: u32,
     pub DNSEQCTLB5: u32,
 }
+#[doc = " @brief EFM"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_EFM_TypeDef {
+    pub FAPRT: u32,
+    pub KEY1: u32,
+    pub KEY2: u32,
+    pub RESERVED0: [u8; 8usize],
+    pub FSTP: u32,
+    pub FRMC: u32,
+    pub FWMC: u32,
+    pub FSR: u32,
+    pub FSCLR: u32,
+    pub FITE: u32,
+    pub FSWP: u32,
+    pub RESERVED1: [u8; 16usize],
+    pub CHIPID: u32,
+    pub RESERVED2: [u8; 12usize],
+    pub UQID0: u32,
+    pub UQID1: u32,
+    pub UQID2: u32,
+    pub RESERVED3: [u8; 164usize],
+    pub MMF_REMPRT: u32,
+    pub MMF_REMCR0: u32,
+    pub MMF_REMCR1: u32,
+    pub RESERVED4: [u8; 116usize],
+    pub WLOCK: u32,
+    pub RESERVED5: [u8; 12usize],
+    pub F0NWPRT: u32,
+}
+#[doc = " @brief EMB"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_EMB_TypeDef {
+    pub CTL1: u32,
+    pub CTL2: u32,
+    pub SOE: u32,
+    pub STAT: u32,
+    pub STATCLR: u32,
+    pub INTEN: u32,
+    pub RLSSEL: u32,
+}
+#[doc = " @brief FCM"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_FCM_TypeDef {
+    pub LVR: u32,
+    pub UVR: u32,
+    pub CNTR: u32,
+    pub STR: u32,
+    pub MCCR: u32,
+    pub RCCR: u32,
+    pub RIER: u32,
+    pub SR: u32,
+    pub CLR: u32,
+}
+#[doc = " @brief GPIO"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_GPIO_TypeDef {
+    pub PIDRA: u16,
+    pub RESERVED0: [u8; 2usize],
+    pub PODRA: u16,
+    pub POERA: u16,
+    pub POSRA: u16,
+    pub PORRA: u16,
+    pub POTRA: u16,
+    pub RESERVED1: [u8; 2usize],
+    pub PIDRB: u16,
+    pub RESERVED2: [u8; 2usize],
+    pub PODRB: u16,
+    pub POERB: u16,
+    pub POSRB: u16,
+    pub PORRB: u16,
+    pub POTRB: u16,
+    pub RESERVED3: [u8; 2usize],
+    pub PIDRC: u16,
+    pub RESERVED4: [u8; 2usize],
+    pub PODRC: u16,
+    pub POERC: u16,
+    pub POSRC: u16,
+    pub PORRC: u16,
+    pub POTRC: u16,
+    pub RESERVED5: [u8; 2usize],
+    pub PIDRD: u16,
+    pub RESERVED6: [u8; 2usize],
+    pub PODRD: u16,
+    pub POERD: u16,
+    pub POSRD: u16,
+    pub PORRD: u16,
+    pub POTRD: u16,
+    pub RESERVED7: [u8; 2usize],
+    pub PIDRE: u16,
+    pub RESERVED8: [u8; 2usize],
+    pub PODRE: u16,
+    pub POERE: u16,
+    pub POSRE: u16,
+    pub PORRE: u16,
+    pub POTRE: u16,
+    pub RESERVED9: [u8; 2usize],
+    pub PIDRH: u16,
+    pub RESERVED10: [u8; 2usize],
+    pub PODRH: u16,
+    pub POERH: u16,
+    pub POSRH: u16,
+    pub PORRH: u16,
+    pub POTRH: u16,
+    pub RESERVED11: [u8; 918usize],
+    pub PSPCR: u16,
+    pub RESERVED12: [u8; 2usize],
+    pub PCCR: u16,
+    pub RESERVED13: [u8; 2usize],
+    pub PWPR: u16,
+    pub RESERVED14: [u8; 2usize],
+    pub PCRA0: u16,
+    pub PFSRA0: u16,
+    pub PCRA1: u16,
+    pub PFSRA1: u16,
+    pub PCRA2: u16,
+    pub PFSRA2: u16,
+    pub PCRA3: u16,
+    pub PFSRA3: u16,
+    pub PCRA4: u16,
+    pub PFSRA4: u16,
+    pub PCRA5: u16,
+    pub PFSRA5: u16,
+    pub PCRA6: u16,
+    pub PFSRA6: u16,
+    pub PCRA7: u16,
+    pub PFSRA7: u16,
+    pub PCRA8: u16,
+    pub PFSRA8: u16,
+    pub PCRA9: u16,
+    pub PFSRA9: u16,
+    pub PCRA10: u16,
+    pub PFSRA10: u16,
+    pub PCRA11: u16,
+    pub PFSRA11: u16,
+    pub PCRA12: u16,
+    pub PFSRA12: u16,
+    pub PCRA13: u16,
+    pub PFSRA13: u16,
+    pub PCRA14: u16,
+    pub PFSRA14: u16,
+    pub PCRA15: u16,
+    pub PFSRA15: u16,
+    pub PCRB0: u16,
+    pub PFSRB0: u16,
+    pub PCRB1: u16,
+    pub PFSRB1: u16,
+    pub PCRB2: u16,
+    pub PFSRB2: u16,
+    pub PCRB3: u16,
+    pub PFSRB3: u16,
+    pub PCRB4: u16,
+    pub PFSRB4: u16,
+    pub PCRB5: u16,
+    pub PFSRB5: u16,
+    pub PCRB6: u16,
+    pub PFSRB6: u16,
+    pub PCRB7: u16,
+    pub PFSRB7: u16,
+    pub PCRB8: u16,
+    pub PFSRB8: u16,
+    pub PCRB9: u16,
+    pub PFSRB9: u16,
+    pub PCRB10: u16,
+    pub PFSRB10: u16,
+    pub PCRB11: u16,
+    pub PFSRB11: u16,
+    pub PCRB12: u16,
+    pub PFSRB12: u16,
+    pub PCRB13: u16,
+    pub PFSRB13: u16,
+    pub PCRB14: u16,
+    pub PFSRB14: u16,
+    pub PCRB15: u16,
+    pub PFSRB15: u16,
+    pub PCRC0: u16,
+    pub PFSRC0: u16,
+    pub PCRC1: u16,
+    pub PFSRC1: u16,
+    pub PCRC2: u16,
+    pub PFSRC2: u16,
+    pub PCRC3: u16,
+    pub PFSRC3: u16,
+    pub PCRC4: u16,
+    pub PFSRC4: u16,
+    pub PCRC5: u16,
+    pub PFSRC5: u16,
+    pub PCRC6: u16,
+    pub PFSRC6: u16,
+    pub PCRC7: u16,
+    pub PFSRC7: u16,
+    pub PCRC8: u16,
+    pub PFSRC8: u16,
+    pub PCRC9: u16,
+    pub PFSRC9: u16,
+    pub PCRC10: u16,
+    pub PFSRC10: u16,
+    pub PCRC11: u16,
+    pub PFSRC11: u16,
+    pub PCRC12: u16,
+    pub PFSRC12: u16,
+    pub PCRC13: u16,
+    pub PFSRC13: u16,
+    pub PCRC14: u16,
+    pub PFSRC14: u16,
+    pub PCRC15: u16,
+    pub PFSRC15: u16,
+    pub PCRD0: u16,
+    pub PFSRD0: u16,
+    pub PCRD1: u16,
+    pub PFSRD1: u16,
+    pub PCRD2: u16,
+    pub PFSRD2: u16,
+    pub RESERVED15: [u8; 20usize],
+    pub PCRD8: u16,
+    pub PFSRD8: u16,
+    pub PCRD9: u16,
+    pub PFSRD9: u16,
+    pub PCRD10: u16,
+    pub PFSRD10: u16,
+    pub PCRD11: u16,
+    pub PFSRD11: u16,
+    pub RESERVED16: [u8; 16usize],
+    pub PCRE0: u16,
+    pub PFSRE0: u16,
+    pub PCRE1: u16,
+    pub PFSRE1: u16,
+    pub PCRE2: u16,
+    pub PFSRE2: u16,
+    pub PCRE3: u16,
+    pub PFSRE3: u16,
+    pub PCRE4: u16,
+    pub PFSRE4: u16,
+    pub RESERVED17: [u8; 28usize],
+    pub PCRE12: u16,
+    pub PFSRE12: u16,
+    pub PCRE13: u16,
+    pub PFSRE13: u16,
+    pub PCRE14: u16,
+    pub PFSRE14: u16,
+    pub PCRE15: u16,
+    pub PFSRE15: u16,
+    pub PCRH0: u16,
+    pub PFSRH0: u16,
+    pub PCRH1: u16,
+    pub PFSRH1: u16,
+    pub PCRH2: u16,
+    pub PFSRH2: u16,
+}
+#[doc = " @brief HASH"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_HASH_TypeDef {
+    pub CR: u32,
+    pub RESERVED0: [u8; 12usize],
+    pub HR7: u32,
+    pub HR6: u32,
+    pub HR5: u32,
+    pub HR4: u32,
+    pub HR3: u32,
+    pub HR2: u32,
+    pub HR1: u32,
+    pub HR0: u32,
+    pub RESERVED1: [u8; 16usize],
+    pub DR15: u32,
+    pub DR14: u32,
+    pub DR13: u32,
+    pub DR12: u32,
+    pub DR11: u32,
+    pub DR10: u32,
+    pub DR9: u32,
+    pub DR8: u32,
+    pub DR7: u32,
+    pub DR6: u32,
+    pub DR5: u32,
+    pub DR4: u32,
+    pub DR3: u32,
+    pub DR2: u32,
+    pub DR1: u32,
+    pub DR0: u32,
+}
+#[doc = " @brief I2C"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_I2C_TypeDef {
+    pub CR1: u32,
+    pub CR2: u32,
+    pub CR3: u32,
+    pub CR4: u32,
+    pub SLR0: u32,
+    pub SLR1: u32,
+    pub SLTR: u32,
+    pub SR: u32,
+    pub CLR: u32,
+    pub DTR: u8,
+    pub RESERVED0: [u8; 3usize],
+    pub DRR: u8,
+    pub RESERVED1: [u8; 3usize],
+    pub CCR: u32,
+    pub FLTR: u32,
+    pub FSTR: u32,
+    pub SLVADDR: u32,
+}
+#[doc = " @brief ICG"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_ICG_TypeDef {
+    pub ICG0: u32,
+    pub ICG1: u32,
+    pub RESERVED0: [u8; 4usize],
+    pub ICG3: u32,
+}
+#[doc = " @brief INTC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_INTC_TypeDef {
+    pub RESERVED0: [u8; 4usize],
+    pub NMIER: u32,
+    pub NMIFR: u32,
+    pub NMIFCR: u32,
+    pub EIRQCR0: u32,
+    pub EIRQCR1: u32,
+    pub EIRQCR2: u32,
+    pub EIRQCR3: u32,
+    pub EIRQCR4: u32,
+    pub EIRQCR5: u32,
+    pub EIRQCR6: u32,
+    pub EIRQCR7: u32,
+    pub EIRQCR8: u32,
+    pub EIRQCR9: u32,
+    pub EIRQCR10: u32,
+    pub EIRQCR11: u32,
+    pub EIRQCR12: u32,
+    pub EIRQCR13: u32,
+    pub EIRQCR14: u32,
+    pub EIRQCR15: u32,
+    pub WKEN: u32,
+    pub EIFR: u32,
+    pub EIFCR: u32,
+    pub INTSEL0: u32,
+    pub INTSEL1: u32,
+    pub INTSEL2: u32,
+    pub INTSEL3: u32,
+    pub INTSEL4: u32,
+    pub INTSEL5: u32,
+    pub INTSEL6: u32,
+    pub INTSEL7: u32,
+    pub INTSEL8: u32,
+    pub INTSEL9: u32,
+    pub INTSEL10: u32,
+    pub INTSEL11: u32,
+    pub INTSEL12: u32,
+    pub INTSEL13: u32,
+    pub INTSEL14: u32,
+    pub INTSEL15: u32,
+    pub INTEN0: u32,
+    pub INTEN1: u32,
+    pub INTEN2: u32,
+    pub INTEN3: u32,
+    pub INTEN4: u32,
+    pub INTEN5: u32,
+    pub INTEN6: u32,
+    pub INTEN7: u32,
+    pub INTEN8: u32,
+    pub INTEN9: u32,
+    pub INTEN10: u32,
+    pub INTEN11: u32,
+    pub INTEN12: u32,
+    pub INTEN13: u32,
+    pub INTEN14: u32,
+    pub INTEN15: u32,
+    pub SWIER: u32,
+    pub EVTER: u32,
+    pub IER: u32,
+}
+#[doc = " @brief KEYSCAN"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_KEYSCAN_TypeDef {
+    pub SCR: u32,
+    pub SER: u32,
+    pub SSR: u32,
+}
+#[doc = " @brief MCAN"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_MCAN_TypeDef {
+    pub RESERVED0: [u8; 4usize],
+    pub ENDN: u32,
+    pub RESERVED1: [u8; 4usize],
+    pub DBTP: u32,
+    pub TEST: u32,
+    pub RWD: u32,
+    pub CCCR: u32,
+    pub NBTP: u32,
+    pub TSCC: u32,
+    pub TSCV: u32,
+    pub TOCC: u32,
+    pub TOCV: u32,
+    pub RESERVED2: [u8; 16usize],
+    pub ECR: u32,
+    pub PSR: u32,
+    pub TDCR: u32,
+    pub RESERVED3: [u8; 4usize],
+    pub IR: u32,
+    pub IE: u32,
+    pub ILS: u32,
+    pub ILE: u32,
+    pub RESERVED4: [u8; 32usize],
+    pub GFC: u32,
+    pub SIDFC: u32,
+    pub XIDFC: u32,
+    pub RESERVED5: [u8; 4usize],
+    pub XIDAM: u32,
+    pub HPMS: u32,
+    pub NDAT1: u32,
+    pub NDAT2: u32,
+    pub RXF0C: u32,
+    pub RXF0S: u32,
+    pub RXF0A: u32,
+    pub RXBC: u32,
+    pub RXF1C: u32,
+    pub RXF1S: u32,
+    pub RXF1A: u32,
+    pub RXESC: u32,
+    pub TXBC: u32,
+    pub TXFQS: u32,
+    pub TXESC: u32,
+    pub TXBRP: u32,
+    pub TXBAR: u32,
+    pub TXBCR: u32,
+    pub TXBTO: u32,
+    pub TXBCF: u32,
+    pub TXBTIE: u32,
+    pub TXBCIE: u32,
+    pub RESERVED6: [u8; 8usize],
+    pub TXEFC: u32,
+    pub TXEFS: u32,
+    pub TXEFA: u32,
+}
+#[doc = " @brief MPU"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_MPU_TypeDef {
+    pub RGD0: u32,
+    pub RGD1: u32,
+    pub RGD2: u32,
+    pub RGD3: u32,
+    pub RGD4: u32,
+    pub RGD5: u32,
+    pub RGD6: u32,
+    pub RGD7: u32,
+    pub RGD8: u32,
+    pub RGD9: u32,
+    pub RGD10: u32,
+    pub RGD11: u32,
+    pub RGD12: u32,
+    pub RGD13: u32,
+    pub RGD14: u32,
+    pub RGD15: u32,
+    pub SR: u32,
+    pub ECLR: u32,
+    pub WP: u32,
+    pub IPPR: u32,
+    pub MSPPBA: u32,
+    pub MSPPCTL: u32,
+    pub PSPPBA: u32,
+    pub PSPPCTL: u32,
+    pub S1RGE: u32,
+    pub S1RGWP: u32,
+    pub S1RGRP: u32,
+    pub S1CR: u32,
+    pub S2RGE: u32,
+    pub S2RGWP: u32,
+    pub S2RGRP: u32,
+    pub S2CR: u32,
+}
+#[doc = " @brief PERIC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_PERIC_TypeDef {
+    pub RESERVED0: [u8; 12usize],
+    pub SMC_ENAR: u32,
+    pub RESERVED1: [u8; 4usize],
+    pub TMR_SYNENR: u32,
+    pub RESERVED2: [u8; 4usize],
+    pub USART1_NFC: u32,
+}
+#[doc = " @brief PWC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_PWC_TypeDef {
+    pub FCG0: u32,
+    pub FCG1: u32,
+    pub FCG2: u32,
+    pub FCG3: u32,
+    pub FCG0PC: u32,
+    pub RESERVED0: [u8; 17388usize],
+    pub WKTCR: u16,
+    pub RESERVED1: [u8; 2046usize],
+    pub PWRC0: u8,
+    pub RESERVED2: [u8; 3usize],
+    pub PWRC1: u8,
+    pub RESERVED3: [u8; 3usize],
+    pub PWRC2: u8,
+    pub RESERVED4: [u8; 3usize],
+    pub PWRC3: u8,
+    pub RESERVED5: [u8; 3usize],
+    pub PWRC4: u8,
+    pub RESERVED6: [u8; 3usize],
+    pub PVDCR0: u8,
+    pub RESERVED7: [u8; 3usize],
+    pub PVDCR1: u8,
+    pub RESERVED8: [u8; 3usize],
+    pub PVDFCR: u8,
+    pub RESERVED9: [u8; 3usize],
+    pub PVDLCR: u8,
+    pub RESERVED10: [u8; 7usize],
+    pub PDWKE0: u8,
+    pub RESERVED11: [u8; 3usize],
+    pub PDWKE1: u8,
+    pub RESERVED12: [u8; 3usize],
+    pub PDWKE2: u8,
+    pub RESERVED13: [u8; 3usize],
+    pub PDWKES: u8,
+    pub RESERVED14: [u8; 3usize],
+    pub PDWKF0: u8,
+    pub RESERVED15: [u8; 3usize],
+    pub PDWKF1: u8,
+    pub RESERVED16: [u8; 3usize],
+    pub PWRC5: u8,
+    pub RESERVED17: [u8; 3usize],
+    pub PWRC6: u8,
+    pub RESERVED18: [u8; 123usize],
+    pub PVDICR: u8,
+    pub RESERVED19: [u8; 3usize],
+    pub PVDDSR: u8,
+    pub RESERVED20: [u8; 3usize],
+    pub RAMPC0: u32,
+    pub RAMOPM: u32,
+    pub PRAMLPC: u32,
+    pub RESERVED21: [u8; 29496usize],
+    pub STPMCR: u16,
+    pub RESERVED22: [u8; 1008usize],
+    pub FPRC: u16,
+}
+#[doc = " @brief QSPI"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_QSPI_TypeDef {
+    pub CR: u32,
+    pub CSCR: u32,
+    pub FCR: u32,
+    pub SR: u32,
+    pub DCOM: u32,
+    pub CCMD: u32,
+    pub XCMD: u32,
+    pub RESERVED0: [u8; 8usize],
+    pub CLR: u32,
+    pub RESERVED1: [u8; 2012usize],
+    pub EXAR: u32,
+}
+#[doc = " @brief RMU"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_RMU_TypeDef {
+    pub FRST0: u32,
+    pub FRST1: u32,
+    pub FRST2: u32,
+    pub FRST3: u32,
+    pub PRSTCR0: u8,
+    pub RESERVED0: [u8; 3usize],
+    pub RSTF0: u32,
+}
+#[doc = " @brief RTC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_RTC_TypeDef {
+    pub CR0: u8,
+    pub RESERVED0: [u8; 3usize],
+    pub CR1: u8,
+    pub RESERVED1: [u8; 3usize],
+    pub CR2: u8,
+    pub RESERVED2: [u8; 3usize],
+    pub CR3: u8,
+    pub RESERVED3: [u8; 3usize],
+    pub SEC: u8,
+    pub RESERVED4: [u8; 3usize],
+    pub MIN: u8,
+    pub RESERVED5: [u8; 3usize],
+    pub HOUR: u8,
+    pub RESERVED6: [u8; 3usize],
+    pub WEEK: u8,
+    pub RESERVED7: [u8; 3usize],
+    pub DAY: u8,
+    pub RESERVED8: [u8; 3usize],
+    pub MON: u8,
+    pub RESERVED9: [u8; 3usize],
+    pub YEAR: u8,
+    pub RESERVED10: [u8; 3usize],
+    pub ALMMIN: u8,
+    pub RESERVED11: [u8; 3usize],
+    pub ALMHOUR: u8,
+    pub RESERVED12: [u8; 3usize],
+    pub ALMWEEK: u8,
+    pub RESERVED13: [u8; 3usize],
+    pub ERRCRH: u8,
+    pub RESERVED14: [u8; 3usize],
+    pub ERRCRL: u8,
+}
+#[doc = " @brief SMC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_SMC_TypeDef {
+    pub STSR: u32,
+    pub RESERVED0: [u8; 4usize],
+    pub STCR0: u32,
+    pub STCR1: u32,
+    pub CMDR: u32,
+    pub TMCR: u32,
+    pub CPCR: u32,
+    pub RESERVED1: [u8; 4usize],
+    pub RFTR: u32,
+    pub RESERVED2: [u8; 220usize],
+    pub TMSR0: u32,
+    pub CPSR0: u32,
+    pub RESERVED3: [u8; 248usize],
+    pub BACR: u32,
+    pub RESERVED4: [u8; 4usize],
+    pub CSCR0: u32,
+    pub CSCR1: u32,
+}
+#[doc = " @brief SPI"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_SPI_TypeDef {
+    pub DR: u32,
+    pub CR: u32,
+    pub RESERVED0: [u8; 4usize],
+    pub CFG1: u32,
+    pub RESERVED1: [u8; 4usize],
+    pub SR: u32,
+    pub CFG2: u32,
+}
+#[doc = " @brief SRAMC"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_SRAMC_TypeDef {
+    pub RESERVED0: [u8; 8usize],
+    pub CKCR: u32,
+    pub CKPR: u32,
+    pub CKSR: u32,
+    pub SRAM0_EIEN: u32,
+    pub SRAM0_EIBIT0: u32,
+    pub SRAM0_EIBIT1: u32,
+    pub SRAM0_ECCERRADDR: u32,
+    pub SRAMB_EIEN: u32,
+    pub SRAMB_EIBIT0: u32,
+    pub SRAMB_EIBIT1: u32,
+    pub SRAMB_ECCERRADDR: u32,
+}
+#[doc = " @brief SWDT"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_SWDT_TypeDef {
+    pub CR: u32,
+    pub SR: u32,
+    pub RR: u32,
+}
+#[doc = " @brief TMR0"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_TMR0_TypeDef {
+    pub CNTAR: u32,
+    pub CNTBR: u32,
+    pub CMPAR: u32,
+    pub CMPBR: u32,
+    pub BCONR: u32,
+    pub STFLR: u32,
+}
+#[doc = " @brief TMR4"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_TMR4_TypeDef {
+    pub OCCRUH: u16,
+    pub RESERVED0: [u8; 2usize],
+    pub OCCRUL: u16,
+    pub RESERVED1: [u8; 2usize],
+    pub OCCRVH: u16,
+    pub RESERVED2: [u8; 2usize],
+    pub OCCRVL: u16,
+    pub RESERVED3: [u8; 2usize],
+    pub OCCRWH: u16,
+    pub RESERVED4: [u8; 2usize],
+    pub OCCRWL: u16,
+    pub RESERVED5: [u8; 2usize],
+    pub OCCRXH: u16,
+    pub RESERVED6: [u8; 2usize],
+    pub OCCRXL: u16,
+    pub RESERVED7: [u8; 2usize],
+    pub OCSRU: u16,
+    pub OCERU: u16,
+    pub OCSRV: u16,
+    pub OCERV: u16,
+    pub OCSRW: u16,
+    pub OCERW: u16,
+    pub OCSRX: u16,
+    pub OCERX: u16,
+    pub OCMRUH: u16,
+    pub RESERVED8: [u8; 2usize],
+    pub OCMRUL: u32,
+    pub OCMRVH: u16,
+    pub RESERVED9: [u8; 2usize],
+    pub OCMRVL: u32,
+    pub OCMRWH: u16,
+    pub RESERVED10: [u8; 2usize],
+    pub OCMRWL: u32,
+    pub OCMRXH: u16,
+    pub RESERVED11: [u8; 2usize],
+    pub OCMRXL: u32,
+    pub CPSR: u16,
+    pub RESERVED12: [u8; 2usize],
+    pub CNTR: u16,
+    pub RESERVED13: [u8; 2usize],
+    pub CCSR: u16,
+    pub CVPR: u16,
+    pub PSCR: u32,
+    pub RESERVED14: [u8; 34usize],
+    pub PFSRU: u16,
+    pub PDARU: u16,
+    pub PDBRU: u16,
+    pub RESERVED15: [u8; 2usize],
+    pub PFSRV: u16,
+    pub PDARV: u16,
+    pub PDBRV: u16,
+    pub RESERVED16: [u8; 2usize],
+    pub PFSRW: u16,
+    pub PDARW: u16,
+    pub PDBRW: u16,
+    pub RESERVED17: [u8; 2usize],
+    pub PFSRX: u16,
+    pub PDARX: u16,
+    pub PDBRX: u16,
+    pub POCRU: u16,
+    pub RESERVED18: [u8; 2usize],
+    pub POCRV: u16,
+    pub RESERVED19: [u8; 2usize],
+    pub POCRW: u16,
+    pub RESERVED20: [u8; 2usize],
+    pub POCRX: u16,
+    pub RESERVED21: [u8; 2usize],
+    pub SCCRUH: u16,
+    pub RESERVED22: [u8; 2usize],
+    pub SCCRUL: u16,
+    pub RESERVED23: [u8; 2usize],
+    pub SCCRVH: u16,
+    pub RESERVED24: [u8; 2usize],
+    pub SCCRVL: u16,
+    pub RESERVED25: [u8; 2usize],
+    pub SCCRWH: u16,
+    pub RESERVED26: [u8; 2usize],
+    pub SCCRWL: u16,
+    pub RESERVED27: [u8; 2usize],
+    pub SCCRXH: u16,
+    pub RESERVED28: [u8; 2usize],
+    pub SCCRXL: u16,
+    pub RESERVED29: [u8; 2usize],
+    pub SCSRUH: u16,
+    pub SCMRUH: u16,
+    pub SCSRUL: u16,
+    pub SCMRUL: u16,
+    pub SCSRVH: u16,
+    pub SCMRVH: u16,
+    pub SCSRVL: u16,
+    pub SCMRVL: u16,
+    pub SCSRWH: u16,
+    pub SCMRWH: u16,
+    pub SCSRWL: u16,
+    pub SCMRWL: u16,
+    pub SCSRXH: u16,
+    pub SCMRXH: u16,
+    pub SCSRXL: u16,
+    pub SCMRXL: u16,
+    pub SCER: u16,
+    pub RESERVED30: [u8; 2usize],
+    pub RCSR: u32,
+    pub SCIR: u16,
+    pub RESERVED31: [u8; 2usize],
+    pub SCFR: u16,
+}
+#[doc = " @brief TMR6"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_TMR6_TypeDef {
+    pub CNTER: u32,
+    pub UPDAR: u32,
+    pub RESERVED0: [u8; 56usize],
+    pub PERAR: u32,
+    pub PERBR: u32,
+    pub PERCR: u32,
+    pub RESERVED1: [u8; 52usize],
+    pub GCMAR: u32,
+    pub GCMBR: u32,
+    pub GCMCR: u32,
+    pub GCMDR: u32,
+    pub GCMER: u32,
+    pub GCMFR: u32,
+    pub RESERVED2: [u8; 40usize],
+    pub SCMAR: u32,
+    pub SCMBR: u32,
+    pub SCMCR: u32,
+    pub SCMDR: u32,
+    pub SCMER: u32,
+    pub SCMFR: u32,
+    pub RESERVED3: [u8; 40usize],
+    pub DTUAR: u32,
+    pub DTDAR: u32,
+    pub DTUBR: u32,
+    pub DTDBR: u32,
+    pub RESERVED4: [u8; 48usize],
+    pub GCONR: u32,
+    pub ICONR: u32,
+    pub BCONR: u32,
+    pub DCONR: u32,
+    pub RESERVED5: [u8; 4usize],
+    pub PCNAR: u32,
+    pub PCNBR: u32,
+    pub FCNGR: u32,
+    pub VPERR: u32,
+    pub STFLR: u32,
+    pub RESERVED6: [u8; 24usize],
+    pub HSTAR: u32,
+    pub HSTPR: u32,
+    pub HCLRR: u32,
+    pub HUPDR: u32,
+    pub HCPAR: u32,
+    pub HCPBR: u32,
+    pub HCUPR: u32,
+    pub HCDOR: u32,
+}
+#[doc = " @brief TMR6_COMMON"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_TMR6_COMMON_TypeDef {
+    pub RESERVED0: [u8; 236usize],
+    pub FCNTR: u32,
+    pub SSTAR: u32,
+    pub SSTPR: u32,
+    pub SCLRR: u32,
+    pub SUPDR: u32,
+}
+#[doc = " @brief TMRA"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_TMRA_TypeDef {
+    pub CNTER: u32,
+    pub PERAR: u32,
+    pub RESERVED0: [u8; 56usize],
+    pub CMPAR1: u32,
+    pub CMPAR2: u32,
+    pub CMPAR3: u32,
+    pub CMPAR4: u32,
+    pub CMPAR5: u32,
+    pub CMPAR6: u32,
+    pub CMPAR7: u32,
+    pub CMPAR8: u32,
+    pub RESERVED1: [u8; 32usize],
+    pub BCSTRL: u8,
+    pub BCSTRH: u8,
+    pub RESERVED2: [u8; 2usize],
+    pub HCONR: u16,
+    pub RESERVED3: [u8; 2usize],
+    pub HCUPR: u16,
+    pub RESERVED4: [u8; 2usize],
+    pub HCDOR: u16,
+    pub RESERVED5: [u8; 2usize],
+    pub ICONR: u16,
+    pub RESERVED6: [u8; 2usize],
+    pub ECONR: u16,
+    pub RESERVED7: [u8; 2usize],
+    pub FCONR: u16,
+    pub RESERVED8: [u8; 2usize],
+    pub STFLR: u16,
+    pub RESERVED9: [u8; 34usize],
+    pub BCONR1: u16,
+    pub RESERVED10: [u8; 6usize],
+    pub BCONR2: u16,
+    pub RESERVED11: [u8; 6usize],
+    pub BCONR3: u16,
+    pub RESERVED12: [u8; 6usize],
+    pub BCONR4: u16,
+    pub RESERVED13: [u8; 38usize],
+    pub CCONR1: u16,
+    pub RESERVED14: [u8; 2usize],
+    pub CCONR2: u16,
+    pub RESERVED15: [u8; 2usize],
+    pub CCONR3: u16,
+    pub RESERVED16: [u8; 2usize],
+    pub CCONR4: u16,
+    pub RESERVED17: [u8; 2usize],
+    pub CCONR5: u16,
+    pub RESERVED18: [u8; 2usize],
+    pub CCONR6: u16,
+    pub RESERVED19: [u8; 2usize],
+    pub CCONR7: u16,
+    pub RESERVED20: [u8; 2usize],
+    pub CCONR8: u16,
+    pub RESERVED21: [u8; 34usize],
+    pub PCONR1: u16,
+    pub RESERVED22: [u8; 2usize],
+    pub PCONR2: u16,
+    pub RESERVED23: [u8; 2usize],
+    pub PCONR3: u16,
+    pub RESERVED24: [u8; 2usize],
+    pub PCONR4: u16,
+    pub RESERVED25: [u8; 2usize],
+    pub PCONR5: u16,
+    pub RESERVED26: [u8; 2usize],
+    pub PCONR6: u16,
+    pub RESERVED27: [u8; 2usize],
+    pub PCONR7: u16,
+    pub RESERVED28: [u8; 2usize],
+    pub PCONR8: u16,
+}
+#[doc = " @brief TRNG"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_TRNG_TypeDef {
+    pub CR: u32,
+    pub MR: u32,
+    pub RESERVED0: [u8; 4usize],
+    pub DR0: u32,
+    pub DR1: u32,
+}
+#[doc = " @brief USART"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_USART_TypeDef {
+    pub SR: u32,
+    pub TDR: u16,
+    pub RDR: u16,
+    pub BRR: u32,
+    pub CR1: u32,
+    pub CR2: u32,
+    pub CR3: u32,
+    pub PR: u32,
+    pub LBMC: u32,
+}
+#[doc = " @brief WDT"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct CM_WDT_TypeDef {
+    pub CR: u32,
+    pub SR: u32,
+    pub RR: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_str_bit_t {
+    pub STRT: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_cr0_bit_t {
+    pub RESERVED0: [u32; 6usize],
+    pub CLREN: u32,
+    pub DFMT: u32,
+    pub RESERVED1: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_cr1_bit_t {
+    pub RESERVED0: [u32; 2usize],
+    pub RSCHSEL: u32,
+    pub RESERVED1: [u32; 13usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_cr2_bit_t {
+    pub RESERVED0: [u32; 12usize],
+    pub OVSMOD: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_trgsr_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub TRGENA: u32,
+    pub RESERVED1: [u32; 7usize],
+    pub TRGENB: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_exchselr_bit_t {
+    pub EXCHSEL: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_isr_bit_t {
+    pub EOCAF: u32,
+    pub EOCBF: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub SASTPDF: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_icr_bit_t {
+    pub EOCAIEN: u32,
+    pub EOCBIEN: u32,
+    pub RESERVED0: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_isclrr_bit_t {
+    pub CLREOCAF: u32,
+    pub CLREOCBF: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub CLRSASTPDF: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_synccr_bit_t {
+    pub SYNCEN: u32,
+    pub RESERVED0: [u32; 15usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_awdcr_bit_t {
+    pub AWD0EN: u32,
+    pub AWD0IEN: u32,
+    pub AWD0MD: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub AWD1EN: u32,
+    pub AWD1IEN: u32,
+    pub AWD1MD: u32,
+    pub RESERVED1: [u32; 9usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_awdsr_bit_t {
+    pub AWD0F: u32,
+    pub AWD1F: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub AWDCMF: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_awdsclrr_bit_t {
+    pub CLRAWD0F: u32,
+    pub CLRAWD1F: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub CLRAWDCMF: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_aes_cr_bit_t {
+    pub START: u32,
+    pub MODE: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_aos_intsfttrg_bit_t {
+    pub STRG: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_aos_pevntnfcr_bit_t {
+    pub NFEN1: u32,
+    pub RESERVED0: [u32; 7usize],
+    pub NFEN2: u32,
+    pub RESERVED1: [u32; 7usize],
+    pub NFEN3: u32,
+    pub RESERVED2: [u32; 7usize],
+    pub NFEN4: u32,
+    pub RESERVED3: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_mdr_bit_t {
+    pub CENA: u32,
+    pub CWDE: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub CSST: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub CMON: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_fir_bit_t {
+    pub RESERVED0: [u32; 3usize],
+    pub CIEN: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub CFF: u32,
+    pub CRF: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_ocr_bit_t {
+    pub COEN: u32,
+    pub COPS: u32,
+    pub CPOE: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub BWEN: u32,
+    pub BWMD: u32,
+    pub RESERVED1: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_bwsr1_bit_t {
+    pub CTWS0: u32,
+    pub CTWS1: u32,
+    pub CTWS2: u32,
+    pub CTWS3: u32,
+    pub CTWS4: u32,
+    pub CTWS5: u32,
+    pub CTWS6: u32,
+    pub CTWS7: u32,
+    pub CTWS8: u32,
+    pub CTWS9: u32,
+    pub CTWS10: u32,
+    pub CTWS11: u32,
+    pub CTWS12: u32,
+    pub CTWS13: u32,
+    pub CTWS14: u32,
+    pub CTWS15: u32,
+    pub CTWP0: u32,
+    pub CTWP1: u32,
+    pub CTWP2: u32,
+    pub CTWP3: u32,
+    pub CTWP4: u32,
+    pub CTWP5: u32,
+    pub CTWP6: u32,
+    pub CTWP7: u32,
+    pub CTWP8: u32,
+    pub CTWP9: u32,
+    pub CTWP10: u32,
+    pub CTWP11: u32,
+    pub CTWP12: u32,
+    pub CTWP13: u32,
+    pub CTWP14: u32,
+    pub CTWP15: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_xtaldivcr_bit_t {
+    pub FRADIVEN: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_xtalcfgr_bit_t {
+    pub RESERVED0: [u32; 6usize],
+    pub XTALMS: u32,
+    pub RESERVED1: [u32; 1usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_xtal32cr_bit_t {
+    pub XTAL32STP: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_lrccr_bit_t {
+    pub LRCSTP: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_pllhcr_bit_t {
+    pub PLLHOFF: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_xtalcr_bit_t {
+    pub XTALSTP: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_hrccr_bit_t {
+    pub HRCSTP: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_mrccr_bit_t {
+    pub MRCSTP: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_oscstbsr_bit_t {
+    pub HRCSTBF: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub XTALSTBF: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub PLLHSTBF: u32,
+    pub RESERVED2: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_mcocfgr_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub MCOEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_tpiuckcfgr_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub TPIUCKOE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_xtalstdcr_bit_t {
+    pub XTALSTDIE: u32,
+    pub XTALSTDRE: u32,
+    pub XTALSTDRIS: u32,
+    pub RESERVED0: [u32; 4usize],
+    pub XTALSTDE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_xtalstdsr_bit_t {
+    pub XTALSTDF: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmu_pllhcfgr_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub PLLSRC: u32,
+    pub RESERVED1: [u32; 24usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_crc_cr_bit_t {
+    pub CR: u32,
+    pub FLAG: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_ctc_cr1_bit_t {
+    pub RESERVED0: [u32; 6usize],
+    pub ERRIE: u32,
+    pub CTCEN: u32,
+    pub RESERVED1: [u32; 24usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_ctc_str_bit_t {
+    pub TRIMOK: u32,
+    pub TRMOVF: u32,
+    pub TRMUDF: u32,
+    pub CTCBSY: u32,
+    pub RESERVED0: [u32; 28usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dac_dadr1_bit_t {
+    pub DR0: u32,
+    pub DR1: u32,
+    pub DR2: u32,
+    pub DR3: u32,
+    pub DL0R4: u32,
+    pub DL1R5: u32,
+    pub DL2R6: u32,
+    pub DL3R7: u32,
+    pub DL4R8: u32,
+    pub DL5R9: u32,
+    pub DL6R10: u32,
+    pub DL7R11: u32,
+    pub DL8: u32,
+    pub DL9: u32,
+    pub DL10: u32,
+    pub DL11: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dac_dadr2_bit_t {
+    pub DR0: u32,
+    pub DR1: u32,
+    pub DR2: u32,
+    pub DR3: u32,
+    pub DL0R4: u32,
+    pub DL1R5: u32,
+    pub DL2R6: u32,
+    pub DL3R7: u32,
+    pub DL4R8: u32,
+    pub DL5R9: u32,
+    pub DL6R10: u32,
+    pub DL7R11: u32,
+    pub DL8: u32,
+    pub DL9: u32,
+    pub DL10: u32,
+    pub DL11: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dac_dacr_bit_t {
+    pub DAE: u32,
+    pub DA1E: u32,
+    pub DA2E: u32,
+    pub RESERVED0: [u32; 5usize],
+    pub DPSEL: u32,
+    pub DAAMP1: u32,
+    pub DAAMP2: u32,
+    pub EXTDSL1: u32,
+    pub EXTDSL2: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dac_daadpcr_bit_t {
+    pub ADCSL1: u32,
+    pub ADCSL2: u32,
+    pub ADCSL3: u32,
+    pub RESERVED0: [u32; 5usize],
+    pub DA1SF: u32,
+    pub DA2SF: u32,
+    pub RESERVED1: [u32; 5usize],
+    pub ADPEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dac_daocr_bit_t {
+    pub RESERVED0: [u32; 14usize],
+    pub DAODIS1: u32,
+    pub DAODIS2: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dcu_ctl_bit_t {
+    pub RESERVED0: [u32; 8usize],
+    pub COMPTRG: u32,
+    pub RESERVED1: [u32; 22usize],
+    pub INTEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dcu_flag_bit_t {
+    pub FLAG_OP: u32,
+    pub FLAG_LS2: u32,
+    pub FLAG_EQ2: u32,
+    pub FLAG_GT2: u32,
+    pub FLAG_LS1: u32,
+    pub FLAG_EQ1: u32,
+    pub FLAG_GT1: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub FLAG_RLD: u32,
+    pub FLAG_BTM: u32,
+    pub FLAG_TOP: u32,
+    pub RESERVED1: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dcu_flagclr_bit_t {
+    pub CLR_OP: u32,
+    pub CLR_LS2: u32,
+    pub CLR_EQ2: u32,
+    pub CLR_GT2: u32,
+    pub CLR_LS1: u32,
+    pub CLR_EQ1: u32,
+    pub CLR_GT1: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub CLR_RLD: u32,
+    pub CLR_BTM: u32,
+    pub CLR_TOP: u32,
+    pub RESERVED1: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dcu_intevtsel_bit_t {
+    pub SEL_OP: u32,
+    pub SEL_LS2: u32,
+    pub SEL_EQ2: u32,
+    pub SEL_GT2: u32,
+    pub SEL_LS1: u32,
+    pub SEL_EQ1: u32,
+    pub SEL_GT1: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub SEL_BTM: u32,
+    pub SEL_TOP: u32,
+    pub RESERVED1: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_en_bit_t {
+    pub EN: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_intstat0_bit_t {
+    pub TRNERR0: u32,
+    pub TRNERR1: u32,
+    pub TRNERR2: u32,
+    pub TRNERR3: u32,
+    pub TRNERR4: u32,
+    pub TRNERR5: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub REQERR0: u32,
+    pub REQERR1: u32,
+    pub REQERR2: u32,
+    pub REQERR3: u32,
+    pub REQERR4: u32,
+    pub REQERR5: u32,
+    pub RESERVED1: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_intstat1_bit_t {
+    pub TC0: u32,
+    pub TC1: u32,
+    pub TC2: u32,
+    pub TC3: u32,
+    pub TC4: u32,
+    pub TC5: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub BTC0: u32,
+    pub BTC1: u32,
+    pub BTC2: u32,
+    pub BTC3: u32,
+    pub BTC4: u32,
+    pub BTC5: u32,
+    pub RESERVED1: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_intmask0_bit_t {
+    pub MSKTRNERR0: u32,
+    pub MSKTRNERR1: u32,
+    pub MSKTRNERR2: u32,
+    pub MSKTRNERR3: u32,
+    pub MSKTRNERR4: u32,
+    pub MSKTRNERR5: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub MSKREQERR0: u32,
+    pub MSKREQERR1: u32,
+    pub MSKREQERR2: u32,
+    pub MSKREQERR3: u32,
+    pub MSKREQERR4: u32,
+    pub MSKREQERR5: u32,
+    pub RESERVED1: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_intmask1_bit_t {
+    pub MSKTC0: u32,
+    pub MSKTC1: u32,
+    pub MSKTC2: u32,
+    pub MSKTC3: u32,
+    pub MSKTC4: u32,
+    pub MSKTC5: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub MSKBTC0: u32,
+    pub MSKBTC1: u32,
+    pub MSKBTC2: u32,
+    pub MSKBTC3: u32,
+    pub MSKBTC4: u32,
+    pub MSKBTC5: u32,
+    pub RESERVED1: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_intclr0_bit_t {
+    pub CLRTRNERR0: u32,
+    pub CLRTRNERR1: u32,
+    pub CLRTRNERR2: u32,
+    pub CLRTRNERR3: u32,
+    pub CLRTRNERR4: u32,
+    pub CLRTRNERR5: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub CLRREQERR0: u32,
+    pub CLRREQERR1: u32,
+    pub CLRREQERR2: u32,
+    pub CLRREQERR3: u32,
+    pub CLRREQERR4: u32,
+    pub CLRREQERR5: u32,
+    pub RESERVED1: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_intclr1_bit_t {
+    pub CLRTC0: u32,
+    pub CLRTC1: u32,
+    pub CLRTC2: u32,
+    pub CLRTC3: u32,
+    pub CLRTC4: u32,
+    pub CLRTC5: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub CLRBTC0: u32,
+    pub CLRBTC1: u32,
+    pub CLRBTC2: u32,
+    pub CLRBTC3: u32,
+    pub CLRBTC4: u32,
+    pub CLRBTC5: u32,
+    pub RESERVED1: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_reqstat_bit_t {
+    pub RESERVED0: [u32; 15usize],
+    pub RCFGREQ: u32,
+    pub RESERVED1: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_chstat_bit_t {
+    pub DMAACT: u32,
+    pub RCFGACT: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_rcfgctl_bit_t {
+    pub RCFGEN: u32,
+    pub RCFGLLP: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_swreq_bit_t {
+    pub SWREQ0: u32,
+    pub SWREQ1: u32,
+    pub SWREQ2: u32,
+    pub SWREQ3: u32,
+    pub SWREQ4: u32,
+    pub SWREQ5: u32,
+    pub SWREQ6: u32,
+    pub SWREQ7: u32,
+    pub RESERVED0: [u32; 7usize],
+    pub SWRCFGREQ: u32,
+    pub RESERVED1: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_chctl_bit_t {
+    pub RESERVED0: [u32; 4usize],
+    pub SRPTEN: u32,
+    pub DRPTEN: u32,
+    pub SNSEQEN: u32,
+    pub DNSEQEN: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub LLPEN: u32,
+    pub LLPRUN: u32,
+    pub IE: u32,
+    pub RESERVED2: [u32; 19usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_fstp_bit_t {
+    pub FSTP: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_frmc_bit_t {
+    pub RESERVED0: [u32; 8usize],
+    pub LVM: u32,
+    pub RESERVED1: [u32; 7usize],
+    pub ICACHE: u32,
+    pub DCACHE: u32,
+    pub PREFETE: u32,
+    pub CRST: u32,
+    pub RESERVED2: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_fwmc_bit_t {
+    pub RESERVED0: [u32; 8usize],
+    pub BUSHLDCTL: u32,
+    pub RESERVED1: [u32; 7usize],
+    pub KEY1LOCK: u32,
+    pub KEY2LOCK: u32,
+    pub RESERVED2: [u32; 14usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_fsr_bit_t {
+    pub OTPWERR: u32,
+    pub PRTWERR: u32,
+    pub PGSZERR: u32,
+    pub MISMTCH: u32,
+    pub OPTEND: u32,
+    pub COLERR: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub RDY: u32,
+    pub RESERVED1: [u32; 23usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_fsclr_bit_t {
+    pub OTPWERRCLR: u32,
+    pub PRTWERRCLR: u32,
+    pub PGSZERRCLR: u32,
+    pub MISMTCHCLR: u32,
+    pub OPTENDCLR: u32,
+    pub COLERRCLR: u32,
+    pub RESERVED0: [u32; 26usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_fite_bit_t {
+    pub PEERRITE: u32,
+    pub OPTENDITE: u32,
+    pub COLERRITE: u32,
+    pub RESERVED0: [u32; 29usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_fswp_bit_t {
+    pub FSWP: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_mmf_remcr_bit_t {
+    pub RESERVED0: [u32; 31usize],
+    pub EN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_wlock_bit_t {
+    pub WLOCK0: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_f0nwprt_bit_t {
+    pub F0NWPRT0: u32,
+    pub F0NWPRT1: u32,
+    pub F0NWPRT2: u32,
+    pub F0NWPRT3: u32,
+    pub F0NWPRT4: u32,
+    pub F0NWPRT5: u32,
+    pub F0NWPRT6: u32,
+    pub F0NWPRT7: u32,
+    pub F0NWPRT8: u32,
+    pub F0NWPRT9: u32,
+    pub F0NWPRT10: u32,
+    pub F0NWPRT11: u32,
+    pub F0NWPRT12: u32,
+    pub F0NWPRT13: u32,
+    pub F0NWPRT14: u32,
+    pub F0NWPRT15: u32,
+    pub F0NWPRT16: u32,
+    pub F0NWPRT17: u32,
+    pub F0NWPRT18: u32,
+    pub F0NWPRT19: u32,
+    pub F0NWPRT20: u32,
+    pub F0NWPRT21: u32,
+    pub F0NWPRT22: u32,
+    pub F0NWPRT23: u32,
+    pub F0NWPRT24: u32,
+    pub F0NWPRT25: u32,
+    pub F0NWPRT26: u32,
+    pub F0NWPRT27: u32,
+    pub F0NWPRT28: u32,
+    pub F0NWPRT29: u32,
+    pub F0NWPRT30: u32,
+    pub F0NWPRT31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_ctl1_bit_t {
+    pub CMPEN1: u32,
+    pub CMPEN2: u32,
+    pub CMPEN3: u32,
+    pub CMPEN4: u32,
+    pub SYSEN: u32,
+    pub PWMSEN0: u32,
+    pub PWMSEN1: u32,
+    pub PWMSEN2: u32,
+    pub PWMSEN3: u32,
+    pub RESERVED0: [u32; 7usize],
+    pub PORTINEN1: u32,
+    pub PORTINEN2: u32,
+    pub PORTINEN3: u32,
+    pub PORTINEN4: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub INVSEL1: u32,
+    pub INVSEL2: u32,
+    pub INVSEL3: u32,
+    pub INVSEL4: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub OSCSTPEN: u32,
+    pub SRAMECCERREN: u32,
+    pub SRAMPYERREN: u32,
+    pub LOCKUPEN: u32,
+    pub PVDEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_ctl2_bit_t {
+    pub PWMLV0: u32,
+    pub PWMLV1: u32,
+    pub PWMLV2: u32,
+    pub PWMLV3: u32,
+    pub RESERVED0: [u32; 14usize],
+    pub NFEN1: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub NFEN2: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub NFEN3: u32,
+    pub RESERVED3: [u32; 2usize],
+    pub NFEN4: u32,
+    pub RESERVED4: [u32; 4usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_soe_bit_t {
+    pub SOE: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_stat_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub PWMSF: u32,
+    pub CMPF: u32,
+    pub SYSF: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub PWMST: u32,
+    pub CMPST: u32,
+    pub SYSST: u32,
+    pub PORTINF1: u32,
+    pub PORTINF2: u32,
+    pub PORTINF3: u32,
+    pub PORTINF4: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub PORTINST1: u32,
+    pub PORTINST2: u32,
+    pub PORTINST3: u32,
+    pub PORTINST4: u32,
+    pub RESERVED3: [u32; 14usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_statclr_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub PWMSFCLR: u32,
+    pub CMPFCLR: u32,
+    pub SYSFCLR: u32,
+    pub RESERVED1: [u32; 4usize],
+    pub PORTINFCLR1: u32,
+    pub PORTINFCLR2: u32,
+    pub PORTINFCLR3: u32,
+    pub PORTINFCLR4: u32,
+    pub RESERVED2: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_inten_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub PWMSINTEN: u32,
+    pub CMPINTEN: u32,
+    pub SYSINTEN: u32,
+    pub RESERVED1: [u32; 4usize],
+    pub PORTININTEN1: u32,
+    pub PORTININTEN2: u32,
+    pub PORTININTEN3: u32,
+    pub PORTININTEN4: u32,
+    pub RESERVED2: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_rlssel_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub PWMRSEL: u32,
+    pub CMPRSEL: u32,
+    pub SYSRSEL: u32,
+    pub RESERVED1: [u32; 4usize],
+    pub PORTINRSEL1: u32,
+    pub PORTINRSEL2: u32,
+    pub PORTINRSEL3: u32,
+    pub PORTINRSEL4: u32,
+    pub RESERVED2: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_fcm_str_bit_t {
+    pub START: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_fcm_rccr_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub INEXS: u32,
+    pub RESERVED1: [u32; 7usize],
+    pub EXREFE: u32,
+    pub RESERVED2: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_fcm_rier_bit_t {
+    pub ERRIE: u32,
+    pub MENDIE: u32,
+    pub OVFIE: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub ERRINTRS: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub ERRE: u32,
+    pub RESERVED2: [u32; 24usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_fcm_sr_bit_t {
+    pub ERRF: u32,
+    pub MENDF: u32,
+    pub OVF: u32,
+    pub RESERVED0: [u32; 29usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_fcm_clr_bit_t {
+    pub ERRFCLR: u32,
+    pub MENDFCLR: u32,
+    pub OVFCLR: u32,
+    pub RESERVED0: [u32; 29usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_pidr_bit_t {
+    pub PIN00: u32,
+    pub PIN01: u32,
+    pub PIN02: u32,
+    pub PIN03: u32,
+    pub PIN04: u32,
+    pub PIN05: u32,
+    pub PIN06: u32,
+    pub PIN07: u32,
+    pub PIN08: u32,
+    pub PIN09: u32,
+    pub PIN10: u32,
+    pub PIN11: u32,
+    pub PIN12: u32,
+    pub PIN13: u32,
+    pub PIN14: u32,
+    pub PIN15: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_podr_bit_t {
+    pub POUT00: u32,
+    pub POUT01: u32,
+    pub POUT02: u32,
+    pub POUT03: u32,
+    pub POUT04: u32,
+    pub POUT05: u32,
+    pub POUT06: u32,
+    pub POUT07: u32,
+    pub POUT08: u32,
+    pub POUT09: u32,
+    pub POUT10: u32,
+    pub POUT11: u32,
+    pub POUT12: u32,
+    pub POUT13: u32,
+    pub POUT14: u32,
+    pub POUT15: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_poer_bit_t {
+    pub POUTE00: u32,
+    pub POUTE01: u32,
+    pub POUTE02: u32,
+    pub POUTE03: u32,
+    pub POUTE04: u32,
+    pub POUTE05: u32,
+    pub POUTE06: u32,
+    pub POUTE07: u32,
+    pub POUTE08: u32,
+    pub POUTE09: u32,
+    pub POUTE10: u32,
+    pub POUTE11: u32,
+    pub POUTE12: u32,
+    pub POUTE13: u32,
+    pub POUTE14: u32,
+    pub POUTE15: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_posr_bit_t {
+    pub POS00: u32,
+    pub POS01: u32,
+    pub POS02: u32,
+    pub POS03: u32,
+    pub POS04: u32,
+    pub POS05: u32,
+    pub POS06: u32,
+    pub POS07: u32,
+    pub POS08: u32,
+    pub POS09: u32,
+    pub POS10: u32,
+    pub POS11: u32,
+    pub POS12: u32,
+    pub POS13: u32,
+    pub POS14: u32,
+    pub POS15: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_porr_bit_t {
+    pub POR00: u32,
+    pub POR01: u32,
+    pub POR02: u32,
+    pub POR03: u32,
+    pub POR04: u32,
+    pub POR05: u32,
+    pub POR06: u32,
+    pub POR07: u32,
+    pub POR08: u32,
+    pub POR09: u32,
+    pub POR10: u32,
+    pub POR11: u32,
+    pub POR12: u32,
+    pub POR13: u32,
+    pub POR14: u32,
+    pub POR15: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_potr_bit_t {
+    pub POT00: u32,
+    pub POT01: u32,
+    pub POT02: u32,
+    pub POT03: u32,
+    pub POT04: u32,
+    pub POT05: u32,
+    pub POT06: u32,
+    pub POT07: u32,
+    pub POT08: u32,
+    pub POT09: u32,
+    pub POT10: u32,
+    pub POT11: u32,
+    pub POT12: u32,
+    pub POT13: u32,
+    pub POT14: u32,
+    pub POT15: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_pwpr_bit_t {
+    pub WE: u32,
+    pub RESERVED0: [u32; 15usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_pcr_bit_t {
+    pub POUT: u32,
+    pub POUTE: u32,
+    pub NOD: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub PUU: u32,
+    pub PUD: u32,
+    pub PIN: u32,
+    pub INVE: u32,
+    pub CINSEL: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub INTE: u32,
+    pub PINAE: u32,
+    pub LTE: u32,
+    pub DDIS: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_pfsr_bit_t {
+    pub RESERVED0: [u32; 8usize],
+    pub BFE: u32,
+    pub RESERVED1: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_hash_cr_bit_t {
+    pub START: u32,
+    pub FST_GRP: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_cr1_bit_t {
+    pub PE: u32,
+    pub SMBUS: u32,
+    pub SMBALRTEN: u32,
+    pub SMBDEFAULTEN: u32,
+    pub SMBHOSTEN: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub GCEN: u32,
+    pub RESTART: u32,
+    pub START: u32,
+    pub STOP: u32,
+    pub ACK: u32,
+    pub RESERVED1: [u32; 4usize],
+    pub SWRST: u32,
+    pub RESERVED2: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_cr2_bit_t {
+    pub STARTIE: u32,
+    pub SLADDR0IE: u32,
+    pub SLADDR1IE: u32,
+    pub TENDIE: u32,
+    pub STOPIE: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub RFULLIE: u32,
+    pub TEMPTYIE: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub ARLOIE: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub RFREQIE: u32,
+    pub NACKIE: u32,
+    pub RESERVED3: [u32; 1usize],
+    pub TMOUTIE: u32,
+    pub RESERVED4: [u32; 5usize],
+    pub GENCALLIE: u32,
+    pub SMBDEFAULTIE: u32,
+    pub SMBHOSTIE: u32,
+    pub SMBALRTIE: u32,
+    pub RESERVED5: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_cr3_bit_t {
+    pub TMOUTEN: u32,
+    pub LTMOUT: u32,
+    pub HTMOUT: u32,
+    pub RESERVED0: [u32; 4usize],
+    pub FACKEN: u32,
+    pub RESERVED1: [u32; 24usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_cr4_bit_t {
+    pub RESERVED0: [u32; 10usize],
+    pub BUSWAIT: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub BUSFREE_CLREN: u32,
+    pub RESERVED2: [u32; 19usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_slr0_bit_t {
+    pub RESERVED0: [u32; 12usize],
+    pub SLADDR0EN: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub ADDRMOD0: u32,
+    pub RESERVED2: [u32; 10usize],
+    pub MASK0EN: u32,
+    pub RESERVED3: [u32; 5usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_slr1_bit_t {
+    pub RESERVED0: [u32; 12usize],
+    pub SLADDR1EN: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub ADDRMOD1: u32,
+    pub RESERVED2: [u32; 10usize],
+    pub MASK1EN: u32,
+    pub RESERVED3: [u32; 5usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_sr_bit_t {
+    pub STARTF: u32,
+    pub SLADDR0F: u32,
+    pub SLADDR1F: u32,
+    pub TENDF: u32,
+    pub STOPF: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub RFULLF: u32,
+    pub TEMPTYF: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub ARLOF: u32,
+    pub ACKRF: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub NACKF: u32,
+    pub RESERVED3: [u32; 1usize],
+    pub TMOUTF: u32,
+    pub RESERVED4: [u32; 1usize],
+    pub MSL: u32,
+    pub BUSY: u32,
+    pub TRA: u32,
+    pub RESERVED5: [u32; 1usize],
+    pub GENCALLF: u32,
+    pub SMBDEFAULTF: u32,
+    pub SMBHOSTF: u32,
+    pub SMBALRTF: u32,
+    pub TFEMPTY: u32,
+    pub TFFULL: u32,
+    pub RFEMPTY: u32,
+    pub RFFULL: u32,
+    pub RESERVED6: [u32; 3usize],
+    pub RFREQ: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_clr_bit_t {
+    pub STARTFCLR: u32,
+    pub SLADDR0FCLR: u32,
+    pub SLADDR1FCLR: u32,
+    pub TENDFCLR: u32,
+    pub STOPFCLR: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub RFULLFCLR: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub ARLOFCLR: u32,
+    pub RFREQCLR: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub NACKFCLR: u32,
+    pub RESERVED3: [u32; 1usize],
+    pub TMOUTFCLR: u32,
+    pub RESERVED4: [u32; 5usize],
+    pub GENCALLFCLR: u32,
+    pub SMBDEFAULTFCLR: u32,
+    pub SMBHOSTFCLR: u32,
+    pub SMBALRTFCLR: u32,
+    pub RESERVED5: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_fltr_bit_t {
+    pub RESERVED0: [u32; 4usize],
+    pub DNFEN: u32,
+    pub ANFEN: u32,
+    pub RESERVED1: [u32; 26usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_fstr_bit_t {
+    pub FEN: u32,
+    pub TFFLUSH: u32,
+    pub RFFLUSH: u32,
+    pub NACKTFFLUSH: u32,
+    pub RESERVED0: [u32; 28usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_icg_icg0_bit_t {
+    pub SWDTAUTS: u32,
+    pub SWDTITS: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub SWDTSLPOFF: u32,
+    pub RESERVED1: [u32; 3usize],
+    pub WDTAUTS: u32,
+    pub WDTITS: u32,
+    pub RESERVED2: [u32; 10usize],
+    pub WDTSLPOFF: u32,
+    pub RESERVED3: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_icg_icg1_bit_t {
+    pub HRCFREQSEL: u32,
+    pub RESERVED0: [u32; 7usize],
+    pub HRCSTOP: u32,
+    pub RESERVED1: [u32; 9usize],
+    pub BORDIS: u32,
+    pub RESERVED2: [u32; 13usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_nmier_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub SWDTEN: u32,
+    pub PVD1EN: u32,
+    pub PVD2EN: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub XTALSTPEN: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub RPARERREN: u32,
+    pub RECCERREN: u32,
+    pub BUSERREN: u32,
+    pub WDTEN: u32,
+    pub RESERVED3: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_nmifr_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub SWDTF: u32,
+    pub PVD1F: u32,
+    pub PVD2F: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub XTALSTPF: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub RPARERRF: u32,
+    pub RECCERRF: u32,
+    pub BUSERRF: u32,
+    pub WDTF: u32,
+    pub RESERVED3: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_nmifcr_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub SWDTFCLR: u32,
+    pub PVD1FCLR: u32,
+    pub PVD2FCLR: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub XTALSTPFCLR: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub RPARERRFCLR: u32,
+    pub RECCERRFCLR: u32,
+    pub BUSERRFCLR: u32,
+    pub WDTFCLR: u32,
+    pub RESERVED3: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_eirqcr_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub EFEN: u32,
+    pub RESERVED1: [u32; 7usize],
+    pub NOCEN: u32,
+    pub RESERVED2: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_wken_bit_t {
+    pub RESERVED0: [u32; 16usize],
+    pub SWDTWKEN: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub CMP1WKEN: u32,
+    pub WKTMWKEN: u32,
+    pub RTCALMWKEN: u32,
+    pub RTCPRDWKEN: u32,
+    pub TMR0CMPWKEN: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub RXWKEN: u32,
+    pub RESERVED3: [u32; 2usize],
+    pub CMP2WKEN: u32,
+    pub CMP3WKEN: u32,
+    pub CMP4WKEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_eifr_bit_t {
+    pub EIF0: u32,
+    pub EIF1: u32,
+    pub EIF2: u32,
+    pub EIF3: u32,
+    pub EIF4: u32,
+    pub EIF5: u32,
+    pub EIF6: u32,
+    pub EIF7: u32,
+    pub EIF8: u32,
+    pub EIF9: u32,
+    pub EIF10: u32,
+    pub EIF11: u32,
+    pub EIF12: u32,
+    pub EIF13: u32,
+    pub EIF14: u32,
+    pub EIF15: u32,
+    pub RESERVED0: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_eifcr_bit_t {
+    pub EIFCLR0: u32,
+    pub EIFCLR1: u32,
+    pub EIFCLR2: u32,
+    pub EIFCLR3: u32,
+    pub EIFCLR4: u32,
+    pub EIFCLR5: u32,
+    pub EIFCLR6: u32,
+    pub EIFCLR7: u32,
+    pub EIFCLR8: u32,
+    pub EIFCLR9: u32,
+    pub EIFCLR10: u32,
+    pub EIFCLR11: u32,
+    pub EIFCLR12: u32,
+    pub EIFCLR13: u32,
+    pub EIFCLR14: u32,
+    pub EIFCLR15: u32,
+    pub RESERVED0: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_swier_bit_t {
+    pub SWIE0: u32,
+    pub SWIE1: u32,
+    pub SWIE2: u32,
+    pub SWIE3: u32,
+    pub SWIE4: u32,
+    pub SWIE5: u32,
+    pub SWIE6: u32,
+    pub SWIE7: u32,
+    pub SWIE8: u32,
+    pub SWIE9: u32,
+    pub SWIE10: u32,
+    pub SWIE11: u32,
+    pub SWIE12: u32,
+    pub SWIE13: u32,
+    pub SWIE14: u32,
+    pub SWIE15: u32,
+    pub SWIE16: u32,
+    pub SWIE17: u32,
+    pub SWIE18: u32,
+    pub SWIE19: u32,
+    pub SWIE20: u32,
+    pub SWIE21: u32,
+    pub SWIE22: u32,
+    pub SWIE23: u32,
+    pub SWIE24: u32,
+    pub SWIE25: u32,
+    pub SWIE26: u32,
+    pub SWIE27: u32,
+    pub SWIE28: u32,
+    pub SWIE29: u32,
+    pub SWIE30: u32,
+    pub SWIE31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_evter_bit_t {
+    pub EVTE0: u32,
+    pub EVTE1: u32,
+    pub EVTE2: u32,
+    pub EVTE3: u32,
+    pub EVTE4: u32,
+    pub EVTE5: u32,
+    pub EVTE6: u32,
+    pub EVTE7: u32,
+    pub EVTE8: u32,
+    pub EVTE9: u32,
+    pub EVTE10: u32,
+    pub EVTE11: u32,
+    pub EVTE12: u32,
+    pub EVTE13: u32,
+    pub EVTE14: u32,
+    pub EVTE15: u32,
+    pub EVTE16: u32,
+    pub EVTE17: u32,
+    pub EVTE18: u32,
+    pub EVTE19: u32,
+    pub EVTE20: u32,
+    pub EVTE21: u32,
+    pub EVTE22: u32,
+    pub EVTE23: u32,
+    pub EVTE24: u32,
+    pub EVTE25: u32,
+    pub EVTE26: u32,
+    pub EVTE27: u32,
+    pub EVTE28: u32,
+    pub EVTE29: u32,
+    pub EVTE30: u32,
+    pub EVTE31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_intc_ier_bit_t {
+    pub IEN0: u32,
+    pub IEN1: u32,
+    pub IEN2: u32,
+    pub IEN3: u32,
+    pub IEN4: u32,
+    pub IEN5: u32,
+    pub IEN6: u32,
+    pub IEN7: u32,
+    pub IEN8: u32,
+    pub IEN9: u32,
+    pub IEN10: u32,
+    pub IEN11: u32,
+    pub IEN12: u32,
+    pub IEN13: u32,
+    pub IEN14: u32,
+    pub IEN15: u32,
+    pub IEN16: u32,
+    pub IEN17: u32,
+    pub IEN18: u32,
+    pub IEN19: u32,
+    pub IEN20: u32,
+    pub IEN21: u32,
+    pub IEN22: u32,
+    pub IEN23: u32,
+    pub IEN24: u32,
+    pub IEN25: u32,
+    pub IEN26: u32,
+    pub IEN27: u32,
+    pub IEN28: u32,
+    pub IEN29: u32,
+    pub IEN30: u32,
+    pub IEN31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_keyscan_ser_bit_t {
+    pub SEN: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_dbtp_bit_t {
+    pub RESERVED0: [u32; 23usize],
+    pub TDC: u32,
+    pub RESERVED1: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_test_bit_t {
+    pub RESERVED0: [u32; 4usize],
+    pub LBCK: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub RX: u32,
+    pub RESERVED2: [u32; 5usize],
+    pub PVAL: u32,
+    pub RESERVED3: [u32; 7usize],
+    pub SVAL: u32,
+    pub RESERVED4: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_cccr_bit_t {
+    pub INIT: u32,
+    pub CCE: u32,
+    pub ASM: u32,
+    pub CSA: u32,
+    pub CSR: u32,
+    pub MON: u32,
+    pub DAR: u32,
+    pub TEST: u32,
+    pub FDOE: u32,
+    pub BRSE: u32,
+    pub UTSU: u32,
+    pub WMM: u32,
+    pub PXHD: u32,
+    pub EFBI: u32,
+    pub TXP: u32,
+    pub NISO: u32,
+    pub RESERVED0: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_tocc_bit_t {
+    pub ETOC: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_ecr_bit_t {
+    pub RESERVED0: [u32; 15usize],
+    pub RP: u32,
+    pub RESERVED1: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_psr_bit_t {
+    pub RESERVED0: [u32; 5usize],
+    pub EP: u32,
+    pub EW: u32,
+    pub BO: u32,
+    pub RESERVED1: [u32; 3usize],
+    pub RESI: u32,
+    pub RBRS: u32,
+    pub RFDF: u32,
+    pub PXE: u32,
+    pub RESERVED2: [u32; 17usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_ir_bit_t {
+    pub RF0N: u32,
+    pub RF0W: u32,
+    pub RF0F: u32,
+    pub RF0L: u32,
+    pub RF1N: u32,
+    pub RF1W: u32,
+    pub RF1F: u32,
+    pub RF1L: u32,
+    pub HPM: u32,
+    pub TC: u32,
+    pub TCF: u32,
+    pub TFE: u32,
+    pub TEFN: u32,
+    pub TEFW: u32,
+    pub TEFF: u32,
+    pub TEFL: u32,
+    pub TSW: u32,
+    pub MRAF: u32,
+    pub TOO: u32,
+    pub DRX: u32,
+    pub BEC: u32,
+    pub BEU: u32,
+    pub ELO: u32,
+    pub EP: u32,
+    pub EW: u32,
+    pub BO: u32,
+    pub WDI: u32,
+    pub PEA: u32,
+    pub PED: u32,
+    pub ARA: u32,
+    pub RESERVED0: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_ie_bit_t {
+    pub RF0NE: u32,
+    pub RF0WE: u32,
+    pub RF0FE: u32,
+    pub RF0LE: u32,
+    pub RF1NE: u32,
+    pub RF1WE: u32,
+    pub RF1FE: u32,
+    pub RF1LE: u32,
+    pub HPME: u32,
+    pub TCE: u32,
+    pub TCFE: u32,
+    pub TFEE: u32,
+    pub TEFNE: u32,
+    pub TEFWE: u32,
+    pub TEFFE: u32,
+    pub TEFLE: u32,
+    pub TSWE: u32,
+    pub MRAFE: u32,
+    pub TOOE: u32,
+    pub DRXE: u32,
+    pub BECE: u32,
+    pub BEUE: u32,
+    pub ELOE: u32,
+    pub EPE: u32,
+    pub EWE: u32,
+    pub BOE: u32,
+    pub WDIE: u32,
+    pub PEAE: u32,
+    pub PEDE: u32,
+    pub ARAE: u32,
+    pub RESERVED0: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_ils_bit_t {
+    pub RF0NL: u32,
+    pub RF0WL: u32,
+    pub RF0FL: u32,
+    pub RF0LL: u32,
+    pub RF1NL: u32,
+    pub RF1WL: u32,
+    pub RF1FL: u32,
+    pub RF1LL: u32,
+    pub HPML: u32,
+    pub TCL: u32,
+    pub TCFL: u32,
+    pub TFEL: u32,
+    pub TEFNL: u32,
+    pub TEFWL: u32,
+    pub TEFFL: u32,
+    pub TEFLL: u32,
+    pub TSWL: u32,
+    pub MRAFL: u32,
+    pub TOOL: u32,
+    pub DRXL: u32,
+    pub BECL: u32,
+    pub BEUL: u32,
+    pub ELOL: u32,
+    pub EPL: u32,
+    pub EWL: u32,
+    pub BOL: u32,
+    pub WDIL: u32,
+    pub PEAL: u32,
+    pub PEDL: u32,
+    pub ARAL: u32,
+    pub RESERVED0: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_ile_bit_t {
+    pub EINT0: u32,
+    pub EINT1: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_gfc_bit_t {
+    pub RRFE: u32,
+    pub RRFS: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_hpms_bit_t {
+    pub RESERVED0: [u32; 15usize],
+    pub FLST: u32,
+    pub RESERVED1: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_ndat1_bit_t {
+    pub ND0: u32,
+    pub ND1: u32,
+    pub ND2: u32,
+    pub ND3: u32,
+    pub ND4: u32,
+    pub ND5: u32,
+    pub ND6: u32,
+    pub ND7: u32,
+    pub ND8: u32,
+    pub ND9: u32,
+    pub ND10: u32,
+    pub ND11: u32,
+    pub ND12: u32,
+    pub ND13: u32,
+    pub ND14: u32,
+    pub ND15: u32,
+    pub ND16: u32,
+    pub ND17: u32,
+    pub ND18: u32,
+    pub ND19: u32,
+    pub ND20: u32,
+    pub ND21: u32,
+    pub ND22: u32,
+    pub ND23: u32,
+    pub ND24: u32,
+    pub ND25: u32,
+    pub ND26: u32,
+    pub ND27: u32,
+    pub ND28: u32,
+    pub ND29: u32,
+    pub ND30: u32,
+    pub ND31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_ndat2_bit_t {
+    pub ND32: u32,
+    pub ND33: u32,
+    pub ND34: u32,
+    pub ND35: u32,
+    pub ND36: u32,
+    pub ND37: u32,
+    pub ND38: u32,
+    pub ND39: u32,
+    pub ND40: u32,
+    pub ND41: u32,
+    pub ND42: u32,
+    pub ND43: u32,
+    pub ND44: u32,
+    pub ND45: u32,
+    pub ND46: u32,
+    pub ND47: u32,
+    pub ND48: u32,
+    pub ND49: u32,
+    pub ND50: u32,
+    pub ND51: u32,
+    pub ND52: u32,
+    pub ND53: u32,
+    pub ND54: u32,
+    pub ND55: u32,
+    pub ND56: u32,
+    pub ND57: u32,
+    pub ND58: u32,
+    pub ND59: u32,
+    pub ND60: u32,
+    pub ND61: u32,
+    pub ND62: u32,
+    pub ND63: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_rxf0c_bit_t {
+    pub RESERVED0: [u32; 31usize],
+    pub F0OM: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_rxf0s_bit_t {
+    pub RESERVED0: [u32; 24usize],
+    pub F0F: u32,
+    pub RF0L: u32,
+    pub RESERVED1: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_rxf1c_bit_t {
+    pub RESERVED0: [u32; 31usize],
+    pub F1OM: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_rxf1s_bit_t {
+    pub RESERVED0: [u32; 24usize],
+    pub F1F: u32,
+    pub RF1L: u32,
+    pub RESERVED1: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbc_bit_t {
+    pub RESERVED0: [u32; 30usize],
+    pub TFQM: u32,
+    pub RESERVED1: [u32; 1usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txfqs_bit_t {
+    pub RESERVED0: [u32; 21usize],
+    pub TFQF: u32,
+    pub RESERVED1: [u32; 10usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbrp_bit_t {
+    pub TRP0: u32,
+    pub TRP1: u32,
+    pub TRP2: u32,
+    pub TRP3: u32,
+    pub TRP4: u32,
+    pub TRP5: u32,
+    pub TRP6: u32,
+    pub TRP7: u32,
+    pub TRP8: u32,
+    pub TRP9: u32,
+    pub TRP10: u32,
+    pub TRP11: u32,
+    pub TRP12: u32,
+    pub TRP13: u32,
+    pub TRP14: u32,
+    pub TRP15: u32,
+    pub TRP16: u32,
+    pub TRP17: u32,
+    pub TRP18: u32,
+    pub TRP19: u32,
+    pub TRP20: u32,
+    pub TRP21: u32,
+    pub TRP22: u32,
+    pub TRP23: u32,
+    pub TRP24: u32,
+    pub TRP25: u32,
+    pub TRP26: u32,
+    pub TRP27: u32,
+    pub TRP28: u32,
+    pub TRP29: u32,
+    pub TRP30: u32,
+    pub TRP31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbar_bit_t {
+    pub AR0: u32,
+    pub AR1: u32,
+    pub AR2: u32,
+    pub AR3: u32,
+    pub AR4: u32,
+    pub AR5: u32,
+    pub AR6: u32,
+    pub AR7: u32,
+    pub AR8: u32,
+    pub AR9: u32,
+    pub AR10: u32,
+    pub AR11: u32,
+    pub AR12: u32,
+    pub AR13: u32,
+    pub AR14: u32,
+    pub AR15: u32,
+    pub AR16: u32,
+    pub AR17: u32,
+    pub AR18: u32,
+    pub AR19: u32,
+    pub AR20: u32,
+    pub AR21: u32,
+    pub AR22: u32,
+    pub AR23: u32,
+    pub AR24: u32,
+    pub AR25: u32,
+    pub AR26: u32,
+    pub AR27: u32,
+    pub AR28: u32,
+    pub AR29: u32,
+    pub AR30: u32,
+    pub AR31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbcr_bit_t {
+    pub CR0: u32,
+    pub CR1: u32,
+    pub CR2: u32,
+    pub CR3: u32,
+    pub CR4: u32,
+    pub CR5: u32,
+    pub CR6: u32,
+    pub CR7: u32,
+    pub CR8: u32,
+    pub CR9: u32,
+    pub CR10: u32,
+    pub CR11: u32,
+    pub CR12: u32,
+    pub CR13: u32,
+    pub CR14: u32,
+    pub CR15: u32,
+    pub CR16: u32,
+    pub CR17: u32,
+    pub CR18: u32,
+    pub CR19: u32,
+    pub CR20: u32,
+    pub CR21: u32,
+    pub CR22: u32,
+    pub CR23: u32,
+    pub CR24: u32,
+    pub CR25: u32,
+    pub CR26: u32,
+    pub CR27: u32,
+    pub CR28: u32,
+    pub CR29: u32,
+    pub CR30: u32,
+    pub CR31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbto_bit_t {
+    pub TO0: u32,
+    pub TO1: u32,
+    pub TO2: u32,
+    pub TO3: u32,
+    pub TO4: u32,
+    pub TO5: u32,
+    pub TO6: u32,
+    pub TO7: u32,
+    pub TO8: u32,
+    pub TO9: u32,
+    pub TO10: u32,
+    pub TO11: u32,
+    pub TO12: u32,
+    pub TO13: u32,
+    pub TO14: u32,
+    pub TO15: u32,
+    pub TO16: u32,
+    pub TO17: u32,
+    pub TO18: u32,
+    pub TO19: u32,
+    pub TO20: u32,
+    pub TO21: u32,
+    pub TO22: u32,
+    pub TO23: u32,
+    pub TO24: u32,
+    pub TO25: u32,
+    pub TO26: u32,
+    pub TO27: u32,
+    pub TO28: u32,
+    pub TO29: u32,
+    pub TO30: u32,
+    pub TO31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbcf_bit_t {
+    pub CF0: u32,
+    pub CF1: u32,
+    pub CF2: u32,
+    pub CF3: u32,
+    pub CF4: u32,
+    pub CF5: u32,
+    pub CF6: u32,
+    pub CF7: u32,
+    pub CF8: u32,
+    pub CF9: u32,
+    pub CF10: u32,
+    pub CF11: u32,
+    pub CF12: u32,
+    pub CF13: u32,
+    pub CF14: u32,
+    pub CF15: u32,
+    pub CF16: u32,
+    pub CF17: u32,
+    pub CF18: u32,
+    pub CF19: u32,
+    pub CF20: u32,
+    pub CF21: u32,
+    pub CF22: u32,
+    pub CF23: u32,
+    pub CF24: u32,
+    pub CF25: u32,
+    pub CF26: u32,
+    pub CF27: u32,
+    pub CF28: u32,
+    pub CF29: u32,
+    pub CF30: u32,
+    pub CF31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbtie_bit_t {
+    pub TIE0: u32,
+    pub TIE1: u32,
+    pub TIE2: u32,
+    pub TIE3: u32,
+    pub TIE4: u32,
+    pub TIE5: u32,
+    pub TIE6: u32,
+    pub TIE7: u32,
+    pub TIE8: u32,
+    pub TIE9: u32,
+    pub TIE10: u32,
+    pub TIE11: u32,
+    pub TIE12: u32,
+    pub TIE13: u32,
+    pub TIE14: u32,
+    pub TIE15: u32,
+    pub TIE16: u32,
+    pub TIE17: u32,
+    pub TIE18: u32,
+    pub TIE19: u32,
+    pub TIE20: u32,
+    pub TIE21: u32,
+    pub TIE22: u32,
+    pub TIE23: u32,
+    pub TIE24: u32,
+    pub TIE25: u32,
+    pub TIE26: u32,
+    pub TIE27: u32,
+    pub TIE28: u32,
+    pub TIE29: u32,
+    pub TIE30: u32,
+    pub TIE31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txbcie_bit_t {
+    pub CFIE0: u32,
+    pub CFIE1: u32,
+    pub CFIE2: u32,
+    pub CFIE3: u32,
+    pub CFIE4: u32,
+    pub CFIE5: u32,
+    pub CFIE6: u32,
+    pub CFIE7: u32,
+    pub CFIE8: u32,
+    pub CFIE9: u32,
+    pub CFIE10: u32,
+    pub CFIE11: u32,
+    pub CFIE12: u32,
+    pub CFIE13: u32,
+    pub CFIE14: u32,
+    pub CFIE15: u32,
+    pub CFIE16: u32,
+    pub CFIE17: u32,
+    pub CFIE18: u32,
+    pub CFIE19: u32,
+    pub CFIE20: u32,
+    pub CFIE21: u32,
+    pub CFIE22: u32,
+    pub CFIE23: u32,
+    pub CFIE24: u32,
+    pub CFIE25: u32,
+    pub CFIE26: u32,
+    pub CFIE27: u32,
+    pub CFIE28: u32,
+    pub CFIE29: u32,
+    pub CFIE30: u32,
+    pub CFIE31: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_txefs_bit_t {
+    pub RESERVED0: [u32; 24usize],
+    pub EFF: u32,
+    pub TEFL: u32,
+    pub RESERVED1: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_sr_bit_t {
+    pub SMPU1EAF: u32,
+    pub SMPU2EAF: u32,
+    pub PSPEF: u32,
+    pub MSPEF: u32,
+    pub RESERVED0: [u32; 28usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_eclr_bit_t {
+    pub SMPU1ECLR: u32,
+    pub SMPU2ECLR: u32,
+    pub PSPECLR: u32,
+    pub MSPECLR: u32,
+    pub RESERVED0: [u32; 28usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_wp_bit_t {
+    pub MPUWE: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_ippr_bit_t {
+    pub AESRDP: u32,
+    pub AESWRP: u32,
+    pub HASHRDP: u32,
+    pub HASHWRP: u32,
+    pub TRNGRDP: u32,
+    pub TRNGWRP: u32,
+    pub CRCRDP: u32,
+    pub CRCWRP: u32,
+    pub EFMRDP: u32,
+    pub EFMWRP: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub WDTRDP: u32,
+    pub WDTWRP: u32,
+    pub SWDTRDP: u32,
+    pub SWDTWRP: u32,
+    pub BKSRAMRDP: u32,
+    pub BKSRAMWRP: u32,
+    pub RTCRDP: u32,
+    pub RTCWRP: u32,
+    pub DMPURDP: u32,
+    pub DMPUWRP: u32,
+    pub SRAMCRDP: u32,
+    pub SRAMCWRP: u32,
+    pub INTCRDP: u32,
+    pub INTCWRP: u32,
+    pub SYSCRDP: u32,
+    pub SYSCWRP: u32,
+    pub MSTPRDP: u32,
+    pub MSPTWRP: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub BUSERRE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_msppctl_bit_t {
+    pub RESERVED0: [u32; 30usize],
+    pub MSPPACT: u32,
+    pub MSPPE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_psppctl_bit_t {
+    pub RESERVED0: [u32; 30usize],
+    pub PSPPACT: u32,
+    pub PSPPE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_srge_bit_t {
+    pub RG0E: u32,
+    pub RG1E: u32,
+    pub RG2E: u32,
+    pub RG3E: u32,
+    pub RG4E: u32,
+    pub RG5E: u32,
+    pub RG6E: u32,
+    pub RG7E: u32,
+    pub RG8E: u32,
+    pub RG9E: u32,
+    pub RG10E: u32,
+    pub RG11E: u32,
+    pub RG12E: u32,
+    pub RG13E: u32,
+    pub RG14E: u32,
+    pub RG15E: u32,
+    pub RESERVED0: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_srgwp_bit_t {
+    pub RG0WP: u32,
+    pub RG1WP: u32,
+    pub RG2WP: u32,
+    pub RG3WP: u32,
+    pub RG4WP: u32,
+    pub RG5WP: u32,
+    pub RG6WP: u32,
+    pub RG7WP: u32,
+    pub RG8WP: u32,
+    pub RG9WP: u32,
+    pub RG10WP: u32,
+    pub RG11WP: u32,
+    pub RG12WP: u32,
+    pub RG13WP: u32,
+    pub RG14WP: u32,
+    pub RG15WP: u32,
+    pub RESERVED0: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_srgrp_bit_t {
+    pub RG0RP: u32,
+    pub RG1RP: u32,
+    pub RG2RP: u32,
+    pub RG3RP: u32,
+    pub RG4RP: u32,
+    pub RG5RP: u32,
+    pub RG6RP: u32,
+    pub RG7RP: u32,
+    pub RG8RP: u32,
+    pub RG9RP: u32,
+    pub RG10RP: u32,
+    pub RG11RP: u32,
+    pub RG12RP: u32,
+    pub RG13RP: u32,
+    pub RG14RP: u32,
+    pub RG15RP: u32,
+    pub RESERVED0: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_scr_bit_t {
+    pub SMPUBRP: u32,
+    pub SMPUBWP: u32,
+    pub RESERVED0: [u32; 5usize],
+    pub SMPUE: u32,
+    pub RESERVED1: [u32; 24usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_peric_smc_enar_bit_t {
+    pub RESERVED0: [u32; 1usize],
+    pub SMCEN: u32,
+    pub RESERVED1: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_peric_tmr_synenr_bit_t {
+    pub TMR0U1A: u32,
+    pub TMR0U1B: u32,
+    pub TMR0U2A: u32,
+    pub TMR0U2B: u32,
+    pub TMR4U1: u32,
+    pub TMR4U2: u32,
+    pub TMR4U3: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub TMR6U1: u32,
+    pub TMR6U2: u32,
+    pub TMRAU1: u32,
+    pub TMRAU2: u32,
+    pub TMRAU3: u32,
+    pub TMRAU4: u32,
+    pub TMRAU5: u32,
+    pub RESERVED1: [u32; 17usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_peric_usart1_nfc_bit_t {
+    pub RESERVED0: [u32; 2usize],
+    pub USART1_NFE: u32,
+    pub RESERVED1: [u32; 29usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_fcg0_bit_t {
+    pub SRAMH: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub SRAM0: u32,
+    pub RESERVED1: [u32; 5usize],
+    pub SRAMB: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub KEY: u32,
+    pub DMA1: u32,
+    pub DMA2: u32,
+    pub FCM: u32,
+    pub AOS: u32,
+    pub CTC: u32,
+    pub RESERVED3: [u32; 1usize],
+    pub AES: u32,
+    pub HASH: u32,
+    pub TRNG: u32,
+    pub CRC: u32,
+    pub DCU1: u32,
+    pub DCU2: u32,
+    pub DCU3: u32,
+    pub DCU4: u32,
+    pub RESERVED4: [u32; 4usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_fcg1_bit_t {
+    pub MCAN1: u32,
+    pub MCAN2: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub QSPI: u32,
+    pub I2C1: u32,
+    pub I2C2: u32,
+    pub RESERVED1: [u32; 10usize],
+    pub SPI1: u32,
+    pub SPI2: u32,
+    pub SPI3: u32,
+    pub RESERVED2: [u32; 13usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_fcg2_bit_t {
+    pub TMR6_1: u32,
+    pub TMR6_2: u32,
+    pub RESERVED0: [u32; 7usize],
+    pub TMR4_1: u32,
+    pub TMR4_2: u32,
+    pub TMR4_3: u32,
+    pub TMR0_1: u32,
+    pub TMR0_2: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub EMB: u32,
+    pub RESERVED2: [u32; 4usize],
+    pub TMRA_1: u32,
+    pub TMRA_2: u32,
+    pub TMRA_3: u32,
+    pub TMRA_4: u32,
+    pub TMRA_5: u32,
+    pub RESERVED3: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_fcg3_bit_t {
+    pub ADC1: u32,
+    pub ADC2: u32,
+    pub ADC3: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub DAC: u32,
+    pub RESERVED1: [u32; 3usize],
+    pub CMP12: u32,
+    pub CMP34: u32,
+    pub RESERVED2: [u32; 6usize],
+    pub SMC: u32,
+    pub RESERVED3: [u32; 3usize],
+    pub USART1: u32,
+    pub USART2: u32,
+    pub USART3: u32,
+    pub USART4: u32,
+    pub USART5: u32,
+    pub USART6: u32,
+    pub RESERVED4: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_fcg0pc_bit_t {
+    pub PRT0: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_wktcr_bit_t {
+    pub RESERVED0: [u32; 12usize],
+    pub WKOVF: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub WKTCE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pwrc0_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub PWDN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pwrc1_bit_t {
+    pub RESERVED0: [u32; 2usize],
+    pub VHRCSD: u32,
+    pub PDTS: u32,
+    pub RESERVED1: [u32; 4usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pwrc4_bit_t {
+    pub RESERVED0: [u32; 7usize],
+    pub ADBUFE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pvdcr0_bit_t {
+    pub EXVCCINEN: u32,
+    pub RESERVED0: [u32; 4usize],
+    pub PVD1EN: u32,
+    pub PVD2EN: u32,
+    pub RESERVED1: [u32; 1usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pvdcr1_bit_t {
+    pub PVD1IRE: u32,
+    pub PVD1IRS: u32,
+    pub PVD1CMPOE: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub PVD2IRE: u32,
+    pub PVD2IRS: u32,
+    pub PVD2CMPOE: u32,
+    pub RESERVED1: [u32; 1usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pvdfcr_bit_t {
+    pub PVD1NFDIS: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub PVD2NFDIS: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pdwke0_bit_t {
+    pub WKE00: u32,
+    pub WKE01: u32,
+    pub WKE02: u32,
+    pub WKE03: u32,
+    pub WKE10: u32,
+    pub WKE11: u32,
+    pub WKE12: u32,
+    pub WKE13: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pdwke1_bit_t {
+    pub WKE20: u32,
+    pub WKE21: u32,
+    pub WKE22: u32,
+    pub WKE23: u32,
+    pub WKE30: u32,
+    pub WKE31: u32,
+    pub WKE32: u32,
+    pub WKE33: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pdwke2_bit_t {
+    pub VD1WKE: u32,
+    pub VD2WKE: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub RTCPRDWKE: u32,
+    pub RTCALMWKE: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub WKTMWKE: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pdwkes_bit_t {
+    pub WK0EGS: u32,
+    pub WK1EGS: u32,
+    pub WK2EGS: u32,
+    pub WK3EGS: u32,
+    pub VD1EGS: u32,
+    pub VD2EGS: u32,
+    pub RESERVED0: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pdwkf0_bit_t {
+    pub PTWK0F: u32,
+    pub PTWK1F: u32,
+    pub PTWK2F: u32,
+    pub PTWK3F: u32,
+    pub VD1WKF: u32,
+    pub VD2WKF: u32,
+    pub RESERVED0: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pdwkf1_bit_t {
+    pub RESERVED0: [u32; 3usize],
+    pub RXD0WKF: u32,
+    pub RTCPRDWKF: u32,
+    pub RTCALMWKF: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub WKTMWKF: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pwrc5_bit_t {
+    pub VVDRSD: u32,
+    pub SRAMBSD: u32,
+    pub RESERVED0: [u32; 5usize],
+    pub CSDIS: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pvddsr_bit_t {
+    pub PVD1MON: u32,
+    pub PVD1DETFLG: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub PVD2MON: u32,
+    pub PVD2DETFLG: u32,
+    pub RESERVED1: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_rampc0_bit_t {
+    pub RAMPDC0: u32,
+    pub RESERVED0: [u32; 9usize],
+    pub RAMPDC10: u32,
+    pub RESERVED1: [u32; 21usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pramlpc_bit_t {
+    pub PRAMPDC0: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub PRAMPDC2: u32,
+    pub RESERVED1: [u32; 29usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_stpmcr_bit_t {
+    pub FLNWT: u32,
+    pub CKSMRC: u32,
+    pub RESERVED0: [u32; 12usize],
+    pub EXBUSOE: u32,
+    pub STOP: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_fprc_bit_t {
+    pub FPRCB0: u32,
+    pub FPRCB1: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub FPRCB3: u32,
+    pub RESERVED1: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rmu_frst0_bit_t {
+    pub RESERVED0: [u32; 13usize],
+    pub KEY: u32,
+    pub DMA1: u32,
+    pub DMA2: u32,
+    pub FCM: u32,
+    pub AOS: u32,
+    pub CTC: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub AES: u32,
+    pub HASH: u32,
+    pub TRNG: u32,
+    pub CRC: u32,
+    pub DCU1: u32,
+    pub DCU2: u32,
+    pub DCU3: u32,
+    pub DCU4: u32,
+    pub RESERVED2: [u32; 4usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rmu_frst1_bit_t {
+    pub RESERVED0: [u32; 3usize],
+    pub QSPI: u32,
+    pub RESERVED1: [u32; 12usize],
+    pub SPI1: u32,
+    pub SPI2: u32,
+    pub SPI3: u32,
+    pub RESERVED2: [u32; 13usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rmu_frst2_bit_t {
+    pub TMR6: u32,
+    pub RESERVED0: [u32; 9usize],
+    pub TMR4: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub TMR0: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub EMB: u32,
+    pub RESERVED3: [u32; 4usize],
+    pub TMRA: u32,
+    pub RESERVED4: [u32; 11usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rmu_frst3_bit_t {
+    pub ADC1: u32,
+    pub ADC2: u32,
+    pub ADC3: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub DAC: u32,
+    pub RESERVED1: [u32; 3usize],
+    pub CMP12: u32,
+    pub CMP34: u32,
+    pub RESERVED2: [u32; 6usize],
+    pub SMC: u32,
+    pub RESERVED3: [u32; 3usize],
+    pub USART1: u32,
+    pub USART2: u32,
+    pub USART3: u32,
+    pub USART4: u32,
+    pub USART5: u32,
+    pub USART6: u32,
+    pub RESERVED4: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rmu_prstcr0_bit_t {
+    pub RESERVED0: [u32; 5usize],
+    pub LKUPREN: u32,
+    pub RESERVED1: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rmu_rstf0_bit_t {
+    pub PORF: u32,
+    pub PINRF: u32,
+    pub BORF: u32,
+    pub PVD1RF: u32,
+    pub PVD2RF: u32,
+    pub WDRF: u32,
+    pub SWDRF: u32,
+    pub PDRF: u32,
+    pub SWRF: u32,
+    pub MPUERF: u32,
+    pub RAPERF: u32,
+    pub RAECRF: u32,
+    pub CKFERF: u32,
+    pub XTALERF: u32,
+    pub LKUPRF: u32,
+    pub RESERVED0: [u32; 15usize],
+    pub MULTIRF: u32,
+    pub CLRF: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_cr0_bit_t {
+    pub RESET: u32,
+    pub RESERVED0: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_cr1_bit_t {
+    pub RESERVED0: [u32; 3usize],
+    pub AMPM: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub ONEHZOE: u32,
+    pub ONEHZSEL: u32,
+    pub START: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_cr2_bit_t {
+    pub RWREQ: u32,
+    pub RWEN: u32,
+    pub PRDF: u32,
+    pub ALMF: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub PRDIE: u32,
+    pub ALMIE: u32,
+    pub ALME: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_cr3_bit_t {
+    pub RESERVED0: [u32; 4usize],
+    pub LRCEN: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub RCKSEL: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_errcrh_bit_t {
+    pub COMP8: u32,
+    pub RESERVED0: [u32; 6usize],
+    pub COMPEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_cr_bit_t {
+    pub SPIMDS: u32,
+    pub TXMDS: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub MSTR: u32,
+    pub SPLPBK: u32,
+    pub SPLPBK2: u32,
+    pub SPE: u32,
+    pub CSUSPE: u32,
+    pub EIE: u32,
+    pub TXIE: u32,
+    pub RXIE: u32,
+    pub IDIE: u32,
+    pub MODFE: u32,
+    pub PATE: u32,
+    pub PAOE: u32,
+    pub PAE: u32,
+    pub RESERVED1: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_cfg1_bit_t {
+    pub RESERVED0: [u32; 2usize],
+    pub CTMDS: u32,
+    pub RESERVED1: [u32; 3usize],
+    pub SPRDTD: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub SS0PV: u32,
+    pub SS1PV: u32,
+    pub SS2PV: u32,
+    pub SS3PV: u32,
+    pub RESERVED3: [u32; 20usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_sr_bit_t {
+    pub OVRERF: u32,
+    pub IDLNF: u32,
+    pub MODFERF: u32,
+    pub PERF: u32,
+    pub UDRERF: u32,
+    pub TDEF: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub RDFF: u32,
+    pub RESERVED1: [u32; 24usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_cfg2_bit_t {
+    pub CPHA: u32,
+    pub CPOL: u32,
+    pub RESERVED0: [u32; 10usize],
+    pub LSBF: u32,
+    pub MIDIE: u32,
+    pub MSSDLE: u32,
+    pub MSSIE: u32,
+    pub RESERVED1: [u32; 16usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sramc_ckcr_bit_t {
+    pub PYOAD: u32,
+    pub RESERVED0: [u32; 15usize],
+    pub ECCOAD: u32,
+    pub BECCOAD: u32,
+    pub RESERVED1: [u32; 14usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sramc_ckpr_bit_t {
+    pub CKPRC: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sramc_cksr_bit_t {
+    pub RESERVED0: [u32; 3usize],
+    pub SRAMH_PYERR: u32,
+    pub SRAM0_1ERR: u32,
+    pub SRAM0_2ERR: u32,
+    pub SRAMB_1ERR: u32,
+    pub SRAMB_2ERR: u32,
+    pub CACHE_PYERR: u32,
+    pub RESERVED1: [u32; 23usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sramc_sram0_eien_bit_t {
+    pub EIEN: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sramc_sramb_eien_bit_t {
+    pub EIEN: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_swdt_cr_bit_t {
+    pub RESERVED0: [u32; 16usize],
+    pub SLPOFF: u32,
+    pub RESERVED1: [u32; 14usize],
+    pub ITS: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_swdt_sr_bit_t {
+    pub RESERVED0: [u32; 16usize],
+    pub UDF: u32,
+    pub REF: u32,
+    pub RESERVED1: [u32; 14usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr0_bconr_bit_t {
+    pub CSTA: u32,
+    pub CAPMDA: u32,
+    pub CMENA: u32,
+    pub OVENA: u32,
+    pub RESERVED0: [u32; 4usize],
+    pub SYNSA: u32,
+    pub SYNCLKA: u32,
+    pub ASYNCLKA: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub HSTAA: u32,
+    pub HSTPA: u32,
+    pub HCLEA: u32,
+    pub HICPA: u32,
+    pub CSTB: u32,
+    pub CAPMDB: u32,
+    pub CMENB: u32,
+    pub OVENB: u32,
+    pub RESERVED2: [u32; 4usize],
+    pub SYNSB: u32,
+    pub SYNCLKB: u32,
+    pub ASYNCLKB: u32,
+    pub RESERVED3: [u32; 1usize],
+    pub HSTAB: u32,
+    pub HSTPB: u32,
+    pub HCLEB: u32,
+    pub HICPB: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr0_stflr_bit_t {
+    pub CMFA: u32,
+    pub OVFA: u32,
+    pub ICPA: u32,
+    pub RESERVED0: [u32; 13usize],
+    pub CMFB: u32,
+    pub OVFB: u32,
+    pub ICPB: u32,
+    pub RESERVED1: [u32; 13usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_ocsr_bit_t {
+    pub OCEH: u32,
+    pub OCEL: u32,
+    pub OCPH: u32,
+    pub OCPL: u32,
+    pub OCIEH: u32,
+    pub OCIEL: u32,
+    pub OCFH: u32,
+    pub OCFL: u32,
+    pub RESERVED0: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_ocer_bit_t {
+    pub RESERVED0: [u32; 8usize],
+    pub LMCH: u32,
+    pub LMCL: u32,
+    pub LMMH: u32,
+    pub LMML: u32,
+    pub MCECH: u32,
+    pub MCECL: u32,
+    pub RESERVED1: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_ocmrh_bit_t {
+    pub OCFDCH: u32,
+    pub OCFPKH: u32,
+    pub OCFUCH: u32,
+    pub OCFZRH: u32,
+    pub RESERVED0: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_ocmrl_bit_t {
+    pub OCFDCL: u32,
+    pub OCFPKL: u32,
+    pub OCFUCL: u32,
+    pub OCFZRL: u32,
+    pub RESERVED0: [u32; 28usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_ccsr_bit_t {
+    pub RESERVED0: [u32; 4usize],
+    pub CLEAR: u32,
+    pub MODE: u32,
+    pub STOP: u32,
+    pub BUFEN: u32,
+    pub IRQPEN: u32,
+    pub IRQPF: u32,
+    pub IRQZEN: u32,
+    pub IRQZF: u32,
+    pub SYNST: u32,
+    pub HST: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub ECKEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_pscr_bit_t {
+    pub OEUH: u32,
+    pub OEUL: u32,
+    pub OEVH: u32,
+    pub OEVL: u32,
+    pub OEWH: u32,
+    pub OEWL: u32,
+    pub OEXH: u32,
+    pub OEXL: u32,
+    pub MOE: u32,
+    pub AOE: u32,
+    pub RESERVED0: [u32; 22usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_scsr_bit_t {
+    pub RESERVED0: [u32; 5usize],
+    pub LMC: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub EVTMS: u32,
+    pub EVTDS: u32,
+    pub RESERVED2: [u32; 2usize],
+    pub DEN: u32,
+    pub PEN: u32,
+    pub UEN: u32,
+    pub ZEN: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_scmr_bit_t {
+    pub RESERVED0: [u32; 6usize],
+    pub MZCE: u32,
+    pub MPCE: u32,
+    pub RESERVED1: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_scer_bit_t {
+    pub RESERVED0: [u32; 8usize],
+    pub PCTS: u32,
+    pub RESERVED1: [u32; 7usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_rcsr_bit_t {
+    pub RTIDU: u32,
+    pub RTIDV: u32,
+    pub RTIDW: u32,
+    pub RTIDX: u32,
+    pub RTIFU: u32,
+    pub RTICU: u32,
+    pub RTEU: u32,
+    pub RTSU: u32,
+    pub RTIFV: u32,
+    pub RTICV: u32,
+    pub RTEV: u32,
+    pub RTSV: u32,
+    pub RTIFW: u32,
+    pub RTICW: u32,
+    pub RTEW: u32,
+    pub RTSW: u32,
+    pub RTIFX: u32,
+    pub RTICX: u32,
+    pub RTEX: u32,
+    pub RTSX: u32,
+    pub RESERVED0: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_scir_bit_t {
+    pub ITEN0: u32,
+    pub ITEN1: u32,
+    pub ITEN2: u32,
+    pub ITEN3: u32,
+    pub ITEN4: u32,
+    pub ITEN5: u32,
+    pub ITEN6: u32,
+    pub ITEN7: u32,
+    pub RESERVED0: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_scfr_bit_t {
+    pub SF0: u32,
+    pub SF1: u32,
+    pub SF2: u32,
+    pub SF3: u32,
+    pub SF4: u32,
+    pub SF5: u32,
+    pub SF6: u32,
+    pub SF7: u32,
+    pub RESERVED0: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_gconr_bit_t {
+    pub START: u32,
+    pub DIR: u32,
+    pub MODE: u32,
+    pub RESERVED0: [u32; 5usize],
+    pub OVSTP: u32,
+    pub RESERVED1: [u32; 7usize],
+    pub ZMSKREV: u32,
+    pub ZMSKPOS: u32,
+    pub RESERVED2: [u32; 14usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_iconr_bit_t {
+    pub INTENA: u32,
+    pub INTENB: u32,
+    pub INTENC: u32,
+    pub INTEND: u32,
+    pub INTENE: u32,
+    pub INTENF: u32,
+    pub INTENOVF: u32,
+    pub INTENUDF: u32,
+    pub INTENDTE: u32,
+    pub RESERVED0: [u32; 7usize],
+    pub INTENSAU: u32,
+    pub INTENSAD: u32,
+    pub INTENSBU: u32,
+    pub INTENSBD: u32,
+    pub RESERVED1: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_bconr_bit_t {
+    pub BENA: u32,
+    pub BSEA: u32,
+    pub BTRUA: u32,
+    pub BTRDA: u32,
+    pub BENB: u32,
+    pub BSEB: u32,
+    pub BTRUB: u32,
+    pub BTRDB: u32,
+    pub BENP: u32,
+    pub BSEP: u32,
+    pub BTRUP: u32,
+    pub BTRDP: u32,
+    pub RESERVED0: [u32; 4usize],
+    pub BENSPA: u32,
+    pub BSESPA: u32,
+    pub BTRUSPA: u32,
+    pub BTRDSPA: u32,
+    pub BENSPB: u32,
+    pub BSESPB: u32,
+    pub BTRUSPB: u32,
+    pub BTRDSPB: u32,
+    pub RESERVED1: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_dconr_bit_t {
+    pub DTCEN: u32,
+    pub SEPA: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub DTBENU: u32,
+    pub DTBEND: u32,
+    pub DTBTRU: u32,
+    pub DTBTRD: u32,
+    pub RESERVED1: [u32; 24usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_pcnar_bit_t {
+    pub RESERVED0: [u32; 28usize],
+    pub OUTENA: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub CAPMDA: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_pcnbr_bit_t {
+    pub RESERVED0: [u32; 28usize],
+    pub OUTENB: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub CAPMDB: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_fcngr_bit_t {
+    pub NOFIENGA: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub NOFIENGB: u32,
+    pub RESERVED1: [u32; 27usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_vperr_bit_t {
+    pub RESERVED0: [u32; 8usize],
+    pub SPPERIA: u32,
+    pub SPPERIB: u32,
+    pub RESERVED1: [u32; 22usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_stflr_bit_t {
+    pub CMAF: u32,
+    pub CMBF: u32,
+    pub CMCF: u32,
+    pub CMDF: u32,
+    pub CMEF: u32,
+    pub CMFF: u32,
+    pub OVFF: u32,
+    pub UDFF: u32,
+    pub DTEF: u32,
+    pub CMSAUF: u32,
+    pub CMSADF: u32,
+    pub CMSBUF: u32,
+    pub CMSBDF: u32,
+    pub RESERVED0: [u32; 13usize],
+    pub CMAF2: u32,
+    pub CMBF2: u32,
+    pub RESERVED1: [u32; 3usize],
+    pub DIRF: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hstar_bit_t {
+    pub HSTA0: u32,
+    pub HSTA1: u32,
+    pub HSTA2: u32,
+    pub HSTA3: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub STAS: u32,
+    pub HSTA8: u32,
+    pub HSTA9: u32,
+    pub RESERVED1: [u32; 6usize],
+    pub HSTA16: u32,
+    pub HSTA17: u32,
+    pub HSTA18: u32,
+    pub HSTA19: u32,
+    pub RESERVED2: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hstpr_bit_t {
+    pub HSTP0: u32,
+    pub HSTP1: u32,
+    pub HSTP2: u32,
+    pub HSTP3: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub STPS: u32,
+    pub HSTP8: u32,
+    pub HSTP9: u32,
+    pub RESERVED1: [u32; 6usize],
+    pub HSTP16: u32,
+    pub HSTP17: u32,
+    pub HSTP18: u32,
+    pub HSTP19: u32,
+    pub RESERVED2: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hclrr_bit_t {
+    pub HCLE0: u32,
+    pub HCLE1: u32,
+    pub HCLE2: u32,
+    pub HCLE3: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub CLES: u32,
+    pub HCLE8: u32,
+    pub HCLE9: u32,
+    pub RESERVED1: [u32; 6usize],
+    pub HCLE16: u32,
+    pub HCLE17: u32,
+    pub HCLE18: u32,
+    pub HCLE19: u32,
+    pub RESERVED2: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hupdr_bit_t {
+    pub HUPD0: u32,
+    pub HUPD1: u32,
+    pub HUPD2: u32,
+    pub HUPD3: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub UPDS: u32,
+    pub HUPD8: u32,
+    pub HUPD9: u32,
+    pub RESERVED1: [u32; 6usize],
+    pub HUPD16: u32,
+    pub HUPD17: u32,
+    pub HUPD18: u32,
+    pub HUPD19: u32,
+    pub RESERVED2: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hcpar_bit_t {
+    pub HCPA0: u32,
+    pub HCPA1: u32,
+    pub HCPA2: u32,
+    pub HCPA3: u32,
+    pub RESERVED0: [u32; 4usize],
+    pub HCPA8: u32,
+    pub HCPA9: u32,
+    pub RESERVED1: [u32; 6usize],
+    pub HCPA16: u32,
+    pub HCPA17: u32,
+    pub HCPA18: u32,
+    pub HCPA19: u32,
+    pub RESERVED2: [u32; 4usize],
+    pub HCPA24: u32,
+    pub HCPA25: u32,
+    pub RESERVED3: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hcpbr_bit_t {
+    pub HCPB0: u32,
+    pub HCPB1: u32,
+    pub HCPB2: u32,
+    pub HCPB3: u32,
+    pub RESERVED0: [u32; 4usize],
+    pub HCPB8: u32,
+    pub HCPB9: u32,
+    pub RESERVED1: [u32; 6usize],
+    pub HCPB16: u32,
+    pub HCPB17: u32,
+    pub HCPB18: u32,
+    pub HCPB19: u32,
+    pub RESERVED2: [u32; 4usize],
+    pub HCPB24: u32,
+    pub HCPB25: u32,
+    pub RESERVED3: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hcupr_bit_t {
+    pub HCUP0: u32,
+    pub HCUP1: u32,
+    pub HCUP2: u32,
+    pub HCUP3: u32,
+    pub HCUP4: u32,
+    pub HCUP5: u32,
+    pub HCUP6: u32,
+    pub HCUP7: u32,
+    pub HCUP8: u32,
+    pub HCUP9: u32,
+    pub RESERVED0: [u32; 6usize],
+    pub HCUP16: u32,
+    pub HCUP17: u32,
+    pub HCUP18: u32,
+    pub HCUP19: u32,
+    pub RESERVED1: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_hcdor_bit_t {
+    pub HCDO0: u32,
+    pub HCDO1: u32,
+    pub HCDO2: u32,
+    pub HCDO3: u32,
+    pub HCDO4: u32,
+    pub HCDO5: u32,
+    pub HCDO6: u32,
+    pub HCDO7: u32,
+    pub HCDO8: u32,
+    pub HCDO9: u32,
+    pub RESERVED0: [u32; 6usize],
+    pub HCDO16: u32,
+    pub HCDO17: u32,
+    pub HCDO18: u32,
+    pub HCDO19: u32,
+    pub RESERVED1: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_common_fcntr_bit_t {
+    pub NOFIENTA: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub NOFIENTB: u32,
+    pub RESERVED1: [u32; 27usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_common_sstar_bit_t {
+    pub SSTA1: u32,
+    pub SSTA2: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_common_sstpr_bit_t {
+    pub SSTP1: u32,
+    pub SSTP2: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_common_sclrr_bit_t {
+    pub SCLE1: u32,
+    pub SCLE2: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_common_supdr_bit_t {
+    pub SUPD1: u32,
+    pub SUPD2: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_bcstrl_bit_t {
+    pub START: u32,
+    pub DIR: u32,
+    pub MODE: u32,
+    pub SYNST: u32,
+    pub RESERVED0: [u32; 4usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_bcstrh_bit_t {
+    pub OVSTP: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub ITENOVF: u32,
+    pub ITENUDF: u32,
+    pub OVFF: u32,
+    pub UDFF: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_hconr_bit_t {
+    pub HSTA0: u32,
+    pub HSTA1: u32,
+    pub HSTA2: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub HSTP0: u32,
+    pub HSTP1: u32,
+    pub HSTP2: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub HCLE0: u32,
+    pub HCLE1: u32,
+    pub HCLE2: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub HCLE3: u32,
+    pub HCLE4: u32,
+    pub HCLE5: u32,
+    pub HCLE6: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_hcupr_bit_t {
+    pub HCUP0: u32,
+    pub HCUP1: u32,
+    pub HCUP2: u32,
+    pub HCUP3: u32,
+    pub HCUP4: u32,
+    pub HCUP5: u32,
+    pub HCUP6: u32,
+    pub HCUP7: u32,
+    pub HCUP8: u32,
+    pub HCUP9: u32,
+    pub HCUP10: u32,
+    pub HCUP11: u32,
+    pub HCUP12: u32,
+    pub RESERVED0: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_hcdor_bit_t {
+    pub HCDO0: u32,
+    pub HCDO1: u32,
+    pub HCDO2: u32,
+    pub HCDO3: u32,
+    pub HCDO4: u32,
+    pub HCDO5: u32,
+    pub HCDO6: u32,
+    pub HCDO7: u32,
+    pub HCDO8: u32,
+    pub HCDO9: u32,
+    pub HCDO10: u32,
+    pub HCDO11: u32,
+    pub HCDO12: u32,
+    pub RESERVED0: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_iconr_bit_t {
+    pub ITEN1: u32,
+    pub ITEN2: u32,
+    pub ITEN3: u32,
+    pub ITEN4: u32,
+    pub ITEN5: u32,
+    pub ITEN6: u32,
+    pub ITEN7: u32,
+    pub ITEN8: u32,
+    pub RESERVED0: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_econr_bit_t {
+    pub ETEN1: u32,
+    pub ETEN2: u32,
+    pub ETEN3: u32,
+    pub ETEN4: u32,
+    pub ETEN5: u32,
+    pub ETEN6: u32,
+    pub ETEN7: u32,
+    pub ETEN8: u32,
+    pub RESERVED0: [u32; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_fconr_bit_t {
+    pub NOFIENTG: u32,
+    pub RESERVED0: [u32; 7usize],
+    pub NOFIENCA: u32,
+    pub RESERVED1: [u32; 3usize],
+    pub NOFIENCB: u32,
+    pub RESERVED2: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_stflr_bit_t {
+    pub CMPF1: u32,
+    pub CMPF2: u32,
+    pub CMPF3: u32,
+    pub CMPF4: u32,
+    pub CMPF5: u32,
+    pub CMPF6: u32,
+    pub CMPF7: u32,
+    pub CMPF8: u32,
+    pub ICPF1: u32,
+    pub ICPF2: u32,
+    pub ICPF3: u32,
+    pub ICPF4: u32,
+    pub ICPF5: u32,
+    pub ICPF6: u32,
+    pub ICPF7: u32,
+    pub ICPF8: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_bconr_bit_t {
+    pub BEN: u32,
+    pub BSE0: u32,
+    pub BSE1: u32,
+    pub BSEN: u32,
+    pub RESERVED0: [u32; 12usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_cconr_bit_t {
+    pub CAPMD: u32,
+    pub RESERVED0: [u32; 3usize],
+    pub HICP0: u32,
+    pub HICP1: u32,
+    pub HICP2: u32,
+    pub RESERVED1: [u32; 1usize],
+    pub HICP3: u32,
+    pub HICP4: u32,
+    pub HICP5: u32,
+    pub HICP6: u32,
+    pub NOFIENCP: u32,
+    pub RESERVED2: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_pconr_bit_t {
+    pub RESERVED0: [u32; 12usize],
+    pub OUTEN: u32,
+    pub RESERVED1: [u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_trng_cr_bit_t {
+    pub EN: u32,
+    pub RUN: u32,
+    pub RESERVED0: [u32; 30usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_trng_mr_bit_t {
+    pub LOAD: u32,
+    pub RESERVED0: [u32; 31usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_sr_bit_t {
+    pub PE: u32,
+    pub FE: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub ORE: u32,
+    pub BE: u32,
+    pub RXNE: u32,
+    pub TC: u32,
+    pub TXE: u32,
+    pub RTOF: u32,
+    pub WKUP: u32,
+    pub LBD: u32,
+    pub TEND: u32,
+    pub RESERVED1: [u32; 4usize],
+    pub MPB: u32,
+    pub RESERVED2: [u32; 15usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_tdr_bit_t {
+    pub RESERVED0: [u32; 9usize],
+    pub MPID: u32,
+    pub RESERVED1: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_cr1_bit_t {
+    pub RTOE: u32,
+    pub RTOIE: u32,
+    pub RE: u32,
+    pub TE: u32,
+    pub SLME: u32,
+    pub RIE: u32,
+    pub TCIE: u32,
+    pub TXEIE: u32,
+    pub TENDIE: u32,
+    pub PS: u32,
+    pub PCE: u32,
+    pub RESERVED0: [u32; 1usize],
+    pub M: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub OVER8: u32,
+    pub CPE: u32,
+    pub CFE: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub CORE: u32,
+    pub CRTOF: u32,
+    pub CBE: u32,
+    pub CWKUP: u32,
+    pub CLBD: u32,
+    pub MS: u32,
+    pub CTEND: u32,
+    pub RESERVED3: [u32; 2usize],
+    pub ML: u32,
+    pub FBME: u32,
+    pub NFE: u32,
+    pub SBS: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_cr2_bit_t {
+    pub MPE: u32,
+    pub WKUPIE: u32,
+    pub BEIE: u32,
+    pub BEE: u32,
+    pub LBDIE: u32,
+    pub LBDL: u32,
+    pub RESERVED0: [u32; 2usize],
+    pub WKUPE: u32,
+    pub RESERVED1: [u32; 4usize],
+    pub STOP: u32,
+    pub LINEN: u32,
+    pub RESERVED2: [u32; 1usize],
+    pub SBK: u32,
+    pub SBKM: u32,
+    pub RESERVED3: [u32; 14usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_cr3_bit_t {
+    pub RESERVED0: [u32; 3usize],
+    pub HDSEL: u32,
+    pub LOOP: u32,
+    pub SCEN: u32,
+    pub RESERVED1: [u32; 2usize],
+    pub RTSE: u32,
+    pub CTSE: u32,
+    pub RESERVED2: [u32; 22usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_pr_bit_t {
+    pub RESERVED0: [u32; 4usize],
+    pub ULBREN: u32,
+    pub RESERVED1: [u32; 27usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_wdt_cr_bit_t {
+    pub RESERVED0: [u32; 16usize],
+    pub SLPOFF: u32,
+    pub RESERVED1: [u32; 14usize],
+    pub ITS: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_wdt_sr_bit_t {
+    pub RESERVED0: [u32; 16usize],
+    pub UDF: u32,
+    pub REF: u32,
+    pub RESERVED1: [u32; 14usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_ADC_TypeDef {
+    pub STR_b: stc_adc_str_bit_t,
+    pub RESERVED0: [u32; 8usize],
+    pub CR0_b: stc_adc_cr0_bit_t,
+    pub CR1_b: stc_adc_cr1_bit_t,
+    pub CR2_b: stc_adc_cr2_bit_t,
+    pub RESERVED1: [u32; 16usize],
+    pub TRGSR_b: stc_adc_trgsr_bit_t,
+    pub RESERVED2: [u32; 96usize],
+    pub EXCHSELR_b: stc_adc_exchselr_bit_t,
+    pub RESERVED3: [u32; 344usize],
+    pub ISR_b: stc_adc_isr_bit_t,
+    pub ICR_b: stc_adc_icr_bit_t,
+    pub ISCLRR_b: stc_adc_isclrr_bit_t,
+    pub RESERVED4: [u32; 40usize],
+    pub SYNCCR_b: stc_adc_synccr_bit_t,
+    pub RESERVED5: [u32; 656usize],
+    pub AWDCR_b: stc_adc_awdcr_bit_t,
+    pub AWDSR_b: stc_adc_awdsr_bit_t,
+    pub AWDSCLRR_b: stc_adc_awdsclrr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_AES_TypeDef {
+    pub CR_b: stc_aes_cr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_AOS_TypeDef {
+    pub INTSFTTRG_b: stc_aos_intsfttrg_bit_t,
+    pub RESERVED0: [u32; 2912usize],
+    pub PEVNTNFCR_b: stc_aos_pevntnfcr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_CMP_TypeDef {
+    pub MDR_b: stc_cmp_mdr_bit_t,
+    pub FIR_b: stc_cmp_fir_bit_t,
+    pub OCR_b: stc_cmp_ocr_bit_t,
+    pub RESERVED0: [u32; 104usize],
+    pub BWSR1_b: stc_cmp_bwsr1_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_CMU_TypeDef {
+    pub RESERVED0: [u32; 224usize],
+    pub XTALDIVCR_b: stc_cmu_xtaldivcr_bit_t,
+    pub RESERVED1: [u32; 156032usize],
+    pub XTALCFGR_b: stc_cmu_xtalcfgr_bit_t,
+    pub RESERVED2: [u32; 24usize],
+    pub XTAL32CR_b: stc_cmu_xtal32cr_bit_t,
+    pub RESERVED3: [u32; 184usize],
+    pub LRCCR_b: stc_cmu_lrccr_bit_t,
+    pub RESERVED4: [u32; 237032usize],
+    pub PLLHCR_b: stc_cmu_pllhcr_bit_t,
+    pub RESERVED5: [u32; 56usize],
+    pub XTALCR_b: stc_cmu_xtalcr_bit_t,
+    pub RESERVED6: [u32; 24usize],
+    pub HRCCR_b: stc_cmu_hrccr_bit_t,
+    pub RESERVED7: [u32; 8usize],
+    pub MRCCR_b: stc_cmu_mrccr_bit_t,
+    pub RESERVED8: [u32; 24usize],
+    pub OSCSTBSR_b: stc_cmu_oscstbsr_bit_t,
+    pub MCO1CFGR_b: stc_cmu_mcocfgr_bit_t,
+    pub MCO2CFGR_b: stc_cmu_mcocfgr_bit_t,
+    pub TPIUCKCFGR_b: stc_cmu_tpiuckcfgr_bit_t,
+    pub XTALSTDCR_b: stc_cmu_xtalstdcr_bit_t,
+    pub XTALSTDSR_b: stc_cmu_xtalstdsr_bit_t,
+    pub RESERVED9: [u32; 1520usize],
+    pub PLLHCFGR_b: stc_cmu_pllhcfgr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_CRC_TypeDef {
+    pub CR_b: stc_crc_cr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_CTC_TypeDef {
+    pub CR1_b: stc_ctc_cr1_bit_t,
+    pub RESERVED0: [u32; 32usize],
+    pub STR_b: stc_ctc_str_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_DAC_TypeDef {
+    pub DADR1_b: stc_dac_dadr1_bit_t,
+    pub DADR2_b: stc_dac_dadr2_bit_t,
+    pub DACR_b: stc_dac_dacr_bit_t,
+    pub DAADPCR_b: stc_dac_daadpcr_bit_t,
+    pub RESERVED0: [u32; 160usize],
+    pub DAOCR_b: stc_dac_daocr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_DCU_TypeDef {
+    pub CTL_b: stc_dcu_ctl_bit_t,
+    pub FLAG_b: stc_dcu_flag_bit_t,
+    pub RESERVED0: [u32; 96usize],
+    pub FLAGCLR_b: stc_dcu_flagclr_bit_t,
+    pub INTEVTSEL_b: stc_dcu_intevtsel_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_DMA_TypeDef {
+    pub EN_b: stc_dma_en_bit_t,
+    pub INTSTAT0_b: stc_dma_intstat0_bit_t,
+    pub INTSTAT1_b: stc_dma_intstat1_bit_t,
+    pub INTMASK0_b: stc_dma_intmask0_bit_t,
+    pub INTMASK1_b: stc_dma_intmask1_bit_t,
+    pub INTCLR0_b: stc_dma_intclr0_bit_t,
+    pub INTCLR1_b: stc_dma_intclr1_bit_t,
+    pub RESERVED0: [u32; 32usize],
+    pub REQSTAT_b: stc_dma_reqstat_bit_t,
+    pub CHSTAT_b: stc_dma_chstat_bit_t,
+    pub RESERVED1: [u32; 32usize],
+    pub RCFGCTL_b: stc_dma_rcfgctl_bit_t,
+    pub SWREQ_b: stc_dma_swreq_bit_t,
+    pub RESERVED2: [u32; 320usize],
+    pub CHCTL0_b: stc_dma_chctl_bit_t,
+    pub RESERVED3: [u32; 480usize],
+    pub CHCTL1_b: stc_dma_chctl_bit_t,
+    pub RESERVED4: [u32; 480usize],
+    pub CHCTL2_b: stc_dma_chctl_bit_t,
+    pub RESERVED5: [u32; 480usize],
+    pub CHCTL3_b: stc_dma_chctl_bit_t,
+    pub RESERVED6: [u32; 480usize],
+    pub CHCTL4_b: stc_dma_chctl_bit_t,
+    pub RESERVED7: [u32; 480usize],
+    pub CHCTL5_b: stc_dma_chctl_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_EFM_TypeDef {
+    pub RESERVED0: [u32; 160usize],
+    pub FSTP_b: stc_efm_fstp_bit_t,
+    pub FRMC_b: stc_efm_frmc_bit_t,
+    pub FWMC_b: stc_efm_fwmc_bit_t,
+    pub FSR_b: stc_efm_fsr_bit_t,
+    pub FSCLR_b: stc_efm_fsclr_bit_t,
+    pub FITE_b: stc_efm_fite_bit_t,
+    pub FSWP_b: stc_efm_fswp_bit_t,
+    pub RESERVED1: [u32; 1696usize],
+    pub MMF_REMCR0_b: stc_efm_mmf_remcr_bit_t,
+    pub MMF_REMCR1_b: stc_efm_mmf_remcr_bit_t,
+    pub RESERVED2: [u32; 928usize],
+    pub WLOCK_b: stc_efm_wlock_bit_t,
+    pub RESERVED3: [u32; 96usize],
+    pub F0NWPRT_b: stc_efm_f0nwprt_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_EMB_TypeDef {
+    pub CTL1_b: stc_emb_ctl1_bit_t,
+    pub CTL2_b: stc_emb_ctl2_bit_t,
+    pub SOE_b: stc_emb_soe_bit_t,
+    pub STAT_b: stc_emb_stat_bit_t,
+    pub STATCLR_b: stc_emb_statclr_bit_t,
+    pub INTEN_b: stc_emb_inten_bit_t,
+    pub RLSSEL_b: stc_emb_rlssel_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_FCM_TypeDef {
+    pub RESERVED0: [u32; 96usize],
+    pub STR_b: stc_fcm_str_bit_t,
+    pub RESERVED1: [u32; 32usize],
+    pub RCCR_b: stc_fcm_rccr_bit_t,
+    pub RIER_b: stc_fcm_rier_bit_t,
+    pub SR_b: stc_fcm_sr_bit_t,
+    pub CLR_b: stc_fcm_clr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_GPIO_TypeDef {
+    pub PIDRA_b: stc_gpio_pidr_bit_t,
+    pub RESERVED0: [u32; 16usize],
+    pub PODRA_b: stc_gpio_podr_bit_t,
+    pub POERA_b: stc_gpio_poer_bit_t,
+    pub POSRA_b: stc_gpio_posr_bit_t,
+    pub PORRA_b: stc_gpio_porr_bit_t,
+    pub POTRA_b: stc_gpio_potr_bit_t,
+    pub RESERVED1: [u32; 16usize],
+    pub PIDRB_b: stc_gpio_pidr_bit_t,
+    pub RESERVED2: [u32; 16usize],
+    pub PODRB_b: stc_gpio_podr_bit_t,
+    pub POERB_b: stc_gpio_poer_bit_t,
+    pub POSRB_b: stc_gpio_posr_bit_t,
+    pub PORRB_b: stc_gpio_porr_bit_t,
+    pub POTRB_b: stc_gpio_potr_bit_t,
+    pub RESERVED3: [u32; 16usize],
+    pub PIDRC_b: stc_gpio_pidr_bit_t,
+    pub RESERVED4: [u32; 16usize],
+    pub PODRC_b: stc_gpio_podr_bit_t,
+    pub POERC_b: stc_gpio_poer_bit_t,
+    pub POSRC_b: stc_gpio_posr_bit_t,
+    pub PORRC_b: stc_gpio_porr_bit_t,
+    pub POTRC_b: stc_gpio_potr_bit_t,
+    pub RESERVED5: [u32; 16usize],
+    pub PIDRD_b: stc_gpio_pidr_bit_t,
+    pub RESERVED6: [u32; 16usize],
+    pub PODRD_b: stc_gpio_podr_bit_t,
+    pub POERD_b: stc_gpio_poer_bit_t,
+    pub POSRD_b: stc_gpio_posr_bit_t,
+    pub PORRD_b: stc_gpio_porr_bit_t,
+    pub POTRD_b: stc_gpio_potr_bit_t,
+    pub RESERVED7: [u32; 16usize],
+    pub PIDRE_b: stc_gpio_pidr_bit_t,
+    pub RESERVED8: [u32; 16usize],
+    pub PODRE_b: stc_gpio_podr_bit_t,
+    pub POERE_b: stc_gpio_poer_bit_t,
+    pub POSRE_b: stc_gpio_posr_bit_t,
+    pub PORRE_b: stc_gpio_porr_bit_t,
+    pub POTRE_b: stc_gpio_potr_bit_t,
+    pub RESERVED9: [u32; 16usize],
+    pub PIDRH_b: stc_gpio_pidr_bit_t,
+    pub RESERVED10: [u32; 16usize],
+    pub PODRH_b: stc_gpio_podr_bit_t,
+    pub POERH_b: stc_gpio_poer_bit_t,
+    pub POSRH_b: stc_gpio_posr_bit_t,
+    pub PORRH_b: stc_gpio_porr_bit_t,
+    pub POTRH_b: stc_gpio_potr_bit_t,
+    pub RESERVED11: [u32; 7408usize],
+    pub PWPR_b: stc_gpio_pwpr_bit_t,
+    pub RESERVED12: [u32; 16usize],
+    pub PCRA0_b: stc_gpio_pcr_bit_t,
+    pub PFSRA0_b: stc_gpio_pfsr_bit_t,
+    pub PCRA1_b: stc_gpio_pcr_bit_t,
+    pub PFSRA1_b: stc_gpio_pfsr_bit_t,
+    pub PCRA2_b: stc_gpio_pcr_bit_t,
+    pub PFSRA2_b: stc_gpio_pfsr_bit_t,
+    pub PCRA3_b: stc_gpio_pcr_bit_t,
+    pub PFSRA3_b: stc_gpio_pfsr_bit_t,
+    pub PCRA4_b: stc_gpio_pcr_bit_t,
+    pub PFSRA4_b: stc_gpio_pfsr_bit_t,
+    pub PCRA5_b: stc_gpio_pcr_bit_t,
+    pub PFSRA5_b: stc_gpio_pfsr_bit_t,
+    pub PCRA6_b: stc_gpio_pcr_bit_t,
+    pub PFSRA6_b: stc_gpio_pfsr_bit_t,
+    pub PCRA7_b: stc_gpio_pcr_bit_t,
+    pub PFSRA7_b: stc_gpio_pfsr_bit_t,
+    pub PCRA8_b: stc_gpio_pcr_bit_t,
+    pub PFSRA8_b: stc_gpio_pfsr_bit_t,
+    pub PCRA9_b: stc_gpio_pcr_bit_t,
+    pub PFSRA9_b: stc_gpio_pfsr_bit_t,
+    pub PCRA10_b: stc_gpio_pcr_bit_t,
+    pub PFSRA10_b: stc_gpio_pfsr_bit_t,
+    pub PCRA11_b: stc_gpio_pcr_bit_t,
+    pub PFSRA11_b: stc_gpio_pfsr_bit_t,
+    pub PCRA12_b: stc_gpio_pcr_bit_t,
+    pub PFSRA12_b: stc_gpio_pfsr_bit_t,
+    pub PCRA13_b: stc_gpio_pcr_bit_t,
+    pub PFSRA13_b: stc_gpio_pfsr_bit_t,
+    pub PCRA14_b: stc_gpio_pcr_bit_t,
+    pub PFSRA14_b: stc_gpio_pfsr_bit_t,
+    pub PCRA15_b: stc_gpio_pcr_bit_t,
+    pub PFSRA15_b: stc_gpio_pfsr_bit_t,
+    pub PCRB0_b: stc_gpio_pcr_bit_t,
+    pub PFSRB0_b: stc_gpio_pfsr_bit_t,
+    pub PCRB1_b: stc_gpio_pcr_bit_t,
+    pub PFSRB1_b: stc_gpio_pfsr_bit_t,
+    pub PCRB2_b: stc_gpio_pcr_bit_t,
+    pub PFSRB2_b: stc_gpio_pfsr_bit_t,
+    pub PCRB3_b: stc_gpio_pcr_bit_t,
+    pub PFSRB3_b: stc_gpio_pfsr_bit_t,
+    pub PCRB4_b: stc_gpio_pcr_bit_t,
+    pub PFSRB4_b: stc_gpio_pfsr_bit_t,
+    pub PCRB5_b: stc_gpio_pcr_bit_t,
+    pub PFSRB5_b: stc_gpio_pfsr_bit_t,
+    pub PCRB6_b: stc_gpio_pcr_bit_t,
+    pub PFSRB6_b: stc_gpio_pfsr_bit_t,
+    pub PCRB7_b: stc_gpio_pcr_bit_t,
+    pub PFSRB7_b: stc_gpio_pfsr_bit_t,
+    pub PCRB8_b: stc_gpio_pcr_bit_t,
+    pub PFSRB8_b: stc_gpio_pfsr_bit_t,
+    pub PCRB9_b: stc_gpio_pcr_bit_t,
+    pub PFSRB9_b: stc_gpio_pfsr_bit_t,
+    pub PCRB10_b: stc_gpio_pcr_bit_t,
+    pub PFSRB10_b: stc_gpio_pfsr_bit_t,
+    pub PCRB11_b: stc_gpio_pcr_bit_t,
+    pub PFSRB11_b: stc_gpio_pfsr_bit_t,
+    pub PCRB12_b: stc_gpio_pcr_bit_t,
+    pub PFSRB12_b: stc_gpio_pfsr_bit_t,
+    pub PCRB13_b: stc_gpio_pcr_bit_t,
+    pub PFSRB13_b: stc_gpio_pfsr_bit_t,
+    pub PCRB14_b: stc_gpio_pcr_bit_t,
+    pub PFSRB14_b: stc_gpio_pfsr_bit_t,
+    pub PCRB15_b: stc_gpio_pcr_bit_t,
+    pub PFSRB15_b: stc_gpio_pfsr_bit_t,
+    pub PCRC0_b: stc_gpio_pcr_bit_t,
+    pub PFSRC0_b: stc_gpio_pfsr_bit_t,
+    pub PCRC1_b: stc_gpio_pcr_bit_t,
+    pub PFSRC1_b: stc_gpio_pfsr_bit_t,
+    pub PCRC2_b: stc_gpio_pcr_bit_t,
+    pub PFSRC2_b: stc_gpio_pfsr_bit_t,
+    pub PCRC3_b: stc_gpio_pcr_bit_t,
+    pub PFSRC3_b: stc_gpio_pfsr_bit_t,
+    pub PCRC4_b: stc_gpio_pcr_bit_t,
+    pub PFSRC4_b: stc_gpio_pfsr_bit_t,
+    pub PCRC5_b: stc_gpio_pcr_bit_t,
+    pub PFSRC5_b: stc_gpio_pfsr_bit_t,
+    pub PCRC6_b: stc_gpio_pcr_bit_t,
+    pub PFSRC6_b: stc_gpio_pfsr_bit_t,
+    pub PCRC7_b: stc_gpio_pcr_bit_t,
+    pub PFSRC7_b: stc_gpio_pfsr_bit_t,
+    pub PCRC8_b: stc_gpio_pcr_bit_t,
+    pub PFSRC8_b: stc_gpio_pfsr_bit_t,
+    pub PCRC9_b: stc_gpio_pcr_bit_t,
+    pub PFSRC9_b: stc_gpio_pfsr_bit_t,
+    pub PCRC10_b: stc_gpio_pcr_bit_t,
+    pub PFSRC10_b: stc_gpio_pfsr_bit_t,
+    pub PCRC11_b: stc_gpio_pcr_bit_t,
+    pub PFSRC11_b: stc_gpio_pfsr_bit_t,
+    pub PCRC12_b: stc_gpio_pcr_bit_t,
+    pub PFSRC12_b: stc_gpio_pfsr_bit_t,
+    pub PCRC13_b: stc_gpio_pcr_bit_t,
+    pub PFSRC13_b: stc_gpio_pfsr_bit_t,
+    pub PCRC14_b: stc_gpio_pcr_bit_t,
+    pub PFSRC14_b: stc_gpio_pfsr_bit_t,
+    pub PCRC15_b: stc_gpio_pcr_bit_t,
+    pub PFSRC15_b: stc_gpio_pfsr_bit_t,
+    pub PCRD0_b: stc_gpio_pcr_bit_t,
+    pub PFSRD0_b: stc_gpio_pfsr_bit_t,
+    pub PCRD1_b: stc_gpio_pcr_bit_t,
+    pub PFSRD1_b: stc_gpio_pfsr_bit_t,
+    pub PCRD2_b: stc_gpio_pcr_bit_t,
+    pub PFSRD2_b: stc_gpio_pfsr_bit_t,
+    pub RESERVED13: [u32; 160usize],
+    pub PCRD8_b: stc_gpio_pcr_bit_t,
+    pub PFSRD8_b: stc_gpio_pfsr_bit_t,
+    pub PCRD9_b: stc_gpio_pcr_bit_t,
+    pub PFSRD9_b: stc_gpio_pfsr_bit_t,
+    pub PCRD10_b: stc_gpio_pcr_bit_t,
+    pub PFSRD10_b: stc_gpio_pfsr_bit_t,
+    pub PCRD11_b: stc_gpio_pcr_bit_t,
+    pub PFSRD11_b: stc_gpio_pfsr_bit_t,
+    pub RESERVED14: [u32; 128usize],
+    pub PCRE0_b: stc_gpio_pcr_bit_t,
+    pub PFSRE0_b: stc_gpio_pfsr_bit_t,
+    pub PCRE1_b: stc_gpio_pcr_bit_t,
+    pub PFSRE1_b: stc_gpio_pfsr_bit_t,
+    pub PCRE2_b: stc_gpio_pcr_bit_t,
+    pub PFSRE2_b: stc_gpio_pfsr_bit_t,
+    pub PCRE3_b: stc_gpio_pcr_bit_t,
+    pub PFSRE3_b: stc_gpio_pfsr_bit_t,
+    pub PCRE4_b: stc_gpio_pcr_bit_t,
+    pub PFSRE4_b: stc_gpio_pfsr_bit_t,
+    pub RESERVED15: [u32; 224usize],
+    pub PCRE12_b: stc_gpio_pcr_bit_t,
+    pub PFSRE12_b: stc_gpio_pfsr_bit_t,
+    pub PCRE13_b: stc_gpio_pcr_bit_t,
+    pub PFSRE13_b: stc_gpio_pfsr_bit_t,
+    pub PCRE14_b: stc_gpio_pcr_bit_t,
+    pub PFSRE14_b: stc_gpio_pfsr_bit_t,
+    pub PCRE15_b: stc_gpio_pcr_bit_t,
+    pub PFSRE15_b: stc_gpio_pfsr_bit_t,
+    pub PCRH0_b: stc_gpio_pcr_bit_t,
+    pub PFSRH0_b: stc_gpio_pfsr_bit_t,
+    pub PCRH1_b: stc_gpio_pcr_bit_t,
+    pub PFSRH1_b: stc_gpio_pfsr_bit_t,
+    pub PCRH2_b: stc_gpio_pcr_bit_t,
+    pub PFSRH2_b: stc_gpio_pfsr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_HASH_TypeDef {
+    pub CR_b: stc_hash_cr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_I2C_TypeDef {
+    pub CR1_b: stc_i2c_cr1_bit_t,
+    pub CR2_b: stc_i2c_cr2_bit_t,
+    pub CR3_b: stc_i2c_cr3_bit_t,
+    pub CR4_b: stc_i2c_cr4_bit_t,
+    pub SLR0_b: stc_i2c_slr0_bit_t,
+    pub SLR1_b: stc_i2c_slr1_bit_t,
+    pub RESERVED0: [u32; 32usize],
+    pub SR_b: stc_i2c_sr_bit_t,
+    pub CLR_b: stc_i2c_clr_bit_t,
+    pub RESERVED1: [u32; 96usize],
+    pub FLTR_b: stc_i2c_fltr_bit_t,
+    pub FSTR_b: stc_i2c_fstr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_ICG_TypeDef {
+    pub ICG0_b: stc_icg_icg0_bit_t,
+    pub ICG1_b: stc_icg_icg1_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_INTC_TypeDef {
+    pub RESERVED0: [u32; 32usize],
+    pub NMIER_b: stc_intc_nmier_bit_t,
+    pub NMIFR_b: stc_intc_nmifr_bit_t,
+    pub NMIFCR_b: stc_intc_nmifcr_bit_t,
+    pub EIRQCR0_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR1_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR2_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR3_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR4_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR5_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR6_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR7_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR8_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR9_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR10_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR11_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR12_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR13_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR14_b: stc_intc_eirqcr_bit_t,
+    pub EIRQCR15_b: stc_intc_eirqcr_bit_t,
+    pub WKEN_b: stc_intc_wken_bit_t,
+    pub EIFR_b: stc_intc_eifr_bit_t,
+    pub EIFCR_b: stc_intc_eifcr_bit_t,
+    pub RESERVED1: [u32; 1024usize],
+    pub SWIER_b: stc_intc_swier_bit_t,
+    pub EVTER_b: stc_intc_evter_bit_t,
+    pub IER_b: stc_intc_ier_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_KEYSCAN_TypeDef {
+    pub RESERVED0: [u32; 32usize],
+    pub SER_b: stc_keyscan_ser_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_MCAN_TypeDef {
+    pub RESERVED0: [u32; 96usize],
+    pub DBTP_b: stc_mcan_dbtp_bit_t,
+    pub TEST_b: stc_mcan_test_bit_t,
+    pub RESERVED1: [u32; 32usize],
+    pub CCCR_b: stc_mcan_cccr_bit_t,
+    pub RESERVED2: [u32; 96usize],
+    pub TOCC_b: stc_mcan_tocc_bit_t,
+    pub RESERVED3: [u32; 160usize],
+    pub ECR_b: stc_mcan_ecr_bit_t,
+    pub PSR_b: stc_mcan_psr_bit_t,
+    pub RESERVED4: [u32; 64usize],
+    pub IR_b: stc_mcan_ir_bit_t,
+    pub IE_b: stc_mcan_ie_bit_t,
+    pub ILS_b: stc_mcan_ils_bit_t,
+    pub ILE_b: stc_mcan_ile_bit_t,
+    pub RESERVED5: [u32; 256usize],
+    pub GFC_b: stc_mcan_gfc_bit_t,
+    pub RESERVED6: [u32; 128usize],
+    pub HPMS_b: stc_mcan_hpms_bit_t,
+    pub NDAT1_b: stc_mcan_ndat1_bit_t,
+    pub NDAT2_b: stc_mcan_ndat2_bit_t,
+    pub RXF0C_b: stc_mcan_rxf0c_bit_t,
+    pub RXF0S_b: stc_mcan_rxf0s_bit_t,
+    pub RESERVED7: [u32; 64usize],
+    pub RXF1C_b: stc_mcan_rxf1c_bit_t,
+    pub RXF1S_b: stc_mcan_rxf1s_bit_t,
+    pub RESERVED8: [u32; 64usize],
+    pub TXBC_b: stc_mcan_txbc_bit_t,
+    pub TXFQS_b: stc_mcan_txfqs_bit_t,
+    pub RESERVED9: [u32; 32usize],
+    pub TXBRP_b: stc_mcan_txbrp_bit_t,
+    pub TXBAR_b: stc_mcan_txbar_bit_t,
+    pub TXBCR_b: stc_mcan_txbcr_bit_t,
+    pub TXBTO_b: stc_mcan_txbto_bit_t,
+    pub TXBCF_b: stc_mcan_txbcf_bit_t,
+    pub TXBTIE_b: stc_mcan_txbtie_bit_t,
+    pub TXBCIE_b: stc_mcan_txbcie_bit_t,
+    pub RESERVED10: [u32; 96usize],
+    pub TXEFS_b: stc_mcan_txefs_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_MPU_TypeDef {
+    pub RESERVED0: [u32; 512usize],
+    pub SR_b: stc_mpu_sr_bit_t,
+    pub ECLR_b: stc_mpu_eclr_bit_t,
+    pub WP_b: stc_mpu_wp_bit_t,
+    pub IPPR_b: stc_mpu_ippr_bit_t,
+    pub RESERVED1: [u32; 32usize],
+    pub MSPPCTL_b: stc_mpu_msppctl_bit_t,
+    pub RESERVED2: [u32; 32usize],
+    pub PSPPCTL_b: stc_mpu_psppctl_bit_t,
+    pub S1RGE_b: stc_mpu_srge_bit_t,
+    pub S1RGWP_b: stc_mpu_srgwp_bit_t,
+    pub S1RGRP_b: stc_mpu_srgrp_bit_t,
+    pub S1CR_b: stc_mpu_scr_bit_t,
+    pub S2RGE_b: stc_mpu_srge_bit_t,
+    pub S2RGWP_b: stc_mpu_srgwp_bit_t,
+    pub S2RGRP_b: stc_mpu_srgrp_bit_t,
+    pub S2CR_b: stc_mpu_scr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_PERIC_TypeDef {
+    pub RESERVED0: [u32; 96usize],
+    pub SMC_ENAR_b: stc_peric_smc_enar_bit_t,
+    pub RESERVED1: [u32; 32usize],
+    pub TMR_SYNENR_b: stc_peric_tmr_synenr_bit_t,
+    pub RESERVED2: [u32; 32usize],
+    pub USART1_NFC_b: stc_peric_usart1_nfc_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_PWC_TypeDef {
+    pub FCG0_b: stc_pwc_fcg0_bit_t,
+    pub FCG1_b: stc_pwc_fcg1_bit_t,
+    pub FCG2_b: stc_pwc_fcg2_bit_t,
+    pub FCG3_b: stc_pwc_fcg3_bit_t,
+    pub FCG0PC_b: stc_pwc_fcg0pc_bit_t,
+    pub RESERVED0: [u32; 139104usize],
+    pub WKTCR_b: stc_pwc_wktcr_bit_t,
+    pub RESERVED1: [u32; 16368usize],
+    pub PWRC0_b: stc_pwc_pwrc0_bit_t,
+    pub RESERVED2: [u32; 24usize],
+    pub PWRC1_b: stc_pwc_pwrc1_bit_t,
+    pub RESERVED3: [u32; 88usize],
+    pub PWRC4_b: stc_pwc_pwrc4_bit_t,
+    pub RESERVED4: [u32; 24usize],
+    pub PVDCR0_b: stc_pwc_pvdcr0_bit_t,
+    pub RESERVED5: [u32; 24usize],
+    pub PVDCR1_b: stc_pwc_pvdcr1_bit_t,
+    pub RESERVED6: [u32; 24usize],
+    pub PVDFCR_b: stc_pwc_pvdfcr_bit_t,
+    pub RESERVED7: [u32; 88usize],
+    pub PDWKE0_b: stc_pwc_pdwke0_bit_t,
+    pub RESERVED8: [u32; 24usize],
+    pub PDWKE1_b: stc_pwc_pdwke1_bit_t,
+    pub RESERVED9: [u32; 24usize],
+    pub PDWKE2_b: stc_pwc_pdwke2_bit_t,
+    pub RESERVED10: [u32; 24usize],
+    pub PDWKES_b: stc_pwc_pdwkes_bit_t,
+    pub RESERVED11: [u32; 24usize],
+    pub PDWKF0_b: stc_pwc_pdwkf0_bit_t,
+    pub RESERVED12: [u32; 24usize],
+    pub PDWKF1_b: stc_pwc_pdwkf1_bit_t,
+    pub RESERVED13: [u32; 24usize],
+    pub PWRC5_b: stc_pwc_pwrc5_bit_t,
+    pub RESERVED14: [u32; 1048usize],
+    pub PVDDSR_b: stc_pwc_pvddsr_bit_t,
+    pub RESERVED15: [u32; 24usize],
+    pub RAMPC0_b: stc_pwc_rampc0_bit_t,
+    pub RESERVED16: [u32; 32usize],
+    pub PRAMLPC_b: stc_pwc_pramlpc_bit_t,
+    pub RESERVED17: [u32; 235968usize],
+    pub STPMCR_b: stc_pwc_stpmcr_bit_t,
+    pub RESERVED18: [u32; 8064usize],
+    pub FPRC_b: stc_pwc_fprc_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_RMU_TypeDef {
+    pub FRST0_b: stc_rmu_frst0_bit_t,
+    pub FRST1_b: stc_rmu_frst1_bit_t,
+    pub FRST2_b: stc_rmu_frst2_bit_t,
+    pub FRST3_b: stc_rmu_frst3_bit_t,
+    pub PRSTCR0_b: stc_rmu_prstcr0_bit_t,
+    pub RESERVED0: [u32; 24usize],
+    pub RSTF0_b: stc_rmu_rstf0_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_RTC_TypeDef {
+    pub CR0_b: stc_rtc_cr0_bit_t,
+    pub RESERVED0: [u32; 24usize],
+    pub CR1_b: stc_rtc_cr1_bit_t,
+    pub RESERVED1: [u32; 24usize],
+    pub CR2_b: stc_rtc_cr2_bit_t,
+    pub RESERVED2: [u32; 24usize],
+    pub CR3_b: stc_rtc_cr3_bit_t,
+    pub RESERVED3: [u32; 344usize],
+    pub ERRCRH_b: stc_rtc_errcrh_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_SPI_TypeDef {
+    pub RESERVED0: [u32; 32usize],
+    pub CR_b: stc_spi_cr_bit_t,
+    pub RESERVED1: [u32; 32usize],
+    pub CFG1_b: stc_spi_cfg1_bit_t,
+    pub RESERVED2: [u32; 32usize],
+    pub SR_b: stc_spi_sr_bit_t,
+    pub CFG2_b: stc_spi_cfg2_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_SRAMC_TypeDef {
+    pub RESERVED0: [u32; 64usize],
+    pub CKCR_b: stc_sramc_ckcr_bit_t,
+    pub CKPR_b: stc_sramc_ckpr_bit_t,
+    pub CKSR_b: stc_sramc_cksr_bit_t,
+    pub SRAM0_EIEN_b: stc_sramc_sram0_eien_bit_t,
+    pub RESERVED1: [u32; 96usize],
+    pub SRAMB_EIEN_b: stc_sramc_sramb_eien_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_SWDT_TypeDef {
+    pub CR_b: stc_swdt_cr_bit_t,
+    pub SR_b: stc_swdt_sr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_TMR0_TypeDef {
+    pub RESERVED0: [u32; 128usize],
+    pub BCONR_b: stc_tmr0_bconr_bit_t,
+    pub STFLR_b: stc_tmr0_stflr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_TMR4_TypeDef {
+    pub RESERVED0: [u32; 256usize],
+    pub OCSRU_b: stc_tmr4_ocsr_bit_t,
+    pub OCERU_b: stc_tmr4_ocer_bit_t,
+    pub OCSRV_b: stc_tmr4_ocsr_bit_t,
+    pub OCERV_b: stc_tmr4_ocer_bit_t,
+    pub OCSRW_b: stc_tmr4_ocsr_bit_t,
+    pub OCERW_b: stc_tmr4_ocer_bit_t,
+    pub OCSRX_b: stc_tmr4_ocsr_bit_t,
+    pub OCERX_b: stc_tmr4_ocer_bit_t,
+    pub OCMRUH_b: stc_tmr4_ocmrh_bit_t,
+    pub RESERVED1: [u32; 16usize],
+    pub OCMRUL_b: stc_tmr4_ocmrl_bit_t,
+    pub OCMRVH_b: stc_tmr4_ocmrh_bit_t,
+    pub RESERVED2: [u32; 16usize],
+    pub OCMRVL_b: stc_tmr4_ocmrl_bit_t,
+    pub OCMRWH_b: stc_tmr4_ocmrh_bit_t,
+    pub RESERVED3: [u32; 16usize],
+    pub OCMRWL_b: stc_tmr4_ocmrl_bit_t,
+    pub OCMRXH_b: stc_tmr4_ocmrh_bit_t,
+    pub RESERVED4: [u32; 16usize],
+    pub OCMRXL_b: stc_tmr4_ocmrl_bit_t,
+    pub RESERVED5: [u32; 64usize],
+    pub CCSR_b: stc_tmr4_ccsr_bit_t,
+    pub RESERVED6: [u32; 16usize],
+    pub PSCR_b: stc_tmr4_pscr_bit_t,
+    pub RESERVED7: [u32; 896usize],
+    pub SCSRUH_b: stc_tmr4_scsr_bit_t,
+    pub SCMRUH_b: stc_tmr4_scmr_bit_t,
+    pub SCSRUL_b: stc_tmr4_scsr_bit_t,
+    pub SCMRUL_b: stc_tmr4_scmr_bit_t,
+    pub SCSRVH_b: stc_tmr4_scsr_bit_t,
+    pub SCMRVH_b: stc_tmr4_scmr_bit_t,
+    pub SCSRVL_b: stc_tmr4_scsr_bit_t,
+    pub SCMRVL_b: stc_tmr4_scmr_bit_t,
+    pub SCSRWH_b: stc_tmr4_scsr_bit_t,
+    pub SCMRWH_b: stc_tmr4_scmr_bit_t,
+    pub SCSRWL_b: stc_tmr4_scsr_bit_t,
+    pub SCMRWL_b: stc_tmr4_scmr_bit_t,
+    pub SCSRXH_b: stc_tmr4_scsr_bit_t,
+    pub SCMRXH_b: stc_tmr4_scmr_bit_t,
+    pub SCSRXL_b: stc_tmr4_scsr_bit_t,
+    pub SCMRXL_b: stc_tmr4_scmr_bit_t,
+    pub SCER_b: stc_tmr4_scer_bit_t,
+    pub RESERVED8: [u32; 16usize],
+    pub RCSR_b: stc_tmr4_rcsr_bit_t,
+    pub SCIR_b: stc_tmr4_scir_bit_t,
+    pub RESERVED9: [u32; 16usize],
+    pub SCFR_b: stc_tmr4_scfr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_TMR6_TypeDef {
+    pub RESERVED0: [u32; 2560usize],
+    pub GCONR_b: stc_tmr6_gconr_bit_t,
+    pub ICONR_b: stc_tmr6_iconr_bit_t,
+    pub BCONR_b: stc_tmr6_bconr_bit_t,
+    pub DCONR_b: stc_tmr6_dconr_bit_t,
+    pub RESERVED1: [u32; 32usize],
+    pub PCNAR_b: stc_tmr6_pcnar_bit_t,
+    pub PCNBR_b: stc_tmr6_pcnbr_bit_t,
+    pub FCNGR_b: stc_tmr6_fcngr_bit_t,
+    pub VPERR_b: stc_tmr6_vperr_bit_t,
+    pub STFLR_b: stc_tmr6_stflr_bit_t,
+    pub RESERVED2: [u32; 192usize],
+    pub HSTAR_b: stc_tmr6_hstar_bit_t,
+    pub HSTPR_b: stc_tmr6_hstpr_bit_t,
+    pub HCLRR_b: stc_tmr6_hclrr_bit_t,
+    pub HUPDR_b: stc_tmr6_hupdr_bit_t,
+    pub HCPAR_b: stc_tmr6_hcpar_bit_t,
+    pub HCPBR_b: stc_tmr6_hcpbr_bit_t,
+    pub HCUPR_b: stc_tmr6_hcupr_bit_t,
+    pub HCDOR_b: stc_tmr6_hcdor_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_TMR6_COMMON_TypeDef {
+    pub RESERVED0: [u32; 1888usize],
+    pub FCNTR_b: stc_tmr6_common_fcntr_bit_t,
+    pub SSTAR_b: stc_tmr6_common_sstar_bit_t,
+    pub SSTPR_b: stc_tmr6_common_sstpr_bit_t,
+    pub SCLRR_b: stc_tmr6_common_sclrr_bit_t,
+    pub SUPDR_b: stc_tmr6_common_supdr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_TMRA_TypeDef {
+    pub RESERVED0: [u32; 1024usize],
+    pub BCSTRL_b: stc_tmra_bcstrl_bit_t,
+    pub BCSTRH_b: stc_tmra_bcstrh_bit_t,
+    pub RESERVED1: [u32; 16usize],
+    pub HCONR_b: stc_tmra_hconr_bit_t,
+    pub RESERVED2: [u32; 16usize],
+    pub HCUPR_b: stc_tmra_hcupr_bit_t,
+    pub RESERVED3: [u32; 16usize],
+    pub HCDOR_b: stc_tmra_hcdor_bit_t,
+    pub RESERVED4: [u32; 16usize],
+    pub ICONR_b: stc_tmra_iconr_bit_t,
+    pub RESERVED5: [u32; 16usize],
+    pub ECONR_b: stc_tmra_econr_bit_t,
+    pub RESERVED6: [u32; 16usize],
+    pub FCONR_b: stc_tmra_fconr_bit_t,
+    pub RESERVED7: [u32; 16usize],
+    pub STFLR_b: stc_tmra_stflr_bit_t,
+    pub RESERVED8: [u32; 272usize],
+    pub BCONR1_b: stc_tmra_bconr_bit_t,
+    pub RESERVED9: [u32; 48usize],
+    pub BCONR2_b: stc_tmra_bconr_bit_t,
+    pub RESERVED10: [u32; 48usize],
+    pub BCONR3_b: stc_tmra_bconr_bit_t,
+    pub RESERVED11: [u32; 48usize],
+    pub BCONR4_b: stc_tmra_bconr_bit_t,
+    pub RESERVED12: [u32; 304usize],
+    pub CCONR1_b: stc_tmra_cconr_bit_t,
+    pub RESERVED13: [u32; 16usize],
+    pub CCONR2_b: stc_tmra_cconr_bit_t,
+    pub RESERVED14: [u32; 16usize],
+    pub CCONR3_b: stc_tmra_cconr_bit_t,
+    pub RESERVED15: [u32; 16usize],
+    pub CCONR4_b: stc_tmra_cconr_bit_t,
+    pub RESERVED16: [u32; 16usize],
+    pub CCONR5_b: stc_tmra_cconr_bit_t,
+    pub RESERVED17: [u32; 16usize],
+    pub CCONR6_b: stc_tmra_cconr_bit_t,
+    pub RESERVED18: [u32; 16usize],
+    pub CCONR7_b: stc_tmra_cconr_bit_t,
+    pub RESERVED19: [u32; 16usize],
+    pub CCONR8_b: stc_tmra_cconr_bit_t,
+    pub RESERVED20: [u32; 272usize],
+    pub PCONR1_b: stc_tmra_pconr_bit_t,
+    pub RESERVED21: [u32; 16usize],
+    pub PCONR2_b: stc_tmra_pconr_bit_t,
+    pub RESERVED22: [u32; 16usize],
+    pub PCONR3_b: stc_tmra_pconr_bit_t,
+    pub RESERVED23: [u32; 16usize],
+    pub PCONR4_b: stc_tmra_pconr_bit_t,
+    pub RESERVED24: [u32; 16usize],
+    pub PCONR5_b: stc_tmra_pconr_bit_t,
+    pub RESERVED25: [u32; 16usize],
+    pub PCONR6_b: stc_tmra_pconr_bit_t,
+    pub RESERVED26: [u32; 16usize],
+    pub PCONR7_b: stc_tmra_pconr_bit_t,
+    pub RESERVED27: [u32; 16usize],
+    pub PCONR8_b: stc_tmra_pconr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_TRNG_TypeDef {
+    pub CR_b: stc_trng_cr_bit_t,
+    pub MR_b: stc_trng_mr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_USART_TypeDef {
+    pub SR_b: stc_usart_sr_bit_t,
+    pub TDR_b: stc_usart_tdr_bit_t,
+    pub RESERVED0: [u32; 48usize],
+    pub CR1_b: stc_usart_cr1_bit_t,
+    pub CR2_b: stc_usart_cr2_bit_t,
+    pub CR3_b: stc_usart_cr3_bit_t,
+    pub PR_b: stc_usart_pr_bit_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct bCM_WDT_TypeDef {
+    pub CR_b: stc_wdt_cr_bit_t,
+    pub SR_b: stc_wdt_sr_bit_t,
+}
+#[doc = " @brief Single precision floating point number (4 byte)"]
+pub type float32_t = f32;
+#[doc = " @brief Double precision floating point number (8 byte)"]
+pub type float64_t = f64;
+#[doc = " @brief Function pointer type to void/void function"]
+pub type func_ptr_t = ::core::option::Option<unsafe extern "C" fn()>;
+pub const en_functional_state_t_DISABLE: en_functional_state_t = 0;
+pub const en_functional_state_t_ENABLE: en_functional_state_t = 1;
+#[doc = " @brief Functional state"]
+pub type en_functional_state_t = ::core::ffi::c_uint;
+pub const en_flag_status_t_RESET: en_flag_status_t = 0;
+pub const en_flag_status_t_SET: en_flag_status_t = 1;
+#[doc = " @brief Flag status"]
+pub type en_flag_status_t = ::core::ffi::c_uint;
+#[doc = " @brief Flag status"]
+pub use self::en_flag_status_t as en_int_status_t;
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup ADC_Global_Types ADC Global Types\n @{\n/\n/**\n @brief Structure definition of analog watchdog(AWD) configuration."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_awd_config_t {
+    #[doc = "< Specifies the ADC analog watchdog mode.\nThis parameter can be a value of @ref ADC_AWD_Mode"]
+    pub u16WatchdogMode: u16,
+    #[doc = "< Specifies the ADC analog watchdog Low threshold value."]
+    pub u16LowThreshold: u16,
+    #[doc = "< Specifies the ADC analog watchdog High threshold value."]
+    pub u16HighThreshold: u16,
+}
+#[doc = " @brief Structure definition of ADC initialization."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_adc_init_t {
+    #[doc = "< Specifies the ADC scan convert mode.\nThis parameter can be a value of @ref ADC_Scan_Mode"]
+    pub u16ScanMode: u16,
+    #[doc = "< Specifies the ADC resolution.\nThis parameter can be a value of @ref ADC_Resolution"]
+    pub u16Resolution: u16,
+    #[doc = "< Specifies ADC data alignment.\nThis parameter can be a value of @ref ADC_Data_Align"]
+    pub u16DataAlign: u16,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup CLK_Global_Types CLK Global Types\n @{\n/\n/**\n @brief  CLK XTAL configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_xtal_init_t {
+    #[doc = "< The new state of the XTAL.\nThis parameter can be a value of @ref CLK_XTAL_State"]
+    pub u8State: u8,
+    #[doc = "< The XTAL drive ability, only valid in OSC mode.\nThis parameter can be a value of @ref CLK_XTAL_Driver"]
+    pub u8Drv: u8,
+    #[doc = "< The XTAL mode selection osc or exclk.\nThis parameter can be a value of @ref CLK_XTAL_Mode_Selection"]
+    pub u8Mode: u8,
+    #[doc = "< The XTAL stable time selection.\nThis parameter can be a value of @ref CLK_XTAL_Stable_Time_Selection"]
+    pub u8StableTime: u8,
+}
+#[doc = " @brief  CLK XTAL divide structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_xtaldiv_init_t {
+    #[doc = "< The new state of the XTAL divide.\nThis parameter can be a value of @ref CLK_XTALDIV_State"]
+    pub u32State: u32,
+    #[doc = "< The numerator of XTAL divide."]
+    pub u32Num: u32,
+    #[doc = "< The denominator of XTAL divide."]
+    pub u32Den: u32,
+}
+#[doc = " @brief  CLK XTAL32 configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_xtal32_init_t {
+    #[doc = "< The new state of the XTAL32 divide.\nThis parameter can be a value of @ref CLK_XTAL32_State"]
+    pub u8State: u8,
+    #[doc = "< The Xtal32 drive ability setting,\nThis parameter can be a value of @ref CLK_XTAL32_Drive"]
+    pub u8Drv: u8,
+    #[doc = "< Xtal32 noise filter setting,\nThis parameter can be a value of@ref CLK_XTAL32_Filter_Selection"]
+    pub u8Filter: u8,
+}
+#[doc = " @brief  CLK clock frequency configuration structure definition"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct stc_clock_scale_t {
+    pub __bindgen_anon_1: stc_clock_scale_t__bindgen_ty_1,
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union stc_clock_scale_t__bindgen_ty_1 {
@@ -17222,162 +15964,11 @@ pub union stc_clock_scale_t__bindgen_ty_1 {
     pub SCFGR_f: stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union stc_clock_pll_init_t__bindgen_ty_1 {
-    #[doc = "< PLL config register"]
-    pub PLLCFGR: u32,
-    pub PLLCFGR_f: stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1,
-}
-#[doc = " @brief The configuration of Output-Compare high channel(OUH/OVH/OWH)"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union un_tmr4_oc_ocmrh_t {
-    #[doc = "< OCMRxH(x=U/V/W) register"]
-    pub OCMRx: u16,
-    pub OCMRx_f: un_tmr4_oc_ocmrh_t__bindgen_ty_1,
-}
-#[doc = " @brief The configuration of Output-Compare low channel(OUL/OVL/OWL)"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union un_tmr4_oc_ocmrl_t {
-    #[doc = "< OCMRxL(x=U/V/W) register"]
-    pub OCMRx: u32,
-    pub OCMRx_f: un_tmr4_oc_ocmrl_t__bindgen_ty_1,
-}
-impl<Storage> __BindgenBitfieldUnit<Storage> {
-    #[inline]
-    pub const fn new(storage: Storage) -> Self {
-        Self { storage }
-    }
-}
-impl<Storage> __BindgenBitfieldUnit<Storage>
-where
-    Storage: AsRef<[u8]> + AsMut<[u8]>,
-{
-    #[inline]
-    fn extract_bit(byte: u8, index: usize) -> bool {
-        let bit_index = if cfg!(target_endian = "big") {
-            7 - (index % 8)
-        } else {
-            index % 8
-        };
-        let mask = 1 << bit_index;
-        byte & mask == mask
-    }
-    #[inline]
-    pub fn get_bit(&self, index: usize) -> bool {
-        debug_assert!(index / 8 < self.storage.as_ref().len());
-        let byte_index = index / 8;
-        let byte = self.storage.as_ref()[byte_index];
-        Self::extract_bit(byte, index)
-    }
-    #[inline]
-    pub unsafe fn raw_get_bit(this: *const Self, index: usize) -> bool {
-        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
-        let byte_index = index / 8;
-        let byte = unsafe {
-            *(core::ptr::addr_of!((*this).storage) as *const u8).offset(byte_index as isize)
-        };
-        Self::extract_bit(byte, index)
-    }
-    #[inline]
-    fn change_bit(byte: u8, index: usize, val: bool) -> u8 {
-        let bit_index = if cfg!(target_endian = "big") {
-            7 - (index % 8)
-        } else {
-            index % 8
-        };
-        let mask = 1 << bit_index;
-        if val {
-            byte | mask
-        } else {
-            byte & !mask
-        }
-    }
-    #[inline]
-    pub fn set_bit(&mut self, index: usize, val: bool) {
-        debug_assert!(index / 8 < self.storage.as_ref().len());
-        let byte_index = index / 8;
-        let byte = &mut self.storage.as_mut()[byte_index];
-        *byte = Self::change_bit(*byte, index, val);
-    }
-    #[inline]
-    pub unsafe fn raw_set_bit(this: *mut Self, index: usize, val: bool) {
-        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
-        let byte_index = index / 8;
-        let byte = unsafe {
-            (core::ptr::addr_of_mut!((*this).storage) as *mut u8).offset(byte_index as isize)
-        };
-        unsafe { *byte = Self::change_bit(*byte, index, val) };
-    }
-    #[inline]
-    pub fn get(&self, bit_offset: usize, bit_width: u8) -> u64 {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
-        let mut val = 0;
-        for i in 0..(bit_width as usize) {
-            if self.get_bit(i + bit_offset) {
-                let index = if cfg!(target_endian = "big") {
-                    bit_width as usize - 1 - i
-                } else {
-                    i
-                };
-                val |= 1 << index;
-            }
-        }
-        val
-    }
-    #[inline]
-    pub unsafe fn raw_get(this: *const Self, bit_offset: usize, bit_width: u8) -> u64 {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
-        let mut val = 0;
-        for i in 0..(bit_width as usize) {
-            if unsafe { Self::raw_get_bit(this, i + bit_offset) } {
-                let index = if cfg!(target_endian = "big") {
-                    bit_width as usize - 1 - i
-                } else {
-                    i
-                };
-                val |= 1 << index;
-            }
-        }
-        val
-    }
-    #[inline]
-    pub fn set(&mut self, bit_offset: usize, bit_width: u8, val: u64) {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
-        for i in 0..(bit_width as usize) {
-            let mask = 1 << i;
-            let val_bit_is_set = val & mask == mask;
-            let index = if cfg!(target_endian = "big") {
-                bit_width as usize - 1 - i
-            } else {
-                i
-            };
-            self.set_bit(index + bit_offset, val_bit_is_set);
-        }
-    }
-    #[inline]
-    pub unsafe fn raw_set(this: *mut Self, bit_offset: usize, bit_width: u8, val: u64) {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
-        for i in 0..(bit_width as usize) {
-            let mask = 1 << i;
-            let val_bit_is_set = val & mask == mask;
-            let index = if cfg!(target_endian = "big") {
-                bit_width as usize - 1 - i
-            } else {
-                i
-            };
-            unsafe { Self::raw_set_bit(this, index + bit_offset, val_bit_is_set) };
-        }
-    }
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
 }
 impl stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
@@ -17919,6 +16510,28 @@ impl stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
         __bindgen_bitfield_unit
     }
 }
+#[doc = " @brief  CLK PLL configuration structure definition"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct stc_clock_pll_init_t {
+    #[doc = "< PLL new state, @ref CLK_PLL_State for details"]
+    pub u8PLLState: u8,
+    pub __bindgen_anon_1: stc_clock_pll_init_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union stc_clock_pll_init_t__bindgen_ty_1 {
+    #[doc = "< PLL config register"]
+    pub PLLCFGR: u32,
+    pub PLLCFGR_f: stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
 impl stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
     pub fn PLLM(&self) -> u32 {
@@ -18230,6 +16843,1190 @@ impl stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
         });
         __bindgen_bitfield_unit
     }
+}
+#[doc = " @brief  CLK bus frequency structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_freq_t {
+    #[doc = "< System clock frequency."]
+    pub u32SysclkFreq: u32,
+    #[doc = "< Hclk frequency."]
+    pub u32HclkFreq: u32,
+    #[doc = "< Pclk0 frequency."]
+    pub u32Pclk0Freq: u32,
+    #[doc = "< Pclk1 frequency."]
+    pub u32Pclk1Freq: u32,
+    #[doc = "< Pclk2 frequency."]
+    pub u32Pclk2Freq: u32,
+    #[doc = "< Pclk3 frequency."]
+    pub u32Pclk3Freq: u32,
+    #[doc = "< Pclk4 frequency."]
+    pub u32Pclk4Freq: u32,
+    #[doc = "< Exclk frequency."]
+    pub u32ExclkFreq: u32,
+}
+#[doc = " @brief  CLK PLL clock frequency structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pll_clock_freq_t {
+    #[doc = "< PLL vcin clock frequency."]
+    pub u32PllVcin: u32,
+    #[doc = "< PLL vco clock frequency."]
+    pub u32PllVco: u32,
+    #[doc = "< PLLp clock frequency."]
+    pub u32PllP: u32,
+    #[doc = "< PLLq clock frequency."]
+    pub u32PllQ: u32,
+    #[doc = "< PLLr clock frequency."]
+    pub u32PllR: u32,
+}
+#[doc = " @brief CMP normal mode configuration structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_init_t {
+    #[doc = "< Positive(compare voltage) input @ref CMP_Positive_Input_Select"]
+    pub u16PositiveInput: u16,
+    #[doc = "< Negative(Reference voltage) input @ref CMP_Negative_Input_Select"]
+    pub u16NegativeInput: u16,
+    #[doc = "< Output polarity select, @ref CMP_Out_Polarity_Select"]
+    pub u16OutPolarity: u16,
+    #[doc = "< Output detect edge, @ref CMP_Out_Detect_Edge_Select"]
+    pub u16OutDetectEdge: u16,
+    #[doc = "< Output Filter, @ref CMP_Out_Filter"]
+    pub u16OutFilter: u16,
+}
+#[doc = " @brief CMP window mode configuration structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_window_init_t {
+    #[doc = "< Window mode Positive(compare voltage) input @ref CMP_Window_Positive_Select"]
+    pub u16PositiveInput: u16,
+    #[doc = "< CMP reference low voltage for window mode @ref CMP_Window_Low_Select"]
+    pub u32WinVolLow: u32,
+    #[doc = "< CMP reference high voltage for window mode @ref CMP_Window_High_Select"]
+    pub u32WinVolHigh: u32,
+    #[doc = "< Output polarity select, @ref CMP_Out_Polarity_Select"]
+    pub u16OutPolarity: u16,
+    #[doc = "< Output detect edge, @ref CMP_Out_Detect_Edge_Select"]
+    pub u16OutDetectEdge: u16,
+    #[doc = "< Output Filter, @ref CMP_Out_Filter"]
+    pub u16OutFilter: u16,
+}
+#[doc = " @brief CMP blank window function configuration structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_blankwindow_t {
+    #[doc = "< blank window mode select, @ref CMP_BlankWindow_Mode"]
+    pub u8Mode: u8,
+    #[doc = "< blank window source select,\ncan be any combination of @ref CMP_BlankWindow_Src"]
+    pub u16Src: u16,
+    #[doc = "< Valid level for blank window level mode @ref CMP_BlankWindow_Valid_Level\nValid edge for blank window edge mode @ref CMP_BlankWindow_Valid_Edge"]
+    pub u16ValidLevelEdge: u16,
+    #[doc = "< Mask width when valid edge occurs for blank window edge mode, which range\nfrom 0~255"]
+    pub u16MaskWidth: u16,
+    #[doc = "< CMP output level when blank window valid @ref CMP_BlankWindow_output_Level"]
+    pub u8OutLevel: u8,
+}
+#[doc = " @brief CMP input scan mode configuration structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_scan_config_t {
+    #[doc = "< Scan mode @ref CMP_Scan_Mode"]
+    pub u16Mode: u16,
+    #[doc = "< Scan input source @ref CMP_Scan_Inm_Inp_Src"]
+    pub u16Src: u16,
+    #[doc = "< Scan stable time value, range [0x00U ~ 0x3FU],\nThe CMP stable time = T(CMP clock) x u16Stable,\nThe stable time is recommended greater than 100nS"]
+    pub u16Stable: u16,
+    #[doc = "< Scan period value, range [0x08 ~ 0xFF],\nu16Period > (u16Stable + u16OutFilter * 4 + CMP_SCAN_PERIOD_IMME)\nu16OutFilter is configured in CMP_NormalModeInit() function."]
+    pub u16Period: u16,
+}
+#[doc = " @brief CRC initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_crc_init_t {
+    #[doc = "< Specifies CRC Protocol.\nThis parameter can be a value of @ref CRC_Protocol_Control_Bit"]
+    pub u32Protocol: u32,
+    #[doc = "< Specifies initial CRC value.\nThis parameter can be CRC_INIT_VALUE_DEFAULT @ref CRC_Init_Value_Default"]
+    pub u32InitValue: u32,
+}
+#[doc = " @brief CTC continuous trim initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_ctc_ct_init_t {
+    #[doc = "< HRC clock division\nThis parameter can be a value of @ref CTC_HRC_Clock_Division"]
+    pub u32HrcClockDiv: u32,
+    #[doc = "< Reference clock frequency\nThis parameter should refer user manual recommended values"]
+    pub u32RefClockFreq: u32,
+    #[doc = "< Reference clock source selection\nThis parameter can be a value of @ref CTC_Continuous_Trim_Reference_Clock_Source"]
+    pub u32RefClockSrc: u32,
+    #[doc = "< Reference clock division\nThis parameter can be a value of @ref CTC_Reference_Clock_Division"]
+    pub u32RefClockDiv: u32,
+    #[doc = "< CTC tolerance deviation\nThis parameter can be a value between Min_Data=0.0 and Max_Data=1.0(100%)"]
+    pub f32TolerantErrRate: float32_t,
+    #[doc = "< CTC TRMVAL value\nThis parameter can be a value between Min_Data=0 and Max_Data=0x3F"]
+    pub u8TrimValue: u8,
+}
+#[doc = " @brief CTC single trim initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_ctc_st_init_t {
+    #[doc = "< HRC clock division\nThis parameter can be a value of @ref CTC_HRC_Clock_Division"]
+    pub u32HrcClockDiv: u32,
+    #[doc = "< CTCREF edge\nThis parameter can be a value of @ref CTC_Single_Trim_CTCREF_Edge"]
+    pub u32CtcRefEdge: u32,
+    #[doc = "< CTCREF edge time(unit:S)\nThis parameter should refer user actual CTCREF edge time"]
+    pub f32CtcRefEdgeTime: float32_t,
+    #[doc = "< CTC tolerance deviation\nThis parameter can be a value between Min_Data=0.0 and Max_Data=1.0(100%)"]
+    pub f32TolerantErrRate: float32_t,
+    #[doc = "< CTC TRMVAL value\nThis parameter can be a value between Min_Data=0 and Max_Data=0x3F"]
+    pub u8TrimValue: u8,
+}
+#[doc = " @brief Structure definition of DAC initialization."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dac_init_t {
+    #[doc = "< Data source to be converted\nThis parameter can be a value of @ref DAC_DATA_SRC"]
+    pub u16Src: u16,
+    #[doc = "< Specify the data alignment\nThis parameter can be a value of @ref DAC_DATAREG_ALIGN_PATTERN"]
+    pub u16Align: u16,
+    #[doc = "< Enable or disable analog output\nThis parameter can be a value of @ref en_functional_state_t"]
+    pub enOutput: en_functional_state_t,
+}
+#[doc = " @brief DCU initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dcu_init_t {
+    #[doc = "< Specifies DCU operation.\nThis parameter can be a value of @ref DCU_Mode"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies DCU data width.\nThis parameter can be a value of @ref DCU_Data_Width"]
+    pub u32DataWidth: u32,
+}
+#[doc = " @brief DCU wave output configure structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dcu_wave_config_t {
+    #[doc = "< Defines the wave lower limit of the wave amplitude.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF"]
+    pub u32LowerLimit: u32,
+    #[doc = "< Defines the upper limit of the wave amplitude.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF"]
+    pub u32UpperLimit: u32,
+    #[doc = "< Defines the increasing/decreasing step.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF"]
+    pub u32Step: u32,
+}
+#[doc = " @brief  DMA basic configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_init_t {
+    #[doc = "< Specifies the DMA interrupt function.\nThis parameter can be a value of @ref DMA_Int_Config"]
+    pub u32IntEn: u32,
+    #[doc = "< Specifies the DMA source address."]
+    pub u32SrcAddr: u32,
+    #[doc = "< Specifies the DMA destination address."]
+    pub u32DestAddr: u32,
+    #[doc = "< Specifies the DMA transfer data width.\nThis parameter can be a value of @ref DMA_DataWidth_Sel"]
+    pub u32DataWidth: u32,
+    #[doc = "< Specifies the DMA block size."]
+    pub u32BlockSize: u32,
+    #[doc = "< Specifies the DMA transfer count."]
+    pub u32TransCount: u32,
+    #[doc = "< Specifies the source address increment mode.\nThis parameter can be a value of @ref DMA_SrcAddr_Incremented_Mode"]
+    pub u32SrcAddrInc: u32,
+    #[doc = "< Specifies the destination address increment mode.\nThis parameter can be a value of @ref DMA_DesAddr_Incremented_Mode"]
+    pub u32DestAddrInc: u32,
+}
+#[doc = " @brief  DMA repeat mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_repeat_init_t {
+    #[doc = "< Specifies the DMA source repeat function.\nThis parameter can be a value of @ref DMA_Repeat_Config"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA source repeat size."]
+    pub u32SrcCount: u32,
+    #[doc = "< Specifies the DMA destination repeat size."]
+    pub u32DestCount: u32,
+}
+#[doc = " @brief  DMA non-sequence mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_nonseq_init_t {
+    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA source non-sequence function count."]
+    pub u32SrcCount: u32,
+    #[doc = "< Specifies the DMA source non-sequence function offset."]
+    pub u32SrcOffset: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function count."]
+    pub u32DestCount: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function offset."]
+    pub u32DestOffset: u32,
+}
+#[doc = " @brief  DMA Link List Pointer (LLP) mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_llp_init_t {
+    #[doc = "< Specifies the DMA LLP function.\nThis parameter can be a value of @ref DMA_Llp_En"]
+    pub u32State: u32,
+    #[doc = "< Specifies the DMA LLP auto or wait REQ.\nThis parameter can be a value of @ref DMA_Llp_Mode"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA list pointer address for LLP function."]
+    pub u32Addr: u32,
+}
+#[doc = " @brief  DMA re-config function configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_reconfig_init_t {
+    #[doc = "< Specifies the DMA reconfig function count mode.\nThis parameter can be a value of @ref DMA_Reconfig_Count_Sel"]
+    pub u32CountMode: u32,
+    #[doc = "< Specifies the DMA reconfig function destination address mode.\nThis parameter can be a value of @ref DMA_Reconfig_DestAddr_Sel"]
+    pub u32DestAddrMode: u32,
+    #[doc = "< Specifies the DMA reconfig function source address mode.\nThis parameter can be a value of @ref DMA_Reconfig_SrcAddr_Sel"]
+    pub u32SrcAddrMode: u32,
+}
+#[doc = " @brief  DMA re-config non-sequence mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_rc_nonseq_init_t {
+    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA source non-sequence function count."]
+    pub u32SrcCount: u32,
+    #[doc = "< Specifies the DMA source non-sequence function distance."]
+    pub u32SrcDist: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function count."]
+    pub u32DestCount: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function distance."]
+    pub u32DestDist: u32,
+}
+#[doc = " @brief  Dma LLP(linked list pointer) descriptor structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_llp_descriptor_t {
+    #[doc = "< LLP source address"]
+    pub SARx: u32,
+    #[doc = "< LLP destination address"]
+    pub DARx: u32,
+    #[doc = "< LLP transfer count and block size"]
+    pub DTCTLx: u32,
+    #[doc = "< LLP source & destination repeat size"]
+    pub RPTx: u32,
+    #[doc = "< LLP source non-seq count and offset"]
+    pub SNSEQCTLx: u32,
+    #[doc = "< LLP destination non-seq count and offset"]
+    pub DNSEQCTLx: u32,
+    #[doc = "< LLP next list pointer"]
+    pub LLPx: u32,
+    #[doc = "< LLP channel control"]
+    pub CHCTLx: u32,
+}
+#[doc = " @brief EFM unique ID definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_unique_id_t {
+    #[doc = "< unique ID 0."]
+    pub u32UniqueID0: u32,
+    #[doc = "< unique ID 1."]
+    pub u32UniqueID1: u32,
+    #[doc = "< unique ID 2."]
+    pub u32UniqueID2: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_remap_init_t {
+    pub u32State: u32,
+    pub u32Addr: u32,
+    pub u32Size: u32,
+}
+#[doc = " @brief EFM location definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_location_t {
+    #[doc = "< X location."]
+    pub u8X_Location: u8,
+    #[doc = "< Y location."]
+    pub u8Y_Location: u8,
+}
+#[doc = " @brief EMB monitor system exception configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_sys_t {
+    #[doc = "< Enable or disable EMB detect OSC failure function\nThis parameter can be a value of @ref EMB_OSC_Selection"]
+    pub u32Osc: u32,
+    #[doc = "< EMB detect SRAM ECC error function\nThis parameter can be a value of @ref EMB_SRAM_ECC_Error_Selection"]
+    pub u32SramEccError: u32,
+    #[doc = "< EMB detect SRAM parity error function\nThis parameter can be a value of @ref EMB_SRAM_Parity_Error_Selection"]
+    pub u32SramParityError: u32,
+    #[doc = "< EMB detect lockup function\nThis parameter can be a value of @ref EMB_Lockup_Selection"]
+    pub u32Lockup: u32,
+    #[doc = "< EMB detect LVD function\nThis parameter can be a value of @ref EMB_LVD_Selection"]
+    pub u32Lvd: u32,
+}
+#[doc = " @brief EMB monitor EMB port configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_port_config_t {
+    #[doc = "< Enable or disable EMB detect port in control function\nThis parameter can be a value of @ref EMB_Port_Selection"]
+    pub u32PortState: u32,
+    #[doc = "< EMB detect port level\nThis parameter can be a value of @ref EMB_Detect_Port_Level"]
+    pub u32PortLevel: u32,
+    #[doc = "< EMB port filter division\nThis parameter can be a value of @ref EMB_Port_Filter_Clock_Division"]
+    pub u32PortFilterDiv: u32,
+    #[doc = "< Enable or disable EMB detect port filter in control function\nThis parameter can be a value of @ref EMB_Port_Filter_Selection"]
+    pub u32PortFilterState: u32,
+}
+#[doc = " @brief EMB monitor PWM configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_tmr_pwm_t {
+    #[doc = "< Enable or disable EMB detect timer same phase function\nThis parameter can be a value of @ref EMB_Detect_PWM state."]
+    pub u32PwmState: u32,
+    #[doc = "< Detect timer polarity level\nThis parameter can be a value of @ref EMB_Detect_PWM level"]
+    pub u32PwmLevel: u32,
+}
+#[doc = " @brief EMB monitor port in configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_port_t {
+    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
+    pub stcPort1: stc_emb_monitor_port_config_t,
+    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
+    pub stcPort2: stc_emb_monitor_port_config_t,
+    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
+    pub stcPort3: stc_emb_monitor_port_config_t,
+    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
+    pub stcPort4: stc_emb_monitor_port_config_t,
+}
+#[doc = " @brief EMB monitor CMP configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_cmp_t {
+    #[doc = "< Enable or disable EMB detect CMP1 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
+    pub u32Cmp1State: u32,
+    #[doc = "< Enable or disable EMB detect CMP2 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
+    pub u32Cmp2State: u32,
+    #[doc = "< Enable or disable EMB detect CMP3 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
+    pub u32Cmp3State: u32,
+    #[doc = "< Enable or disable EMB detect CMP4 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
+    pub u32Cmp4State: u32,
+}
+#[doc = " @brief EMB monitor TMR4 configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_tmr4_t {
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr4PwmU: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr4PwmV: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr4PwmW: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr4PwmX: stc_emb_monitor_tmr_pwm_t,
+}
+#[doc = " @brief EMB control TMR4 initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_tmr4_init_t {
+    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
+    pub stcCmp: stc_emb_monitor_cmp_t,
+    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
+    pub stcPort: stc_emb_monitor_port_t,
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr4_t structure"]
+    pub stcTmr4: stc_emb_monitor_tmr4_t,
+    #[doc = "< EMB detect System function\nThis parameter details refer @ref stc_emb_monitor_sys_t structure"]
+    pub stcSys: stc_emb_monitor_sys_t,
+}
+#[doc = " @brief EMB monitor TMR6 configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_tmr6_t {
+    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr6_1: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr6_2: stc_emb_monitor_tmr_pwm_t,
+}
+#[doc = " @brief EMB control TMR6 initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_tmr6_init_t {
+    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
+    pub stcCmp: stc_emb_monitor_cmp_t,
+    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
+    pub stcPort: stc_emb_monitor_port_t,
+    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr6_t structure"]
+    pub stcTmr6: stc_emb_monitor_tmr6_t,
+    #[doc = "< EMB detect System function\nThis parameter details refer @ref stc_emb_monitor_sys_t structure"]
+    pub stcSys: stc_emb_monitor_sys_t,
+}
+#[doc = "< Pin reset"]
+pub const en_ep_state_t_EVT_PIN_RESET: en_ep_state_t = 0;
+#[doc = "< Pin set"]
+pub const en_ep_state_t_EVT_PIN_SET: en_ep_state_t = 1;
+#[doc = " @brief  Event Pin Set and Reset enumeration"]
+pub type en_ep_state_t = ::core::ffi::c_uint;
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_ep_init_t {
+    #[doc = "< Input/Output setting, @ref EP_PinDirection_Sel for details"]
+    pub u32PinDir: u32,
+    #[doc = "< Corresponding pin initial state, @ref en_ep_state_t for details"]
+    pub enPinState: en_ep_state_t,
+    #[doc = "< Corresponding pin state after triggered, @ref EP_TriggerOps_Sel for details"]
+    pub u32PinTriggerOps: u32,
+    #[doc = "< Event port trigger edge, @ref EP_Trigger_Sel for details"]
+    pub u32Edge: u32,
+    #[doc = "< Filter clock function setting, @ref EP_FilterClock_Sel for details"]
+    pub u32Filter: u32,
+    #[doc = "< Filter clock, ref@ EP_FilterClock_Div for details"]
+    pub u32FilterClock: u32,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup FCM_Global_Types FCM Global Types\n @{\n/\n/**\n @brief  FCM Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_fcm_init_t {
+    #[doc = "< FCM lower limit value"]
+    pub u16LowerLimit: u16,
+    #[doc = "< FCM upper limit value"]
+    pub u16UpperLimit: u16,
+    #[doc = "< FCM target clock source selection, @ref FCM_Target_Clock_Src"]
+    pub u32TargetClock: u32,
+    #[doc = "< FCM target clock source division selection, @ref FCM_Target_Clock_Div"]
+    pub u32TargetClockDiv: u32,
+    #[doc = "< FCM external reference clock function config, @ref FCM_Ext_Ref_Clock_Config"]
+    pub u32ExtRefClockEnable: u32,
+    #[doc = "< FCM reference clock trigger edge selection, @ref FCM_Ref_Clock_Edge"]
+    pub u32RefClockEdge: u32,
+    #[doc = "< FCM digital filter function config, @ref FCM_Digital_Filter_Config"]
+    pub u32DigitalFilter: u32,
+    #[doc = "< FCM reference clock source selection, @ref FCM_Ref_Clock_Src"]
+    pub u32RefClock: u32,
+    #[doc = "< FCM reference clock source division selection, @ref FCM_Ref_Clock_Div"]
+    pub u32RefClockDiv: u32,
+    #[doc = "< FCM exception type select,  @ref FCM_Exception_Type"]
+    pub u32ExceptionType: u32,
+}
+#[doc = "< Pin reset"]
+pub const en_pin_state_t_PIN_RESET: en_pin_state_t = 0;
+#[doc = "< Pin set"]
+pub const en_pin_state_t_PIN_SET: en_pin_state_t = 1;
+#[doc = " @brief  GPIO Pin Set and Reset enumeration"]
+pub type en_pin_state_t = ::core::ffi::c_uint;
+#[doc = " @brief  GPIO Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_init_t {
+    #[doc = "< Set pin state to High or Low, @ref GPIO_PinState_Sel for details"]
+    pub u16PinState: u16,
+    #[doc = "< Pin mode setting, @ref GPIO_PinDirection_Sel for details"]
+    pub u16PinDir: u16,
+    #[doc = "< Output type setting, @ref GPIO_PinOutType_Sel for details"]
+    pub u16PinOutputType: u16,
+    #[doc = "< Pin drive capacity setting, @ref GPIO_PinDrv_Sel for details"]
+    pub u16PinDrv: u16,
+    #[doc = "< Pin latch setting, @ref GPIO_PinLatch_Sel for details"]
+    pub u16Latch: u16,
+    #[doc = "< Internal pull-up resistor setting, @ref GPIO_PinPU_Sel for details"]
+    pub u16PullUp: u16,
+    #[doc = "< Internal pull-down register setting, @ref GPIO_PinPD_Sel for details"]
+    pub u16PullDown: u16,
+    #[doc = "< Input MOS always on selection, @ref GPIO_PinInputMOS_Sel for details"]
+    pub u16InputMos: u16,
+    #[doc = "< Pin input/output invert setting, @ref GPIO_PinInvert_Sel for details"]
+    pub u16Invert: u16,
+    #[doc = "< External interrupt pin setting, @ref GPIO_PinExtInt_Sel for details"]
+    pub u16ExtInt: u16,
+    #[doc = "< Input type setting, @ref GPIO_PinInType_Sel for details"]
+    pub u16PinInputType: u16,
+    #[doc = "< Digital or analog attribute setting, @ref GPIO_PinMode_Sel for details"]
+    pub u16PinAttr: u16,
+}
+#[doc = " @brief I2c configuration structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_init_t {
+    #[doc = "< I2C clock division for i2c source clock"]
+    pub u32ClockDiv: u32,
+    #[doc = "< I2C baudrate config"]
+    pub u32Baudrate: u32,
+    #[doc = "< The SCL rising and falling time, count of T(i2c source clock after frequency divider)"]
+    pub u32SclTime: u32,
+}
+#[doc = " @brief  Interrupt registration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_irq_signin_config_t {
+    #[doc = "< Peripheral interrupt number, can be any value @ref en_int_src_t"]
+    pub enIntSrc: en_int_src_t,
+    #[doc = "< Peripheral IRQ type, can be INT000_IRQn~INT127_IRQn @ref IRQn_Type"]
+    pub enIRQn: IRQn_Type,
+    #[doc = "< Callback function for corresponding peripheral IRQ"]
+    pub pfnCallback: func_ptr_t,
+}
+#[doc = " @brief  NMI initialize configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_nmi_init_t {
+    #[doc = "< NMI trigger source, @ref NMI_TriggerSrc_Sel for details"]
+    pub u32Src: u32,
+}
+#[doc = " @brief  EXTINT initialize configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_extint_init_t {
+    #[doc = "< ExtInt filter (A) function setting, @ref EXTINT_FilterClock_Sel for details"]
+    pub u32Filter: u32,
+    #[doc = "< ExtInt filter (A) clock division, @ref EXTINT_FilterClock_Div for details"]
+    pub u32FilterClock: u32,
+    #[doc = "< ExtInt trigger edge, @ref EXTINT_Trigger_Sel for details"]
+    pub u32Edge: u32,
+    #[doc = "< ExtInt filter B function setting, @ref EXTINT_FilterBClock_Sel for details"]
+    pub u32FilterB: u32,
+    #[doc = "< ExtInt filter B time, @ref EXTINT_FilterBTim_Sel for details"]
+    pub u32FilterBClock: u32,
+}
+#[doc = " @brief  KEYSCAN configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_keyscan_init_t {
+    #[doc = "< Specifies the KEYSCAN Hiz cycles.\nThis parameter can be a value of @ref KEYSCAN_Hiz_Cycle_Sel"]
+    pub u32HizCycle: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Low_Cycle_Sel"]
+    pub u32LowCycle: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Clock_Sel"]
+    pub u32KeyClock: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyout_Sel"]
+    pub u32KeyOut: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyin_Sel"]
+    pub u32KeyIn: u32,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup MCAN_Global_Types MCAN Global Types\n @{\n/\n/**\n @brief MCAN bit time configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_bit_time_config_t {
+    #[doc = "< Specifies the nominal bit rate prescaler.\nThis parameter must be a number between 1 and 512"]
+    pub u32NominalPrescaler: u32,
+    #[doc = "< Specifies the nominal time segment before sample point(the sum of Sync_Seg,\nProp_Seg and Phase_Seg1).\nThis parameter must be a number between 3 and 257"]
+    pub u32NominalTimeSeg1: u32,
+    #[doc = "< Specifies the nominal time segment after sample point(Phase_Seg2).\nThis parameter must be a number between 2 and 128"]
+    pub u32NominalTimeSeg2: u32,
+    #[doc = "< Specifies the nominal (re)synchronization jump width(SJW).\nThis parameter must be a number between 1 and 128"]
+    pub u32NominalSyncJumpWidth: u32,
+    #[doc = "< Specifies the data bit rate prescaler.\nThis parameter must be a number between 1 and 32\nNOTE: when u32TDC is MCAN_FD_TDC_ENABLE, the range is limited to 1, 2"]
+    pub u32DataPrescaler: u32,
+    #[doc = "< Specifies the data time segment before sample point(the sum of Sync_Seg,\nProp_Seg and Phase_Seg1).\nThis parameter must be a number between 2 and 33"]
+    pub u32DataTimeSeg1: u32,
+    #[doc = "< Specifies the data time segment after sample point(Phase_Seg2).\nThis parameter must be a number between 2 and 16"]
+    pub u32DataTimeSeg2: u32,
+    #[doc = "< Specifies the data (re)synchronization jump width(SJW).\nThis parameter must be a number between 1 and 16"]
+    pub u32DataSyncJumpWidth: u32,
+    #[doc = "< Enable or disable TDC(Transmitter Delay Compensation).\nThis parameter can be a value of @ref MCAN_TDC_Enable"]
+    pub u32TDC: u32,
+    #[doc = "< Specifies the transmitter delay compensation SSP offset.\nThis parameter must be a number between 0 and 127(MCAN clock)"]
+    pub u32SspOffset: u32,
+    #[doc = "< Specifies the transmitter delay compensation filter window length.\nThis parameter defines the minimum value for the SSP position.\nThe feature is enabled when this parameter is configured to a value\ngreater than u32SspOffset.\nThis parameter must be a number between 0 and 127(MCAN clock)"]
+    pub u32TdcFilter: u32,
+}
+#[doc = " @brief MCAN message RAM address blocks"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_msg_ram_addr_t {
+    #[doc = "< Output parameter. Indicates the standard filter list start address."]
+    pub u32StdFilterStartAddr: u32,
+    #[doc = "< Output parameter. Indicates the extended filter list start address."]
+    pub u32ExtFilterStartAddr: u32,
+    #[doc = "< Output parameter. Indicates the Rx FIFO 0 start address."]
+    pub u32RxFifo0StartAddr: u32,
+    #[doc = "< Output parameter. Indicates the Rx FIFO 1 start address."]
+    pub u32RxFifo1StartAddr: u32,
+    #[doc = "< Output parameter. Indicates the Rx buffer start address."]
+    pub u32RxBufferStartAddr: u32,
+    #[doc = "< Output parameter. Indicates the Tx event FIFO start address."]
+    pub u32TxEventStartAddr: u32,
+    #[doc = "< Output parameter. Indicates the Tx buffers start address."]
+    pub u32TxBufferStartAddr: u32,
+    #[doc = "< Output parameter. Indicates the Tx FIFO/Queue start address."]
+    pub u32TxFifoQueueStartAddr: u32,
+    #[doc = "< Output parameter. Indicates the end address of the allocated RAM."]
+    pub u32EndAddr: u32,
+    #[doc = "< Pointer to an address that used to store each standard ID filter element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32StdFilterAddrList: *mut u32,
+    #[doc = "< Pointer to an address that used to store each extended ID filter element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32ExtFilterAddrList: *mut u32,
+    #[doc = "< Pointer to an address that used to store each Rx FIFO0 element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32RxFifo0AddrList: *mut u32,
+    #[doc = "< Pointer to an address that used to store each Rx FIFO1 element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32RxFifo1AddrList: *mut u32,
+    #[doc = "< Pointer to an address that used to store each Rx buffer element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32RxBufferAddrList: *mut u32,
+    #[doc = "< Pointer to an address that used to store each Tx event FIFO element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32TxEventAddrList: *mut u32,
+    #[doc = "< Pointer to an address that used to store each dedicated Tx buffer element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32TxBufferAddrList: *mut u32,
+    #[doc = "< Pointer to an address that used to store each Tx FIFO/queue element address.\nSet it to NULL if you do not need the element address information."]
+    pub pu32TxFifoQueueAddrList: *mut u32,
+}
+#[doc = " @brief MCAN message RAM configuration structure definition\n @note The message RAM is 2K bytes and shared by MCAN1 and MCAN2."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_msg_ram_config_t {
+    #[doc = "< Specifies the message RAM start address, word alignment."]
+    pub u32AddrOffset: u32,
+    #[doc = "< Specifies the number of standard message ID filters.\nThis parameter is used to allocate RAM to standard ID filters.\nThis parameter must be a number between 0 and 128"]
+    pub u32StdFilterNum: u32,
+    #[doc = "< Specifies the number of extended message ID filters.\nThis parameter is used to allocate RAM to extended ID filters.\nThis parameter must be a number between 0 and 64"]
+    pub u32ExtFilterNum: u32,
+    #[doc = "< Specifies the number of Rx FIFO0 elements.\nu32RxFifo0Num and u32RxFifo0DataSize are used to allocate RAM to Rx FIFO0.\nThis parameter must be a number between 0 and 64"]
+    pub u32RxFifo0Num: u32,
+    #[doc = "< Specifies the data field size in an Rx FIFO 0 element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
+    pub u32RxFifo0DataSize: u32,
+    #[doc = "< Specifies the number of Rx FIFO 1 elements.\nu32RxFifo1Num and u32RxFifo1DataSize are used to allocate RAM to Rx FIFO1.\nThis parameter must be a number between 0 and 64"]
+    pub u32RxFifo1Num: u32,
+    #[doc = "< Specifies the data field size in an Rx FIFO 1 element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
+    pub u32RxFifo1DataSize: u32,
+    #[doc = "< Specifies the number of dedicated Rx buffer elements.\nu32RxBufferNum and u32RxBufferDataSize are used to allocate RAM to Rx buffer.\nThis parameter must be a number between 0 and 64"]
+    pub u32RxBufferNum: u32,
+    #[doc = "< Specifies the data field size in an Rx buffer element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
+    pub u32RxBufferDataSize: u32,
+    #[doc = "< Specifies the number of Tx event FIFO elements.\nThis parameter is used to allocate RAM to Tx event FIFO.\nThis parameter must be a number between 0 and 32"]
+    pub u32TxEventNum: u32,
+    #[doc = "< Specifies the number of dedicated Tx buffers.\nu32TxBufferNum and u32TxFifoQueueNum and u32TxDataSize are used to allocate RAM for Tx messages.\nThe sum of u32TxBufferNum and u32TxFifoQueueNum must be a number between 0 and 32"]
+    pub u32TxBufferNum: u32,
+    #[doc = "< Specifies the number of Tx buffers used for Tx FIFO/queue.\nThe sum of u32TxFifoQueueNum and u32TxBufferNum must be a number between 0 and 32"]
+    pub u32TxFifoQueueNum: u32,
+    #[doc = "< Specifies Tx FIFO/Queue operation mode.\nThis parameter can be a value of @ref MCAN_Tx_FIFO_Queue_Mode"]
+    pub u32TxFifoQueueMode: u32,
+    #[doc = "< Specifies the data field size in a Tx element.\nThis parameter can be a value of @ref MCAN_Data_Field_Size"]
+    pub u32TxDataSize: u32,
+    #[doc = "< Output parameter. Indicates the message RAM size that allocated to the configured MCAN.\nThe \"u32AddrOffset+u32AllocatedSize\" of the current configured MCAN is the minimum start\naddress(u32AddrOffset) of the next MCAN(shares message RAM with the configured MCAN before) to be configured."]
+    pub u32AllocatedSize: u32,
+}
+#[doc = " @brief MCAN filter structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_filter_t {
+    #[doc = "< Specifies the ID type.\nThis parameter can be a value of @ref MCAN_ID_Type"]
+    pub u32IdType: u32,
+    #[doc = "< Specifies the filter which will be initialized.\nThis parameter must be a number between:\n- 0 and stc_mcan_msg_ram_config_t.u32StdFilterNum-1(@ref stc_mcan_msg_ram_config_t), if u32IdType is MCAN_STD_ID.\n- 0 and stc_mcan_msg_ram_config_t.u32ExtFilterNum-1(@ref stc_mcan_msg_ram_config_t), if u32IdType is MCAN_EXT_ID.\nNOTE: When configuring filter elements sequence by calling API MCAN_Init(), this parameter can be ignored. The local function\nwill handle this parameter.\nWhen configuring filter element one by one by calling API MCAN_FilterConfig(), it is required to specify\nthe index of the target filter through this parameter."]
+    pub u32FilterIndex: u32,
+    #[doc = "< Specifies the filter type.\nThis parameter can be a value of @ref MCAN_Filter_Type\nThe value MCAN_FILTER_RANGE_NO_EIDM is permitted only when u32IdType is MCAN_EXT_ID.\nThis parameter is ignored if u32FilterConfig is set to MCAN_FILTER_TO_RX_BUF"]
+    pub u32FilterType: u32,
+    #[doc = "< Specifies the filter configuration.\nThis parameter can be a value of @ref MCAN_Filter_Config"]
+    pub u32FilterConfig: u32,
+    #[doc = "< Specifies the filter ID1.\nThis parameter must be a number between:\n- 0 and 0x7FF, if u32IdType is MCAN_STD_ID\n- 0 and 0x1FFFFFFF, if u32IdType is MCAN_EXT_ID"]
+    pub u32FilterId1: u32,
+    #[doc = "< Specifies the filter ID2.\nThis parameter is ignored if u32FilterConfig is set to MCAN_FILTER_TO_RX_BUF.\nThis parameter must be a number between:\n- 0 and 0x7FF, if u32IdType is MCAN_STD_ID\n- 0 and 0x1FFFFFFF, if u32IdType is MCAN_EXT_ID"]
+    pub u32FilterId2: u32,
+    #[doc = "< Specifies the dedicated Rx buffer in which the matching message will be stored.\nThis parameter must be a number between 0 and 63, and less than or equal to\nu32RxBufferNum of @ref stc_mcan_msg_ram_config_t\nThis parameter is ignored if u32FilterConfig is different from MCAN_FILTER_TO_RX_BUF"]
+    pub u32RxBufferIndex: u32,
+}
+#[doc = " @brief MCAN filter initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_filter_config_t {
+    #[doc = "< Pointer to the standard ID filter elements list.\nThese filter elements can be configured only when:\npstcStdFilterList != NULL and\nu32StdFilterConfigNum > 0 and\nu32StdFilterConfigNum <= u32StdFilterNum of @ref stc_mcan_msg_ram_config_t"]
+    pub pstcStdFilterList: *mut stc_mcan_filter_t,
+    #[doc = "< Pointer to the extended ID filter elements list.\nThese filter elements can be configured only when:\npstcExtFilterList != NULL and\nu32ExtFilterConfigNum > 0 and\nu32ExtFilterConfigNum <= u32ExtFilterNum of @ref stc_mcan_msg_ram_config_t"]
+    pub pstcExtFilterList: *mut stc_mcan_filter_t,
+    #[doc = "< Number of the standard ID filter elements which to be configured.\nThis parameter must less than or equal to u32StdFilterNum\nof @ref stc_mcan_msg_ram_config_t"]
+    pub u32StdFilterConfigNum: u32,
+    #[doc = "< Number of the extended ID filter elements which to be configured.\nThis parameter must less than or equal to u32ExtFilterNum\nof @ref stc_mcan_msg_ram_config_t"]
+    pub u32ExtFilterConfigNum: u32,
+}
+#[doc = " @brief MCAN initialization structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_init_t {
+    #[doc = "< Specifies MCAN operating mode.\nThis parameter can be a value of @ref MCAN_Operating_Mode"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the frame format supported by MCAN hardware.\nThis parameter can be a value of @ref MCAN_Frame_Format"]
+    pub u32FrameFormat: u32,
+    #[doc = "< Enable or disable automatic retransmission.\nThis parameter can be a value of @ref MCAN_Auto_Retx_Enable"]
+    pub u32AutoRetx: u32,
+    #[doc = "< Enable or disable transmit pause.\nIf transmit pause is enabled, MCAN pauses for two CAN bit times before starting\nthe next transmission after itself has successfully transmitted a frame.\nThis parameter can be a value of @ref MCAN_Tx_Pause_Enable"]
+    pub u32TxPause: u32,
+    #[doc = "< Enable or disable protocol exception handling.\nWhen this function is disabled, MCAN will transmit an error frame\nwhen it detects a protocol exception condition.\nThis parameter can be a value of @ref MCAN_Protocol_Exception_Enable"]
+    pub u32ProtocolException: u32,
+    #[doc = "< MCAN bit time configuration structure"]
+    pub stcBitTime: stc_mcan_bit_time_config_t,
+    #[doc = "< Message RAM configuration structure."]
+    pub stcMsgRam: stc_mcan_msg_ram_config_t,
+    #[doc = "< Acceptance filter configuration structure."]
+    pub stcFilter: stc_mcan_filter_config_t,
+}
+#[doc = " @brief MCAN Tx message structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_tx_msg_t {
+    #[doc = "< Specifies the ID.\nThis parameter must be a number between:\n- 0 and 0x7FF, if IDE is 0\n- 0 and 0x1FFFFFFF, if IDE is 1"]
+    pub ID: u32,
+    #[doc = "< IDentifier Extension bit. Specifies the ID type for the transmitted message.\nThis parameter can be a value of:\n- 0: 11-bit standard ID\n- 1: 29-bit extended ID"]
+    pub IDE: u32,
+    #[doc = "< Remote Transmission Request. Specifies the frame type of the transmitted message.\nThis parameter can be a value of:\n- 0: Data frame to be transmitted\n- 1: Remote frame to be transmitted"]
+    pub RTR: u32,
+    #[doc = "< Data Length Code. Specifies the length of the data field of the transmitted frame.\nThis parameter can be a value of @ref MCAN_Data_Length_Code"]
+    pub DLC: u32,
+    #[doc = "< Error State Indicator. Specifies the error state indicator.\nThis parameter can be a value of:\n- 0: Transmitting node is error active\n- 1: Transmitting node is error passive"]
+    pub ESI: u32,
+    #[doc = "< Bit Rate Switch. Specifies whether the Tx frame is transmitted with or without bit rate switching.\nThis parameter can be a value of:\n- 0: Frame transmitted without bit rate switching\n- 1: Frame transmitted with bit rate switching"]
+    pub BRS: u32,
+    #[doc = "< FD Format indicator. Specifies whether the Tx frame is transmitted in classic or FD format.\nThis parameter can be a value of:\n- 0: Classical CAN frame format\n- 1: CAN FD frame format (new DLC-coding and CRC)"]
+    pub FDF: u32,
+    #[doc = "< Specifies the event FIFO control.\nThis parameter can be a value of:\n- 0: DO NOT store tx event\n- 1: Store tx event into TX event FIFO"]
+    pub u32StoreTxEvent: u32,
+    #[doc = "< Specifies the message marker to be copied into Tx event FIFO\nelement for identification of Tx message status.\nThis parameter must be a number between:\n- 0 and 0xFF if 8-bit message marker used(CCCR.WMM == 0)\n- 0 and 0xFFFF if 16-bit-width message marker used(CCCR.WMM == 1)"]
+    pub u32MsgMarker: u32,
+    #[doc = "< Specifies the dedicated Tx buffer that used to transmit the message.\nThis parameter can be a value of @ref MCAN_Tx_Location\nThis parameter valid when Tx via dedicated Tx buffer."]
+    pub u32TxBuffer: u32,
+    #[doc = "< Data payload of the message that to be transmitted."]
+    pub au8Data: [u8; 64usize],
+    #[doc = "< Output parameter of Tx buffer index of last Tx FIFO/queue request.\nThis parameter valid when Tx via FIFO or queue."]
+    pub u32LastTxFifoQueueRequest: u32,
+}
+#[doc = " @brief MCAN Rx message structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_rx_msg_t {
+    #[doc = "< Specifies the ID.\nThis parameter must be a number between:\n- 0 and 0x7FF, if IDE is 0\n- 0 and 0x1FFFFFFF, if IDE is 1"]
+    pub ID: u32,
+    #[doc = "< IDentifier Extension bit. Specifies the ID type for the received message.\nThis parameter can be a value of:\n- 0: 11-bit standard ID\n- 1: 29-bit extended ID"]
+    pub IDE: u32,
+    #[doc = "< Remote Transmission Request. Specifies the frame type of the received message.\nThis parameter can be a value of:\n- 0: Data frame received\n- 1: Remote frame received"]
+    pub RTR: u32,
+    #[doc = "< Data Length Code. Specifies the length of data filed of the received frame.\nThis parameter can be a value of @ref MCAN_Data_Length_Code"]
+    pub DLC: u32,
+    #[doc = "< Error State Indicator. Specifies the error state indicator.\nThis parameter can be a value of:\n- 0: Transmitting node is error active\n- 1: Transmitting node is error passive"]
+    pub ESI: u32,
+    #[doc = "< Bit Rate Switch. Specifies whether the Tx frame is received with or without bit rate switching.\nThis parameter can be a value of:\n- 0: Frame received without bit rate switching\n- 1: Frame received with bit rate switching"]
+    pub BRS: u32,
+    #[doc = "< FD Format indicator. Specifies whether the Tx frame is received in classic or FD format.\nThis parameter can be a value of:\n- 0: Classical CAN frame format\n- 1: CAN FD frame format (new DLC-coding and CRC)"]
+    pub FDF: u32,
+    #[doc = "< Specifies the timestamp counter value captured on start of frame reception.\nThis parameter must be a number between 0 and 0xFFFF"]
+    pub u32RxTimestamp: u32,
+    #[doc = "< Specifies the index of matching Rx acceptance filter element.\nThis parameter must be a number between:\n- 0 and 127, if IDE is 0\n- 0 and 63, if IDE is 1"]
+    pub u32FilterIndex: u32,
+    #[doc = "< Specifies whether the accepted frame did not match any Rx filter.\nAcceptance of non-matching frames may be configured via @ref MCAN_GlobalFilterConfig()\nThis parameter can be:\n- 0: Received frame matching filter index u32FilterIndex\n- 1: Received frame did not match any Rx filter element"]
+    pub u32NmfFlag: u32,
+    #[doc = "< Data payload of the received message"]
+    pub au8Data: [u8; 64usize],
+    #[doc = "< Size of Rx data payload"]
+    pub u32DataSize: u32,
+}
+#[doc = " @brief MCAN Tx event structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_tx_event_t {
+    #[doc = "< Specifies the ID.\nThis parameter must be a number between:\n- 0 and 0x7FF, if IDE is 0\n- 0 and 0x1FFFFFFF, if IDE is 1"]
+    pub ID: u32,
+    #[doc = "< IDentifier Extension bit. Specifies the ID type for the transmitted message.\nThis parameter can be a value of:\n- 0: 11-bit standard ID\n- 1: 29-bit extended ID"]
+    pub IDE: u32,
+    #[doc = "< Remote Transmission Request. Specifies the frame type of the transmitted message.\nThis parameter can be a value of:\n- 0: Data frame transmitted\n- 1: Remote frame transmitted"]
+    pub RTR: u32,
+    #[doc = "< Data Length Code. Specifies the length of the transmitted frame.\nThis parameter can be a value of @ref MCAN_Data_Length_Code"]
+    pub DLC: u32,
+    #[doc = "< Error State Indicator. Specifies the error state indicator.\nThis parameter can be a value of:\n- 0: Transmitting node is error active\n- 1: Transmitting node is error passive"]
+    pub ESI: u32,
+    #[doc = "< Bit Rate Switch. Specifies whether the Tx frame is transmitted with or without bit rate switching.\nThis parameter can be a value of:\n- 0: Frame transmitted without bit rate switching\n- 1: Frame transmitted with bit rate switching"]
+    pub BRS: u32,
+    #[doc = "< FD Format indicator. Specifies whether the Tx frame is transmitted in classic or FD format.\nThis parameter can be a value of:\n- 0: Classical CAN frame format\n- 1: CAN FD frame format (new DLC-coding and CRC)"]
+    pub FDF: u32,
+    #[doc = "< Specifies the timestamp counter value captured on start of frame transmission.\nThis parameter is valid only when 8-bit message marker used.\nThis parameter must be a number between 0 and 0xFFFF."]
+    pub u32TxTimestamp: u32,
+    #[doc = "< Specifies the message marker copied into Tx Event FIFO element for identification of Tx message status.\nThis parameter must be a number between:\n- 0 and 0xFF if 8-bit message marker used(CCCR.WMM == 0)\n- 0 and 0xFFFF if 16-bit-width message marker used(CCCR.WMM == 1)"]
+    pub u32MsgMarker: u32,
+    #[doc = "< Specifies the event type.\nThis parameter can be a value of @ref MCAN_Evt_Type"]
+    pub u32EventType: u32,
+}
+#[doc = " @brief MCAN high priority message status structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_hpm_status_t {
+    #[doc = "< Specifies the filter list of the matching filter element.\nThis parameter can be:\n- 0: Standard filter list\n- 1: Extended filter list"]
+    pub u8FilterListType: u8,
+    #[doc = "< Specifies the index of matching filter element.\nThis parameter can be a number between:\n- 0 and 127, if u8FilterListType is 0 (Standard)\n- 0 and 63, if u8FilterListType is 1 (Extended)"]
+    pub u8FilterIndex: u8,
+    #[doc = "< Specifies the high priority message storage.\nThis parameter can be a value of @ref MCAN_HPM_Storage"]
+    pub u8MsgStorage: u8,
+    #[doc = "< Specifies the index of Rx FIFO element to which the message was stored.\nThis parameter is valid only when u8MsgStorage is:\nMCAN_HPM_STORED_IN_RX_FIFO0 or MCAN_HPM_STORED_IN_RX_FIFO1"]
+    pub u8MsgIndex: u8,
+}
+#[doc = " @brief MCAN protocol status structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_protocol_status_t {
+    #[doc = "< Specifies the type of the last error that occurred on the CAN bus.\nThis parameter can be a value of @ref MCAN_Protocol_Error_Code"]
+    pub u8LastErrorCode: u8,
+    #[doc = "< Specifies the type of the last error that occurred in the data phase of a CAN FD format\nframe with its BRS flag set.\nThis parameter can be a value of @ref MCAN_Protocol_Error_Code"]
+    pub u8DataLastErrorCode: u8,
+    #[doc = "< Specifies the CAN module communication state.\nThis parameter can be a value of @ref MCAN_Com_State"]
+    pub u8ComState: u8,
+    #[doc = "< Specifies the CAN module error status.\nThis parameter can be:\n- 0: The CAN is in the Error_Active state\n- 1: The CAN is in the Error_Passive state"]
+    pub u8ErrorPassiveFlag: u8,
+    #[doc = "< Specifies the CAN module warning status.\nThis parameter can be:\n- 0: Both error counters are below the Error_Warning limit of 96\n- 1: At least one of error counter has reached the Error_Warning limit of 96"]
+    pub u8WarningFlag: u8,
+    #[doc = "< Specifies the CAN module Bus_Off status.\nThis parameter can be:\n- 0: The CAN is not in Bus_Off state\n- 1: The CAN is in Bus_Off state"]
+    pub u8BusOffFlag: u8,
+    #[doc = "< Specifies ESI flag of last received CAN FD message.\nThis parameter can be:\n- 0: Last received CAN FD message did not have its ESI flag set\n- 1: Last received CAN FD message had its ESI flag set"]
+    pub u8RxESIFlag: u8,
+    #[doc = "< Specifies BRS flag of last received CAN FD message.\nThis parameter can be:\n- 0: Last received CAN FD message did not have its BRS flag set\n- 1: Last received CAN FD message had its BRS flag set"]
+    pub u8RxBRSFlag: u8,
+    #[doc = "< Specifies if CAN FD message (FDF flag set) has been received since last protocol status.\nThis parameter can be:\n- 0: Since this bit was reset by the CPU, no CAN FD message has been received\n- 1: Message in CAN FD format with FDF flag set has been received"]
+    pub u8RxFDFFlag: u8,
+    #[doc = "< Specifies the CAN module protocol exception status.\nThis parameter can be:\n- 0: No protocol exception event occurred since last read access\n- 1: Protocol exception event occurred"]
+    pub u8ProtocolExceptionFlag: u8,
+    #[doc = "< Specifies the Transmitter Delay Compensation Value.\nThis parameter can be a number between 0 and 127"]
+    pub u8TdcValue: u8,
+}
+#[doc = " @brief MCAN error counters structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mcan_error_counter_t {
+    #[doc = "< Specifies the Transmit Error Counter Value.\nThis parameter can be a number between 0 and 255"]
+    pub u8TxErrorCount: u8,
+    #[doc = "< Specifies the Receive Error Counter Value.\nThis parameter can be a number between 0 and 127"]
+    pub u8RxErrorCount: u8,
+    #[doc = "< Specifies the Receive Error Passive status.\nThis parameter can be:\n- 0: The Receive Error Counter (u8RxErrorCount) is below the error passive level of 128\n- 1: The Receive Error Counter (u8RxErrorCount) has reached the error passive level of 128"]
+    pub u8RxErrorPassive: u8,
+    #[doc = "< Specifies the Transmit/Receive error logging counter value.\nThis parameter can be a number between 0 and 255.\nThis counter is incremented each time when a CAN protocol error causes the u8TxErrorCount\nor the u8RxErrorCount to be incremented. The counter stops at 255; the next increment of\nu8TxErrorCount or u8RxErrorCount sets interrupt flag MCAN_FLAG_ERR_LOG_OVF"]
+    pub u8ErrorLogging: u8,
+}
+#[doc = " @brief MPU Unit configure structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_unit_config_t {
+    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
+    pub u32ExceptionType: u32,
+    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
+    pub u32BackgroundWrite: u32,
+    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
+    pub u32BackgroundRead: u32,
+}
+#[doc = " @brief MPU Unit initialize structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_unit_init_t {
+    #[doc = "< Specifies the unit's state of mpu\nThis parameter can be a value of @ref MPU_Unit_State"]
+    pub u32MpuState: u32,
+    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
+    pub u32ExceptionType: u32,
+    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
+    pub u32BackgroundWrite: u32,
+    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
+    pub u32BackgroundRead: u32,
+}
+#[doc = " @brief MPU Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_init_t {
+    #[doc = "< Configure storage protection unit of DMA1"]
+    pub stcDma1: stc_mpu_unit_config_t,
+    #[doc = "< Configure storage protection unit of DMA2"]
+    pub stcDma2: stc_mpu_unit_config_t,
+}
+#[doc = " @brief MPU Region Permission structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_region_permission_t {
+    #[doc = "< Specifies the unit's write permission for the region.\nThis parameter can be a value of @ref MPU_Region_Write_Permission"]
+    pub u32RegionWrite: u32,
+    #[doc = "< Specifies the unit's read permission  for the region.\nThis parameter can be a value of @ref MPU_Region_Read_Permission"]
+    pub u32RegionRead: u32,
+}
+#[doc = " @brief MPU region initialization structure definition\n @note  The effective bits of the 'u32BaseAddr' are related to the 'u32Size' of the region,\n        and the low 'u32Size+1' bits are fixed at 0."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_region_init_t {
+    #[doc = "< Specifies the base address of the region.\nThis parameter can be a number between 0UL and 0xFFFFFFE0UL"]
+    pub u32BaseAddr: u32,
+    #[doc = "< Specifies the size of the region.\nThis parameter can be a value of @ref MPU_Region_Size"]
+    pub u32Size: u32,
+    #[doc = "< Specifies the DMA1 access permission for the region"]
+    pub stcDma1: stc_mpu_region_permission_t,
+    #[doc = "< Specifies the DMA2 access permission for the region"]
+    pub stcDma2: stc_mpu_region_permission_t,
+}
+#[doc = " @brief MPU Stack Pointer initialization structure definition\n @note  The parameters 'u32Addr' and 'u32Size' must satisfy four-byte alignment."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_sp_init_t {
+    #[doc = "< Specifies the type of exception that occurs when the SP access outside specified range.\nThis parameter can be a value of @ref MPU_SP_Exception_Type"]
+    pub u32ExceptionType: u32,
+    #[doc = "< Specifies the start address that the SP is allowed to access.\nThis parameter can be a number between 0UL and 0xFFFFFFFCUL"]
+    pub u32Addr: u32,
+    #[doc = "< Specifies the allowed access range for the SP.\nThis parameter can be a number between 4UL and 65536UL"]
+    pub u32Size: u32,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup PWC_Global_Types PWC Global Types\n @{\n/\n/**\n @brief PWC LVD Init"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_lvd_init_t {
+    #[doc = "< LVD function setting, @ref PWC_LVD_Config for details"]
+    pub u32State: u32,
+    #[doc = "< LVD compare output function setting, @ref PWC_LVD_CMP_Config for details"]
+    pub u32CompareOutputState: u32,
+    #[doc = "< LVD interrupt or reset selection, @ref PWC_LVD_Exception_Type_Sel for details"]
+    pub u32ExceptionType: u32,
+    #[doc = "< LVD digital filter function setting, @ref PWC_LVD_DF_Config for details"]
+    pub u32Filter: u32,
+    #[doc = "< LVD digital filter clock setting, @ref PWC_LVD_DFS_Clk_Sel for details"]
+    pub u32FilterClock: u32,
+    #[doc = "< LVD detect voltage setting, @ref PWC_LVD_Detection_Voltage_Sel for details"]
+    pub u32ThresholdVoltage: u32,
+    #[doc = "< LVD trigger setting, @ref PWC_LVD_TRIG_Sel for details"]
+    pub u32TriggerEdge: u32,
+}
+#[doc = " @brief PWC power down mode innit"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pd_mode_config_t {
+    #[doc = "< Power down mode, @ref PWC_PDMode_Sel for details."]
+    pub u8Mode: u8,
+    #[doc = "< IO state in power down mode, @ref PWC_PDMode_IO_Sel for details."]
+    pub u8IOState: u8,
+    #[doc = "< Power down Wakeup time control, @ref PWC_PD_VCAP_Sel for details."]
+    pub u8VcapCtrl: u8,
+}
+#[doc = " @brief PWC Stop mode Init"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_stop_mode_config_t {
+    #[doc = "< System clock setting after wake-up from stop mode,\n@ref PWC_STOP_CLK_Sel for details."]
+    pub u16Clock: u16,
+    #[doc = "< Stop mode drive capacity,\n@ref PWC_STOP_DRV_Sel for details."]
+    pub u8StopDrv: u8,
+    #[doc = "< Expos status in stop mode,\n@ref PWC_STOP_EXBUS_Sel for details."]
+    pub u16ExBusHold: u16,
+    #[doc = "< Waiting flash stable after wake-up from stop mode,\n@ref PWC_STOP_Flash_Wait_Sel for details."]
+    pub u16FlashWait: u16,
+}
+#[doc = " @brief QSPI initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_qspi_init_t {
+    #[doc = "< Specifies the clock division.\nThis parameter can be a value of @ref QSPI_Clock_Division"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Specifies the SPI mode.\nThis parameter can be a value of @ref QSPI_SPI_Mode"]
+    pub u32SpiMode: u32,
+    #[doc = "< Specifies the prefetch mode.\nThis parameter can be a value of @ref QSPI_Prefetch_Mode"]
+    pub u32PrefetchMode: u32,
+    #[doc = "< Specifies the read mode.\nThis parameter can be a value of @ref QSPI_Read_Mode"]
+    pub u32ReadMode: u32,
+    #[doc = "< Specifies the number of dummy cycles.\nThis parameter can be a value of @ref QSPI_Dummy_Cycle"]
+    pub u32DummyCycle: u32,
+    #[doc = "< Specifies the address width.\nThis parameter can be a value of @ref QSPI_Addr_Width"]
+    pub u32AddrWidth: u32,
+    #[doc = "< Specifies the advance time of QSSN setup.\nThis parameter can be a value of @ref QSPI_QSSN_Setup_Time"]
+    pub u32SetupTime: u32,
+    #[doc = "< Specifies the delay time of QSSN release.\nThis parameter can be a value of @ref QSPI_QSSN_Release_Time"]
+    pub u32ReleaseTime: u32,
+    #[doc = "< Specifies the minimum interval time of QSSN.\nThis parameter can be a value of @ref QSPI_QSSN_Interval_Time"]
+    pub u32IntervalTime: u32,
+}
+#[doc = " @brief QSPI Custom read mode structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_qspi_custom_mode_t {
+    #[doc = "< Specifies the instruction stage protocol.\nThis parameter can be a value of @ref QSPI_Instruction_Protocol"]
+    pub u32InstrProtocol: u32,
+    #[doc = "< Specifies the address stage protocol.\nThis parameter can be a value of @ref QSPI_Addr_Protocol"]
+    pub u32AddrProtocol: u32,
+    #[doc = "< Specifies the data stage protocol.\nThis parameter can be a value of @ref QSPI_Data_Protocol"]
+    pub u32DataProtocol: u32,
+    #[doc = "< Specifies the instruction code in custom read mode.\nThis parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFF"]
+    pub u8InstrCode: u8,
+}
+#[doc = " @brief RTC Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_init_t {
+    #[doc = "< Specifies the RTC clock source.\nThis parameter can be a value of @ref RTC_Clock_Source"]
+    pub u8ClockSrc: u8,
+    #[doc = "< Specifies the RTC hour format.\nThis parameter can be a value of @ref RTC_Hour_Format"]
+    pub u8HourFormat: u8,
+    #[doc = "< Specifies the RTC interrupt period.\nThis parameter can be a value of @ref RTC_Interrupt_Period"]
+    pub u8IntPeriod: u8,
+    #[doc = "< Specifies the validity of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation"]
+    pub u8ClockCompen: u8,
+    #[doc = "< Specifies the mode of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation_Mode"]
+    pub u8CompenMode: u8,
+    #[doc = "< Specifies the value of RTC clock compensation.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 0x1FF"]
+    pub u16CompenValue: u16,
+}
+#[doc = " @brief RTC Date structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_date_t {
+    #[doc = "< Specifies the RTC Year.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 99"]
+    pub u8Year: u8,
+    #[doc = "< Specifies the RTC Month (in Decimal format).\nThis parameter can be a value of @ref RTC_Month"]
+    pub u8Month: u8,
+    #[doc = "< Specifies the RTC Day.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 31"]
+    pub u8Day: u8,
+    #[doc = "< Specifies the RTC Weekday.\nThis parameter can be a value of @ref RTC_Weekday"]
+    pub u8Weekday: u8,
+}
+#[doc = " @brief RTC Time structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_time_t {
+    #[doc = "< Specifies the RTC Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
+    pub u8Hour: u8,
+    #[doc = "< Specifies the RTC Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
+    pub u8Minute: u8,
+    #[doc = "< Specifies the RTC Second.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
+    pub u8Second: u8,
+    #[doc = "< Specifies the RTC Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
+    pub u8AmPm: u8,
+}
+#[doc = " @brief RTC Alarm structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_alarm_t {
+    #[doc = "< Specifies the RTC Alarm Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
+    pub u8AlarmHour: u8,
+    #[doc = "< Specifies the RTC Alarm Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
+    pub u8AlarmMinute: u8,
+    #[doc = "< Specifies the RTC Alarm Weekday.\nThis parameter can be a value of @ref RTC_Alarm_Weekday"]
+    pub u8AlarmWeekday: u8,
+    #[doc = "< Specifies the RTC Alarm Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
+    pub u8AlarmAmPm: u8,
+}
+#[doc = " @brief  EXMC_SMC Chip Configuration Structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_exmc_smc_chip_config_t {
+    #[doc = "< Defines the read sync enable.\nThis parameter can be a value of @ref EXMC_SMC_Memory_Read_Mode"]
+    pub u32ReadMode: u32,
+    #[doc = "< Defines the write sync enable.\nThis parameter can be a value of @ref EXMC_SMC_Memory_Write_Mode"]
+    pub u32WriteMode: u32,
+    #[doc = "< Defines the SMC memory width.\nThis parameter can be a value of @ref EXMC_SMC_Memory_Width."]
+    pub u32MemoryWidth: u32,
+    #[doc = "< Defines the SMC BAA signal enable.\nThis parameter can be a value of @ref EXMC_SMC_BAA_Port_Selection."]
+    pub u32BAA: u32,
+    #[doc = "< Defines the SMC ADVS signal enable.\nThis parameter can be a value of @ref EXMC_SMC_ADV_Port_Selection."]
+    pub u32ADV: u32,
+    #[doc = "< Defines the SMC BLS signal selection.\nThis parameter can be a value of @ref EXMC_SMC_BLS_Synchronization_Selection."]
+    pub u32BLS: u32,
+    #[doc = "< Defines the address match.\nThis parameter can be a value between Min_Data = 0x60 and Max_Data = 0x7F"]
+    pub u32AddrMatch: u32,
+    #[doc = "< Defines the address mask.\nThis parameter can be a value of @ref EXMC_SMC_Mask_Address."]
+    pub u32AddrMask: u32,
+}
+#[doc = " @brief  EXMC_SMC Timing Configuration Structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_exmc_smc_timing_config_t {
+    #[doc = "< Defines the RC in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0x0F"]
+    pub u8RC: u8,
+    #[doc = "< Defines the WC in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 0x0F"]
+    pub u8WC: u8,
+    #[doc = "< Defines the CEOE in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
+    pub u8CEOE: u8,
+    #[doc = "< Defines the WP in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
+    pub u8WP: u8,
+    #[doc = "< Defines the TR in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
+    pub u8TR: u8,
+    #[doc = "< Defines the ADV in memory clock cycles.\nThis parameter can be a value between Min_Data = 0 and Max_Data = 7"]
+    pub u8ADV: u8,
+}
+#[doc = " @brief  EXMC_SMC Initialization Structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_exmc_smc_init_t {
+    #[doc = "< SMC memory chip configure.\nThis structure details refer @ref stc_exmc_smc_chip_config_t."]
+    pub stcChipConfig: stc_exmc_smc_chip_config_t,
+    #[doc = "< SMC memory timing configure.\nThis structure details refer @ref stc_exmc_smc_timing_config_t."]
+    pub stcTimingConfig: stc_exmc_smc_timing_config_t,
+}
+#[doc = " @brief Structure definition of SPI initialization.\n @note The parameter u32BaudRatePrescaler is invalid while slave mode"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_init_t {
+    #[doc = "< SPI wire mode, 3 wire mode or 4 wire mode.\nThis parameter can be a value of @ref SPI_Wire_Mode_Define"]
+    pub u32WireMode: u32,
+    #[doc = "< SPI transfer mode, send only or full duplex.\nThis parameter can be a value of @ref SPI_Trans_Mode_Define"]
+    pub u32TransMode: u32,
+    #[doc = "< SPI master/slave mode.\nThis parameter can be a value of @ref SPI_Master_Slave_Mode_Define"]
+    pub u32MasterSlave: u32,
+    #[doc = "< SPI mode fault detect command.\nThis parameter can be a value of @ref SPI_Mode_Fault_Detect_Command_Define"]
+    pub u32ModeFaultDetect: u32,
+    #[doc = "< SPI parity check selection.\nThis parameter can be a value of @ref SPI_Parity_Check_Define"]
+    pub u32Parity: u32,
+    #[doc = "< SPI mode.\nThis parameter can be a value of @ref SPI_Mode_Define"]
+    pub u32SpiMode: u32,
+    #[doc = "< SPI baud rate prescaler.\nThis parameter can be a value of @ref SPI_Baud_Rate_Prescaler_Define"]
+    pub u32BaudRatePrescaler: u32,
+    #[doc = "< SPI data bits, 4 bits ~ 32 bits.\nThis parameter can be a value of @ref SPI_Data_Size_Define"]
+    pub u32DataBits: u32,
+    #[doc = "< MSB first or LSB first.\nThis parameter can be a value of @ref SPI_First_Bit_Define"]
+    pub u32FirstBit: u32,
+    #[doc = "< SPI communication suspend function.\nThis parameter can be a value of @ref SPI_Com_Suspend_Func_Define"]
+    pub u32SuspendMode: u32,
+    #[doc = "< SPI frame level, SPI_1_FRAME ~ SPI_4_FRAME.\nThis parameter can be a value of @ref SPI_Frame_Level_Define"]
+    pub u32FrameLevel: u32,
+}
+#[doc = " @brief Structure definition of SPI delay time configuration."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_delay_t {
+    #[doc = "< SPI interval time delay (Next access delay time)\nThis parameter can be a value of @ref SPI_Interval_Delay_Time_define"]
+    pub u32IntervalDelay: u32,
+    #[doc = "< SPI release time delay (SCK invalid delay time)\nThis parameter can be a value of @ref SPI_Release_Delay_Time_define"]
+    pub u32ReleaseDelay: u32,
+    #[doc = "< SPI Setup time delay (SCK valid delay time) define\nThis parameter can be a value of @ref SPI_Setup_Delay_Time_define"]
+    pub u32SetupDelay: u32,
+}
+#[doc = " @brief SWDT Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_swdt_init_t {
+    #[doc = "< Specifies the counting period of SWDT.\nThis parameter can be a value of @ref SWDT_Count_Period"]
+    pub u32CountPeriod: u32,
+    #[doc = "< Specifies the clock division factor of SWDT.\nThis parameter can be a value of @ref SWDT_Clock_Division"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Specifies the allow refresh range of SWDT.\nThis parameter can be a value of @ref SWDT_Refresh_Range"]
+    pub u32RefreshRange: u32,
+    #[doc = "< Specifies the count state in Low Power Mode (Sleep/Stop Mode).\nThis parameter can be a value of @ref SWDT_LPM_Count"]
+    pub u32LPMCount: u32,
+    #[doc = "< Specifies the type of exception response for SWDT.\nThis parameter can be a value of @ref SWDT_Exception_Type"]
+    pub u32ExceptionType: u32,
+}
+#[doc = " @brief TMR0 initialization structure definition\n @note  The 'u32ClockDiv' is invalid when the value of 'u32ClockSrc' is \"TMR0_CLK_SRC_SPEC_EVT\"."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr0_init_t {
+    #[doc = "< Specifies the clock source of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Specifies the clock division of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Division"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Specifies the function of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Function"]
+    pub u32Func: u32,
+    #[doc = "< Specifies the compare value of TMR0 channel.\nThis parameter can be a value of half-word"]
+    pub u16CompareValue: u16,
+}
+#[doc = " @brief TMR4 Counter function initialization configuration\n @note The TMR4 division(u16ClockDiv) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_init_t {
+    #[doc = "< TMR4 counter clock source.\nThis parameter can be a value of @ref TMR4_Count_Clock_Source"]
+    pub u16ClockSrc: u16,
+    #[doc = "< TMR4 counter internal clock division.\nThis parameter can be a value of @ref TMR4_Count_Clock_Division."]
+    pub u16ClockDiv: u16,
+    #[doc = "< TMR4 counter mode.\nThis parameter can be a value of @ref TMR4_Count_Mode"]
+    pub u16CountMode: u16,
+    #[doc = "< TMR4 counter period value.\nThis parameter can be a value of half-word"]
+    pub u16PeriodValue: u16,
+}
+#[doc = " @brief The configuration of Output-Compare high channel(OUH/OVH/OWH)"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union un_tmr4_oc_ocmrh_t {
+    #[doc = "< OCMRxH(x=U/V/W) register"]
+    pub OCMRx: u16,
+    pub OCMRx_f: un_tmr4_oc_ocmrh_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(2))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
 }
 impl un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
     #[inline]
@@ -18618,6 +18415,21 @@ impl un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
         });
         __bindgen_bitfield_unit
     }
+}
+#[doc = " @brief The configuration of Output-Compare low channel(OUL/OVL/OWL)"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union un_tmr4_oc_ocmrl_t {
+    #[doc = "< OCMRxL(x=U/V/W) register"]
+    pub OCMRx: u32,
+    pub OCMRx_f: un_tmr4_oc_ocmrl_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
 }
 impl un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
     #[inline]
@@ -19311,8 +19123,316 @@ impl un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
         __bindgen_bitfield_unit
     }
 }
-#[doc = " @brief Flag status"]
-pub use self::en_flag_status_t as en_int_status_t;
+#[doc = " @brief TMR4 Output-Compare(OC) initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_oc_init_t {
+    #[doc = "< TMR4 OC compare match value.\nThis parameter can be a value of half-word."]
+    pub u16CompareValue: u16,
+    #[doc = "< Port output polarity when OC is disabled.\nThis parameter can be a value of @ref TMR4_OC_Invalid_Output_Polarity."]
+    pub u16OcInvalidPolarity: u16,
+    #[doc = "< Register OCMR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
+    pub u16CompareModeBufCond: u16,
+    #[doc = "< Register OCCR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
+    pub u16CompareValueBufCond: u16,
+    #[doc = "< Enable the specified buffer register object linked transfer with the counter interrupt mask.\nThis parameter can be one or any combination of @ref TMR4_OC_Buffer_Object."]
+    pub u16BufLinkTransObject: u16,
+}
+#[doc = " @brief TMR4 PWM initialization configuration\n @note The clock division(u16ClockDiv) is valid when TMR4 clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_pwm_init_t {
+    #[doc = "< Select PWM mode\nThis parameter can be a value of @ref TMR4_PWM_Mode"]
+    pub u16Mode: u16,
+    #[doc = "< The internal clock division of PWM timer.\nThis parameter can be a value of @ref TMR4_PWM_Clock_Division."]
+    pub u16ClockDiv: u16,
+    #[doc = "< TMR4 PWM polarity\nThis parameter can be a value of @ref TMR4_PWM_Polarity"]
+    pub u16Polarity: u16,
+}
+#[doc = " @brief TMR4 Special-Event(EVT) initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_evt_init_t {
+    #[doc = "< TMR4 event mode\nThis parameter can be a value of @ref TMR4_Event_Mode"]
+    pub u16Mode: u16,
+    #[doc = "< TMR4 event compare match value.\nThis parameter can be a value of half-word"]
+    pub u16CompareValue: u16,
+    #[doc = "< TMR4 event output event when match count compare condition.\nThis parameter can be a value of @ref TMR4_Event_Output_Event"]
+    pub u16OutputEvent: u16,
+    #[doc = "< Enable the specified count compare type with counter count to generate event.\nThis parameter can be a value of @ref TMR4_Event_Match_Condition"]
+    pub u16MatchCond: u16,
+}
+#[doc = " @brief Timer6 count function structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_init_t {
+    #[doc = "< Specifies the count source @ref TMR6_Count_Src_Define"]
+    pub u8CountSrc: u8,
+    pub sw_count: stc_tmr6_init_t__bindgen_ty_1,
+    pub hw_count: stc_tmr6_init_t__bindgen_ty_2,
+    #[doc = "< The period reference value. (0x00 ~ 0xFFFF) or (0x00 ~ 0xFFFFFFFF)"]
+    pub u32PeriodValue: u32,
+    #[doc = "< Count reload after overflow @ref TMR6_Count_Reload_Define"]
+    pub u32CountReload: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_init_t__bindgen_ty_1 {
+    #[doc = "< Count clock division select, @ref TMR6_Count_Clock_Define"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Count mode, @ref TMR6_Count_Mode_Define"]
+    pub u32CountMode: u32,
+    #[doc = "< Count direction, @ref TMR6_Count_Dir_Define"]
+    pub u32CountDir: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_init_t__bindgen_ty_2 {
+    #[doc = "< Hardware count up condition. @ref TMR6_HW_Count_Up_Cond_Define"]
+    pub u32CountUpCond: u32,
+    #[doc = "< Hardware count down condition. @ref TMR6_HW_Count_Down_Cond_Define"]
+    pub u32CountDownCond: u32,
+}
+#[doc = " @brief Timer6 pwm output function structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_pwm_init_t {
+    #[doc = "< Range (0 ~ 0xFFFF) or (0 ~ 0xFFFFFFFF)"]
+    pub u32CompareValue: u32,
+    #[doc = "< Pin polarity when count start @ref TMR6_Pin_Polarity_Define"]
+    pub u32StartPolarity: u32,
+    #[doc = "< Pin polarity when count stop @ref TMR6_Pin_Polarity_Define"]
+    pub u32StopPolarity: u32,
+    #[doc = "< Port state when match compare register A(GCMAR) at count-up mode \\\n@ref TMR6_Pin_Polarity_Define"]
+    pub u32CountUpMatchAPolarity: u32,
+    #[doc = "< Port state when match compare register A(GCMAR) at count-down mode \\\n@ref TMR6_Pin_Polarity_Define"]
+    pub u32CountDownMatchAPolarity: u32,
+    #[doc = "< Port state when match compare register B(GCMBR) at count-up mode \\\n@ref TMR6_Pin_Polarity_Define"]
+    pub u32CountUpMatchBPolarity: u32,
+    #[doc = "< Port state when match compare register B(GCMBR) at count-down mode\\\n@ref TMR6_Pin_Polarity_Define"]
+    pub u32CountDownMatchBPolarity: u32,
+    #[doc = "< Pin polarity when underflow @ref TMR6_Pin_Polarity_Define"]
+    pub u32UdfPolarity: u32,
+    #[doc = "< Pin polarity when overflow @ref TMR6_Pin_Polarity_Define"]
+    pub u32OvfPolarity: u32,
+}
+#[doc = " @brief Timer6 buffer function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_buf_config_t {
+    #[doc = "< The buffer number, and this parameter can be a value of \\\n@ref TMR6_Buf_Num_Define"]
+    pub u32BufNum: u32,
+    #[doc = "< The buffer send time, and this parameter can be a value of \\\n@ref TMR6_Buf_Trans_Cond_Define"]
+    pub u32BufTransCond: u32,
+}
+#[doc = " @brief Timer6 Valid period function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_valid_period_config_t {
+    #[doc = "< The count condition, and this parameter can be a value of \\\n@ref TMR6_Valid_Period_Count_Cond_Define"]
+    pub u32CountCond: u32,
+    #[doc = "< The interval of the valid period @ref TMR6_Valid_Period_Count_Define"]
+    pub u32PeriodInterval: u32,
+}
+#[doc = " @brief Timer6 EMB configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_emb_config_t {
+    #[doc = "< Valid EMB event channel @ref TMR6_Emb_Ch_Define"]
+    pub u32ValidCh: u32,
+    #[doc = "< Pin release mode when EMB event invalid @ref TMR6_Emb_Release_Mode_Define"]
+    pub u32ReleaseMode: u32,
+    #[doc = "< Pin output status when EMB event valid @ref TMR6_Emb_Pin_Status_Define"]
+    pub u32PinStatus: u32,
+}
+#[doc = " @brief Timer6 Dead time function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_deadtime_config_t {
+    #[doc = "< Enable down count dead time register equal to up count DT register \\\n@ref TMR6_DeadTime_Reg_Equal_Func_Define"]
+    pub u32EqualUpDown: u32,
+    #[doc = "< Enable buffer transfer for up count dead time register (DTUBR-->DTUAR) \\\n@ref TMR6_DeadTime_CountUp_Buf_Func_Define"]
+    pub u32BufUp: u32,
+    #[doc = "< Enable buffer transfer for down count dead time register (DTDBR-->DTDAR) \\\n@ref TMR6_DeadTime_CountDown_Buf_Func_Define"]
+    pub u32BufDown: u32,
+    #[doc = "< Buffer transfer condition for triangular wave mode \\\n@ref TMR6_DeadTime_Buf_Trans_Cond_Define"]
+    pub u32BufTransCond: u32,
+}
+#[doc = " @brief Timer6 Dead time function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_zmask_config_t {
+    #[doc = "< Z phase input mask periods selection @ref TMR6_Zmask_Cycle_Define"]
+    pub u32ZMaskCycle: u32,
+    #[doc = "< As position count timer, clear function enable(TRUE) or disable(FALSE) during \\\nthe time of Z phase input mask @ref TMR6_Zmask_Pos_Unit_Clear_Func_Define"]
+    pub u32PosCountMaskFunc: u32,
+    #[doc = "< As revolution count timer, the counter function enable(TRUE) or disable(FALSE) \\\nduring the time of Z phase input mask \\\n@ref TMR6_Zmask_Revo_Unit_Count_Func_Define"]
+    pub u32RevoCountMaskFunc: u32,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup TMRA_Global_Types TMRA Global Types\n @{\n/\n/**\n @brief TMRA initialization structure."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_init_t {
+    #[doc = "< Specifies the count source of TMRA.\nThis parameter can be a value of @ref TMRA_Count_Src"]
+    pub u8CountSrc: u8,
+    pub sw_count: stc_tmra_init_t__bindgen_ty_1,
+    pub hw_count: stc_tmra_init_t__bindgen_ty_2,
+    #[doc = "< Specifies the period reference value.\nThis parameter can be a number between 0U and 0xFFFFU, inclusive."]
+    pub u32PeriodValue: u32,
+    #[doc = "< Continue counting or stop when counter overflow/underflow.\nThis parameter can be a value of @ref TMRA_Count_Reload_En"]
+    pub u8CountReload: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_init_t__bindgen_ty_1 {
+    #[doc = "< Specifies the divider of software clock source.\nThis parameter can be a value of @ref TMRA_Clock_Divider"]
+    pub u8ClockDiv: u8,
+    #[doc = "< Specifies count mode.\nThis parameter can be a value of @ref TMRA_Count_Mode"]
+    pub u8CountMode: u8,
+    #[doc = "< Specifies count direction.\nThis parameter can be a value of @ref TMRA_Count_Dir"]
+    pub u8CountDir: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_init_t__bindgen_ty_2 {
+    #[doc = "< Hardware count up condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Up_Condition"]
+    pub u16CountUpCond: u16,
+    #[doc = "< Hardware count down condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Down_Condition"]
+    pub u16CountDownCond: u16,
+}
+#[doc = " @brief TMRA PWM configuration structure."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_pwm_init_t {
+    #[doc = "< Specifies compare value of the TMRA channel.\nThis parameter can be a number between:\n0UL and 0xFFFFFFFFUL for 32-bit TimerA units.\n0UL and 0xFFFFUL for 16-bit TimerA units."]
+    pub u32CompareValue: u32,
+    #[doc = "< Specifies the polarity when the counter start counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity\nNOTE: CAN NOT be specified as TMRA_PWM_LOW or TMRA_PWM_HIGH when\nsw_count.u16ClockDiv of @ref stc_tmra_init_t is NOT specified\nas @ref TMRA_CLK_DIV1"]
+    pub u16StartPolarity: u16,
+    #[doc = "< Specifies the polarity when the counter stop counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
+    pub u16StopPolarity: u16,
+    #[doc = "< Specifies the polarity when the counter matches the compare register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
+    pub u16CompareMatchPolarity: u16,
+    #[doc = "< Specifies the polarity when the counter matches the period register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
+    pub u16PeriodMatchPolarity: u16,
+}
+#[doc = " @brief clock synchronization mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_clocksync_init_t {
+    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
+    pub u32HWFlowControl: u32,
+}
+#[doc = " @brief UART multiple-processor initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_multiprocessor_init_t {
+    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
+    pub u32CKOutput: u32,
+    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
+    pub u32DataWidth: u32,
+    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
+    pub u32StopBit: u32,
+    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
+    pub u32OverSampleBit: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
+    pub u32StartBitPolarity: u32,
+    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
+    pub u32HWFlowControl: u32,
+}
+#[doc = " @brief UART mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_uart_init_t {
+    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
+    pub u32CKOutput: u32,
+    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
+    pub u32DataWidth: u32,
+    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
+    pub u32StopBit: u32,
+    #[doc = "< Parity format.\nThis parameter can be a value of @ref USART_Parity_Control"]
+    pub u32Parity: u32,
+    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
+    pub u32OverSampleBit: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
+    pub u32StartBitPolarity: u32,
+    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
+    pub u32HWFlowControl: u32,
+}
+#[doc = " @brief LIN mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_lin_init_t {
+    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
+    pub u32CKOutput: u32,
+    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
+    pub u32OverSampleBit: u32,
+    #[doc = "< BMC clock division.\nThis parameter can be a value of @ref USART_LIN_BMC_Clock_Division.\n@note The clock division is valid when clock source is the internal clock."]
+    pub u32BmcClockDiv: u32,
+    #[doc = "< Detect break length.\nThis parameter can be a value of @ref USART_LIN_Detect_Break_Length"]
+    pub u32DetectBreakLen: u32,
+    #[doc = "< Send break length.\nThis parameter can be a value of @ref USART_LIN_Send_Break_Length"]
+    pub u32SendBreakLen: u32,
+    #[doc = "< Send break mode.\nThis parameter can be a value of @ref USART_LIN_Send_Break_Mode"]
+    pub u32SendBreakMode: u32,
+}
+#[doc = " @brief Smartcard mode initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_smartcard_init_t {
+    #[doc = "< Clock division. This parameter can be a value of @ref USART_Clock_Division.\n@note This parameter is valid when clock source is the internal clock."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART_CK output selection. This parameter can be a value of @ref USART_CK_Output_Selection.\n@note This parameter is valid when clock source is the internal clock."]
+    pub u32CKOutput: u32,
+    #[doc = "< USART baudrate.\nThis parameter is calculated according with smartcard default ETU and clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+}
+#[doc = " @brief WDT Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_wdt_init_t {
+    #[doc = "< Specifies the counting period of WDT.\nThis parameter can be a value of @ref WDT_Count_Period"]
+    pub u32CountPeriod: u32,
+    #[doc = "< Specifies the clock division factor of WDT.\nThis parameter can be a value of @ref WDT_Clock_Division"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Specifies the allow refresh range of WDT.\nThis parameter can be a value of @ref WDT_Refresh_Range"]
+    pub u32RefreshRange: u32,
+    #[doc = "< Specifies the count state in Low Power Mode (Sleep Mode).\nThis parameter can be a value of @ref WDT_LPM_Count"]
+    pub u32LPMCount: u32,
+    #[doc = "< Specifies the type of exception response for WDT.\nThis parameter can be a value of @ref WDT_Exception_Type"]
+    pub u32ExceptionType: u32,
+}
 unsafe extern "C" {
     #[doc = "< External high speed OSC freq."]
     pub static mut XTAL_VALUE: u32;
@@ -19325,10 +19445,6 @@ unsafe extern "C" {
     #[doc = " Global function prototypes (definition in C source)\n/\n/**\n @addtogroup HC32F448_System_Global_Functions\n @{"]
     pub fn SystemInit();
     pub fn SystemCoreClockUpdate();
-    #[doc = " Global function prototypes (definition in C source)\n/\n/**\n @addtogroup LL_Global_Functions\n @{"]
-    pub fn LL_PERIPH_WE(u32Peripheral: u32);
-    pub fn LL_PERIPH_WP(u32Peripheral: u32);
-    pub fn LL_TMR_SWSyncStart(u32Tmr: u32);
     #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup ADC_Global_Functions\n @{\n/\n/*******************************************************************************\nBasic features"]
     pub fn ADC_Init(ADCx: *mut CM_ADC_TypeDef, pstcAdcInit: *const stc_adc_init_t) -> i32;
     pub fn ADC_DeInit(ADCx: *mut CM_ADC_TypeDef) -> i32;
@@ -20915,4 +21031,8 @@ unsafe extern "C" {
     pub fn WDT_FeedDog();
     pub fn WDT_GetStatus(u32Flag: u32) -> en_flag_status_t;
     pub fn WDT_ClearStatus(u32Flag: u32) -> i32;
+    #[doc = " Global function prototypes (definition in C source)\n/\n/**\n @addtogroup LL_Global_Functions\n @{"]
+    pub fn LL_PERIPH_WE(u32Peripheral: u32);
+    pub fn LL_PERIPH_WP(u32Peripheral: u32);
+    pub fn LL_TMR_SWSyncStart(u32Tmr: u32);
 }

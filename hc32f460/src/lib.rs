@@ -2,35 +2,8770 @@
 
 #![no_std]
 
-#[doc = " Interrupt Number Definition"]
-pub type IRQn_Type = ::core::ffi::c_int;
-#[doc = " \\brief Event number enumeration"]
-pub type en_event_src_t = ::core::ffi::c_uint;
-#[doc = " \\brief Interrupt number enumeration"]
-pub type en_int_src_t = ::core::ffi::c_uint;
-#[doc = " @brief Single precision floating point number (4 byte)"]
-pub type float32_t = f32;
-#[doc = " @brief Double precision floating point number (8 byte)"]
-pub type float64_t = f64;
-#[doc = " @brief Function pointer type to void/void function"]
-pub type func_ptr_t = ::core::option::Option<unsafe extern "C" fn()>;
-#[doc = " @brief Functional state"]
-pub type en_functional_state_t = ::core::ffi::c_uint;
-#[doc = " @brief Flag status"]
-pub type en_flag_status_t = ::core::ffi::c_uint;
-#[doc = " Global type definitions ('typedef')"]
-pub type HOST_CH_STATUS = ::core::ffi::c_uint;
-pub type HOST_CH_XFER_STATE = ::core::ffi::c_uint;
-pub type CTRL_HANDLE_STATUS = ::core::ffi::c_uint;
-#[doc = " @brief  Event Pin Set and Reset enumeration"]
-pub type en_ep_state_t = ::core::ffi::c_uint;
-#[doc = " @brief  GPIO Pin Set and Reset enumeration"]
-pub type en_pin_state_t = ::core::ffi::c_uint;
+pub const CM_ADC1: *mut CM_ADC_TypeDef = CM_ADC1_BASE as _;
+pub const CM_ADC2: *mut CM_ADC_TypeDef = CM_ADC2_BASE as _;
+pub const CM_AES: *mut CM_AES_TypeDef = CM_AES_BASE as _;
+pub const CM_AOS: *mut CM_AOS_TypeDef = CM_AOS_BASE as _;
+pub const CM_CAN: *mut CM_CAN_TypeDef = CM_CAN_BASE as _;
+pub const CM_CMP1: *mut CM_CMP_TypeDef = CM_CMP1_BASE as _;
+pub const CM_CMP2: *mut CM_CMP_TypeDef = CM_CMP2_BASE as _;
+pub const CM_CMP3: *mut CM_CMP_TypeDef = CM_CMP3_BASE as _;
+pub const CM_CMP_COMMON: *mut CM_CMP_COMMON_TypeDef = CM_CMP_COMMON_BASE as _;
+pub const CM_CMU: *mut CM_CMU_TypeDef = CM_CMU_BASE as _;
+pub const CM_CRC: *mut CM_CRC_TypeDef = CM_CRC_BASE as _;
+pub const CM_DBGC: *mut CM_DBGC_TypeDef = CM_DBGC_BASE as _;
+pub const CM_DCU1: *mut CM_DCU_TypeDef = CM_DCU1_BASE as _;
+pub const CM_DCU2: *mut CM_DCU_TypeDef = CM_DCU2_BASE as _;
+pub const CM_DCU3: *mut CM_DCU_TypeDef = CM_DCU3_BASE as _;
+pub const CM_DCU4: *mut CM_DCU_TypeDef = CM_DCU4_BASE as _;
+pub const CM_DMA1: *mut CM_DMA_TypeDef = CM_DMA1_BASE as _;
+pub const CM_DMA2: *mut CM_DMA_TypeDef = CM_DMA2_BASE as _;
+pub const CM_EFM: *mut CM_EFM_TypeDef = CM_EFM_BASE as _;
+pub const CM_EMB0: *mut CM_EMB_TypeDef = CM_EMB0_BASE as _;
+pub const CM_EMB1: *mut CM_EMB_TypeDef = CM_EMB1_BASE as _;
+pub const CM_EMB2: *mut CM_EMB_TypeDef = CM_EMB2_BASE as _;
+pub const CM_EMB3: *mut CM_EMB_TypeDef = CM_EMB3_BASE as _;
+pub const CM_FCM: *mut CM_FCM_TypeDef = CM_FCM_BASE as _;
+pub const CM_GPIO: *mut CM_GPIO_TypeDef = CM_GPIO_BASE as _;
+pub const CM_HASH: *mut CM_HASH_TypeDef = CM_HASH_BASE as _;
+pub const CM_I2C1: *mut CM_I2C_TypeDef = CM_I2C1_BASE as _;
+pub const CM_I2C2: *mut CM_I2C_TypeDef = CM_I2C2_BASE as _;
+pub const CM_I2C3: *mut CM_I2C_TypeDef = CM_I2C3_BASE as _;
+pub const CM_I2S1: *mut CM_I2S_TypeDef = CM_I2S1_BASE as _;
+pub const CM_I2S2: *mut CM_I2S_TypeDef = CM_I2S2_BASE as _;
+pub const CM_I2S3: *mut CM_I2S_TypeDef = CM_I2S3_BASE as _;
+pub const CM_I2S4: *mut CM_I2S_TypeDef = CM_I2S4_BASE as _;
+pub const CM_ICG: *mut CM_ICG_TypeDef = CM_ICG_BASE as _;
+pub const CM_INTC: *mut CM_INTC_TypeDef = CM_INTC_BASE as _;
+pub const CM_KEYSCAN: *mut CM_KEYSCAN_TypeDef = CM_KEYSCAN_BASE as _;
+pub const CM_MPU: *mut CM_MPU_TypeDef = CM_MPU_BASE as _;
+pub const CM_OTS: *mut CM_OTS_TypeDef = CM_OTS_BASE as _;
+pub const CM_PERIC: *mut CM_PERIC_TypeDef = CM_PERIC_BASE as _;
+pub const CM_PWC: *mut CM_PWC_TypeDef = CM_PWC_BASE as _;
+pub const CM_QSPI: *mut CM_QSPI_TypeDef = CM_QSPI_BASE as _;
+pub const CM_RMU: *mut CM_RMU_TypeDef = CM_RMU_BASE as _;
+pub const CM_RTC: *mut CM_RTC_TypeDef = CM_RTC_BASE as _;
+pub const CM_SDIOC1: *mut CM_SDIOC_TypeDef = CM_SDIOC1_BASE as _;
+pub const CM_SDIOC2: *mut CM_SDIOC_TypeDef = CM_SDIOC2_BASE as _;
+pub const CM_SPI1: *mut CM_SPI_TypeDef = CM_SPI1_BASE as _;
+pub const CM_SPI2: *mut CM_SPI_TypeDef = CM_SPI2_BASE as _;
+pub const CM_SPI3: *mut CM_SPI_TypeDef = CM_SPI3_BASE as _;
+pub const CM_SPI4: *mut CM_SPI_TypeDef = CM_SPI4_BASE as _;
+pub const CM_SRAMC: *mut CM_SRAMC_TypeDef = CM_SRAMC_BASE as _;
+pub const CM_SWDT: *mut CM_SWDT_TypeDef = CM_SWDT_BASE as _;
+pub const CM_TMR0_1: *mut CM_TMR0_TypeDef = CM_TMR0_1_BASE as _;
+pub const CM_TMR0_2: *mut CM_TMR0_TypeDef = CM_TMR0_2_BASE as _;
+pub const CM_TMR4_1: *mut CM_TMR4_TypeDef = CM_TMR4_1_BASE as _;
+pub const CM_TMR4_2: *mut CM_TMR4_TypeDef = CM_TMR4_2_BASE as _;
+pub const CM_TMR4_3: *mut CM_TMR4_TypeDef = CM_TMR4_3_BASE as _;
+pub const CM_TMR4_ECER: *mut CM_TMR4_ECER_TypeDef = CM_TMR4_ECER_BASE as _;
+pub const CM_TMR6_1: *mut CM_TMR6_TypeDef = CM_TMR6_1_BASE as _;
+pub const CM_TMR6_2: *mut CM_TMR6_TypeDef = CM_TMR6_2_BASE as _;
+pub const CM_TMR6_3: *mut CM_TMR6_TypeDef = CM_TMR6_3_BASE as _;
+pub const CM_TMR6_COMMON: *mut CM_TMR6_COMMON_TypeDef = CM_TMR6_COMMON_BASE as _;
+pub const CM_TMRA_1: *mut CM_TMRA_TypeDef = CM_TMRA_1_BASE as _;
+pub const CM_TMRA_2: *mut CM_TMRA_TypeDef = CM_TMRA_2_BASE as _;
+pub const CM_TMRA_3: *mut CM_TMRA_TypeDef = CM_TMRA_3_BASE as _;
+pub const CM_TMRA_4: *mut CM_TMRA_TypeDef = CM_TMRA_4_BASE as _;
+pub const CM_TMRA_5: *mut CM_TMRA_TypeDef = CM_TMRA_5_BASE as _;
+pub const CM_TMRA_6: *mut CM_TMRA_TypeDef = CM_TMRA_6_BASE as _;
+pub const CM_TRNG: *mut CM_TRNG_TypeDef = CM_TRNG_BASE as _;
+pub const CM_USART1: *mut CM_USART_TypeDef = CM_USART1_BASE as _;
+pub const CM_USART2: *mut CM_USART_TypeDef = CM_USART2_BASE as _;
+pub const CM_USART3: *mut CM_USART_TypeDef = CM_USART3_BASE as _;
+pub const CM_USART4: *mut CM_USART_TypeDef = CM_USART4_BASE as _;
+pub const CM_USBFS: *mut CM_USBFS_TypeDef = CM_USBFS_BASE as _;
+pub const CM_WDT: *mut CM_WDT_TypeDef = CM_WDT_BASE as _;
+
+
 #[repr(C)]
 #[derive(Copy, Clone, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct __BindgenBitfieldUnit<Storage> {
     storage: Storage,
 }
+impl<Storage> __BindgenBitfieldUnit<Storage> {
+    #[inline]
+    pub const fn new(storage: Storage) -> Self {
+        Self { storage }
+    }
+}
+impl<Storage> __BindgenBitfieldUnit<Storage>
+where
+    Storage: AsRef<[u8]> + AsMut<[u8]>,
+{
+    #[inline]
+    fn extract_bit(byte: u8, index: usize) -> bool {
+        let bit_index = if cfg!(target_endian = "big") {
+            7 - (index % 8)
+        } else {
+            index % 8
+        };
+        let mask = 1 << bit_index;
+        byte & mask == mask
+    }
+    #[inline]
+    pub fn get_bit(&self, index: usize) -> bool {
+        debug_assert!(index / 8 < self.storage.as_ref().len());
+        let byte_index = index / 8;
+        let byte = self.storage.as_ref()[byte_index];
+        Self::extract_bit(byte, index)
+    }
+    #[inline]
+    pub unsafe fn raw_get_bit(this: *const Self, index: usize) -> bool {
+        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
+        let byte_index = index / 8;
+        let byte = unsafe {
+            *(core::ptr::addr_of!((*this).storage) as *const u8).offset(byte_index as isize)
+        };
+        Self::extract_bit(byte, index)
+    }
+    #[inline]
+    fn change_bit(byte: u8, index: usize, val: bool) -> u8 {
+        let bit_index = if cfg!(target_endian = "big") {
+            7 - (index % 8)
+        } else {
+            index % 8
+        };
+        let mask = 1 << bit_index;
+        if val {
+            byte | mask
+        } else {
+            byte & !mask
+        }
+    }
+    #[inline]
+    pub fn set_bit(&mut self, index: usize, val: bool) {
+        debug_assert!(index / 8 < self.storage.as_ref().len());
+        let byte_index = index / 8;
+        let byte = &mut self.storage.as_mut()[byte_index];
+        *byte = Self::change_bit(*byte, index, val);
+    }
+    #[inline]
+    pub unsafe fn raw_set_bit(this: *mut Self, index: usize, val: bool) {
+        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
+        let byte_index = index / 8;
+        let byte = unsafe {
+            (core::ptr::addr_of_mut!((*this).storage) as *mut u8).offset(byte_index as isize)
+        };
+        unsafe { *byte = Self::change_bit(*byte, index, val) };
+    }
+    #[inline]
+    pub fn get(&self, bit_offset: usize, bit_width: u8) -> u64 {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
+        let mut val = 0;
+        for i in 0..(bit_width as usize) {
+            if self.get_bit(i + bit_offset) {
+                let index = if cfg!(target_endian = "big") {
+                    bit_width as usize - 1 - i
+                } else {
+                    i
+                };
+                val |= 1 << index;
+            }
+        }
+        val
+    }
+    #[inline]
+    pub unsafe fn raw_get(this: *const Self, bit_offset: usize, bit_width: u8) -> u64 {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
+        let mut val = 0;
+        for i in 0..(bit_width as usize) {
+            if unsafe { Self::raw_get_bit(this, i + bit_offset) } {
+                let index = if cfg!(target_endian = "big") {
+                    bit_width as usize - 1 - i
+                } else {
+                    i
+                };
+                val |= 1 << index;
+            }
+        }
+        val
+    }
+    #[inline]
+    pub fn set(&mut self, bit_offset: usize, bit_width: u8, val: u64) {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
+        for i in 0..(bit_width as usize) {
+            let mask = 1 << i;
+            let val_bit_is_set = val & mask == mask;
+            let index = if cfg!(target_endian = "big") {
+                bit_width as usize - 1 - i
+            } else {
+                i
+            };
+            self.set_bit(index + bit_offset, val_bit_is_set);
+        }
+    }
+    #[inline]
+    pub unsafe fn raw_set(this: *mut Self, bit_offset: usize, bit_width: u8, val: u64) {
+        debug_assert!(bit_width <= 64);
+        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
+        for i in 0..(bit_width as usize) {
+            let mask = 1 << i;
+            let val_bit_is_set = val & mask == mask;
+            let index = if cfg!(target_endian = "big") {
+                bit_width as usize - 1 - i
+            } else {
+                i
+            };
+            unsafe { Self::raw_set_bit(this, index + bit_offset, val_bit_is_set) };
+        }
+    }
+}
+pub const __MPU_PRESENT: u32 = 1;
+pub const __VTOR_PRESENT: u32 = 1;
+pub const __NVIC_PRIO_BITS: u32 = 4;
+pub const __Vendor_SysTickConfig: u32 = 0;
+pub const __FPU_PRESENT: u32 = 1;
+pub const EFM_BASE: u32 = 0;
+pub const SRAM_BASE: u32 = 536838144;
+pub const QSPI_BASE: u32 = 2550136832;
+pub const CM_ADC1_BASE: u32 = 1074003968;
+pub const CM_ADC2_BASE: u32 = 1074004992;
+pub const CM_AES_BASE: u32 = 1073774592;
+pub const CM_AOS_BASE: u32 = 1073809408;
+pub const CM_CAN_BASE: u32 = 1074201600;
+pub const CM_CMP1_BASE: u32 = 1074044928;
+pub const CM_CMP2_BASE: u32 = 1074044944;
+pub const CM_CMP3_BASE: u32 = 1074044960;
+pub const CM_CMP_COMMON_BASE: u32 = 1074044928;
+pub const CM_CMU_BASE: u32 = 1074085888;
+pub const CM_CRC_BASE: u32 = 1073777664;
+pub const CM_DBGC_BASE: u32 = 3758366720;
+pub const CM_DCU1_BASE: u32 = 1074077696;
+pub const CM_DCU2_BASE: u32 = 1074078720;
+pub const CM_DCU3_BASE: u32 = 1074079744;
+pub const CM_DCU4_BASE: u32 = 1074080768;
+pub const CM_DMA1_BASE: u32 = 1074081792;
+pub const CM_DMA2_BASE: u32 = 1074082816;
+pub const CM_EFM_BASE: u32 = 1073808384;
+pub const CM_EMB0_BASE: u32 = 1073839104;
+pub const CM_EMB1_BASE: u32 = 1073839136;
+pub const CM_EMB2_BASE: u32 = 1073839168;
+pub const CM_EMB3_BASE: u32 = 1073839200;
+pub const CM_FCM_BASE: u32 = 1074037760;
+pub const CM_GPIO_BASE: u32 = 1074083840;
+pub const CM_HASH_BASE: u32 = 1073775616;
+pub const CM_I2C1_BASE: u32 = 1074061312;
+pub const CM_I2C2_BASE: u32 = 1074062336;
+pub const CM_I2C3_BASE: u32 = 1074063360;
+pub const CM_I2S1_BASE: u32 = 1073864704;
+pub const CM_I2S2_BASE: u32 = 1073865728;
+pub const CM_I2S3_BASE: u32 = 1073881088;
+pub const CM_I2S4_BASE: u32 = 1073882112;
+pub const CM_ICG_BASE: u32 = 1024;
+pub const CM_INTC_BASE: u32 = 1074073600;
+pub const CM_KEYSCAN_BASE: u32 = 1074072576;
+pub const CM_MPU_BASE: u32 = 1074069504;
+pub const CM_OTS_BASE: u32 = 1074045952;
+pub const CM_PERIC_BASE: u32 = 1074091008;
+pub const CM_PWC_BASE: u32 = 1074036736;
+pub const CM_QSPI_BASE: u32 = 2617245696;
+pub const CM_RMU_BASE: u32 = 1074086080;
+pub const CM_RTC_BASE: u32 = 1074053120;
+pub const CM_SDIOC1_BASE: u32 = 1074199552;
+pub const CM_SDIOC2_BASE: u32 = 1074200576;
+pub const CM_SPI1_BASE: u32 = 1073856512;
+pub const CM_SPI2_BASE: u32 = 1073857536;
+pub const CM_SPI3_BASE: u32 = 1073872896;
+pub const CM_SPI4_BASE: u32 = 1073873920;
+pub const CM_SRAMC_BASE: u32 = 1074071552;
+pub const CM_SWDT_BASE: u32 = 1074041856;
+pub const CM_TMR0_1_BASE: u32 = 1073889280;
+pub const CM_TMR0_2_BASE: u32 = 1073890304;
+pub const CM_TMR4_1_BASE: u32 = 1073836032;
+pub const CM_TMR4_2_BASE: u32 = 1073891328;
+pub const CM_TMR4_3_BASE: u32 = 1073892352;
+pub const CM_TMR4_ECER_BASE: u32 = 1074091016;
+pub const CM_TMR6_1_BASE: u32 = 1073840128;
+pub const CM_TMR6_2_BASE: u32 = 1073841152;
+pub const CM_TMR6_3_BASE: u32 = 1073842176;
+pub const CM_TMR6_COMMON_BASE: u32 = 1073840896;
+pub const CM_TMRA_1_BASE: u32 = 1073827840;
+pub const CM_TMRA_2_BASE: u32 = 1073828864;
+pub const CM_TMRA_3_BASE: u32 = 1073829888;
+pub const CM_TMRA_4_BASE: u32 = 1073830912;
+pub const CM_TMRA_5_BASE: u32 = 1073831936;
+pub const CM_TMRA_6_BASE: u32 = 1073832960;
+pub const CM_TRNG_BASE: u32 = 1074008064;
+pub const CM_USART1_BASE: u32 = 1073860608;
+pub const CM_USART2_BASE: u32 = 1073861632;
+pub const CM_USART3_BASE: u32 = 1073876992;
+pub const CM_USART4_BASE: u32 = 1073878016;
+pub const CM_USBFS_BASE: u32 = 1074528256;
+pub const CM_WDT_BASE: u32 = 1074040832;
+pub const ADC_STR_STRT: u32 = 1;
+pub const ADC_CR0_MS_POS: u32 = 0;
+pub const ADC_CR0_MS: u32 = 3;
+pub const ADC_CR0_MS_0: u32 = 1;
+pub const ADC_CR0_MS_1: u32 = 2;
+pub const ADC_CR0_ACCSEL_POS: u32 = 4;
+pub const ADC_CR0_ACCSEL: u32 = 48;
+pub const ADC_CR0_ACCSEL_0: u32 = 16;
+pub const ADC_CR0_ACCSEL_1: u32 = 32;
+pub const ADC_CR0_CLREN_POS: u32 = 6;
+pub const ADC_CR0_CLREN: u32 = 64;
+pub const ADC_CR0_DFMT_POS: u32 = 7;
+pub const ADC_CR0_DFMT: u32 = 128;
+pub const ADC_CR0_AVCNT_POS: u32 = 8;
+pub const ADC_CR0_AVCNT: u32 = 1792;
+pub const ADC_CR1_RSCHSEL_POS: u32 = 2;
+pub const ADC_CR1_RSCHSEL: u32 = 4;
+pub const ADC_TRGSR_TRGSELA_POS: u32 = 0;
+pub const ADC_TRGSR_TRGSELA: u32 = 3;
+pub const ADC_TRGSR_TRGSELA_0: u32 = 1;
+pub const ADC_TRGSR_TRGSELA_1: u32 = 2;
+pub const ADC_TRGSR_TRGENA_POS: u32 = 7;
+pub const ADC_TRGSR_TRGENA: u32 = 128;
+pub const ADC_TRGSR_TRGSELB_POS: u32 = 8;
+pub const ADC_TRGSR_TRGSELB: u32 = 768;
+pub const ADC_TRGSR_TRGSELB_0: u32 = 256;
+pub const ADC_TRGSR_TRGSELB_1: u32 = 512;
+pub const ADC_TRGSR_TRGENB_POS: u32 = 15;
+pub const ADC_TRGSR_TRGENB: u32 = 32768;
+pub const ADC_CHSELRA_CHSELA: u32 = 131071;
+pub const ADC_CHSELRB_CHSELB: u32 = 131071;
+pub const ADC_AVCHSELR_AVCHSEL: u32 = 131071;
+pub const ADC_SSTR0: u32 = 255;
+pub const ADC_SSTR1: u32 = 255;
+pub const ADC_SSTR2: u32 = 255;
+pub const ADC_SSTR3: u32 = 255;
+pub const ADC_SSTR4: u32 = 255;
+pub const ADC_SSTR5: u32 = 255;
+pub const ADC_SSTR6: u32 = 255;
+pub const ADC_SSTR7: u32 = 255;
+pub const ADC_SSTR8: u32 = 255;
+pub const ADC_SSTR9: u32 = 255;
+pub const ADC_SSTR10: u32 = 255;
+pub const ADC_SSTR11: u32 = 255;
+pub const ADC_SSTR12: u32 = 255;
+pub const ADC_SSTR13: u32 = 255;
+pub const ADC_SSTR14: u32 = 255;
+pub const ADC_SSTR15: u32 = 255;
+pub const ADC_SSTRL: u32 = 255;
+pub const ADC_CHMUXR0_CH00MUX_POS: u32 = 0;
+pub const ADC_CHMUXR0_CH00MUX: u32 = 15;
+pub const ADC_CHMUXR0_CH01MUX_POS: u32 = 4;
+pub const ADC_CHMUXR0_CH01MUX: u32 = 240;
+pub const ADC_CHMUXR0_CH02MUX_POS: u32 = 8;
+pub const ADC_CHMUXR0_CH02MUX: u32 = 3840;
+pub const ADC_CHMUXR0_CH03MUX_POS: u32 = 12;
+pub const ADC_CHMUXR0_CH03MUX: u32 = 61440;
+pub const ADC_CHMUXR1_CH04MUX_POS: u32 = 0;
+pub const ADC_CHMUXR1_CH04MUX: u32 = 15;
+pub const ADC_CHMUXR1_CH05MUX_POS: u32 = 4;
+pub const ADC_CHMUXR1_CH05MUX: u32 = 240;
+pub const ADC_CHMUXR1_CH06MUX_POS: u32 = 8;
+pub const ADC_CHMUXR1_CH06MUX: u32 = 3840;
+pub const ADC_CHMUXR1_CH07MUX_POS: u32 = 12;
+pub const ADC_CHMUXR1_CH07MUX: u32 = 61440;
+pub const ADC_CHMUXR2_CH08MUX_POS: u32 = 0;
+pub const ADC_CHMUXR2_CH08MUX: u32 = 15;
+pub const ADC_CHMUXR2_CH09MUX_POS: u32 = 4;
+pub const ADC_CHMUXR2_CH09MUX: u32 = 240;
+pub const ADC_CHMUXR2_CH10MUX_POS: u32 = 8;
+pub const ADC_CHMUXR2_CH10MUX: u32 = 3840;
+pub const ADC_CHMUXR2_CH11MUX_POS: u32 = 12;
+pub const ADC_CHMUXR2_CH11MUX: u32 = 61440;
+pub const ADC_CHMUXR3_CH12MUX_POS: u32 = 0;
+pub const ADC_CHMUXR3_CH12MUX: u32 = 15;
+pub const ADC_CHMUXR3_CH13MUX_POS: u32 = 4;
+pub const ADC_CHMUXR3_CH13MUX: u32 = 240;
+pub const ADC_CHMUXR3_CH14MUX_POS: u32 = 8;
+pub const ADC_CHMUXR3_CH14MUX: u32 = 3840;
+pub const ADC_CHMUXR3_CH15MUX_POS: u32 = 12;
+pub const ADC_CHMUXR3_CH15MUX: u32 = 61440;
+pub const ADC_ISR_EOCAF_POS: u32 = 0;
+pub const ADC_ISR_EOCAF: u32 = 1;
+pub const ADC_ISR_EOCBF_POS: u32 = 1;
+pub const ADC_ISR_EOCBF: u32 = 2;
+pub const ADC_ICR_EOCAIEN_POS: u32 = 0;
+pub const ADC_ICR_EOCAIEN: u32 = 1;
+pub const ADC_ICR_EOCBIEN_POS: u32 = 1;
+pub const ADC_ICR_EOCBIEN: u32 = 2;
+pub const ADC_SYNCCR_SYNCEN_POS: u32 = 0;
+pub const ADC_SYNCCR_SYNCEN: u32 = 1;
+pub const ADC_SYNCCR_SYNCMD_POS: u32 = 4;
+pub const ADC_SYNCCR_SYNCMD: u32 = 112;
+pub const ADC_SYNCCR_SYNCDLY_POS: u32 = 8;
+pub const ADC_SYNCCR_SYNCDLY: u32 = 65280;
+pub const ADC_DR0: u32 = 65535;
+pub const ADC_DR1: u32 = 65535;
+pub const ADC_DR2: u32 = 65535;
+pub const ADC_DR3: u32 = 65535;
+pub const ADC_DR4: u32 = 65535;
+pub const ADC_DR5: u32 = 65535;
+pub const ADC_DR6: u32 = 65535;
+pub const ADC_DR7: u32 = 65535;
+pub const ADC_DR8: u32 = 65535;
+pub const ADC_DR9: u32 = 65535;
+pub const ADC_DR10: u32 = 65535;
+pub const ADC_DR11: u32 = 65535;
+pub const ADC_DR12: u32 = 65535;
+pub const ADC_DR13: u32 = 65535;
+pub const ADC_DR14: u32 = 65535;
+pub const ADC_DR15: u32 = 65535;
+pub const ADC_DR16: u32 = 65535;
+pub const ADC_AWDCR_AWDEN_POS: u32 = 0;
+pub const ADC_AWDCR_AWDEN: u32 = 1;
+pub const ADC_AWDCR_AWDMD_POS: u32 = 4;
+pub const ADC_AWDCR_AWDMD: u32 = 16;
+pub const ADC_AWDCR_AWDSS_POS: u32 = 6;
+pub const ADC_AWDCR_AWDSS: u32 = 192;
+pub const ADC_AWDCR_AWDSS_0: u32 = 64;
+pub const ADC_AWDCR_AWDSS_1: u32 = 128;
+pub const ADC_AWDCR_AWDIEN_POS: u32 = 8;
+pub const ADC_AWDCR_AWDIEN: u32 = 256;
+pub const ADC_AWDDR0: u32 = 65535;
+pub const ADC_AWDDR1: u32 = 65535;
+pub const ADC_AWDCHSR_AWDCH: u32 = 131071;
+pub const ADC_AWDSR_AWDF: u32 = 131071;
+pub const ADC_PGACR_PGACTL: u32 = 15;
+pub const ADC_PGAGSR_GAIN: u32 = 15;
+pub const ADC_PGAINSR0_PGAINSEL: u32 = 511;
+pub const ADC_PGAINSR0_PGAINSEL_0: u32 = 1;
+pub const ADC_PGAINSR0_PGAINSEL_1: u32 = 2;
+pub const ADC_PGAINSR0_PGAINSEL_2: u32 = 4;
+pub const ADC_PGAINSR0_PGAINSEL_3: u32 = 8;
+pub const ADC_PGAINSR0_PGAINSEL_4: u32 = 16;
+pub const ADC_PGAINSR0_PGAINSEL_5: u32 = 32;
+pub const ADC_PGAINSR0_PGAINSEL_6: u32 = 64;
+pub const ADC_PGAINSR0_PGAINSEL_7: u32 = 128;
+pub const ADC_PGAINSR0_PGAINSEL_8: u32 = 256;
+pub const ADC_PGAINSR1_PGAVSSEN: u32 = 1;
+pub const AES_CR_START_POS: u32 = 0;
+pub const AES_CR_START: u32 = 1;
+pub const AES_CR_MODE_POS: u32 = 1;
+pub const AES_CR_MODE: u32 = 2;
+pub const AES_DR0: u32 = 4294967295;
+pub const AES_DR1: u32 = 4294967295;
+pub const AES_DR2: u32 = 4294967295;
+pub const AES_DR3: u32 = 4294967295;
+pub const AES_KR0: u32 = 4294967295;
+pub const AES_KR1: u32 = 4294967295;
+pub const AES_KR2: u32 = 4294967295;
+pub const AES_KR3: u32 = 4294967295;
+pub const AOS_INTSFTTRG_STRG: u32 = 1;
+pub const AOS_DCU_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_DCU_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_DCU_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_DCU_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_DCU_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_DCU_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_DMA1_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_DMA1_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_DMA1_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_DMA1_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_DMA1_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_DMA1_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_DMA2_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_DMA2_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_DMA2_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_DMA2_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_DMA2_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_DMA2_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_DMA_RC_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_DMA_RC_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_DMA_RC_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_DMA_RC_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_DMA_RC_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_DMA_RC_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_TMR6_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_TMR6_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_TMR6_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_TMR6_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_TMR6_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_TMR6_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_TMR0_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_TMR0_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_TMR0_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_TMR0_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_TMR0_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_TMR0_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_PEVNT_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_PEVNT_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_PEVNT_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_PEVNT_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_PEVNT_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_PEVNT_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_TMRA_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_TMRA_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_TMRA_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_TMRA_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_TMRA_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_TMRA_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_OTS_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_OTS_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_OTS_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_OTS_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_OTS_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_OTS_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_ADC1_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_ADC1_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_ADC1_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_ADC1_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_ADC1_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_ADC1_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_ADC2_TRGSEL_TRGSEL_POS: u32 = 0;
+pub const AOS_ADC2_TRGSEL_TRGSEL: u32 = 511;
+pub const AOS_ADC2_TRGSEL_COMEN_POS: u32 = 30;
+pub const AOS_ADC2_TRGSEL_COMEN: u32 = 3221225472;
+pub const AOS_ADC2_TRGSEL_COMEN_0: u32 = 1073741824;
+pub const AOS_ADC2_TRGSEL_COMEN_1: u32 = 2147483648;
+pub const AOS_COMTRG1_COMTRG: u32 = 511;
+pub const AOS_COMTRG2_COMTRG: u32 = 511;
+pub const AOS_PEVNTDIRR_PDIR: u32 = 65535;
+pub const AOS_PEVNTIDR_PIN: u32 = 65535;
+pub const AOS_PEVNTODR_POUT: u32 = 65535;
+pub const AOS_PEVNTORR_POR: u32 = 65535;
+pub const AOS_PEVNTOSR_POS: u32 = 65535;
+pub const AOS_PEVNTRISR_RIS: u32 = 65535;
+pub const AOS_PEVNTFALR_FAL: u32 = 65535;
+pub const AOS_PEVNTNFCR_NFEN1_POS: u32 = 0;
+pub const AOS_PEVNTNFCR_NFEN1: u32 = 1;
+pub const AOS_PEVNTNFCR_DIVS1_POS: u32 = 1;
+pub const AOS_PEVNTNFCR_DIVS1: u32 = 6;
+pub const AOS_PEVNTNFCR_NFEN2_POS: u32 = 8;
+pub const AOS_PEVNTNFCR_NFEN2: u32 = 256;
+pub const AOS_PEVNTNFCR_DIVS2_POS: u32 = 9;
+pub const AOS_PEVNTNFCR_DIVS2: u32 = 1536;
+pub const AOS_PEVNTNFCR_NFEN3_POS: u32 = 16;
+pub const AOS_PEVNTNFCR_NFEN3: u32 = 65536;
+pub const AOS_PEVNTNFCR_DIVS3_POS: u32 = 17;
+pub const AOS_PEVNTNFCR_DIVS3: u32 = 393216;
+pub const AOS_PEVNTNFCR_NFEN4_POS: u32 = 24;
+pub const AOS_PEVNTNFCR_NFEN4: u32 = 16777216;
+pub const AOS_PEVNTNFCR_DIVS4_POS: u32 = 25;
+pub const AOS_PEVNTNFCR_DIVS4: u32 = 100663296;
+pub const CAN_RBUF: u32 = 4294967295;
+pub const CAN_TBUF: u32 = 4294967295;
+pub const CAN_CFG_STAT_BUSOFF_POS: u32 = 0;
+pub const CAN_CFG_STAT_BUSOFF: u32 = 1;
+pub const CAN_CFG_STAT_TACTIVE_POS: u32 = 1;
+pub const CAN_CFG_STAT_TACTIVE: u32 = 2;
+pub const CAN_CFG_STAT_RACTIVE_POS: u32 = 2;
+pub const CAN_CFG_STAT_RACTIVE: u32 = 4;
+pub const CAN_CFG_STAT_TSSS_POS: u32 = 3;
+pub const CAN_CFG_STAT_TSSS: u32 = 8;
+pub const CAN_CFG_STAT_TPSS_POS: u32 = 4;
+pub const CAN_CFG_STAT_TPSS: u32 = 16;
+pub const CAN_CFG_STAT_LBMI_POS: u32 = 5;
+pub const CAN_CFG_STAT_LBMI: u32 = 32;
+pub const CAN_CFG_STAT_LBME_POS: u32 = 6;
+pub const CAN_CFG_STAT_LBME: u32 = 64;
+pub const CAN_CFG_STAT_RESET_POS: u32 = 7;
+pub const CAN_CFG_STAT_RESET: u32 = 128;
+pub const CAN_TCMD_TSA_POS: u32 = 0;
+pub const CAN_TCMD_TSA: u32 = 1;
+pub const CAN_TCMD_TSALL_POS: u32 = 1;
+pub const CAN_TCMD_TSALL: u32 = 2;
+pub const CAN_TCMD_TSONE_POS: u32 = 2;
+pub const CAN_TCMD_TSONE: u32 = 4;
+pub const CAN_TCMD_TPA_POS: u32 = 3;
+pub const CAN_TCMD_TPA: u32 = 8;
+pub const CAN_TCMD_TPE_POS: u32 = 4;
+pub const CAN_TCMD_TPE: u32 = 16;
+pub const CAN_TCMD_LOM_POS: u32 = 6;
+pub const CAN_TCMD_LOM: u32 = 64;
+pub const CAN_TCMD_TBSEL_POS: u32 = 7;
+pub const CAN_TCMD_TBSEL: u32 = 128;
+pub const CAN_TCTRL_TSSTAT_POS: u32 = 0;
+pub const CAN_TCTRL_TSSTAT: u32 = 3;
+pub const CAN_TCTRL_TSSTAT_0: u32 = 1;
+pub const CAN_TCTRL_TSSTAT_1: u32 = 2;
+pub const CAN_TCTRL_TTTBM_POS: u32 = 4;
+pub const CAN_TCTRL_TTTBM: u32 = 16;
+pub const CAN_TCTRL_TSMODE_POS: u32 = 5;
+pub const CAN_TCTRL_TSMODE: u32 = 32;
+pub const CAN_TCTRL_TSNEXT_POS: u32 = 6;
+pub const CAN_TCTRL_TSNEXT: u32 = 64;
+pub const CAN_RCTRL_RSTAT_POS: u32 = 0;
+pub const CAN_RCTRL_RSTAT: u32 = 3;
+pub const CAN_RCTRL_RSTAT_0: u32 = 1;
+pub const CAN_RCTRL_RSTAT_1: u32 = 2;
+pub const CAN_RCTRL_RBALL_POS: u32 = 3;
+pub const CAN_RCTRL_RBALL: u32 = 8;
+pub const CAN_RCTRL_RREL_POS: u32 = 4;
+pub const CAN_RCTRL_RREL: u32 = 16;
+pub const CAN_RCTRL_ROV_POS: u32 = 5;
+pub const CAN_RCTRL_ROV: u32 = 32;
+pub const CAN_RCTRL_ROM_POS: u32 = 6;
+pub const CAN_RCTRL_ROM: u32 = 64;
+pub const CAN_RCTRL_SACK_POS: u32 = 7;
+pub const CAN_RCTRL_SACK: u32 = 128;
+pub const CAN_RTIE_TSFF_POS: u32 = 0;
+pub const CAN_RTIE_TSFF: u32 = 1;
+pub const CAN_RTIE_EIE_POS: u32 = 1;
+pub const CAN_RTIE_EIE: u32 = 2;
+pub const CAN_RTIE_TSIE_POS: u32 = 2;
+pub const CAN_RTIE_TSIE: u32 = 4;
+pub const CAN_RTIE_TPIE_POS: u32 = 3;
+pub const CAN_RTIE_TPIE: u32 = 8;
+pub const CAN_RTIE_RAFIE_POS: u32 = 4;
+pub const CAN_RTIE_RAFIE: u32 = 16;
+pub const CAN_RTIE_RFIE_POS: u32 = 5;
+pub const CAN_RTIE_RFIE: u32 = 32;
+pub const CAN_RTIE_ROIE_POS: u32 = 6;
+pub const CAN_RTIE_ROIE: u32 = 64;
+pub const CAN_RTIE_RIE_POS: u32 = 7;
+pub const CAN_RTIE_RIE: u32 = 128;
+pub const CAN_RTIF_AIF_POS: u32 = 0;
+pub const CAN_RTIF_AIF: u32 = 1;
+pub const CAN_RTIF_EIF_POS: u32 = 1;
+pub const CAN_RTIF_EIF: u32 = 2;
+pub const CAN_RTIF_TSIF_POS: u32 = 2;
+pub const CAN_RTIF_TSIF: u32 = 4;
+pub const CAN_RTIF_TPIF_POS: u32 = 3;
+pub const CAN_RTIF_TPIF: u32 = 8;
+pub const CAN_RTIF_RAFIF_POS: u32 = 4;
+pub const CAN_RTIF_RAFIF: u32 = 16;
+pub const CAN_RTIF_RFIF_POS: u32 = 5;
+pub const CAN_RTIF_RFIF: u32 = 32;
+pub const CAN_RTIF_ROIF_POS: u32 = 6;
+pub const CAN_RTIF_ROIF: u32 = 64;
+pub const CAN_RTIF_RIF_POS: u32 = 7;
+pub const CAN_RTIF_RIF: u32 = 128;
+pub const CAN_ERRINT_BEIF_POS: u32 = 0;
+pub const CAN_ERRINT_BEIF: u32 = 1;
+pub const CAN_ERRINT_BEIE_POS: u32 = 1;
+pub const CAN_ERRINT_BEIE: u32 = 2;
+pub const CAN_ERRINT_ALIF_POS: u32 = 2;
+pub const CAN_ERRINT_ALIF: u32 = 4;
+pub const CAN_ERRINT_ALIE_POS: u32 = 3;
+pub const CAN_ERRINT_ALIE: u32 = 8;
+pub const CAN_ERRINT_EPIF_POS: u32 = 4;
+pub const CAN_ERRINT_EPIF: u32 = 16;
+pub const CAN_ERRINT_EPIE_POS: u32 = 5;
+pub const CAN_ERRINT_EPIE: u32 = 32;
+pub const CAN_ERRINT_EPASS_POS: u32 = 6;
+pub const CAN_ERRINT_EPASS: u32 = 64;
+pub const CAN_ERRINT_EWARN_POS: u32 = 7;
+pub const CAN_ERRINT_EWARN: u32 = 128;
+pub const CAN_LIMIT_EWL_POS: u32 = 0;
+pub const CAN_LIMIT_EWL: u32 = 15;
+pub const CAN_LIMIT_AFWL_POS: u32 = 4;
+pub const CAN_LIMIT_AFWL: u32 = 240;
+pub const CAN_SBT_S_SEG_1_POS: u32 = 0;
+pub const CAN_SBT_S_SEG_1: u32 = 255;
+pub const CAN_SBT_S_SEG_2_POS: u32 = 8;
+pub const CAN_SBT_S_SEG_2: u32 = 32512;
+pub const CAN_SBT_S_SJW_POS: u32 = 16;
+pub const CAN_SBT_S_SJW: u32 = 8323072;
+pub const CAN_SBT_S_PRESC_POS: u32 = 24;
+pub const CAN_SBT_S_PRESC: u32 = 4278190080;
+pub const CAN_EALCAP_ALC_POS: u32 = 0;
+pub const CAN_EALCAP_ALC: u32 = 31;
+pub const CAN_EALCAP_KOER_POS: u32 = 5;
+pub const CAN_EALCAP_KOER: u32 = 224;
+pub const CAN_RECNT: u32 = 255;
+pub const CAN_TECNT: u32 = 255;
+pub const CAN_ACFCTRL_ACFADR_POS: u32 = 0;
+pub const CAN_ACFCTRL_ACFADR: u32 = 15;
+pub const CAN_ACFCTRL_SELMASK_POS: u32 = 5;
+pub const CAN_ACFCTRL_SELMASK: u32 = 32;
+pub const CAN_ACFEN_AE_1_POS: u32 = 0;
+pub const CAN_ACFEN_AE_1: u32 = 1;
+pub const CAN_ACFEN_AE_2_POS: u32 = 1;
+pub const CAN_ACFEN_AE_2: u32 = 2;
+pub const CAN_ACFEN_AE_3_POS: u32 = 2;
+pub const CAN_ACFEN_AE_3: u32 = 4;
+pub const CAN_ACFEN_AE_4_POS: u32 = 3;
+pub const CAN_ACFEN_AE_4: u32 = 8;
+pub const CAN_ACFEN_AE_5_POS: u32 = 4;
+pub const CAN_ACFEN_AE_5: u32 = 16;
+pub const CAN_ACFEN_AE_6_POS: u32 = 5;
+pub const CAN_ACFEN_AE_6: u32 = 32;
+pub const CAN_ACFEN_AE_7_POS: u32 = 6;
+pub const CAN_ACFEN_AE_7: u32 = 64;
+pub const CAN_ACFEN_AE_8_POS: u32 = 7;
+pub const CAN_ACFEN_AE_8: u32 = 128;
+pub const CAN_ACF_ACODEORAMASK_POS: u32 = 0;
+pub const CAN_ACF_ACODEORAMASK: u32 = 536870911;
+pub const CAN_ACF_AIDE_POS: u32 = 29;
+pub const CAN_ACF_AIDE: u32 = 536870912;
+pub const CAN_ACF_AIDEE_POS: u32 = 30;
+pub const CAN_ACF_AIDEE: u32 = 1073741824;
+pub const CAN_TBSLOT_TBPTR_POS: u32 = 0;
+pub const CAN_TBSLOT_TBPTR: u32 = 63;
+pub const CAN_TBSLOT_TBF_POS: u32 = 6;
+pub const CAN_TBSLOT_TBF: u32 = 64;
+pub const CAN_TBSLOT_TBE_POS: u32 = 7;
+pub const CAN_TBSLOT_TBE: u32 = 128;
+pub const CAN_TTCFG_TTEN_POS: u32 = 0;
+pub const CAN_TTCFG_TTEN: u32 = 1;
+pub const CAN_TTCFG_T_PRESC_POS: u32 = 1;
+pub const CAN_TTCFG_T_PRESC: u32 = 6;
+pub const CAN_TTCFG_T_PRESC_0: u32 = 2;
+pub const CAN_TTCFG_T_PRESC_1: u32 = 4;
+pub const CAN_TTCFG_TTIF_POS: u32 = 3;
+pub const CAN_TTCFG_TTIF: u32 = 8;
+pub const CAN_TTCFG_TTIE_POS: u32 = 4;
+pub const CAN_TTCFG_TTIE: u32 = 16;
+pub const CAN_TTCFG_TEIF_POS: u32 = 5;
+pub const CAN_TTCFG_TEIF: u32 = 32;
+pub const CAN_TTCFG_WTIF_POS: u32 = 6;
+pub const CAN_TTCFG_WTIF: u32 = 64;
+pub const CAN_TTCFG_WTIE_POS: u32 = 7;
+pub const CAN_TTCFG_WTIE: u32 = 128;
+pub const CAN_REF_MSG_REF_ID_POS: u32 = 0;
+pub const CAN_REF_MSG_REF_ID: u32 = 536870911;
+pub const CAN_REF_MSG_REF_IDE_POS: u32 = 31;
+pub const CAN_REF_MSG_REF_IDE: u32 = 2147483648;
+pub const CAN_TRG_CFG_TTPTR_POS: u32 = 0;
+pub const CAN_TRG_CFG_TTPTR: u32 = 63;
+pub const CAN_TRG_CFG_TTYPE_POS: u32 = 8;
+pub const CAN_TRG_CFG_TTYPE: u32 = 1792;
+pub const CAN_TRG_CFG_TTYPE_0: u32 = 256;
+pub const CAN_TRG_CFG_TTYPE_1: u32 = 512;
+pub const CAN_TRG_CFG_TTYPE_2: u32 = 1024;
+pub const CAN_TRG_CFG_TEW_POS: u32 = 12;
+pub const CAN_TRG_CFG_TEW: u32 = 61440;
+pub const CAN_TT_TRIG: u32 = 65535;
+pub const CAN_TT_WTRIG: u32 = 65535;
+pub const CMP_CTRL_FLTSL_POS: u32 = 0;
+pub const CMP_CTRL_FLTSL: u32 = 7;
+pub const CMP_CTRL_EDGSL_POS: u32 = 5;
+pub const CMP_CTRL_EDGSL: u32 = 96;
+pub const CMP_CTRL_EDGSL_0: u32 = 32;
+pub const CMP_CTRL_EDGSL_1: u32 = 64;
+pub const CMP_CTRL_IEN_POS: u32 = 7;
+pub const CMP_CTRL_IEN: u32 = 128;
+pub const CMP_CTRL_CVSEN_POS: u32 = 8;
+pub const CMP_CTRL_CVSEN: u32 = 256;
+pub const CMP_CTRL_OUTEN_POS: u32 = 12;
+pub const CMP_CTRL_OUTEN: u32 = 4096;
+pub const CMP_CTRL_INV_POS: u32 = 13;
+pub const CMP_CTRL_INV: u32 = 8192;
+pub const CMP_CTRL_CMPOE_POS: u32 = 14;
+pub const CMP_CTRL_CMPOE: u32 = 16384;
+pub const CMP_CTRL_CMPON_POS: u32 = 15;
+pub const CMP_CTRL_CMPON: u32 = 32768;
+pub const CMP_VLTSEL_RVSL_POS: u32 = 0;
+pub const CMP_VLTSEL_RVSL: u32 = 15;
+pub const CMP_VLTSEL_RVSL_0: u32 = 1;
+pub const CMP_VLTSEL_RVSL_1: u32 = 2;
+pub const CMP_VLTSEL_RVSL_2: u32 = 4;
+pub const CMP_VLTSEL_RVSL_3: u32 = 8;
+pub const CMP_VLTSEL_CVSL_POS: u32 = 8;
+pub const CMP_VLTSEL_CVSL: u32 = 3840;
+pub const CMP_VLTSEL_CVSL_0: u32 = 256;
+pub const CMP_VLTSEL_CVSL_1: u32 = 512;
+pub const CMP_VLTSEL_CVSL_2: u32 = 1024;
+pub const CMP_VLTSEL_CVSL_3: u32 = 2048;
+pub const CMP_VLTSEL_C4SL_POS: u32 = 12;
+pub const CMP_VLTSEL_C4SL: u32 = 28672;
+pub const CMP_VLTSEL_C4SL_0: u32 = 4096;
+pub const CMP_VLTSEL_C4SL_1: u32 = 8192;
+pub const CMP_VLTSEL_C4SL_2: u32 = 16384;
+pub const CMP_OUTMON_OMON_POS: u32 = 0;
+pub const CMP_OUTMON_OMON: u32 = 1;
+pub const CMP_OUTMON_CVST_POS: u32 = 8;
+pub const CMP_OUTMON_CVST: u32 = 3840;
+pub const CMP_CVSSTB_STB: u32 = 15;
+pub const CMP_CVSPRD_PRD: u32 = 255;
+pub const CMP_COMMON_DADR1_DATA: u32 = 255;
+pub const CMP_COMMON_DADR2_DATA: u32 = 255;
+pub const CMP_COMMON_DACR_DA1EN_POS: u32 = 0;
+pub const CMP_COMMON_DACR_DA1EN: u32 = 1;
+pub const CMP_COMMON_DACR_DA2EN_POS: u32 = 1;
+pub const CMP_COMMON_DACR_DA2EN: u32 = 2;
+pub const CMP_COMMON_RVADC_DA1SW_POS: u32 = 0;
+pub const CMP_COMMON_RVADC_DA1SW: u32 = 1;
+pub const CMP_COMMON_RVADC_DA2SW_POS: u32 = 1;
+pub const CMP_COMMON_RVADC_DA2SW: u32 = 2;
+pub const CMP_COMMON_RVADC_VREFSW_POS: u32 = 4;
+pub const CMP_COMMON_RVADC_VREFSW: u32 = 16;
+pub const CMP_COMMON_RVADC_WPRT_POS: u32 = 8;
+pub const CMP_COMMON_RVADC_WPRT: u32 = 65280;
+pub const CMU_PERICKSEL_PERICKSEL: u32 = 15;
+pub const CMU_I2SCKSEL_I2S1CKSEL_POS: u32 = 0;
+pub const CMU_I2SCKSEL_I2S1CKSEL: u32 = 15;
+pub const CMU_I2SCKSEL_I2S2CKSEL_POS: u32 = 4;
+pub const CMU_I2SCKSEL_I2S2CKSEL: u32 = 240;
+pub const CMU_I2SCKSEL_I2S3CKSEL_POS: u32 = 8;
+pub const CMU_I2SCKSEL_I2S3CKSEL: u32 = 3840;
+pub const CMU_I2SCKSEL_I2S4CKSEL_POS: u32 = 12;
+pub const CMU_I2SCKSEL_I2S4CKSEL: u32 = 61440;
+pub const CMU_SCFGR_PCLK0S_POS: u32 = 0;
+pub const CMU_SCFGR_PCLK0S: u32 = 7;
+pub const CMU_SCFGR_PCLK1S_POS: u32 = 4;
+pub const CMU_SCFGR_PCLK1S: u32 = 112;
+pub const CMU_SCFGR_PCLK2S_POS: u32 = 8;
+pub const CMU_SCFGR_PCLK2S: u32 = 1792;
+pub const CMU_SCFGR_PCLK3S_POS: u32 = 12;
+pub const CMU_SCFGR_PCLK3S: u32 = 28672;
+pub const CMU_SCFGR_PCLK4S_POS: u32 = 16;
+pub const CMU_SCFGR_PCLK4S: u32 = 458752;
+pub const CMU_SCFGR_EXCKS_POS: u32 = 20;
+pub const CMU_SCFGR_EXCKS: u32 = 7340032;
+pub const CMU_SCFGR_HCLKS_POS: u32 = 24;
+pub const CMU_SCFGR_HCLKS: u32 = 117440512;
+pub const CMU_USBCKCFGR_USBCKS_POS: u32 = 4;
+pub const CMU_USBCKCFGR_USBCKS: u32 = 240;
+pub const CMU_CKSWR_CKSW: u32 = 7;
+pub const CMU_PLLCR_MPLLOFF: u32 = 1;
+pub const CMU_UPLLCR_UPLLOFF: u32 = 1;
+pub const CMU_XTALCR_XTALSTP: u32 = 1;
+pub const CMU_HRCCR_HRCSTP: u32 = 1;
+pub const CMU_MRCCR_MRCSTP: u32 = 1;
+pub const CMU_OSCSTBSR_HRCSTBF_POS: u32 = 0;
+pub const CMU_OSCSTBSR_HRCSTBF: u32 = 1;
+pub const CMU_OSCSTBSR_XTALSTBF_POS: u32 = 3;
+pub const CMU_OSCSTBSR_XTALSTBF: u32 = 8;
+pub const CMU_OSCSTBSR_MPLLSTBF_POS: u32 = 5;
+pub const CMU_OSCSTBSR_MPLLSTBF: u32 = 32;
+pub const CMU_OSCSTBSR_UPLLSTBF_POS: u32 = 6;
+pub const CMU_OSCSTBSR_UPLLSTBF: u32 = 64;
+pub const CMU_MCOCFGR_MCOSEL_POS: u32 = 0;
+pub const CMU_MCOCFGR_MCOSEL: u32 = 15;
+pub const CMU_MCOCFGR_MCODIV_POS: u32 = 4;
+pub const CMU_MCOCFGR_MCODIV: u32 = 112;
+pub const CMU_MCOCFGR_MCOEN_POS: u32 = 7;
+pub const CMU_MCOCFGR_MCOEN: u32 = 128;
+pub const CMU_TPIUCKCFGR_TPIUCKS_POS: u32 = 0;
+pub const CMU_TPIUCKCFGR_TPIUCKS: u32 = 3;
+pub const CMU_TPIUCKCFGR_TPIUCKS_0: u32 = 1;
+pub const CMU_TPIUCKCFGR_TPIUCKS_1: u32 = 2;
+pub const CMU_TPIUCKCFGR_TPIUCKOE_POS: u32 = 7;
+pub const CMU_TPIUCKCFGR_TPIUCKOE: u32 = 128;
+pub const CMU_XTALSTDCR_XTALSTDIE_POS: u32 = 0;
+pub const CMU_XTALSTDCR_XTALSTDIE: u32 = 1;
+pub const CMU_XTALSTDCR_XTALSTDRE_POS: u32 = 1;
+pub const CMU_XTALSTDCR_XTALSTDRE: u32 = 2;
+pub const CMU_XTALSTDCR_XTALSTDRIS_POS: u32 = 2;
+pub const CMU_XTALSTDCR_XTALSTDRIS: u32 = 4;
+pub const CMU_XTALSTDCR_XTALSTDE_POS: u32 = 7;
+pub const CMU_XTALSTDCR_XTALSTDE: u32 = 128;
+pub const CMU_XTALSTDSR_XTALSTDF: u32 = 1;
+pub const CMU_MRCTRM: u32 = 255;
+pub const CMU_HRCTRM: u32 = 255;
+pub const CMU_XTALSTBCR_XTALSTB: u32 = 15;
+pub const CMU_XTALSTBCR_XTALSTB_0: u32 = 1;
+pub const CMU_XTALSTBCR_XTALSTB_1: u32 = 2;
+pub const CMU_XTALSTBCR_XTALSTB_2: u32 = 4;
+pub const CMU_XTALSTBCR_XTALSTB_3: u32 = 8;
+pub const CMU_PLLCFGR_MPLLM_POS: u32 = 0;
+pub const CMU_PLLCFGR_MPLLM: u32 = 31;
+pub const CMU_PLLCFGR_PLLSRC_POS: u32 = 7;
+pub const CMU_PLLCFGR_PLLSRC: u32 = 128;
+pub const CMU_PLLCFGR_MPLLN_POS: u32 = 8;
+pub const CMU_PLLCFGR_MPLLN: u32 = 130816;
+pub const CMU_PLLCFGR_MPLLR_POS: u32 = 20;
+pub const CMU_PLLCFGR_MPLLR: u32 = 15728640;
+pub const CMU_PLLCFGR_MPLLQ_POS: u32 = 24;
+pub const CMU_PLLCFGR_MPLLQ: u32 = 251658240;
+pub const CMU_PLLCFGR_MPLLP_POS: u32 = 28;
+pub const CMU_PLLCFGR_MPLLP: u32 = 4026531840;
+pub const CMU_UPLLCFGR_UPLLM_POS: u32 = 0;
+pub const CMU_UPLLCFGR_UPLLM: u32 = 31;
+pub const CMU_UPLLCFGR_UPLLN_POS: u32 = 8;
+pub const CMU_UPLLCFGR_UPLLN: u32 = 130816;
+pub const CMU_UPLLCFGR_UPLLR_POS: u32 = 20;
+pub const CMU_UPLLCFGR_UPLLR: u32 = 15728640;
+pub const CMU_UPLLCFGR_UPLLQ_POS: u32 = 24;
+pub const CMU_UPLLCFGR_UPLLQ: u32 = 251658240;
+pub const CMU_UPLLCFGR_UPLLP_POS: u32 = 28;
+pub const CMU_UPLLCFGR_UPLLP: u32 = 4026531840;
+pub const CMU_XTALCFGR_XTALDRV_POS: u32 = 4;
+pub const CMU_XTALCFGR_XTALDRV: u32 = 48;
+pub const CMU_XTALCFGR_XTALDRV_0: u32 = 16;
+pub const CMU_XTALCFGR_XTALDRV_1: u32 = 32;
+pub const CMU_XTALCFGR_XTALMS_POS: u32 = 6;
+pub const CMU_XTALCFGR_XTALMS: u32 = 64;
+pub const CMU_XTALCFGR_SUPDRV_POS: u32 = 7;
+pub const CMU_XTALCFGR_SUPDRV: u32 = 128;
+pub const CMU_XTAL32CR_XTAL32STP: u32 = 1;
+pub const CMU_XTAL32CFGR_XTAL32DRV: u32 = 7;
+pub const CMU_XTAL32CFGR_XTAL32DRV_0: u32 = 1;
+pub const CMU_XTAL32CFGR_XTAL32DRV_1: u32 = 2;
+pub const CMU_XTAL32CFGR_XTAL32DRV_2: u32 = 4;
+pub const CMU_XTAL32NFR_XTAL32NF: u32 = 3;
+pub const CMU_XTAL32NFR_XTAL32NF_0: u32 = 1;
+pub const CMU_XTAL32NFR_XTAL32NF_1: u32 = 2;
+pub const CMU_LRCCR_LRCSTP: u32 = 1;
+pub const CMU_LRCTRM: u32 = 255;
+pub const CRC_CR_CR_POS: u32 = 1;
+pub const CRC_CR_CR: u32 = 2;
+pub const CRC_CR_REFIN_POS: u32 = 2;
+pub const CRC_CR_REFIN: u32 = 4;
+pub const CRC_CR_REFOUT_POS: u32 = 3;
+pub const CRC_CR_REFOUT: u32 = 8;
+pub const CRC_CR_XOROUT_POS: u32 = 4;
+pub const CRC_CR_XOROUT: u32 = 16;
+pub const CRC_RESLT_CRC_REG_POS: u32 = 0;
+pub const CRC_RESLT_CRC_REG: u32 = 65535;
+pub const CRC_RESLT_CRCFLAG_16_POS: u32 = 16;
+pub const CRC_RESLT_CRCFLAG_16: u32 = 65536;
+pub const CRC_FLG_CRCFLAG_32: u32 = 1;
+pub const CRC_DAT0: u32 = 4294967295;
+pub const CRC_DAT1: u32 = 4294967295;
+pub const CRC_DAT2: u32 = 4294967295;
+pub const CRC_DAT3: u32 = 4294967295;
+pub const CRC_DAT4: u32 = 4294967295;
+pub const CRC_DAT5: u32 = 4294967295;
+pub const CRC_DAT6: u32 = 4294967295;
+pub const CRC_DAT7: u32 = 4294967295;
+pub const CRC_DAT8: u32 = 4294967295;
+pub const CRC_DAT9: u32 = 4294967295;
+pub const CRC_DAT10: u32 = 4294967295;
+pub const CRC_DAT11: u32 = 4294967295;
+pub const CRC_DAT12: u32 = 4294967295;
+pub const CRC_DAT13: u32 = 4294967295;
+pub const CRC_DAT14: u32 = 4294967295;
+pub const CRC_DAT15: u32 = 4294967295;
+pub const CRC_DAT16: u32 = 4294967295;
+pub const CRC_DAT17: u32 = 4294967295;
+pub const CRC_DAT18: u32 = 4294967295;
+pub const CRC_DAT19: u32 = 4294967295;
+pub const CRC_DAT20: u32 = 4294967295;
+pub const CRC_DAT21: u32 = 4294967295;
+pub const CRC_DAT22: u32 = 4294967295;
+pub const CRC_DAT23: u32 = 4294967295;
+pub const CRC_DAT24: u32 = 4294967295;
+pub const CRC_DAT25: u32 = 4294967295;
+pub const CRC_DAT26: u32 = 4294967295;
+pub const CRC_DAT27: u32 = 4294967295;
+pub const CRC_DAT28: u32 = 4294967295;
+pub const CRC_DAT29: u32 = 4294967295;
+pub const CRC_DAT30: u32 = 4294967295;
+pub const CRC_DAT31: u32 = 4294967295;
+pub const DBGC_MCUDBGSTAT_CDBGPWRUPREQ_POS: u32 = 0;
+pub const DBGC_MCUDBGSTAT_CDBGPWRUPREQ: u32 = 1;
+pub const DBGC_MCUDBGSTAT_CDBGPWRUPACK_POS: u32 = 1;
+pub const DBGC_MCUDBGSTAT_CDBGPWRUPACK: u32 = 2;
+pub const DBGC_MCUSTPCTL_SWDTSTP_POS: u32 = 0;
+pub const DBGC_MCUSTPCTL_SWDTSTP: u32 = 1;
+pub const DBGC_MCUSTPCTL_WDTSTP_POS: u32 = 1;
+pub const DBGC_MCUSTPCTL_WDTSTP: u32 = 2;
+pub const DBGC_MCUSTPCTL_RTCSTP_POS: u32 = 2;
+pub const DBGC_MCUSTPCTL_RTCSTP: u32 = 4;
+pub const DBGC_MCUSTPCTL_TMR01STP_POS: u32 = 14;
+pub const DBGC_MCUSTPCTL_TMR01STP: u32 = 16384;
+pub const DBGC_MCUSTPCTL_TMR02STP_POS: u32 = 15;
+pub const DBGC_MCUSTPCTL_TMR02STP: u32 = 32768;
+pub const DBGC_MCUSTPCTL_TMR41STP_POS: u32 = 20;
+pub const DBGC_MCUSTPCTL_TMR41STP: u32 = 1048576;
+pub const DBGC_MCUSTPCTL_TMR42STP_POS: u32 = 21;
+pub const DBGC_MCUSTPCTL_TMR42STP: u32 = 2097152;
+pub const DBGC_MCUSTPCTL_TMR43STP_POS: u32 = 22;
+pub const DBGC_MCUSTPCTL_TMR43STP: u32 = 4194304;
+pub const DBGC_MCUSTPCTL_TM61STP_POS: u32 = 23;
+pub const DBGC_MCUSTPCTL_TM61STP: u32 = 8388608;
+pub const DBGC_MCUSTPCTL_TM62STP_POS: u32 = 24;
+pub const DBGC_MCUSTPCTL_TM62STP: u32 = 16777216;
+pub const DBGC_MCUSTPCTL_TMR63STP_POS: u32 = 25;
+pub const DBGC_MCUSTPCTL_TMR63STP: u32 = 33554432;
+pub const DBGC_MCUSTPCTL_TMRA1STP_POS: u32 = 26;
+pub const DBGC_MCUSTPCTL_TMRA1STP: u32 = 67108864;
+pub const DBGC_MCUSTPCTL_TMRA2STP_POS: u32 = 27;
+pub const DBGC_MCUSTPCTL_TMRA2STP: u32 = 134217728;
+pub const DBGC_MCUSTPCTL_TMRA3STP_POS: u32 = 28;
+pub const DBGC_MCUSTPCTL_TMRA3STP: u32 = 268435456;
+pub const DBGC_MCUSTPCTL_TMRA4STP_POS: u32 = 29;
+pub const DBGC_MCUSTPCTL_TMRA4STP: u32 = 536870912;
+pub const DBGC_MCUSTPCTL_TMRA5STP_POS: u32 = 30;
+pub const DBGC_MCUSTPCTL_TMRA5STP: u32 = 1073741824;
+pub const DBGC_MCUSTPCTL_TMRA6STP_POS: u32 = 31;
+pub const DBGC_MCUSTPCTL_TMRA6STP: u32 = 2147483648;
+pub const DBGC_MCUTRACECTL_TRACEMODE_POS: u32 = 0;
+pub const DBGC_MCUTRACECTL_TRACEMODE: u32 = 3;
+pub const DBGC_MCUTRACECTL_TRACEMODE_0: u32 = 1;
+pub const DBGC_MCUTRACECTL_TRACEMODE_1: u32 = 2;
+pub const DBGC_MCUTRACECTL_TRACEIOEN_POS: u32 = 2;
+pub const DBGC_MCUTRACECTL_TRACEIOEN: u32 = 4;
+pub const DCU_CTL_MODE_POS: u32 = 0;
+pub const DCU_CTL_MODE: u32 = 7;
+pub const DCU_CTL_DATASIZE_POS: u32 = 3;
+pub const DCU_CTL_DATASIZE: u32 = 24;
+pub const DCU_CTL_DATASIZE_0: u32 = 8;
+pub const DCU_CTL_DATASIZE_1: u32 = 16;
+pub const DCU_CTL_COMPTRG_POS: u32 = 8;
+pub const DCU_CTL_COMPTRG: u32 = 256;
+pub const DCU_CTL_INTEN_POS: u32 = 31;
+pub const DCU_CTL_INTEN: u32 = 2147483648;
+pub const DCU_FLAG_FLAG_OP_POS: u32 = 0;
+pub const DCU_FLAG_FLAG_OP: u32 = 1;
+pub const DCU_FLAG_FLAG_LS2_POS: u32 = 1;
+pub const DCU_FLAG_FLAG_LS2: u32 = 2;
+pub const DCU_FLAG_FLAG_EQ2_POS: u32 = 2;
+pub const DCU_FLAG_FLAG_EQ2: u32 = 4;
+pub const DCU_FLAG_FLAG_GT2_POS: u32 = 3;
+pub const DCU_FLAG_FLAG_GT2: u32 = 8;
+pub const DCU_FLAG_FLAG_LS1_POS: u32 = 4;
+pub const DCU_FLAG_FLAG_LS1: u32 = 16;
+pub const DCU_FLAG_FLAG_EQ1_POS: u32 = 5;
+pub const DCU_FLAG_FLAG_EQ1: u32 = 32;
+pub const DCU_FLAG_FLAG_GT1_POS: u32 = 6;
+pub const DCU_FLAG_FLAG_GT1: u32 = 64;
+pub const DCU_DATA0: u32 = 4294967295;
+pub const DCU_DATA1: u32 = 4294967295;
+pub const DCU_DATA2: u32 = 4294967295;
+pub const DCU_FLAGCLR_CLR_OP_POS: u32 = 0;
+pub const DCU_FLAGCLR_CLR_OP: u32 = 1;
+pub const DCU_FLAGCLR_CLR_LS2_POS: u32 = 1;
+pub const DCU_FLAGCLR_CLR_LS2: u32 = 2;
+pub const DCU_FLAGCLR_CLR_EQ2_POS: u32 = 2;
+pub const DCU_FLAGCLR_CLR_EQ2: u32 = 4;
+pub const DCU_FLAGCLR_CLR_GT2_POS: u32 = 3;
+pub const DCU_FLAGCLR_CLR_GT2: u32 = 8;
+pub const DCU_FLAGCLR_CLR_LS1_POS: u32 = 4;
+pub const DCU_FLAGCLR_CLR_LS1: u32 = 16;
+pub const DCU_FLAGCLR_CLR_EQ1_POS: u32 = 5;
+pub const DCU_FLAGCLR_CLR_EQ1: u32 = 32;
+pub const DCU_FLAGCLR_CLR_GT1_POS: u32 = 6;
+pub const DCU_FLAGCLR_CLR_GT1: u32 = 64;
+pub const DCU_INTEVTSEL_SEL_OP_POS: u32 = 0;
+pub const DCU_INTEVTSEL_SEL_OP: u32 = 1;
+pub const DCU_INTEVTSEL_SEL_LS2_POS: u32 = 1;
+pub const DCU_INTEVTSEL_SEL_LS2: u32 = 2;
+pub const DCU_INTEVTSEL_SEL_EQ2_POS: u32 = 2;
+pub const DCU_INTEVTSEL_SEL_EQ2: u32 = 4;
+pub const DCU_INTEVTSEL_SEL_GT2_POS: u32 = 3;
+pub const DCU_INTEVTSEL_SEL_GT2: u32 = 8;
+pub const DCU_INTEVTSEL_SEL_LS1_POS: u32 = 4;
+pub const DCU_INTEVTSEL_SEL_LS1: u32 = 16;
+pub const DCU_INTEVTSEL_SEL_EQ1_POS: u32 = 5;
+pub const DCU_INTEVTSEL_SEL_EQ1: u32 = 32;
+pub const DCU_INTEVTSEL_SEL_GT1_POS: u32 = 6;
+pub const DCU_INTEVTSEL_SEL_GT1: u32 = 64;
+pub const DCU_INTEVTSEL_SEL_WIN_POS: u32 = 7;
+pub const DCU_INTEVTSEL_SEL_WIN: u32 = 384;
+pub const DCU_INTEVTSEL_SEL_WIN_0: u32 = 128;
+pub const DCU_INTEVTSEL_SEL_WIN_1: u32 = 256;
+pub const DMA_EN_EN: u32 = 1;
+pub const DMA_INTSTAT0_TRNERR_POS: u32 = 0;
+pub const DMA_INTSTAT0_TRNERR: u32 = 15;
+pub const DMA_INTSTAT0_TRNERR_0: u32 = 1;
+pub const DMA_INTSTAT0_TRNERR_1: u32 = 2;
+pub const DMA_INTSTAT0_TRNERR_2: u32 = 4;
+pub const DMA_INTSTAT0_TRNERR_3: u32 = 8;
+pub const DMA_INTSTAT0_REQERR_POS: u32 = 16;
+pub const DMA_INTSTAT0_REQERR: u32 = 983040;
+pub const DMA_INTSTAT0_REQERR_0: u32 = 65536;
+pub const DMA_INTSTAT0_REQERR_1: u32 = 131072;
+pub const DMA_INTSTAT0_REQERR_2: u32 = 262144;
+pub const DMA_INTSTAT0_REQERR_3: u32 = 524288;
+pub const DMA_INTSTAT1_TC_POS: u32 = 0;
+pub const DMA_INTSTAT1_TC: u32 = 15;
+pub const DMA_INTSTAT1_TC_0: u32 = 1;
+pub const DMA_INTSTAT1_TC_1: u32 = 2;
+pub const DMA_INTSTAT1_TC_2: u32 = 4;
+pub const DMA_INTSTAT1_TC_3: u32 = 8;
+pub const DMA_INTSTAT1_BTC_POS: u32 = 16;
+pub const DMA_INTSTAT1_BTC: u32 = 983040;
+pub const DMA_INTSTAT1_BTC_0: u32 = 65536;
+pub const DMA_INTSTAT1_BTC_1: u32 = 131072;
+pub const DMA_INTSTAT1_BTC_2: u32 = 262144;
+pub const DMA_INTSTAT1_BTC_3: u32 = 524288;
+pub const DMA_INTMASK0_MSKTRNERR_POS: u32 = 0;
+pub const DMA_INTMASK0_MSKTRNERR: u32 = 15;
+pub const DMA_INTMASK0_MSKTRNERR_0: u32 = 1;
+pub const DMA_INTMASK0_MSKTRNERR_1: u32 = 2;
+pub const DMA_INTMASK0_MSKTRNERR_2: u32 = 4;
+pub const DMA_INTMASK0_MSKTRNERR_3: u32 = 8;
+pub const DMA_INTMASK0_MSKREQERR_POS: u32 = 16;
+pub const DMA_INTMASK0_MSKREQERR: u32 = 983040;
+pub const DMA_INTMASK0_MSKREQERR_0: u32 = 65536;
+pub const DMA_INTMASK0_MSKREQERR_1: u32 = 131072;
+pub const DMA_INTMASK0_MSKREQERR_2: u32 = 262144;
+pub const DMA_INTMASK0_MSKREQERR_3: u32 = 524288;
+pub const DMA_INTMASK1_MSKTC_POS: u32 = 0;
+pub const DMA_INTMASK1_MSKTC: u32 = 15;
+pub const DMA_INTMASK1_MSKTC_0: u32 = 1;
+pub const DMA_INTMASK1_MSKTC_1: u32 = 2;
+pub const DMA_INTMASK1_MSKTC_2: u32 = 4;
+pub const DMA_INTMASK1_MSKTC_3: u32 = 8;
+pub const DMA_INTMASK1_MSKBTC_POS: u32 = 16;
+pub const DMA_INTMASK1_MSKBTC: u32 = 983040;
+pub const DMA_INTMASK1_MSKBTC_0: u32 = 65536;
+pub const DMA_INTMASK1_MSKBTC_1: u32 = 131072;
+pub const DMA_INTMASK1_MSKBTC_2: u32 = 262144;
+pub const DMA_INTMASK1_MSKBTC_3: u32 = 524288;
+pub const DMA_INTCLR0_CLRTRNERR_POS: u32 = 0;
+pub const DMA_INTCLR0_CLRTRNERR: u32 = 15;
+pub const DMA_INTCLR0_CLRTRNERR_0: u32 = 1;
+pub const DMA_INTCLR0_CLRTRNERR_1: u32 = 2;
+pub const DMA_INTCLR0_CLRTRNERR_2: u32 = 4;
+pub const DMA_INTCLR0_CLRTRNERR_3: u32 = 8;
+pub const DMA_INTCLR0_CLRREQERR_POS: u32 = 16;
+pub const DMA_INTCLR0_CLRREQERR: u32 = 983040;
+pub const DMA_INTCLR0_CLRREQERR_0: u32 = 65536;
+pub const DMA_INTCLR0_CLRREQERR_1: u32 = 131072;
+pub const DMA_INTCLR0_CLRREQERR_2: u32 = 262144;
+pub const DMA_INTCLR0_CLRREQERR_3: u32 = 524288;
+pub const DMA_INTCLR1_CLRTC_POS: u32 = 0;
+pub const DMA_INTCLR1_CLRTC: u32 = 15;
+pub const DMA_INTCLR1_CLRTC_0: u32 = 1;
+pub const DMA_INTCLR1_CLRTC_1: u32 = 2;
+pub const DMA_INTCLR1_CLRTC_2: u32 = 4;
+pub const DMA_INTCLR1_CLRTC_3: u32 = 8;
+pub const DMA_INTCLR1_CLRBTC_POS: u32 = 16;
+pub const DMA_INTCLR1_CLRBTC: u32 = 983040;
+pub const DMA_INTCLR1_CLRBTC_0: u32 = 65536;
+pub const DMA_INTCLR1_CLRBTC_1: u32 = 131072;
+pub const DMA_INTCLR1_CLRBTC_2: u32 = 262144;
+pub const DMA_INTCLR1_CLRBTC_3: u32 = 524288;
+pub const DMA_CHEN_CHEN: u32 = 15;
+pub const DMA_CHEN_CHEN_0: u32 = 1;
+pub const DMA_CHEN_CHEN_1: u32 = 2;
+pub const DMA_CHEN_CHEN_2: u32 = 4;
+pub const DMA_CHEN_CHEN_3: u32 = 8;
+pub const DMA_REQSTAT_CHREQ_POS: u32 = 0;
+pub const DMA_REQSTAT_CHREQ: u32 = 15;
+pub const DMA_REQSTAT_CHREQ_0: u32 = 1;
+pub const DMA_REQSTAT_CHREQ_1: u32 = 2;
+pub const DMA_REQSTAT_CHREQ_2: u32 = 4;
+pub const DMA_REQSTAT_CHREQ_3: u32 = 8;
+pub const DMA_REQSTAT_RCFGREQ_POS: u32 = 15;
+pub const DMA_REQSTAT_RCFGREQ: u32 = 32768;
+pub const DMA_CHSTAT_DMAACT_POS: u32 = 0;
+pub const DMA_CHSTAT_DMAACT: u32 = 1;
+pub const DMA_CHSTAT_RCFGACT_POS: u32 = 1;
+pub const DMA_CHSTAT_RCFGACT: u32 = 2;
+pub const DMA_CHSTAT_CHACT_POS: u32 = 16;
+pub const DMA_CHSTAT_CHACT: u32 = 983040;
+pub const DMA_CHSTAT_CHACT_0: u32 = 65536;
+pub const DMA_CHSTAT_CHACT_1: u32 = 131072;
+pub const DMA_CHSTAT_CHACT_2: u32 = 262144;
+pub const DMA_CHSTAT_CHACT_3: u32 = 524288;
+pub const DMA_RCFGCTL_RCFGEN_POS: u32 = 0;
+pub const DMA_RCFGCTL_RCFGEN: u32 = 1;
+pub const DMA_RCFGCTL_RCFGLLP_POS: u32 = 1;
+pub const DMA_RCFGCTL_RCFGLLP: u32 = 2;
+pub const DMA_RCFGCTL_RCFGCHS_POS: u32 = 8;
+pub const DMA_RCFGCTL_RCFGCHS: u32 = 3840;
+pub const DMA_RCFGCTL_RCFGCHS_0: u32 = 256;
+pub const DMA_RCFGCTL_RCFGCHS_1: u32 = 512;
+pub const DMA_RCFGCTL_RCFGCHS_2: u32 = 1024;
+pub const DMA_RCFGCTL_RCFGCHS_3: u32 = 2048;
+pub const DMA_RCFGCTL_SARMD_POS: u32 = 16;
+pub const DMA_RCFGCTL_SARMD: u32 = 196608;
+pub const DMA_RCFGCTL_SARMD_0: u32 = 65536;
+pub const DMA_RCFGCTL_SARMD_1: u32 = 131072;
+pub const DMA_RCFGCTL_DARMD_POS: u32 = 18;
+pub const DMA_RCFGCTL_DARMD: u32 = 786432;
+pub const DMA_RCFGCTL_DARMD_0: u32 = 262144;
+pub const DMA_RCFGCTL_DARMD_1: u32 = 524288;
+pub const DMA_RCFGCTL_CNTMD_POS: u32 = 20;
+pub const DMA_RCFGCTL_CNTMD: u32 = 3145728;
+pub const DMA_RCFGCTL_CNTMD_0: u32 = 1048576;
+pub const DMA_RCFGCTL_CNTMD_1: u32 = 2097152;
+pub const DMA_SWREQ_SWREQ_POS: u32 = 0;
+pub const DMA_SWREQ_SWREQ: u32 = 255;
+pub const DMA_SWREQ_SWREQ_0: u32 = 1;
+pub const DMA_SWREQ_SWREQ_1: u32 = 2;
+pub const DMA_SWREQ_SWREQ_2: u32 = 4;
+pub const DMA_SWREQ_SWREQ_3: u32 = 8;
+pub const DMA_SWREQ_SWREQ_4: u32 = 16;
+pub const DMA_SWREQ_SWREQ_5: u32 = 32;
+pub const DMA_SWREQ_SWREQ_6: u32 = 64;
+pub const DMA_SWREQ_SWREQ_7: u32 = 128;
+pub const DMA_SWREQ_SWRCFGREQ_POS: u32 = 15;
+pub const DMA_SWREQ_SWRCFGREQ: u32 = 32768;
+pub const DMA_SWREQ_SWREQWP_POS: u32 = 16;
+pub const DMA_SWREQ_SWREQWP: u32 = 16711680;
+pub const DMA_SWREQ_SWRCFGWP_POS: u32 = 24;
+pub const DMA_SWREQ_SWRCFGWP: u32 = 4278190080;
+pub const DMA_SAR: u32 = 4294967295;
+pub const DMA_DAR: u32 = 4294967295;
+pub const DMA_DTCTL_BLKSIZE_POS: u32 = 0;
+pub const DMA_DTCTL_BLKSIZE: u32 = 1023;
+pub const DMA_DTCTL_CNT_POS: u32 = 16;
+pub const DMA_DTCTL_CNT: u32 = 4294901760;
+pub const DMA_RPT_SRPT_POS: u32 = 0;
+pub const DMA_RPT_SRPT: u32 = 1023;
+pub const DMA_RPT_DRPT_POS: u32 = 16;
+pub const DMA_RPT_DRPT: u32 = 67043328;
+pub const DMA_RPTB_SRPTB_POS: u32 = 0;
+pub const DMA_RPTB_SRPTB: u32 = 1023;
+pub const DMA_RPTB_DRPTB_POS: u32 = 16;
+pub const DMA_RPTB_DRPTB: u32 = 67043328;
+pub const DMA_SNSEQCTL_SOFFSET_POS: u32 = 0;
+pub const DMA_SNSEQCTL_SOFFSET: u32 = 1048575;
+pub const DMA_SNSEQCTL_SNSCNT_POS: u32 = 20;
+pub const DMA_SNSEQCTL_SNSCNT: u32 = 4293918720;
+pub const DMA_SNSEQCTLB_SNSDIST_POS: u32 = 0;
+pub const DMA_SNSEQCTLB_SNSDIST: u32 = 1048575;
+pub const DMA_SNSEQCTLB_SNSCNTB_POS: u32 = 20;
+pub const DMA_SNSEQCTLB_SNSCNTB: u32 = 4293918720;
+pub const DMA_DNSEQCTL_DOFFSET_POS: u32 = 0;
+pub const DMA_DNSEQCTL_DOFFSET: u32 = 1048575;
+pub const DMA_DNSEQCTL_DNSCNT_POS: u32 = 20;
+pub const DMA_DNSEQCTL_DNSCNT: u32 = 4293918720;
+pub const DMA_DNSEQCTLB_DNSDIST_POS: u32 = 0;
+pub const DMA_DNSEQCTLB_DNSDIST: u32 = 1048575;
+pub const DMA_DNSEQCTLB_DNSCNTB_POS: u32 = 20;
+pub const DMA_DNSEQCTLB_DNSCNTB: u32 = 4293918720;
+pub const DMA_LLP_LLP_POS: u32 = 2;
+pub const DMA_LLP_LLP: u32 = 4294967292;
+pub const DMA_CHCTL_SINC_POS: u32 = 0;
+pub const DMA_CHCTL_SINC: u32 = 3;
+pub const DMA_CHCTL_SINC_0: u32 = 1;
+pub const DMA_CHCTL_SINC_1: u32 = 2;
+pub const DMA_CHCTL_DINC_POS: u32 = 2;
+pub const DMA_CHCTL_DINC: u32 = 12;
+pub const DMA_CHCTL_DINC_0: u32 = 4;
+pub const DMA_CHCTL_DINC_1: u32 = 8;
+pub const DMA_CHCTL_SRPTEN_POS: u32 = 4;
+pub const DMA_CHCTL_SRPTEN: u32 = 16;
+pub const DMA_CHCTL_DRPTEN_POS: u32 = 5;
+pub const DMA_CHCTL_DRPTEN: u32 = 32;
+pub const DMA_CHCTL_SNSEQEN_POS: u32 = 6;
+pub const DMA_CHCTL_SNSEQEN: u32 = 64;
+pub const DMA_CHCTL_DNSEQEN_POS: u32 = 7;
+pub const DMA_CHCTL_DNSEQEN: u32 = 128;
+pub const DMA_CHCTL_HSIZE_POS: u32 = 8;
+pub const DMA_CHCTL_HSIZE: u32 = 768;
+pub const DMA_CHCTL_HSIZE_0: u32 = 256;
+pub const DMA_CHCTL_HSIZE_1: u32 = 512;
+pub const DMA_CHCTL_LLPEN_POS: u32 = 10;
+pub const DMA_CHCTL_LLPEN: u32 = 1024;
+pub const DMA_CHCTL_LLPRUN_POS: u32 = 11;
+pub const DMA_CHCTL_LLPRUN: u32 = 2048;
+pub const DMA_CHCTL_IE_POS: u32 = 12;
+pub const DMA_CHCTL_IE: u32 = 4096;
+pub const DMA_MONSAR: u32 = 4294967295;
+pub const DMA_MONDAR: u32 = 4294967295;
+pub const DMA_MONDTCTL_BLKSIZE_POS: u32 = 0;
+pub const DMA_MONDTCTL_BLKSIZE: u32 = 1023;
+pub const DMA_MONDTCTL_CNT_POS: u32 = 16;
+pub const DMA_MONDTCTL_CNT: u32 = 4294901760;
+pub const DMA_MONRPT_SRPT_POS: u32 = 0;
+pub const DMA_MONRPT_SRPT: u32 = 1023;
+pub const DMA_MONRPT_DRPT_POS: u32 = 16;
+pub const DMA_MONRPT_DRPT: u32 = 67043328;
+pub const DMA_MONSNSEQCTL_SOFFSET_POS: u32 = 0;
+pub const DMA_MONSNSEQCTL_SOFFSET: u32 = 1048575;
+pub const DMA_MONSNSEQCTL_SNSCNT_POS: u32 = 20;
+pub const DMA_MONSNSEQCTL_SNSCNT: u32 = 4293918720;
+pub const DMA_MONDNSEQCTL_DOFFSET_POS: u32 = 0;
+pub const DMA_MONDNSEQCTL_DOFFSET: u32 = 1048575;
+pub const DMA_MONDNSEQCTL_DNSCNT_POS: u32 = 20;
+pub const DMA_MONDNSEQCTL_DNSCNT: u32 = 4293918720;
+pub const EFM_FAPRT_FAPRT: u32 = 65535;
+pub const EFM_FSTP_FSTP: u32 = 1;
+pub const EFM_FRMC_SLPMD_POS: u32 = 0;
+pub const EFM_FRMC_SLPMD: u32 = 1;
+pub const EFM_FRMC_FLWT_POS: u32 = 4;
+pub const EFM_FRMC_FLWT: u32 = 240;
+pub const EFM_FRMC_LVM_POS: u32 = 8;
+pub const EFM_FRMC_LVM: u32 = 256;
+pub const EFM_FRMC_CACHE_POS: u32 = 16;
+pub const EFM_FRMC_CACHE: u32 = 65536;
+pub const EFM_FRMC_CRST_POS: u32 = 24;
+pub const EFM_FRMC_CRST: u32 = 16777216;
+pub const EFM_FWMC_PEMODE_POS: u32 = 0;
+pub const EFM_FWMC_PEMODE: u32 = 1;
+pub const EFM_FWMC_PEMOD_POS: u32 = 4;
+pub const EFM_FWMC_PEMOD: u32 = 112;
+pub const EFM_FWMC_BUSHLDCTL_POS: u32 = 8;
+pub const EFM_FWMC_BUSHLDCTL: u32 = 256;
+pub const EFM_FSR_PEWERR_POS: u32 = 0;
+pub const EFM_FSR_PEWERR: u32 = 1;
+pub const EFM_FSR_PEPRTERR_POS: u32 = 1;
+pub const EFM_FSR_PEPRTERR: u32 = 2;
+pub const EFM_FSR_PGSZERR_POS: u32 = 2;
+pub const EFM_FSR_PGSZERR: u32 = 4;
+pub const EFM_FSR_PGMISMTCH_POS: u32 = 3;
+pub const EFM_FSR_PGMISMTCH: u32 = 8;
+pub const EFM_FSR_OPTEND_POS: u32 = 4;
+pub const EFM_FSR_OPTEND: u32 = 16;
+pub const EFM_FSR_COLERR_POS: u32 = 5;
+pub const EFM_FSR_COLERR: u32 = 32;
+pub const EFM_FSR_RDY_POS: u32 = 8;
+pub const EFM_FSR_RDY: u32 = 256;
+pub const EFM_FSCLR_PEWERRCLR_POS: u32 = 0;
+pub const EFM_FSCLR_PEWERRCLR: u32 = 1;
+pub const EFM_FSCLR_PEPRTERRCLR_POS: u32 = 1;
+pub const EFM_FSCLR_PEPRTERRCLR: u32 = 2;
+pub const EFM_FSCLR_PGSZERRCLR_POS: u32 = 2;
+pub const EFM_FSCLR_PGSZERRCLR: u32 = 4;
+pub const EFM_FSCLR_PGMISMTCHCLR_POS: u32 = 3;
+pub const EFM_FSCLR_PGMISMTCHCLR: u32 = 8;
+pub const EFM_FSCLR_OPTENDCLR_POS: u32 = 4;
+pub const EFM_FSCLR_OPTENDCLR: u32 = 16;
+pub const EFM_FSCLR_COLERRCLR_POS: u32 = 5;
+pub const EFM_FSCLR_COLERRCLR: u32 = 32;
+pub const EFM_FITE_PEERRITE_POS: u32 = 0;
+pub const EFM_FITE_PEERRITE: u32 = 1;
+pub const EFM_FITE_OPTENDITE_POS: u32 = 1;
+pub const EFM_FITE_OPTENDITE: u32 = 2;
+pub const EFM_FITE_COLERRITE_POS: u32 = 2;
+pub const EFM_FITE_COLERRITE: u32 = 4;
+pub const EFM_FSWP_FSWP: u32 = 1;
+pub const EFM_FPMTSW_FPMTSW: u32 = 524287;
+pub const EFM_FPMTEW_FPMTEW: u32 = 524287;
+pub const EFM_UQID0: u32 = 4294967295;
+pub const EFM_UQID1: u32 = 4294967295;
+pub const EFM_UQID2: u32 = 4294967295;
+pub const EFM_MMF_REMPRT_REMPRT: u32 = 65535;
+pub const EFM_MMF_REMCR_RMSIZE_POS: u32 = 0;
+pub const EFM_MMF_REMCR_RMSIZE: u32 = 31;
+pub const EFM_MMF_REMCR_RMTADDR_POS: u32 = 12;
+pub const EFM_MMF_REMCR_RMTADDR: u32 = 536866816;
+pub const EFM_MMF_REMCR_EN_POS: u32 = 31;
+pub const EFM_MMF_REMCR_EN: u32 = 2147483648;
+pub const EMB_CTL_PORTINEN_POS: u32 = 0;
+pub const EMB_CTL_PORTINEN: u32 = 1;
+pub const EMB_CTL_CMPEN1_POS: u32 = 1;
+pub const EMB_CTL_CMPEN1: u32 = 2;
+pub const EMB_CTL_CMPEN2_POS: u32 = 2;
+pub const EMB_CTL_CMPEN2: u32 = 4;
+pub const EMB_CTL_CMPEN3_POS: u32 = 3;
+pub const EMB_CTL_CMPEN3: u32 = 8;
+pub const EMB_CTL_OSCSTPEN_POS: u32 = 5;
+pub const EMB_CTL_OSCSTPEN: u32 = 32;
+pub const EMB_CTL_PWMSEN0_POS: u32 = 6;
+pub const EMB_CTL_PWMSEN0: u32 = 64;
+pub const EMB_CTL_PWMSEN1_POS: u32 = 7;
+pub const EMB_CTL_PWMSEN1: u32 = 128;
+pub const EMB_CTL_PWMSEN2_POS: u32 = 8;
+pub const EMB_CTL_PWMSEN2: u32 = 256;
+pub const EMB_CTL_NFSEL_POS: u32 = 28;
+pub const EMB_CTL_NFSEL: u32 = 805306368;
+pub const EMB_CTL_NFEN_POS: u32 = 30;
+pub const EMB_CTL_NFEN: u32 = 1073741824;
+pub const EMB_CTL_INVSEL_POS: u32 = 31;
+pub const EMB_CTL_INVSEL: u32 = 2147483648;
+pub const EMB_PWMLV_PWMLV0_POS: u32 = 0;
+pub const EMB_PWMLV_PWMLV0: u32 = 1;
+pub const EMB_PWMLV_PWMLV1_POS: u32 = 1;
+pub const EMB_PWMLV_PWMLV1: u32 = 2;
+pub const EMB_PWMLV_PWMLV2_POS: u32 = 2;
+pub const EMB_PWMLV_PWMLV2: u32 = 4;
+pub const EMB_SOE_SOE: u32 = 1;
+pub const EMB_STAT_PORTINF_POS: u32 = 0;
+pub const EMB_STAT_PORTINF: u32 = 1;
+pub const EMB_STAT_PWMSF_POS: u32 = 1;
+pub const EMB_STAT_PWMSF: u32 = 2;
+pub const EMB_STAT_CMPF_POS: u32 = 2;
+pub const EMB_STAT_CMPF: u32 = 4;
+pub const EMB_STAT_OSF_POS: u32 = 3;
+pub const EMB_STAT_OSF: u32 = 8;
+pub const EMB_STAT_PORTINST_POS: u32 = 4;
+pub const EMB_STAT_PORTINST: u32 = 16;
+pub const EMB_STAT_PWMST_POS: u32 = 5;
+pub const EMB_STAT_PWMST: u32 = 32;
+pub const EMB_STATCLR_PORTINFCLR_POS: u32 = 0;
+pub const EMB_STATCLR_PORTINFCLR: u32 = 1;
+pub const EMB_STATCLR_PWMSFCLR_POS: u32 = 1;
+pub const EMB_STATCLR_PWMSFCLR: u32 = 2;
+pub const EMB_STATCLR_CMPFCLR_POS: u32 = 2;
+pub const EMB_STATCLR_CMPFCLR: u32 = 4;
+pub const EMB_STATCLR_OSFCLR_POS: u32 = 3;
+pub const EMB_STATCLR_OSFCLR: u32 = 8;
+pub const EMB_INTEN_PORTININTEN_POS: u32 = 0;
+pub const EMB_INTEN_PORTININTEN: u32 = 1;
+pub const EMB_INTEN_PWMSINTEN_POS: u32 = 1;
+pub const EMB_INTEN_PWMSINTEN: u32 = 2;
+pub const EMB_INTEN_CMPINTEN_POS: u32 = 2;
+pub const EMB_INTEN_CMPINTEN: u32 = 4;
+pub const EMB_INTEN_OSINTEN_POS: u32 = 3;
+pub const EMB_INTEN_OSINTEN: u32 = 8;
+pub const FCM_LVR_LVR: u32 = 65535;
+pub const FCM_UVR_UVR: u32 = 65535;
+pub const FCM_CNTR_CNTR: u32 = 65535;
+pub const FCM_STR_START: u32 = 1;
+pub const FCM_MCCR_MDIVS_POS: u32 = 0;
+pub const FCM_MCCR_MDIVS: u32 = 3;
+pub const FCM_MCCR_MDIVS_0: u32 = 1;
+pub const FCM_MCCR_MDIVS_1: u32 = 2;
+pub const FCM_MCCR_MCKS_POS: u32 = 4;
+pub const FCM_MCCR_MCKS: u32 = 240;
+pub const FCM_RCCR_RDIVS_POS: u32 = 0;
+pub const FCM_RCCR_RDIVS: u32 = 3;
+pub const FCM_RCCR_RDIVS_0: u32 = 1;
+pub const FCM_RCCR_RDIVS_1: u32 = 2;
+pub const FCM_RCCR_RCKS_POS: u32 = 3;
+pub const FCM_RCCR_RCKS: u32 = 120;
+pub const FCM_RCCR_INEXS_POS: u32 = 7;
+pub const FCM_RCCR_INEXS: u32 = 128;
+pub const FCM_RCCR_DNFS_POS: u32 = 8;
+pub const FCM_RCCR_DNFS: u32 = 768;
+pub const FCM_RCCR_DNFS_0: u32 = 256;
+pub const FCM_RCCR_DNFS_1: u32 = 512;
+pub const FCM_RCCR_EDGES_POS: u32 = 12;
+pub const FCM_RCCR_EDGES: u32 = 12288;
+pub const FCM_RCCR_EDGES_0: u32 = 4096;
+pub const FCM_RCCR_EDGES_1: u32 = 8192;
+pub const FCM_RCCR_EXREFE_POS: u32 = 15;
+pub const FCM_RCCR_EXREFE: u32 = 32768;
+pub const FCM_RIER_ERRIE_POS: u32 = 0;
+pub const FCM_RIER_ERRIE: u32 = 1;
+pub const FCM_RIER_MENDIE_POS: u32 = 1;
+pub const FCM_RIER_MENDIE: u32 = 2;
+pub const FCM_RIER_OVFIE_POS: u32 = 2;
+pub const FCM_RIER_OVFIE: u32 = 4;
+pub const FCM_RIER_ERRINTRS_POS: u32 = 4;
+pub const FCM_RIER_ERRINTRS: u32 = 16;
+pub const FCM_RIER_ERRE_POS: u32 = 7;
+pub const FCM_RIER_ERRE: u32 = 128;
+pub const FCM_SR_ERRF_POS: u32 = 0;
+pub const FCM_SR_ERRF: u32 = 1;
+pub const FCM_SR_MENDF_POS: u32 = 1;
+pub const FCM_SR_MENDF: u32 = 2;
+pub const FCM_SR_OVF_POS: u32 = 2;
+pub const FCM_SR_OVF: u32 = 4;
+pub const FCM_CLR_ERRFCLR_POS: u32 = 0;
+pub const FCM_CLR_ERRFCLR: u32 = 1;
+pub const FCM_CLR_MENDFCLR_POS: u32 = 1;
+pub const FCM_CLR_MENDFCLR: u32 = 2;
+pub const FCM_CLR_OVFCLR_POS: u32 = 2;
+pub const FCM_CLR_OVFCLR: u32 = 4;
+pub const GPIO_PIDR_PIN00_POS: u32 = 0;
+pub const GPIO_PIDR_PIN00: u32 = 1;
+pub const GPIO_PIDR_PIN01_POS: u32 = 1;
+pub const GPIO_PIDR_PIN01: u32 = 2;
+pub const GPIO_PIDR_PIN02_POS: u32 = 2;
+pub const GPIO_PIDR_PIN02: u32 = 4;
+pub const GPIO_PIDR_PIN03_POS: u32 = 3;
+pub const GPIO_PIDR_PIN03: u32 = 8;
+pub const GPIO_PIDR_PIN04_POS: u32 = 4;
+pub const GPIO_PIDR_PIN04: u32 = 16;
+pub const GPIO_PIDR_PIN05_POS: u32 = 5;
+pub const GPIO_PIDR_PIN05: u32 = 32;
+pub const GPIO_PIDR_PIN06_POS: u32 = 6;
+pub const GPIO_PIDR_PIN06: u32 = 64;
+pub const GPIO_PIDR_PIN07_POS: u32 = 7;
+pub const GPIO_PIDR_PIN07: u32 = 128;
+pub const GPIO_PIDR_PIN08_POS: u32 = 8;
+pub const GPIO_PIDR_PIN08: u32 = 256;
+pub const GPIO_PIDR_PIN09_POS: u32 = 9;
+pub const GPIO_PIDR_PIN09: u32 = 512;
+pub const GPIO_PIDR_PIN10_POS: u32 = 10;
+pub const GPIO_PIDR_PIN10: u32 = 1024;
+pub const GPIO_PIDR_PIN11_POS: u32 = 11;
+pub const GPIO_PIDR_PIN11: u32 = 2048;
+pub const GPIO_PIDR_PIN12_POS: u32 = 12;
+pub const GPIO_PIDR_PIN12: u32 = 4096;
+pub const GPIO_PIDR_PIN13_POS: u32 = 13;
+pub const GPIO_PIDR_PIN13: u32 = 8192;
+pub const GPIO_PIDR_PIN14_POS: u32 = 14;
+pub const GPIO_PIDR_PIN14: u32 = 16384;
+pub const GPIO_PIDR_PIN15_POS: u32 = 15;
+pub const GPIO_PIDR_PIN15: u32 = 32768;
+pub const GPIO_PODR_POUT00_POS: u32 = 0;
+pub const GPIO_PODR_POUT00: u32 = 1;
+pub const GPIO_PODR_POUT01_POS: u32 = 1;
+pub const GPIO_PODR_POUT01: u32 = 2;
+pub const GPIO_PODR_POUT02_POS: u32 = 2;
+pub const GPIO_PODR_POUT02: u32 = 4;
+pub const GPIO_PODR_POUT03_POS: u32 = 3;
+pub const GPIO_PODR_POUT03: u32 = 8;
+pub const GPIO_PODR_POUT04_POS: u32 = 4;
+pub const GPIO_PODR_POUT04: u32 = 16;
+pub const GPIO_PODR_POUT05_POS: u32 = 5;
+pub const GPIO_PODR_POUT05: u32 = 32;
+pub const GPIO_PODR_POUT06_POS: u32 = 6;
+pub const GPIO_PODR_POUT06: u32 = 64;
+pub const GPIO_PODR_POUT07_POS: u32 = 7;
+pub const GPIO_PODR_POUT07: u32 = 128;
+pub const GPIO_PODR_POUT08_POS: u32 = 8;
+pub const GPIO_PODR_POUT08: u32 = 256;
+pub const GPIO_PODR_POUT09_POS: u32 = 9;
+pub const GPIO_PODR_POUT09: u32 = 512;
+pub const GPIO_PODR_POUT10_POS: u32 = 10;
+pub const GPIO_PODR_POUT10: u32 = 1024;
+pub const GPIO_PODR_POUT11_POS: u32 = 11;
+pub const GPIO_PODR_POUT11: u32 = 2048;
+pub const GPIO_PODR_POUT12_POS: u32 = 12;
+pub const GPIO_PODR_POUT12: u32 = 4096;
+pub const GPIO_PODR_POUT13_POS: u32 = 13;
+pub const GPIO_PODR_POUT13: u32 = 8192;
+pub const GPIO_PODR_POUT14_POS: u32 = 14;
+pub const GPIO_PODR_POUT14: u32 = 16384;
+pub const GPIO_PODR_POUT15_POS: u32 = 15;
+pub const GPIO_PODR_POUT15: u32 = 32768;
+pub const GPIO_POER_POUTE00_POS: u32 = 0;
+pub const GPIO_POER_POUTE00: u32 = 1;
+pub const GPIO_POER_POUTE01_POS: u32 = 1;
+pub const GPIO_POER_POUTE01: u32 = 2;
+pub const GPIO_POER_POUTE02_POS: u32 = 2;
+pub const GPIO_POER_POUTE02: u32 = 4;
+pub const GPIO_POER_POUTE03_POS: u32 = 3;
+pub const GPIO_POER_POUTE03: u32 = 8;
+pub const GPIO_POER_POUTE04_POS: u32 = 4;
+pub const GPIO_POER_POUTE04: u32 = 16;
+pub const GPIO_POER_POUTE05_POS: u32 = 5;
+pub const GPIO_POER_POUTE05: u32 = 32;
+pub const GPIO_POER_POUTE06_POS: u32 = 6;
+pub const GPIO_POER_POUTE06: u32 = 64;
+pub const GPIO_POER_POUTE07_POS: u32 = 7;
+pub const GPIO_POER_POUTE07: u32 = 128;
+pub const GPIO_POER_POUTE08_POS: u32 = 8;
+pub const GPIO_POER_POUTE08: u32 = 256;
+pub const GPIO_POER_POUTE09_POS: u32 = 9;
+pub const GPIO_POER_POUTE09: u32 = 512;
+pub const GPIO_POER_POUTE10_POS: u32 = 10;
+pub const GPIO_POER_POUTE10: u32 = 1024;
+pub const GPIO_POER_POUTE11_POS: u32 = 11;
+pub const GPIO_POER_POUTE11: u32 = 2048;
+pub const GPIO_POER_POUTE12_POS: u32 = 12;
+pub const GPIO_POER_POUTE12: u32 = 4096;
+pub const GPIO_POER_POUTE13_POS: u32 = 13;
+pub const GPIO_POER_POUTE13: u32 = 8192;
+pub const GPIO_POER_POUTE14_POS: u32 = 14;
+pub const GPIO_POER_POUTE14: u32 = 16384;
+pub const GPIO_POER_POUTE15_POS: u32 = 15;
+pub const GPIO_POER_POUTE15: u32 = 32768;
+pub const GPIO_POSR_POS00_POS: u32 = 0;
+pub const GPIO_POSR_POS00: u32 = 1;
+pub const GPIO_POSR_POS01_POS: u32 = 1;
+pub const GPIO_POSR_POS01: u32 = 2;
+pub const GPIO_POSR_POS02_POS: u32 = 2;
+pub const GPIO_POSR_POS02: u32 = 4;
+pub const GPIO_POSR_POS03_POS: u32 = 3;
+pub const GPIO_POSR_POS03: u32 = 8;
+pub const GPIO_POSR_POS04_POS: u32 = 4;
+pub const GPIO_POSR_POS04: u32 = 16;
+pub const GPIO_POSR_POS05_POS: u32 = 5;
+pub const GPIO_POSR_POS05: u32 = 32;
+pub const GPIO_POSR_POS06_POS: u32 = 6;
+pub const GPIO_POSR_POS06: u32 = 64;
+pub const GPIO_POSR_POS07_POS: u32 = 7;
+pub const GPIO_POSR_POS07: u32 = 128;
+pub const GPIO_POSR_POS08_POS: u32 = 8;
+pub const GPIO_POSR_POS08: u32 = 256;
+pub const GPIO_POSR_POS09_POS: u32 = 9;
+pub const GPIO_POSR_POS09: u32 = 512;
+pub const GPIO_POSR_POS10_POS: u32 = 10;
+pub const GPIO_POSR_POS10: u32 = 1024;
+pub const GPIO_POSR_POS11_POS: u32 = 11;
+pub const GPIO_POSR_POS11: u32 = 2048;
+pub const GPIO_POSR_POS12_POS: u32 = 12;
+pub const GPIO_POSR_POS12: u32 = 4096;
+pub const GPIO_POSR_POS13_POS: u32 = 13;
+pub const GPIO_POSR_POS13: u32 = 8192;
+pub const GPIO_POSR_POS14_POS: u32 = 14;
+pub const GPIO_POSR_POS14: u32 = 16384;
+pub const GPIO_POSR_POS15_POS: u32 = 15;
+pub const GPIO_POSR_POS15: u32 = 32768;
+pub const GPIO_PORR_POR00_POS: u32 = 0;
+pub const GPIO_PORR_POR00: u32 = 1;
+pub const GPIO_PORR_POR01_POS: u32 = 1;
+pub const GPIO_PORR_POR01: u32 = 2;
+pub const GPIO_PORR_POR02_POS: u32 = 2;
+pub const GPIO_PORR_POR02: u32 = 4;
+pub const GPIO_PORR_POR03_POS: u32 = 3;
+pub const GPIO_PORR_POR03: u32 = 8;
+pub const GPIO_PORR_POR04_POS: u32 = 4;
+pub const GPIO_PORR_POR04: u32 = 16;
+pub const GPIO_PORR_POR05_POS: u32 = 5;
+pub const GPIO_PORR_POR05: u32 = 32;
+pub const GPIO_PORR_POR06_POS: u32 = 6;
+pub const GPIO_PORR_POR06: u32 = 64;
+pub const GPIO_PORR_POR07_POS: u32 = 7;
+pub const GPIO_PORR_POR07: u32 = 128;
+pub const GPIO_PORR_POR08_POS: u32 = 8;
+pub const GPIO_PORR_POR08: u32 = 256;
+pub const GPIO_PORR_POR09_POS: u32 = 9;
+pub const GPIO_PORR_POR09: u32 = 512;
+pub const GPIO_PORR_POR10_POS: u32 = 10;
+pub const GPIO_PORR_POR10: u32 = 1024;
+pub const GPIO_PORR_POR11_POS: u32 = 11;
+pub const GPIO_PORR_POR11: u32 = 2048;
+pub const GPIO_PORR_POR12_POS: u32 = 12;
+pub const GPIO_PORR_POR12: u32 = 4096;
+pub const GPIO_PORR_POR13_POS: u32 = 13;
+pub const GPIO_PORR_POR13: u32 = 8192;
+pub const GPIO_PORR_POR14_POS: u32 = 14;
+pub const GPIO_PORR_POR14: u32 = 16384;
+pub const GPIO_PORR_POR15_POS: u32 = 15;
+pub const GPIO_PORR_POR15: u32 = 32768;
+pub const GPIO_POTR_POT00_POS: u32 = 0;
+pub const GPIO_POTR_POT00: u32 = 1;
+pub const GPIO_POTR_POT01_POS: u32 = 1;
+pub const GPIO_POTR_POT01: u32 = 2;
+pub const GPIO_POTR_POT02_POS: u32 = 2;
+pub const GPIO_POTR_POT02: u32 = 4;
+pub const GPIO_POTR_POT03_POS: u32 = 3;
+pub const GPIO_POTR_POT03: u32 = 8;
+pub const GPIO_POTR_POT04_POS: u32 = 4;
+pub const GPIO_POTR_POT04: u32 = 16;
+pub const GPIO_POTR_POT05_POS: u32 = 5;
+pub const GPIO_POTR_POT05: u32 = 32;
+pub const GPIO_POTR_POT06_POS: u32 = 6;
+pub const GPIO_POTR_POT06: u32 = 64;
+pub const GPIO_POTR_POT07_POS: u32 = 7;
+pub const GPIO_POTR_POT07: u32 = 128;
+pub const GPIO_POTR_POT08_POS: u32 = 8;
+pub const GPIO_POTR_POT08: u32 = 256;
+pub const GPIO_POTR_POT09_POS: u32 = 9;
+pub const GPIO_POTR_POT09: u32 = 512;
+pub const GPIO_POTR_POT10_POS: u32 = 10;
+pub const GPIO_POTR_POT10: u32 = 1024;
+pub const GPIO_POTR_POT11_POS: u32 = 11;
+pub const GPIO_POTR_POT11: u32 = 2048;
+pub const GPIO_POTR_POT12_POS: u32 = 12;
+pub const GPIO_POTR_POT12: u32 = 4096;
+pub const GPIO_POTR_POT13_POS: u32 = 13;
+pub const GPIO_POTR_POT13: u32 = 8192;
+pub const GPIO_POTR_POT14_POS: u32 = 14;
+pub const GPIO_POTR_POT14: u32 = 16384;
+pub const GPIO_POTR_POT15_POS: u32 = 15;
+pub const GPIO_POTR_POT15: u32 = 32768;
+pub const GPIO_PIDRH_PIN00_POS: u32 = 0;
+pub const GPIO_PIDRH_PIN00: u32 = 1;
+pub const GPIO_PIDRH_PIN01_POS: u32 = 1;
+pub const GPIO_PIDRH_PIN01: u32 = 2;
+pub const GPIO_PIDRH_PIN02_POS: u32 = 2;
+pub const GPIO_PIDRH_PIN02: u32 = 4;
+pub const GPIO_PODRH_POUT00_POS: u32 = 0;
+pub const GPIO_PODRH_POUT00: u32 = 1;
+pub const GPIO_PODRH_POUT01_POS: u32 = 1;
+pub const GPIO_PODRH_POUT01: u32 = 2;
+pub const GPIO_PODRH_POUT02_POS: u32 = 2;
+pub const GPIO_PODRH_POUT02: u32 = 4;
+pub const GPIO_POERH_POUTE00_POS: u32 = 0;
+pub const GPIO_POERH_POUTE00: u32 = 1;
+pub const GPIO_POERH_POUTE01_POS: u32 = 1;
+pub const GPIO_POERH_POUTE01: u32 = 2;
+pub const GPIO_POERH_POUTE02_POS: u32 = 2;
+pub const GPIO_POERH_POUTE02: u32 = 4;
+pub const GPIO_POSRH_POS00_POS: u32 = 0;
+pub const GPIO_POSRH_POS00: u32 = 1;
+pub const GPIO_POSRH_POS01_POS: u32 = 1;
+pub const GPIO_POSRH_POS01: u32 = 2;
+pub const GPIO_POSRH_POS02_POS: u32 = 2;
+pub const GPIO_POSRH_POS02: u32 = 4;
+pub const GPIO_PORRH_POR00_POS: u32 = 0;
+pub const GPIO_PORRH_POR00: u32 = 1;
+pub const GPIO_PORRH_POR01_POS: u32 = 1;
+pub const GPIO_PORRH_POR01: u32 = 2;
+pub const GPIO_PORRH_POR02_POS: u32 = 2;
+pub const GPIO_PORRH_POR02: u32 = 4;
+pub const GPIO_POTRH_POT00_POS: u32 = 0;
+pub const GPIO_POTRH_POT00: u32 = 1;
+pub const GPIO_POTRH_POT01_POS: u32 = 1;
+pub const GPIO_POTRH_POT01: u32 = 2;
+pub const GPIO_POTRH_POT02_POS: u32 = 2;
+pub const GPIO_POTRH_POT02: u32 = 4;
+pub const GPIO_PSPCR_SPFE: u32 = 31;
+pub const GPIO_PSPCR_SPFE_0: u32 = 1;
+pub const GPIO_PSPCR_SPFE_1: u32 = 2;
+pub const GPIO_PSPCR_SPFE_2: u32 = 4;
+pub const GPIO_PSPCR_SPFE_3: u32 = 8;
+pub const GPIO_PSPCR_SPFE_4: u32 = 16;
+pub const GPIO_PCCR_BFSEL_POS: u32 = 0;
+pub const GPIO_PCCR_BFSEL: u32 = 15;
+pub const GPIO_PCCR_BFSEL_0: u32 = 1;
+pub const GPIO_PCCR_BFSEL_1: u32 = 2;
+pub const GPIO_PCCR_BFSEL_2: u32 = 4;
+pub const GPIO_PCCR_BFSEL_3: u32 = 8;
+pub const GPIO_PCCR_RDWT_POS: u32 = 14;
+pub const GPIO_PCCR_RDWT: u32 = 49152;
+pub const GPIO_PCCR_RDWT_0: u32 = 16384;
+pub const GPIO_PCCR_RDWT_1: u32 = 32768;
+pub const GPIO_PINAER_PINAE: u32 = 63;
+pub const GPIO_PINAER_PINAE_0: u32 = 1;
+pub const GPIO_PINAER_PINAE_1: u32 = 2;
+pub const GPIO_PINAER_PINAE_2: u32 = 4;
+pub const GPIO_PINAER_PINAE_3: u32 = 8;
+pub const GPIO_PINAER_PINAE_4: u32 = 16;
+pub const GPIO_PINAER_PINAE_5: u32 = 32;
+pub const GPIO_PWPR_WE_POS: u32 = 0;
+pub const GPIO_PWPR_WE: u32 = 1;
+pub const GPIO_PWPR_WP_POS: u32 = 8;
+pub const GPIO_PWPR_WP: u32 = 65280;
+pub const GPIO_PWPR_WP_0: u32 = 256;
+pub const GPIO_PWPR_WP_1: u32 = 512;
+pub const GPIO_PWPR_WP_2: u32 = 1024;
+pub const GPIO_PWPR_WP_3: u32 = 2048;
+pub const GPIO_PWPR_WP_4: u32 = 4096;
+pub const GPIO_PWPR_WP_5: u32 = 8192;
+pub const GPIO_PWPR_WP_6: u32 = 16384;
+pub const GPIO_PWPR_WP_7: u32 = 32768;
+pub const GPIO_PCR_POUT_POS: u32 = 0;
+pub const GPIO_PCR_POUT: u32 = 1;
+pub const GPIO_PCR_POUTE_POS: u32 = 1;
+pub const GPIO_PCR_POUTE: u32 = 2;
+pub const GPIO_PCR_NOD_POS: u32 = 2;
+pub const GPIO_PCR_NOD: u32 = 4;
+pub const GPIO_PCR_DRV_POS: u32 = 4;
+pub const GPIO_PCR_DRV: u32 = 48;
+pub const GPIO_PCR_DRV_0: u32 = 16;
+pub const GPIO_PCR_DRV_1: u32 = 32;
+pub const GPIO_PCR_PUU_POS: u32 = 6;
+pub const GPIO_PCR_PUU: u32 = 64;
+pub const GPIO_PCR_PIN_POS: u32 = 8;
+pub const GPIO_PCR_PIN: u32 = 256;
+pub const GPIO_PCR_INVE_POS: u32 = 9;
+pub const GPIO_PCR_INVE: u32 = 512;
+pub const GPIO_PCR_INTE_POS: u32 = 12;
+pub const GPIO_PCR_INTE: u32 = 4096;
+pub const GPIO_PCR_LTE_POS: u32 = 14;
+pub const GPIO_PCR_LTE: u32 = 16384;
+pub const GPIO_PCR_DDIS_POS: u32 = 15;
+pub const GPIO_PCR_DDIS: u32 = 32768;
+pub const GPIO_PFSR_FSEL_POS: u32 = 0;
+pub const GPIO_PFSR_FSEL: u32 = 63;
+pub const GPIO_PFSR_FSEL_0: u32 = 1;
+pub const GPIO_PFSR_FSEL_1: u32 = 2;
+pub const GPIO_PFSR_FSEL_2: u32 = 4;
+pub const GPIO_PFSR_FSEL_3: u32 = 8;
+pub const GPIO_PFSR_FSEL_4: u32 = 16;
+pub const GPIO_PFSR_FSEL_5: u32 = 32;
+pub const GPIO_PFSR_BFE_POS: u32 = 8;
+pub const GPIO_PFSR_BFE: u32 = 256;
+pub const HASH_CR_START_POS: u32 = 0;
+pub const HASH_CR_START: u32 = 1;
+pub const HASH_CR_FST_GRP_POS: u32 = 1;
+pub const HASH_CR_FST_GRP: u32 = 2;
+pub const HASH_HR7: u32 = 4294967295;
+pub const HASH_HR6: u32 = 4294967295;
+pub const HASH_HR5: u32 = 4294967295;
+pub const HASH_HR4: u32 = 4294967295;
+pub const HASH_HR3: u32 = 4294967295;
+pub const HASH_HR2: u32 = 4294967295;
+pub const HASH_HR1: u32 = 4294967295;
+pub const HASH_HR0: u32 = 4294967295;
+pub const HASH_DR15: u32 = 4294967295;
+pub const HASH_DR14: u32 = 4294967295;
+pub const HASH_DR13: u32 = 4294967295;
+pub const HASH_DR12: u32 = 4294967295;
+pub const HASH_DR11: u32 = 4294967295;
+pub const HASH_DR10: u32 = 4294967295;
+pub const HASH_DR9: u32 = 4294967295;
+pub const HASH_DR8: u32 = 4294967295;
+pub const HASH_DR7: u32 = 4294967295;
+pub const HASH_DR6: u32 = 4294967295;
+pub const HASH_DR5: u32 = 4294967295;
+pub const HASH_DR4: u32 = 4294967295;
+pub const HASH_DR3: u32 = 4294967295;
+pub const HASH_DR2: u32 = 4294967295;
+pub const HASH_DR1: u32 = 4294967295;
+pub const HASH_DR0: u32 = 4294967295;
+pub const I2C_CR1_PE_POS: u32 = 0;
+pub const I2C_CR1_PE: u32 = 1;
+pub const I2C_CR1_SMBUS_POS: u32 = 1;
+pub const I2C_CR1_SMBUS: u32 = 2;
+pub const I2C_CR1_SMBALRTEN_POS: u32 = 2;
+pub const I2C_CR1_SMBALRTEN: u32 = 4;
+pub const I2C_CR1_SMBDEFAULTEN_POS: u32 = 3;
+pub const I2C_CR1_SMBDEFAULTEN: u32 = 8;
+pub const I2C_CR1_SMBHOSTEN_POS: u32 = 4;
+pub const I2C_CR1_SMBHOSTEN: u32 = 16;
+pub const I2C_CR1_GCEN_POS: u32 = 6;
+pub const I2C_CR1_GCEN: u32 = 64;
+pub const I2C_CR1_RESTART_POS: u32 = 7;
+pub const I2C_CR1_RESTART: u32 = 128;
+pub const I2C_CR1_START_POS: u32 = 8;
+pub const I2C_CR1_START: u32 = 256;
+pub const I2C_CR1_STOP_POS: u32 = 9;
+pub const I2C_CR1_STOP: u32 = 512;
+pub const I2C_CR1_ACK_POS: u32 = 10;
+pub const I2C_CR1_ACK: u32 = 1024;
+pub const I2C_CR1_SWRST_POS: u32 = 15;
+pub const I2C_CR1_SWRST: u32 = 32768;
+pub const I2C_CR2_STARTIE_POS: u32 = 0;
+pub const I2C_CR2_STARTIE: u32 = 1;
+pub const I2C_CR2_SLADDR0IE_POS: u32 = 1;
+pub const I2C_CR2_SLADDR0IE: u32 = 2;
+pub const I2C_CR2_SLADDR1IE_POS: u32 = 2;
+pub const I2C_CR2_SLADDR1IE: u32 = 4;
+pub const I2C_CR2_TENDIE_POS: u32 = 3;
+pub const I2C_CR2_TENDIE: u32 = 8;
+pub const I2C_CR2_STOPIE_POS: u32 = 4;
+pub const I2C_CR2_STOPIE: u32 = 16;
+pub const I2C_CR2_RFULLIE_POS: u32 = 6;
+pub const I2C_CR2_RFULLIE: u32 = 64;
+pub const I2C_CR2_TEMPTYIE_POS: u32 = 7;
+pub const I2C_CR2_TEMPTYIE: u32 = 128;
+pub const I2C_CR2_ARLOIE_POS: u32 = 9;
+pub const I2C_CR2_ARLOIE: u32 = 512;
+pub const I2C_CR2_NACKIE_POS: u32 = 12;
+pub const I2C_CR2_NACKIE: u32 = 4096;
+pub const I2C_CR2_TMOUTIE_POS: u32 = 14;
+pub const I2C_CR2_TMOUTIE: u32 = 16384;
+pub const I2C_CR2_GENCALLIE_POS: u32 = 20;
+pub const I2C_CR2_GENCALLIE: u32 = 1048576;
+pub const I2C_CR2_SMBDEFAULTIE_POS: u32 = 21;
+pub const I2C_CR2_SMBDEFAULTIE: u32 = 2097152;
+pub const I2C_CR2_SMBHOSTIE_POS: u32 = 22;
+pub const I2C_CR2_SMBHOSTIE: u32 = 4194304;
+pub const I2C_CR2_SMBALRTIE_POS: u32 = 23;
+pub const I2C_CR2_SMBALRTIE: u32 = 8388608;
+pub const I2C_CR3_TMOUTEN_POS: u32 = 0;
+pub const I2C_CR3_TMOUTEN: u32 = 1;
+pub const I2C_CR3_LTMOUT_POS: u32 = 1;
+pub const I2C_CR3_LTMOUT: u32 = 2;
+pub const I2C_CR3_HTMOUT_POS: u32 = 2;
+pub const I2C_CR3_HTMOUT: u32 = 4;
+pub const I2C_CR3_FACKEN_POS: u32 = 7;
+pub const I2C_CR3_FACKEN: u32 = 128;
+pub const I2C_CR4_BUSWAIT_POS: u32 = 10;
+pub const I2C_CR4_BUSWAIT: u32 = 1024;
+pub const I2C_SLR0_SLADDR0_POS: u32 = 0;
+pub const I2C_SLR0_SLADDR0: u32 = 1023;
+pub const I2C_SLR0_SLADDR0EN_POS: u32 = 12;
+pub const I2C_SLR0_SLADDR0EN: u32 = 4096;
+pub const I2C_SLR0_ADDRMOD0_POS: u32 = 15;
+pub const I2C_SLR0_ADDRMOD0: u32 = 32768;
+pub const I2C_SLR1_SLADDR1_POS: u32 = 0;
+pub const I2C_SLR1_SLADDR1: u32 = 1023;
+pub const I2C_SLR1_SLADDR1EN_POS: u32 = 12;
+pub const I2C_SLR1_SLADDR1EN: u32 = 4096;
+pub const I2C_SLR1_ADDRMOD1_POS: u32 = 15;
+pub const I2C_SLR1_ADDRMOD1: u32 = 32768;
+pub const I2C_SLTR_TOUTLOW_POS: u32 = 0;
+pub const I2C_SLTR_TOUTLOW: u32 = 65535;
+pub const I2C_SLTR_TOUTHIGH_POS: u32 = 16;
+pub const I2C_SLTR_TOUTHIGH: u32 = 4294901760;
+pub const I2C_SR_STARTF_POS: u32 = 0;
+pub const I2C_SR_STARTF: u32 = 1;
+pub const I2C_SR_SLADDR0F_POS: u32 = 1;
+pub const I2C_SR_SLADDR0F: u32 = 2;
+pub const I2C_SR_SLADDR1F_POS: u32 = 2;
+pub const I2C_SR_SLADDR1F: u32 = 4;
+pub const I2C_SR_TENDF_POS: u32 = 3;
+pub const I2C_SR_TENDF: u32 = 8;
+pub const I2C_SR_STOPF_POS: u32 = 4;
+pub const I2C_SR_STOPF: u32 = 16;
+pub const I2C_SR_RFULLF_POS: u32 = 6;
+pub const I2C_SR_RFULLF: u32 = 64;
+pub const I2C_SR_TEMPTYF_POS: u32 = 7;
+pub const I2C_SR_TEMPTYF: u32 = 128;
+pub const I2C_SR_ARLOF_POS: u32 = 9;
+pub const I2C_SR_ARLOF: u32 = 512;
+pub const I2C_SR_ACKRF_POS: u32 = 10;
+pub const I2C_SR_ACKRF: u32 = 1024;
+pub const I2C_SR_NACKF_POS: u32 = 12;
+pub const I2C_SR_NACKF: u32 = 4096;
+pub const I2C_SR_TMOUTF_POS: u32 = 14;
+pub const I2C_SR_TMOUTF: u32 = 16384;
+pub const I2C_SR_MSL_POS: u32 = 16;
+pub const I2C_SR_MSL: u32 = 65536;
+pub const I2C_SR_BUSY_POS: u32 = 17;
+pub const I2C_SR_BUSY: u32 = 131072;
+pub const I2C_SR_TRA_POS: u32 = 18;
+pub const I2C_SR_TRA: u32 = 262144;
+pub const I2C_SR_GENCALLF_POS: u32 = 20;
+pub const I2C_SR_GENCALLF: u32 = 1048576;
+pub const I2C_SR_SMBDEFAULTF_POS: u32 = 21;
+pub const I2C_SR_SMBDEFAULTF: u32 = 2097152;
+pub const I2C_SR_SMBHOSTF_POS: u32 = 22;
+pub const I2C_SR_SMBHOSTF: u32 = 4194304;
+pub const I2C_SR_SMBALRTF_POS: u32 = 23;
+pub const I2C_SR_SMBALRTF: u32 = 8388608;
+pub const I2C_CLR_STARTFCLR_POS: u32 = 0;
+pub const I2C_CLR_STARTFCLR: u32 = 1;
+pub const I2C_CLR_SLADDR0FCLR_POS: u32 = 1;
+pub const I2C_CLR_SLADDR0FCLR: u32 = 2;
+pub const I2C_CLR_SLADDR1FCLR_POS: u32 = 2;
+pub const I2C_CLR_SLADDR1FCLR: u32 = 4;
+pub const I2C_CLR_TENDFCLR_POS: u32 = 3;
+pub const I2C_CLR_TENDFCLR: u32 = 8;
+pub const I2C_CLR_STOPFCLR_POS: u32 = 4;
+pub const I2C_CLR_STOPFCLR: u32 = 16;
+pub const I2C_CLR_RFULLFCLR_POS: u32 = 6;
+pub const I2C_CLR_RFULLFCLR: u32 = 64;
+pub const I2C_CLR_TEMPTYFCLR_POS: u32 = 7;
+pub const I2C_CLR_TEMPTYFCLR: u32 = 128;
+pub const I2C_CLR_ARLOFCLR_POS: u32 = 9;
+pub const I2C_CLR_ARLOFCLR: u32 = 512;
+pub const I2C_CLR_NACKFCLR_POS: u32 = 12;
+pub const I2C_CLR_NACKFCLR: u32 = 4096;
+pub const I2C_CLR_TMOUTFCLR_POS: u32 = 14;
+pub const I2C_CLR_TMOUTFCLR: u32 = 16384;
+pub const I2C_CLR_GENCALLFCLR_POS: u32 = 20;
+pub const I2C_CLR_GENCALLFCLR: u32 = 1048576;
+pub const I2C_CLR_SMBDEFAULTFCLR_POS: u32 = 21;
+pub const I2C_CLR_SMBDEFAULTFCLR: u32 = 2097152;
+pub const I2C_CLR_SMBHOSTFCLR_POS: u32 = 22;
+pub const I2C_CLR_SMBHOSTFCLR: u32 = 4194304;
+pub const I2C_CLR_SMBALRTFCLR_POS: u32 = 23;
+pub const I2C_CLR_SMBALRTFCLR: u32 = 8388608;
+pub const I2C_DTR_DT: u32 = 255;
+pub const I2C_DRR_DR: u32 = 255;
+pub const I2C_CCR_SLOWW_POS: u32 = 0;
+pub const I2C_CCR_SLOWW: u32 = 31;
+pub const I2C_CCR_SHIGHW_POS: u32 = 8;
+pub const I2C_CCR_SHIGHW: u32 = 7936;
+pub const I2C_CCR_CKDIV_POS: u32 = 16;
+pub const I2C_CCR_CKDIV: u32 = 458752;
+pub const I2C_FLTR_DNF_POS: u32 = 0;
+pub const I2C_FLTR_DNF: u32 = 3;
+pub const I2C_FLTR_DNF_0: u32 = 1;
+pub const I2C_FLTR_DNF_1: u32 = 2;
+pub const I2C_FLTR_DNFEN_POS: u32 = 4;
+pub const I2C_FLTR_DNFEN: u32 = 16;
+pub const I2C_FLTR_ANFEN_POS: u32 = 5;
+pub const I2C_FLTR_ANFEN: u32 = 32;
+pub const I2S_CTRL_TXE_POS: u32 = 0;
+pub const I2S_CTRL_TXE: u32 = 1;
+pub const I2S_CTRL_TXIE_POS: u32 = 1;
+pub const I2S_CTRL_TXIE: u32 = 2;
+pub const I2S_CTRL_RXE_POS: u32 = 2;
+pub const I2S_CTRL_RXE: u32 = 4;
+pub const I2S_CTRL_RXIE_POS: u32 = 3;
+pub const I2S_CTRL_RXIE: u32 = 8;
+pub const I2S_CTRL_EIE_POS: u32 = 4;
+pub const I2S_CTRL_EIE: u32 = 16;
+pub const I2S_CTRL_WMS_POS: u32 = 5;
+pub const I2S_CTRL_WMS: u32 = 32;
+pub const I2S_CTRL_ODD_POS: u32 = 6;
+pub const I2S_CTRL_ODD: u32 = 64;
+pub const I2S_CTRL_MCKOE_POS: u32 = 7;
+pub const I2S_CTRL_MCKOE: u32 = 128;
+pub const I2S_CTRL_TXBIRQWL_POS: u32 = 8;
+pub const I2S_CTRL_TXBIRQWL: u32 = 1792;
+pub const I2S_CTRL_RXBIRQWL_POS: u32 = 12;
+pub const I2S_CTRL_RXBIRQWL: u32 = 28672;
+pub const I2S_CTRL_FIFOR_POS: u32 = 16;
+pub const I2S_CTRL_FIFOR: u32 = 65536;
+pub const I2S_CTRL_I2SPLLSEL_POS: u32 = 18;
+pub const I2S_CTRL_I2SPLLSEL: u32 = 262144;
+pub const I2S_CTRL_SDOE_POS: u32 = 19;
+pub const I2S_CTRL_SDOE: u32 = 524288;
+pub const I2S_CTRL_LRCKOE_POS: u32 = 20;
+pub const I2S_CTRL_LRCKOE: u32 = 1048576;
+pub const I2S_CTRL_CKOE_POS: u32 = 21;
+pub const I2S_CTRL_CKOE: u32 = 2097152;
+pub const I2S_CTRL_DUPLEX_POS: u32 = 22;
+pub const I2S_CTRL_DUPLEX: u32 = 4194304;
+pub const I2S_CTRL_CLKSEL_POS: u32 = 23;
+pub const I2S_CTRL_CLKSEL: u32 = 8388608;
+pub const I2S_SR_TXBA_POS: u32 = 0;
+pub const I2S_SR_TXBA: u32 = 1;
+pub const I2S_SR_RXBA_POS: u32 = 1;
+pub const I2S_SR_RXBA: u32 = 2;
+pub const I2S_SR_TXBE_POS: u32 = 2;
+pub const I2S_SR_TXBE: u32 = 4;
+pub const I2S_SR_TXBF_POS: u32 = 3;
+pub const I2S_SR_TXBF: u32 = 8;
+pub const I2S_SR_RXBE_POS: u32 = 4;
+pub const I2S_SR_RXBE: u32 = 16;
+pub const I2S_SR_RXBF_POS: u32 = 5;
+pub const I2S_SR_RXBF: u32 = 32;
+pub const I2S_ER_TXERR_POS: u32 = 0;
+pub const I2S_ER_TXERR: u32 = 1;
+pub const I2S_ER_RXERR_POS: u32 = 1;
+pub const I2S_ER_RXERR: u32 = 2;
+pub const I2S_CFGR_I2SSTD_POS: u32 = 0;
+pub const I2S_CFGR_I2SSTD: u32 = 3;
+pub const I2S_CFGR_I2SSTD_0: u32 = 1;
+pub const I2S_CFGR_I2SSTD_1: u32 = 2;
+pub const I2S_CFGR_DATLEN_POS: u32 = 2;
+pub const I2S_CFGR_DATLEN: u32 = 12;
+pub const I2S_CFGR_DATLEN_0: u32 = 4;
+pub const I2S_CFGR_DATLEN_1: u32 = 8;
+pub const I2S_CFGR_CHLEN_POS: u32 = 4;
+pub const I2S_CFGR_CHLEN: u32 = 16;
+pub const I2S_CFGR_PCMSYNC_POS: u32 = 5;
+pub const I2S_CFGR_PCMSYNC: u32 = 32;
+pub const I2S_TXBUF: u32 = 4294967295;
+pub const I2S_RXBUF: u32 = 4294967295;
+pub const I2S_PR_I2SDIV: u32 = 255;
+pub const ICG_ICG0_SWDTAUTS_POS: u32 = 0;
+pub const ICG_ICG0_SWDTAUTS: u32 = 1;
+pub const ICG_ICG0_SWDTITS_POS: u32 = 1;
+pub const ICG_ICG0_SWDTITS: u32 = 2;
+pub const ICG_ICG0_SWDTPERI_POS: u32 = 2;
+pub const ICG_ICG0_SWDTPERI: u32 = 12;
+pub const ICG_ICG0_SWDTPERI_0: u32 = 4;
+pub const ICG_ICG0_SWDTPERI_1: u32 = 8;
+pub const ICG_ICG0_SWDTCKS_POS: u32 = 4;
+pub const ICG_ICG0_SWDTCKS: u32 = 240;
+pub const ICG_ICG0_SWDTWDPT_POS: u32 = 8;
+pub const ICG_ICG0_SWDTWDPT: u32 = 3840;
+pub const ICG_ICG0_SWDTSLPOFF_POS: u32 = 12;
+pub const ICG_ICG0_SWDTSLPOFF: u32 = 4096;
+pub const ICG_ICG0_WDTAUTS_POS: u32 = 16;
+pub const ICG_ICG0_WDTAUTS: u32 = 65536;
+pub const ICG_ICG0_WDTITS_POS: u32 = 17;
+pub const ICG_ICG0_WDTITS: u32 = 131072;
+pub const ICG_ICG0_WDTPERI_POS: u32 = 18;
+pub const ICG_ICG0_WDTPERI: u32 = 786432;
+pub const ICG_ICG0_WDTPERI_0: u32 = 262144;
+pub const ICG_ICG0_WDTPERI_1: u32 = 524288;
+pub const ICG_ICG0_WDTCKS_POS: u32 = 20;
+pub const ICG_ICG0_WDTCKS: u32 = 15728640;
+pub const ICG_ICG0_WDTWDPT_POS: u32 = 24;
+pub const ICG_ICG0_WDTWDPT: u32 = 251658240;
+pub const ICG_ICG0_WDTSLPOFF_POS: u32 = 28;
+pub const ICG_ICG0_WDTSLPOFF: u32 = 268435456;
+pub const ICG_ICG1_HRCFREQSEL_POS: u32 = 0;
+pub const ICG_ICG1_HRCFREQSEL: u32 = 1;
+pub const ICG_ICG1_HRCSTOP_POS: u32 = 8;
+pub const ICG_ICG1_HRCSTOP: u32 = 256;
+pub const ICG_ICG1_BOR_LEV_POS: u32 = 16;
+pub const ICG_ICG1_BOR_LEV: u32 = 196608;
+pub const ICG_ICG1_BOR_LEV_0: u32 = 65536;
+pub const ICG_ICG1_BOR_LEV_1: u32 = 131072;
+pub const ICG_ICG1_BORDIS_POS: u32 = 18;
+pub const ICG_ICG1_BORDIS: u32 = 262144;
+pub const ICG_ICG1_SMPCLK_POS: u32 = 26;
+pub const ICG_ICG1_SMPCLK: u32 = 201326592;
+pub const ICG_ICG1_SMPCLK_0: u32 = 67108864;
+pub const ICG_ICG1_SMPCLK_1: u32 = 134217728;
+pub const ICG_ICG1_NMITRG_POS: u32 = 28;
+pub const ICG_ICG1_NMITRG: u32 = 268435456;
+pub const ICG_ICG1_NMIEN_POS: u32 = 29;
+pub const ICG_ICG1_NMIEN: u32 = 536870912;
+pub const ICG_ICG1_NFEN_POS: u32 = 30;
+pub const ICG_ICG1_NFEN: u32 = 1073741824;
+pub const ICG_ICG1_NMIICGEN_POS: u32 = 31;
+pub const ICG_ICG1_NMIICGEN: u32 = 2147483648;
+pub const ICG_ICG2: u32 = 4294967295;
+pub const ICG_ICG3: u32 = 4294967295;
+pub const ICG_ICG4: u32 = 4294967295;
+pub const ICG_ICG5: u32 = 4294967295;
+pub const ICG_ICG6: u32 = 4294967295;
+pub const ICG_ICG7: u32 = 4294967295;
+pub const INTC_NMICR_NMITRG_POS: u32 = 0;
+pub const INTC_NMICR_NMITRG: u32 = 1;
+pub const INTC_NMICR_NSMPCLK_POS: u32 = 4;
+pub const INTC_NMICR_NSMPCLK: u32 = 48;
+pub const INTC_NMICR_NSMPCLK_0: u32 = 16;
+pub const INTC_NMICR_NSMPCLK_1: u32 = 32;
+pub const INTC_NMICR_NFEN_POS: u32 = 7;
+pub const INTC_NMICR_NFEN: u32 = 128;
+pub const INTC_NMIENR_NMIENR_POS: u32 = 0;
+pub const INTC_NMIENR_NMIENR: u32 = 1;
+pub const INTC_NMIENR_SWDTENR_POS: u32 = 1;
+pub const INTC_NMIENR_SWDTENR: u32 = 2;
+pub const INTC_NMIENR_PVD1ENR_POS: u32 = 2;
+pub const INTC_NMIENR_PVD1ENR: u32 = 4;
+pub const INTC_NMIENR_PVD2ENR_POS: u32 = 3;
+pub const INTC_NMIENR_PVD2ENR: u32 = 8;
+pub const INTC_NMIENR_XTALSTPENR_POS: u32 = 5;
+pub const INTC_NMIENR_XTALSTPENR: u32 = 32;
+pub const INTC_NMIENR_REPENR_POS: u32 = 8;
+pub const INTC_NMIENR_REPENR: u32 = 256;
+pub const INTC_NMIENR_RECCENR_POS: u32 = 9;
+pub const INTC_NMIENR_RECCENR: u32 = 512;
+pub const INTC_NMIENR_BUSMENR_POS: u32 = 10;
+pub const INTC_NMIENR_BUSMENR: u32 = 1024;
+pub const INTC_NMIENR_WDTENR_POS: u32 = 11;
+pub const INTC_NMIENR_WDTENR: u32 = 2048;
+pub const INTC_NMIFR_NMIFR_POS: u32 = 0;
+pub const INTC_NMIFR_NMIFR: u32 = 1;
+pub const INTC_NMIFR_SWDTFR_POS: u32 = 1;
+pub const INTC_NMIFR_SWDTFR: u32 = 2;
+pub const INTC_NMIFR_PVD1FR_POS: u32 = 2;
+pub const INTC_NMIFR_PVD1FR: u32 = 4;
+pub const INTC_NMIFR_PVD2FR_POS: u32 = 3;
+pub const INTC_NMIFR_PVD2FR: u32 = 8;
+pub const INTC_NMIFR_XTALSTPFR_POS: u32 = 5;
+pub const INTC_NMIFR_XTALSTPFR: u32 = 32;
+pub const INTC_NMIFR_REPFR_POS: u32 = 8;
+pub const INTC_NMIFR_REPFR: u32 = 256;
+pub const INTC_NMIFR_RECCFR_POS: u32 = 9;
+pub const INTC_NMIFR_RECCFR: u32 = 512;
+pub const INTC_NMIFR_BUSMFR_POS: u32 = 10;
+pub const INTC_NMIFR_BUSMFR: u32 = 1024;
+pub const INTC_NMIFR_WDTFR_POS: u32 = 11;
+pub const INTC_NMIFR_WDTFR: u32 = 2048;
+pub const INTC_NMICFR_NMICFR_POS: u32 = 0;
+pub const INTC_NMICFR_NMICFR: u32 = 1;
+pub const INTC_NMICFR_SWDTCFR_POS: u32 = 1;
+pub const INTC_NMICFR_SWDTCFR: u32 = 2;
+pub const INTC_NMICFR_PVD1CFR_POS: u32 = 2;
+pub const INTC_NMICFR_PVD1CFR: u32 = 4;
+pub const INTC_NMICFR_PVD2CFR_POS: u32 = 3;
+pub const INTC_NMICFR_PVD2CFR: u32 = 8;
+pub const INTC_NMICFR_XTALSTPCFR_POS: u32 = 5;
+pub const INTC_NMICFR_XTALSTPCFR: u32 = 32;
+pub const INTC_NMICFR_REPCFR_POS: u32 = 8;
+pub const INTC_NMICFR_REPCFR: u32 = 256;
+pub const INTC_NMICFR_RECCCFR_POS: u32 = 9;
+pub const INTC_NMICFR_RECCCFR: u32 = 512;
+pub const INTC_NMICFR_BUSMCFR_POS: u32 = 10;
+pub const INTC_NMICFR_BUSMCFR: u32 = 1024;
+pub const INTC_NMICFR_WDTCFR_POS: u32 = 11;
+pub const INTC_NMICFR_WDTCFR: u32 = 2048;
+pub const INTC_EIRQCR_EIRQTRG_POS: u32 = 0;
+pub const INTC_EIRQCR_EIRQTRG: u32 = 3;
+pub const INTC_EIRQCR_EIRQTRG_0: u32 = 1;
+pub const INTC_EIRQCR_EIRQTRG_1: u32 = 2;
+pub const INTC_EIRQCR_EISMPCLK_POS: u32 = 4;
+pub const INTC_EIRQCR_EISMPCLK: u32 = 48;
+pub const INTC_EIRQCR_EISMPCLK_0: u32 = 16;
+pub const INTC_EIRQCR_EISMPCLK_1: u32 = 32;
+pub const INTC_EIRQCR_EFEN_POS: u32 = 7;
+pub const INTC_EIRQCR_EFEN: u32 = 128;
+pub const INTC_WUPEN_EIRQWUEN_POS: u32 = 0;
+pub const INTC_WUPEN_EIRQWUEN: u32 = 65535;
+pub const INTC_WUPEN_EIRQWUEN_0: u32 = 1;
+pub const INTC_WUPEN_EIRQWUEN_1: u32 = 2;
+pub const INTC_WUPEN_EIRQWUEN_2: u32 = 4;
+pub const INTC_WUPEN_EIRQWUEN_3: u32 = 8;
+pub const INTC_WUPEN_EIRQWUEN_4: u32 = 16;
+pub const INTC_WUPEN_EIRQWUEN_5: u32 = 32;
+pub const INTC_WUPEN_EIRQWUEN_6: u32 = 64;
+pub const INTC_WUPEN_EIRQWUEN_7: u32 = 128;
+pub const INTC_WUPEN_EIRQWUEN_8: u32 = 256;
+pub const INTC_WUPEN_EIRQWUEN_9: u32 = 512;
+pub const INTC_WUPEN_EIRQWUEN_10: u32 = 1024;
+pub const INTC_WUPEN_EIRQWUEN_11: u32 = 2048;
+pub const INTC_WUPEN_EIRQWUEN_12: u32 = 4096;
+pub const INTC_WUPEN_EIRQWUEN_13: u32 = 8192;
+pub const INTC_WUPEN_EIRQWUEN_14: u32 = 16384;
+pub const INTC_WUPEN_EIRQWUEN_15: u32 = 32768;
+pub const INTC_WUPEN_SWDTWUEN_POS: u32 = 16;
+pub const INTC_WUPEN_SWDTWUEN: u32 = 65536;
+pub const INTC_WUPEN_PVD1WUEN_POS: u32 = 17;
+pub const INTC_WUPEN_PVD1WUEN: u32 = 131072;
+pub const INTC_WUPEN_PVD2WUEN_POS: u32 = 18;
+pub const INTC_WUPEN_PVD2WUEN: u32 = 262144;
+pub const INTC_WUPEN_CMPI0WUEN_POS: u32 = 19;
+pub const INTC_WUPEN_CMPI0WUEN: u32 = 524288;
+pub const INTC_WUPEN_WKTMWUEN_POS: u32 = 20;
+pub const INTC_WUPEN_WKTMWUEN: u32 = 1048576;
+pub const INTC_WUPEN_RTCALMWUEN_POS: u32 = 21;
+pub const INTC_WUPEN_RTCALMWUEN: u32 = 2097152;
+pub const INTC_WUPEN_RTCPRDWUEN_POS: u32 = 22;
+pub const INTC_WUPEN_RTCPRDWUEN: u32 = 4194304;
+pub const INTC_WUPEN_TMR0WUEN_POS: u32 = 23;
+pub const INTC_WUPEN_TMR0WUEN: u32 = 8388608;
+pub const INTC_WUPEN_RXWUEN_POS: u32 = 25;
+pub const INTC_WUPEN_RXWUEN: u32 = 33554432;
+pub const INTC_EIFR_EIFR0_POS: u32 = 0;
+pub const INTC_EIFR_EIFR0: u32 = 1;
+pub const INTC_EIFR_EIFR1_POS: u32 = 1;
+pub const INTC_EIFR_EIFR1: u32 = 2;
+pub const INTC_EIFR_EIFR2_POS: u32 = 2;
+pub const INTC_EIFR_EIFR2: u32 = 4;
+pub const INTC_EIFR_EIFR3_POS: u32 = 3;
+pub const INTC_EIFR_EIFR3: u32 = 8;
+pub const INTC_EIFR_EIFR4_POS: u32 = 4;
+pub const INTC_EIFR_EIFR4: u32 = 16;
+pub const INTC_EIFR_EIFR5_POS: u32 = 5;
+pub const INTC_EIFR_EIFR5: u32 = 32;
+pub const INTC_EIFR_EIFR6_POS: u32 = 6;
+pub const INTC_EIFR_EIFR6: u32 = 64;
+pub const INTC_EIFR_EIFR7_POS: u32 = 7;
+pub const INTC_EIFR_EIFR7: u32 = 128;
+pub const INTC_EIFR_EIFR8_POS: u32 = 8;
+pub const INTC_EIFR_EIFR8: u32 = 256;
+pub const INTC_EIFR_EIFR9_POS: u32 = 9;
+pub const INTC_EIFR_EIFR9: u32 = 512;
+pub const INTC_EIFR_EIFR10_POS: u32 = 10;
+pub const INTC_EIFR_EIFR10: u32 = 1024;
+pub const INTC_EIFR_EIFR11_POS: u32 = 11;
+pub const INTC_EIFR_EIFR11: u32 = 2048;
+pub const INTC_EIFR_EIFR12_POS: u32 = 12;
+pub const INTC_EIFR_EIFR12: u32 = 4096;
+pub const INTC_EIFR_EIFR13_POS: u32 = 13;
+pub const INTC_EIFR_EIFR13: u32 = 8192;
+pub const INTC_EIFR_EIFR14_POS: u32 = 14;
+pub const INTC_EIFR_EIFR14: u32 = 16384;
+pub const INTC_EIFR_EIFR15_POS: u32 = 15;
+pub const INTC_EIFR_EIFR15: u32 = 32768;
+pub const INTC_EIFCR_EIFCR0_POS: u32 = 0;
+pub const INTC_EIFCR_EIFCR0: u32 = 1;
+pub const INTC_EIFCR_EIFCR1_POS: u32 = 1;
+pub const INTC_EIFCR_EIFCR1: u32 = 2;
+pub const INTC_EIFCR_EIFCR2_POS: u32 = 2;
+pub const INTC_EIFCR_EIFCR2: u32 = 4;
+pub const INTC_EIFCR_EIFCR3_POS: u32 = 3;
+pub const INTC_EIFCR_EIFCR3: u32 = 8;
+pub const INTC_EIFCR_EIFCR4_POS: u32 = 4;
+pub const INTC_EIFCR_EIFCR4: u32 = 16;
+pub const INTC_EIFCR_EIFCR5_POS: u32 = 5;
+pub const INTC_EIFCR_EIFCR5: u32 = 32;
+pub const INTC_EIFCR_EIFCR6_POS: u32 = 6;
+pub const INTC_EIFCR_EIFCR6: u32 = 64;
+pub const INTC_EIFCR_EIFCR7_POS: u32 = 7;
+pub const INTC_EIFCR_EIFCR7: u32 = 128;
+pub const INTC_EIFCR_EIFCR8_POS: u32 = 8;
+pub const INTC_EIFCR_EIFCR8: u32 = 256;
+pub const INTC_EIFCR_EIFCR9_POS: u32 = 9;
+pub const INTC_EIFCR_EIFCR9: u32 = 512;
+pub const INTC_EIFCR_EIFCR10_POS: u32 = 10;
+pub const INTC_EIFCR_EIFCR10: u32 = 1024;
+pub const INTC_EIFCR_EIFCR11_POS: u32 = 11;
+pub const INTC_EIFCR_EIFCR11: u32 = 2048;
+pub const INTC_EIFCR_EIFCR12_POS: u32 = 12;
+pub const INTC_EIFCR_EIFCR12: u32 = 4096;
+pub const INTC_EIFCR_EIFCR13_POS: u32 = 13;
+pub const INTC_EIFCR_EIFCR13: u32 = 8192;
+pub const INTC_EIFCR_EIFCR14_POS: u32 = 14;
+pub const INTC_EIFCR_EIFCR14: u32 = 16384;
+pub const INTC_EIFCR_EIFCR15_POS: u32 = 15;
+pub const INTC_EIFCR_EIFCR15: u32 = 32768;
+pub const INTC_SEL_INTSEL: u32 = 511;
+pub const INTC_SEL_INTSEL_0: u32 = 1;
+pub const INTC_SEL_INTSEL_1: u32 = 2;
+pub const INTC_SEL_INTSEL_2: u32 = 4;
+pub const INTC_SEL_INTSEL_3: u32 = 8;
+pub const INTC_SEL_INTSEL_4: u32 = 16;
+pub const INTC_SEL_INTSEL_5: u32 = 32;
+pub const INTC_SEL_INTSEL_6: u32 = 64;
+pub const INTC_SEL_INTSEL_7: u32 = 128;
+pub const INTC_SEL_INTSEL_8: u32 = 256;
+pub const INTC_VSSEL_VSEL0_POS: u32 = 0;
+pub const INTC_VSSEL_VSEL0: u32 = 1;
+pub const INTC_VSSEL_VSEL1_POS: u32 = 1;
+pub const INTC_VSSEL_VSEL1: u32 = 2;
+pub const INTC_VSSEL_VSEL2_POS: u32 = 2;
+pub const INTC_VSSEL_VSEL2: u32 = 4;
+pub const INTC_VSSEL_VSEL3_POS: u32 = 3;
+pub const INTC_VSSEL_VSEL3: u32 = 8;
+pub const INTC_VSSEL_VSEL4_POS: u32 = 4;
+pub const INTC_VSSEL_VSEL4: u32 = 16;
+pub const INTC_VSSEL_VSEL5_POS: u32 = 5;
+pub const INTC_VSSEL_VSEL5: u32 = 32;
+pub const INTC_VSSEL_VSEL6_POS: u32 = 6;
+pub const INTC_VSSEL_VSEL6: u32 = 64;
+pub const INTC_VSSEL_VSEL7_POS: u32 = 7;
+pub const INTC_VSSEL_VSEL7: u32 = 128;
+pub const INTC_VSSEL_VSEL8_POS: u32 = 8;
+pub const INTC_VSSEL_VSEL8: u32 = 256;
+pub const INTC_VSSEL_VSEL9_POS: u32 = 9;
+pub const INTC_VSSEL_VSEL9: u32 = 512;
+pub const INTC_VSSEL_VSEL10_POS: u32 = 10;
+pub const INTC_VSSEL_VSEL10: u32 = 1024;
+pub const INTC_VSSEL_VSEL11_POS: u32 = 11;
+pub const INTC_VSSEL_VSEL11: u32 = 2048;
+pub const INTC_VSSEL_VSEL12_POS: u32 = 12;
+pub const INTC_VSSEL_VSEL12: u32 = 4096;
+pub const INTC_VSSEL_VSEL13_POS: u32 = 13;
+pub const INTC_VSSEL_VSEL13: u32 = 8192;
+pub const INTC_VSSEL_VSEL14_POS: u32 = 14;
+pub const INTC_VSSEL_VSEL14: u32 = 16384;
+pub const INTC_VSSEL_VSEL15_POS: u32 = 15;
+pub const INTC_VSSEL_VSEL15: u32 = 32768;
+pub const INTC_VSSEL_VSEL16_POS: u32 = 16;
+pub const INTC_VSSEL_VSEL16: u32 = 65536;
+pub const INTC_VSSEL_VSEL17_POS: u32 = 17;
+pub const INTC_VSSEL_VSEL17: u32 = 131072;
+pub const INTC_VSSEL_VSEL18_POS: u32 = 18;
+pub const INTC_VSSEL_VSEL18: u32 = 262144;
+pub const INTC_VSSEL_VSEL19_POS: u32 = 19;
+pub const INTC_VSSEL_VSEL19: u32 = 524288;
+pub const INTC_VSSEL_VSEL20_POS: u32 = 20;
+pub const INTC_VSSEL_VSEL20: u32 = 1048576;
+pub const INTC_VSSEL_VSEL21_POS: u32 = 21;
+pub const INTC_VSSEL_VSEL21: u32 = 2097152;
+pub const INTC_VSSEL_VSEL22_POS: u32 = 22;
+pub const INTC_VSSEL_VSEL22: u32 = 4194304;
+pub const INTC_VSSEL_VSEL23_POS: u32 = 23;
+pub const INTC_VSSEL_VSEL23: u32 = 8388608;
+pub const INTC_VSSEL_VSEL24_POS: u32 = 24;
+pub const INTC_VSSEL_VSEL24: u32 = 16777216;
+pub const INTC_VSSEL_VSEL25_POS: u32 = 25;
+pub const INTC_VSSEL_VSEL25: u32 = 33554432;
+pub const INTC_VSSEL_VSEL26_POS: u32 = 26;
+pub const INTC_VSSEL_VSEL26: u32 = 67108864;
+pub const INTC_VSSEL_VSEL27_POS: u32 = 27;
+pub const INTC_VSSEL_VSEL27: u32 = 134217728;
+pub const INTC_VSSEL_VSEL28_POS: u32 = 28;
+pub const INTC_VSSEL_VSEL28: u32 = 268435456;
+pub const INTC_VSSEL_VSEL29_POS: u32 = 29;
+pub const INTC_VSSEL_VSEL29: u32 = 536870912;
+pub const INTC_VSSEL_VSEL30_POS: u32 = 30;
+pub const INTC_VSSEL_VSEL30: u32 = 1073741824;
+pub const INTC_VSSEL_VSEL31_POS: u32 = 31;
+pub const INTC_VSSEL_VSEL31: u32 = 2147483648;
+pub const INTC_SWIER_SWIE0_POS: u32 = 0;
+pub const INTC_SWIER_SWIE0: u32 = 1;
+pub const INTC_SWIER_SWIE1_POS: u32 = 1;
+pub const INTC_SWIER_SWIE1: u32 = 2;
+pub const INTC_SWIER_SWIE2_POS: u32 = 2;
+pub const INTC_SWIER_SWIE2: u32 = 4;
+pub const INTC_SWIER_SWIE3_POS: u32 = 3;
+pub const INTC_SWIER_SWIE3: u32 = 8;
+pub const INTC_SWIER_SWIE4_POS: u32 = 4;
+pub const INTC_SWIER_SWIE4: u32 = 16;
+pub const INTC_SWIER_SWIE5_POS: u32 = 5;
+pub const INTC_SWIER_SWIE5: u32 = 32;
+pub const INTC_SWIER_SWIE6_POS: u32 = 6;
+pub const INTC_SWIER_SWIE6: u32 = 64;
+pub const INTC_SWIER_SWIE7_POS: u32 = 7;
+pub const INTC_SWIER_SWIE7: u32 = 128;
+pub const INTC_SWIER_SWIE8_POS: u32 = 8;
+pub const INTC_SWIER_SWIE8: u32 = 256;
+pub const INTC_SWIER_SWIE9_POS: u32 = 9;
+pub const INTC_SWIER_SWIE9: u32 = 512;
+pub const INTC_SWIER_SWIE10_POS: u32 = 10;
+pub const INTC_SWIER_SWIE10: u32 = 1024;
+pub const INTC_SWIER_SWIE11_POS: u32 = 11;
+pub const INTC_SWIER_SWIE11: u32 = 2048;
+pub const INTC_SWIER_SWIE12_POS: u32 = 12;
+pub const INTC_SWIER_SWIE12: u32 = 4096;
+pub const INTC_SWIER_SWIE13_POS: u32 = 13;
+pub const INTC_SWIER_SWIE13: u32 = 8192;
+pub const INTC_SWIER_SWIE14_POS: u32 = 14;
+pub const INTC_SWIER_SWIE14: u32 = 16384;
+pub const INTC_SWIER_SWIE15_POS: u32 = 15;
+pub const INTC_SWIER_SWIE15: u32 = 32768;
+pub const INTC_SWIER_SWIE16_POS: u32 = 16;
+pub const INTC_SWIER_SWIE16: u32 = 65536;
+pub const INTC_SWIER_SWIE17_POS: u32 = 17;
+pub const INTC_SWIER_SWIE17: u32 = 131072;
+pub const INTC_SWIER_SWIE18_POS: u32 = 18;
+pub const INTC_SWIER_SWIE18: u32 = 262144;
+pub const INTC_SWIER_SWIE19_POS: u32 = 19;
+pub const INTC_SWIER_SWIE19: u32 = 524288;
+pub const INTC_SWIER_SWIE20_POS: u32 = 20;
+pub const INTC_SWIER_SWIE20: u32 = 1048576;
+pub const INTC_SWIER_SWIE21_POS: u32 = 21;
+pub const INTC_SWIER_SWIE21: u32 = 2097152;
+pub const INTC_SWIER_SWIE22_POS: u32 = 22;
+pub const INTC_SWIER_SWIE22: u32 = 4194304;
+pub const INTC_SWIER_SWIE23_POS: u32 = 23;
+pub const INTC_SWIER_SWIE23: u32 = 8388608;
+pub const INTC_SWIER_SWIE24_POS: u32 = 24;
+pub const INTC_SWIER_SWIE24: u32 = 16777216;
+pub const INTC_SWIER_SWIE25_POS: u32 = 25;
+pub const INTC_SWIER_SWIE25: u32 = 33554432;
+pub const INTC_SWIER_SWIE26_POS: u32 = 26;
+pub const INTC_SWIER_SWIE26: u32 = 67108864;
+pub const INTC_SWIER_SWIE27_POS: u32 = 27;
+pub const INTC_SWIER_SWIE27: u32 = 134217728;
+pub const INTC_SWIER_SWIE28_POS: u32 = 28;
+pub const INTC_SWIER_SWIE28: u32 = 268435456;
+pub const INTC_SWIER_SWIE29_POS: u32 = 29;
+pub const INTC_SWIER_SWIE29: u32 = 536870912;
+pub const INTC_SWIER_SWIE30_POS: u32 = 30;
+pub const INTC_SWIER_SWIE30: u32 = 1073741824;
+pub const INTC_SWIER_SWIE31_POS: u32 = 31;
+pub const INTC_SWIER_SWIE31: u32 = 2147483648;
+pub const INTC_EVTER_EVTE0_POS: u32 = 0;
+pub const INTC_EVTER_EVTE0: u32 = 1;
+pub const INTC_EVTER_EVTE1_POS: u32 = 1;
+pub const INTC_EVTER_EVTE1: u32 = 2;
+pub const INTC_EVTER_EVTE2_POS: u32 = 2;
+pub const INTC_EVTER_EVTE2: u32 = 4;
+pub const INTC_EVTER_EVTE3_POS: u32 = 3;
+pub const INTC_EVTER_EVTE3: u32 = 8;
+pub const INTC_EVTER_EVTE4_POS: u32 = 4;
+pub const INTC_EVTER_EVTE4: u32 = 16;
+pub const INTC_EVTER_EVTE5_POS: u32 = 5;
+pub const INTC_EVTER_EVTE5: u32 = 32;
+pub const INTC_EVTER_EVTE6_POS: u32 = 6;
+pub const INTC_EVTER_EVTE6: u32 = 64;
+pub const INTC_EVTER_EVTE7_POS: u32 = 7;
+pub const INTC_EVTER_EVTE7: u32 = 128;
+pub const INTC_EVTER_EVTE8_POS: u32 = 8;
+pub const INTC_EVTER_EVTE8: u32 = 256;
+pub const INTC_EVTER_EVTE9_POS: u32 = 9;
+pub const INTC_EVTER_EVTE9: u32 = 512;
+pub const INTC_EVTER_EVTE10_POS: u32 = 10;
+pub const INTC_EVTER_EVTE10: u32 = 1024;
+pub const INTC_EVTER_EVTE11_POS: u32 = 11;
+pub const INTC_EVTER_EVTE11: u32 = 2048;
+pub const INTC_EVTER_EVTE12_POS: u32 = 12;
+pub const INTC_EVTER_EVTE12: u32 = 4096;
+pub const INTC_EVTER_EVTE13_POS: u32 = 13;
+pub const INTC_EVTER_EVTE13: u32 = 8192;
+pub const INTC_EVTER_EVTE14_POS: u32 = 14;
+pub const INTC_EVTER_EVTE14: u32 = 16384;
+pub const INTC_EVTER_EVTE15_POS: u32 = 15;
+pub const INTC_EVTER_EVTE15: u32 = 32768;
+pub const INTC_EVTER_EVTE16_POS: u32 = 16;
+pub const INTC_EVTER_EVTE16: u32 = 65536;
+pub const INTC_EVTER_EVTE17_POS: u32 = 17;
+pub const INTC_EVTER_EVTE17: u32 = 131072;
+pub const INTC_EVTER_EVTE18_POS: u32 = 18;
+pub const INTC_EVTER_EVTE18: u32 = 262144;
+pub const INTC_EVTER_EVTE19_POS: u32 = 19;
+pub const INTC_EVTER_EVTE19: u32 = 524288;
+pub const INTC_EVTER_EVTE20_POS: u32 = 20;
+pub const INTC_EVTER_EVTE20: u32 = 1048576;
+pub const INTC_EVTER_EVTE21_POS: u32 = 21;
+pub const INTC_EVTER_EVTE21: u32 = 2097152;
+pub const INTC_EVTER_EVTE22_POS: u32 = 22;
+pub const INTC_EVTER_EVTE22: u32 = 4194304;
+pub const INTC_EVTER_EVTE23_POS: u32 = 23;
+pub const INTC_EVTER_EVTE23: u32 = 8388608;
+pub const INTC_EVTER_EVTE24_POS: u32 = 24;
+pub const INTC_EVTER_EVTE24: u32 = 16777216;
+pub const INTC_EVTER_EVTE25_POS: u32 = 25;
+pub const INTC_EVTER_EVTE25: u32 = 33554432;
+pub const INTC_EVTER_EVTE26_POS: u32 = 26;
+pub const INTC_EVTER_EVTE26: u32 = 67108864;
+pub const INTC_EVTER_EVTE27_POS: u32 = 27;
+pub const INTC_EVTER_EVTE27: u32 = 134217728;
+pub const INTC_EVTER_EVTE28_POS: u32 = 28;
+pub const INTC_EVTER_EVTE28: u32 = 268435456;
+pub const INTC_EVTER_EVTE29_POS: u32 = 29;
+pub const INTC_EVTER_EVTE29: u32 = 536870912;
+pub const INTC_EVTER_EVTE30_POS: u32 = 30;
+pub const INTC_EVTER_EVTE30: u32 = 1073741824;
+pub const INTC_EVTER_EVTE31_POS: u32 = 31;
+pub const INTC_EVTER_EVTE31: u32 = 2147483648;
+pub const INTC_IER_IER0_POS: u32 = 0;
+pub const INTC_IER_IER0: u32 = 1;
+pub const INTC_IER_IER1_POS: u32 = 1;
+pub const INTC_IER_IER1: u32 = 2;
+pub const INTC_IER_IER2_POS: u32 = 2;
+pub const INTC_IER_IER2: u32 = 4;
+pub const INTC_IER_IER3_POS: u32 = 3;
+pub const INTC_IER_IER3: u32 = 8;
+pub const INTC_IER_IER4_POS: u32 = 4;
+pub const INTC_IER_IER4: u32 = 16;
+pub const INTC_IER_IER5_POS: u32 = 5;
+pub const INTC_IER_IER5: u32 = 32;
+pub const INTC_IER_IER6_POS: u32 = 6;
+pub const INTC_IER_IER6: u32 = 64;
+pub const INTC_IER_IER7_POS: u32 = 7;
+pub const INTC_IER_IER7: u32 = 128;
+pub const INTC_IER_IER8_POS: u32 = 8;
+pub const INTC_IER_IER8: u32 = 256;
+pub const INTC_IER_IER9_POS: u32 = 9;
+pub const INTC_IER_IER9: u32 = 512;
+pub const INTC_IER_IER10_POS: u32 = 10;
+pub const INTC_IER_IER10: u32 = 1024;
+pub const INTC_IER_IER11_POS: u32 = 11;
+pub const INTC_IER_IER11: u32 = 2048;
+pub const INTC_IER_IER12_POS: u32 = 12;
+pub const INTC_IER_IER12: u32 = 4096;
+pub const INTC_IER_IER13_POS: u32 = 13;
+pub const INTC_IER_IER13: u32 = 8192;
+pub const INTC_IER_IER14_POS: u32 = 14;
+pub const INTC_IER_IER14: u32 = 16384;
+pub const INTC_IER_IER15_POS: u32 = 15;
+pub const INTC_IER_IER15: u32 = 32768;
+pub const INTC_IER_IER16_POS: u32 = 16;
+pub const INTC_IER_IER16: u32 = 65536;
+pub const INTC_IER_IER17_POS: u32 = 17;
+pub const INTC_IER_IER17: u32 = 131072;
+pub const INTC_IER_IER18_POS: u32 = 18;
+pub const INTC_IER_IER18: u32 = 262144;
+pub const INTC_IER_IER19_POS: u32 = 19;
+pub const INTC_IER_IER19: u32 = 524288;
+pub const INTC_IER_IER20_POS: u32 = 20;
+pub const INTC_IER_IER20: u32 = 1048576;
+pub const INTC_IER_IER21_POS: u32 = 21;
+pub const INTC_IER_IER21: u32 = 2097152;
+pub const INTC_IER_IER22_POS: u32 = 22;
+pub const INTC_IER_IER22: u32 = 4194304;
+pub const INTC_IER_IER23_POS: u32 = 23;
+pub const INTC_IER_IER23: u32 = 8388608;
+pub const INTC_IER_IER24_POS: u32 = 24;
+pub const INTC_IER_IER24: u32 = 16777216;
+pub const INTC_IER_IER25_POS: u32 = 25;
+pub const INTC_IER_IER25: u32 = 33554432;
+pub const INTC_IER_IER26_POS: u32 = 26;
+pub const INTC_IER_IER26: u32 = 67108864;
+pub const INTC_IER_IER27_POS: u32 = 27;
+pub const INTC_IER_IER27: u32 = 134217728;
+pub const INTC_IER_IER28_POS: u32 = 28;
+pub const INTC_IER_IER28: u32 = 268435456;
+pub const INTC_IER_IER29_POS: u32 = 29;
+pub const INTC_IER_IER29: u32 = 536870912;
+pub const INTC_IER_IER30_POS: u32 = 30;
+pub const INTC_IER_IER30: u32 = 1073741824;
+pub const INTC_IER_IER31_POS: u32 = 31;
+pub const INTC_IER_IER31: u32 = 2147483648;
+pub const KEYSCAN_SCR_KEYINSEL_POS: u32 = 0;
+pub const KEYSCAN_SCR_KEYINSEL: u32 = 65535;
+pub const KEYSCAN_SCR_KEYOUTSEL_POS: u32 = 16;
+pub const KEYSCAN_SCR_KEYOUTSEL: u32 = 458752;
+pub const KEYSCAN_SCR_CKSEL_POS: u32 = 20;
+pub const KEYSCAN_SCR_CKSEL: u32 = 3145728;
+pub const KEYSCAN_SCR_CKSEL_0: u32 = 1048576;
+pub const KEYSCAN_SCR_CKSEL_1: u32 = 2097152;
+pub const KEYSCAN_SCR_T_LLEVEL_POS: u32 = 24;
+pub const KEYSCAN_SCR_T_LLEVEL: u32 = 520093696;
+pub const KEYSCAN_SCR_T_HIZ_POS: u32 = 29;
+pub const KEYSCAN_SCR_T_HIZ: u32 = 3758096384;
+pub const KEYSCAN_SER_SEN: u32 = 1;
+pub const KEYSCAN_SSR_INDEX: u32 = 7;
+pub const MPU_RGD_MPURGSIZE_POS: u32 = 0;
+pub const MPU_RGD_MPURGSIZE: u32 = 31;
+pub const MPU_RGD_MPURGADDR_POS: u32 = 5;
+pub const MPU_RGD_MPURGADDR: u32 = 4294967264;
+pub const MPU_RGCR_S2RGRP_POS: u32 = 0;
+pub const MPU_RGCR_S2RGRP: u32 = 1;
+pub const MPU_RGCR_S2RGWP_POS: u32 = 1;
+pub const MPU_RGCR_S2RGWP: u32 = 2;
+pub const MPU_RGCR_S2RGE_POS: u32 = 7;
+pub const MPU_RGCR_S2RGE: u32 = 128;
+pub const MPU_RGCR_S1RGRP_POS: u32 = 8;
+pub const MPU_RGCR_S1RGRP: u32 = 256;
+pub const MPU_RGCR_S1RGWP_POS: u32 = 9;
+pub const MPU_RGCR_S1RGWP: u32 = 512;
+pub const MPU_RGCR_S1RGE_POS: u32 = 15;
+pub const MPU_RGCR_S1RGE: u32 = 32768;
+pub const MPU_RGCR_FRGRP_POS: u32 = 16;
+pub const MPU_RGCR_FRGRP: u32 = 65536;
+pub const MPU_RGCR_FRGWP_POS: u32 = 17;
+pub const MPU_RGCR_FRGWP: u32 = 131072;
+pub const MPU_RGCR_FRGE_POS: u32 = 23;
+pub const MPU_RGCR_FRGE: u32 = 8388608;
+pub const MPU_CR_SMPU2BRP_POS: u32 = 0;
+pub const MPU_CR_SMPU2BRP: u32 = 1;
+pub const MPU_CR_SMPU2BWP_POS: u32 = 1;
+pub const MPU_CR_SMPU2BWP: u32 = 2;
+pub const MPU_CR_SMPU2ACT_POS: u32 = 2;
+pub const MPU_CR_SMPU2ACT: u32 = 12;
+pub const MPU_CR_SMPU2ACT_0: u32 = 4;
+pub const MPU_CR_SMPU2ACT_1: u32 = 8;
+pub const MPU_CR_SMPU2E_POS: u32 = 7;
+pub const MPU_CR_SMPU2E: u32 = 128;
+pub const MPU_CR_SMPU1BRP_POS: u32 = 8;
+pub const MPU_CR_SMPU1BRP: u32 = 256;
+pub const MPU_CR_SMPU1BWP_POS: u32 = 9;
+pub const MPU_CR_SMPU1BWP: u32 = 512;
+pub const MPU_CR_SMPU1ACT_POS: u32 = 10;
+pub const MPU_CR_SMPU1ACT: u32 = 3072;
+pub const MPU_CR_SMPU1ACT_0: u32 = 1024;
+pub const MPU_CR_SMPU1ACT_1: u32 = 2048;
+pub const MPU_CR_SMPU1E_POS: u32 = 15;
+pub const MPU_CR_SMPU1E: u32 = 32768;
+pub const MPU_CR_FMPUBRP_POS: u32 = 16;
+pub const MPU_CR_FMPUBRP: u32 = 65536;
+pub const MPU_CR_FMPUBWP_POS: u32 = 17;
+pub const MPU_CR_FMPUBWP: u32 = 131072;
+pub const MPU_CR_FMPUACT_POS: u32 = 18;
+pub const MPU_CR_FMPUACT: u32 = 786432;
+pub const MPU_CR_FMPUACT_0: u32 = 262144;
+pub const MPU_CR_FMPUACT_1: u32 = 524288;
+pub const MPU_CR_FMPUE_POS: u32 = 23;
+pub const MPU_CR_FMPUE: u32 = 8388608;
+pub const MPU_SR_SMPU2EAF_POS: u32 = 0;
+pub const MPU_SR_SMPU2EAF: u32 = 1;
+pub const MPU_SR_SMPU1EAF_POS: u32 = 8;
+pub const MPU_SR_SMPU1EAF: u32 = 256;
+pub const MPU_SR_FMPUEAF_POS: u32 = 16;
+pub const MPU_SR_FMPUEAF: u32 = 65536;
+pub const MPU_ECLR_SMPU2ECLR_POS: u32 = 0;
+pub const MPU_ECLR_SMPU2ECLR: u32 = 1;
+pub const MPU_ECLR_SMPU1ECLR_POS: u32 = 8;
+pub const MPU_ECLR_SMPU1ECLR: u32 = 256;
+pub const MPU_ECLR_FMPUECLR_POS: u32 = 16;
+pub const MPU_ECLR_FMPUECLR: u32 = 65536;
+pub const MPU_WP_MPUWE_POS: u32 = 0;
+pub const MPU_WP_MPUWE: u32 = 1;
+pub const MPU_WP_WKEY_POS: u32 = 1;
+pub const MPU_WP_WKEY: u32 = 65534;
+pub const MPU_IPPR_AESRDP_POS: u32 = 0;
+pub const MPU_IPPR_AESRDP: u32 = 1;
+pub const MPU_IPPR_AESWRP_POS: u32 = 1;
+pub const MPU_IPPR_AESWRP: u32 = 2;
+pub const MPU_IPPR_HASHRDP_POS: u32 = 2;
+pub const MPU_IPPR_HASHRDP: u32 = 4;
+pub const MPU_IPPR_HASHWRP_POS: u32 = 3;
+pub const MPU_IPPR_HASHWRP: u32 = 8;
+pub const MPU_IPPR_TRNGRDP_POS: u32 = 4;
+pub const MPU_IPPR_TRNGRDP: u32 = 16;
+pub const MPU_IPPR_TRNGWRP_POS: u32 = 5;
+pub const MPU_IPPR_TRNGWRP: u32 = 32;
+pub const MPU_IPPR_CRCRDP_POS: u32 = 6;
+pub const MPU_IPPR_CRCRDP: u32 = 64;
+pub const MPU_IPPR_CRCWRP_POS: u32 = 7;
+pub const MPU_IPPR_CRCWRP: u32 = 128;
+pub const MPU_IPPR_EFMRDP_POS: u32 = 8;
+pub const MPU_IPPR_EFMRDP: u32 = 256;
+pub const MPU_IPPR_EFMWRP_POS: u32 = 9;
+pub const MPU_IPPR_EFMWRP: u32 = 512;
+pub const MPU_IPPR_WDTRDP_POS: u32 = 12;
+pub const MPU_IPPR_WDTRDP: u32 = 4096;
+pub const MPU_IPPR_WDTWRP_POS: u32 = 13;
+pub const MPU_IPPR_WDTWRP: u32 = 8192;
+pub const MPU_IPPR_SWDTRDP_POS: u32 = 14;
+pub const MPU_IPPR_SWDTRDP: u32 = 16384;
+pub const MPU_IPPR_SWDTWRP_POS: u32 = 15;
+pub const MPU_IPPR_SWDTWRP: u32 = 32768;
+pub const MPU_IPPR_BKSRAMRDP_POS: u32 = 16;
+pub const MPU_IPPR_BKSRAMRDP: u32 = 65536;
+pub const MPU_IPPR_BKSRAMWRP_POS: u32 = 17;
+pub const MPU_IPPR_BKSRAMWRP: u32 = 131072;
+pub const MPU_IPPR_RTCRDP_POS: u32 = 18;
+pub const MPU_IPPR_RTCRDP: u32 = 262144;
+pub const MPU_IPPR_RTCWRP_POS: u32 = 19;
+pub const MPU_IPPR_RTCWRP: u32 = 524288;
+pub const MPU_IPPR_DMPURDP_POS: u32 = 20;
+pub const MPU_IPPR_DMPURDP: u32 = 1048576;
+pub const MPU_IPPR_DMPUWRP_POS: u32 = 21;
+pub const MPU_IPPR_DMPUWRP: u32 = 2097152;
+pub const MPU_IPPR_SRAMCRDP_POS: u32 = 22;
+pub const MPU_IPPR_SRAMCRDP: u32 = 4194304;
+pub const MPU_IPPR_SRAMCWRP_POS: u32 = 23;
+pub const MPU_IPPR_SRAMCWRP: u32 = 8388608;
+pub const MPU_IPPR_INTCRDP_POS: u32 = 24;
+pub const MPU_IPPR_INTCRDP: u32 = 16777216;
+pub const MPU_IPPR_INTCWRP_POS: u32 = 25;
+pub const MPU_IPPR_INTCWRP: u32 = 33554432;
+pub const MPU_IPPR_SYSCRDP_POS: u32 = 26;
+pub const MPU_IPPR_SYSCRDP: u32 = 67108864;
+pub const MPU_IPPR_SYSCWRP_POS: u32 = 27;
+pub const MPU_IPPR_SYSCWRP: u32 = 134217728;
+pub const MPU_IPPR_MSTPRDP_POS: u32 = 28;
+pub const MPU_IPPR_MSTPRDP: u32 = 268435456;
+pub const MPU_IPPR_MSTPWRP_POS: u32 = 29;
+pub const MPU_IPPR_MSTPWRP: u32 = 536870912;
+pub const MPU_IPPR_BUSERRE_POS: u32 = 31;
+pub const MPU_IPPR_BUSERRE: u32 = 2147483648;
+pub const OTS_CTL_OTSST_POS: u32 = 0;
+pub const OTS_CTL_OTSST: u32 = 1;
+pub const OTS_CTL_OTSCK_POS: u32 = 1;
+pub const OTS_CTL_OTSCK: u32 = 2;
+pub const OTS_CTL_OTSIE_POS: u32 = 2;
+pub const OTS_CTL_OTSIE: u32 = 4;
+pub const OTS_CTL_TSSTP_POS: u32 = 3;
+pub const OTS_CTL_TSSTP: u32 = 8;
+pub const OTS_DR1: u32 = 65535;
+pub const OTS_DR2: u32 = 65535;
+pub const OTS_ECR: u32 = 65535;
+pub const PERIC_USBFS_SYCTLREG_DFB_POS: u32 = 0;
+pub const PERIC_USBFS_SYCTLREG_DFB: u32 = 1;
+pub const PERIC_USBFS_SYCTLREG_SOFEN_POS: u32 = 1;
+pub const PERIC_USBFS_SYCTLREG_SOFEN: u32 = 2;
+pub const PERIC_SDIOC_SYCTLREG_SELMMC1_POS: u32 = 1;
+pub const PERIC_SDIOC_SYCTLREG_SELMMC1: u32 = 2;
+pub const PERIC_SDIOC_SYCTLREG_SELMMC2_POS: u32 = 3;
+pub const PERIC_SDIOC_SYCTLREG_SELMMC2: u32 = 8;
+pub const PWC_FCG0_SRAMH_POS: u32 = 0;
+pub const PWC_FCG0_SRAMH: u32 = 1;
+pub const PWC_FCG0_SRAM12_POS: u32 = 4;
+pub const PWC_FCG0_SRAM12: u32 = 16;
+pub const PWC_FCG0_SRAM3_POS: u32 = 8;
+pub const PWC_FCG0_SRAM3: u32 = 256;
+pub const PWC_FCG0_SRAMRET_POS: u32 = 10;
+pub const PWC_FCG0_SRAMRET: u32 = 1024;
+pub const PWC_FCG0_DMA1_POS: u32 = 14;
+pub const PWC_FCG0_DMA1: u32 = 16384;
+pub const PWC_FCG0_DMA2_POS: u32 = 15;
+pub const PWC_FCG0_DMA2: u32 = 32768;
+pub const PWC_FCG0_FCM_POS: u32 = 16;
+pub const PWC_FCG0_FCM: u32 = 65536;
+pub const PWC_FCG0_AOS_POS: u32 = 17;
+pub const PWC_FCG0_AOS: u32 = 131072;
+pub const PWC_FCG0_AES_POS: u32 = 20;
+pub const PWC_FCG0_AES: u32 = 1048576;
+pub const PWC_FCG0_HASH_POS: u32 = 21;
+pub const PWC_FCG0_HASH: u32 = 2097152;
+pub const PWC_FCG0_TRNG_POS: u32 = 22;
+pub const PWC_FCG0_TRNG: u32 = 4194304;
+pub const PWC_FCG0_CRC_POS: u32 = 23;
+pub const PWC_FCG0_CRC: u32 = 8388608;
+pub const PWC_FCG0_DCU1_POS: u32 = 24;
+pub const PWC_FCG0_DCU1: u32 = 16777216;
+pub const PWC_FCG0_DCU2_POS: u32 = 25;
+pub const PWC_FCG0_DCU2: u32 = 33554432;
+pub const PWC_FCG0_DCU3_POS: u32 = 26;
+pub const PWC_FCG0_DCU3: u32 = 67108864;
+pub const PWC_FCG0_DCU4_POS: u32 = 27;
+pub const PWC_FCG0_DCU4: u32 = 134217728;
+pub const PWC_FCG0_KEY_POS: u32 = 31;
+pub const PWC_FCG0_KEY: u32 = 2147483648;
+pub const PWC_FCG1_CAN_POS: u32 = 0;
+pub const PWC_FCG1_CAN: u32 = 1;
+pub const PWC_FCG1_QSPI_POS: u32 = 3;
+pub const PWC_FCG1_QSPI: u32 = 8;
+pub const PWC_FCG1_I2C1_POS: u32 = 4;
+pub const PWC_FCG1_I2C1: u32 = 16;
+pub const PWC_FCG1_I2C2_POS: u32 = 5;
+pub const PWC_FCG1_I2C2: u32 = 32;
+pub const PWC_FCG1_I2C3_POS: u32 = 6;
+pub const PWC_FCG1_I2C3: u32 = 64;
+pub const PWC_FCG1_USBFS_POS: u32 = 8;
+pub const PWC_FCG1_USBFS: u32 = 256;
+pub const PWC_FCG1_SDIOC1_POS: u32 = 10;
+pub const PWC_FCG1_SDIOC1: u32 = 1024;
+pub const PWC_FCG1_SDIOC2_POS: u32 = 11;
+pub const PWC_FCG1_SDIOC2: u32 = 2048;
+pub const PWC_FCG1_I2S1_POS: u32 = 12;
+pub const PWC_FCG1_I2S1: u32 = 4096;
+pub const PWC_FCG1_I2S2_POS: u32 = 13;
+pub const PWC_FCG1_I2S2: u32 = 8192;
+pub const PWC_FCG1_I2S3_POS: u32 = 14;
+pub const PWC_FCG1_I2S3: u32 = 16384;
+pub const PWC_FCG1_I2S4_POS: u32 = 15;
+pub const PWC_FCG1_I2S4: u32 = 32768;
+pub const PWC_FCG1_SPI1_POS: u32 = 16;
+pub const PWC_FCG1_SPI1: u32 = 65536;
+pub const PWC_FCG1_SPI2_POS: u32 = 17;
+pub const PWC_FCG1_SPI2: u32 = 131072;
+pub const PWC_FCG1_SPI3_POS: u32 = 18;
+pub const PWC_FCG1_SPI3: u32 = 262144;
+pub const PWC_FCG1_SPI4_POS: u32 = 19;
+pub const PWC_FCG1_SPI4: u32 = 524288;
+pub const PWC_FCG1_USART1_POS: u32 = 24;
+pub const PWC_FCG1_USART1: u32 = 16777216;
+pub const PWC_FCG1_USART2_POS: u32 = 25;
+pub const PWC_FCG1_USART2: u32 = 33554432;
+pub const PWC_FCG1_USART3_POS: u32 = 26;
+pub const PWC_FCG1_USART3: u32 = 67108864;
+pub const PWC_FCG1_USART4_POS: u32 = 27;
+pub const PWC_FCG1_USART4: u32 = 134217728;
+pub const PWC_FCG2_TIMER0_1_POS: u32 = 0;
+pub const PWC_FCG2_TIMER0_1: u32 = 1;
+pub const PWC_FCG2_TIMER0_2_POS: u32 = 1;
+pub const PWC_FCG2_TIMER0_2: u32 = 2;
+pub const PWC_FCG2_TIMERA_1_POS: u32 = 2;
+pub const PWC_FCG2_TIMERA_1: u32 = 4;
+pub const PWC_FCG2_TIMERA_2_POS: u32 = 3;
+pub const PWC_FCG2_TIMERA_2: u32 = 8;
+pub const PWC_FCG2_TIMERA_3_POS: u32 = 4;
+pub const PWC_FCG2_TIMERA_3: u32 = 16;
+pub const PWC_FCG2_TIMERA_4_POS: u32 = 5;
+pub const PWC_FCG2_TIMERA_4: u32 = 32;
+pub const PWC_FCG2_TIMERA_5_POS: u32 = 6;
+pub const PWC_FCG2_TIMERA_5: u32 = 64;
+pub const PWC_FCG2_TIMERA_6_POS: u32 = 7;
+pub const PWC_FCG2_TIMERA_6: u32 = 128;
+pub const PWC_FCG2_TIMER4_1_POS: u32 = 8;
+pub const PWC_FCG2_TIMER4_1: u32 = 256;
+pub const PWC_FCG2_TIMER4_2_POS: u32 = 9;
+pub const PWC_FCG2_TIMER4_2: u32 = 512;
+pub const PWC_FCG2_TIMER4_3_POS: u32 = 10;
+pub const PWC_FCG2_TIMER4_3: u32 = 1024;
+pub const PWC_FCG2_EMB_POS: u32 = 15;
+pub const PWC_FCG2_EMB: u32 = 32768;
+pub const PWC_FCG2_TIMER6_1_POS: u32 = 16;
+pub const PWC_FCG2_TIMER6_1: u32 = 65536;
+pub const PWC_FCG2_TIMER6_2_POS: u32 = 17;
+pub const PWC_FCG2_TIMER6_2: u32 = 131072;
+pub const PWC_FCG2_TIMER6_3_POS: u32 = 18;
+pub const PWC_FCG2_TIMER6_3: u32 = 262144;
+pub const PWC_FCG3_ADC1_POS: u32 = 0;
+pub const PWC_FCG3_ADC1: u32 = 1;
+pub const PWC_FCG3_ADC2_POS: u32 = 1;
+pub const PWC_FCG3_ADC2: u32 = 2;
+pub const PWC_FCG3_CMP_POS: u32 = 8;
+pub const PWC_FCG3_CMP: u32 = 256;
+pub const PWC_FCG3_OTS_POS: u32 = 12;
+pub const PWC_FCG3_OTS: u32 = 4096;
+pub const PWC_FCG0PC_PRT0_POS: u32 = 0;
+pub const PWC_FCG0PC_PRT0: u32 = 1;
+pub const PWC_FCG0PC_FCG0PCWE_POS: u32 = 16;
+pub const PWC_FCG0PC_FCG0PCWE: u32 = 4294901760;
+pub const PWC_WKTCR_WKTMCMP_POS: u32 = 0;
+pub const PWC_WKTCR_WKTMCMP: u32 = 4095;
+pub const PWC_WKTCR_WKOVF_POS: u32 = 12;
+pub const PWC_WKTCR_WKOVF: u32 = 4096;
+pub const PWC_WKTCR_WKCKS_POS: u32 = 13;
+pub const PWC_WKTCR_WKCKS: u32 = 24576;
+pub const PWC_WKTCR_WKCKS_0: u32 = 8192;
+pub const PWC_WKTCR_WKCKS_1: u32 = 16384;
+pub const PWC_WKTCR_WKTCE_POS: u32 = 15;
+pub const PWC_WKTCR_WKTCE: u32 = 32768;
+pub const PWC_STPMCR_FLNWT_POS: u32 = 0;
+pub const PWC_STPMCR_FLNWT: u32 = 1;
+pub const PWC_STPMCR_CKSMRC_POS: u32 = 1;
+pub const PWC_STPMCR_CKSMRC: u32 = 2;
+pub const PWC_STPMCR_STOP_POS: u32 = 15;
+pub const PWC_STPMCR_STOP: u32 = 32768;
+pub const PWC_RAMPC0_RAMPDC0_POS: u32 = 0;
+pub const PWC_RAMPC0_RAMPDC0: u32 = 1;
+pub const PWC_RAMPC0_RAMPDC1_POS: u32 = 1;
+pub const PWC_RAMPC0_RAMPDC1: u32 = 2;
+pub const PWC_RAMPC0_RAMPDC2_POS: u32 = 2;
+pub const PWC_RAMPC0_RAMPDC2: u32 = 4;
+pub const PWC_RAMPC0_RAMPDC3_POS: u32 = 3;
+pub const PWC_RAMPC0_RAMPDC3: u32 = 8;
+pub const PWC_RAMPC0_RAMPDC4_POS: u32 = 4;
+pub const PWC_RAMPC0_RAMPDC4: u32 = 16;
+pub const PWC_RAMPC0_RAMPDC5_POS: u32 = 5;
+pub const PWC_RAMPC0_RAMPDC5: u32 = 32;
+pub const PWC_RAMPC0_RAMPDC6_POS: u32 = 6;
+pub const PWC_RAMPC0_RAMPDC6: u32 = 64;
+pub const PWC_RAMPC0_RAMPDC7_POS: u32 = 7;
+pub const PWC_RAMPC0_RAMPDC7: u32 = 128;
+pub const PWC_RAMPC0_RAMPDC8_POS: u32 = 8;
+pub const PWC_RAMPC0_RAMPDC8: u32 = 256;
+pub const PWC_RAMOPM: u32 = 65535;
+pub const PWC_PVDICR_PVD1NMIS_POS: u32 = 0;
+pub const PWC_PVDICR_PVD1NMIS: u32 = 1;
+pub const PWC_PVDICR_PVD2NMIS_POS: u32 = 4;
+pub const PWC_PVDICR_PVD2NMIS: u32 = 16;
+pub const PWC_PVDDSR_PVD1MON_POS: u32 = 0;
+pub const PWC_PVDDSR_PVD1MON: u32 = 1;
+pub const PWC_PVDDSR_PVD1DETFLG_POS: u32 = 1;
+pub const PWC_PVDDSR_PVD1DETFLG: u32 = 2;
+pub const PWC_PVDDSR_PVD2MON_POS: u32 = 4;
+pub const PWC_PVDDSR_PVD2MON: u32 = 16;
+pub const PWC_PVDDSR_PVD2DETFLG_POS: u32 = 5;
+pub const PWC_PVDDSR_PVD2DETFLG: u32 = 32;
+pub const PWC_FPRC_FPRCB0_POS: u32 = 0;
+pub const PWC_FPRC_FPRCB0: u32 = 1;
+pub const PWC_FPRC_FPRCB1_POS: u32 = 1;
+pub const PWC_FPRC_FPRCB1: u32 = 2;
+pub const PWC_FPRC_FPRCB2_POS: u32 = 2;
+pub const PWC_FPRC_FPRCB2: u32 = 4;
+pub const PWC_FPRC_FPRCB3_POS: u32 = 3;
+pub const PWC_FPRC_FPRCB3: u32 = 8;
+pub const PWC_FPRC_FPRCWE_POS: u32 = 8;
+pub const PWC_FPRC_FPRCWE: u32 = 65280;
+pub const PWC_PWRC0_PDMDS_POS: u32 = 0;
+pub const PWC_PWRC0_PDMDS: u32 = 3;
+pub const PWC_PWRC0_PDMDS_0: u32 = 1;
+pub const PWC_PWRC0_PDMDS_1: u32 = 2;
+pub const PWC_PWRC0_VVDRSD_POS: u32 = 2;
+pub const PWC_PWRC0_VVDRSD: u32 = 4;
+pub const PWC_PWRC0_RETRAMSD_POS: u32 = 3;
+pub const PWC_PWRC0_RETRAMSD: u32 = 8;
+pub const PWC_PWRC0_IORTN_POS: u32 = 4;
+pub const PWC_PWRC0_IORTN: u32 = 48;
+pub const PWC_PWRC0_IORTN_0: u32 = 16;
+pub const PWC_PWRC0_IORTN_1: u32 = 32;
+pub const PWC_PWRC0_PWDN_POS: u32 = 7;
+pub const PWC_PWRC0_PWDN: u32 = 128;
+pub const PWC_PWRC1_VPLLSD_POS: u32 = 0;
+pub const PWC_PWRC1_VPLLSD: u32 = 1;
+pub const PWC_PWRC1_VHRCSD_POS: u32 = 1;
+pub const PWC_PWRC1_VHRCSD: u32 = 2;
+pub const PWC_PWRC1_STPDAS_POS: u32 = 6;
+pub const PWC_PWRC1_STPDAS: u32 = 192;
+pub const PWC_PWRC1_STPDAS_0: u32 = 64;
+pub const PWC_PWRC1_STPDAS_1: u32 = 128;
+pub const PWC_PWRC2_DDAS_POS: u32 = 0;
+pub const PWC_PWRC2_DDAS: u32 = 15;
+pub const PWC_PWRC2_DDAS_0: u32 = 1;
+pub const PWC_PWRC2_DDAS_1: u32 = 2;
+pub const PWC_PWRC2_DDAS_2: u32 = 4;
+pub const PWC_PWRC2_DDAS_3: u32 = 8;
+pub const PWC_PWRC2_DVS_POS: u32 = 4;
+pub const PWC_PWRC2_DVS: u32 = 48;
+pub const PWC_PWRC2_DVS_0: u32 = 16;
+pub const PWC_PWRC2_DVS_1: u32 = 32;
+pub const PWC_PWRC3_PDTS_POS: u32 = 2;
+pub const PWC_PWRC3_PDTS: u32 = 4;
+pub const PWC_PDWKE0_WKE00_POS: u32 = 0;
+pub const PWC_PDWKE0_WKE00: u32 = 1;
+pub const PWC_PDWKE0_WKE01_POS: u32 = 1;
+pub const PWC_PDWKE0_WKE01: u32 = 2;
+pub const PWC_PDWKE0_WKE02_POS: u32 = 2;
+pub const PWC_PDWKE0_WKE02: u32 = 4;
+pub const PWC_PDWKE0_WKE03_POS: u32 = 3;
+pub const PWC_PDWKE0_WKE03: u32 = 8;
+pub const PWC_PDWKE0_WKE10_POS: u32 = 4;
+pub const PWC_PDWKE0_WKE10: u32 = 16;
+pub const PWC_PDWKE0_WKE11_POS: u32 = 5;
+pub const PWC_PDWKE0_WKE11: u32 = 32;
+pub const PWC_PDWKE0_WKE12_POS: u32 = 6;
+pub const PWC_PDWKE0_WKE12: u32 = 64;
+pub const PWC_PDWKE0_WKE13_POS: u32 = 7;
+pub const PWC_PDWKE0_WKE13: u32 = 128;
+pub const PWC_PDWKE1_WKE20_POS: u32 = 0;
+pub const PWC_PDWKE1_WKE20: u32 = 1;
+pub const PWC_PDWKE1_WKE21_POS: u32 = 1;
+pub const PWC_PDWKE1_WKE21: u32 = 2;
+pub const PWC_PDWKE1_WKE22_POS: u32 = 2;
+pub const PWC_PDWKE1_WKE22: u32 = 4;
+pub const PWC_PDWKE1_WKE23_POS: u32 = 3;
+pub const PWC_PDWKE1_WKE23: u32 = 8;
+pub const PWC_PDWKE1_WKE30_POS: u32 = 4;
+pub const PWC_PDWKE1_WKE30: u32 = 16;
+pub const PWC_PDWKE1_WKE31_POS: u32 = 5;
+pub const PWC_PDWKE1_WKE31: u32 = 32;
+pub const PWC_PDWKE1_WKE32_POS: u32 = 6;
+pub const PWC_PDWKE1_WKE32: u32 = 64;
+pub const PWC_PDWKE1_WKE33_POS: u32 = 7;
+pub const PWC_PDWKE1_WKE33: u32 = 128;
+pub const PWC_PDWKE2_VD1WKE_POS: u32 = 0;
+pub const PWC_PDWKE2_VD1WKE: u32 = 1;
+pub const PWC_PDWKE2_VD2WKE_POS: u32 = 1;
+pub const PWC_PDWKE2_VD2WKE: u32 = 2;
+pub const PWC_PDWKE2_NMIWKE_POS: u32 = 2;
+pub const PWC_PDWKE2_NMIWKE: u32 = 4;
+pub const PWC_PDWKE2_RTCPRDWKE_POS: u32 = 4;
+pub const PWC_PDWKE2_RTCPRDWKE: u32 = 16;
+pub const PWC_PDWKE2_RTCALMWKE_POS: u32 = 5;
+pub const PWC_PDWKE2_RTCALMWKE: u32 = 32;
+pub const PWC_PDWKE2_WKTMWKE_POS: u32 = 7;
+pub const PWC_PDWKE2_WKTMWKE: u32 = 128;
+pub const PWC_PDWKES_WK0EGS_POS: u32 = 0;
+pub const PWC_PDWKES_WK0EGS: u32 = 1;
+pub const PWC_PDWKES_WK1EGS_POS: u32 = 1;
+pub const PWC_PDWKES_WK1EGS: u32 = 2;
+pub const PWC_PDWKES_WK2EGS_POS: u32 = 2;
+pub const PWC_PDWKES_WK2EGS: u32 = 4;
+pub const PWC_PDWKES_WK3EGS_POS: u32 = 3;
+pub const PWC_PDWKES_WK3EGS: u32 = 8;
+pub const PWC_PDWKES_VD1EGS_POS: u32 = 4;
+pub const PWC_PDWKES_VD1EGS: u32 = 16;
+pub const PWC_PDWKES_VD2EGS_POS: u32 = 5;
+pub const PWC_PDWKES_VD2EGS: u32 = 32;
+pub const PWC_PDWKES_NMIEGS_POS: u32 = 6;
+pub const PWC_PDWKES_NMIEGS: u32 = 64;
+pub const PWC_PDWKF0_PTWK0F_POS: u32 = 0;
+pub const PWC_PDWKF0_PTWK0F: u32 = 1;
+pub const PWC_PDWKF0_PTWK1F_POS: u32 = 1;
+pub const PWC_PDWKF0_PTWK1F: u32 = 2;
+pub const PWC_PDWKF0_PTWK2F_POS: u32 = 2;
+pub const PWC_PDWKF0_PTWK2F: u32 = 4;
+pub const PWC_PDWKF0_PTWK3F_POS: u32 = 3;
+pub const PWC_PDWKF0_PTWK3F: u32 = 8;
+pub const PWC_PDWKF0_VD1WKF_POS: u32 = 4;
+pub const PWC_PDWKF0_VD1WKF: u32 = 16;
+pub const PWC_PDWKF0_VD2WKF_POS: u32 = 5;
+pub const PWC_PDWKF0_VD2WKF: u32 = 32;
+pub const PWC_PDWKF0_NMIWKF_POS: u32 = 6;
+pub const PWC_PDWKF0_NMIWKF: u32 = 64;
+pub const PWC_PDWKF1_RTCPRDWKF_POS: u32 = 4;
+pub const PWC_PDWKF1_RTCPRDWKF: u32 = 16;
+pub const PWC_PDWKF1_RTCALMWKF_POS: u32 = 5;
+pub const PWC_PDWKF1_RTCALMWKF: u32 = 32;
+pub const PWC_PDWKF1_WKTMWKF_POS: u32 = 7;
+pub const PWC_PDWKF1_WKTMWKF: u32 = 128;
+pub const PWC_PWCMR_ADBUFE_POS: u32 = 7;
+pub const PWC_PWCMR_ADBUFE: u32 = 128;
+pub const PWC_MDSWCR: u32 = 255;
+pub const PWC_PVDCR0_EXVCCINEN_POS: u32 = 0;
+pub const PWC_PVDCR0_EXVCCINEN: u32 = 1;
+pub const PWC_PVDCR0_PVD1EN_POS: u32 = 5;
+pub const PWC_PVDCR0_PVD1EN: u32 = 32;
+pub const PWC_PVDCR0_PVD2EN_POS: u32 = 6;
+pub const PWC_PVDCR0_PVD2EN: u32 = 64;
+pub const PWC_PVDCR1_PVD1IRE_POS: u32 = 0;
+pub const PWC_PVDCR1_PVD1IRE: u32 = 1;
+pub const PWC_PVDCR1_PVD1IRS_POS: u32 = 1;
+pub const PWC_PVDCR1_PVD1IRS: u32 = 2;
+pub const PWC_PVDCR1_PVD1CMPOE_POS: u32 = 2;
+pub const PWC_PVDCR1_PVD1CMPOE: u32 = 4;
+pub const PWC_PVDCR1_PVD2IRE_POS: u32 = 4;
+pub const PWC_PVDCR1_PVD2IRE: u32 = 16;
+pub const PWC_PVDCR1_PVD2IRS_POS: u32 = 5;
+pub const PWC_PVDCR1_PVD2IRS: u32 = 32;
+pub const PWC_PVDCR1_PVD2CMPOE_POS: u32 = 6;
+pub const PWC_PVDCR1_PVD2CMPOE: u32 = 64;
+pub const PWC_PVDFCR_PVD1NFDIS_POS: u32 = 0;
+pub const PWC_PVDFCR_PVD1NFDIS: u32 = 1;
+pub const PWC_PVDFCR_PVD1NFCKS_POS: u32 = 1;
+pub const PWC_PVDFCR_PVD1NFCKS: u32 = 6;
+pub const PWC_PVDFCR_PVD1NFCKS_0: u32 = 2;
+pub const PWC_PVDFCR_PVD1NFCKS_1: u32 = 4;
+pub const PWC_PVDFCR_PVD2NFDIS_POS: u32 = 4;
+pub const PWC_PVDFCR_PVD2NFDIS: u32 = 16;
+pub const PWC_PVDFCR_PVD2NFCKS_POS: u32 = 5;
+pub const PWC_PVDFCR_PVD2NFCKS: u32 = 96;
+pub const PWC_PVDFCR_PVD2NFCKS_0: u32 = 32;
+pub const PWC_PVDFCR_PVD2NFCKS_1: u32 = 64;
+pub const PWC_PVDLCR_PVD1LVL_POS: u32 = 0;
+pub const PWC_PVDLCR_PVD1LVL: u32 = 7;
+pub const PWC_PVDLCR_PVD1LVL_0: u32 = 1;
+pub const PWC_PVDLCR_PVD1LVL_1: u32 = 2;
+pub const PWC_PVDLCR_PVD1LVL_2: u32 = 4;
+pub const PWC_PVDLCR_PVD2LVL_POS: u32 = 4;
+pub const PWC_PVDLCR_PVD2LVL: u32 = 112;
+pub const PWC_PVDLCR_PVD2LVL_0: u32 = 16;
+pub const PWC_PVDLCR_PVD2LVL_1: u32 = 32;
+pub const PWC_PVDLCR_PVD2LVL_2: u32 = 64;
+pub const PWC_XTAL32CS_CSDIS_POS: u32 = 7;
+pub const PWC_XTAL32CS_CSDIS: u32 = 128;
+pub const QSPI_CR_MDSEL_POS: u32 = 0;
+pub const QSPI_CR_MDSEL: u32 = 7;
+pub const QSPI_CR_PFE_POS: u32 = 3;
+pub const QSPI_CR_PFE: u32 = 8;
+pub const QSPI_CR_PFSAE_POS: u32 = 4;
+pub const QSPI_CR_PFSAE: u32 = 16;
+pub const QSPI_CR_DCOME_POS: u32 = 5;
+pub const QSPI_CR_DCOME: u32 = 32;
+pub const QSPI_CR_XIPE_POS: u32 = 6;
+pub const QSPI_CR_XIPE: u32 = 64;
+pub const QSPI_CR_SPIMD3_POS: u32 = 7;
+pub const QSPI_CR_SPIMD3: u32 = 128;
+pub const QSPI_CR_IPRSL_POS: u32 = 8;
+pub const QSPI_CR_IPRSL: u32 = 768;
+pub const QSPI_CR_IPRSL_0: u32 = 256;
+pub const QSPI_CR_IPRSL_1: u32 = 512;
+pub const QSPI_CR_APRSL_POS: u32 = 10;
+pub const QSPI_CR_APRSL: u32 = 3072;
+pub const QSPI_CR_APRSL_0: u32 = 1024;
+pub const QSPI_CR_APRSL_1: u32 = 2048;
+pub const QSPI_CR_DPRSL_POS: u32 = 12;
+pub const QSPI_CR_DPRSL: u32 = 12288;
+pub const QSPI_CR_DPRSL_0: u32 = 4096;
+pub const QSPI_CR_DPRSL_1: u32 = 8192;
+pub const QSPI_CR_DIV_POS: u32 = 16;
+pub const QSPI_CR_DIV: u32 = 4128768;
+pub const QSPI_CSCR_SSHW_POS: u32 = 0;
+pub const QSPI_CSCR_SSHW: u32 = 15;
+pub const QSPI_CSCR_SSNW_POS: u32 = 4;
+pub const QSPI_CSCR_SSNW: u32 = 48;
+pub const QSPI_CSCR_SSNW_0: u32 = 16;
+pub const QSPI_CSCR_SSNW_1: u32 = 32;
+pub const QSPI_FCR_AWSL_POS: u32 = 0;
+pub const QSPI_FCR_AWSL: u32 = 3;
+pub const QSPI_FCR_AWSL_0: u32 = 1;
+pub const QSPI_FCR_AWSL_1: u32 = 2;
+pub const QSPI_FCR_FOUR_BIC_POS: u32 = 2;
+pub const QSPI_FCR_FOUR_BIC: u32 = 4;
+pub const QSPI_FCR_SSNHD_POS: u32 = 4;
+pub const QSPI_FCR_SSNHD: u32 = 16;
+pub const QSPI_FCR_SSNLD_POS: u32 = 5;
+pub const QSPI_FCR_SSNLD: u32 = 32;
+pub const QSPI_FCR_WPOL_POS: u32 = 6;
+pub const QSPI_FCR_WPOL: u32 = 64;
+pub const QSPI_FCR_DMCYCN_POS: u32 = 8;
+pub const QSPI_FCR_DMCYCN: u32 = 3840;
+pub const QSPI_FCR_DUTY_POS: u32 = 15;
+pub const QSPI_FCR_DUTY: u32 = 32768;
+pub const QSPI_SR_BUSY_POS: u32 = 0;
+pub const QSPI_SR_BUSY: u32 = 1;
+pub const QSPI_SR_XIPF_POS: u32 = 6;
+pub const QSPI_SR_XIPF: u32 = 64;
+pub const QSPI_SR_RAER_POS: u32 = 7;
+pub const QSPI_SR_RAER: u32 = 128;
+pub const QSPI_SR_PFNUM_POS: u32 = 8;
+pub const QSPI_SR_PFNUM: u32 = 7936;
+pub const QSPI_SR_PFFUL_POS: u32 = 14;
+pub const QSPI_SR_PFFUL: u32 = 16384;
+pub const QSPI_SR_PFAN_POS: u32 = 15;
+pub const QSPI_SR_PFAN: u32 = 32768;
+pub const QSPI_DCOM_DCOM: u32 = 255;
+pub const QSPI_CCMD_RIC: u32 = 255;
+pub const QSPI_XCMD_XIPMC: u32 = 255;
+pub const QSPI_CLR_RAERCLR_POS: u32 = 7;
+pub const QSPI_CLR_RAERCLR: u32 = 128;
+pub const QSPI_EXAR_EXADR_POS: u32 = 26;
+pub const QSPI_EXAR_EXADR: u32 = 4227858432;
+pub const RMU_RSTF0_PORF_POS: u32 = 0;
+pub const RMU_RSTF0_PORF: u32 = 1;
+pub const RMU_RSTF0_PINRF_POS: u32 = 1;
+pub const RMU_RSTF0_PINRF: u32 = 2;
+pub const RMU_RSTF0_BORF_POS: u32 = 2;
+pub const RMU_RSTF0_BORF: u32 = 4;
+pub const RMU_RSTF0_PVD1RF_POS: u32 = 3;
+pub const RMU_RSTF0_PVD1RF: u32 = 8;
+pub const RMU_RSTF0_PVD2RF_POS: u32 = 4;
+pub const RMU_RSTF0_PVD2RF: u32 = 16;
+pub const RMU_RSTF0_WDRF_POS: u32 = 5;
+pub const RMU_RSTF0_WDRF: u32 = 32;
+pub const RMU_RSTF0_SWDRF_POS: u32 = 6;
+pub const RMU_RSTF0_SWDRF: u32 = 64;
+pub const RMU_RSTF0_PDRF_POS: u32 = 7;
+pub const RMU_RSTF0_PDRF: u32 = 128;
+pub const RMU_RSTF0_SWRF_POS: u32 = 8;
+pub const RMU_RSTF0_SWRF: u32 = 256;
+pub const RMU_RSTF0_MPUERF_POS: u32 = 9;
+pub const RMU_RSTF0_MPUERF: u32 = 512;
+pub const RMU_RSTF0_RAPERF_POS: u32 = 10;
+pub const RMU_RSTF0_RAPERF: u32 = 1024;
+pub const RMU_RSTF0_RAECRF_POS: u32 = 11;
+pub const RMU_RSTF0_RAECRF: u32 = 2048;
+pub const RMU_RSTF0_CKFERF_POS: u32 = 12;
+pub const RMU_RSTF0_CKFERF: u32 = 4096;
+pub const RMU_RSTF0_XTALERF_POS: u32 = 13;
+pub const RMU_RSTF0_XTALERF: u32 = 8192;
+pub const RMU_RSTF0_MULTIRF_POS: u32 = 14;
+pub const RMU_RSTF0_MULTIRF: u32 = 16384;
+pub const RMU_RSTF0_CLRF_POS: u32 = 15;
+pub const RMU_RSTF0_CLRF: u32 = 32768;
+pub const RTC_CR0_RESET: u32 = 1;
+pub const RTC_CR1_PRDS_POS: u32 = 0;
+pub const RTC_CR1_PRDS: u32 = 7;
+pub const RTC_CR1_AMPM_POS: u32 = 3;
+pub const RTC_CR1_AMPM: u32 = 8;
+pub const RTC_CR1_ALMFCLR_POS: u32 = 4;
+pub const RTC_CR1_ALMFCLR: u32 = 16;
+pub const RTC_CR1_ONEHZOE_POS: u32 = 5;
+pub const RTC_CR1_ONEHZOE: u32 = 32;
+pub const RTC_CR1_ONEHZSEL_POS: u32 = 6;
+pub const RTC_CR1_ONEHZSEL: u32 = 64;
+pub const RTC_CR1_START_POS: u32 = 7;
+pub const RTC_CR1_START: u32 = 128;
+pub const RTC_CR2_RWREQ_POS: u32 = 0;
+pub const RTC_CR2_RWREQ: u32 = 1;
+pub const RTC_CR2_RWEN_POS: u32 = 1;
+pub const RTC_CR2_RWEN: u32 = 2;
+pub const RTC_CR2_ALMF_POS: u32 = 3;
+pub const RTC_CR2_ALMF: u32 = 8;
+pub const RTC_CR2_PRDIE_POS: u32 = 5;
+pub const RTC_CR2_PRDIE: u32 = 32;
+pub const RTC_CR2_ALMIE_POS: u32 = 6;
+pub const RTC_CR2_ALMIE: u32 = 64;
+pub const RTC_CR2_ALME_POS: u32 = 7;
+pub const RTC_CR2_ALME: u32 = 128;
+pub const RTC_CR3_LRCEN_POS: u32 = 4;
+pub const RTC_CR3_LRCEN: u32 = 16;
+pub const RTC_CR3_RCKSEL_POS: u32 = 7;
+pub const RTC_CR3_RCKSEL: u32 = 128;
+pub const RTC_SEC_SECU_POS: u32 = 0;
+pub const RTC_SEC_SECU: u32 = 15;
+pub const RTC_SEC_SECD_POS: u32 = 4;
+pub const RTC_SEC_SECD: u32 = 112;
+pub const RTC_MIN_MINU_POS: u32 = 0;
+pub const RTC_MIN_MINU: u32 = 15;
+pub const RTC_MIN_MIND_POS: u32 = 4;
+pub const RTC_MIN_MIND: u32 = 112;
+pub const RTC_HOUR_HOURU_POS: u32 = 0;
+pub const RTC_HOUR_HOURU: u32 = 15;
+pub const RTC_HOUR_HOURU_0: u32 = 1;
+pub const RTC_HOUR_HOURU_1: u32 = 2;
+pub const RTC_HOUR_HOURU_2: u32 = 4;
+pub const RTC_HOUR_HOURU_3: u32 = 8;
+pub const RTC_HOUR_HOURD_POS: u32 = 4;
+pub const RTC_HOUR_HOURD: u32 = 48;
+pub const RTC_HOUR_HOURD_0: u32 = 16;
+pub const RTC_HOUR_HOURD_1: u32 = 32;
+pub const RTC_WEEK_WEEK: u32 = 7;
+pub const RTC_DAY_DAYU_POS: u32 = 0;
+pub const RTC_DAY_DAYU: u32 = 15;
+pub const RTC_DAY_DAYD_POS: u32 = 4;
+pub const RTC_DAY_DAYD: u32 = 48;
+pub const RTC_MON_MON: u32 = 31;
+pub const RTC_YEAR_YEARU_POS: u32 = 0;
+pub const RTC_YEAR_YEARU: u32 = 15;
+pub const RTC_YEAR_YEARD_POS: u32 = 4;
+pub const RTC_YEAR_YEARD: u32 = 240;
+pub const RTC_ALMMIN_ALMMINU_POS: u32 = 0;
+pub const RTC_ALMMIN_ALMMINU: u32 = 15;
+pub const RTC_ALMMIN_ALMMIND_POS: u32 = 4;
+pub const RTC_ALMMIN_ALMMIND: u32 = 112;
+pub const RTC_ALMHOUR_ALMHOURU_POS: u32 = 0;
+pub const RTC_ALMHOUR_ALMHOURU: u32 = 15;
+pub const RTC_ALMHOUR_ALMHOURD_POS: u32 = 4;
+pub const RTC_ALMHOUR_ALMHOURD: u32 = 48;
+pub const RTC_ALMHOUR_ALMHOURD_0: u32 = 16;
+pub const RTC_ALMHOUR_ALMHOURD_1: u32 = 32;
+pub const RTC_ALMWEEK_ALMWEEK: u32 = 127;
+pub const RTC_ALMWEEK_ALMWEEK_0: u32 = 1;
+pub const RTC_ALMWEEK_ALMWEEK_1: u32 = 2;
+pub const RTC_ALMWEEK_ALMWEEK_2: u32 = 4;
+pub const RTC_ALMWEEK_ALMWEEK_3: u32 = 8;
+pub const RTC_ALMWEEK_ALMWEEK_4: u32 = 16;
+pub const RTC_ALMWEEK_ALMWEEK_5: u32 = 32;
+pub const RTC_ALMWEEK_ALMWEEK_6: u32 = 64;
+pub const RTC_ERRCRH_COMP8_POS: u32 = 0;
+pub const RTC_ERRCRH_COMP8: u32 = 1;
+pub const RTC_ERRCRH_COMPEN_POS: u32 = 7;
+pub const RTC_ERRCRH_COMPEN: u32 = 128;
+pub const RTC_ERRCRL_COMP: u32 = 255;
+pub const SDIOC_BLKSIZE_TBS: u32 = 4095;
+pub const SDIOC_BLKCNT: u32 = 65535;
+pub const SDIOC_ARG0: u32 = 65535;
+pub const SDIOC_ARG1: u32 = 65535;
+pub const SDIOC_TRANSMODE_BCE_POS: u32 = 1;
+pub const SDIOC_TRANSMODE_BCE: u32 = 2;
+pub const SDIOC_TRANSMODE_ATCEN_POS: u32 = 2;
+pub const SDIOC_TRANSMODE_ATCEN: u32 = 12;
+pub const SDIOC_TRANSMODE_ATCEN_0: u32 = 4;
+pub const SDIOC_TRANSMODE_ATCEN_1: u32 = 8;
+pub const SDIOC_TRANSMODE_DDIR_POS: u32 = 4;
+pub const SDIOC_TRANSMODE_DDIR: u32 = 16;
+pub const SDIOC_TRANSMODE_MULB_POS: u32 = 5;
+pub const SDIOC_TRANSMODE_MULB: u32 = 32;
+pub const SDIOC_CMD_RESTYP_POS: u32 = 0;
+pub const SDIOC_CMD_RESTYP: u32 = 3;
+pub const SDIOC_CMD_RESTYP_0: u32 = 1;
+pub const SDIOC_CMD_RESTYP_1: u32 = 2;
+pub const SDIOC_CMD_CCE_POS: u32 = 3;
+pub const SDIOC_CMD_CCE: u32 = 8;
+pub const SDIOC_CMD_ICE_POS: u32 = 4;
+pub const SDIOC_CMD_ICE: u32 = 16;
+pub const SDIOC_CMD_DAT_POS: u32 = 5;
+pub const SDIOC_CMD_DAT: u32 = 32;
+pub const SDIOC_CMD_TYP_POS: u32 = 6;
+pub const SDIOC_CMD_TYP: u32 = 192;
+pub const SDIOC_CMD_TYP_0: u32 = 64;
+pub const SDIOC_CMD_TYP_1: u32 = 128;
+pub const SDIOC_CMD_IDX_POS: u32 = 8;
+pub const SDIOC_CMD_IDX: u32 = 16128;
+pub const SDIOC_RESP0: u32 = 65535;
+pub const SDIOC_RESP1: u32 = 65535;
+pub const SDIOC_RESP2: u32 = 65535;
+pub const SDIOC_RESP3: u32 = 65535;
+pub const SDIOC_RESP4: u32 = 65535;
+pub const SDIOC_RESP5: u32 = 65535;
+pub const SDIOC_RESP6: u32 = 65535;
+pub const SDIOC_RESP7: u32 = 65535;
+pub const SDIOC_BUF0: u32 = 65535;
+pub const SDIOC_BUF1: u32 = 65535;
+pub const SDIOC_PSTAT_CIC_POS: u32 = 0;
+pub const SDIOC_PSTAT_CIC: u32 = 1;
+pub const SDIOC_PSTAT_CID_POS: u32 = 1;
+pub const SDIOC_PSTAT_CID: u32 = 2;
+pub const SDIOC_PSTAT_DA_POS: u32 = 2;
+pub const SDIOC_PSTAT_DA: u32 = 4;
+pub const SDIOC_PSTAT_WTA_POS: u32 = 8;
+pub const SDIOC_PSTAT_WTA: u32 = 256;
+pub const SDIOC_PSTAT_RTA_POS: u32 = 9;
+pub const SDIOC_PSTAT_RTA: u32 = 512;
+pub const SDIOC_PSTAT_BWE_POS: u32 = 10;
+pub const SDIOC_PSTAT_BWE: u32 = 1024;
+pub const SDIOC_PSTAT_BRE_POS: u32 = 11;
+pub const SDIOC_PSTAT_BRE: u32 = 2048;
+pub const SDIOC_PSTAT_CIN_POS: u32 = 16;
+pub const SDIOC_PSTAT_CIN: u32 = 65536;
+pub const SDIOC_PSTAT_CSS_POS: u32 = 17;
+pub const SDIOC_PSTAT_CSS: u32 = 131072;
+pub const SDIOC_PSTAT_CDL_POS: u32 = 18;
+pub const SDIOC_PSTAT_CDL: u32 = 262144;
+pub const SDIOC_PSTAT_WPL_POS: u32 = 19;
+pub const SDIOC_PSTAT_WPL: u32 = 524288;
+pub const SDIOC_PSTAT_DATL_POS: u32 = 20;
+pub const SDIOC_PSTAT_DATL: u32 = 15728640;
+pub const SDIOC_PSTAT_DATL_0: u32 = 1048576;
+pub const SDIOC_PSTAT_DATL_1: u32 = 2097152;
+pub const SDIOC_PSTAT_DATL_2: u32 = 4194304;
+pub const SDIOC_PSTAT_DATL_3: u32 = 8388608;
+pub const SDIOC_PSTAT_CMDL_POS: u32 = 24;
+pub const SDIOC_PSTAT_CMDL: u32 = 16777216;
+pub const SDIOC_HOSTCON_DW_POS: u32 = 1;
+pub const SDIOC_HOSTCON_DW: u32 = 2;
+pub const SDIOC_HOSTCON_HSEN_POS: u32 = 2;
+pub const SDIOC_HOSTCON_HSEN: u32 = 4;
+pub const SDIOC_HOSTCON_EXDW_POS: u32 = 5;
+pub const SDIOC_HOSTCON_EXDW: u32 = 32;
+pub const SDIOC_HOSTCON_CDTL_POS: u32 = 6;
+pub const SDIOC_HOSTCON_CDTL: u32 = 64;
+pub const SDIOC_HOSTCON_CDSS_POS: u32 = 7;
+pub const SDIOC_HOSTCON_CDSS: u32 = 128;
+pub const SDIOC_PWRCON_PWON: u32 = 1;
+pub const SDIOC_BLKGPCON_SABGR_POS: u32 = 0;
+pub const SDIOC_BLKGPCON_SABGR: u32 = 1;
+pub const SDIOC_BLKGPCON_CR_POS: u32 = 1;
+pub const SDIOC_BLKGPCON_CR: u32 = 2;
+pub const SDIOC_BLKGPCON_RWC_POS: u32 = 2;
+pub const SDIOC_BLKGPCON_RWC: u32 = 4;
+pub const SDIOC_BLKGPCON_IABG_POS: u32 = 3;
+pub const SDIOC_BLKGPCON_IABG: u32 = 8;
+pub const SDIOC_CLKCON_ICE_POS: u32 = 0;
+pub const SDIOC_CLKCON_ICE: u32 = 1;
+pub const SDIOC_CLKCON_CE_POS: u32 = 2;
+pub const SDIOC_CLKCON_CE: u32 = 4;
+pub const SDIOC_CLKCON_FS_POS: u32 = 8;
+pub const SDIOC_CLKCON_FS: u32 = 65280;
+pub const SDIOC_CLKCON_FS_0: u32 = 256;
+pub const SDIOC_CLKCON_FS_1: u32 = 512;
+pub const SDIOC_CLKCON_FS_2: u32 = 1024;
+pub const SDIOC_CLKCON_FS_3: u32 = 2048;
+pub const SDIOC_CLKCON_FS_4: u32 = 4096;
+pub const SDIOC_CLKCON_FS_5: u32 = 8192;
+pub const SDIOC_CLKCON_FS_6: u32 = 16384;
+pub const SDIOC_CLKCON_FS_7: u32 = 32768;
+pub const SDIOC_TOUTCON_DTO: u32 = 15;
+pub const SDIOC_SFTRST_RSTA_POS: u32 = 0;
+pub const SDIOC_SFTRST_RSTA: u32 = 1;
+pub const SDIOC_SFTRST_RSTC_POS: u32 = 1;
+pub const SDIOC_SFTRST_RSTC: u32 = 2;
+pub const SDIOC_SFTRST_RSTD_POS: u32 = 2;
+pub const SDIOC_SFTRST_RSTD: u32 = 4;
+pub const SDIOC_NORINTST_CC_POS: u32 = 0;
+pub const SDIOC_NORINTST_CC: u32 = 1;
+pub const SDIOC_NORINTST_TC_POS: u32 = 1;
+pub const SDIOC_NORINTST_TC: u32 = 2;
+pub const SDIOC_NORINTST_BGE_POS: u32 = 2;
+pub const SDIOC_NORINTST_BGE: u32 = 4;
+pub const SDIOC_NORINTST_BWR_POS: u32 = 4;
+pub const SDIOC_NORINTST_BWR: u32 = 16;
+pub const SDIOC_NORINTST_BRR_POS: u32 = 5;
+pub const SDIOC_NORINTST_BRR: u32 = 32;
+pub const SDIOC_NORINTST_CIST_POS: u32 = 6;
+pub const SDIOC_NORINTST_CIST: u32 = 64;
+pub const SDIOC_NORINTST_CRM_POS: u32 = 7;
+pub const SDIOC_NORINTST_CRM: u32 = 128;
+pub const SDIOC_NORINTST_CINT_POS: u32 = 8;
+pub const SDIOC_NORINTST_CINT: u32 = 256;
+pub const SDIOC_NORINTST_EI_POS: u32 = 15;
+pub const SDIOC_NORINTST_EI: u32 = 32768;
+pub const SDIOC_ERRINTST_CTOE_POS: u32 = 0;
+pub const SDIOC_ERRINTST_CTOE: u32 = 1;
+pub const SDIOC_ERRINTST_CCE_POS: u32 = 1;
+pub const SDIOC_ERRINTST_CCE: u32 = 2;
+pub const SDIOC_ERRINTST_CEBE_POS: u32 = 2;
+pub const SDIOC_ERRINTST_CEBE: u32 = 4;
+pub const SDIOC_ERRINTST_CIE_POS: u32 = 3;
+pub const SDIOC_ERRINTST_CIE: u32 = 8;
+pub const SDIOC_ERRINTST_DTOE_POS: u32 = 4;
+pub const SDIOC_ERRINTST_DTOE: u32 = 16;
+pub const SDIOC_ERRINTST_DCE_POS: u32 = 5;
+pub const SDIOC_ERRINTST_DCE: u32 = 32;
+pub const SDIOC_ERRINTST_DEBE_POS: u32 = 6;
+pub const SDIOC_ERRINTST_DEBE: u32 = 64;
+pub const SDIOC_ERRINTST_ACE_POS: u32 = 8;
+pub const SDIOC_ERRINTST_ACE: u32 = 256;
+pub const SDIOC_NORINTSTEN_CCEN_POS: u32 = 0;
+pub const SDIOC_NORINTSTEN_CCEN: u32 = 1;
+pub const SDIOC_NORINTSTEN_TCEN_POS: u32 = 1;
+pub const SDIOC_NORINTSTEN_TCEN: u32 = 2;
+pub const SDIOC_NORINTSTEN_BGEEN_POS: u32 = 2;
+pub const SDIOC_NORINTSTEN_BGEEN: u32 = 4;
+pub const SDIOC_NORINTSTEN_BWREN_POS: u32 = 4;
+pub const SDIOC_NORINTSTEN_BWREN: u32 = 16;
+pub const SDIOC_NORINTSTEN_BRREN_POS: u32 = 5;
+pub const SDIOC_NORINTSTEN_BRREN: u32 = 32;
+pub const SDIOC_NORINTSTEN_CISTEN_POS: u32 = 6;
+pub const SDIOC_NORINTSTEN_CISTEN: u32 = 64;
+pub const SDIOC_NORINTSTEN_CRMEN_POS: u32 = 7;
+pub const SDIOC_NORINTSTEN_CRMEN: u32 = 128;
+pub const SDIOC_NORINTSTEN_CINTEN_POS: u32 = 8;
+pub const SDIOC_NORINTSTEN_CINTEN: u32 = 256;
+pub const SDIOC_ERRINTSTEN_CTOEEN_POS: u32 = 0;
+pub const SDIOC_ERRINTSTEN_CTOEEN: u32 = 1;
+pub const SDIOC_ERRINTSTEN_CCEEN_POS: u32 = 1;
+pub const SDIOC_ERRINTSTEN_CCEEN: u32 = 2;
+pub const SDIOC_ERRINTSTEN_CEBEEN_POS: u32 = 2;
+pub const SDIOC_ERRINTSTEN_CEBEEN: u32 = 4;
+pub const SDIOC_ERRINTSTEN_CIEEN_POS: u32 = 3;
+pub const SDIOC_ERRINTSTEN_CIEEN: u32 = 8;
+pub const SDIOC_ERRINTSTEN_DTOEEN_POS: u32 = 4;
+pub const SDIOC_ERRINTSTEN_DTOEEN: u32 = 16;
+pub const SDIOC_ERRINTSTEN_DCEEN_POS: u32 = 5;
+pub const SDIOC_ERRINTSTEN_DCEEN: u32 = 32;
+pub const SDIOC_ERRINTSTEN_DEBEEN_POS: u32 = 6;
+pub const SDIOC_ERRINTSTEN_DEBEEN: u32 = 64;
+pub const SDIOC_ERRINTSTEN_ACEEN_POS: u32 = 8;
+pub const SDIOC_ERRINTSTEN_ACEEN: u32 = 256;
+pub const SDIOC_NORINTSGEN_CCSEN_POS: u32 = 0;
+pub const SDIOC_NORINTSGEN_CCSEN: u32 = 1;
+pub const SDIOC_NORINTSGEN_TCSEN_POS: u32 = 1;
+pub const SDIOC_NORINTSGEN_TCSEN: u32 = 2;
+pub const SDIOC_NORINTSGEN_BGESEN_POS: u32 = 2;
+pub const SDIOC_NORINTSGEN_BGESEN: u32 = 4;
+pub const SDIOC_NORINTSGEN_BWRSEN_POS: u32 = 4;
+pub const SDIOC_NORINTSGEN_BWRSEN: u32 = 16;
+pub const SDIOC_NORINTSGEN_BRRSEN_POS: u32 = 5;
+pub const SDIOC_NORINTSGEN_BRRSEN: u32 = 32;
+pub const SDIOC_NORINTSGEN_CISTSEN_POS: u32 = 6;
+pub const SDIOC_NORINTSGEN_CISTSEN: u32 = 64;
+pub const SDIOC_NORINTSGEN_CRMSEN_POS: u32 = 7;
+pub const SDIOC_NORINTSGEN_CRMSEN: u32 = 128;
+pub const SDIOC_NORINTSGEN_CINTSEN_POS: u32 = 8;
+pub const SDIOC_NORINTSGEN_CINTSEN: u32 = 256;
+pub const SDIOC_ERRINTSGEN_CTOESEN_POS: u32 = 0;
+pub const SDIOC_ERRINTSGEN_CTOESEN: u32 = 1;
+pub const SDIOC_ERRINTSGEN_CCESEN_POS: u32 = 1;
+pub const SDIOC_ERRINTSGEN_CCESEN: u32 = 2;
+pub const SDIOC_ERRINTSGEN_CEBESEN_POS: u32 = 2;
+pub const SDIOC_ERRINTSGEN_CEBESEN: u32 = 4;
+pub const SDIOC_ERRINTSGEN_CIESEN_POS: u32 = 3;
+pub const SDIOC_ERRINTSGEN_CIESEN: u32 = 8;
+pub const SDIOC_ERRINTSGEN_DTOESEN_POS: u32 = 4;
+pub const SDIOC_ERRINTSGEN_DTOESEN: u32 = 16;
+pub const SDIOC_ERRINTSGEN_DCESEN_POS: u32 = 5;
+pub const SDIOC_ERRINTSGEN_DCESEN: u32 = 32;
+pub const SDIOC_ERRINTSGEN_DEBESEN_POS: u32 = 6;
+pub const SDIOC_ERRINTSGEN_DEBESEN: u32 = 64;
+pub const SDIOC_ERRINTSGEN_ACESEN_POS: u32 = 8;
+pub const SDIOC_ERRINTSGEN_ACESEN: u32 = 256;
+pub const SDIOC_ATCERRST_NE_POS: u32 = 0;
+pub const SDIOC_ATCERRST_NE: u32 = 1;
+pub const SDIOC_ATCERRST_TOE_POS: u32 = 1;
+pub const SDIOC_ATCERRST_TOE: u32 = 2;
+pub const SDIOC_ATCERRST_CE_POS: u32 = 2;
+pub const SDIOC_ATCERRST_CE: u32 = 4;
+pub const SDIOC_ATCERRST_EBE_POS: u32 = 3;
+pub const SDIOC_ATCERRST_EBE: u32 = 8;
+pub const SDIOC_ATCERRST_IE_POS: u32 = 4;
+pub const SDIOC_ATCERRST_IE: u32 = 16;
+pub const SDIOC_ATCERRST_CMDE_POS: u32 = 7;
+pub const SDIOC_ATCERRST_CMDE: u32 = 128;
+pub const SDIOC_FEA_FNE_POS: u32 = 0;
+pub const SDIOC_FEA_FNE: u32 = 1;
+pub const SDIOC_FEA_FTOE_POS: u32 = 1;
+pub const SDIOC_FEA_FTOE: u32 = 2;
+pub const SDIOC_FEA_FCE_POS: u32 = 2;
+pub const SDIOC_FEA_FCE: u32 = 4;
+pub const SDIOC_FEA_FEBE_POS: u32 = 3;
+pub const SDIOC_FEA_FEBE: u32 = 8;
+pub const SDIOC_FEA_FIE_POS: u32 = 4;
+pub const SDIOC_FEA_FIE: u32 = 16;
+pub const SDIOC_FEA_FCMDE_POS: u32 = 7;
+pub const SDIOC_FEA_FCMDE: u32 = 128;
+pub const SDIOC_FEE_FCTOE_POS: u32 = 0;
+pub const SDIOC_FEE_FCTOE: u32 = 1;
+pub const SDIOC_FEE_FCCE_POS: u32 = 1;
+pub const SDIOC_FEE_FCCE: u32 = 2;
+pub const SDIOC_FEE_FCEBE_POS: u32 = 2;
+pub const SDIOC_FEE_FCEBE: u32 = 4;
+pub const SDIOC_FEE_FCIE_POS: u32 = 3;
+pub const SDIOC_FEE_FCIE: u32 = 8;
+pub const SDIOC_FEE_FDTOE_POS: u32 = 4;
+pub const SDIOC_FEE_FDTOE: u32 = 16;
+pub const SDIOC_FEE_FDCE_POS: u32 = 5;
+pub const SDIOC_FEE_FDCE: u32 = 32;
+pub const SDIOC_FEE_FDEBE_POS: u32 = 6;
+pub const SDIOC_FEE_FDEBE: u32 = 64;
+pub const SDIOC_FEE_FACE_POS: u32 = 8;
+pub const SDIOC_FEE_FACE: u32 = 256;
+pub const SPI_DR: u32 = 4294967295;
+pub const SPI_CR1_SPIMDS_POS: u32 = 0;
+pub const SPI_CR1_SPIMDS: u32 = 1;
+pub const SPI_CR1_TXMDS_POS: u32 = 1;
+pub const SPI_CR1_TXMDS: u32 = 2;
+pub const SPI_CR1_MSTR_POS: u32 = 3;
+pub const SPI_CR1_MSTR: u32 = 8;
+pub const SPI_CR1_SPLPBK_POS: u32 = 4;
+pub const SPI_CR1_SPLPBK: u32 = 16;
+pub const SPI_CR1_SPLPBK2_POS: u32 = 5;
+pub const SPI_CR1_SPLPBK2: u32 = 32;
+pub const SPI_CR1_SPE_POS: u32 = 6;
+pub const SPI_CR1_SPE: u32 = 64;
+pub const SPI_CR1_CSUSPE_POS: u32 = 7;
+pub const SPI_CR1_CSUSPE: u32 = 128;
+pub const SPI_CR1_EIE_POS: u32 = 8;
+pub const SPI_CR1_EIE: u32 = 256;
+pub const SPI_CR1_TXIE_POS: u32 = 9;
+pub const SPI_CR1_TXIE: u32 = 512;
+pub const SPI_CR1_RXIE_POS: u32 = 10;
+pub const SPI_CR1_RXIE: u32 = 1024;
+pub const SPI_CR1_IDIE_POS: u32 = 11;
+pub const SPI_CR1_IDIE: u32 = 2048;
+pub const SPI_CR1_MODFE_POS: u32 = 12;
+pub const SPI_CR1_MODFE: u32 = 4096;
+pub const SPI_CR1_PATE_POS: u32 = 13;
+pub const SPI_CR1_PATE: u32 = 8192;
+pub const SPI_CR1_PAOE_POS: u32 = 14;
+pub const SPI_CR1_PAOE: u32 = 16384;
+pub const SPI_CR1_PAE_POS: u32 = 15;
+pub const SPI_CR1_PAE: u32 = 32768;
+pub const SPI_CFG1_FTHLV_POS: u32 = 0;
+pub const SPI_CFG1_FTHLV: u32 = 3;
+pub const SPI_CFG1_FTHLV_0: u32 = 1;
+pub const SPI_CFG1_FTHLV_1: u32 = 2;
+pub const SPI_CFG1_SPRDTD_POS: u32 = 6;
+pub const SPI_CFG1_SPRDTD: u32 = 64;
+pub const SPI_CFG1_SS0PV_POS: u32 = 8;
+pub const SPI_CFG1_SS0PV: u32 = 256;
+pub const SPI_CFG1_SS1PV_POS: u32 = 9;
+pub const SPI_CFG1_SS1PV: u32 = 512;
+pub const SPI_CFG1_SS2PV_POS: u32 = 10;
+pub const SPI_CFG1_SS2PV: u32 = 1024;
+pub const SPI_CFG1_SS3PV_POS: u32 = 11;
+pub const SPI_CFG1_SS3PV: u32 = 2048;
+pub const SPI_CFG1_MSSI_POS: u32 = 20;
+pub const SPI_CFG1_MSSI: u32 = 7340032;
+pub const SPI_CFG1_MSSDL_POS: u32 = 24;
+pub const SPI_CFG1_MSSDL: u32 = 117440512;
+pub const SPI_CFG1_MIDI_POS: u32 = 28;
+pub const SPI_CFG1_MIDI: u32 = 1879048192;
+pub const SPI_SR_OVRERF_POS: u32 = 0;
+pub const SPI_SR_OVRERF: u32 = 1;
+pub const SPI_SR_IDLNF_POS: u32 = 1;
+pub const SPI_SR_IDLNF: u32 = 2;
+pub const SPI_SR_MODFERF_POS: u32 = 2;
+pub const SPI_SR_MODFERF: u32 = 4;
+pub const SPI_SR_PERF_POS: u32 = 3;
+pub const SPI_SR_PERF: u32 = 8;
+pub const SPI_SR_UDRERF_POS: u32 = 4;
+pub const SPI_SR_UDRERF: u32 = 16;
+pub const SPI_SR_TDEF_POS: u32 = 5;
+pub const SPI_SR_TDEF: u32 = 32;
+pub const SPI_SR_RDFF_POS: u32 = 7;
+pub const SPI_SR_RDFF: u32 = 128;
+pub const SPI_CFG2_CPHA_POS: u32 = 0;
+pub const SPI_CFG2_CPHA: u32 = 1;
+pub const SPI_CFG2_CPOL_POS: u32 = 1;
+pub const SPI_CFG2_CPOL: u32 = 2;
+pub const SPI_CFG2_MBR_POS: u32 = 2;
+pub const SPI_CFG2_MBR: u32 = 28;
+pub const SPI_CFG2_SSA_POS: u32 = 5;
+pub const SPI_CFG2_SSA: u32 = 224;
+pub const SPI_CFG2_SSA_0: u32 = 32;
+pub const SPI_CFG2_SSA_1: u32 = 64;
+pub const SPI_CFG2_SSA_2: u32 = 128;
+pub const SPI_CFG2_DSIZE_POS: u32 = 8;
+pub const SPI_CFG2_DSIZE: u32 = 3840;
+pub const SPI_CFG2_LSBF_POS: u32 = 12;
+pub const SPI_CFG2_LSBF: u32 = 4096;
+pub const SPI_CFG2_MIDIE_POS: u32 = 13;
+pub const SPI_CFG2_MIDIE: u32 = 8192;
+pub const SPI_CFG2_MSSDLE_POS: u32 = 14;
+pub const SPI_CFG2_MSSDLE: u32 = 16384;
+pub const SPI_CFG2_MSSIE_POS: u32 = 15;
+pub const SPI_CFG2_MSSIE: u32 = 32768;
+pub const SRAMC_WTCR_SRAM12_RWT_POS: u32 = 0;
+pub const SRAMC_WTCR_SRAM12_RWT: u32 = 7;
+pub const SRAMC_WTCR_SRAM12_WWT_POS: u32 = 4;
+pub const SRAMC_WTCR_SRAM12_WWT: u32 = 112;
+pub const SRAMC_WTCR_SRAM3_RWT_POS: u32 = 8;
+pub const SRAMC_WTCR_SRAM3_RWT: u32 = 1792;
+pub const SRAMC_WTCR_SRAM3_WWT_POS: u32 = 12;
+pub const SRAMC_WTCR_SRAM3_WWT: u32 = 28672;
+pub const SRAMC_WTCR_SRAMH_RWT_POS: u32 = 16;
+pub const SRAMC_WTCR_SRAMH_RWT: u32 = 458752;
+pub const SRAMC_WTCR_SRAMH_WWT_POS: u32 = 20;
+pub const SRAMC_WTCR_SRAMH_WWT: u32 = 7340032;
+pub const SRAMC_WTCR_SRAMR_RWT_POS: u32 = 24;
+pub const SRAMC_WTCR_SRAMR_RWT: u32 = 117440512;
+pub const SRAMC_WTCR_SRAMR_WWT_POS: u32 = 28;
+pub const SRAMC_WTCR_SRAMR_WWT: u32 = 1879048192;
+pub const SRAMC_WTPR_WTPRC_POS: u32 = 0;
+pub const SRAMC_WTPR_WTPRC: u32 = 1;
+pub const SRAMC_WTPR_WTPRKW_POS: u32 = 1;
+pub const SRAMC_WTPR_WTPRKW: u32 = 254;
+pub const SRAMC_CKCR_PYOAD_POS: u32 = 0;
+pub const SRAMC_CKCR_PYOAD: u32 = 1;
+pub const SRAMC_CKCR_ECCOAD_POS: u32 = 16;
+pub const SRAMC_CKCR_ECCOAD: u32 = 65536;
+pub const SRAMC_CKCR_ECCMOD_POS: u32 = 24;
+pub const SRAMC_CKCR_ECCMOD: u32 = 50331648;
+pub const SRAMC_CKCR_ECCMOD_0: u32 = 16777216;
+pub const SRAMC_CKCR_ECCMOD_1: u32 = 33554432;
+pub const SRAMC_CKPR_CKPRC_POS: u32 = 0;
+pub const SRAMC_CKPR_CKPRC: u32 = 1;
+pub const SRAMC_CKPR_CKPRKW_POS: u32 = 1;
+pub const SRAMC_CKPR_CKPRKW: u32 = 254;
+pub const SRAMC_CKSR_SRAM3_1ERR_POS: u32 = 0;
+pub const SRAMC_CKSR_SRAM3_1ERR: u32 = 1;
+pub const SRAMC_CKSR_SRAM3_2ERR_POS: u32 = 1;
+pub const SRAMC_CKSR_SRAM3_2ERR: u32 = 2;
+pub const SRAMC_CKSR_SRAM12_PYERR_POS: u32 = 2;
+pub const SRAMC_CKSR_SRAM12_PYERR: u32 = 4;
+pub const SRAMC_CKSR_SRAMH_PYERR_POS: u32 = 3;
+pub const SRAMC_CKSR_SRAMH_PYERR: u32 = 8;
+pub const SRAMC_CKSR_SRAMR_PYERR_POS: u32 = 4;
+pub const SRAMC_CKSR_SRAMR_PYERR: u32 = 16;
+pub const SWDT_SR_CNT_POS: u32 = 0;
+pub const SWDT_SR_CNT: u32 = 65535;
+pub const SWDT_SR_UDF_POS: u32 = 16;
+pub const SWDT_SR_UDF: u32 = 65536;
+pub const SWDT_SR_REF_POS: u32 = 17;
+pub const SWDT_SR_REF: u32 = 131072;
+pub const SWDT_RR_RF: u32 = 65535;
+pub const TMR0_CNTAR_CNTA: u32 = 65535;
+pub const TMR0_CNTBR_CNTB: u32 = 65535;
+pub const TMR0_CMPAR_CMPA: u32 = 65535;
+pub const TMR0_CMPBR_CMPB: u32 = 65535;
+pub const TMR0_BCONR_CSTA_POS: u32 = 0;
+pub const TMR0_BCONR_CSTA: u32 = 1;
+pub const TMR0_BCONR_CAPMDA_POS: u32 = 1;
+pub const TMR0_BCONR_CAPMDA: u32 = 2;
+pub const TMR0_BCONR_INTENA_POS: u32 = 2;
+pub const TMR0_BCONR_INTENA: u32 = 4;
+pub const TMR0_BCONR_CKDIVA_POS: u32 = 4;
+pub const TMR0_BCONR_CKDIVA: u32 = 240;
+pub const TMR0_BCONR_SYNSA_POS: u32 = 8;
+pub const TMR0_BCONR_SYNSA: u32 = 256;
+pub const TMR0_BCONR_SYNCLKA_POS: u32 = 9;
+pub const TMR0_BCONR_SYNCLKA: u32 = 512;
+pub const TMR0_BCONR_ASYNCLKA_POS: u32 = 10;
+pub const TMR0_BCONR_ASYNCLKA: u32 = 1024;
+pub const TMR0_BCONR_HSTAA_POS: u32 = 12;
+pub const TMR0_BCONR_HSTAA: u32 = 4096;
+pub const TMR0_BCONR_HSTPA_POS: u32 = 13;
+pub const TMR0_BCONR_HSTPA: u32 = 8192;
+pub const TMR0_BCONR_HCLEA_POS: u32 = 14;
+pub const TMR0_BCONR_HCLEA: u32 = 16384;
+pub const TMR0_BCONR_HICPA_POS: u32 = 15;
+pub const TMR0_BCONR_HICPA: u32 = 32768;
+pub const TMR0_BCONR_CSTB_POS: u32 = 16;
+pub const TMR0_BCONR_CSTB: u32 = 65536;
+pub const TMR0_BCONR_CAPMDB_POS: u32 = 17;
+pub const TMR0_BCONR_CAPMDB: u32 = 131072;
+pub const TMR0_BCONR_INTENB_POS: u32 = 18;
+pub const TMR0_BCONR_INTENB: u32 = 262144;
+pub const TMR0_BCONR_CKDIVB_POS: u32 = 20;
+pub const TMR0_BCONR_CKDIVB: u32 = 15728640;
+pub const TMR0_BCONR_SYNSB_POS: u32 = 24;
+pub const TMR0_BCONR_SYNSB: u32 = 16777216;
+pub const TMR0_BCONR_SYNCLKB_POS: u32 = 25;
+pub const TMR0_BCONR_SYNCLKB: u32 = 33554432;
+pub const TMR0_BCONR_ASYNCLKB_POS: u32 = 26;
+pub const TMR0_BCONR_ASYNCLKB: u32 = 67108864;
+pub const TMR0_BCONR_HSTAB_POS: u32 = 28;
+pub const TMR0_BCONR_HSTAB: u32 = 268435456;
+pub const TMR0_BCONR_HSTPB_POS: u32 = 29;
+pub const TMR0_BCONR_HSTPB: u32 = 536870912;
+pub const TMR0_BCONR_HCLEB_POS: u32 = 30;
+pub const TMR0_BCONR_HCLEB: u32 = 1073741824;
+pub const TMR0_BCONR_HICPB_POS: u32 = 31;
+pub const TMR0_BCONR_HICPB: u32 = 2147483648;
+pub const TMR0_STFLR_CMFA_POS: u32 = 0;
+pub const TMR0_STFLR_CMFA: u32 = 1;
+pub const TMR0_STFLR_CMFB_POS: u32 = 16;
+pub const TMR0_STFLR_CMFB: u32 = 65536;
+pub const TMR4_OCCRUH: u32 = 65535;
+pub const TMR4_OCCRUL: u32 = 65535;
+pub const TMR4_OCCRVH: u32 = 65535;
+pub const TMR4_OCCRVL: u32 = 65535;
+pub const TMR4_OCCRWH: u32 = 65535;
+pub const TMR4_OCCRWL: u32 = 65535;
+pub const TMR4_OCSR_OCEH_POS: u32 = 0;
+pub const TMR4_OCSR_OCEH: u32 = 1;
+pub const TMR4_OCSR_OCEL_POS: u32 = 1;
+pub const TMR4_OCSR_OCEL: u32 = 2;
+pub const TMR4_OCSR_OCPH_POS: u32 = 2;
+pub const TMR4_OCSR_OCPH: u32 = 4;
+pub const TMR4_OCSR_OCPL_POS: u32 = 3;
+pub const TMR4_OCSR_OCPL: u32 = 8;
+pub const TMR4_OCSR_OCIEH_POS: u32 = 4;
+pub const TMR4_OCSR_OCIEH: u32 = 16;
+pub const TMR4_OCSR_OCIEL_POS: u32 = 5;
+pub const TMR4_OCSR_OCIEL: u32 = 32;
+pub const TMR4_OCSR_OCFH_POS: u32 = 6;
+pub const TMR4_OCSR_OCFH: u32 = 64;
+pub const TMR4_OCSR_OCFL_POS: u32 = 7;
+pub const TMR4_OCSR_OCFL: u32 = 128;
+pub const TMR4_OCER_CHBUFEN_POS: u32 = 0;
+pub const TMR4_OCER_CHBUFEN: u32 = 3;
+pub const TMR4_OCER_CHBUFEN_0: u32 = 1;
+pub const TMR4_OCER_CHBUFEN_1: u32 = 2;
+pub const TMR4_OCER_CLBUFEN_POS: u32 = 2;
+pub const TMR4_OCER_CLBUFEN: u32 = 12;
+pub const TMR4_OCER_CLBUFEN_0: u32 = 4;
+pub const TMR4_OCER_CLBUFEN_1: u32 = 8;
+pub const TMR4_OCER_MHBUFEN_POS: u32 = 4;
+pub const TMR4_OCER_MHBUFEN: u32 = 48;
+pub const TMR4_OCER_MHBUFEN_0: u32 = 16;
+pub const TMR4_OCER_MHBUFEN_1: u32 = 32;
+pub const TMR4_OCER_MLBUFEN_POS: u32 = 6;
+pub const TMR4_OCER_MLBUFEN: u32 = 192;
+pub const TMR4_OCER_MLBUFEN_0: u32 = 64;
+pub const TMR4_OCER_MLBUFEN_1: u32 = 128;
+pub const TMR4_OCER_LMCH_POS: u32 = 8;
+pub const TMR4_OCER_LMCH: u32 = 256;
+pub const TMR4_OCER_LMCL_POS: u32 = 9;
+pub const TMR4_OCER_LMCL: u32 = 512;
+pub const TMR4_OCER_LMMH_POS: u32 = 10;
+pub const TMR4_OCER_LMMH: u32 = 1024;
+pub const TMR4_OCER_LMML_POS: u32 = 11;
+pub const TMR4_OCER_LMML: u32 = 2048;
+pub const TMR4_OCER_MCECH_POS: u32 = 12;
+pub const TMR4_OCER_MCECH: u32 = 4096;
+pub const TMR4_OCER_MCECL_POS: u32 = 13;
+pub const TMR4_OCER_MCECL: u32 = 8192;
+pub const TMR4_OCMRH_OCFDCH_POS: u32 = 0;
+pub const TMR4_OCMRH_OCFDCH: u32 = 1;
+pub const TMR4_OCMRH_OCFPKH_POS: u32 = 1;
+pub const TMR4_OCMRH_OCFPKH: u32 = 2;
+pub const TMR4_OCMRH_OCFUCH_POS: u32 = 2;
+pub const TMR4_OCMRH_OCFUCH: u32 = 4;
+pub const TMR4_OCMRH_OCFZRH_POS: u32 = 3;
+pub const TMR4_OCMRH_OCFZRH: u32 = 8;
+pub const TMR4_OCMRH_OPDCH_POS: u32 = 4;
+pub const TMR4_OCMRH_OPDCH: u32 = 48;
+pub const TMR4_OCMRH_OPDCH_0: u32 = 16;
+pub const TMR4_OCMRH_OPDCH_1: u32 = 32;
+pub const TMR4_OCMRH_OPPKH_POS: u32 = 6;
+pub const TMR4_OCMRH_OPPKH: u32 = 192;
+pub const TMR4_OCMRH_OPPKH_0: u32 = 64;
+pub const TMR4_OCMRH_OPPKH_1: u32 = 128;
+pub const TMR4_OCMRH_OPUCH_POS: u32 = 8;
+pub const TMR4_OCMRH_OPUCH: u32 = 768;
+pub const TMR4_OCMRH_OPUCH_0: u32 = 256;
+pub const TMR4_OCMRH_OPUCH_1: u32 = 512;
+pub const TMR4_OCMRH_OPZRH_POS: u32 = 10;
+pub const TMR4_OCMRH_OPZRH: u32 = 3072;
+pub const TMR4_OCMRH_OPZRH_0: u32 = 1024;
+pub const TMR4_OCMRH_OPZRH_1: u32 = 2048;
+pub const TMR4_OCMRH_OPNPKH_POS: u32 = 12;
+pub const TMR4_OCMRH_OPNPKH: u32 = 12288;
+pub const TMR4_OCMRH_OPNPKH_0: u32 = 4096;
+pub const TMR4_OCMRH_OPNPKH_1: u32 = 8192;
+pub const TMR4_OCMRH_OPNZRH_POS: u32 = 14;
+pub const TMR4_OCMRH_OPNZRH: u32 = 49152;
+pub const TMR4_OCMRH_OPNZRH_0: u32 = 16384;
+pub const TMR4_OCMRH_OPNZRH_1: u32 = 32768;
+pub const TMR4_OCMRL_OCFDCL_POS: u32 = 0;
+pub const TMR4_OCMRL_OCFDCL: u32 = 1;
+pub const TMR4_OCMRL_OCFPKL_POS: u32 = 1;
+pub const TMR4_OCMRL_OCFPKL: u32 = 2;
+pub const TMR4_OCMRL_OCFUCL_POS: u32 = 2;
+pub const TMR4_OCMRL_OCFUCL: u32 = 4;
+pub const TMR4_OCMRL_OCFZRL_POS: u32 = 3;
+pub const TMR4_OCMRL_OCFZRL: u32 = 8;
+pub const TMR4_OCMRL_OPDCL_POS: u32 = 4;
+pub const TMR4_OCMRL_OPDCL: u32 = 48;
+pub const TMR4_OCMRL_OPDCL_0: u32 = 16;
+pub const TMR4_OCMRL_OPDCL_1: u32 = 32;
+pub const TMR4_OCMRL_OPPKL_POS: u32 = 6;
+pub const TMR4_OCMRL_OPPKL: u32 = 192;
+pub const TMR4_OCMRL_OPPKL_0: u32 = 64;
+pub const TMR4_OCMRL_OPPKL_1: u32 = 128;
+pub const TMR4_OCMRL_OPUCL_POS: u32 = 8;
+pub const TMR4_OCMRL_OPUCL: u32 = 768;
+pub const TMR4_OCMRL_OPUCL_0: u32 = 256;
+pub const TMR4_OCMRL_OPUCL_1: u32 = 512;
+pub const TMR4_OCMRL_OPZRL_POS: u32 = 10;
+pub const TMR4_OCMRL_OPZRL: u32 = 3072;
+pub const TMR4_OCMRL_OPZRL_0: u32 = 1024;
+pub const TMR4_OCMRL_OPZRL_1: u32 = 2048;
+pub const TMR4_OCMRL_OPNPKL_POS: u32 = 12;
+pub const TMR4_OCMRL_OPNPKL: u32 = 12288;
+pub const TMR4_OCMRL_OPNPKL_0: u32 = 4096;
+pub const TMR4_OCMRL_OPNPKL_1: u32 = 8192;
+pub const TMR4_OCMRL_OPNZRL_POS: u32 = 14;
+pub const TMR4_OCMRL_OPNZRL: u32 = 49152;
+pub const TMR4_OCMRL_OPNZRL_0: u32 = 16384;
+pub const TMR4_OCMRL_OPNZRL_1: u32 = 32768;
+pub const TMR4_OCMRL_EOPNDCL_POS: u32 = 16;
+pub const TMR4_OCMRL_EOPNDCL: u32 = 196608;
+pub const TMR4_OCMRL_EOPNDCL_0: u32 = 65536;
+pub const TMR4_OCMRL_EOPNDCL_1: u32 = 131072;
+pub const TMR4_OCMRL_EOPNUCL_POS: u32 = 18;
+pub const TMR4_OCMRL_EOPNUCL: u32 = 786432;
+pub const TMR4_OCMRL_EOPNUCL_0: u32 = 262144;
+pub const TMR4_OCMRL_EOPNUCL_1: u32 = 524288;
+pub const TMR4_OCMRL_EOPDCL_POS: u32 = 20;
+pub const TMR4_OCMRL_EOPDCL: u32 = 3145728;
+pub const TMR4_OCMRL_EOPDCL_0: u32 = 1048576;
+pub const TMR4_OCMRL_EOPDCL_1: u32 = 2097152;
+pub const TMR4_OCMRL_EOPPKL_POS: u32 = 22;
+pub const TMR4_OCMRL_EOPPKL: u32 = 12582912;
+pub const TMR4_OCMRL_EOPPKL_0: u32 = 4194304;
+pub const TMR4_OCMRL_EOPPKL_1: u32 = 8388608;
+pub const TMR4_OCMRL_EOPUCL_POS: u32 = 24;
+pub const TMR4_OCMRL_EOPUCL: u32 = 50331648;
+pub const TMR4_OCMRL_EOPUCL_0: u32 = 16777216;
+pub const TMR4_OCMRL_EOPUCL_1: u32 = 33554432;
+pub const TMR4_OCMRL_EOPZRL_POS: u32 = 26;
+pub const TMR4_OCMRL_EOPZRL: u32 = 201326592;
+pub const TMR4_OCMRL_EOPZRL_0: u32 = 67108864;
+pub const TMR4_OCMRL_EOPZRL_1: u32 = 134217728;
+pub const TMR4_OCMRL_EOPNPKL_POS: u32 = 28;
+pub const TMR4_OCMRL_EOPNPKL: u32 = 805306368;
+pub const TMR4_OCMRL_EOPNPKL_0: u32 = 268435456;
+pub const TMR4_OCMRL_EOPNPKL_1: u32 = 536870912;
+pub const TMR4_OCMRL_EOPNZRL_POS: u32 = 30;
+pub const TMR4_OCMRL_EOPNZRL: u32 = 3221225472;
+pub const TMR4_OCMRL_EOPNZRL_0: u32 = 1073741824;
+pub const TMR4_OCMRL_EOPNZRL_1: u32 = 2147483648;
+pub const TMR4_CPSR: u32 = 65535;
+pub const TMR4_CNTR: u32 = 65535;
+pub const TMR4_CCSR_CKDIV_POS: u32 = 0;
+pub const TMR4_CCSR_CKDIV: u32 = 15;
+pub const TMR4_CCSR_CLEAR_POS: u32 = 4;
+pub const TMR4_CCSR_CLEAR: u32 = 16;
+pub const TMR4_CCSR_MODE_POS: u32 = 5;
+pub const TMR4_CCSR_MODE: u32 = 32;
+pub const TMR4_CCSR_STOP_POS: u32 = 6;
+pub const TMR4_CCSR_STOP: u32 = 64;
+pub const TMR4_CCSR_BUFEN_POS: u32 = 7;
+pub const TMR4_CCSR_BUFEN: u32 = 128;
+pub const TMR4_CCSR_IRQPEN_POS: u32 = 8;
+pub const TMR4_CCSR_IRQPEN: u32 = 256;
+pub const TMR4_CCSR_IRQPF_POS: u32 = 9;
+pub const TMR4_CCSR_IRQPF: u32 = 512;
+pub const TMR4_CCSR_IRQZEN_POS: u32 = 13;
+pub const TMR4_CCSR_IRQZEN: u32 = 8192;
+pub const TMR4_CCSR_IRQZF_POS: u32 = 14;
+pub const TMR4_CCSR_IRQZF: u32 = 16384;
+pub const TMR4_CCSR_ECKEN_POS: u32 = 15;
+pub const TMR4_CCSR_ECKEN: u32 = 32768;
+pub const TMR4_CVPR_ZIM_POS: u32 = 0;
+pub const TMR4_CVPR_ZIM: u32 = 15;
+pub const TMR4_CVPR_PIM_POS: u32 = 4;
+pub const TMR4_CVPR_PIM: u32 = 240;
+pub const TMR4_CVPR_ZIC_POS: u32 = 8;
+pub const TMR4_CVPR_ZIC: u32 = 3840;
+pub const TMR4_CVPR_PIC_POS: u32 = 12;
+pub const TMR4_CVPR_PIC: u32 = 61440;
+pub const TMR4_PFSRU: u32 = 65535;
+pub const TMR4_PDARU: u32 = 65535;
+pub const TMR4_PDBRU: u32 = 65535;
+pub const TMR4_PFSRV: u32 = 65535;
+pub const TMR4_PDARV: u32 = 65535;
+pub const TMR4_PDBRV: u32 = 65535;
+pub const TMR4_PFSRW: u32 = 65535;
+pub const TMR4_PDARW: u32 = 65535;
+pub const TMR4_PDBRW: u32 = 65535;
+pub const TMR4_POCR_DIVCK_POS: u32 = 0;
+pub const TMR4_POCR_DIVCK: u32 = 7;
+pub const TMR4_POCR_PWMMD_POS: u32 = 4;
+pub const TMR4_POCR_PWMMD: u32 = 48;
+pub const TMR4_POCR_PWMMD_0: u32 = 16;
+pub const TMR4_POCR_PWMMD_1: u32 = 32;
+pub const TMR4_POCR_LVLS_POS: u32 = 6;
+pub const TMR4_POCR_LVLS: u32 = 192;
+pub const TMR4_POCR_LVLS_0: u32 = 64;
+pub const TMR4_POCR_LVLS_1: u32 = 128;
+pub const TMR4_RCSR_RTIDU_POS: u32 = 0;
+pub const TMR4_RCSR_RTIDU: u32 = 1;
+pub const TMR4_RCSR_RTIDV_POS: u32 = 1;
+pub const TMR4_RCSR_RTIDV: u32 = 2;
+pub const TMR4_RCSR_RTIDW_POS: u32 = 2;
+pub const TMR4_RCSR_RTIDW: u32 = 4;
+pub const TMR4_RCSR_RTIFU_POS: u32 = 4;
+pub const TMR4_RCSR_RTIFU: u32 = 16;
+pub const TMR4_RCSR_RTICU_POS: u32 = 5;
+pub const TMR4_RCSR_RTICU: u32 = 32;
+pub const TMR4_RCSR_RTEU_POS: u32 = 6;
+pub const TMR4_RCSR_RTEU: u32 = 64;
+pub const TMR4_RCSR_RTSU_POS: u32 = 7;
+pub const TMR4_RCSR_RTSU: u32 = 128;
+pub const TMR4_RCSR_RTIFV_POS: u32 = 8;
+pub const TMR4_RCSR_RTIFV: u32 = 256;
+pub const TMR4_RCSR_RTICV_POS: u32 = 9;
+pub const TMR4_RCSR_RTICV: u32 = 512;
+pub const TMR4_RCSR_RTEV_POS: u32 = 10;
+pub const TMR4_RCSR_RTEV: u32 = 1024;
+pub const TMR4_RCSR_RTSV_POS: u32 = 11;
+pub const TMR4_RCSR_RTSV: u32 = 2048;
+pub const TMR4_RCSR_RTIFW_POS: u32 = 12;
+pub const TMR4_RCSR_RTIFW: u32 = 4096;
+pub const TMR4_RCSR_RTICW_POS: u32 = 13;
+pub const TMR4_RCSR_RTICW: u32 = 8192;
+pub const TMR4_RCSR_RTEW_POS: u32 = 14;
+pub const TMR4_RCSR_RTEW: u32 = 16384;
+pub const TMR4_RCSR_RTSW_POS: u32 = 15;
+pub const TMR4_RCSR_RTSW: u32 = 32768;
+pub const TMR4_SCCRUH: u32 = 65535;
+pub const TMR4_SCCRUL: u32 = 65535;
+pub const TMR4_SCCRVH: u32 = 65535;
+pub const TMR4_SCCRVL: u32 = 65535;
+pub const TMR4_SCCRWH: u32 = 65535;
+pub const TMR4_SCCRWL: u32 = 65535;
+pub const TMR4_SCSR_BUFEN_POS: u32 = 0;
+pub const TMR4_SCSR_BUFEN: u32 = 3;
+pub const TMR4_SCSR_BUFEN_0: u32 = 1;
+pub const TMR4_SCSR_BUFEN_1: u32 = 2;
+pub const TMR4_SCSR_EVTOS_POS: u32 = 2;
+pub const TMR4_SCSR_EVTOS: u32 = 28;
+pub const TMR4_SCSR_LMC_POS: u32 = 5;
+pub const TMR4_SCSR_LMC: u32 = 32;
+pub const TMR4_SCSR_EVTMS_POS: u32 = 8;
+pub const TMR4_SCSR_EVTMS: u32 = 256;
+pub const TMR4_SCSR_EVTDS_POS: u32 = 9;
+pub const TMR4_SCSR_EVTDS: u32 = 512;
+pub const TMR4_SCSR_DEN_POS: u32 = 12;
+pub const TMR4_SCSR_DEN: u32 = 4096;
+pub const TMR4_SCSR_PEN_POS: u32 = 13;
+pub const TMR4_SCSR_PEN: u32 = 8192;
+pub const TMR4_SCSR_UEN_POS: u32 = 14;
+pub const TMR4_SCSR_UEN: u32 = 16384;
+pub const TMR4_SCSR_ZEN_POS: u32 = 15;
+pub const TMR4_SCSR_ZEN: u32 = 32768;
+pub const TMR4_SCMR_AMC_POS: u32 = 0;
+pub const TMR4_SCMR_AMC: u32 = 15;
+pub const TMR4_SCMR_MZCE_POS: u32 = 6;
+pub const TMR4_SCMR_MZCE: u32 = 64;
+pub const TMR4_SCMR_MPCE_POS: u32 = 7;
+pub const TMR4_SCMR_MPCE: u32 = 128;
+pub const TMR4_ECSR_HOLD_POS: u32 = 7;
+pub const TMR4_ECSR_HOLD: u32 = 128;
+pub const TMR4_ECER_ECER_EMBVAL: u32 = 3;
+pub const TMR6_CNTER_CNT: u32 = 65535;
+pub const TMR6_PERAR_PERA: u32 = 65535;
+pub const TMR6_PERBR_PERB: u32 = 65535;
+pub const TMR6_PERCR_PERC: u32 = 65535;
+pub const TMR6_GCMAR_GCMA: u32 = 65535;
+pub const TMR6_GCMBR_GCMB: u32 = 65535;
+pub const TMR6_GCMCR_GCMC: u32 = 65535;
+pub const TMR6_GCMDR_GCMD: u32 = 65535;
+pub const TMR6_GCMER_GCME: u32 = 65535;
+pub const TMR6_GCMFR_GCMF: u32 = 65535;
+pub const TMR6_SCMAR_SCMA: u32 = 65535;
+pub const TMR6_SCMBR_SCMB: u32 = 65535;
+pub const TMR6_SCMCR_SCMC: u32 = 65535;
+pub const TMR6_SCMDR_SCMD: u32 = 65535;
+pub const TMR6_SCMER_SCME: u32 = 65535;
+pub const TMR6_SCMFR_SCMF: u32 = 65535;
+pub const TMR6_DTUAR_DTUA: u32 = 65535;
+pub const TMR6_DTDAR_DTDA: u32 = 65535;
+pub const TMR6_DTUBR_DTUB: u32 = 65535;
+pub const TMR6_DTDBR_DTDB: u32 = 65535;
+pub const TMR6_GCONR_START_POS: u32 = 0;
+pub const TMR6_GCONR_START: u32 = 1;
+pub const TMR6_GCONR_MODE_POS: u32 = 1;
+pub const TMR6_GCONR_MODE: u32 = 14;
+pub const TMR6_GCONR_CKDIV_POS: u32 = 4;
+pub const TMR6_GCONR_CKDIV: u32 = 112;
+pub const TMR6_GCONR_DIR_POS: u32 = 8;
+pub const TMR6_GCONR_DIR: u32 = 256;
+pub const TMR6_GCONR_ZMSKREV_POS: u32 = 16;
+pub const TMR6_GCONR_ZMSKREV: u32 = 65536;
+pub const TMR6_GCONR_ZMSKPOS_POS: u32 = 17;
+pub const TMR6_GCONR_ZMSKPOS: u32 = 131072;
+pub const TMR6_GCONR_ZMSKVAL_POS: u32 = 18;
+pub const TMR6_GCONR_ZMSKVAL: u32 = 786432;
+pub const TMR6_GCONR_ZMSKVAL_0: u32 = 262144;
+pub const TMR6_GCONR_ZMSKVAL_1: u32 = 524288;
+pub const TMR6_ICONR_INTENA_POS: u32 = 0;
+pub const TMR6_ICONR_INTENA: u32 = 1;
+pub const TMR6_ICONR_INTENB_POS: u32 = 1;
+pub const TMR6_ICONR_INTENB: u32 = 2;
+pub const TMR6_ICONR_INTENC_POS: u32 = 2;
+pub const TMR6_ICONR_INTENC: u32 = 4;
+pub const TMR6_ICONR_INTEND_POS: u32 = 3;
+pub const TMR6_ICONR_INTEND: u32 = 8;
+pub const TMR6_ICONR_INTENE_POS: u32 = 4;
+pub const TMR6_ICONR_INTENE: u32 = 16;
+pub const TMR6_ICONR_INTENF_POS: u32 = 5;
+pub const TMR6_ICONR_INTENF: u32 = 32;
+pub const TMR6_ICONR_INTENOVF_POS: u32 = 6;
+pub const TMR6_ICONR_INTENOVF: u32 = 64;
+pub const TMR6_ICONR_INTENUDF_POS: u32 = 7;
+pub const TMR6_ICONR_INTENUDF: u32 = 128;
+pub const TMR6_ICONR_INTENDTE_POS: u32 = 8;
+pub const TMR6_ICONR_INTENDTE: u32 = 256;
+pub const TMR6_ICONR_INTENSAU_POS: u32 = 16;
+pub const TMR6_ICONR_INTENSAU: u32 = 65536;
+pub const TMR6_ICONR_INTENSAD_POS: u32 = 17;
+pub const TMR6_ICONR_INTENSAD: u32 = 131072;
+pub const TMR6_ICONR_INTENSBU_POS: u32 = 18;
+pub const TMR6_ICONR_INTENSBU: u32 = 262144;
+pub const TMR6_ICONR_INTENSBD_POS: u32 = 19;
+pub const TMR6_ICONR_INTENSBD: u32 = 524288;
+pub const TMR6_PCONR_CAPMDA_POS: u32 = 0;
+pub const TMR6_PCONR_CAPMDA: u32 = 1;
+pub const TMR6_PCONR_STACA_POS: u32 = 1;
+pub const TMR6_PCONR_STACA: u32 = 2;
+pub const TMR6_PCONR_STPCA_POS: u32 = 2;
+pub const TMR6_PCONR_STPCA: u32 = 4;
+pub const TMR6_PCONR_STASTPSA_POS: u32 = 3;
+pub const TMR6_PCONR_STASTPSA: u32 = 8;
+pub const TMR6_PCONR_CMPCA_POS: u32 = 4;
+pub const TMR6_PCONR_CMPCA: u32 = 48;
+pub const TMR6_PCONR_CMPCA_0: u32 = 16;
+pub const TMR6_PCONR_CMPCA_1: u32 = 32;
+pub const TMR6_PCONR_PERCA_POS: u32 = 6;
+pub const TMR6_PCONR_PERCA: u32 = 192;
+pub const TMR6_PCONR_PERCA_0: u32 = 64;
+pub const TMR6_PCONR_PERCA_1: u32 = 128;
+pub const TMR6_PCONR_OUTENA_POS: u32 = 8;
+pub const TMR6_PCONR_OUTENA: u32 = 256;
+pub const TMR6_PCONR_EMBVALA_POS: u32 = 11;
+pub const TMR6_PCONR_EMBVALA: u32 = 6144;
+pub const TMR6_PCONR_EMBVALA_0: u32 = 2048;
+pub const TMR6_PCONR_EMBVALA_1: u32 = 4096;
+pub const TMR6_PCONR_CAPMDB_POS: u32 = 16;
+pub const TMR6_PCONR_CAPMDB: u32 = 65536;
+pub const TMR6_PCONR_STACB_POS: u32 = 17;
+pub const TMR6_PCONR_STACB: u32 = 131072;
+pub const TMR6_PCONR_STPCB_POS: u32 = 18;
+pub const TMR6_PCONR_STPCB: u32 = 262144;
+pub const TMR6_PCONR_STASTPSB_POS: u32 = 19;
+pub const TMR6_PCONR_STASTPSB: u32 = 524288;
+pub const TMR6_PCONR_CMPCB_POS: u32 = 20;
+pub const TMR6_PCONR_CMPCB: u32 = 3145728;
+pub const TMR6_PCONR_CMPCB_0: u32 = 1048576;
+pub const TMR6_PCONR_CMPCB_1: u32 = 2097152;
+pub const TMR6_PCONR_PERCB_POS: u32 = 22;
+pub const TMR6_PCONR_PERCB: u32 = 12582912;
+pub const TMR6_PCONR_PERCB_0: u32 = 4194304;
+pub const TMR6_PCONR_PERCB_1: u32 = 8388608;
+pub const TMR6_PCONR_OUTENB_POS: u32 = 24;
+pub const TMR6_PCONR_OUTENB: u32 = 16777216;
+pub const TMR6_PCONR_EMBVALB_POS: u32 = 27;
+pub const TMR6_PCONR_EMBVALB: u32 = 402653184;
+pub const TMR6_PCONR_EMBVALB_0: u32 = 134217728;
+pub const TMR6_PCONR_EMBVALB_1: u32 = 268435456;
+pub const TMR6_BCONR_BENA_POS: u32 = 0;
+pub const TMR6_BCONR_BENA: u32 = 1;
+pub const TMR6_BCONR_BSEA_POS: u32 = 1;
+pub const TMR6_BCONR_BSEA: u32 = 2;
+pub const TMR6_BCONR_BENB_POS: u32 = 2;
+pub const TMR6_BCONR_BENB: u32 = 4;
+pub const TMR6_BCONR_BSEB_POS: u32 = 3;
+pub const TMR6_BCONR_BSEB: u32 = 8;
+pub const TMR6_BCONR_BENP_POS: u32 = 8;
+pub const TMR6_BCONR_BENP: u32 = 256;
+pub const TMR6_BCONR_BSEP_POS: u32 = 9;
+pub const TMR6_BCONR_BSEP: u32 = 512;
+pub const TMR6_BCONR_BENSPA_POS: u32 = 16;
+pub const TMR6_BCONR_BENSPA: u32 = 65536;
+pub const TMR6_BCONR_BSESPA_POS: u32 = 17;
+pub const TMR6_BCONR_BSESPA: u32 = 131072;
+pub const TMR6_BCONR_BTRUSPA_POS: u32 = 20;
+pub const TMR6_BCONR_BTRUSPA: u32 = 1048576;
+pub const TMR6_BCONR_BTRDSPA_POS: u32 = 21;
+pub const TMR6_BCONR_BTRDSPA: u32 = 2097152;
+pub const TMR6_BCONR_BENSPB_POS: u32 = 24;
+pub const TMR6_BCONR_BENSPB: u32 = 16777216;
+pub const TMR6_BCONR_BSESPB_POS: u32 = 25;
+pub const TMR6_BCONR_BSESPB: u32 = 33554432;
+pub const TMR6_BCONR_BTRUSPB_POS: u32 = 28;
+pub const TMR6_BCONR_BTRUSPB: u32 = 268435456;
+pub const TMR6_BCONR_BTRDSPB_POS: u32 = 29;
+pub const TMR6_BCONR_BTRDSPB: u32 = 536870912;
+pub const TMR6_DCONR_DTCEN_POS: u32 = 0;
+pub const TMR6_DCONR_DTCEN: u32 = 1;
+pub const TMR6_DCONR_DTBENU_POS: u32 = 4;
+pub const TMR6_DCONR_DTBENU: u32 = 16;
+pub const TMR6_DCONR_DTBEND_POS: u32 = 5;
+pub const TMR6_DCONR_DTBEND: u32 = 32;
+pub const TMR6_DCONR_SEPA_POS: u32 = 8;
+pub const TMR6_DCONR_SEPA: u32 = 256;
+pub const TMR6_FCONR_NOFIENGA_POS: u32 = 0;
+pub const TMR6_FCONR_NOFIENGA: u32 = 1;
+pub const TMR6_FCONR_NOFICKGA_POS: u32 = 1;
+pub const TMR6_FCONR_NOFICKGA: u32 = 6;
+pub const TMR6_FCONR_NOFICKGA_0: u32 = 2;
+pub const TMR6_FCONR_NOFICKGA_1: u32 = 4;
+pub const TMR6_FCONR_NOFIENGB_POS: u32 = 4;
+pub const TMR6_FCONR_NOFIENGB: u32 = 16;
+pub const TMR6_FCONR_NOFICKGB_POS: u32 = 5;
+pub const TMR6_FCONR_NOFICKGB: u32 = 96;
+pub const TMR6_FCONR_NOFICKGB_0: u32 = 32;
+pub const TMR6_FCONR_NOFICKGB_1: u32 = 64;
+pub const TMR6_FCONR_NOFIENTA_POS: u32 = 16;
+pub const TMR6_FCONR_NOFIENTA: u32 = 65536;
+pub const TMR6_FCONR_NOFICKTA_POS: u32 = 17;
+pub const TMR6_FCONR_NOFICKTA: u32 = 393216;
+pub const TMR6_FCONR_NOFICKTA_0: u32 = 131072;
+pub const TMR6_FCONR_NOFICKTA_1: u32 = 262144;
+pub const TMR6_FCONR_NOFIENTB_POS: u32 = 20;
+pub const TMR6_FCONR_NOFIENTB: u32 = 1048576;
+pub const TMR6_FCONR_NOFICKTB_POS: u32 = 21;
+pub const TMR6_FCONR_NOFICKTB: u32 = 6291456;
+pub const TMR6_FCONR_NOFICKTB_0: u32 = 2097152;
+pub const TMR6_FCONR_NOFICKTB_1: u32 = 4194304;
+pub const TMR6_VPERR_SPPERIA_POS: u32 = 8;
+pub const TMR6_VPERR_SPPERIA: u32 = 256;
+pub const TMR6_VPERR_SPPERIB_POS: u32 = 9;
+pub const TMR6_VPERR_SPPERIB: u32 = 512;
+pub const TMR6_VPERR_PCNTE_POS: u32 = 16;
+pub const TMR6_VPERR_PCNTE: u32 = 196608;
+pub const TMR6_VPERR_PCNTE_0: u32 = 65536;
+pub const TMR6_VPERR_PCNTE_1: u32 = 131072;
+pub const TMR6_VPERR_PCNTS_POS: u32 = 18;
+pub const TMR6_VPERR_PCNTS: u32 = 1835008;
+pub const TMR6_STFLR_CMAF_POS: u32 = 0;
+pub const TMR6_STFLR_CMAF: u32 = 1;
+pub const TMR6_STFLR_CMBF_POS: u32 = 1;
+pub const TMR6_STFLR_CMBF: u32 = 2;
+pub const TMR6_STFLR_CMCF_POS: u32 = 2;
+pub const TMR6_STFLR_CMCF: u32 = 4;
+pub const TMR6_STFLR_CMDF_POS: u32 = 3;
+pub const TMR6_STFLR_CMDF: u32 = 8;
+pub const TMR6_STFLR_CMEF_POS: u32 = 4;
+pub const TMR6_STFLR_CMEF: u32 = 16;
+pub const TMR6_STFLR_CMFF_POS: u32 = 5;
+pub const TMR6_STFLR_CMFF: u32 = 32;
+pub const TMR6_STFLR_OVFF_POS: u32 = 6;
+pub const TMR6_STFLR_OVFF: u32 = 64;
+pub const TMR6_STFLR_UDFF_POS: u32 = 7;
+pub const TMR6_STFLR_UDFF: u32 = 128;
+pub const TMR6_STFLR_DTEF_POS: u32 = 8;
+pub const TMR6_STFLR_DTEF: u32 = 256;
+pub const TMR6_STFLR_CMSAUF_POS: u32 = 9;
+pub const TMR6_STFLR_CMSAUF: u32 = 512;
+pub const TMR6_STFLR_CMSADF_POS: u32 = 10;
+pub const TMR6_STFLR_CMSADF: u32 = 1024;
+pub const TMR6_STFLR_CMSBUF_POS: u32 = 11;
+pub const TMR6_STFLR_CMSBUF: u32 = 2048;
+pub const TMR6_STFLR_CMSBDF_POS: u32 = 12;
+pub const TMR6_STFLR_CMSBDF: u32 = 4096;
+pub const TMR6_STFLR_VPERNUM_POS: u32 = 21;
+pub const TMR6_STFLR_VPERNUM: u32 = 14680064;
+pub const TMR6_STFLR_DIRF_POS: u32 = 31;
+pub const TMR6_STFLR_DIRF: u32 = 2147483648;
+pub const TMR6_HSTAR_HSTA0_POS: u32 = 0;
+pub const TMR6_HSTAR_HSTA0: u32 = 1;
+pub const TMR6_HSTAR_HSTA1_POS: u32 = 1;
+pub const TMR6_HSTAR_HSTA1: u32 = 2;
+pub const TMR6_HSTAR_HSTA4_POS: u32 = 4;
+pub const TMR6_HSTAR_HSTA4: u32 = 16;
+pub const TMR6_HSTAR_HSTA5_POS: u32 = 5;
+pub const TMR6_HSTAR_HSTA5: u32 = 32;
+pub const TMR6_HSTAR_HSTA6_POS: u32 = 6;
+pub const TMR6_HSTAR_HSTA6: u32 = 64;
+pub const TMR6_HSTAR_HSTA7_POS: u32 = 7;
+pub const TMR6_HSTAR_HSTA7: u32 = 128;
+pub const TMR6_HSTAR_HSTA8_POS: u32 = 8;
+pub const TMR6_HSTAR_HSTA8: u32 = 256;
+pub const TMR6_HSTAR_HSTA9_POS: u32 = 9;
+pub const TMR6_HSTAR_HSTA9: u32 = 512;
+pub const TMR6_HSTAR_HSTA10_POS: u32 = 10;
+pub const TMR6_HSTAR_HSTA10: u32 = 1024;
+pub const TMR6_HSTAR_HSTA11_POS: u32 = 11;
+pub const TMR6_HSTAR_HSTA11: u32 = 2048;
+pub const TMR6_HSTAR_STAS_POS: u32 = 31;
+pub const TMR6_HSTAR_STAS: u32 = 2147483648;
+pub const TMR6_HSTPR_HSTP0_POS: u32 = 0;
+pub const TMR6_HSTPR_HSTP0: u32 = 1;
+pub const TMR6_HSTPR_HSTP1_POS: u32 = 1;
+pub const TMR6_HSTPR_HSTP1: u32 = 2;
+pub const TMR6_HSTPR_HSTP4_POS: u32 = 4;
+pub const TMR6_HSTPR_HSTP4: u32 = 16;
+pub const TMR6_HSTPR_HSTP5_POS: u32 = 5;
+pub const TMR6_HSTPR_HSTP5: u32 = 32;
+pub const TMR6_HSTPR_HSTP6_POS: u32 = 6;
+pub const TMR6_HSTPR_HSTP6: u32 = 64;
+pub const TMR6_HSTPR_HSTP7_POS: u32 = 7;
+pub const TMR6_HSTPR_HSTP7: u32 = 128;
+pub const TMR6_HSTPR_HSTP8_POS: u32 = 8;
+pub const TMR6_HSTPR_HSTP8: u32 = 256;
+pub const TMR6_HSTPR_HSTP9_POS: u32 = 9;
+pub const TMR6_HSTPR_HSTP9: u32 = 512;
+pub const TMR6_HSTPR_HSTP10_POS: u32 = 10;
+pub const TMR6_HSTPR_HSTP10: u32 = 1024;
+pub const TMR6_HSTPR_HSTP11_POS: u32 = 11;
+pub const TMR6_HSTPR_HSTP11: u32 = 2048;
+pub const TMR6_HSTPR_STPS_POS: u32 = 31;
+pub const TMR6_HSTPR_STPS: u32 = 2147483648;
+pub const TMR6_HCLRR_HCLE0_POS: u32 = 0;
+pub const TMR6_HCLRR_HCLE0: u32 = 1;
+pub const TMR6_HCLRR_HCLE1_POS: u32 = 1;
+pub const TMR6_HCLRR_HCLE1: u32 = 2;
+pub const TMR6_HCLRR_HCLE4_POS: u32 = 4;
+pub const TMR6_HCLRR_HCLE4: u32 = 16;
+pub const TMR6_HCLRR_HCLE5_POS: u32 = 5;
+pub const TMR6_HCLRR_HCLE5: u32 = 32;
+pub const TMR6_HCLRR_HCLE6_POS: u32 = 6;
+pub const TMR6_HCLRR_HCLE6: u32 = 64;
+pub const TMR6_HCLRR_HCLE7_POS: u32 = 7;
+pub const TMR6_HCLRR_HCLE7: u32 = 128;
+pub const TMR6_HCLRR_HCLE8_POS: u32 = 8;
+pub const TMR6_HCLRR_HCLE8: u32 = 256;
+pub const TMR6_HCLRR_HCLE9_POS: u32 = 9;
+pub const TMR6_HCLRR_HCLE9: u32 = 512;
+pub const TMR6_HCLRR_HCLE10_POS: u32 = 10;
+pub const TMR6_HCLRR_HCLE10: u32 = 1024;
+pub const TMR6_HCLRR_HCLE11_POS: u32 = 11;
+pub const TMR6_HCLRR_HCLE11: u32 = 2048;
+pub const TMR6_HCLRR_CLES_POS: u32 = 31;
+pub const TMR6_HCLRR_CLES: u32 = 2147483648;
+pub const TMR6_HCPAR_HCPA0_POS: u32 = 0;
+pub const TMR6_HCPAR_HCPA0: u32 = 1;
+pub const TMR6_HCPAR_HCPA1_POS: u32 = 1;
+pub const TMR6_HCPAR_HCPA1: u32 = 2;
+pub const TMR6_HCPAR_HCPA4_POS: u32 = 4;
+pub const TMR6_HCPAR_HCPA4: u32 = 16;
+pub const TMR6_HCPAR_HCPA5_POS: u32 = 5;
+pub const TMR6_HCPAR_HCPA5: u32 = 32;
+pub const TMR6_HCPAR_HCPA6_POS: u32 = 6;
+pub const TMR6_HCPAR_HCPA6: u32 = 64;
+pub const TMR6_HCPAR_HCPA7_POS: u32 = 7;
+pub const TMR6_HCPAR_HCPA7: u32 = 128;
+pub const TMR6_HCPAR_HCPA8_POS: u32 = 8;
+pub const TMR6_HCPAR_HCPA8: u32 = 256;
+pub const TMR6_HCPAR_HCPA9_POS: u32 = 9;
+pub const TMR6_HCPAR_HCPA9: u32 = 512;
+pub const TMR6_HCPAR_HCPA10_POS: u32 = 10;
+pub const TMR6_HCPAR_HCPA10: u32 = 1024;
+pub const TMR6_HCPAR_HCPA11_POS: u32 = 11;
+pub const TMR6_HCPAR_HCPA11: u32 = 2048;
+pub const TMR6_HCPBR_HCPB0_POS: u32 = 0;
+pub const TMR6_HCPBR_HCPB0: u32 = 1;
+pub const TMR6_HCPBR_HCPB1_POS: u32 = 1;
+pub const TMR6_HCPBR_HCPB1: u32 = 2;
+pub const TMR6_HCPBR_HCPB4_POS: u32 = 4;
+pub const TMR6_HCPBR_HCPB4: u32 = 16;
+pub const TMR6_HCPBR_HCPB5_POS: u32 = 5;
+pub const TMR6_HCPBR_HCPB5: u32 = 32;
+pub const TMR6_HCPBR_HCPB6_POS: u32 = 6;
+pub const TMR6_HCPBR_HCPB6: u32 = 64;
+pub const TMR6_HCPBR_HCPB7_POS: u32 = 7;
+pub const TMR6_HCPBR_HCPB7: u32 = 128;
+pub const TMR6_HCPBR_HCPB8_POS: u32 = 8;
+pub const TMR6_HCPBR_HCPB8: u32 = 256;
+pub const TMR6_HCPBR_HCPB9_POS: u32 = 9;
+pub const TMR6_HCPBR_HCPB9: u32 = 512;
+pub const TMR6_HCPBR_HCPB10_POS: u32 = 10;
+pub const TMR6_HCPBR_HCPB10: u32 = 1024;
+pub const TMR6_HCPBR_HCPB11_POS: u32 = 11;
+pub const TMR6_HCPBR_HCPB11: u32 = 2048;
+pub const TMR6_HCUPR_HCUP0_POS: u32 = 0;
+pub const TMR6_HCUPR_HCUP0: u32 = 1;
+pub const TMR6_HCUPR_HCUP1_POS: u32 = 1;
+pub const TMR6_HCUPR_HCUP1: u32 = 2;
+pub const TMR6_HCUPR_HCUP2_POS: u32 = 2;
+pub const TMR6_HCUPR_HCUP2: u32 = 4;
+pub const TMR6_HCUPR_HCUP3_POS: u32 = 3;
+pub const TMR6_HCUPR_HCUP3: u32 = 8;
+pub const TMR6_HCUPR_HCUP4_POS: u32 = 4;
+pub const TMR6_HCUPR_HCUP4: u32 = 16;
+pub const TMR6_HCUPR_HCUP5_POS: u32 = 5;
+pub const TMR6_HCUPR_HCUP5: u32 = 32;
+pub const TMR6_HCUPR_HCUP6_POS: u32 = 6;
+pub const TMR6_HCUPR_HCUP6: u32 = 64;
+pub const TMR6_HCUPR_HCUP7_POS: u32 = 7;
+pub const TMR6_HCUPR_HCUP7: u32 = 128;
+pub const TMR6_HCUPR_HCUP8_POS: u32 = 8;
+pub const TMR6_HCUPR_HCUP8: u32 = 256;
+pub const TMR6_HCUPR_HCUP9_POS: u32 = 9;
+pub const TMR6_HCUPR_HCUP9: u32 = 512;
+pub const TMR6_HCUPR_HCUP10_POS: u32 = 10;
+pub const TMR6_HCUPR_HCUP10: u32 = 1024;
+pub const TMR6_HCUPR_HCUP11_POS: u32 = 11;
+pub const TMR6_HCUPR_HCUP11: u32 = 2048;
+pub const TMR6_HCUPR_HCUP16_POS: u32 = 16;
+pub const TMR6_HCUPR_HCUP16: u32 = 65536;
+pub const TMR6_HCUPR_HCUP17_POS: u32 = 17;
+pub const TMR6_HCUPR_HCUP17: u32 = 131072;
+pub const TMR6_HCDOR_HCDO0_POS: u32 = 0;
+pub const TMR6_HCDOR_HCDO0: u32 = 1;
+pub const TMR6_HCDOR_HCDO1_POS: u32 = 1;
+pub const TMR6_HCDOR_HCDO1: u32 = 2;
+pub const TMR6_HCDOR_HCDO2_POS: u32 = 2;
+pub const TMR6_HCDOR_HCDO2: u32 = 4;
+pub const TMR6_HCDOR_HCDO3_POS: u32 = 3;
+pub const TMR6_HCDOR_HCDO3: u32 = 8;
+pub const TMR6_HCDOR_HCDO4_POS: u32 = 4;
+pub const TMR6_HCDOR_HCDO4: u32 = 16;
+pub const TMR6_HCDOR_HCDO5_POS: u32 = 5;
+pub const TMR6_HCDOR_HCDO5: u32 = 32;
+pub const TMR6_HCDOR_HCDO6_POS: u32 = 6;
+pub const TMR6_HCDOR_HCDO6: u32 = 64;
+pub const TMR6_HCDOR_HCDO7_POS: u32 = 7;
+pub const TMR6_HCDOR_HCDO7: u32 = 128;
+pub const TMR6_HCDOR_HCDO8_POS: u32 = 8;
+pub const TMR6_HCDOR_HCDO8: u32 = 256;
+pub const TMR6_HCDOR_HCDO9_POS: u32 = 9;
+pub const TMR6_HCDOR_HCDO9: u32 = 512;
+pub const TMR6_HCDOR_HCDO10_POS: u32 = 10;
+pub const TMR6_HCDOR_HCDO10: u32 = 1024;
+pub const TMR6_HCDOR_HCDO11_POS: u32 = 11;
+pub const TMR6_HCDOR_HCDO11: u32 = 2048;
+pub const TMR6_HCDOR_HCDO16_POS: u32 = 16;
+pub const TMR6_HCDOR_HCDO16: u32 = 65536;
+pub const TMR6_HCDOR_HCDO17_POS: u32 = 17;
+pub const TMR6_HCDOR_HCDO17: u32 = 131072;
+pub const TMR6_COMMON_SSTAR_SSTA1_POS: u32 = 0;
+pub const TMR6_COMMON_SSTAR_SSTA1: u32 = 1;
+pub const TMR6_COMMON_SSTAR_SSTA2_POS: u32 = 1;
+pub const TMR6_COMMON_SSTAR_SSTA2: u32 = 2;
+pub const TMR6_COMMON_SSTAR_SSTA3_POS: u32 = 2;
+pub const TMR6_COMMON_SSTAR_SSTA3: u32 = 4;
+pub const TMR6_COMMON_SSTPR_SSTP1_POS: u32 = 0;
+pub const TMR6_COMMON_SSTPR_SSTP1: u32 = 1;
+pub const TMR6_COMMON_SSTPR_SSTP2_POS: u32 = 1;
+pub const TMR6_COMMON_SSTPR_SSTP2: u32 = 2;
+pub const TMR6_COMMON_SSTPR_SSTP3_POS: u32 = 2;
+pub const TMR6_COMMON_SSTPR_SSTP3: u32 = 4;
+pub const TMR6_COMMON_SCLRR_SCLE1_POS: u32 = 0;
+pub const TMR6_COMMON_SCLRR_SCLE1: u32 = 1;
+pub const TMR6_COMMON_SCLRR_SCLE2_POS: u32 = 1;
+pub const TMR6_COMMON_SCLRR_SCLE2: u32 = 2;
+pub const TMR6_COMMON_SCLRR_SCLE3_POS: u32 = 2;
+pub const TMR6_COMMON_SCLRR_SCLE3: u32 = 4;
+pub const TMRA_CNTER_CNT: u32 = 65535;
+pub const TMRA_PERAR_PER: u32 = 65535;
+pub const TMRA_CMPAR_CMP: u32 = 65535;
+pub const TMRA_BCSTRL_START_POS: u32 = 0;
+pub const TMRA_BCSTRL_START: u32 = 1;
+pub const TMRA_BCSTRL_DIR_POS: u32 = 1;
+pub const TMRA_BCSTRL_DIR: u32 = 2;
+pub const TMRA_BCSTRL_MODE_POS: u32 = 2;
+pub const TMRA_BCSTRL_MODE: u32 = 4;
+pub const TMRA_BCSTRL_SYNST_POS: u32 = 3;
+pub const TMRA_BCSTRL_SYNST: u32 = 8;
+pub const TMRA_BCSTRL_CKDIV_POS: u32 = 4;
+pub const TMRA_BCSTRL_CKDIV: u32 = 240;
+pub const TMRA_BCSTRH_OVSTP_POS: u32 = 0;
+pub const TMRA_BCSTRH_OVSTP: u32 = 1;
+pub const TMRA_BCSTRH_ITENOVF_POS: u32 = 4;
+pub const TMRA_BCSTRH_ITENOVF: u32 = 16;
+pub const TMRA_BCSTRH_ITENUDF_POS: u32 = 5;
+pub const TMRA_BCSTRH_ITENUDF: u32 = 32;
+pub const TMRA_BCSTRH_OVFF_POS: u32 = 6;
+pub const TMRA_BCSTRH_OVFF: u32 = 64;
+pub const TMRA_BCSTRH_UDFF_POS: u32 = 7;
+pub const TMRA_BCSTRH_UDFF: u32 = 128;
+pub const TMRA_HCONR_HSTA0_POS: u32 = 0;
+pub const TMRA_HCONR_HSTA0: u32 = 1;
+pub const TMRA_HCONR_HSTA1_POS: u32 = 1;
+pub const TMRA_HCONR_HSTA1: u32 = 2;
+pub const TMRA_HCONR_HSTA2_POS: u32 = 2;
+pub const TMRA_HCONR_HSTA2: u32 = 4;
+pub const TMRA_HCONR_HSTP0_POS: u32 = 4;
+pub const TMRA_HCONR_HSTP0: u32 = 16;
+pub const TMRA_HCONR_HSTP1_POS: u32 = 5;
+pub const TMRA_HCONR_HSTP1: u32 = 32;
+pub const TMRA_HCONR_HSTP2_POS: u32 = 6;
+pub const TMRA_HCONR_HSTP2: u32 = 64;
+pub const TMRA_HCONR_HCLE0_POS: u32 = 8;
+pub const TMRA_HCONR_HCLE0: u32 = 256;
+pub const TMRA_HCONR_HCLE1_POS: u32 = 9;
+pub const TMRA_HCONR_HCLE1: u32 = 512;
+pub const TMRA_HCONR_HCLE2_POS: u32 = 10;
+pub const TMRA_HCONR_HCLE2: u32 = 1024;
+pub const TMRA_HCONR_HCLE3_POS: u32 = 12;
+pub const TMRA_HCONR_HCLE3: u32 = 4096;
+pub const TMRA_HCONR_HCLE4_POS: u32 = 13;
+pub const TMRA_HCONR_HCLE4: u32 = 8192;
+pub const TMRA_HCONR_HCLE5_POS: u32 = 14;
+pub const TMRA_HCONR_HCLE5: u32 = 16384;
+pub const TMRA_HCONR_HCLE6_POS: u32 = 15;
+pub const TMRA_HCONR_HCLE6: u32 = 32768;
+pub const TMRA_HCUPR_HCUP0_POS: u32 = 0;
+pub const TMRA_HCUPR_HCUP0: u32 = 1;
+pub const TMRA_HCUPR_HCUP1_POS: u32 = 1;
+pub const TMRA_HCUPR_HCUP1: u32 = 2;
+pub const TMRA_HCUPR_HCUP2_POS: u32 = 2;
+pub const TMRA_HCUPR_HCUP2: u32 = 4;
+pub const TMRA_HCUPR_HCUP3_POS: u32 = 3;
+pub const TMRA_HCUPR_HCUP3: u32 = 8;
+pub const TMRA_HCUPR_HCUP4_POS: u32 = 4;
+pub const TMRA_HCUPR_HCUP4: u32 = 16;
+pub const TMRA_HCUPR_HCUP5_POS: u32 = 5;
+pub const TMRA_HCUPR_HCUP5: u32 = 32;
+pub const TMRA_HCUPR_HCUP6_POS: u32 = 6;
+pub const TMRA_HCUPR_HCUP6: u32 = 64;
+pub const TMRA_HCUPR_HCUP7_POS: u32 = 7;
+pub const TMRA_HCUPR_HCUP7: u32 = 128;
+pub const TMRA_HCUPR_HCUP8_POS: u32 = 8;
+pub const TMRA_HCUPR_HCUP8: u32 = 256;
+pub const TMRA_HCUPR_HCUP9_POS: u32 = 9;
+pub const TMRA_HCUPR_HCUP9: u32 = 512;
+pub const TMRA_HCUPR_HCUP10_POS: u32 = 10;
+pub const TMRA_HCUPR_HCUP10: u32 = 1024;
+pub const TMRA_HCUPR_HCUP11_POS: u32 = 11;
+pub const TMRA_HCUPR_HCUP11: u32 = 2048;
+pub const TMRA_HCUPR_HCUP12_POS: u32 = 12;
+pub const TMRA_HCUPR_HCUP12: u32 = 4096;
+pub const TMRA_HCDOR_HCDO0_POS: u32 = 0;
+pub const TMRA_HCDOR_HCDO0: u32 = 1;
+pub const TMRA_HCDOR_HCDO1_POS: u32 = 1;
+pub const TMRA_HCDOR_HCDO1: u32 = 2;
+pub const TMRA_HCDOR_HCDO2_POS: u32 = 2;
+pub const TMRA_HCDOR_HCDO2: u32 = 4;
+pub const TMRA_HCDOR_HCDO3_POS: u32 = 3;
+pub const TMRA_HCDOR_HCDO3: u32 = 8;
+pub const TMRA_HCDOR_HCDO4_POS: u32 = 4;
+pub const TMRA_HCDOR_HCDO4: u32 = 16;
+pub const TMRA_HCDOR_HCDO5_POS: u32 = 5;
+pub const TMRA_HCDOR_HCDO5: u32 = 32;
+pub const TMRA_HCDOR_HCDO6_POS: u32 = 6;
+pub const TMRA_HCDOR_HCDO6: u32 = 64;
+pub const TMRA_HCDOR_HCDO7_POS: u32 = 7;
+pub const TMRA_HCDOR_HCDO7: u32 = 128;
+pub const TMRA_HCDOR_HCDO8_POS: u32 = 8;
+pub const TMRA_HCDOR_HCDO8: u32 = 256;
+pub const TMRA_HCDOR_HCDO9_POS: u32 = 9;
+pub const TMRA_HCDOR_HCDO9: u32 = 512;
+pub const TMRA_HCDOR_HCDO10_POS: u32 = 10;
+pub const TMRA_HCDOR_HCDO10: u32 = 1024;
+pub const TMRA_HCDOR_HCDO11_POS: u32 = 11;
+pub const TMRA_HCDOR_HCDO11: u32 = 2048;
+pub const TMRA_HCDOR_HCDO12_POS: u32 = 12;
+pub const TMRA_HCDOR_HCDO12: u32 = 4096;
+pub const TMRA_ICONR_ITEN1_POS: u32 = 0;
+pub const TMRA_ICONR_ITEN1: u32 = 1;
+pub const TMRA_ICONR_ITEN2_POS: u32 = 1;
+pub const TMRA_ICONR_ITEN2: u32 = 2;
+pub const TMRA_ICONR_ITEN3_POS: u32 = 2;
+pub const TMRA_ICONR_ITEN3: u32 = 4;
+pub const TMRA_ICONR_ITEN4_POS: u32 = 3;
+pub const TMRA_ICONR_ITEN4: u32 = 8;
+pub const TMRA_ICONR_ITEN5_POS: u32 = 4;
+pub const TMRA_ICONR_ITEN5: u32 = 16;
+pub const TMRA_ICONR_ITEN6_POS: u32 = 5;
+pub const TMRA_ICONR_ITEN6: u32 = 32;
+pub const TMRA_ICONR_ITEN7_POS: u32 = 6;
+pub const TMRA_ICONR_ITEN7: u32 = 64;
+pub const TMRA_ICONR_ITEN8_POS: u32 = 7;
+pub const TMRA_ICONR_ITEN8: u32 = 128;
+pub const TMRA_ECONR_ETEN1_POS: u32 = 0;
+pub const TMRA_ECONR_ETEN1: u32 = 1;
+pub const TMRA_ECONR_ETEN2_POS: u32 = 1;
+pub const TMRA_ECONR_ETEN2: u32 = 2;
+pub const TMRA_ECONR_ETEN3_POS: u32 = 2;
+pub const TMRA_ECONR_ETEN3: u32 = 4;
+pub const TMRA_ECONR_ETEN4_POS: u32 = 3;
+pub const TMRA_ECONR_ETEN4: u32 = 8;
+pub const TMRA_ECONR_ETEN5_POS: u32 = 4;
+pub const TMRA_ECONR_ETEN5: u32 = 16;
+pub const TMRA_ECONR_ETEN6_POS: u32 = 5;
+pub const TMRA_ECONR_ETEN6: u32 = 32;
+pub const TMRA_ECONR_ETEN7_POS: u32 = 6;
+pub const TMRA_ECONR_ETEN7: u32 = 64;
+pub const TMRA_ECONR_ETEN8_POS: u32 = 7;
+pub const TMRA_ECONR_ETEN8: u32 = 128;
+pub const TMRA_FCONR_NOFIENTG_POS: u32 = 0;
+pub const TMRA_FCONR_NOFIENTG: u32 = 1;
+pub const TMRA_FCONR_NOFICKTG_POS: u32 = 1;
+pub const TMRA_FCONR_NOFICKTG: u32 = 6;
+pub const TMRA_FCONR_NOFIENCA_POS: u32 = 8;
+pub const TMRA_FCONR_NOFIENCA: u32 = 256;
+pub const TMRA_FCONR_NOFICKCA_POS: u32 = 9;
+pub const TMRA_FCONR_NOFICKCA: u32 = 1536;
+pub const TMRA_FCONR_NOFIENCB_POS: u32 = 12;
+pub const TMRA_FCONR_NOFIENCB: u32 = 4096;
+pub const TMRA_FCONR_NOFICKCB_POS: u32 = 13;
+pub const TMRA_FCONR_NOFICKCB: u32 = 24576;
+pub const TMRA_STFLR_CMPF1_POS: u32 = 0;
+pub const TMRA_STFLR_CMPF1: u32 = 1;
+pub const TMRA_STFLR_CMPF2_POS: u32 = 1;
+pub const TMRA_STFLR_CMPF2: u32 = 2;
+pub const TMRA_STFLR_CMPF3_POS: u32 = 2;
+pub const TMRA_STFLR_CMPF3: u32 = 4;
+pub const TMRA_STFLR_CMPF4_POS: u32 = 3;
+pub const TMRA_STFLR_CMPF4: u32 = 8;
+pub const TMRA_STFLR_CMPF5_POS: u32 = 4;
+pub const TMRA_STFLR_CMPF5: u32 = 16;
+pub const TMRA_STFLR_CMPF6_POS: u32 = 5;
+pub const TMRA_STFLR_CMPF6: u32 = 32;
+pub const TMRA_STFLR_CMPF7_POS: u32 = 6;
+pub const TMRA_STFLR_CMPF7: u32 = 64;
+pub const TMRA_STFLR_CMPF8_POS: u32 = 7;
+pub const TMRA_STFLR_CMPF8: u32 = 128;
+pub const TMRA_BCONR_BEN_POS: u32 = 0;
+pub const TMRA_BCONR_BEN: u32 = 1;
+pub const TMRA_BCONR_BSE0_POS: u32 = 1;
+pub const TMRA_BCONR_BSE0: u32 = 2;
+pub const TMRA_BCONR_BSE1_POS: u32 = 2;
+pub const TMRA_BCONR_BSE1: u32 = 4;
+pub const TMRA_CCONR_CAPMD_POS: u32 = 0;
+pub const TMRA_CCONR_CAPMD: u32 = 1;
+pub const TMRA_CCONR_HICP0_POS: u32 = 4;
+pub const TMRA_CCONR_HICP0: u32 = 16;
+pub const TMRA_CCONR_HICP1_POS: u32 = 5;
+pub const TMRA_CCONR_HICP1: u32 = 32;
+pub const TMRA_CCONR_HICP2_POS: u32 = 6;
+pub const TMRA_CCONR_HICP2: u32 = 64;
+pub const TMRA_CCONR_HICP3_POS: u32 = 8;
+pub const TMRA_CCONR_HICP3: u32 = 256;
+pub const TMRA_CCONR_HICP4_POS: u32 = 9;
+pub const TMRA_CCONR_HICP4: u32 = 512;
+pub const TMRA_CCONR_NOFIENCP_POS: u32 = 12;
+pub const TMRA_CCONR_NOFIENCP: u32 = 4096;
+pub const TMRA_CCONR_NOFICKCP_POS: u32 = 13;
+pub const TMRA_CCONR_NOFICKCP: u32 = 24576;
+pub const TMRA_CCONR_NOFICKCP_0: u32 = 8192;
+pub const TMRA_CCONR_NOFICKCP_1: u32 = 16384;
+pub const TMRA_PCONR_STAC_POS: u32 = 0;
+pub const TMRA_PCONR_STAC: u32 = 3;
+pub const TMRA_PCONR_STAC_0: u32 = 1;
+pub const TMRA_PCONR_STAC_1: u32 = 2;
+pub const TMRA_PCONR_STPC_POS: u32 = 2;
+pub const TMRA_PCONR_STPC: u32 = 12;
+pub const TMRA_PCONR_STPC_0: u32 = 4;
+pub const TMRA_PCONR_STPC_1: u32 = 8;
+pub const TMRA_PCONR_CMPC_POS: u32 = 4;
+pub const TMRA_PCONR_CMPC: u32 = 48;
+pub const TMRA_PCONR_CMPC_0: u32 = 16;
+pub const TMRA_PCONR_CMPC_1: u32 = 32;
+pub const TMRA_PCONR_PERC_POS: u32 = 6;
+pub const TMRA_PCONR_PERC: u32 = 192;
+pub const TMRA_PCONR_PERC_0: u32 = 64;
+pub const TMRA_PCONR_PERC_1: u32 = 128;
+pub const TMRA_PCONR_FORC_POS: u32 = 8;
+pub const TMRA_PCONR_FORC: u32 = 768;
+pub const TMRA_PCONR_FORC_0: u32 = 256;
+pub const TMRA_PCONR_FORC_1: u32 = 512;
+pub const TMRA_PCONR_OUTEN_POS: u32 = 12;
+pub const TMRA_PCONR_OUTEN: u32 = 4096;
+pub const TRNG_CR_EN_POS: u32 = 0;
+pub const TRNG_CR_EN: u32 = 1;
+pub const TRNG_CR_RUN_POS: u32 = 1;
+pub const TRNG_CR_RUN: u32 = 2;
+pub const TRNG_MR_LOAD_POS: u32 = 0;
+pub const TRNG_MR_LOAD: u32 = 1;
+pub const TRNG_MR_CNT_POS: u32 = 2;
+pub const TRNG_MR_CNT: u32 = 28;
+pub const TRNG_DR0: u32 = 4294967295;
+pub const TRNG_DR1: u32 = 4294967295;
+pub const USART_SR_PE_POS: u32 = 0;
+pub const USART_SR_PE: u32 = 1;
+pub const USART_SR_FE_POS: u32 = 1;
+pub const USART_SR_FE: u32 = 2;
+pub const USART_SR_ORE_POS: u32 = 3;
+pub const USART_SR_ORE: u32 = 8;
+pub const USART_SR_RXNE_POS: u32 = 5;
+pub const USART_SR_RXNE: u32 = 32;
+pub const USART_SR_TC_POS: u32 = 6;
+pub const USART_SR_TC: u32 = 64;
+pub const USART_SR_TXE_POS: u32 = 7;
+pub const USART_SR_TXE: u32 = 128;
+pub const USART_SR_RTOF_POS: u32 = 8;
+pub const USART_SR_RTOF: u32 = 256;
+pub const USART_SR_MPB_POS: u32 = 16;
+pub const USART_SR_MPB: u32 = 65536;
+pub const USART_TDR_TDR_POS: u32 = 0;
+pub const USART_TDR_TDR: u32 = 511;
+pub const USART_TDR_MPID_POS: u32 = 9;
+pub const USART_TDR_MPID: u32 = 512;
+pub const USART_RDR_RDR: u32 = 511;
+pub const USART_BRR_DIV_FRACTION_POS: u32 = 0;
+pub const USART_BRR_DIV_FRACTION: u32 = 127;
+pub const USART_BRR_DIV_INTEGER_POS: u32 = 8;
+pub const USART_BRR_DIV_INTEGER: u32 = 65280;
+pub const USART_CR1_RTOE_POS: u32 = 0;
+pub const USART_CR1_RTOE: u32 = 1;
+pub const USART_CR1_RTOIE_POS: u32 = 1;
+pub const USART_CR1_RTOIE: u32 = 2;
+pub const USART_CR1_RE_POS: u32 = 2;
+pub const USART_CR1_RE: u32 = 4;
+pub const USART_CR1_TE_POS: u32 = 3;
+pub const USART_CR1_TE: u32 = 8;
+pub const USART_CR1_SLME_POS: u32 = 4;
+pub const USART_CR1_SLME: u32 = 16;
+pub const USART_CR1_RIE_POS: u32 = 5;
+pub const USART_CR1_RIE: u32 = 32;
+pub const USART_CR1_TCIE_POS: u32 = 6;
+pub const USART_CR1_TCIE: u32 = 64;
+pub const USART_CR1_TXEIE_POS: u32 = 7;
+pub const USART_CR1_TXEIE: u32 = 128;
+pub const USART_CR1_PS_POS: u32 = 9;
+pub const USART_CR1_PS: u32 = 512;
+pub const USART_CR1_PCE_POS: u32 = 10;
+pub const USART_CR1_PCE: u32 = 1024;
+pub const USART_CR1_M_POS: u32 = 12;
+pub const USART_CR1_M: u32 = 4096;
+pub const USART_CR1_OVER8_POS: u32 = 15;
+pub const USART_CR1_OVER8: u32 = 32768;
+pub const USART_CR1_CPE_POS: u32 = 16;
+pub const USART_CR1_CPE: u32 = 65536;
+pub const USART_CR1_CFE_POS: u32 = 17;
+pub const USART_CR1_CFE: u32 = 131072;
+pub const USART_CR1_CORE_POS: u32 = 19;
+pub const USART_CR1_CORE: u32 = 524288;
+pub const USART_CR1_CRTOF_POS: u32 = 20;
+pub const USART_CR1_CRTOF: u32 = 1048576;
+pub const USART_CR1_MS_POS: u32 = 24;
+pub const USART_CR1_MS: u32 = 16777216;
+pub const USART_CR1_ML_POS: u32 = 28;
+pub const USART_CR1_ML: u32 = 268435456;
+pub const USART_CR1_FBME_POS: u32 = 29;
+pub const USART_CR1_FBME: u32 = 536870912;
+pub const USART_CR1_NFE_POS: u32 = 30;
+pub const USART_CR1_NFE: u32 = 1073741824;
+pub const USART_CR1_SBS_POS: u32 = 31;
+pub const USART_CR1_SBS: u32 = 2147483648;
+pub const USART_CR2_MPE_POS: u32 = 0;
+pub const USART_CR2_MPE: u32 = 1;
+pub const USART_CR2_CLKC_POS: u32 = 11;
+pub const USART_CR2_CLKC: u32 = 6144;
+pub const USART_CR2_CLKC_0: u32 = 2048;
+pub const USART_CR2_CLKC_1: u32 = 4096;
+pub const USART_CR2_STOP_POS: u32 = 13;
+pub const USART_CR2_STOP: u32 = 8192;
+pub const USART_CR3_SCEN_POS: u32 = 5;
+pub const USART_CR3_SCEN: u32 = 32;
+pub const USART_CR3_CTSE_POS: u32 = 9;
+pub const USART_CR3_CTSE: u32 = 512;
+pub const USART_CR3_BCN_POS: u32 = 21;
+pub const USART_CR3_BCN: u32 = 14680064;
+pub const USART_PR_PSC: u32 = 3;
+pub const USART_PR_PSC_0: u32 = 1;
+pub const USART_PR_PSC_1: u32 = 2;
+pub const USBFS_GVBUSCFG_VBUSOVEN_POS: u32 = 6;
+pub const USBFS_GVBUSCFG_VBUSOVEN: u32 = 64;
+pub const USBFS_GVBUSCFG_VBUSVAL_POS: u32 = 7;
+pub const USBFS_GVBUSCFG_VBUSVAL: u32 = 128;
+pub const USBFS_GAHBCFG_GINTMSK_POS: u32 = 0;
+pub const USBFS_GAHBCFG_GINTMSK: u32 = 1;
+pub const USBFS_GAHBCFG_HBSTLEN_POS: u32 = 1;
+pub const USBFS_GAHBCFG_HBSTLEN: u32 = 30;
+pub const USBFS_GAHBCFG_DMAEN_POS: u32 = 5;
+pub const USBFS_GAHBCFG_DMAEN: u32 = 32;
+pub const USBFS_GAHBCFG_TXFELVL_POS: u32 = 7;
+pub const USBFS_GAHBCFG_TXFELVL: u32 = 128;
+pub const USBFS_GAHBCFG_PTXFELVL_POS: u32 = 8;
+pub const USBFS_GAHBCFG_PTXFELVL: u32 = 256;
+pub const USBFS_GUSBCFG_TOCAL_POS: u32 = 0;
+pub const USBFS_GUSBCFG_TOCAL: u32 = 7;
+pub const USBFS_GUSBCFG_PHYSEL_POS: u32 = 6;
+pub const USBFS_GUSBCFG_PHYSEL: u32 = 64;
+pub const USBFS_GUSBCFG_TRDT_POS: u32 = 10;
+pub const USBFS_GUSBCFG_TRDT: u32 = 15360;
+pub const USBFS_GUSBCFG_FHMOD_POS: u32 = 29;
+pub const USBFS_GUSBCFG_FHMOD: u32 = 536870912;
+pub const USBFS_GUSBCFG_FDMOD_POS: u32 = 30;
+pub const USBFS_GUSBCFG_FDMOD: u32 = 1073741824;
+pub const USBFS_GRSTCTL_CSRST_POS: u32 = 0;
+pub const USBFS_GRSTCTL_CSRST: u32 = 1;
+pub const USBFS_GRSTCTL_HSRST_POS: u32 = 1;
+pub const USBFS_GRSTCTL_HSRST: u32 = 2;
+pub const USBFS_GRSTCTL_FCRST_POS: u32 = 2;
+pub const USBFS_GRSTCTL_FCRST: u32 = 4;
+pub const USBFS_GRSTCTL_RXFFLSH_POS: u32 = 4;
+pub const USBFS_GRSTCTL_RXFFLSH: u32 = 16;
+pub const USBFS_GRSTCTL_TXFFLSH_POS: u32 = 5;
+pub const USBFS_GRSTCTL_TXFFLSH: u32 = 32;
+pub const USBFS_GRSTCTL_TXFNUM_POS: u32 = 6;
+pub const USBFS_GRSTCTL_TXFNUM: u32 = 1984;
+pub const USBFS_GRSTCTL_DMAREQ_POS: u32 = 30;
+pub const USBFS_GRSTCTL_DMAREQ: u32 = 1073741824;
+pub const USBFS_GRSTCTL_AHBIDL_POS: u32 = 31;
+pub const USBFS_GRSTCTL_AHBIDL: u32 = 2147483648;
+pub const USBFS_GINTSTS_CMOD_POS: u32 = 0;
+pub const USBFS_GINTSTS_CMOD: u32 = 1;
+pub const USBFS_GINTSTS_MMIS_POS: u32 = 1;
+pub const USBFS_GINTSTS_MMIS: u32 = 2;
+pub const USBFS_GINTSTS_SOF_POS: u32 = 3;
+pub const USBFS_GINTSTS_SOF: u32 = 8;
+pub const USBFS_GINTSTS_RXFNE_POS: u32 = 4;
+pub const USBFS_GINTSTS_RXFNE: u32 = 16;
+pub const USBFS_GINTSTS_NPTXFE_POS: u32 = 5;
+pub const USBFS_GINTSTS_NPTXFE: u32 = 32;
+pub const USBFS_GINTSTS_GINAKEFF_POS: u32 = 6;
+pub const USBFS_GINTSTS_GINAKEFF: u32 = 64;
+pub const USBFS_GINTSTS_GONAKEFF_POS: u32 = 7;
+pub const USBFS_GINTSTS_GONAKEFF: u32 = 128;
+pub const USBFS_GINTSTS_ESUSP_POS: u32 = 10;
+pub const USBFS_GINTSTS_ESUSP: u32 = 1024;
+pub const USBFS_GINTSTS_USBSUSP_POS: u32 = 11;
+pub const USBFS_GINTSTS_USBSUSP: u32 = 2048;
+pub const USBFS_GINTSTS_USBRST_POS: u32 = 12;
+pub const USBFS_GINTSTS_USBRST: u32 = 4096;
+pub const USBFS_GINTSTS_ENUMDNE_POS: u32 = 13;
+pub const USBFS_GINTSTS_ENUMDNE: u32 = 8192;
+pub const USBFS_GINTSTS_ISOODRP_POS: u32 = 14;
+pub const USBFS_GINTSTS_ISOODRP: u32 = 16384;
+pub const USBFS_GINTSTS_EOPF_POS: u32 = 15;
+pub const USBFS_GINTSTS_EOPF: u32 = 32768;
+pub const USBFS_GINTSTS_IEPINT_POS: u32 = 18;
+pub const USBFS_GINTSTS_IEPINT: u32 = 262144;
+pub const USBFS_GINTSTS_OEPINT_POS: u32 = 19;
+pub const USBFS_GINTSTS_OEPINT: u32 = 524288;
+pub const USBFS_GINTSTS_IISOIXFR_POS: u32 = 20;
+pub const USBFS_GINTSTS_IISOIXFR: u32 = 1048576;
+pub const USBFS_GINTSTS_IPXFR_INCOMPISOOUT_POS: u32 = 21;
+pub const USBFS_GINTSTS_IPXFR_INCOMPISOOUT: u32 = 2097152;
+pub const USBFS_GINTSTS_DATAFSUSP_POS: u32 = 22;
+pub const USBFS_GINTSTS_DATAFSUSP: u32 = 4194304;
+pub const USBFS_GINTSTS_HPRTINT_POS: u32 = 24;
+pub const USBFS_GINTSTS_HPRTINT: u32 = 16777216;
+pub const USBFS_GINTSTS_HCINT_POS: u32 = 25;
+pub const USBFS_GINTSTS_HCINT: u32 = 33554432;
+pub const USBFS_GINTSTS_PTXFE_POS: u32 = 26;
+pub const USBFS_GINTSTS_PTXFE: u32 = 67108864;
+pub const USBFS_GINTSTS_CIDSCHG_POS: u32 = 28;
+pub const USBFS_GINTSTS_CIDSCHG: u32 = 268435456;
+pub const USBFS_GINTSTS_DISCINT_POS: u32 = 29;
+pub const USBFS_GINTSTS_DISCINT: u32 = 536870912;
+pub const USBFS_GINTSTS_VBUSVINT_POS: u32 = 30;
+pub const USBFS_GINTSTS_VBUSVINT: u32 = 1073741824;
+pub const USBFS_GINTSTS_WKUINT_POS: u32 = 31;
+pub const USBFS_GINTSTS_WKUINT: u32 = 2147483648;
+pub const USBFS_GINTMSK_MMISM_POS: u32 = 1;
+pub const USBFS_GINTMSK_MMISM: u32 = 2;
+pub const USBFS_GINTMSK_SOFM_POS: u32 = 3;
+pub const USBFS_GINTMSK_SOFM: u32 = 8;
+pub const USBFS_GINTMSK_RXFNEM_POS: u32 = 4;
+pub const USBFS_GINTMSK_RXFNEM: u32 = 16;
+pub const USBFS_GINTMSK_NPTXFEM_POS: u32 = 5;
+pub const USBFS_GINTMSK_NPTXFEM: u32 = 32;
+pub const USBFS_GINTMSK_GINAKEFFM_POS: u32 = 6;
+pub const USBFS_GINTMSK_GINAKEFFM: u32 = 64;
+pub const USBFS_GINTMSK_GONAKEFFM_POS: u32 = 7;
+pub const USBFS_GINTMSK_GONAKEFFM: u32 = 128;
+pub const USBFS_GINTMSK_ESUSPM_POS: u32 = 10;
+pub const USBFS_GINTMSK_ESUSPM: u32 = 1024;
+pub const USBFS_GINTMSK_USBSUSPM_POS: u32 = 11;
+pub const USBFS_GINTMSK_USBSUSPM: u32 = 2048;
+pub const USBFS_GINTMSK_USBRSTM_POS: u32 = 12;
+pub const USBFS_GINTMSK_USBRSTM: u32 = 4096;
+pub const USBFS_GINTMSK_ENUMDNEM_POS: u32 = 13;
+pub const USBFS_GINTMSK_ENUMDNEM: u32 = 8192;
+pub const USBFS_GINTMSK_ISOODRPM_POS: u32 = 14;
+pub const USBFS_GINTMSK_ISOODRPM: u32 = 16384;
+pub const USBFS_GINTMSK_EOPFM_POS: u32 = 15;
+pub const USBFS_GINTMSK_EOPFM: u32 = 32768;
+pub const USBFS_GINTMSK_IEPIM_POS: u32 = 18;
+pub const USBFS_GINTMSK_IEPIM: u32 = 262144;
+pub const USBFS_GINTMSK_OEPIM_POS: u32 = 19;
+pub const USBFS_GINTMSK_OEPIM: u32 = 524288;
+pub const USBFS_GINTMSK_IISOIXFRM_POS: u32 = 20;
+pub const USBFS_GINTMSK_IISOIXFRM: u32 = 1048576;
+pub const USBFS_GINTMSK_IPXFRM_INCOMPISOOUTM_POS: u32 = 21;
+pub const USBFS_GINTMSK_IPXFRM_INCOMPISOOUTM: u32 = 2097152;
+pub const USBFS_GINTMSK_DATAFSUSPM_POS: u32 = 22;
+pub const USBFS_GINTMSK_DATAFSUSPM: u32 = 4194304;
+pub const USBFS_GINTMSK_HPRTIM_POS: u32 = 24;
+pub const USBFS_GINTMSK_HPRTIM: u32 = 16777216;
+pub const USBFS_GINTMSK_HCIM_POS: u32 = 25;
+pub const USBFS_GINTMSK_HCIM: u32 = 33554432;
+pub const USBFS_GINTMSK_PTXFEM_POS: u32 = 26;
+pub const USBFS_GINTMSK_PTXFEM: u32 = 67108864;
+pub const USBFS_GINTMSK_CIDSCHGM_POS: u32 = 28;
+pub const USBFS_GINTMSK_CIDSCHGM: u32 = 268435456;
+pub const USBFS_GINTMSK_DISCIM_POS: u32 = 29;
+pub const USBFS_GINTMSK_DISCIM: u32 = 536870912;
+pub const USBFS_GINTMSK_VBUSVIM_POS: u32 = 30;
+pub const USBFS_GINTMSK_VBUSVIM: u32 = 1073741824;
+pub const USBFS_GINTMSK_WKUIM_POS: u32 = 31;
+pub const USBFS_GINTMSK_WKUIM: u32 = 2147483648;
+pub const USBFS_GRXSTSR_CHNUM_EPNUM_POS: u32 = 0;
+pub const USBFS_GRXSTSR_CHNUM_EPNUM: u32 = 15;
+pub const USBFS_GRXSTSR_BCNT_POS: u32 = 4;
+pub const USBFS_GRXSTSR_BCNT: u32 = 32752;
+pub const USBFS_GRXSTSR_DPID_POS: u32 = 15;
+pub const USBFS_GRXSTSR_DPID: u32 = 98304;
+pub const USBFS_GRXSTSR_PKTSTS_POS: u32 = 17;
+pub const USBFS_GRXSTSR_PKTSTS: u32 = 1966080;
+pub const USBFS_GRXSTSP_CHNUM_EPNUM_POS: u32 = 0;
+pub const USBFS_GRXSTSP_CHNUM_EPNUM: u32 = 15;
+pub const USBFS_GRXSTSP_BCNT_POS: u32 = 4;
+pub const USBFS_GRXSTSP_BCNT: u32 = 32752;
+pub const USBFS_GRXSTSP_DPID_POS: u32 = 15;
+pub const USBFS_GRXSTSP_DPID: u32 = 98304;
+pub const USBFS_GRXSTSP_PKTSTS_POS: u32 = 17;
+pub const USBFS_GRXSTSP_PKTSTS: u32 = 1966080;
+pub const USBFS_GRXFSIZ_RXFD: u32 = 2047;
+pub const USBFS_HNPTXFSIZ_NPTXFSA_POS: u32 = 0;
+pub const USBFS_HNPTXFSIZ_NPTXFSA: u32 = 65535;
+pub const USBFS_HNPTXFSIZ_NPTXFD_POS: u32 = 16;
+pub const USBFS_HNPTXFSIZ_NPTXFD: u32 = 4294901760;
+pub const USBFS_HNPTXSTS_NPTXFSAV_POS: u32 = 0;
+pub const USBFS_HNPTXSTS_NPTXFSAV: u32 = 65535;
+pub const USBFS_HNPTXSTS_NPTQXSAV_POS: u32 = 16;
+pub const USBFS_HNPTXSTS_NPTQXSAV: u32 = 16711680;
+pub const USBFS_HNPTXSTS_NPTXQTOP_POS: u32 = 24;
+pub const USBFS_HNPTXSTS_NPTXQTOP: u32 = 2130706432;
+pub const USBFS_CID: u32 = 4294967295;
+pub const USBFS_HPTXFSIZ_PTXSA_POS: u32 = 0;
+pub const USBFS_HPTXFSIZ_PTXSA: u32 = 4095;
+pub const USBFS_HPTXFSIZ_PTXFD_POS: u32 = 16;
+pub const USBFS_HPTXFSIZ_PTXFD: u32 = 134152192;
+pub const USBFS_DIEPTXF_INEPTXSA_POS: u32 = 0;
+pub const USBFS_DIEPTXF_INEPTXSA: u32 = 4095;
+pub const USBFS_DIEPTXF_INEPTXFD_POS: u32 = 16;
+pub const USBFS_DIEPTXF_INEPTXFD: u32 = 67043328;
+pub const USBFS_HCFG_FSLSPCS_POS: u32 = 0;
+pub const USBFS_HCFG_FSLSPCS: u32 = 3;
+pub const USBFS_HCFG_FSLSS_POS: u32 = 2;
+pub const USBFS_HCFG_FSLSS: u32 = 4;
+pub const USBFS_HFIR_FRIVL: u32 = 65535;
+pub const USBFS_HFNUM_FRNUM_POS: u32 = 0;
+pub const USBFS_HFNUM_FRNUM: u32 = 65535;
+pub const USBFS_HFNUM_FTREM_POS: u32 = 16;
+pub const USBFS_HFNUM_FTREM: u32 = 4294901760;
+pub const USBFS_HPTXSTS_PTXFSAVL_POS: u32 = 0;
+pub const USBFS_HPTXSTS_PTXFSAVL: u32 = 65535;
+pub const USBFS_HPTXSTS_PTXQSAV_POS: u32 = 16;
+pub const USBFS_HPTXSTS_PTXQSAV: u32 = 16711680;
+pub const USBFS_HPTXSTS_PTXQTOP_POS: u32 = 24;
+pub const USBFS_HPTXSTS_PTXQTOP: u32 = 4278190080;
+pub const USBFS_HAINT_HAINT: u32 = 4095;
+pub const USBFS_HAINTMSK_HAINTM: u32 = 4095;
+pub const USBFS_HPRT_PCSTS_POS: u32 = 0;
+pub const USBFS_HPRT_PCSTS: u32 = 1;
+pub const USBFS_HPRT_PCDET_POS: u32 = 1;
+pub const USBFS_HPRT_PCDET: u32 = 2;
+pub const USBFS_HPRT_PENA_POS: u32 = 2;
+pub const USBFS_HPRT_PENA: u32 = 4;
+pub const USBFS_HPRT_PENCHNG_POS: u32 = 3;
+pub const USBFS_HPRT_PENCHNG: u32 = 8;
+pub const USBFS_HPRT_PRES_POS: u32 = 6;
+pub const USBFS_HPRT_PRES: u32 = 64;
+pub const USBFS_HPRT_PSUSP_POS: u32 = 7;
+pub const USBFS_HPRT_PSUSP: u32 = 128;
+pub const USBFS_HPRT_PRST_POS: u32 = 8;
+pub const USBFS_HPRT_PRST: u32 = 256;
+pub const USBFS_HPRT_PLSTS_POS: u32 = 10;
+pub const USBFS_HPRT_PLSTS: u32 = 3072;
+pub const USBFS_HPRT_PWPR_POS: u32 = 12;
+pub const USBFS_HPRT_PWPR: u32 = 4096;
+pub const USBFS_HPRT_PSPD_POS: u32 = 17;
+pub const USBFS_HPRT_PSPD: u32 = 393216;
+pub const USBFS_HCCHAR_MPSIZ_POS: u32 = 0;
+pub const USBFS_HCCHAR_MPSIZ: u32 = 2047;
+pub const USBFS_HCCHAR_EPNUM_POS: u32 = 11;
+pub const USBFS_HCCHAR_EPNUM: u32 = 30720;
+pub const USBFS_HCCHAR_EPDIR_POS: u32 = 15;
+pub const USBFS_HCCHAR_EPDIR: u32 = 32768;
+pub const USBFS_HCCHAR_LSDEV_POS: u32 = 17;
+pub const USBFS_HCCHAR_LSDEV: u32 = 131072;
+pub const USBFS_HCCHAR_EPTYP_POS: u32 = 18;
+pub const USBFS_HCCHAR_EPTYP: u32 = 786432;
+pub const USBFS_HCCHAR_DAD_POS: u32 = 22;
+pub const USBFS_HCCHAR_DAD: u32 = 532676608;
+pub const USBFS_HCCHAR_ODDFRM_POS: u32 = 29;
+pub const USBFS_HCCHAR_ODDFRM: u32 = 536870912;
+pub const USBFS_HCCHAR_CHDIS_POS: u32 = 30;
+pub const USBFS_HCCHAR_CHDIS: u32 = 1073741824;
+pub const USBFS_HCCHAR_CHENA_POS: u32 = 31;
+pub const USBFS_HCCHAR_CHENA: u32 = 2147483648;
+pub const USBFS_HCINT_XFRC_POS: u32 = 0;
+pub const USBFS_HCINT_XFRC: u32 = 1;
+pub const USBFS_HCINT_CHH_POS: u32 = 1;
+pub const USBFS_HCINT_CHH: u32 = 2;
+pub const USBFS_HCINT_STALL_POS: u32 = 3;
+pub const USBFS_HCINT_STALL: u32 = 8;
+pub const USBFS_HCINT_NAK_POS: u32 = 4;
+pub const USBFS_HCINT_NAK: u32 = 16;
+pub const USBFS_HCINT_ACK_POS: u32 = 5;
+pub const USBFS_HCINT_ACK: u32 = 32;
+pub const USBFS_HCINT_TXERR_POS: u32 = 7;
+pub const USBFS_HCINT_TXERR: u32 = 128;
+pub const USBFS_HCINT_BBERR_POS: u32 = 8;
+pub const USBFS_HCINT_BBERR: u32 = 256;
+pub const USBFS_HCINT_FRMOR_POS: u32 = 9;
+pub const USBFS_HCINT_FRMOR: u32 = 512;
+pub const USBFS_HCINT_DTERR_POS: u32 = 10;
+pub const USBFS_HCINT_DTERR: u32 = 1024;
+pub const USBFS_HCINTMSK_XFRCM_POS: u32 = 0;
+pub const USBFS_HCINTMSK_XFRCM: u32 = 1;
+pub const USBFS_HCINTMSK_CHHM_POS: u32 = 1;
+pub const USBFS_HCINTMSK_CHHM: u32 = 2;
+pub const USBFS_HCINTMSK_STALLM_POS: u32 = 3;
+pub const USBFS_HCINTMSK_STALLM: u32 = 8;
+pub const USBFS_HCINTMSK_NAKM_POS: u32 = 4;
+pub const USBFS_HCINTMSK_NAKM: u32 = 16;
+pub const USBFS_HCINTMSK_ACKM_POS: u32 = 5;
+pub const USBFS_HCINTMSK_ACKM: u32 = 32;
+pub const USBFS_HCINTMSK_TXERRM_POS: u32 = 7;
+pub const USBFS_HCINTMSK_TXERRM: u32 = 128;
+pub const USBFS_HCINTMSK_BBERRM_POS: u32 = 8;
+pub const USBFS_HCINTMSK_BBERRM: u32 = 256;
+pub const USBFS_HCINTMSK_FRMORM_POS: u32 = 9;
+pub const USBFS_HCINTMSK_FRMORM: u32 = 512;
+pub const USBFS_HCINTMSK_DTERRM_POS: u32 = 10;
+pub const USBFS_HCINTMSK_DTERRM: u32 = 1024;
+pub const USBFS_HCTSIZ_XFRSIZ_POS: u32 = 0;
+pub const USBFS_HCTSIZ_XFRSIZ: u32 = 524287;
+pub const USBFS_HCTSIZ_PKTCNT_POS: u32 = 19;
+pub const USBFS_HCTSIZ_PKTCNT: u32 = 536346624;
+pub const USBFS_HCTSIZ_DPID_POS: u32 = 29;
+pub const USBFS_HCTSIZ_DPID: u32 = 1610612736;
+pub const USBFS_HCDMA: u32 = 4294967295;
+pub const USBFS_DCFG_DSPD_POS: u32 = 0;
+pub const USBFS_DCFG_DSPD: u32 = 3;
+pub const USBFS_DCFG_NZLSOHSK_POS: u32 = 2;
+pub const USBFS_DCFG_NZLSOHSK: u32 = 4;
+pub const USBFS_DCFG_DAD_POS: u32 = 4;
+pub const USBFS_DCFG_DAD: u32 = 2032;
+pub const USBFS_DCFG_PFIVL_POS: u32 = 11;
+pub const USBFS_DCFG_PFIVL: u32 = 6144;
+pub const USBFS_DCTL_RWUSIG_POS: u32 = 0;
+pub const USBFS_DCTL_RWUSIG: u32 = 1;
+pub const USBFS_DCTL_SDIS_POS: u32 = 1;
+pub const USBFS_DCTL_SDIS: u32 = 2;
+pub const USBFS_DCTL_GINSTS_POS: u32 = 2;
+pub const USBFS_DCTL_GINSTS: u32 = 4;
+pub const USBFS_DCTL_GONSTS_POS: u32 = 3;
+pub const USBFS_DCTL_GONSTS: u32 = 8;
+pub const USBFS_DCTL_SGINAK_POS: u32 = 7;
+pub const USBFS_DCTL_SGINAK: u32 = 128;
+pub const USBFS_DCTL_CGINAK_POS: u32 = 8;
+pub const USBFS_DCTL_CGINAK: u32 = 256;
+pub const USBFS_DCTL_SGONAK_POS: u32 = 9;
+pub const USBFS_DCTL_SGONAK: u32 = 512;
+pub const USBFS_DCTL_CGONAK_POS: u32 = 10;
+pub const USBFS_DCTL_CGONAK: u32 = 1024;
+pub const USBFS_DCTL_POPRGDNE_POS: u32 = 11;
+pub const USBFS_DCTL_POPRGDNE: u32 = 2048;
+pub const USBFS_DSTS_SUSPSTS_POS: u32 = 0;
+pub const USBFS_DSTS_SUSPSTS: u32 = 1;
+pub const USBFS_DSTS_ENUMSPD_POS: u32 = 1;
+pub const USBFS_DSTS_ENUMSPD: u32 = 6;
+pub const USBFS_DSTS_EERR_POS: u32 = 3;
+pub const USBFS_DSTS_EERR: u32 = 8;
+pub const USBFS_DSTS_FNSOF_POS: u32 = 8;
+pub const USBFS_DSTS_FNSOF: u32 = 4194048;
+pub const USBFS_DIEPMSK_XFRCM_POS: u32 = 0;
+pub const USBFS_DIEPMSK_XFRCM: u32 = 1;
+pub const USBFS_DIEPMSK_EPDM_POS: u32 = 1;
+pub const USBFS_DIEPMSK_EPDM: u32 = 2;
+pub const USBFS_DIEPMSK_TOM_POS: u32 = 3;
+pub const USBFS_DIEPMSK_TOM: u32 = 8;
+pub const USBFS_DIEPMSK_TTXFEMSK_POS: u32 = 4;
+pub const USBFS_DIEPMSK_TTXFEMSK: u32 = 16;
+pub const USBFS_DIEPMSK_INEPNMM_POS: u32 = 5;
+pub const USBFS_DIEPMSK_INEPNMM: u32 = 32;
+pub const USBFS_DIEPMSK_INEPNEM_POS: u32 = 6;
+pub const USBFS_DIEPMSK_INEPNEM: u32 = 64;
+pub const USBFS_DOEPMSK_XFRCM_POS: u32 = 0;
+pub const USBFS_DOEPMSK_XFRCM: u32 = 1;
+pub const USBFS_DOEPMSK_EPDM_POS: u32 = 1;
+pub const USBFS_DOEPMSK_EPDM: u32 = 2;
+pub const USBFS_DOEPMSK_STUPM_POS: u32 = 3;
+pub const USBFS_DOEPMSK_STUPM: u32 = 8;
+pub const USBFS_DOEPMSK_OTEPDM_POS: u32 = 4;
+pub const USBFS_DOEPMSK_OTEPDM: u32 = 16;
+pub const USBFS_DAINT_IEPINT_POS: u32 = 0;
+pub const USBFS_DAINT_IEPINT: u32 = 63;
+pub const USBFS_DAINT_OEPINT_POS: u32 = 16;
+pub const USBFS_DAINT_OEPINT: u32 = 4128768;
+pub const USBFS_DAINTMSK_IEPINTM_POS: u32 = 0;
+pub const USBFS_DAINTMSK_IEPINTM: u32 = 63;
+pub const USBFS_DAINTMSK_OEPINTM_POS: u32 = 16;
+pub const USBFS_DAINTMSK_OEPINTM: u32 = 4128768;
+pub const USBFS_DIEPEMPMSK_INEPTXFEM: u32 = 63;
+pub const USBFS_DIEPCTL0_MPSIZ_POS: u32 = 0;
+pub const USBFS_DIEPCTL0_MPSIZ: u32 = 3;
+pub const USBFS_DIEPCTL0_USBAEP_POS: u32 = 15;
+pub const USBFS_DIEPCTL0_USBAEP: u32 = 32768;
+pub const USBFS_DIEPCTL0_NAKSTS_POS: u32 = 17;
+pub const USBFS_DIEPCTL0_NAKSTS: u32 = 131072;
+pub const USBFS_DIEPCTL0_EPTYP_POS: u32 = 18;
+pub const USBFS_DIEPCTL0_EPTYP: u32 = 786432;
+pub const USBFS_DIEPCTL0_STALL_POS: u32 = 21;
+pub const USBFS_DIEPCTL0_STALL: u32 = 2097152;
+pub const USBFS_DIEPCTL0_TXFNUM_POS: u32 = 22;
+pub const USBFS_DIEPCTL0_TXFNUM: u32 = 62914560;
+pub const USBFS_DIEPCTL0_CNAK_POS: u32 = 26;
+pub const USBFS_DIEPCTL0_CNAK: u32 = 67108864;
+pub const USBFS_DIEPCTL0_SNAK_POS: u32 = 27;
+pub const USBFS_DIEPCTL0_SNAK: u32 = 134217728;
+pub const USBFS_DIEPCTL0_EPDIS_POS: u32 = 30;
+pub const USBFS_DIEPCTL0_EPDIS: u32 = 1073741824;
+pub const USBFS_DIEPCTL0_EPENA_POS: u32 = 31;
+pub const USBFS_DIEPCTL0_EPENA: u32 = 2147483648;
+pub const USBFS_DIEPINT_XFRC_POS: u32 = 0;
+pub const USBFS_DIEPINT_XFRC: u32 = 1;
+pub const USBFS_DIEPINT_EPDISD_POS: u32 = 1;
+pub const USBFS_DIEPINT_EPDISD: u32 = 2;
+pub const USBFS_DIEPINT_TOC_POS: u32 = 3;
+pub const USBFS_DIEPINT_TOC: u32 = 8;
+pub const USBFS_DIEPINT_TTXFE_POS: u32 = 4;
+pub const USBFS_DIEPINT_TTXFE: u32 = 16;
+pub const USBFS_DIEPINT_INEPNE_POS: u32 = 6;
+pub const USBFS_DIEPINT_INEPNE: u32 = 64;
+pub const USBFS_DIEPINT_TXFE_POS: u32 = 7;
+pub const USBFS_DIEPINT_TXFE: u32 = 128;
+pub const USBFS_DIEPTSIZ0_XFRSIZ_POS: u32 = 0;
+pub const USBFS_DIEPTSIZ0_XFRSIZ: u32 = 127;
+pub const USBFS_DIEPTSIZ0_PKTCNT_POS: u32 = 19;
+pub const USBFS_DIEPTSIZ0_PKTCNT: u32 = 1572864;
+pub const USBFS_DIEPDMA: u32 = 4294967295;
+pub const USBFS_DTXFSTS_INEPTFSAV: u32 = 65535;
+pub const USBFS_DIEPCTL_MPSIZ_POS: u32 = 0;
+pub const USBFS_DIEPCTL_MPSIZ: u32 = 2047;
+pub const USBFS_DIEPCTL_USBAEP_POS: u32 = 15;
+pub const USBFS_DIEPCTL_USBAEP: u32 = 32768;
+pub const USBFS_DIEPCTL_EONUM_DPID_POS: u32 = 16;
+pub const USBFS_DIEPCTL_EONUM_DPID: u32 = 65536;
+pub const USBFS_DIEPCTL_NAKSTS_POS: u32 = 17;
+pub const USBFS_DIEPCTL_NAKSTS: u32 = 131072;
+pub const USBFS_DIEPCTL_EPTYP_POS: u32 = 18;
+pub const USBFS_DIEPCTL_EPTYP: u32 = 786432;
+pub const USBFS_DIEPCTL_STALL_POS: u32 = 21;
+pub const USBFS_DIEPCTL_STALL: u32 = 2097152;
+pub const USBFS_DIEPCTL_TXFNUM_POS: u32 = 22;
+pub const USBFS_DIEPCTL_TXFNUM: u32 = 62914560;
+pub const USBFS_DIEPCTL_CNAK_POS: u32 = 26;
+pub const USBFS_DIEPCTL_CNAK: u32 = 67108864;
+pub const USBFS_DIEPCTL_SNAK_POS: u32 = 27;
+pub const USBFS_DIEPCTL_SNAK: u32 = 134217728;
+pub const USBFS_DIEPCTL_SD0PID_SEVNFRM_POS: u32 = 28;
+pub const USBFS_DIEPCTL_SD0PID_SEVNFRM: u32 = 268435456;
+pub const USBFS_DIEPCTL_SODDFRM_POS: u32 = 29;
+pub const USBFS_DIEPCTL_SODDFRM: u32 = 536870912;
+pub const USBFS_DIEPCTL_EPDIS_POS: u32 = 30;
+pub const USBFS_DIEPCTL_EPDIS: u32 = 1073741824;
+pub const USBFS_DIEPCTL_EPENA_POS: u32 = 31;
+pub const USBFS_DIEPCTL_EPENA: u32 = 2147483648;
+pub const USBFS_DIEPTSIZ_XFRSIZ_POS: u32 = 0;
+pub const USBFS_DIEPTSIZ_XFRSIZ: u32 = 524287;
+pub const USBFS_DIEPTSIZ_PKTCNT_POS: u32 = 19;
+pub const USBFS_DIEPTSIZ_PKTCNT: u32 = 536346624;
+pub const USBFS_DOEPCTL0_MPSIZ_POS: u32 = 0;
+pub const USBFS_DOEPCTL0_MPSIZ: u32 = 3;
+pub const USBFS_DOEPCTL0_USBAEP_POS: u32 = 15;
+pub const USBFS_DOEPCTL0_USBAEP: u32 = 32768;
+pub const USBFS_DOEPCTL0_NAKSTS_POS: u32 = 17;
+pub const USBFS_DOEPCTL0_NAKSTS: u32 = 131072;
+pub const USBFS_DOEPCTL0_EPTYP_POS: u32 = 18;
+pub const USBFS_DOEPCTL0_EPTYP: u32 = 786432;
+pub const USBFS_DOEPCTL0_SNPM_POS: u32 = 20;
+pub const USBFS_DOEPCTL0_SNPM: u32 = 1048576;
+pub const USBFS_DOEPCTL0_STALL_POS: u32 = 21;
+pub const USBFS_DOEPCTL0_STALL: u32 = 2097152;
+pub const USBFS_DOEPCTL0_CNAK_POS: u32 = 26;
+pub const USBFS_DOEPCTL0_CNAK: u32 = 67108864;
+pub const USBFS_DOEPCTL0_SNAK_POS: u32 = 27;
+pub const USBFS_DOEPCTL0_SNAK: u32 = 134217728;
+pub const USBFS_DOEPCTL0_EPDIS_POS: u32 = 30;
+pub const USBFS_DOEPCTL0_EPDIS: u32 = 1073741824;
+pub const USBFS_DOEPCTL0_EPENA_POS: u32 = 31;
+pub const USBFS_DOEPCTL0_EPENA: u32 = 2147483648;
+pub const USBFS_DOEPINT_XFRC_POS: u32 = 0;
+pub const USBFS_DOEPINT_XFRC: u32 = 1;
+pub const USBFS_DOEPINT_EPDISD_POS: u32 = 1;
+pub const USBFS_DOEPINT_EPDISD: u32 = 2;
+pub const USBFS_DOEPINT_STUP_POS: u32 = 3;
+pub const USBFS_DOEPINT_STUP: u32 = 8;
+pub const USBFS_DOEPINT_OTEPDIS_POS: u32 = 4;
+pub const USBFS_DOEPINT_OTEPDIS: u32 = 16;
+pub const USBFS_DOEPINT_B2BSTUP_POS: u32 = 6;
+pub const USBFS_DOEPINT_B2BSTUP: u32 = 64;
+pub const USBFS_DOEPTSIZ0_XFRSIZ_POS: u32 = 0;
+pub const USBFS_DOEPTSIZ0_XFRSIZ: u32 = 127;
+pub const USBFS_DOEPTSIZ0_PKTCNT_POS: u32 = 19;
+pub const USBFS_DOEPTSIZ0_PKTCNT: u32 = 524288;
+pub const USBFS_DOEPTSIZ0_STUPCNT_POS: u32 = 29;
+pub const USBFS_DOEPTSIZ0_STUPCNT: u32 = 1610612736;
+pub const USBFS_DOEPDMA: u32 = 4294967295;
+pub const USBFS_DOEPCTL_MPSIZ_POS: u32 = 0;
+pub const USBFS_DOEPCTL_MPSIZ: u32 = 2047;
+pub const USBFS_DOEPCTL_USBAEP_POS: u32 = 15;
+pub const USBFS_DOEPCTL_USBAEP: u32 = 32768;
+pub const USBFS_DOEPCTL_DPID_POS: u32 = 16;
+pub const USBFS_DOEPCTL_DPID: u32 = 65536;
+pub const USBFS_DOEPCTL_NAKSTS_POS: u32 = 17;
+pub const USBFS_DOEPCTL_NAKSTS: u32 = 131072;
+pub const USBFS_DOEPCTL_EPTYP_POS: u32 = 18;
+pub const USBFS_DOEPCTL_EPTYP: u32 = 786432;
+pub const USBFS_DOEPCTL_SNPM_POS: u32 = 20;
+pub const USBFS_DOEPCTL_SNPM: u32 = 1048576;
+pub const USBFS_DOEPCTL_STALL_POS: u32 = 21;
+pub const USBFS_DOEPCTL_STALL: u32 = 2097152;
+pub const USBFS_DOEPCTL_CNAK_POS: u32 = 26;
+pub const USBFS_DOEPCTL_CNAK: u32 = 67108864;
+pub const USBFS_DOEPCTL_SNAK_POS: u32 = 27;
+pub const USBFS_DOEPCTL_SNAK: u32 = 134217728;
+pub const USBFS_DOEPCTL_SD0PID_POS: u32 = 28;
+pub const USBFS_DOEPCTL_SD0PID: u32 = 268435456;
+pub const USBFS_DOEPCTL_SD1PID_POS: u32 = 29;
+pub const USBFS_DOEPCTL_SD1PID: u32 = 536870912;
+pub const USBFS_DOEPCTL_EPDIS_POS: u32 = 30;
+pub const USBFS_DOEPCTL_EPDIS: u32 = 1073741824;
+pub const USBFS_DOEPCTL_EPENA_POS: u32 = 31;
+pub const USBFS_DOEPCTL_EPENA: u32 = 2147483648;
+pub const USBFS_DOEPTSIZ_XFRSIZ_POS: u32 = 0;
+pub const USBFS_DOEPTSIZ_XFRSIZ: u32 = 524287;
+pub const USBFS_DOEPTSIZ_PKTCNT_POS: u32 = 19;
+pub const USBFS_DOEPTSIZ_PKTCNT: u32 = 536346624;
+pub const USBFS_GCCTL_STPPCLK_POS: u32 = 0;
+pub const USBFS_GCCTL_STPPCLK: u32 = 1;
+pub const USBFS_GCCTL_GATEHCLK_POS: u32 = 1;
+pub const USBFS_GCCTL_GATEHCLK: u32 = 2;
+pub const WDT_CR_PERI_POS: u32 = 0;
+pub const WDT_CR_PERI: u32 = 3;
+pub const WDT_CR_PERI_0: u32 = 1;
+pub const WDT_CR_PERI_1: u32 = 2;
+pub const WDT_CR_CKS_POS: u32 = 4;
+pub const WDT_CR_CKS: u32 = 240;
+pub const WDT_CR_WDPT_POS: u32 = 8;
+pub const WDT_CR_WDPT: u32 = 3840;
+pub const WDT_CR_SLPOFF_POS: u32 = 16;
+pub const WDT_CR_SLPOFF: u32 = 65536;
+pub const WDT_CR_ITS_POS: u32 = 31;
+pub const WDT_CR_ITS: u32 = 2147483648;
+pub const WDT_SR_CNT_POS: u32 = 0;
+pub const WDT_SR_CNT: u32 = 65535;
+pub const WDT_SR_UDF_POS: u32 = 16;
+pub const WDT_SR_UDF: u32 = 65536;
+pub const WDT_SR_REF_POS: u32 = 17;
+pub const WDT_SR_REF: u32 = 131072;
+pub const WDT_RR_RF: u32 = 65535;
+pub const __PERIPH_BIT_BAND_BASE: u32 = 1107296256;
+pub const __PERIPH_BASE: u32 = 1073741824;
+pub const LL_OK: u32 = 0;
+pub const LL_ERR: i32 = -1;
+pub const LL_ERR_UNINIT: i32 = -2;
+pub const LL_ERR_INVD_PARAM: i32 = -3;
+pub const LL_ERR_INVD_MD: i32 = -4;
+pub const LL_ERR_NOT_RDY: i32 = -5;
+pub const LL_ERR_BUSY: i32 = -6;
+pub const LL_ERR_ADDR_ALIGN: i32 = -7;
+pub const LL_ERR_TIMEOUT: i32 = -8;
+pub const LL_ERR_BUF_EMPTY: i32 = -9;
+pub const LL_ERR_BUF_FULL: i32 = -10;
+pub const DDL_ON: u32 = 1;
+pub const DDL_OFF: u32 = 0;
+pub const BIT_MASK_00: u32 = 1;
+pub const BIT_MASK_01: u32 = 2;
+pub const BIT_MASK_02: u32 = 4;
+pub const BIT_MASK_03: u32 = 8;
+pub const BIT_MASK_04: u32 = 16;
+pub const BIT_MASK_05: u32 = 32;
+pub const BIT_MASK_06: u32 = 64;
+pub const BIT_MASK_07: u32 = 128;
+pub const BIT_MASK_08: u32 = 256;
+pub const BIT_MASK_09: u32 = 512;
+pub const BIT_MASK_10: u32 = 1024;
+pub const BIT_MASK_11: u32 = 2048;
+pub const BIT_MASK_12: u32 = 4096;
+pub const BIT_MASK_13: u32 = 8192;
+pub const BIT_MASK_14: u32 = 16384;
+pub const BIT_MASK_15: u32 = 32768;
+pub const BIT_MASK_16: u32 = 65536;
+pub const BIT_MASK_17: u32 = 131072;
+pub const BIT_MASK_18: u32 = 262144;
+pub const BIT_MASK_19: u32 = 524288;
+pub const BIT_MASK_20: u32 = 1048576;
+pub const BIT_MASK_21: u32 = 2097152;
+pub const BIT_MASK_22: u32 = 4194304;
+pub const BIT_MASK_23: u32 = 8388608;
+pub const BIT_MASK_24: u32 = 16777216;
+pub const BIT_MASK_25: u32 = 33554432;
+pub const BIT_MASK_26: u32 = 67108864;
+pub const BIT_MASK_27: u32 = 134217728;
+pub const BIT_MASK_28: u32 = 268435456;
+pub const BIT_MASK_29: u32 = 536870912;
+pub const BIT_MASK_30: u32 = 1073741824;
+pub const BIT_MASK_31: u32 = 2147483648;
+pub const LL_ICG_ENABLE: u32 = 1;
+pub const LL_UTILITY_ENABLE: u32 = 1;
+pub const LL_PRINT_ENABLE: u32 = 0;
+pub const LL_ADC_ENABLE: u32 = 1;
+pub const LL_AES_ENABLE: u32 = 1;
+pub const LL_AOS_ENABLE: u32 = 1;
+pub const LL_CAN_ENABLE: u32 = 1;
+pub const LL_CLK_ENABLE: u32 = 1;
+pub const LL_CMP_ENABLE: u32 = 1;
+pub const LL_CRC_ENABLE: u32 = 1;
+pub const LL_DBGC_ENABLE: u32 = 1;
+pub const LL_DCU_ENABLE: u32 = 1;
+pub const LL_DMA_ENABLE: u32 = 1;
+pub const LL_EFM_ENABLE: u32 = 1;
+pub const LL_EMB_ENABLE: u32 = 1;
+pub const LL_EVENT_PORT_ENABLE: u32 = 1;
+pub const LL_FCG_ENABLE: u32 = 1;
+pub const LL_FCM_ENABLE: u32 = 1;
+pub const LL_GPIO_ENABLE: u32 = 1;
+pub const LL_HASH_ENABLE: u32 = 1;
+pub const LL_I2C_ENABLE: u32 = 1;
+pub const LL_I2S_ENABLE: u32 = 1;
+pub const LL_INTERRUPTS_ENABLE: u32 = 1;
+pub const LL_INTERRUPTS_SHARE_ENABLE: u32 = 1;
+pub const LL_KEYSCAN_ENABLE: u32 = 1;
+pub const LL_MPU_ENABLE: u32 = 1;
+pub const LL_OTS_ENABLE: u32 = 1;
+pub const LL_PWC_ENABLE: u32 = 1;
+pub const LL_QSPI_ENABLE: u32 = 1;
+pub const LL_RMU_ENABLE: u32 = 1;
+pub const LL_RTC_ENABLE: u32 = 1;
+pub const LL_SDIOC_ENABLE: u32 = 1;
+pub const LL_SPI_ENABLE: u32 = 1;
+pub const LL_SRAM_ENABLE: u32 = 1;
+pub const LL_SWDT_ENABLE: u32 = 1;
+pub const LL_TMR0_ENABLE: u32 = 1;
+pub const LL_TMR4_ENABLE: u32 = 1;
+pub const LL_TMR6_ENABLE: u32 = 1;
+pub const LL_TMRA_ENABLE: u32 = 1;
+pub const LL_TRNG_ENABLE: u32 = 1;
+pub const LL_USART_ENABLE: u32 = 1;
+pub const LL_USB_ENABLE: u32 = 1;
+pub const LL_WDT_ENABLE: u32 = 1;
+pub const BSP_EV_HC32F460_LQFP100_V2: u32 = 4;
+pub const BSP_EV_HC32F4XX: u32 = 0;
+pub const BSP_24CXX_ENABLE: u32 = 0;
+pub const BSP_W25QXX_ENABLE: u32 = 0;
+pub const BSP_WM8731_ENABLE: u32 = 0;
+pub const MRC_VALUE: u32 = 8000000;
+pub const LRC_VALUE: u32 = 32768;
+pub const SWDTLRC_VALUE: u32 = 10000;
+pub const LL_PERIPH_EFM: u32 = 1;
+pub const LL_PERIPH_FCG: u32 = 2;
+pub const LL_PERIPH_GPIO: u32 = 4;
+pub const LL_PERIPH_INTC: u32 = 8;
+pub const LL_PERIPH_LVD: u32 = 16;
+pub const LL_PERIPH_MPU: u32 = 32;
+pub const LL_PERIPH_PWC_CLK_RMU: u32 = 64;
+pub const LL_PERIPH_SRAM: u32 = 128;
+pub const LL_PERIPH_ALL: u32 = 255;
+pub const HC32_DDL_REV_MAIN: u32 = 3;
+pub const HC32_DDL_REV_SUB1: u32 = 3;
+pub const HC32_DDL_REV_SUB2: u32 = 0;
+pub const HC32_DDL_REV_PATCH: u32 = 0;
+pub const HC32_DDL_REV: u32 = 50528256;
+pub const ADC_SEQ_A: u32 = 0;
+pub const ADC_SEQ_B: u32 = 1;
+pub const ADC_CH0: u32 = 0;
+pub const ADC_CH1: u32 = 1;
+pub const ADC_CH2: u32 = 2;
+pub const ADC_CH3: u32 = 3;
+pub const ADC_CH4: u32 = 4;
+pub const ADC_CH5: u32 = 5;
+pub const ADC_CH6: u32 = 6;
+pub const ADC_CH7: u32 = 7;
+pub const ADC_CH8: u32 = 8;
+pub const ADC_CH9: u32 = 9;
+pub const ADC_CH10: u32 = 10;
+pub const ADC_CH11: u32 = 11;
+pub const ADC_CH12: u32 = 12;
+pub const ADC_CH13: u32 = 13;
+pub const ADC_CH14: u32 = 14;
+pub const ADC_CH15: u32 = 15;
+pub const ADC_CH16: u32 = 16;
+pub const ADC1_EXT_CH: u32 = 16;
+pub const ADC2_EXT_CH: u32 = 8;
+pub const ADC_MX_CH0: u32 = 1;
+pub const ADC_MX_CH1: u32 = 2;
+pub const ADC_MX_CH2: u32 = 4;
+pub const ADC_MX_CH3: u32 = 8;
+pub const ADC_MX_CH4: u32 = 16;
+pub const ADC_MX_CH5: u32 = 32;
+pub const ADC_MX_CH6: u32 = 64;
+pub const ADC_MX_CH7: u32 = 128;
+pub const ADC_MX_CH8: u32 = 256;
+pub const ADC_MX_CH9: u32 = 512;
+pub const ADC_MX_CH10: u32 = 1024;
+pub const ADC_MX_CH11: u32 = 2048;
+pub const ADC_MX_CH12: u32 = 4096;
+pub const ADC_MX_CH13: u32 = 8192;
+pub const ADC_MX_CH14: u32 = 16384;
+pub const ADC_MX_CH15: u32 = 32768;
+pub const ADC_MX_CH16: u32 = 65536;
+pub const ADC1_MX_CH_ALL: u32 = 65535;
+pub const ADC2_MX_CH_ALL: u32 = 511;
+pub const ADC_MD_SEQA_SINGLESHOT: u32 = 0;
+pub const ADC_MD_SEQA_CONT: u32 = 1;
+pub const ADC_MD_SEQA_SEQB_SINGLESHOT: u32 = 2;
+pub const ADC_MD_SEQA_CONT_SEQB_SINGLESHOT: u32 = 3;
+pub const ADC_RESOLUTION_12BIT: u32 = 0;
+pub const ADC_RESOLUTION_10BIT: u32 = 16;
+pub const ADC_RESOLUTION_8BIT: u32 = 32;
+pub const ADC_DATAALIGN_RIGHT: u32 = 0;
+pub const ADC_DATAALIGN_LEFT: u32 = 128;
+pub const ADC_AVG_CNT2: u32 = 0;
+pub const ADC_AVG_CNT4: u32 = 256;
+pub const ADC_AVG_CNT8: u32 = 512;
+pub const ADC_AVG_CNT16: u32 = 768;
+pub const ADC_AVG_CNT32: u32 = 1024;
+pub const ADC_AVG_CNT64: u32 = 1280;
+pub const ADC_AVG_CNT128: u32 = 1536;
+pub const ADC_AVG_CNT256: u32 = 1792;
+pub const ADC_SEQA_RESUME_SCAN_CONT: u32 = 0;
+pub const ADC_SEQA_RESUME_SCAN_RESTART: u32 = 4;
+pub const ADC_HARDTRIG_ADTRG_PIN: u32 = 0;
+pub const ADC_HARDTRIG_EVT0: u32 = 1;
+pub const ADC_HARDTRIG_EVT1: u32 = 2;
+pub const ADC_HARDTRIG_EVT0_EVT1: u32 = 3;
+pub const ADC_INT_EOCA: u32 = 1;
+pub const ADC_INT_EOCB: u32 = 2;
+pub const ADC_INT_ALL: u32 = 3;
+pub const ADC_FLAG_EOCA: u32 = 1;
+pub const ADC_FLAG_EOCB: u32 = 2;
+pub const ADC_FLAG_ALL: u32 = 3;
+pub const ADC_SYNC_ADC1_ADC2: u32 = 0;
+pub const ADC_SYNC_SINGLE_DELAY_TRIG: u32 = 0;
+pub const ADC_SYNC_SINGLE_PARALLEL_TRIG: u32 = 32;
+pub const ADC_SYNC_CYCLIC_DELAY_TRIG: u32 = 64;
+pub const ADC_SYNC_CYCLIC_PARALLEL_TRIG: u32 = 96;
+pub const ADC_AWD0: u32 = 0;
+pub const ADC_AWD_INT_SEQA: u32 = 64;
+pub const ADC_AWD_INT_SEQB: u32 = 128;
+pub const ADC_AWD_INT_ALL: u32 = 192;
+pub const ADC_AWD_MD_CMP_OUT: u32 = 0;
+pub const ADC_AWD_MD_CMP_IN: u32 = 1;
+pub const ADC_AWD_FLAG_CH0: u32 = 1;
+pub const ADC_AWD_FLAG_CH1: u32 = 2;
+pub const ADC_AWD_FLAG_CH2: u32 = 4;
+pub const ADC_AWD_FLAG_CH3: u32 = 8;
+pub const ADC_AWD_FLAG_CH4: u32 = 16;
+pub const ADC_AWD_FLAG_CH5: u32 = 32;
+pub const ADC_AWD_FLAG_CH6: u32 = 64;
+pub const ADC_AWD_FLAG_CH7: u32 = 128;
+pub const ADC_AWD_FLAG_CH8: u32 = 256;
+pub const ADC_AWD_FLAG_CH9: u32 = 512;
+pub const ADC_AWD_FLAG_CH10: u32 = 1024;
+pub const ADC_AWD_FLAG_CH11: u32 = 2048;
+pub const ADC_AWD_FLAG_CH12: u32 = 4096;
+pub const ADC_AWD_FLAG_CH13: u32 = 8192;
+pub const ADC_AWD_FLAG_CH14: u32 = 16384;
+pub const ADC_AWD_FLAG_CH15: u32 = 32768;
+pub const ADC_AWD_FLAG_CH16: u32 = 65536;
+pub const ADC1_AWD_FLAG_ALL: u32 = 131071;
+pub const ADC2_AWD_FLAG_ALL: u32 = 511;
+pub const ADC_PGA1: u32 = 0;
+pub const ADC_PGA_GAIN_2: u32 = 0;
+pub const ADC_PGA_GAIN_2P133: u32 = 1;
+pub const ADC_PGA_GAIN_2P286: u32 = 2;
+pub const ADC_PGA_GAIN_2P667: u32 = 3;
+pub const ADC_PGA_GAIN_2P909: u32 = 4;
+pub const ADC_PGA_GAIN_3P2: u32 = 5;
+pub const ADC_PGA_GAIN_3P556: u32 = 6;
+pub const ADC_PGA_GAIN_4: u32 = 7;
+pub const ADC_PGA_GAIN_4P571: u32 = 8;
+pub const ADC_PGA_GAIN_5P333: u32 = 9;
+pub const ADC_PGA_GAIN_6P4: u32 = 10;
+pub const ADC_PGA_GAIN_8: u32 = 11;
+pub const ADC_PGA_GAIN_10P667: u32 = 12;
+pub const ADC_PGA_GAIN_16: u32 = 13;
+pub const ADC_PGA_GAIN_32: u32 = 14;
+pub const ADC_PGA_VSS_PGAVSS: u32 = 0;
+pub const ADC_PGA_VSS_AVSS: u32 = 1;
+pub const ADC_PGA_PIN_ADC1_PA0: u32 = 1;
+pub const ADC_PGA_PIN_ADC1_PA1: u32 = 2;
+pub const ADC_PGA_PIN_ADC1_PA2: u32 = 4;
+pub const ADC_PGA_PIN_ADC1_PA3: u32 = 8;
+pub const ADC_PGA_PIN_ADC1_PA4: u32 = 16;
+pub const ADC_PGA_PIN_ADC1_PA5: u32 = 32;
+pub const ADC_PGA_PIN_ADC1_PA6: u32 = 64;
+pub const ADC_PGA_PIN_ADC1_PA7: u32 = 128;
+pub const ADC_PGA_8BIT_DAC: u32 = 256;
+pub const ADC1_PIN_PA0: u32 = 0;
+pub const ADC1_PIN_PA1: u32 = 1;
+pub const ADC1_PIN_PA2: u32 = 2;
+pub const ADC1_PIN_PA3: u32 = 3;
+pub const ADC1_PIN_PA4: u32 = 4;
+pub const ADC1_PIN_PA5: u32 = 5;
+pub const ADC1_PIN_PA6: u32 = 6;
+pub const ADC1_PIN_PA7: u32 = 7;
+pub const ADC1_PIN_PB0: u32 = 8;
+pub const ADC1_PIN_PB1: u32 = 9;
+pub const ADC1_PIN_PC0: u32 = 10;
+pub const ADC1_PIN_PC1: u32 = 11;
+pub const ADC1_PIN_PC2: u32 = 12;
+pub const ADC1_PIN_PC3: u32 = 13;
+pub const ADC1_PIN_PC4: u32 = 14;
+pub const ADC1_PIN_PC5: u32 = 15;
+pub const ADC2_PIN_PA4: u32 = 0;
+pub const ADC2_PIN_PA5: u32 = 1;
+pub const ADC2_PIN_PA6: u32 = 2;
+pub const ADC2_PIN_PA7: u32 = 3;
+pub const ADC2_PIN_PB0: u32 = 4;
+pub const ADC2_PIN_PB1: u32 = 5;
+pub const ADC2_PIN_PC0: u32 = 6;
+pub const ADC2_PIN_PC1: u32 = 7;
+pub const AES_KEY_SIZE_16BYTE: u32 = 16;
+pub const AOS_COMM_TRIG1: u32 = 1073741824;
+pub const AOS_COMM_TRIG2: u32 = 2147483648;
+pub const AOS_COMM_TRIG_MASK: u32 = 3221225472;
+pub const AOS_TRIG_SEL_MASK: u32 = 511;
+pub const CAN_WORK_MD_NORMAL: u32 = 0;
+pub const CAN_WORK_MD_SILENT: u32 = 1;
+pub const CAN_WORK_MD_ILB: u32 = 2;
+pub const CAN_WORK_MD_ELB: u32 = 3;
+pub const CAN_WORK_MD_ELB_SILENT: u32 = 4;
+pub const CAN_TX_BUF_PTB: u32 = 0;
+pub const CAN_TX_BUF_STB: u32 = 1;
+pub const CAN_DLC0: u32 = 0;
+pub const CAN_DLC1: u32 = 1;
+pub const CAN_DLC2: u32 = 2;
+pub const CAN_DLC3: u32 = 3;
+pub const CAN_DLC4: u32 = 4;
+pub const CAN_DLC5: u32 = 5;
+pub const CAN_DLC6: u32 = 6;
+pub const CAN_DLC7: u32 = 7;
+pub const CAN_DLC8: u32 = 8;
+pub const CAN_PTB_SINGLESHOT_TX_DISABLE: u32 = 0;
+pub const CAN_PTB_SINGLESHOT_TX_ENABLE: u32 = 16;
+pub const CAN_STB_SINGLESHOT_TX_DISABLE: u32 = 0;
+pub const CAN_STB_SINGLESHOT_TX_ENABLE: u32 = 8;
+pub const CAN_TX_REQ_STB_ONE: u32 = 4;
+pub const CAN_TX_REQ_STB_ALL: u32 = 2;
+pub const CAN_TX_REQ_PTB: u32 = 16;
+pub const CAN_STB_PRIO_MD_DISABLE: u32 = 0;
+pub const CAN_STB_PRIO_MD_ENABLE: u32 = 32;
+pub const CAN_TX_BUF_EMPTY: u32 = 0;
+pub const CAN_TX_BUF_NOT_MORE_THAN_HALF: u32 = 1;
+pub const CAN_TX_BUF_MORE_THAN_HALF: u32 = 2;
+pub const CAN_TX_BUF_FULL: u32 = 3;
+pub const CAN_RX_BUF_EMPTY: u32 = 0;
+pub const CAN_RX_BUF_NOT_WARN: u32 = 1;
+pub const CAN_RX_BUF_WARN: u32 = 2;
+pub const CAN_RX_BUF_FULL: u32 = 3;
+pub const CAN_RX_ALL_FRAME_DISABLE: u32 = 0;
+pub const CAN_RX_ALL_FRAME_ENABLE: u32 = 8;
+pub const CAN_RX_OVF_SAVE_NEW: u32 = 0;
+pub const CAN_RX_OVF_DISCARD_NEW: u32 = 64;
+pub const CAN_SELF_ACK_DISABLE: u32 = 0;
+pub const CAN_SELF_ACK_ENABLE: u32 = 128;
+pub const CAN_INT_ERR_INT: u32 = 2;
+pub const CAN_INT_STB_TX: u32 = 4;
+pub const CAN_INT_PTB_TX: u32 = 8;
+pub const CAN_INT_RX_BUF_WARN: u32 = 16;
+pub const CAN_INT_RX_BUF_FULL: u32 = 32;
+pub const CAN_INT_RX_OVERRUN: u32 = 64;
+pub const CAN_INT_RX: u32 = 128;
+pub const CAN_INT_BUS_ERR: u32 = 512;
+pub const CAN_INT_ARBITR_LOST: u32 = 2048;
+pub const CAN_INT_ERR_PASSIVE: u32 = 8192;
+pub const CAN_INT_ALL: u32 = 11006;
+pub const CAN_FLAG_BUS_OFF: u32 = 1;
+pub const CAN_FLAG_TX_GOING: u32 = 2;
+pub const CAN_FLAG_RX_GOING: u32 = 4;
+pub const CAN_FLAG_RX_BUF_OVF: u32 = 32;
+pub const CAN_FLAG_TX_BUF_FULL: u32 = 256;
+pub const CAN_FLAG_TX_ABORTED: u32 = 65536;
+pub const CAN_FLAG_ERR_INT: u32 = 131072;
+pub const CAN_FLAG_STB_TX: u32 = 262144;
+pub const CAN_FLAG_PTB_TX: u32 = 524288;
+pub const CAN_FLAG_RX_BUF_WARN: u32 = 1048576;
+pub const CAN_FLAG_RX_BUF_FULL: u32 = 2097152;
+pub const CAN_FLAG_RX_OVERRUN: u32 = 4194304;
+pub const CAN_FLAG_RX: u32 = 8388608;
+pub const CAN_FLAG_BUS_ERR: u32 = 16777216;
+pub const CAN_FLAG_ARBITR_LOST: u32 = 67108864;
+pub const CAN_FLAG_ERR_PASSIVE: u32 = 268435456;
+pub const CAN_FLAG_ERR_PASSIVE_NODE: u32 = 1073741824;
+pub const CAN_FLAG_TEC_REC_WARN: u32 = 2147483648;
+pub const CAN_FLAG_ALL: u32 = 3590258983;
+pub const CAN_FLAG_CLR_ALL: u32 = 369033216;
+pub const CAN_ID_STD_EXT: u32 = 0;
+pub const CAN_ID_STD: u32 = 1073741824;
+pub const CAN_ID_EXT: u32 = 1610612736;
+pub const CAN_STD_ID_MASK: u32 = 2047;
+pub const CAN_EXT_ID_MASK: u32 = 536870911;
+pub const CAN_ERR_NONE: u32 = 0;
+pub const CAN_ERR_BIT: u32 = 1;
+pub const CAN_ERR_FORM: u32 = 2;
+pub const CAN_ERR_STUFF: u32 = 3;
+pub const CAN_ERR_ACK: u32 = 4;
+pub const CAN_ERR_CRC: u32 = 5;
+pub const CAN_ERR_OTHER: u32 = 6;
+pub const CAN_FILTER1: u32 = 1;
+pub const CAN_FILTER2: u32 = 2;
+pub const CAN_FILTER3: u32 = 4;
+pub const CAN_FILTER4: u32 = 8;
+pub const CAN_FILTER5: u32 = 16;
+pub const CAN_FILTER6: u32 = 32;
+pub const CAN_FILTER7: u32 = 64;
+pub const CAN_FILTER8: u32 = 128;
+pub const CAN_FILTER_ALL: u32 = 255;
+pub const CAN_TTC_TX_BUF_MD_CAN: u32 = 0;
+pub const CAN_TTC_TX_BUF_MD_TTCAN: u32 = 16;
+pub const CAN_TTC_TX_BUF_PTB: u32 = 0;
+pub const CAN_TTC_TX_BUF_STB1: u32 = 1;
+pub const CAN_TTC_TX_BUF_STB2: u32 = 2;
+pub const CAN_TTC_TX_BUF_STB3: u32 = 3;
+pub const CAN_TTC_TX_BUF_STB4: u32 = 4;
+pub const CAN_TTC_TX_BUF_MARK_EMPTY: u32 = 128;
+pub const CAN_TTC_TX_BUF_MARK_FILLED: u32 = 64;
+pub const CAN_TTC_INT_TIME_TRIG: u32 = 16;
+pub const CAN_TTC_INT_WATCH_TRIG: u32 = 128;
+pub const CAN_TTC_INT_ALL: u32 = 144;
+pub const CAN_TTC_FLAG_TIME_TRIG: u32 = 8;
+pub const CAN_TTC_FLAG_TRIG_ERR: u32 = 32;
+pub const CAN_TTC_FLAG_WATCH_TRIG: u32 = 64;
+pub const CAN_TTC_FLAG_ALL: u32 = 104;
+pub const CAN_TTC_NTU_PRESCALER1: u32 = 0;
+pub const CAN_TTC_NTU_PRESCALER2: u32 = 2;
+pub const CAN_TTC_NTU_PRESCALER4: u32 = 4;
+pub const CAN_TTC_NTU_PRESCALER8: u32 = 6;
+pub const CAN_TTC_TRIG_IMMED_TRIG: u32 = 0;
+pub const CAN_TTC_TRIG_TIME_TRIG: u32 = 256;
+pub const CAN_TTC_TRIG_SINGLESHOT_TX_TRIG: u32 = 512;
+pub const CAN_TTC_TRIG_TX_START_TRIG: u32 = 768;
+pub const CAN_TTC_TRIG_TX_STOP_TRIG: u32 = 1024;
+pub const CLK_PLLX_OFF: u32 = 1;
+pub const CLK_PLLX_ON: u32 = 0;
+pub const CLK_PLL_OFF: u32 = 1;
+pub const CLK_PLL_ON: u32 = 0;
+pub const CLK_PLL_SRC_XTAL: u32 = 0;
+pub const CLK_PLL_SRC_HRC: u32 = 1;
+pub const CLK_XTAL_OFF: u32 = 1;
+pub const CLK_XTAL_ON: u32 = 0;
+pub const CLK_XTAL_DRV_HIGH: u32 = 0;
+pub const CLK_XTAL_DRV_MID: u32 = 16;
+pub const CLK_XTAL_DRV_LOW: u32 = 32;
+pub const CLK_XTAL_DRV_ULOW: u32 = 48;
+pub const CLK_XTAL_SUPDRV_ON: u32 = 128;
+pub const CLK_XTAL_SUPDRV_OFF: u32 = 0;
+pub const CLK_XTAL_MD_OSC: u32 = 0;
+pub const CLK_XTAL_MD_EXCLK: u32 = 64;
+pub const CLK_XTAL_STB_133US: u32 = 1;
+pub const CLK_XTAL_STB_255US: u32 = 2;
+pub const CLK_XTAL_STB_499US: u32 = 3;
+pub const CLK_XTAL_STB_988US: u32 = 4;
+pub const CLK_XTAL_STB_2MS: u32 = 5;
+pub const CLK_XTAL_STB_4MS: u32 = 6;
+pub const CLK_XTAL_STB_8MS: u32 = 7;
+pub const CLK_XTAL_STB_16MS: u32 = 8;
+pub const CLK_XTAL_STB_31MS: u32 = 9;
+pub const CLK_XTALSTD_OFF: u32 = 0;
+pub const CLK_XTALSTD_ON: u32 = 128;
+pub const CLK_XTALSTD_EXP_TYPE_NONE: u32 = 0;
+pub const CLK_XTALSTD_EXP_TYPE_RST: u32 = 6;
+pub const CLK_XTALSTD_EXP_TYPE_INT: u32 = 1;
+pub const CLK_XTAL32_OFF: u32 = 1;
+pub const CLK_XTAL32_ON: u32 = 0;
+pub const CLK_XTAL32_DRV_MID: u32 = 0;
+pub const CLK_XTAL32_DRV_HIGH: u32 = 1;
+pub const CLK_XTAL32_FILTER_ALL_MD: u32 = 0;
+pub const CLK_XTAL32_FILTER_RUN_MD: u32 = 1;
+pub const CLK_XTAL32_FILTER_OFF: u32 = 3;
+pub const CLK_HRC_OFF: u32 = 1;
+pub const CLK_HRC_ON: u32 = 0;
+pub const CLK_STB_FLAG_HRC: u32 = 1;
+pub const CLK_STB_FLAG_XTAL: u32 = 8;
+pub const CLK_STB_FLAG_PLL: u32 = 32;
+pub const CLK_STB_FLAG_PLLX: u32 = 64;
+pub const CLK_STB_FLAG_MASK: u32 = 105;
+pub const CLK_SYSCLK_SRC_HRC: u32 = 0;
+pub const CLK_SYSCLK_SRC_MRC: u32 = 1;
+pub const CLK_SYSCLK_SRC_LRC: u32 = 2;
+pub const CLK_SYSCLK_SRC_XTAL: u32 = 3;
+pub const CLK_SYSCLK_SRC_XTAL32: u32 = 4;
+pub const CLK_SYSCLK_SRC_PLL: u32 = 5;
+pub const CLK_BUS_PCLK0: u32 = 7;
+pub const CLK_BUS_PCLK1: u32 = 112;
+pub const CLK_BUS_PCLK2: u32 = 1792;
+pub const CLK_BUS_PCLK3: u32 = 28672;
+pub const CLK_BUS_PCLK4: u32 = 458752;
+pub const CLK_BUS_EXCLK: u32 = 7340032;
+pub const CLK_BUS_HCLK: u32 = 117440512;
+pub const CLK_BUS_CLK_ALL: u32 = 125269879;
+pub const CLK_SYSCLK_DIV1: u32 = 0;
+pub const CLK_SYSCLK_DIV2: u32 = 1;
+pub const CLK_SYSCLK_DIV4: u32 = 2;
+pub const CLK_SYSCLK_DIV8: u32 = 3;
+pub const CLK_SYSCLK_DIV16: u32 = 4;
+pub const CLK_SYSCLK_DIV32: u32 = 5;
+pub const CLK_SYSCLK_DIV64: u32 = 6;
+pub const CLK_HCLK_DIV1: u32 = 0;
+pub const CLK_HCLK_DIV2: u32 = 16777216;
+pub const CLK_HCLK_DIV4: u32 = 33554432;
+pub const CLK_HCLK_DIV8: u32 = 50331648;
+pub const CLK_HCLK_DIV16: u32 = 67108864;
+pub const CLK_HCLK_DIV32: u32 = 83886080;
+pub const CLK_HCLK_DIV64: u32 = 100663296;
+pub const CLK_PCLK1_DIV1: u32 = 0;
+pub const CLK_PCLK1_DIV2: u32 = 16;
+pub const CLK_PCLK1_DIV4: u32 = 32;
+pub const CLK_PCLK1_DIV8: u32 = 48;
+pub const CLK_PCLK1_DIV16: u32 = 64;
+pub const CLK_PCLK1_DIV32: u32 = 80;
+pub const CLK_PCLK1_DIV64: u32 = 96;
+pub const CLK_PCLK4_DIV1: u32 = 0;
+pub const CLK_PCLK4_DIV2: u32 = 65536;
+pub const CLK_PCLK4_DIV4: u32 = 131072;
+pub const CLK_PCLK4_DIV8: u32 = 196608;
+pub const CLK_PCLK4_DIV16: u32 = 262144;
+pub const CLK_PCLK4_DIV32: u32 = 327680;
+pub const CLK_PCLK4_DIV64: u32 = 393216;
+pub const CLK_PCLK3_DIV1: u32 = 0;
+pub const CLK_PCLK3_DIV2: u32 = 4096;
+pub const CLK_PCLK3_DIV4: u32 = 8192;
+pub const CLK_PCLK3_DIV8: u32 = 12288;
+pub const CLK_PCLK3_DIV16: u32 = 16384;
+pub const CLK_PCLK3_DIV32: u32 = 20480;
+pub const CLK_PCLK3_DIV64: u32 = 24576;
+pub const CLK_EXCLK_DIV1: u32 = 0;
+pub const CLK_EXCLK_DIV2: u32 = 1048576;
+pub const CLK_EXCLK_DIV4: u32 = 2097152;
+pub const CLK_EXCLK_DIV8: u32 = 3145728;
+pub const CLK_EXCLK_DIV16: u32 = 4194304;
+pub const CLK_EXCLK_DIV32: u32 = 5242880;
+pub const CLK_EXCLK_DIV64: u32 = 6291456;
+pub const CLK_PCLK2_DIV1: u32 = 0;
+pub const CLK_PCLK2_DIV2: u32 = 256;
+pub const CLK_PCLK2_DIV4: u32 = 512;
+pub const CLK_PCLK2_DIV8: u32 = 768;
+pub const CLK_PCLK2_DIV16: u32 = 1024;
+pub const CLK_PCLK2_DIV32: u32 = 1280;
+pub const CLK_PCLK2_DIV64: u32 = 1536;
+pub const CLK_PCLK0_DIV1: u32 = 0;
+pub const CLK_PCLK0_DIV2: u32 = 1;
+pub const CLK_PCLK0_DIV4: u32 = 2;
+pub const CLK_PCLK0_DIV8: u32 = 3;
+pub const CLK_PCLK0_DIV16: u32 = 4;
+pub const CLK_PCLK0_DIV32: u32 = 5;
+pub const CLK_PCLK0_DIV64: u32 = 6;
+pub const CLK_USBCLK_SYSCLK_DIV2: u32 = 32;
+pub const CLK_USBCLK_SYSCLK_DIV3: u32 = 48;
+pub const CLK_USBCLK_SYSCLK_DIV4: u32 = 64;
+pub const CLK_USBCLK_PLLP: u32 = 128;
+pub const CLK_USBCLK_PLLQ: u32 = 144;
+pub const CLK_USBCLK_PLLR: u32 = 160;
+pub const CLK_USBCLK_PLLXP: u32 = 176;
+pub const CLK_USBCLK_PLLXQ: u32 = 192;
+pub const CLK_USBCLK_PLLXR: u32 = 208;
+pub const CLK_PERIPHCLK_PCLK: u32 = 0;
+pub const CLK_PERIPHCLK_PLLP: u32 = 8;
+pub const CLK_PERIPHCLK_PLLQ: u32 = 9;
+pub const CLK_PERIPHCLK_PLLR: u32 = 10;
+pub const CLK_PERIPHCLK_PLLXP: u32 = 11;
+pub const CLK_PERIPHCLK_PLLXQ: u32 = 12;
+pub const CLK_PERIPHCLK_PLLXR: u32 = 13;
+pub const CLK_I2S1: u32 = 0;
+pub const CLK_I2S2: u32 = 1;
+pub const CLK_I2S3: u32 = 2;
+pub const CLK_I2S4: u32 = 3;
+pub const CLK_TPIUCLK_DIV1: u32 = 0;
+pub const CLK_TPIUCLK_DIV2: u32 = 1;
+pub const CLK_TPIUCLK_DIV4: u32 = 2;
+pub const CLK_MCO1: u32 = 0;
+pub const CLK_MCO2: u32 = 1;
+pub const CLK_MCO_SRC_HRC: u32 = 0;
+pub const CLK_MCO_SRC_MRC: u32 = 1;
+pub const CLK_MCO_SRC_LRC: u32 = 2;
+pub const CLK_MCO_SRC_XTAL: u32 = 3;
+pub const CLK_MCO_SRC_XTAL32: u32 = 4;
+pub const CLK_MCO_SRC_PLLP: u32 = 6;
+pub const CLK_MCO_SRC_PLLXP: u32 = 7;
+pub const CLK_MCO_SRC_PLLQ: u32 = 8;
+pub const CLK_MCO_SRC_PLLXQ: u32 = 9;
+pub const CLK_MCO_SRC_HCLK: u32 = 11;
+pub const CLK_MCO_DIV1: u32 = 0;
+pub const CLK_MCO_DIV2: u32 = 16;
+pub const CLK_MCO_DIV4: u32 = 32;
+pub const CLK_MCO_DIV8: u32 = 48;
+pub const CLK_MCO_DIV16: u32 = 64;
+pub const CLK_MCO_DIV32: u32 = 80;
+pub const CLK_MCO_DIV64: u32 = 96;
+pub const CLK_MCO_DIV128: u32 = 112;
+pub const VISR_OFFSET: u32 = 8;
+pub const CMP_POSITIVE_NONE: u32 = 0;
+pub const CMP1_POSITIVE_CMP1_INP1: u32 = 256;
+pub const CMP1_POSITIVE_CMP1_INP2: u32 = 512;
+pub const CMP1_POSITIVE_CMP1_INP3: u32 = 1024;
+pub const CMP1_POSITIVE_PGAO: u32 = 6144;
+pub const CMP1_POSITIVE_PGAO_BP: u32 = 10240;
+pub const CMP1_POSITIVE_CMP1_INP4: u32 = 18432;
+pub const CMP2_POSITIVE_CMP2_INP1: u32 = 256;
+pub const CMP2_POSITIVE_CMP2_INP2: u32 = 512;
+pub const CMP2_POSITIVE_CMP2_INP3: u32 = 1024;
+pub const CMP2_POSITIVE_PGAO: u32 = 6144;
+pub const CMP2_POSITIVE_PGAO_BP: u32 = 10240;
+pub const CMP3_POSITIVE_CMP3_INP1: u32 = 256;
+pub const CMP3_POSITIVE_CMP3_INP2: u32 = 512;
+pub const CMP3_POSITIVE_CMP3_INP3: u32 = 1024;
+pub const CMP3_POSITIVE_CMP3_INP4: u32 = 2048;
+pub const CMP_SCAN_STAT_INP_NONE: u32 = 0;
+pub const CMP_SCAN_STAT_INP1: u32 = 256;
+pub const CMP_SCAN_STAT_INP2: u32 = 512;
+pub const CMP_SCAN_STAT_INP3: u32 = 1024;
+pub const CMP_SCAN_STAT_INP4: u32 = 2048;
+pub const CMP_NEGATIVE_NONE: u32 = 0;
+pub const CMP_NEGATIVE_INM1: u32 = 1;
+pub const CMP_NEGATIVE_INM2: u32 = 2;
+pub const CMP_NEGATIVE_INM3: u32 = 4;
+pub const CMP_NEGATIVE_INM4: u32 = 8;
+pub const CMP_OUT_INVT_OFF: u32 = 0;
+pub const CMP_OUT_INVT_ON: u32 = 8192;
+pub const CMP_DETECT_EDGS_NONE: u32 = 0;
+pub const CMP_DETECT_EDGS_RISING: u32 = 32;
+pub const CMP_DETECT_EDGS_FALLING: u32 = 64;
+pub const CMP_DETECT_EDGS_BOTH: u32 = 96;
+pub const CMP_OUT_FILTER_NONE: u32 = 0;
+pub const CMP_OUT_FILTER_CLK: u32 = 1;
+pub const CMP_OUT_FILTER_CLK_DIV2: u32 = 2;
+pub const CMP_OUT_FILTER_CLK_DIV4: u32 = 3;
+pub const CMP_OUT_FILTER_CLK_DIV8: u32 = 4;
+pub const CMP_OUT_FILTER_CLK_DIV16: u32 = 5;
+pub const CMP_OUT_FILTER_CLK_DIV32: u32 = 6;
+pub const CMP_OUT_FILTER_CLK_DIV64: u32 = 7;
+pub const CMP_ADC_REF_VREF: u32 = 16;
+pub const CMP_ADC_REF_DA2: u32 = 2;
+pub const CMP_ADC_REF_DA1: u32 = 1;
+pub const CMP_8BITDAC_CH1: u32 = 1;
+pub const CMP_8BITDAC_CH2: u32 = 2;
+pub const CRC_CRC16: u32 = 0;
+pub const CRC_CRC32: u32 = 2;
+pub const CRC_DATA_WIDTH_8BIT: u32 = 1;
+pub const CRC_DATA_WIDTH_16BIT: u32 = 2;
+pub const CRC_DATA_WIDTH_32BIT: u32 = 4;
+pub const CRC_INIT_VALUE_DEFAULT: u32 = 4294967295;
+pub const CRC_REFIN_DISABLE: u32 = 0;
+pub const CRC_REFIN_ENABLE: u32 = 4;
+pub const CRC_REFOUT_DISABLE: u32 = 0;
+pub const CRC_REFOUT_ENABLE: u32 = 8;
+pub const CRC_XOROUT_DISABLE: u32 = 0;
+pub const CRC_XOROUT_ENABLE: u32 = 16;
+pub const DBGC_PERIPH_SWDT: u32 = 1;
+pub const DBGC_PERIPH_WDT: u32 = 2;
+pub const DBGC_PERIPH_RTC: u32 = 4;
+pub const DBGC_PERIPH_TMR0_1: u32 = 16384;
+pub const DBGC_PERIPH_TMR0_2: u32 = 32768;
+pub const DBGC_PERIPH_TMR4_1: u32 = 1048576;
+pub const DBGC_PERIPH_TMR4_2: u32 = 2097152;
+pub const DBGC_PERIPH_TMR4_3: u32 = 4194304;
+pub const DBGC_PERIPH_TMR6_1: u32 = 8388608;
+pub const DBGC_PERIPH_TMR6_2: u32 = 16777216;
+pub const DBGC_PERIPH_TMR6_3: u32 = 33554432;
+pub const DBGC_PERIPH_TMRA_1: u32 = 67108864;
+pub const DBGC_PERIPH_TMRA_2: u32 = 134217728;
+pub const DBGC_PERIPH_TMRA_3: u32 = 268435456;
+pub const DBGC_PERIPH_TMRA_4: u32 = 536870912;
+pub const DBGC_PERIPH_TMRA_5: u32 = 1073741824;
+pub const DBGC_PERIPH_TMRA_6: u32 = 2147483648;
+pub const DBGC_TRACE_ASYNC: u32 = 0;
+pub const DBGC_TRACE_SYNC_1BIT: u32 = 1;
+pub const DBGC_TRACE_SYNC_2BIT: u32 = 2;
+pub const DBGC_TRACE_SYNC_4BIT: u32 = 3;
+pub const DCU_DATA_WIDTH_8BIT: u32 = 0;
+pub const DCU_DATA_WIDTH_16BIT: u32 = 8;
+pub const DCU_DATA_WIDTH_32BIT: u32 = 16;
+pub const DCU_CMP_TRIG_DATA0: u32 = 0;
+pub const DCU_CMP_TRIG_DATA0_DATA1_DATA2: u32 = 256;
+pub const DCU_MD_INVD: u32 = 0;
+pub const DCU_MD_ADD: u32 = 1;
+pub const DCU_MD_SUB: u32 = 2;
+pub const DCU_MD_HW_ADD: u32 = 3;
+pub const DCU_MD_HW_SUB: u32 = 4;
+pub const DCU_MD_CMP: u32 = 5;
+pub const DCU_FLAG_CARRY: u32 = 1;
+pub const DCU_FLAG_DATA0_LT_DATA2: u32 = 2;
+pub const DCU_FLAG_DATA0_EQ_DATA2: u32 = 4;
+pub const DCU_FLAG_DATA0_GT_DATA2: u32 = 8;
+pub const DCU_FLAG_DATA0_LT_DATA1: u32 = 16;
+pub const DCU_FLAG_DATA0_EQ_DATA1: u32 = 32;
+pub const DCU_FLAG_DATA0_GT_DATA1: u32 = 64;
+pub const DCU_FLAG_ALL: u32 = 127;
+pub const DCU_CATEGORY_OP: u32 = 0;
+pub const DCU_CATEGORY_CMP_WIN: u32 = 1;
+pub const DCU_CATEGORY_CMP_NON_WIN: u32 = 2;
+pub const DCU_INT_CMP_DATA0_LT_DATA2: u32 = 2;
+pub const DCU_INT_CMP_DATA0_EQ_DATA2: u32 = 4;
+pub const DCU_INT_CMP_DATA0_GT_DATA2: u32 = 8;
+pub const DCU_INT_CMP_DATA0_LT_DATA1: u32 = 16;
+pub const DCU_INT_CMP_DATA0_EQ_DATA1: u32 = 32;
+pub const DCU_INT_CMP_DATA0_GT_DATA1: u32 = 64;
+pub const DCU_INT_CMP_NON_WIN_ALL: u32 = 126;
+pub const DCU_INT_CMP_WIN_INSIDE: u32 = 128;
+pub const DCU_INT_CMP_WIN_OUTSIDE: u32 = 256;
+pub const DCU_INT_CMP_WIN_ALL: u32 = 384;
+pub const DCU_INT_OP_CARRY: u32 = 1;
+pub const DCU_DATA0_IDX: u32 = 0;
+pub const DCU_DATA1_IDX: u32 = 1;
+pub const DCU_DATA2_IDX: u32 = 2;
+pub const DMA_CH0: u32 = 0;
+pub const DMA_CH1: u32 = 1;
+pub const DMA_CH2: u32 = 2;
+pub const DMA_CH3: u32 = 3;
+pub const DMA_MX_CH0: u32 = 1;
+pub const DMA_MX_CH1: u32 = 2;
+pub const DMA_MX_CH2: u32 = 4;
+pub const DMA_MX_CH3: u32 = 8;
+pub const DMA_MX_CH_ALL: u32 = 15;
+pub const DMA_FLAG_REQ_ERR_CH0: u32 = 65536;
+pub const DMA_FLAG_REQ_ERR_CH1: u32 = 131072;
+pub const DMA_FLAG_REQ_ERR_CH2: u32 = 262144;
+pub const DMA_FLAG_REQ_ERR_CH3: u32 = 524288;
+pub const DMA_FLAG_TRANS_ERR_CH0: u32 = 1;
+pub const DMA_FLAG_TRANS_ERR_CH1: u32 = 2;
+pub const DMA_FLAG_TRANS_ERR_CH2: u32 = 4;
+pub const DMA_FLAG_TRANS_ERR_CH3: u32 = 8;
+pub const DMA_FLAG_BTC_CH0: u32 = 65536;
+pub const DMA_FLAG_BTC_CH1: u32 = 131072;
+pub const DMA_FLAG_BTC_CH2: u32 = 262144;
+pub const DMA_FLAG_BTC_CH3: u32 = 524288;
+pub const DMA_FLAG_TC_CH0: u32 = 1;
+pub const DMA_FLAG_TC_CH1: u32 = 2;
+pub const DMA_FLAG_TC_CH2: u32 = 4;
+pub const DMA_FLAG_TC_CH3: u32 = 8;
+pub const DMA_INT_REQ_ERR_CH0: u32 = 65536;
+pub const DMA_INT_REQ_ERR_CH1: u32 = 131072;
+pub const DMA_INT_REQ_ERR_CH2: u32 = 262144;
+pub const DMA_INT_REQ_ERR_CH3: u32 = 524288;
+pub const DMA_INT_TRANS_ERR_CH0: u32 = 1;
+pub const DMA_INT_TRANS_ERR_CH1: u32 = 2;
+pub const DMA_INT_TRANS_ERR_CH2: u32 = 4;
+pub const DMA_INT_TRANS_ERR_CH3: u32 = 8;
+pub const DMA_INT_BTC_CH0: u32 = 65536;
+pub const DMA_INT_BTC_CH1: u32 = 131072;
+pub const DMA_INT_BTC_CH2: u32 = 262144;
+pub const DMA_INT_BTC_CH3: u32 = 524288;
+pub const DMA_INT_TC_CH0: u32 = 1;
+pub const DMA_INT_TC_CH1: u32 = 2;
+pub const DMA_INT_TC_CH2: u32 = 4;
+pub const DMA_INT_TC_CH3: u32 = 8;
+pub const DMA_FLAG_ERR_MASK: u32 = 983055;
+pub const DMA_FLAG_TRANS_MASK: u32 = 983055;
+pub const DMA_INT_ERR_MASK: u32 = 983055;
+pub const DMA_INT_TRANS_MASK: u32 = 983055;
+pub const DMA_STAT_REQ_RECONFIG: u32 = 32768;
+pub const DMA_STAT_REQ_CH0: u32 = 1;
+pub const DMA_STAT_REQ_CH1: u32 = 2;
+pub const DMA_STAT_REQ_CH2: u32 = 4;
+pub const DMA_STAT_REQ_CH3: u32 = 8;
+pub const DMA_STAT_REQ_MASK: u32 = 32783;
+pub const DMA_STAT_TRANS_CH0: u32 = 65536;
+pub const DMA_STAT_TRANS_CH1: u32 = 131072;
+pub const DMA_STAT_TRANS_CH2: u32 = 262144;
+pub const DMA_STAT_TRANS_CH3: u32 = 524288;
+pub const DMA_STAT_TRANS_DMA: u32 = 1;
+pub const DMA_STAT_TRANS_RECONFIG: u32 = 2;
+pub const DMA_STAT_TRANS_MASK: u32 = 983043;
+pub const DMA_DATAWIDTH_8BIT: u32 = 0;
+pub const DMA_DATAWIDTH_16BIT: u32 = 256;
+pub const DMA_DATAWIDTH_32BIT: u32 = 512;
+pub const DMA_LLP_DISABLE: u32 = 0;
+pub const DMA_LLP_ENABLE: u32 = 1024;
+pub const DMA_LLP_WAIT: u32 = 0;
+pub const DMA_LLP_RUN: u32 = 2048;
+pub const DMA_SRC_ADDR_FIX: u32 = 0;
+pub const DMA_SRC_ADDR_INC: u32 = 1;
+pub const DMA_SRC_ADDR_DEC: u32 = 2;
+pub const DMA_DEST_ADDR_FIX: u32 = 0;
+pub const DMA_DEST_ADDR_INC: u32 = 4;
+pub const DMA_DEST_ADDR_DEC: u32 = 8;
+pub const DMA_INT_ENABLE: u32 = 4096;
+pub const DMA_INT_DISABLE: u32 = 0;
+pub const DMA_RPT_NONE: u32 = 0;
+pub const DMA_RPT_SRC: u32 = 16;
+pub const DMA_RPT_DEST: u32 = 32;
+pub const DMA_RPT_BOTH: u32 = 48;
+pub const DMA_NON_SEQ_NONE: u32 = 0;
+pub const DMA_NON_SEQ_SRC: u32 = 64;
+pub const DMA_NON_SEQ_DEST: u32 = 128;
+pub const DMA_NON_SEQ_BOTH: u32 = 192;
+pub const DMA_RC_CNT_KEEP: u32 = 0;
+pub const DMA_RC_CNT_SRC: u32 = 1048576;
+pub const DMA_RC_CNT_DEST: u32 = 2097152;
+pub const DMA_RC_DEST_ADDR_KEEP: u32 = 0;
+pub const DMA_RC_DEST_ADDR_NS: u32 = 262144;
+pub const DMA_RC_DEST_ADDR_RPT: u32 = 524288;
+pub const DMA_RC_SRC_ADDR_KEEP: u32 = 0;
+pub const DMA_RC_SRC_ADDR_NS: u32 = 65536;
+pub const DMA_RC_SRC_ADDR_RPT: u32 = 131072;
+pub const EFM_START_ADDR: u32 = 0;
+pub const EFM_END_ADDR: u32 = 524287;
+pub const EFM_OTP_START_ADDR: u32 = 50334720;
+pub const EFM_OTP_END_ADDR: u32 = 50335739;
+pub const EFM_OTP_LOCK_ADDR_START: u32 = 50335680;
+pub const EFM_OTP_LOCK_ADDR_END: u32 = 50335740;
+pub const EFM_SECURITY_START_ADDR: u32 = 51904480;
+pub const EFM_SECURITY_END_ADDR: u32 = 51904511;
+pub const EFM_CHIP_ALL: u32 = 1;
+pub const EFM_BUS_HOLD: u32 = 0;
+pub const EFM_BUS_RELEASE: u32 = 1;
+pub const EFM_WAIT_CYCLE0: u32 = 0;
+pub const EFM_WAIT_CYCLE1: u32 = 16;
+pub const EFM_WAIT_CYCLE2: u32 = 32;
+pub const EFM_WAIT_CYCLE3: u32 = 48;
+pub const EFM_WAIT_CYCLE4: u32 = 64;
+pub const EFM_WAIT_CYCLE5: u32 = 80;
+pub const EFM_WAIT_CYCLE6: u32 = 96;
+pub const EFM_WAIT_CYCLE7: u32 = 112;
+pub const EFM_WAIT_CYCLE8: u32 = 128;
+pub const EFM_WAIT_CYCLE9: u32 = 144;
+pub const EFM_WAIT_CYCLE10: u32 = 160;
+pub const EFM_WAIT_CYCLE11: u32 = 176;
+pub const EFM_WAIT_CYCLE12: u32 = 192;
+pub const EFM_WAIT_CYCLE13: u32 = 208;
+pub const EFM_WAIT_CYCLE14: u32 = 224;
+pub const EFM_WAIT_CYCLE15: u32 = 240;
+pub const EFM_SWAP_ADDR: u32 = 524252;
+pub const EFM_SWAP_DATA: u32 = 4294918945;
+pub const EFM_MD_READONLY: u32 = 0;
+pub const EFM_MD_PGM_SINGLE: u32 = 16;
+pub const EFM_MD_PGM_READBACK: u32 = 32;
+pub const EFM_MD_PGM_SEQ: u32 = 48;
+pub const EFM_MD_ERASE_SECTOR: u32 = 64;
+pub const EFM_MD_ERASE_ALL_CHIP: u32 = 80;
+pub const EFM_FLAG_PEWERR: u32 = 1;
+pub const EFM_FLAG_PGMISMTCH: u32 = 8;
+pub const EFM_FLAG_OPTEND: u32 = 16;
+pub const EFM_FLAG_COLERR: u32 = 32;
+pub const EFM_FLAG_PEPRTERR: u32 = 2;
+pub const EFM_FLAG_RDY: u32 = 256;
+pub const EFM_FLAG_PGSZERR: u32 = 4;
+pub const EFM_FLAG_ALL: u32 = 319;
+pub const EFM_INT_PEERR: u32 = 1;
+pub const EFM_INT_OPTEND: u32 = 2;
+pub const EFM_INT_COLERR: u32 = 4;
+pub const EFM_INT_ALL: u32 = 7;
+pub const EFM_CACHE_ALL: u32 = 16842752;
+pub const EFM_REG_UNLOCK_KEY1: u32 = 291;
+pub const EFM_REG_UNLOCK_KEY2: u32 = 12816;
+pub const EFM_REG_LOCK_KEY: u32 = 0;
+pub const EFM_SECTOR_SIZE: u32 = 8192;
+pub const EFM_OTP_BASE1_ADDR: u32 = 50334720;
+pub const EFM_OTP_BASE1_SIZE: u32 = 64;
+pub const EFM_OTP_BASE1_OFFSET: u32 = 0;
+pub const EFM_OTP_LOCK_ADDR: u32 = 50335680;
+pub const EFM_OTP_BLOCK0: u32 = 50334720;
+pub const EFM_OTP_BLOCK1: u32 = 50334784;
+pub const EFM_OTP_BLOCK2: u32 = 50334848;
+pub const EFM_OTP_BLOCK3: u32 = 50334912;
+pub const EFM_OTP_BLOCK4: u32 = 50334976;
+pub const EFM_OTP_BLOCK5: u32 = 50335040;
+pub const EFM_OTP_BLOCK6: u32 = 50335104;
+pub const EFM_OTP_BLOCK7: u32 = 50335168;
+pub const EFM_OTP_BLOCK8: u32 = 50335232;
+pub const EFM_OTP_BLOCK9: u32 = 50335296;
+pub const EFM_OTP_BLOCK10: u32 = 50335360;
+pub const EFM_OTP_BLOCK11: u32 = 50335424;
+pub const EFM_OTP_BLOCK12: u32 = 50335488;
+pub const EFM_OTP_BLOCK13: u32 = 50335552;
+pub const EFM_OTP_BLOCK14: u32 = 50335616;
+pub const EFM_REMAP_REG_LOCK_KEY: u32 = 0;
+pub const EFM_REMAP_REG_UNLOCK_KEY1: u32 = 291;
+pub const EFM_REMAP_REG_UNLOCK_KEY2: u32 = 12816;
+pub const EFM_REMAP_OFF: u32 = 0;
+pub const EFM_REMAP_ON: u32 = 2147483648;
+pub const EFM_REMAP_4K: u32 = 12;
+pub const EFM_REMAP_8K: u32 = 13;
+pub const EFM_REMAP_16K: u32 = 14;
+pub const EFM_REMAP_32K: u32 = 15;
+pub const EFM_REMAP_64K: u32 = 16;
+pub const EFM_REMAP_128K: u32 = 17;
+pub const EFM_REMAP_256K: u32 = 18;
+pub const EFM_REMAP_512K: u32 = 19;
+pub const EFM_REMAP_SIZE_MAX: u32 = 19;
+pub const EFM_REMAP_IDX0: u32 = 0;
+pub const EFM_REMAP_IDX1: u32 = 1;
+pub const EFM_REMAP_BASE_ADDR0: u32 = 33554432;
+pub const EFM_REMAP_BASE_ADDR1: u32 = 34078720;
+pub const EFM_REMAP_ROM_END_ADDR: u32 = 524287;
+pub const EFM_REMAP_RAM_START_ADDR: u32 = 536838144;
+pub const EFM_REMAP_RAM_END_ADDR: u32 = 536870911;
+pub const EFM_PROTECT_LEVEL1: u32 = 1;
+pub const EFM_PROTECT_LEVEL2: u32 = 2;
+pub const EFM_PROTECT_LEVEL_ALL: u32 = 3;
+pub const EFM_MCU_PROTECT1_FREE: u32 = 0;
+pub const EFM_MCU_PROTECT1_LOCK: u32 = 1;
+pub const EFM_MCU_PROTECT1_UNLOCK: u32 = 2;
+pub const EFM_MCU_PROTECT2_LOCK: u32 = 4;
+pub const EMB_CMP1_DISABLE: u32 = 0;
+pub const EMB_CMP2_DISABLE: u32 = 0;
+pub const EMB_CMP3_DISABLE: u32 = 0;
+pub const EMB_CMP1_ENABLE: u32 = 2;
+pub const EMB_CMP2_ENABLE: u32 = 4;
+pub const EMB_CMP3_ENABLE: u32 = 8;
+pub const EMB_OSC_DISABLE: u32 = 0;
+pub const EMB_OSC_ENABLE: u32 = 32;
+pub const EMB_TMR4_PWM_W_DISABLE: u32 = 0;
+pub const EMB_TMR4_PWM_V_DISABLE: u32 = 0;
+pub const EMB_TMR4_PWM_U_DISABLE: u32 = 0;
+pub const EMB_TMR4_PWM_W_ENABLE: u32 = 64;
+pub const EMB_TMR4_PWM_V_ENABLE: u32 = 128;
+pub const EMB_TMR4_PWM_U_ENABLE: u32 = 256;
+pub const EMB_DETECT_TMR4_PWM_W_BOTH_LOW: u32 = 0;
+pub const EMB_DETECT_TMR4_PWM_V_BOTH_LOW: u32 = 0;
+pub const EMB_DETECT_TMR4_PWM_U_BOTH_LOW: u32 = 0;
+pub const EMB_DETECT_TMR4_PWM_W_BOTH_HIGH: u32 = 1;
+pub const EMB_DETECT_TMR4_PWM_V_BOTH_HIGH: u32 = 2;
+pub const EMB_DETECT_TMR4_PWM_U_BOTH_HIGH: u32 = 4;
+pub const EMB_TMR6_1_PWM_DISABLE: u32 = 0;
+pub const EMB_TMR6_2_PWM_DISABLE: u32 = 0;
+pub const EMB_TMR6_3_PWM_DISABLE: u32 = 0;
+pub const EMB_TMR6_1_PWM_ENABLE: u32 = 64;
+pub const EMB_TMR6_2_PWM_ENABLE: u32 = 128;
+pub const EMB_TMR6_3_PWM_ENABLE: u32 = 256;
+pub const EMB_DETECT_TMR6_1_PWM_BOTH_LOW: u32 = 0;
+pub const EMB_DETECT_TMR6_2_PWM_BOTH_LOW: u32 = 0;
+pub const EMB_DETECT_TMR6_3_PWM_BOTH_LOW: u32 = 0;
+pub const EMB_DETECT_TMR6_1_PWM_BOTH_HIGH: u32 = 1;
+pub const EMB_DETECT_TMR6_2_PWM_BOTH_HIGH: u32 = 2;
+pub const EMB_DETECT_TMR6_3_PWM_BOTH_HIGH: u32 = 4;
+pub const EMB_PORT1_DISABLE: u32 = 0;
+pub const EMB_PORT1_ENABLE: u32 = 1;
+pub const EMB_PORT1_DETECT_LVL_HIGH: u32 = 0;
+pub const EMB_PORT1_DETECT_LVL_LOW: u32 = 2147483648;
+pub const EMB_PORT1_FILTER_DISABLE: u32 = 0;
+pub const EMB_PORT1_FILTER_ENABLE: u32 = 1073741824;
+pub const EMB_PORT1_FILTER_CLK_DIV1: u32 = 0;
+pub const EMB_PORT1_FILTER_CLK_DIV8: u32 = 268435456;
+pub const EMB_PORT1_FILTER_CLK_DIV32: u32 = 536870912;
+pub const EMB_PORT1_FILTER_CLK_DIV128: u32 = 805306368;
+pub const EMB_FLAG_PWMS: u32 = 2;
+pub const EMB_FLAG_CMP: u32 = 4;
+pub const EMB_FLAG_OSC: u32 = 8;
+pub const EMB_FLAG_PORT1: u32 = 1;
+pub const EMB_STAT_PWMS: u32 = 32;
+pub const EMB_STAT_PORT1: u32 = 16;
+pub const EMB_FLAG_ALL: u32 = 63;
+pub const EMB_FLAG_CLR_ALL: u32 = 15;
+pub const EMB_INT_PWMS: u32 = 2;
+pub const EMB_INT_CMP: u32 = 4;
+pub const EMB_INT_OSC: u32 = 8;
+pub const EMB_INT_PORT1: u32 = 1;
+pub const EMB_INT_ALL: u32 = 15;
+pub const EVT_PORT_1: u32 = 0;
+pub const EVT_PORT_2: u32 = 1;
+pub const EVT_PORT_3: u32 = 2;
+pub const EVT_PORT_4: u32 = 3;
+pub const EVT_PIN_00: u32 = 1;
+pub const EVT_PIN_01: u32 = 2;
+pub const EVT_PIN_02: u32 = 4;
+pub const EVT_PIN_03: u32 = 8;
+pub const EVT_PIN_04: u32 = 16;
+pub const EVT_PIN_05: u32 = 32;
+pub const EVT_PIN_06: u32 = 64;
+pub const EVT_PIN_07: u32 = 128;
+pub const EVT_PIN_08: u32 = 256;
+pub const EVT_PIN_09: u32 = 512;
+pub const EVT_PIN_10: u32 = 1024;
+pub const EVT_PIN_11: u32 = 2048;
+pub const EVT_PIN_12: u32 = 4096;
+pub const EVT_PIN_13: u32 = 8192;
+pub const EVT_PIN_14: u32 = 16384;
+pub const EVT_PIN_15: u32 = 32768;
+pub const EVT_PIN_All: u32 = 65535;
+pub const EVT_PIN_MASK: u32 = 65535;
+pub const EP_DIR_IN: u32 = 0;
+pub const EP_DIR_OUT: u32 = 1;
+pub const EP_FILTER_OFF: u32 = 0;
+pub const EP_FILTER_ON: u32 = 1;
+pub const EP_FCLK_DIV1: u32 = 0;
+pub const EP_FCLK_DIV8: u32 = 2;
+pub const EP_FCLK_DIV32: u32 = 4;
+pub const EP_FCLK_DIV64: u32 = 6;
+pub const EP_TRIG_NONE: u32 = 0;
+pub const EP_TRIG_FALLING: u32 = 1;
+pub const EP_TRIG_RISING: u32 = 2;
+pub const EP_TRIG_BOTH: u32 = 3;
+pub const EP_OPS_NONE: u32 = 0;
+pub const EP_OPS_LOW: u32 = 1;
+pub const EP_OPS_HIGH: u32 = 2;
+pub const EP_OPS_TOGGLE: u32 = 3;
+pub const FCG0_PERIPH_SRAMH: u32 = 1;
+pub const FCG0_PERIPH_SRAM12: u32 = 16;
+pub const FCG0_PERIPH_SRAM3: u32 = 256;
+pub const FCG0_PERIPH_SRAMRET: u32 = 1024;
+pub const FCG0_PERIPH_DMA1: u32 = 16384;
+pub const FCG0_PERIPH_DMA2: u32 = 32768;
+pub const FCG0_PERIPH_FCM: u32 = 65536;
+pub const FCG0_PERIPH_AOS: u32 = 131072;
+pub const FCG0_PERIPH_AES: u32 = 1048576;
+pub const FCG0_PERIPH_HASH: u32 = 2097152;
+pub const FCG0_PERIPH_TRNG: u32 = 4194304;
+pub const FCG0_PERIPH_CRC: u32 = 8388608;
+pub const FCG0_PERIPH_DCU1: u32 = 16777216;
+pub const FCG0_PERIPH_DCU2: u32 = 33554432;
+pub const FCG0_PERIPH_DCU3: u32 = 67108864;
+pub const FCG0_PERIPH_DCU4: u32 = 134217728;
+pub const FCG0_PERIPH_KEY: u32 = 2147483648;
+pub const FCG1_PERIPH_CAN: u32 = 1;
+pub const FCG1_PERIPH_QSPI: u32 = 8;
+pub const FCG1_PERIPH_I2C1: u32 = 16;
+pub const FCG1_PERIPH_I2C2: u32 = 32;
+pub const FCG1_PERIPH_I2C3: u32 = 64;
+pub const FCG1_PERIPH_USBFS: u32 = 256;
+pub const FCG1_PERIPH_SDIOC1: u32 = 1024;
+pub const FCG1_PERIPH_SDIOC2: u32 = 2048;
+pub const FCG1_PERIPH_I2S1: u32 = 4096;
+pub const FCG1_PERIPH_I2S2: u32 = 8192;
+pub const FCG1_PERIPH_I2S3: u32 = 16384;
+pub const FCG1_PERIPH_I2S4: u32 = 32768;
+pub const FCG1_PERIPH_SPI1: u32 = 65536;
+pub const FCG1_PERIPH_SPI2: u32 = 131072;
+pub const FCG1_PERIPH_SPI3: u32 = 262144;
+pub const FCG1_PERIPH_SPI4: u32 = 524288;
+pub const FCG1_PERIPH_USART1: u32 = 16777216;
+pub const FCG1_PERIPH_USART2: u32 = 33554432;
+pub const FCG1_PERIPH_USART3: u32 = 67108864;
+pub const FCG1_PERIPH_USART4: u32 = 134217728;
+pub const FCG2_PERIPH_TMR0_1: u32 = 1;
+pub const FCG2_PERIPH_TMR0_2: u32 = 2;
+pub const FCG2_PERIPH_TMRA_1: u32 = 4;
+pub const FCG2_PERIPH_TMRA_2: u32 = 8;
+pub const FCG2_PERIPH_TMRA_3: u32 = 16;
+pub const FCG2_PERIPH_TMRA_4: u32 = 32;
+pub const FCG2_PERIPH_TMRA_5: u32 = 64;
+pub const FCG2_PERIPH_TMRA_6: u32 = 128;
+pub const FCG2_PERIPH_TMR4_1: u32 = 256;
+pub const FCG2_PERIPH_TMR4_2: u32 = 512;
+pub const FCG2_PERIPH_TMR4_3: u32 = 1024;
+pub const FCG2_PERIPH_EMB: u32 = 32768;
+pub const FCG2_PERIPH_TMR6_1: u32 = 65536;
+pub const FCG2_PERIPH_TMR6_2: u32 = 131072;
+pub const FCG2_PERIPH_TMR6_3: u32 = 262144;
+pub const FCG3_PERIPH_ADC1: u32 = 1;
+pub const FCG3_PERIPH_ADC2: u32 = 2;
+pub const FCG3_PERIPH_CMP: u32 = 256;
+pub const FCG3_PERIPH_OTS: u32 = 4096;
+pub const FCG_FCG0_PERIPH_MASK: u32 = 2415117585;
+pub const FCG_FCG1_PERIPH_MASK: u32 = 252706169;
+pub const FCG_FCG2_PERIPH_MASK: u32 = 493567;
+pub const FCG_FCG3_PERIPH_MASK: u32 = 4355;
+pub const FCM_TARGET_CLK_XTAL: u32 = 0;
+pub const FCM_TARGET_CLK_XTAL32: u32 = 16;
+pub const FCM_TARGET_CLK_HRC: u32 = 32;
+pub const FCM_TARGET_CLK_LRC: u32 = 48;
+pub const FCM_TARGET_CLK_SWDTLRC: u32 = 64;
+pub const FCM_TARGET_CLK_PCLK1: u32 = 80;
+pub const FCM_TARGET_CLK_UPLLP: u32 = 96;
+pub const FCM_TARGET_CLK_MRC: u32 = 112;
+pub const FCM_TARGET_CLK_MPLLP: u32 = 128;
+pub const FCM_TARGET_CLK_DIV1: u32 = 0;
+pub const FCM_TARGET_CLK_DIV4: u32 = 1;
+pub const FCM_TARGET_CLK_DIV8: u32 = 2;
+pub const FCM_TARGET_CLK_DIV32: u32 = 3;
+pub const FCM_EXT_REF_OFF: u32 = 0;
+pub const FCM_EXT_REF_ON: u32 = 32768;
+pub const FCM_REF_CLK_RISING: u32 = 0;
+pub const FCM_REF_CLK_FALLING: u32 = 4096;
+pub const FCM_REF_CLK_BOTH: u32 = 8192;
+pub const FCM_DIG_FILTER_OFF: u32 = 0;
+pub const FCM_DIG_FILTER_DIV1: u32 = 256;
+pub const FCM_DIG_FILTER_DIV4: u32 = 512;
+pub const FCM_DIG_FILTER_DIV16: u32 = 768;
+pub const FCM_REF_CLK_EXTCLK: u32 = 0;
+pub const FCM_REF_CLK_XTAL: u32 = 128;
+pub const FCM_REF_CLK_XTAL32: u32 = 136;
+pub const FCM_REF_CLK_HRC: u32 = 144;
+pub const FCM_REF_CLK_LRC: u32 = 152;
+pub const FCM_REF_CLK_SWDTLRC: u32 = 160;
+pub const FCM_REF_CLK_PCLK1: u32 = 168;
+pub const FCM_REF_CLK_UPLLP: u32 = 176;
+pub const FCM_REF_CLK_MRC: u32 = 184;
+pub const FCM_REF_CLK_MPLLP: u32 = 192;
+pub const FCM_REF_CLK_DIV32: u32 = 0;
+pub const FCM_REF_CLK_DIV128: u32 = 1;
+pub const FCM_REF_CLK_DIV1024: u32 = 2;
+pub const FCM_REF_CLK_DIV8192: u32 = 3;
+pub const FCM_ERR_RST_OFF: u32 = 0;
+pub const FCM_ERR_RST_ON: u32 = 128;
+pub const FCM_EXP_TYPE_INT: u32 = 0;
+pub const FCM_EXP_TYPE_RST: u32 = 16;
+pub const FCM_INT_OVF: u32 = 4;
+pub const FCM_INT_END: u32 = 2;
+pub const FCM_INT_ERR: u32 = 1;
+pub const FCM_FLAG_ERR: u32 = 1;
+pub const FCM_FLAG_END: u32 = 2;
+pub const FCM_FLAG_OVF: u32 = 4;
+pub const GPIO_PIN_00: u32 = 1;
+pub const GPIO_PIN_01: u32 = 2;
+pub const GPIO_PIN_02: u32 = 4;
+pub const GPIO_PIN_03: u32 = 8;
+pub const GPIO_PIN_04: u32 = 16;
+pub const GPIO_PIN_05: u32 = 32;
+pub const GPIO_PIN_06: u32 = 64;
+pub const GPIO_PIN_07: u32 = 128;
+pub const GPIO_PIN_08: u32 = 256;
+pub const GPIO_PIN_09: u32 = 512;
+pub const GPIO_PIN_10: u32 = 1024;
+pub const GPIO_PIN_11: u32 = 2048;
+pub const GPIO_PIN_12: u32 = 4096;
+pub const GPIO_PIN_13: u32 = 8192;
+pub const GPIO_PIN_14: u32 = 16384;
+pub const GPIO_PIN_15: u32 = 32768;
+pub const GPIO_PIN_ALL: u32 = 65535;
+pub const GPIO_PIN_A_ALL: u32 = 65535;
+pub const GPIO_PIN_B_ALL: u32 = 65535;
+pub const GPIO_PIN_C_ALL: u32 = 65535;
+pub const GPIO_PIN_D_ALL: u32 = 65535;
+pub const GPIO_PIN_E_ALL: u32 = 65535;
+pub const GPIO_PIN_H_ALL: u32 = 7;
+pub const GPIO_PORT_A: u32 = 0;
+pub const GPIO_PORT_B: u32 = 1;
+pub const GPIO_PORT_C: u32 = 2;
+pub const GPIO_PORT_D: u32 = 3;
+pub const GPIO_PORT_E: u32 = 4;
+pub const GPIO_PORT_H: u32 = 5;
+pub const GPIO_FUNC_0: u32 = 0;
+pub const GPIO_FUNC_1: u32 = 1;
+pub const GPIO_FUNC_2: u32 = 2;
+pub const GPIO_FUNC_3: u32 = 3;
+pub const GPIO_FUNC_4: u32 = 4;
+pub const GPIO_FUNC_5: u32 = 5;
+pub const GPIO_FUNC_6: u32 = 6;
+pub const GPIO_FUNC_7: u32 = 7;
+pub const GPIO_FUNC_8: u32 = 8;
+pub const GPIO_FUNC_9: u32 = 9;
+pub const GPIO_FUNC_10: u32 = 10;
+pub const GPIO_FUNC_11: u32 = 11;
+pub const GPIO_FUNC_12: u32 = 12;
+pub const GPIO_FUNC_13: u32 = 13;
+pub const GPIO_FUNC_14: u32 = 14;
+pub const GPIO_FUNC_15: u32 = 15;
+pub const GPIO_FUNC_32: u32 = 32;
+pub const GPIO_FUNC_33: u32 = 33;
+pub const GPIO_FUNC_34: u32 = 34;
+pub const GPIO_FUNC_35: u32 = 35;
+pub const GPIO_FUNC_36: u32 = 36;
+pub const GPIO_FUNC_37: u32 = 37;
+pub const GPIO_FUNC_38: u32 = 38;
+pub const GPIO_FUNC_39: u32 = 39;
+pub const GPIO_FUNC_40: u32 = 40;
+pub const GPIO_FUNC_41: u32 = 41;
+pub const GPIO_FUNC_42: u32 = 42;
+pub const GPIO_FUNC_43: u32 = 43;
+pub const GPIO_FUNC_44: u32 = 44;
+pub const GPIO_FUNC_45: u32 = 45;
+pub const GPIO_FUNC_46: u32 = 46;
+pub const GPIO_FUNC_47: u32 = 47;
+pub const GPIO_FUNC_48: u32 = 48;
+pub const GPIO_FUNC_49: u32 = 49;
+pub const GPIO_FUNC_50: u32 = 50;
+pub const GPIO_FUNC_51: u32 = 51;
+pub const GPIO_FUNC_52: u32 = 52;
+pub const GPIO_FUNC_53: u32 = 53;
+pub const GPIO_FUNC_54: u32 = 54;
+pub const GPIO_FUNC_55: u32 = 55;
+pub const GPIO_FUNC_56: u32 = 56;
+pub const GPIO_FUNC_57: u32 = 57;
+pub const GPIO_FUNC_58: u32 = 58;
+pub const GPIO_FUNC_59: u32 = 59;
+pub const GPIO_PIN_TCK: u32 = 1;
+pub const GPIO_PIN_TMS: u32 = 2;
+pub const GPIO_PIN_TDO: u32 = 4;
+pub const GPIO_PIN_TDI: u32 = 8;
+pub const GPIO_PIN_TRST: u32 = 16;
+pub const GPIO_PIN_DEBUG_JTAG: u32 = 31;
+pub const GPIO_PIN_SWCLK: u32 = 1;
+pub const GPIO_PIN_SWDIO: u32 = 2;
+pub const GPIO_PIN_SWO: u32 = 4;
+pub const GPIO_PIN_DEBUG_SWD: u32 = 7;
+pub const GPIO_PIN_DEBUG: u32 = 31;
+pub const GPIO_RD_WAIT0: u32 = 0;
+pub const GPIO_RD_WAIT1: u32 = 16384;
+pub const GPIO_RD_WAIT2: u32 = 32768;
+pub const GPIO_RD_WAIT3: u32 = 49152;
+pub const PIN_STAT_RST: u32 = 0;
+pub const PIN_STAT_SET: u32 = 1;
+pub const PIN_DIR_IN: u32 = 0;
+pub const PIN_DIR_OUT: u32 = 2;
+pub const PIN_OUT_TYPE_CMOS: u32 = 0;
+pub const PIN_OUT_TYPE_NMOS: u32 = 4;
+pub const PIN_LOW_DRV: u32 = 0;
+pub const PIN_MID_DRV: u32 = 16;
+pub const PIN_HIGH_DRV: u32 = 32;
+pub const PIN_LATCH_OFF: u32 = 0;
+pub const PIN_LATCH_ON: u32 = 16384;
+pub const PIN_PU_OFF: u32 = 0;
+pub const PIN_PU_ON: u32 = 64;
+pub const PIN_INVT_OFF: u32 = 0;
+pub const PIN_INVT_ON: u32 = 512;
+pub const PIN_EXTINT_OFF: u32 = 0;
+pub const PIN_EXTINT_ON: u32 = 4096;
+pub const PIN_ATTR_DIGITAL: u32 = 0;
+pub const PIN_ATTR_ANALOG: u32 = 32768;
+pub const PIN_SUBFUNC_DISABLE: u32 = 0;
+pub const PIN_SUBFUNC_ENABLE: u32 = 256;
+pub const GPIO_REG_LOCK_KEY: u32 = 42240;
+pub const GPIO_REG_UNLOCK_KEY: u32 = 42241;
+pub const I2C_WIDTH_MAX_IMME: u32 = 68;
+pub const I2C_DIR_TX: u32 = 0;
+pub const I2C_DIR_RX: u32 = 1;
+pub const I2C_ADDR_DISABLE: u32 = 0;
+pub const I2C_ADDR_7BIT: u32 = 4096;
+pub const I2C_ADDR_10BIT: u32 = 36864;
+pub const I2C_CLK_DIV1: u32 = 0;
+pub const I2C_CLK_DIV2: u32 = 1;
+pub const I2C_CLK_DIV4: u32 = 2;
+pub const I2C_CLK_DIV8: u32 = 3;
+pub const I2C_CLK_DIV16: u32 = 4;
+pub const I2C_CLK_DIV32: u32 = 5;
+pub const I2C_CLK_DIV64: u32 = 6;
+pub const I2C_CLK_DIV128: u32 = 7;
+pub const I2C_ADDR0: u32 = 0;
+pub const I2C_ADDR1: u32 = 1;
+pub const I2C_ACK: u32 = 0;
+pub const I2C_NACK: u32 = 1024;
+pub const I2C_SMBUS_MATCH_ALERT: u32 = 4;
+pub const I2C_SMBUS_MATCH_DEFAULT: u32 = 8;
+pub const I2C_SMBUS_MATCH_HOST: u32 = 16;
+pub const I2C_SMBUS_MATCH_ALL: u32 = 28;
+pub const I2C_DIG_FILTER_CLK_DIV1: u32 = 0;
+pub const I2C_DIG_FILTER_CLK_DIV2: u32 = 1;
+pub const I2C_DIG_FILTER_CLK_DIV3: u32 = 2;
+pub const I2C_DIG_FILTER_CLK_DIV4: u32 = 3;
+pub const I2C_FLAG_START: u32 = 1;
+pub const I2C_FLAG_MATCH_ADDR0: u32 = 2;
+pub const I2C_FLAG_MATCH_ADDR1: u32 = 4;
+pub const I2C_FLAG_TX_CPLT: u32 = 8;
+pub const I2C_FLAG_STOP: u32 = 16;
+pub const I2C_FLAG_RX_FULL: u32 = 64;
+pub const I2C_FLAG_TX_EMPTY: u32 = 128;
+pub const I2C_FLAG_ARBITRATE_FAIL: u32 = 512;
+pub const I2C_FLAG_ACKR: u32 = 1024;
+pub const I2C_FLAG_NACKF: u32 = 4096;
+pub const I2C_FLAG_TMOUTF: u32 = 16384;
+pub const I2C_FLAG_MASTER: u32 = 65536;
+pub const I2C_FLAG_BUSY: u32 = 131072;
+pub const I2C_FLAG_TRA: u32 = 262144;
+pub const I2C_FLAG_GENERAL_CALL: u32 = 1048576;
+pub const I2C_FLAG_SMBUS_DEFAULT_MATCH: u32 = 2097152;
+pub const I2C_FLAG_SMBUS_HOST_MATCH: u32 = 4194304;
+pub const I2C_FLAG_SMBUS_ALERT_MATCH: u32 = 8388608;
+pub const I2C_FLAG_ALL: u32 = 16209631;
+pub const I2C_FLAG_CLR_START: u32 = 1;
+pub const I2C_FLAG_CLR_MATCH_ADDR0: u32 = 2;
+pub const I2C_FLAG_CLR_MATCH_ADDR1: u32 = 4;
+pub const I2C_FLAG_CLR_TX_CPLT: u32 = 8;
+pub const I2C_FLAG_CLR_STOP: u32 = 16;
+pub const I2C_FLAG_CLR_RX_FULL: u32 = 64;
+pub const I2C_FLAG_CLR_ARBITRATE_FAIL: u32 = 512;
+pub const I2C_FLAG_CLR_NACK: u32 = 4096;
+pub const I2C_FLAG_CLR_TMOUTF: u32 = 16384;
+pub const I2C_FLAG_CLR_GENERAL_CALL: u32 = 1048576;
+pub const I2C_FLAG_CLR_SMBUS_DEFAULT_MATCH: u32 = 2097152;
+pub const I2C_FLAG_CLR_SMBUS_HOST_MATCH: u32 = 4194304;
+pub const I2C_FLAG_CLR_SMBUS_ALERT_MATCH: u32 = 8388608;
+pub const I2C_FLAG_CLR_ALL: u32 = 15749727;
+pub const I2C_INT_START: u32 = 1;
+pub const I2C_INT_MATCH_ADDR0: u32 = 2;
+pub const I2C_INT_MATCH_ADDR1: u32 = 4;
+pub const I2C_INT_TX_CPLT: u32 = 8;
+pub const I2C_INT_STOP: u32 = 16;
+pub const I2C_INT_RX_FULL: u32 = 64;
+pub const I2C_INT_TX_EMPTY: u32 = 128;
+pub const I2C_INT_ARBITRATE_FAIL: u32 = 512;
+pub const I2C_INT_NACK: u32 = 4096;
+pub const I2C_INT_TMOUTIE: u32 = 16384;
+pub const I2C_INT_GENERAL_CALL: u32 = 1048576;
+pub const I2C_INT_SMBUS_DEFAULT_MATCH: u32 = 2097152;
+pub const I2C_INT_SMBUS_HOST_MATCH: u32 = 4194304;
+pub const I2C_INT_SMBUS_ALERT_MATCH: u32 = 8388608;
+pub const I2C_INT_ALL: u32 = 15749855;
+pub const I2S_EXT_CLK_FREQ: u32 = 12288000;
+pub const I2S_CLK_SRC_PLL: u32 = 262144;
+pub const I2S_CLK_SRC_EXT: u32 = 8388608;
+pub const I2S_MD_MASTER: u32 = 0;
+pub const I2S_MD_SLAVE: u32 = 32;
+pub const I2S_PROTOCOL_PHILLIPS: u32 = 0;
+pub const I2S_PROTOCOL_MSB: u32 = 1;
+pub const I2S_PROTOCOL_LSB: u32 = 2;
+pub const I2S_PROTOCOL_PCM_SHORT: u32 = 3;
+pub const I2S_PROTOCOL_PCM_LONG: u32 = 35;
+pub const I2S_TRANS_MD_HALF_DUPLEX_RX: u32 = 0;
+pub const I2S_TRANS_MD_HALF_DUPLEX_TX: u32 = 524288;
+pub const I2S_TRANS_MD_FULL_DUPLEX: u32 = 4718592;
+pub const I2S_AUDIO_FREQ_192K: u32 = 192000;
+pub const I2S_AUDIO_FREQ_96K: u32 = 96000;
+pub const I2S_AUDIO_FREQ_48K: u32 = 48000;
+pub const I2S_AUDIO_FREQ_44K: u32 = 44100;
+pub const I2S_AUDIO_FREQ_32K: u32 = 32000;
+pub const I2S_AUDIO_FREQ_22K: u32 = 22050;
+pub const I2S_AUDIO_FREQ_16K: u32 = 16000;
+pub const I2S_AUDIO_FREQ_8K: u32 = 8000;
+pub const I2S_AUDIO_FREQ_DEFAULT: u32 = 2;
+pub const I2S_CH_LEN_16BIT: u32 = 0;
+pub const I2S_CH_LEN_32BIT: u32 = 16;
+pub const I2S_DATA_LEN_16BIT: u32 = 0;
+pub const I2S_DATA_LEN_24BIT: u32 = 4;
+pub const I2S_DATA_LEN_32BIT: u32 = 8;
+pub const I2S_MCK_OUTPUT_DISABLE: u32 = 0;
+pub const I2S_MCK_OUTPUT_ENABLE: u32 = 128;
+pub const I2S_TRANS_LVL0: u32 = 0;
+pub const I2S_TRANS_LVL1: u32 = 256;
+pub const I2S_TRANS_LVL2: u32 = 512;
+pub const I2S_RECEIVE_LVL0: u32 = 0;
+pub const I2S_RECEIVE_LVL1: u32 = 4096;
+pub const I2S_RECEIVE_LVL2: u32 = 8192;
+pub const I2S_FUNC_TX: u32 = 1;
+pub const I2S_FUNC_RX: u32 = 4;
+pub const I2S_FUNC_ALL: u32 = 5;
+pub const I2S_RST_TYPE_FIFO: u32 = 65536;
+pub const I2S_RST_TYPE_ALL: u32 = 65536;
+pub const I2S_INT_TX: u32 = 2;
+pub const I2S_INT_RX: u32 = 8;
+pub const I2S_INT_ERR: u32 = 16;
+pub const I2S_INT_ALL: u32 = 26;
+pub const I2S_FLAG_TX_ALARM: u32 = 1;
+pub const I2S_FLAG_RX_ALARM: u32 = 2;
+pub const I2S_FLAG_TX_EMPTY: u32 = 4;
+pub const I2S_FLAG_TX_FULL: u32 = 8;
+pub const I2S_FLAG_RX_EMPTY: u32 = 16;
+pub const I2S_FLAG_RX_FULL: u32 = 32;
+pub const I2S_FLAG_TX_ERR: u32 = 65536;
+pub const I2S_FLAG_RX_ERR: u32 = 131072;
+pub const I2S_FLAG_ALL: u32 = 196671;
+pub const I2S_FLAG_CLR_ALL: u32 = 196608;
+pub const ICG_SWDT_RST_START: u32 = 0;
+pub const ICG_SWDT_RST_STOP: u32 = 1;
+pub const ICG_SWDT_EXP_TYPE_INT: u32 = 0;
+pub const ICG_SWDT_EXP_TYPE_RST: u32 = 2;
+pub const ICG_SWDT_CNT_PERIOD256: u32 = 0;
+pub const ICG_SWDT_CNT_PERIOD4096: u32 = 4;
+pub const ICG_SWDT_CNT_PERIOD16384: u32 = 8;
+pub const ICG_SWDT_CNT_PERIOD65536: u32 = 12;
+pub const ICG_SWDT_CLK_DIV1: u32 = 0;
+pub const ICG_SWDT_CLK_DIV16: u32 = 64;
+pub const ICG_SWDT_CLK_DIV32: u32 = 80;
+pub const ICG_SWDT_CLK_DIV64: u32 = 96;
+pub const ICG_SWDT_CLK_DIV128: u32 = 112;
+pub const ICG_SWDT_CLK_DIV256: u32 = 128;
+pub const ICG_SWDT_CLK_DIV2048: u32 = 176;
+pub const ICG_SWDT_RANGE_0TO25PCT: u32 = 256;
+pub const ICG_SWDT_RANGE_25TO50PCT: u32 = 512;
+pub const ICG_SWDT_RANGE_0TO50PCT: u32 = 768;
+pub const ICG_SWDT_RANGE_50TO75PCT: u32 = 1024;
+pub const ICG_SWDT_RANGE_0TO25PCT_50TO75PCT: u32 = 1280;
+pub const ICG_SWDT_RANGE_25TO75PCT: u32 = 1536;
+pub const ICG_SWDT_RANGE_0TO75PCT: u32 = 1792;
+pub const ICG_SWDT_RANGE_75TO100PCT: u32 = 2048;
+pub const ICG_SWDT_RANGE_0TO25PCT_75TO100PCT: u32 = 2304;
+pub const ICG_SWDT_RANGE_25TO50PCT_75TO100PCT: u32 = 2560;
+pub const ICG_SWDT_RANGE_0TO50PCT_75TO100PCT: u32 = 2816;
+pub const ICG_SWDT_RANGE_50TO100PCT: u32 = 3072;
+pub const ICG_SWDT_RANGE_0TO25PCT_50TO100PCT: u32 = 3328;
+pub const ICG_SWDT_RANGE_25TO100PCT: u32 = 3584;
+pub const ICG_SWDT_RANGE_0TO100PCT: u32 = 3840;
+pub const ICG_SWDT_LPM_CNT_CONT: u32 = 0;
+pub const ICG_SWDT_LPM_CNT_STOP: u32 = 4096;
+pub const ICG_WDT_RST_START: u32 = 0;
+pub const ICG_WDT_RST_STOP: u32 = 65536;
+pub const ICG_WDT_EXP_TYPE_INT: u32 = 0;
+pub const ICG_WDT_EXP_TYPE_RST: u32 = 131072;
+pub const REDEF_ICG_WDTPERI_POS: u32 = 18;
+pub const ICG_WDT_CNT_PERIOD256: u32 = 0;
+pub const ICG_WDT_CNT_PERIOD4096: u32 = 262144;
+pub const ICG_WDT_CNT_PERIOD16384: u32 = 524288;
+pub const ICG_WDT_CNT_PERIOD65536: u32 = 786432;
+pub const REDEF_ICG_WDTCKS_POS: u32 = 20;
+pub const ICG_WDT_CLK_DIV4: u32 = 2097152;
+pub const ICG_WDT_CLK_DIV64: u32 = 6291456;
+pub const ICG_WDT_CLK_DIV128: u32 = 7340032;
+pub const ICG_WDT_CLK_DIV256: u32 = 8388608;
+pub const ICG_WDT_CLK_DIV512: u32 = 9437184;
+pub const ICG_WDT_CLK_DIV1024: u32 = 10485760;
+pub const ICG_WDT_CLK_DIV2048: u32 = 11534336;
+pub const ICG_WDT_CLK_DIV8192: u32 = 13631488;
+pub const REDEF_ICG_WDTWDPT_POS: u32 = 24;
+pub const ICG_WDT_RANGE_0TO25PCT: u32 = 16777216;
+pub const ICG_WDT_RANGE_25TO50PCT: u32 = 33554432;
+pub const ICG_WDT_RANGE_0TO50PCT: u32 = 50331648;
+pub const ICG_WDT_RANGE_50TO75PCT: u32 = 67108864;
+pub const ICG_WDT_RANGE_0TO25PCT_50TO75PCT: u32 = 83886080;
+pub const ICG_WDT_RANGE_25TO75PCT: u32 = 100663296;
+pub const ICG_WDT_RANGE_0TO75PCT: u32 = 117440512;
+pub const ICG_WDT_RANGE_75TO100PCT: u32 = 134217728;
+pub const ICG_WDT_RANGE_0TO25PCT_75TO100PCT: u32 = 150994944;
+pub const ICG_WDT_RANGE_25TO50PCT_75TO100PCT: u32 = 167772160;
+pub const ICG_WDT_RANGE_0TO50PCT_75TO100PCT: u32 = 184549376;
+pub const ICG_WDT_RANGE_50TO100PCT: u32 = 201326592;
+pub const ICG_WDT_RANGE_0TO25PCT_50TO100PCT: u32 = 218103808;
+pub const ICG_WDT_RANGE_25TO100PCT: u32 = 234881024;
+pub const ICG_WDT_RANGE_0TO100PCT: u32 = 251658240;
+pub const ICG_WDT_LPM_CNT_CONT: u32 = 0;
+pub const ICG_WDT_LPM_CNT_STOP: u32 = 268435456;
+pub const REDEF_ICG_NMIFCLK_POS: u32 = 26;
+pub const ICG_NMI_PIN_FILTER_CLK_DIV1: u32 = 0;
+pub const ICG_NMI_PIN_FILTER_CLK_DIV8: u32 = 67108864;
+pub const ICG_NMI_PIN_FILTER_CLK_DIV32: u32 = 134217728;
+pub const ICG_NMI_PIN_FILTER_CLK_DIV64: u32 = 201326592;
+pub const ICG_NMI_PIN_FILTER_DISABLE: u32 = 0;
+pub const ICG_NMI_PIN_FILTER_ENABLE: u32 = 1073741824;
+pub const ICG_NMI_PIN_TRIG_EDGE_FALLING: u32 = 0;
+pub const ICG_NMI_PIN_TRIG_EDGE_RISING: u32 = 268435456;
+pub const ICG_NMI_PIN_INT_DISABLE: u32 = 0;
+pub const ICG_NMI_PIN_INT_ENABLE: u32 = 536870912;
+pub const ICG_NMI_PIN_RST_ENABLE: u32 = 0;
+pub const ICG_NMI_PIN_RST_DISABLE: u32 = 2147483648;
+pub const ICG_BOR_VOL_THRESHOLD_LVL0: u32 = 0;
+pub const ICG_BOR_VOL_THRESHOLD_LVL1: u32 = 65536;
+pub const ICG_BOR_VOL_THRESHOLD_LVL2: u32 = 131072;
+pub const ICG_BOR_VOL_THRESHOLD_LVL3: u32 = 196608;
+pub const ICG_BOR_RST_ENABLE: u32 = 0;
+pub const ICG_BOR_RST_DISABLE: u32 = 262144;
+pub const ICG_HRC_20M: u32 = 0;
+pub const ICG_HRC_16M: u32 = 1;
+pub const ICG_HRC_RST_OSCILLATION: u32 = 0;
+pub const ICG_HRC_RST_STOP: u32 = 256;
+pub const ICG_RB_SWDT_AUTS: u32 = 1;
+pub const ICG_RB_SWDT_ITS: u32 = 2;
+pub const ICG_RB_SWDT_PERI: u32 = 12;
+pub const ICG_RB_SWDT_CKS: u32 = 176;
+pub const ICG_RB_SWDT_WDPT: u32 = 3840;
+pub const ICG_RB_SWDT_SLTPOFF: u32 = 4096;
+pub const ICG_REG_SWDT_CONFIG: u32 = 8127;
+pub const ICG_RB_WDT_AUTS: u32 = 65536;
+pub const ICG_RB_WDT_ITS: u32 = 131072;
+pub const ICG_RB_WDT_PERI: u32 = 786432;
+pub const ICG_RB_WDT_CKS: u32 = 13631488;
+pub const ICG_RB_WDT_WDPT: u32 = 251658240;
+pub const ICG_RB_WDT_SLTPOFF: u32 = 268435456;
+pub const ICG_REG_WDT_CONFIG: u32 = 534708224;
+pub const ICG_RB_NMI_FCLK: u32 = 201326592;
+pub const ICG_RB_NMI_FEN: u32 = 1073741824;
+pub const ICG_RB_NMI_TRG: u32 = 268435456;
+pub const ICG_RB_NMI_EN: u32 = 536870912;
+pub const ICG_RB_NMI_ICGEN: u32 = 2147483648;
+pub const ICG_REG_NMI_CONFIG: u32 = 4227858432;
+pub const ICG_RB_BOR_LEV: u32 = 196608;
+pub const ICG_RB_BOR_DIS: u32 = 262144;
+pub const ICG_REG_BOR_CONFIG: u32 = 458752;
+pub const ICG_RB_HRC_FREQSEL: u32 = 1;
+pub const ICG_RB_HRC_STOP: u32 = 0;
+pub const ICG_REG_HRC_CONFIG: u32 = 1;
+pub const ICG_REG_CFG0_CONST: u32 = 4292870079;
+pub const ICG_REG_CFG1_CONST: u32 = 4294967039;
+pub const ICG_REG_RESV_CONST: u32 = 4294967295;
+pub const DDL_IRQ_PRIO_00: u32 = 0;
+pub const DDL_IRQ_PRIO_01: u32 = 1;
+pub const DDL_IRQ_PRIO_02: u32 = 2;
+pub const DDL_IRQ_PRIO_03: u32 = 3;
+pub const DDL_IRQ_PRIO_04: u32 = 4;
+pub const DDL_IRQ_PRIO_05: u32 = 5;
+pub const DDL_IRQ_PRIO_06: u32 = 6;
+pub const DDL_IRQ_PRIO_07: u32 = 7;
+pub const DDL_IRQ_PRIO_08: u32 = 8;
+pub const DDL_IRQ_PRIO_09: u32 = 9;
+pub const DDL_IRQ_PRIO_10: u32 = 10;
+pub const DDL_IRQ_PRIO_11: u32 = 11;
+pub const DDL_IRQ_PRIO_12: u32 = 12;
+pub const DDL_IRQ_PRIO_13: u32 = 13;
+pub const DDL_IRQ_PRIO_14: u32 = 14;
+pub const DDL_IRQ_PRIO_15: u32 = 15;
+pub const DDL_IRQ_PRIO_DEFAULT: u32 = 15;
+pub const NMI_SRC_PIN: u32 = 1;
+pub const NMI_SRC_SWDT: u32 = 2;
+pub const NMI_SRC_LVD1: u32 = 4;
+pub const NMI_SRC_LVD2: u32 = 8;
+pub const NMI_SRC_XTAL: u32 = 32;
+pub const NMI_SRC_SRAM_PARITY: u32 = 256;
+pub const NMI_SRC_SRAM_ECC: u32 = 512;
+pub const NMI_SRC_BUS_ERR: u32 = 1024;
+pub const NMI_SRC_WDT: u32 = 2048;
+pub const NMI_SRC_ALL: u32 = 3887;
+pub const NMI_TRIG_FALLING: u32 = 0;
+pub const NMI_TRIG_RISING: u32 = 1;
+pub const NMI_FILTER_OFF: u32 = 0;
+pub const NMI_FILTER_ON: u32 = 128;
+pub const NMI_FCLK_DIV1: u32 = 0;
+pub const NMI_FCLK_DIV8: u32 = 16;
+pub const NMI_FCLK_DIV32: u32 = 32;
+pub const NMI_FCLK_DIV64: u32 = 48;
+pub const EXTINT_CH00: u32 = 1;
+pub const EXTINT_CH01: u32 = 2;
+pub const EXTINT_CH02: u32 = 4;
+pub const EXTINT_CH03: u32 = 8;
+pub const EXTINT_CH04: u32 = 16;
+pub const EXTINT_CH05: u32 = 32;
+pub const EXTINT_CH06: u32 = 64;
+pub const EXTINT_CH07: u32 = 128;
+pub const EXTINT_CH08: u32 = 256;
+pub const EXTINT_CH09: u32 = 512;
+pub const EXTINT_CH10: u32 = 1024;
+pub const EXTINT_CH11: u32 = 2048;
+pub const EXTINT_CH12: u32 = 4096;
+pub const EXTINT_CH13: u32 = 8192;
+pub const EXTINT_CH14: u32 = 16384;
+pub const EXTINT_CH15: u32 = 32768;
+pub const EXTINT_CH_ALL: u32 = 65535;
+pub const INTC_INT0: u32 = 1;
+pub const INTC_INT1: u32 = 2;
+pub const INTC_INT2: u32 = 4;
+pub const INTC_INT3: u32 = 8;
+pub const INTC_INT4: u32 = 16;
+pub const INTC_INT5: u32 = 32;
+pub const INTC_INT6: u32 = 64;
+pub const INTC_INT7: u32 = 128;
+pub const INTC_INT8: u32 = 256;
+pub const INTC_INT9: u32 = 512;
+pub const INTC_INT10: u32 = 1024;
+pub const INTC_INT11: u32 = 2048;
+pub const INTC_INT12: u32 = 4096;
+pub const INTC_INT13: u32 = 8192;
+pub const INTC_INT14: u32 = 16384;
+pub const INTC_INT15: u32 = 32768;
+pub const INTC_INT16: u32 = 65536;
+pub const INTC_INT17: u32 = 131072;
+pub const INTC_INT18: u32 = 262144;
+pub const INTC_INT19: u32 = 524288;
+pub const INTC_INT20: u32 = 1048576;
+pub const INTC_INT21: u32 = 2097152;
+pub const INTC_INT22: u32 = 4194304;
+pub const INTC_INT23: u32 = 8388608;
+pub const INTC_INT24: u32 = 16777216;
+pub const INTC_INT25: u32 = 33554432;
+pub const INTC_INT26: u32 = 67108864;
+pub const INTC_INT27: u32 = 134217728;
+pub const INTC_INT28: u32 = 268435456;
+pub const INTC_INT29: u32 = 536870912;
+pub const INTC_INT30: u32 = 1073741824;
+pub const INTC_INT31: u32 = 2147483648;
+pub const INTC_INT_ALL: u32 = 4294967295;
+pub const INTC_EVT0: u32 = 1;
+pub const INTC_EVT1: u32 = 2;
+pub const INTC_EVT2: u32 = 4;
+pub const INTC_EVT3: u32 = 8;
+pub const INTC_EVT4: u32 = 16;
+pub const INTC_EVT5: u32 = 32;
+pub const INTC_EVT6: u32 = 64;
+pub const INTC_EVT7: u32 = 128;
+pub const INTC_EVT8: u32 = 256;
+pub const INTC_EVT9: u32 = 512;
+pub const INTC_EVT10: u32 = 1024;
+pub const INTC_EVT11: u32 = 2048;
+pub const INTC_EVT12: u32 = 4096;
+pub const INTC_EVT13: u32 = 8192;
+pub const INTC_EVT14: u32 = 16384;
+pub const INTC_EVT15: u32 = 32768;
+pub const INTC_EVT16: u32 = 65536;
+pub const INTC_EVT17: u32 = 131072;
+pub const INTC_EVT18: u32 = 262144;
+pub const INTC_EVT19: u32 = 524288;
+pub const INTC_EVT20: u32 = 1048576;
+pub const INTC_EVT21: u32 = 2097152;
+pub const INTC_EVT22: u32 = 4194304;
+pub const INTC_EVT23: u32 = 8388608;
+pub const INTC_EVT24: u32 = 16777216;
+pub const INTC_EVT25: u32 = 33554432;
+pub const INTC_EVT26: u32 = 67108864;
+pub const INTC_EVT27: u32 = 134217728;
+pub const INTC_EVT28: u32 = 268435456;
+pub const INTC_EVT29: u32 = 536870912;
+pub const INTC_EVT30: u32 = 1073741824;
+pub const INTC_EVT31: u32 = 2147483648;
+pub const INTC_EVT_ALL: u32 = 4294967295;
+pub const SWINT_CH00: u32 = 1;
+pub const SWINT_CH01: u32 = 2;
+pub const SWINT_CH02: u32 = 4;
+pub const SWINT_CH03: u32 = 8;
+pub const SWINT_CH04: u32 = 16;
+pub const SWINT_CH05: u32 = 32;
+pub const SWINT_CH06: u32 = 64;
+pub const SWINT_CH07: u32 = 128;
+pub const SWINT_CH08: u32 = 256;
+pub const SWINT_CH09: u32 = 512;
+pub const SWINT_CH10: u32 = 1024;
+pub const SWINT_CH11: u32 = 2048;
+pub const SWINT_CH12: u32 = 4096;
+pub const SWINT_CH13: u32 = 8192;
+pub const SWINT_CH14: u32 = 16384;
+pub const SWINT_CH15: u32 = 32768;
+pub const SWINT_CH16: u32 = 65536;
+pub const SWINT_CH17: u32 = 131072;
+pub const SWINT_CH18: u32 = 262144;
+pub const SWINT_CH19: u32 = 524288;
+pub const SWINT_CH20: u32 = 1048576;
+pub const SWINT_CH21: u32 = 2097152;
+pub const SWINT_CH22: u32 = 4194304;
+pub const SWINT_CH23: u32 = 8388608;
+pub const SWINT_CH24: u32 = 16777216;
+pub const SWINT_CH25: u32 = 33554432;
+pub const SWINT_CH26: u32 = 67108864;
+pub const SWINT_CH27: u32 = 134217728;
+pub const SWINT_CH28: u32 = 268435456;
+pub const SWINT_CH29: u32 = 536870912;
+pub const SWINT_CH30: u32 = 1073741824;
+pub const SWINT_CH31: u32 = 2147483648;
+pub const SWINT_ALL: u32 = 4294967295;
+pub const EXTINT_FILTER_OFF: u32 = 0;
+pub const EXTINT_FILTER_ON: u32 = 128;
+pub const EXTINT_FCLK_DIV1: u32 = 0;
+pub const EXTINT_FCLK_DIV8: u32 = 16;
+pub const EXTINT_FCLK_DIV32: u32 = 32;
+pub const EXTINT_FCLK_DIV64: u32 = 48;
+pub const EXTINT_TRIG_FALLING: u32 = 0;
+pub const EXTINT_TRIG_RISING: u32 = 1;
+pub const EXTINT_TRIG_BOTH: u32 = 2;
+pub const EXTINT_TRIG_LOW: u32 = 3;
+pub const INTC_STOP_WKUP_EXTINT_CH0: u32 = 1;
+pub const INTC_STOP_WKUP_EXTINT_CH1: u32 = 2;
+pub const INTC_STOP_WKUP_EXTINT_CH2: u32 = 4;
+pub const INTC_STOP_WKUP_EXTINT_CH3: u32 = 8;
+pub const INTC_STOP_WKUP_EXTINT_CH4: u32 = 16;
+pub const INTC_STOP_WKUP_EXTINT_CH5: u32 = 32;
+pub const INTC_STOP_WKUP_EXTINT_CH6: u32 = 64;
+pub const INTC_STOP_WKUP_EXTINT_CH7: u32 = 128;
+pub const INTC_STOP_WKUP_EXTINT_CH8: u32 = 256;
+pub const INTC_STOP_WKUP_EXTINT_CH9: u32 = 512;
+pub const INTC_STOP_WKUP_EXTINT_CH10: u32 = 1024;
+pub const INTC_STOP_WKUP_EXTINT_CH11: u32 = 2048;
+pub const INTC_STOP_WKUP_EXTINT_CH12: u32 = 4096;
+pub const INTC_STOP_WKUP_EXTINT_CH13: u32 = 8192;
+pub const INTC_STOP_WKUP_EXTINT_CH14: u32 = 16384;
+pub const INTC_STOP_WKUP_EXTINT_CH15: u32 = 32768;
+pub const INTC_STOP_WKUP_SWDT: u32 = 65536;
+pub const INTC_STOP_WKUP_LVD1: u32 = 131072;
+pub const INTC_STOP_WKUP_LVD2: u32 = 262144;
+pub const INTC_STOP_WKUP_CMP: u32 = 524288;
+pub const INTC_STOP_WKUP_WKTM: u32 = 1048576;
+pub const INTC_STOP_WKUP_RTC_ALM: u32 = 2097152;
+pub const INTC_STOP_WKUP_RTC_PRD: u32 = 4194304;
+pub const INTC_STOP_WKUP_TMR0_CMP: u32 = 8388608;
+pub const INTC_STOP_WKUP_USART1_RX: u32 = 33554432;
+pub const INTC_WUPEN_ALL: u32 = 50331647;
+pub const KEYSCAN_HIZ_CYCLE_4: u32 = 0;
+pub const KEYSCAN_HIZ_CYCLE_8: u32 = 536870912;
+pub const KEYSCAN_HIZ_CYCLE_16: u32 = 1073741824;
+pub const KEYSCAN_HIZ_CYCLE_32: u32 = 1610612736;
+pub const KEYSCAN_HIZ_CYCLE_64: u32 = 2147483648;
+pub const KEYSCAN_HIZ_CYCLE_256: u32 = 2684354560;
+pub const KEYSCAN_HIZ_CYCLE_512: u32 = 3221225472;
+pub const KEYSCAN_HIZ_CYCLE_1024: u32 = 3758096384;
+pub const KEYSCAN_LOW_CYCLE_4: u32 = 33554432;
+pub const KEYSCAN_LOW_CYCLE_8: u32 = 50331648;
+pub const KEYSCAN_LOW_CYCLE_16: u32 = 67108864;
+pub const KEYSCAN_LOW_CYCLE_32: u32 = 83886080;
+pub const KEYSCAN_LOW_CYCLE_64: u32 = 100663296;
+pub const KEYSCAN_LOW_CYCLE_128: u32 = 117440512;
+pub const KEYSCAN_LOW_CYCLE_256: u32 = 134217728;
+pub const KEYSCAN_LOW_CYCLE_512: u32 = 150994944;
+pub const KEYSCAN_LOW_CYCLE_1K: u32 = 167772160;
+pub const KEYSCAN_LOW_CYCLE_2K: u32 = 184549376;
+pub const KEYSCAN_LOW_CYCLE_4K: u32 = 201326592;
+pub const KEYSCAN_LOW_CYCLE_8K: u32 = 218103808;
+pub const KEYSCAN_LOW_CYCLE_16K: u32 = 234881024;
+pub const KEYSCAN_LOW_CYCLE_32K: u32 = 251658240;
+pub const KEYSCAN_LOW_CYCLE_64K: u32 = 268435456;
+pub const KEYSCAN_LOW_CYCLE_128K: u32 = 285212672;
+pub const KEYSCAN_LOW_CYCLE_256K: u32 = 301989888;
+pub const KEYSCAN_LOW_CYCLE_512K: u32 = 318767104;
+pub const KEYSCAN_LOW_CYCLE_1M: u32 = 335544320;
+pub const KEYSCAN_LOW_CYCLE_2M: u32 = 352321536;
+pub const KEYSCAN_LOW_CYCLE_4M: u32 = 369098752;
+pub const KEYSCAN_LOW_CYCLE_8M: u32 = 385875968;
+pub const KEYSCAN_LOW_CYCLE_16M: u32 = 402653184;
+pub const KEYSCAN_CLK_HCLK: u32 = 0;
+pub const KEYSCAN_CLK_LRC: u32 = 1048576;
+pub const KEYSCAN_CLK_XTAL32: u32 = 2097152;
+pub const KEYSCAN_OUT_0T1: u32 = 65536;
+pub const KEYSCAN_OUT_0T2: u32 = 131072;
+pub const KEYSCAN_OUT_0T3: u32 = 196608;
+pub const KEYSCAN_OUT_0T4: u32 = 262144;
+pub const KEYSCAN_OUT_0T5: u32 = 327680;
+pub const KEYSCAN_OUT_0T6: u32 = 393216;
+pub const KEYSCAN_OUT_0T7: u32 = 458752;
+pub const KEYSCAN_IN_0: u32 = 1;
+pub const KEYSCAN_IN_1: u32 = 2;
+pub const KEYSCAN_IN_2: u32 = 4;
+pub const KEYSCAN_IN_3: u32 = 8;
+pub const KEYSCAN_IN_4: u32 = 16;
+pub const KEYSCAN_IN_5: u32 = 32;
+pub const KEYSCAN_IN_6: u32 = 64;
+pub const KEYSCAN_IN_7: u32 = 128;
+pub const KEYSCAN_IN_8: u32 = 256;
+pub const KEYSCAN_IN_9: u32 = 512;
+pub const KEYSCAN_IN_10: u32 = 1024;
+pub const KEYSCAN_IN_11: u32 = 2048;
+pub const KEYSCAN_IN_12: u32 = 4096;
+pub const KEYSCAN_IN_13: u32 = 8192;
+pub const KEYSCAN_IN_14: u32 = 16384;
+pub const KEYSCAN_IN_15: u32 = 32768;
+pub const KEYSCAN_IN_ALL: u32 = 65535;
+pub const MPU_UNIT_DMA2: u32 = 1;
+pub const MPU_UNIT_DMA1: u32 = 2;
+pub const MPU_UNIT_USBFS_DMA: u32 = 4;
+pub const MPU_UNIT_ALL: u32 = 7;
+pub const MPU_REGION_NUM0: u32 = 0;
+pub const MPU_REGION_NUM1: u32 = 1;
+pub const MPU_REGION_NUM2: u32 = 2;
+pub const MPU_REGION_NUM3: u32 = 3;
+pub const MPU_REGION_NUM4: u32 = 4;
+pub const MPU_REGION_NUM5: u32 = 5;
+pub const MPU_REGION_NUM6: u32 = 6;
+pub const MPU_REGION_NUM7: u32 = 7;
+pub const MPU_REGION_NUM8: u32 = 8;
+pub const MPU_REGION_NUM9: u32 = 9;
+pub const MPU_REGION_NUM10: u32 = 10;
+pub const MPU_REGION_NUM11: u32 = 11;
+pub const MPU_REGION_NUM12: u32 = 12;
+pub const MPU_REGION_NUM13: u32 = 13;
+pub const MPU_REGION_NUM14: u32 = 14;
+pub const MPU_REGION_NUM15: u32 = 15;
+pub const MPU_BACKGROUND_WR_DISABLE: u32 = 2;
+pub const MPU_BACKGROUND_WR_ENABLE: u32 = 0;
+pub const MPU_BACKGROUND_RD_DISABLE: u32 = 1;
+pub const MPU_BACKGROUND_RD_ENABLE: u32 = 0;
+pub const MPU_UNIT_DISABLE: u32 = 0;
+pub const MPU_EXP_TYPE_NONE: u32 = 0;
+pub const MPU_EXP_TYPE_BUS_ERR: u32 = 4;
+pub const MPU_EXP_TYPE_NMI: u32 = 8;
+pub const MPU_EXP_TYPE_RST: u32 = 12;
+pub const MPU_REGION_WR_DISABLE: u32 = 2;
+pub const MPU_REGION_WR_ENABLE: u32 = 0;
+pub const MPU_REGION_RD_DISABLE: u32 = 1;
+pub const MPU_REGION_RD_ENABLE: u32 = 0;
+pub const MPU_REGION_SIZE_32BYTE: u32 = 4;
+pub const MPU_REGION_SIZE_64BYTE: u32 = 5;
+pub const MPU_REGION_SIZE_128BYTE: u32 = 6;
+pub const MPU_REGION_SIZE_256BYTE: u32 = 7;
+pub const MPU_REGION_SIZE_512BYTE: u32 = 8;
+pub const MPU_REGION_SIZE_1KBYTE: u32 = 9;
+pub const MPU_REGION_SIZE_2KBYTE: u32 = 10;
+pub const MPU_REGION_SIZE_4KBYTE: u32 = 11;
+pub const MPU_REGION_SIZE_8KBYTE: u32 = 12;
+pub const MPU_REGION_SIZE_16KBYTE: u32 = 13;
+pub const MPU_REGION_SIZE_32KBYTE: u32 = 14;
+pub const MPU_REGION_SIZE_64KBYTE: u32 = 15;
+pub const MPU_REGION_SIZE_128KBYTE: u32 = 16;
+pub const MPU_REGION_SIZE_256KBYTE: u32 = 17;
+pub const MPU_REGION_SIZE_512KBYTE: u32 = 18;
+pub const MPU_REGION_SIZE_1MBYTE: u32 = 19;
+pub const MPU_REGION_SIZE_2MBYTE: u32 = 20;
+pub const MPU_REGION_SIZE_4MBYTE: u32 = 21;
+pub const MPU_REGION_SIZE_8MBYTE: u32 = 22;
+pub const MPU_REGION_SIZE_16MBYTE: u32 = 23;
+pub const MPU_REGION_SIZE_32MBYTE: u32 = 24;
+pub const MPU_REGION_SIZE_64MBYTE: u32 = 25;
+pub const MPU_REGION_SIZE_128MBYTE: u32 = 26;
+pub const MPU_REGION_SIZE_256MBYTE: u32 = 27;
+pub const MPU_REGION_SIZE_512MBYTE: u32 = 28;
+pub const MPU_REGION_SIZE_1GBYTE: u32 = 29;
+pub const MPU_REGION_SIZE_2GBYTE: u32 = 30;
+pub const MPU_REGION_SIZE_4GBYTE: u32 = 31;
+pub const MPU_FLAG_DMA1: u32 = 256;
+pub const MPU_FLAG_DMA2: u32 = 1;
+pub const MPU_FLAG_USBFS_DMA: u32 = 65536;
+pub const MPU_FLAG_ALL: u32 = 65793;
+pub const MPU_IP_AES: u32 = 1;
+pub const MPU_IP_HASH: u32 = 4;
+pub const MPU_IP_TRNG: u32 = 16;
+pub const MPU_IP_CRC: u32 = 64;
+pub const MPU_IP_EFM: u32 = 256;
+pub const MPU_IP_WDT: u32 = 4096;
+pub const MPU_IP_SWDT: u32 = 16384;
+pub const MPU_IP_BKSRAM: u32 = 65536;
+pub const MPU_IP_RTC: u32 = 262144;
+pub const MPU_IP_MPU: u32 = 1048576;
+pub const MPU_IP_SRAMC: u32 = 4194304;
+pub const MPU_IP_INTC: u32 = 16777216;
+pub const MPU_IP_RMU_CMU_PWC: u32 = 67108864;
+pub const MPU_IP_FCG: u32 = 268435456;
+pub const MPU_IP_ALL: u32 = 357912917;
+pub const MPU_IP_EXP_TYPE_NONE: u32 = 0;
+pub const MPU_IP_EXP_TYPE_BUS_ERR: u32 = 2147483648;
+pub const MPU_REG_LOCK_KEY: u32 = 38564;
+pub const MPU_REG_UNLOCK_KEY: u32 = 38565;
+pub const OTS_CLK_XTAL: u32 = 0;
+pub const OTS_CLK_HRC: u32 = 2;
+pub const OTS_AUTO_OFF_DISABLE: u32 = 0;
+pub const OTS_AUTO_OFF_ENABLE: u32 = 8;
+pub const OTS_PARAM_TEMP_COND_TN40: u32 = 0;
+pub const OTS_PARAM_TEMP_COND_T25: u32 = 1;
+pub const OTS_PARAM_TEMP_COND_T125: u32 = 2;
+pub const PWC_PD_MD1: u32 = 0;
+pub const PWC_PD_MD2: u32 = 1;
+pub const PWC_PD_MD3: u32 = 2;
+pub const PWC_PD_MD4: u32 = 3;
+pub const PWC_PD_IO_KEEP1: u32 = 0;
+pub const PWC_PD_IO_KEEP2: u32 = 16;
+pub const PWC_PD_IO_HIZ: u32 = 32;
+pub const PWC_PD_VCAP_0P1UF: u32 = 0;
+pub const PWC_PD_VCAP_0P047UF: u32 = 1;
+pub const PWC_STOP_DRV_HIGH: u32 = 0;
+pub const PWC_STOP_DRV_LOW: u32 = 192;
+pub const PWC_STOP_CLK_KEEP: u32 = 0;
+pub const PWC_STOP_CLK_MRC: u32 = 2;
+pub const PWC_STOP_FLASH_WAIT_ON: u32 = 0;
+pub const PWC_STOP_FLASH_WAIT_OFF: u32 = 1;
+pub const PWC_STOP_WFI: u32 = 0;
+pub const PWC_STOP_WFE_INT: u32 = 1;
+pub const PWC_STOP_WFE_EVT: u32 = 2;
+pub const PWC_SLEEP_WFI: u32 = 0;
+pub const PWC_SLEEP_WFE_INT: u32 = 1;
+pub const PWC_SLEEP_WFE_EVT: u32 = 2;
+pub const PWC_RAM_HIGH_SPEED: u32 = 32835;
+pub const PWC_RAM_ULOW_SPEED: u32 = 36962;
+pub const PWC_RAM_PD_SRAM1: u32 = 1;
+pub const PWC_RAM_PD_SRAM2: u32 = 2;
+pub const PWC_RAM_PD_SRAM3: u32 = 4;
+pub const PWC_RAM_PD_SRAMH: u32 = 8;
+pub const PWC_RAM_PD_USBFS: u32 = 16;
+pub const PWC_RAM_PD_SDIO0: u32 = 32;
+pub const PWC_RAM_PD_SDIO1: u32 = 64;
+pub const PWC_RAM_PD_CACHE: u32 = 256;
+pub const PWC_RAM_PD_CAN: u32 = 128;
+pub const PWC_RAM_PD_ALL: u32 = 511;
+pub const PWC_LVD_CH1: u32 = 0;
+pub const PWC_LVD_CH2: u32 = 1;
+pub const PWC_LVD_ON: u32 = 32;
+pub const PWC_LVD_OFF: u32 = 0;
+pub const PWC_LVD_EXP_TYPE_NONE: u32 = 0;
+pub const PWC_LVD_EXP_TYPE_INT: u32 = 257;
+pub const PWC_LVD_EXP_TYPE_NMI: u32 = 1;
+pub const PWC_LVD_EXP_TYPE_RST: u32 = 3;
+pub const PWC_LVD_CMP_OFF: u32 = 0;
+pub const PWC_LVD_CMP_ON: u32 = 4;
+pub const PWC_LVD_FILTER_ON: u32 = 0;
+pub const PWC_LVD_FILTER_OFF: u32 = 1;
+pub const PWC_LVD_FILTER_LRC_DIV4: u32 = 0;
+pub const PWC_LVD_FILTER_LRC_DIV2: u32 = 2;
+pub const PWC_LVD_FILTER_LRC_DIV1: u32 = 4;
+pub const PWC_LVD_FILTER_LRC_MUL2: u32 = 6;
+pub const PWC_LVD_THRESHOLD_LVL0: u32 = 0;
+pub const PWC_LVD_THRESHOLD_LVL1: u32 = 1;
+pub const PWC_LVD_THRESHOLD_LVL2: u32 = 2;
+pub const PWC_LVD_THRESHOLD_LVL3: u32 = 3;
+pub const PWC_LVD_THRESHOLD_LVL4: u32 = 4;
+pub const PWC_LVD_THRESHOLD_LVL5: u32 = 5;
+pub const PWC_LVD_THRESHOLD_LVL6: u32 = 6;
+pub const PWC_LVD_THRESHOLD_LVL7: u32 = 7;
+pub const PWC_LVD_EXTVCC: u32 = 7;
+pub const PWC_LVD1_FLAG_DETECT: u32 = 2;
+pub const PWC_LVD2_FLAG_DETECT: u32 = 32;
+pub const PWC_LVD1_FLAG_MON: u32 = 1;
+pub const PWC_LVD2_FLAG_MON: u32 = 16;
+pub const PWC_PD_WKUP0_POS: u32 = 0;
+pub const PWC_PD_WKUP1_POS: u32 = 8;
+pub const PWC_PD_WKUP2_POS: u32 = 16;
+pub const PWC_PD_WKUP_WKUP00: u32 = 1;
+pub const PWC_PD_WKUP_WKUP01: u32 = 2;
+pub const PWC_PD_WKUP_WKUP02: u32 = 4;
+pub const PWC_PD_WKUP_WKUP03: u32 = 8;
+pub const PWC_PD_WKUP_WKUP10: u32 = 16;
+pub const PWC_PD_WKUP_WKUP11: u32 = 32;
+pub const PWC_PD_WKUP_WKUP12: u32 = 64;
+pub const PWC_PD_WKUP_WKUP13: u32 = 128;
+pub const PWC_PD_WKUP_WKUP20: u32 = 256;
+pub const PWC_PD_WKUP_WKUP21: u32 = 512;
+pub const PWC_PD_WKUP_WKUP22: u32 = 1024;
+pub const PWC_PD_WKUP_WKUP23: u32 = 2048;
+pub const PWC_PD_WKUP_WKUP30: u32 = 4096;
+pub const PWC_PD_WKUP_WKUP31: u32 = 8192;
+pub const PWC_PD_WKUP_WKUP32: u32 = 16384;
+pub const PWC_PD_WKUP_WKUP33: u32 = 32768;
+pub const PWC_PD_WKUP_LVD1: u32 = 65536;
+pub const PWC_PD_WKUP_LVD2: u32 = 131072;
+pub const PWC_PD_WKUP_NMI: u32 = 262144;
+pub const PWC_PD_WKUP_RTCPRD: u32 = 1048576;
+pub const PWC_PD_WKUP_RTCALM: u32 = 2097152;
+pub const PWC_PD_WKUP_WKTM: u32 = 8388608;
+pub const PWC_PD_WKUP_TRIG_LVD1: u32 = 16;
+pub const PWC_PD_WKUP_TRIG_LVD2: u32 = 32;
+pub const PWC_PD_WKUP_TRIG_WKUP0: u32 = 1;
+pub const PWC_PD_WKUP_TRIG_WKUP1: u32 = 2;
+pub const PWC_PD_WKUP_TRIG_WKUP2: u32 = 4;
+pub const PWC_PD_WKUP_TRIG_WKUP3: u32 = 8;
+pub const PWC_PD_WKUP_TRIG_NMI: u32 = 64;
+pub const PWC_PD_WKUP_TRIG_ALL: u32 = 127;
+pub const PWC_PD_WKUP_TRIG_FALLING: u32 = 0;
+pub const PWC_PD_WKUP_TRIG_RISING: u32 = 1;
+pub const PWC_PD_WKUP_FLAG0_POS: u32 = 0;
+pub const PWC_PD_WKUP_FLAG1_POS: u32 = 8;
+pub const PWC_PD_WKUP_FLAG_WKUP0: u32 = 1;
+pub const PWC_PD_WKUP_FLAG_WKUP1: u32 = 2;
+pub const PWC_PD_WKUP_FLAG_WKUP2: u32 = 4;
+pub const PWC_PD_WKUP_FLAG_WKUP3: u32 = 8;
+pub const PWC_PD_WKUP_FLAG_LVD1: u32 = 16;
+pub const PWC_PD_WKUP_FLAG_LVD2: u32 = 32;
+pub const PWC_PD_WKUP_FLAG_NMI: u32 = 64;
+pub const PWC_PD_WKUP_FLAG_RTCPRD: u32 = 4096;
+pub const PWC_PD_WKUP_FLAG_RTCALM: u32 = 8192;
+pub const PWC_PD_WKUP_FLAG_WKTM: u32 = 32768;
+pub const PWC_PD_WKUP_FLAG_ALL: u32 = 45183;
+pub const PWC_WKT_OFF: u32 = 0;
+pub const PWC_WKT_ON: u32 = 32768;
+pub const PWC_WKT_CLK_SRC_64HZ: u32 = 0;
+pub const PWC_WKT_CLK_SRC_XTAL32: u32 = 8192;
+pub const PWC_WKT_CLK_SRC_LRC: u32 = 16384;
+pub const PWC_LDO_HRC: u32 = 2;
+pub const PWC_LDO_PLL: u32 = 1;
+pub const PWC_LDO_MASK: u32 = 3;
+pub const PWC_WRITE_ENABLE: u32 = 42240;
+pub const PWC_UNLOCK_CODE0: u32 = 42241;
+pub const PWC_UNLOCK_CODE1: u32 = 42242;
+pub const PWC_UNLOCK_CODE2: u32 = 42248;
+pub const PWC_FCG0_REG_UNLOCK_KEY: u32 = 2779054081;
+pub const PWC_FCG0_REG_LOCK_KEY: u32 = 2779054080;
+pub const QSPI_ROM_BASE: u32 = 2550136832;
+pub const QSPI_ROM_END: u32 = 2617245695;
+pub const QSPI_CLK_DIV2: u32 = 65536;
+pub const QSPI_CLK_DIV3: u32 = 131072;
+pub const QSPI_CLK_DIV4: u32 = 196608;
+pub const QSPI_CLK_DIV5: u32 = 262144;
+pub const QSPI_CLK_DIV6: u32 = 327680;
+pub const QSPI_CLK_DIV7: u32 = 393216;
+pub const QSPI_CLK_DIV8: u32 = 458752;
+pub const QSPI_CLK_DIV9: u32 = 524288;
+pub const QSPI_CLK_DIV10: u32 = 589824;
+pub const QSPI_CLK_DIV11: u32 = 655360;
+pub const QSPI_CLK_DIV12: u32 = 720896;
+pub const QSPI_CLK_DIV13: u32 = 786432;
+pub const QSPI_CLK_DIV14: u32 = 851968;
+pub const QSPI_CLK_DIV15: u32 = 917504;
+pub const QSPI_CLK_DIV16: u32 = 983040;
+pub const QSPI_CLK_DIV17: u32 = 1048576;
+pub const QSPI_CLK_DIV18: u32 = 1114112;
+pub const QSPI_CLK_DIV19: u32 = 1179648;
+pub const QSPI_CLK_DIV20: u32 = 1245184;
+pub const QSPI_CLK_DIV21: u32 = 1310720;
+pub const QSPI_CLK_DIV22: u32 = 1376256;
+pub const QSPI_CLK_DIV23: u32 = 1441792;
+pub const QSPI_CLK_DIV24: u32 = 1507328;
+pub const QSPI_CLK_DIV25: u32 = 1572864;
+pub const QSPI_CLK_DIV26: u32 = 1638400;
+pub const QSPI_CLK_DIV27: u32 = 1703936;
+pub const QSPI_CLK_DIV28: u32 = 1769472;
+pub const QSPI_CLK_DIV29: u32 = 1835008;
+pub const QSPI_CLK_DIV30: u32 = 1900544;
+pub const QSPI_CLK_DIV31: u32 = 1966080;
+pub const QSPI_CLK_DIV32: u32 = 2031616;
+pub const QSPI_CLK_DIV33: u32 = 2097152;
+pub const QSPI_CLK_DIV34: u32 = 2162688;
+pub const QSPI_CLK_DIV35: u32 = 2228224;
+pub const QSPI_CLK_DIV36: u32 = 2293760;
+pub const QSPI_CLK_DIV37: u32 = 2359296;
+pub const QSPI_CLK_DIV38: u32 = 2424832;
+pub const QSPI_CLK_DIV39: u32 = 2490368;
+pub const QSPI_CLK_DIV40: u32 = 2555904;
+pub const QSPI_CLK_DIV41: u32 = 2621440;
+pub const QSPI_CLK_DIV42: u32 = 2686976;
+pub const QSPI_CLK_DIV43: u32 = 2752512;
+pub const QSPI_CLK_DIV44: u32 = 2818048;
+pub const QSPI_CLK_DIV45: u32 = 2883584;
+pub const QSPI_CLK_DIV46: u32 = 2949120;
+pub const QSPI_CLK_DIV47: u32 = 3014656;
+pub const QSPI_CLK_DIV48: u32 = 3080192;
+pub const QSPI_CLK_DIV49: u32 = 3145728;
+pub const QSPI_CLK_DIV50: u32 = 3211264;
+pub const QSPI_CLK_DIV51: u32 = 3276800;
+pub const QSPI_CLK_DIV52: u32 = 3342336;
+pub const QSPI_CLK_DIV53: u32 = 3407872;
+pub const QSPI_CLK_DIV54: u32 = 3473408;
+pub const QSPI_CLK_DIV55: u32 = 3538944;
+pub const QSPI_CLK_DIV56: u32 = 3604480;
+pub const QSPI_CLK_DIV57: u32 = 3670016;
+pub const QSPI_CLK_DIV58: u32 = 3735552;
+pub const QSPI_CLK_DIV59: u32 = 3801088;
+pub const QSPI_CLK_DIV60: u32 = 3866624;
+pub const QSPI_CLK_DIV61: u32 = 3932160;
+pub const QSPI_CLK_DIV62: u32 = 3997696;
+pub const QSPI_CLK_DIV63: u32 = 4063232;
+pub const QSPI_CLK_DIV64: u32 = 4128768;
+pub const QSPI_SPI_MD0: u32 = 0;
+pub const QSPI_SPI_MD3: u32 = 128;
+pub const QSPI_PREFETCH_MD_INVD: u32 = 0;
+pub const QSPI_PREFETCH_MD_EDGE_STOP: u32 = 8;
+pub const QSPI_PREFETCH_MD_IMMED_STOP: u32 = 24;
+pub const QSPI_RD_MD_STD_RD: u32 = 0;
+pub const QSPI_RD_MD_FAST_RD: u32 = 1;
+pub const QSPI_RD_MD_DUAL_OUTPUT_FAST_RD: u32 = 2;
+pub const QSPI_RD_MD_DUAL_IO_FAST_RD: u32 = 3;
+pub const QSPI_RD_MD_QUAD_OUTPUT_FAST_RD: u32 = 4;
+pub const QSPI_RD_MD_QUAD_IO_FAST_RD: u32 = 5;
+pub const QSPI_RD_MD_CUSTOM_STANDARD_RD: u32 = 6;
+pub const QSPI_RD_MD_CUSTOM_FAST_RD: u32 = 7;
+pub const QSPI_DUMMY_CYCLE3: u32 = 0;
+pub const QSPI_DUMMY_CYCLE4: u32 = 256;
+pub const QSPI_DUMMY_CYCLE5: u32 = 512;
+pub const QSPI_DUMMY_CYCLE6: u32 = 768;
+pub const QSPI_DUMMY_CYCLE7: u32 = 1024;
+pub const QSPI_DUMMY_CYCLE8: u32 = 1280;
+pub const QSPI_DUMMY_CYCLE9: u32 = 1536;
+pub const QSPI_DUMMY_CYCLE10: u32 = 1792;
+pub const QSPI_DUMMY_CYCLE11: u32 = 2048;
+pub const QSPI_DUMMY_CYCLE12: u32 = 2304;
+pub const QSPI_DUMMY_CYCLE13: u32 = 2560;
+pub const QSPI_DUMMY_CYCLE14: u32 = 2816;
+pub const QSPI_DUMMY_CYCLE15: u32 = 3072;
+pub const QSPI_DUMMY_CYCLE16: u32 = 3328;
+pub const QSPI_DUMMY_CYCLE17: u32 = 3584;
+pub const QSPI_DUMMY_CYCLE18: u32 = 3840;
+pub const QSPI_ADDR_WIDTH_8BIT: u32 = 0;
+pub const QSPI_ADDR_WIDTH_16BIT: u32 = 1;
+pub const QSPI_ADDR_WIDTH_24BIT: u32 = 2;
+pub const QSPI_ADDR_WIDTH_32BIT_INSTR_24BIT: u32 = 3;
+pub const QSPI_ADDR_WIDTH_32BIT_INSTR_32BIT: u32 = 7;
+pub const QSPI_QSSN_SETUP_ADVANCE_QSCK0P5: u32 = 0;
+pub const QSPI_QSSN_SETUP_ADVANCE_QSCK1P5: u32 = 32;
+pub const QSPI_QSSN_RELEASE_DELAY_QSCK0P5: u32 = 0;
+pub const QSPI_QSSN_RELEASE_DELAY_QSCK1P5: u32 = 16;
+pub const QSPI_QSSN_RELEASE_DELAY_QSCK32: u32 = 4096;
+pub const QSPI_QSSN_RELEASE_DELAY_QSCK128: u32 = 8192;
+pub const QSPI_QSSN_RELEASE_DELAY_INFINITE: u32 = 12288;
+pub const QSPI_QSSN_INTERVAL_QSCK1: u32 = 0;
+pub const QSPI_QSSN_INTERVAL_QSCK2: u32 = 1;
+pub const QSPI_QSSN_INTERVAL_QSCK3: u32 = 2;
+pub const QSPI_QSSN_INTERVAL_QSCK4: u32 = 3;
+pub const QSPI_QSSN_INTERVAL_QSCK5: u32 = 4;
+pub const QSPI_QSSN_INTERVAL_QSCK6: u32 = 5;
+pub const QSPI_QSSN_INTERVAL_QSCK7: u32 = 6;
+pub const QSPI_QSSN_INTERVAL_QSCK8: u32 = 7;
+pub const QSPI_QSSN_INTERVAL_QSCK9: u32 = 8;
+pub const QSPI_QSSN_INTERVAL_QSCK10: u32 = 9;
+pub const QSPI_QSSN_INTERVAL_QSCK11: u32 = 10;
+pub const QSPI_QSSN_INTERVAL_QSCK12: u32 = 11;
+pub const QSPI_QSSN_INTERVAL_QSCK13: u32 = 12;
+pub const QSPI_QSSN_INTERVAL_QSCK14: u32 = 13;
+pub const QSPI_QSSN_INTERVAL_QSCK15: u32 = 14;
+pub const QSPI_QSSN_INTERVAL_QSCK16: u32 = 15;
+pub const QSPI_INSTR_PROTOCOL_1LINE: u32 = 0;
+pub const QSPI_INSTR_PROTOCOL_2LINE: u32 = 256;
+pub const QSPI_INSTR_PROTOCOL_4LINE: u32 = 512;
+pub const QSPI_ADDR_PROTOCOL_1LINE: u32 = 0;
+pub const QSPI_ADDR_PROTOCOL_2LINE: u32 = 1024;
+pub const QSPI_ADDR_PROTOCOL_4LINE: u32 = 2048;
+pub const QSPI_DATA_PROTOCOL_1LINE: u32 = 0;
+pub const QSPI_DATA_PROTOCOL_2LINE: u32 = 4096;
+pub const QSPI_DATA_PROTOCOL_4LINE: u32 = 8192;
+pub const QSPI_WP_PIN_LOW: u32 = 0;
+pub const QSPI_WP_PIN_HIGH: u32 = 64;
+pub const QSPI_FLAG_DIRECT_COMM_BUSY: u32 = 1;
+pub const QSPI_FLAG_XIP_MD: u32 = 64;
+pub const QSPI_FLAG_ROM_ACCESS_ERR: u32 = 128;
+pub const QSPI_FLAG_PREFETCH_BUF_FULL: u32 = 16384;
+pub const QSPI_FLAG_PREFETCH_STOP: u32 = 32768;
+pub const QSPI_FLAG_ALL: u32 = 49345;
+pub const QSPI_FLAG_CLR_ALL: u32 = 128;
+pub const RMU_FLAG_PWR_ON: u32 = 1;
+pub const RMU_FLAG_PIN: u32 = 2;
+pub const RMU_FLAG_BROWN_OUT: u32 = 4;
+pub const RMU_FLAG_PVD1: u32 = 8;
+pub const RMU_FLAG_PVD2: u32 = 16;
+pub const RMU_FLAG_WDT: u32 = 32;
+pub const RMU_FLAG_SWDT: u32 = 64;
+pub const RMU_FLAG_PWR_DOWN: u32 = 128;
+pub const RMU_FLAG_SW: u32 = 256;
+pub const RMU_FLAG_MPU_ERR: u32 = 512;
+pub const RMU_FLAG_RAM_PARITY_ERR: u32 = 1024;
+pub const RMU_FLAG_RAM_ECC: u32 = 2048;
+pub const RMU_FLAG_CLK_ERR: u32 = 4096;
+pub const RMU_FLAG_XTAL_ERR: u32 = 8192;
+pub const RMU_FLAG_MX: u32 = 16384;
+pub const RMU_FLAG_ALL: u32 = 32767;
+pub const RTC_DATA_FMT_DEC: u32 = 0;
+pub const RTC_DATA_FMT_BCD: u32 = 1;
+pub const RTC_CLK_SRC_XTAL32: u32 = 0;
+pub const RTC_CLK_SRC_LRC: u32 = 144;
+pub const RTC_HOUR_FMT_12H: u32 = 0;
+pub const RTC_HOUR_FMT_24H: u32 = 8;
+pub const RTC_INT_PERIOD_INVD: u32 = 0;
+pub const RTC_INT_PERIOD_PER_HALF_SEC: u32 = 1;
+pub const RTC_INT_PERIOD_PER_SEC: u32 = 2;
+pub const RTC_INT_PERIOD_PER_MINUTE: u32 = 3;
+pub const RTC_INT_PERIOD_PER_HOUR: u32 = 4;
+pub const RTC_INT_PERIOD_PER_DAY: u32 = 5;
+pub const RTC_INT_PERIOD_PER_MONTH: u32 = 6;
+pub const RTC_CLK_COMPEN_DISABLE: u32 = 0;
+pub const RTC_CLK_COMPEN_ENABLE: u32 = 128;
+pub const RTC_CLK_COMPEN_MD_DISTRIBUTED: u32 = 0;
+pub const RTC_CLK_COMPEN_MD_UNIFORM: u32 = 64;
+pub const RTC_HOUR_24H: u32 = 0;
+pub const RTC_HOUR_12H_AM: u32 = 0;
+pub const RTC_HOUR_12H_PM: u32 = 32;
+pub const RTC_MONTH_JANUARY: u32 = 1;
+pub const RTC_MONTH_FEBRUARY: u32 = 2;
+pub const RTC_MONTH_MARCH: u32 = 3;
+pub const RTC_MONTH_APRIL: u32 = 4;
+pub const RTC_MONTH_MAY: u32 = 5;
+pub const RTC_MONTH_JUNE: u32 = 6;
+pub const RTC_MONTH_JULY: u32 = 7;
+pub const RTC_MONTH_AUGUST: u32 = 8;
+pub const RTC_MONTH_SEPTEMBER: u32 = 9;
+pub const RTC_MONTH_OCTOBER: u32 = 10;
+pub const RTC_MONTH_NOVEMBER: u32 = 11;
+pub const RTC_MONTH_DECEMBER: u32 = 12;
+pub const RTC_WEEKDAY_SUNDAY: u32 = 0;
+pub const RTC_WEEKDAY_MONDAY: u32 = 1;
+pub const RTC_WEEKDAY_TUESDAY: u32 = 2;
+pub const RTC_WEEKDAY_WEDNESDAY: u32 = 3;
+pub const RTC_WEEKDAY_THURSDAY: u32 = 4;
+pub const RTC_WEEKDAY_FRIDAY: u32 = 5;
+pub const RTC_WEEKDAY_SATURDAY: u32 = 6;
+pub const RTC_ALARM_WEEKDAY_SUNDAY: u32 = 1;
+pub const RTC_ALARM_WEEKDAY_MONDAY: u32 = 2;
+pub const RTC_ALARM_WEEKDAY_TUESDAY: u32 = 4;
+pub const RTC_ALARM_WEEKDAY_WEDNESDAY: u32 = 8;
+pub const RTC_ALARM_WEEKDAY_THURSDAY: u32 = 16;
+pub const RTC_ALARM_WEEKDAY_FRIDAY: u32 = 32;
+pub const RTC_ALARM_WEEKDAY_SATURDAY: u32 = 64;
+pub const RTC_ALARM_WEEKDAY_EVERYDAY: u32 = 127;
+pub const RTC_FLAG_RD_WR: u32 = 2;
+pub const RTC_FLAG_ALARM: u32 = 8;
+pub const RTC_FLAG_ALL: u32 = 10;
+pub const RTC_FLAG_CLR_ALL: u32 = 8;
+pub const RTC_INT_PERIOD: u32 = 32;
+pub const RTC_INT_ALARM: u32 = 64;
+pub const RTC_INT_ALL: u32 = 96;
+pub const SDIOC_MD_SD: u32 = 0;
+pub const SDIOC_MD_MMC: u32 = 1;
+pub const SDIOC_CARD_DETECT_CD_PIN_LVL: u32 = 0;
+pub const SDIOC_CARD_DETECT_TEST_SIGNAL: u32 = 128;
+pub const SDIOC_CARD_DETECT_TEST_LVL_LOW: u32 = 0;
+pub const SDIOC_CARD_DETECT_TEST_LVL_HIGH: u32 = 64;
+pub const SDIOC_SPEED_MD_NORMAL: u32 = 0;
+pub const SDIOC_SPEED_MD_HIGH: u32 = 4;
+pub const SDIOC_BUS_WIDTH_1BIT: u32 = 0;
+pub const SDIOC_BUS_WIDTH_4BIT: u32 = 2;
+pub const SDIOC_BUS_WIDTH_8BIT: u32 = 32;
+pub const SDIOC_CLK_DIV1: u32 = 0;
+pub const SDIOC_CLK_DIV2: u32 = 256;
+pub const SDIOC_CLK_DIV4: u32 = 512;
+pub const SDIOC_CLK_DIV8: u32 = 1024;
+pub const SDIOC_CLK_DIV16: u32 = 2048;
+pub const SDIOC_CLK_DIV32: u32 = 4096;
+pub const SDIOC_CLK_DIV64: u32 = 8192;
+pub const SDIOC_CLK_DIV128: u32 = 16384;
+pub const SDIOC_CLK_DIV256: u32 = 32768;
+pub const SDIOC_CMD_TYPE_NORMAL: u32 = 0;
+pub const SDIOC_CMD_TYPE_SUSPEND: u32 = 64;
+pub const SDIOC_CMD_TYPE_RESUME: u32 = 128;
+pub const SDIOC_CMD_TYPE_ABORT: u32 = 192;
+pub const SDIOC_DATA_LINE_DISABLE: u32 = 0;
+pub const SDIOC_DATA_LINE_ENABLE: u32 = 32;
+pub const SDIOC_TRANS_DIR_TO_CARD: u32 = 0;
+pub const SDIOC_TRANS_DIR_TO_HOST: u32 = 16;
+pub const SDIOC_AUTO_SEND_CMD12_DISABLE: u32 = 0;
+pub const SDIOC_AUTO_SEND_CMD12_ENABLE: u32 = 4;
+pub const SDIOC_TRANS_MD_SINGLE: u32 = 0;
+pub const SDIOC_TRANS_MD_INFINITE: u32 = 32;
+pub const SDIOC_TRANS_MD_MULTI: u32 = 34;
+pub const SDIOC_TRANS_MD_STOP_MULTI: u32 = 32802;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E13: u32 = 0;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E14: u32 = 1;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E15: u32 = 2;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E16: u32 = 3;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E17: u32 = 4;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E18: u32 = 5;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E19: u32 = 6;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E20: u32 = 7;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E21: u32 = 8;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E22: u32 = 9;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E23: u32 = 10;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E24: u32 = 11;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E25: u32 = 12;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E26: u32 = 13;
+pub const SDIOC_DATA_TIMEOUT_CLK_2E27: u32 = 14;
+pub const SDIOC_RESP_REG_BIT0_31: u32 = 0;
+pub const SDIOC_RESP_REG_BIT32_63: u32 = 4;
+pub const SDIOC_RESP_REG_BIT64_95: u32 = 8;
+pub const SDIOC_RESP_REG_BIT96_127: u32 = 12;
+pub const SDIOC_SW_RST_DATA_LINE: u32 = 4;
+pub const SDIOC_SW_RST_CMD_LINE: u32 = 2;
+pub const SDIOC_SW_RST_ALL: u32 = 1;
+pub const SDIOC_OUTPUT_CLK_FREQ_400K: u32 = 400000;
+pub const SDIOC_OUTPUT_CLK_FREQ_25M: u32 = 25000000;
+pub const SDIOC_OUTPUT_CLK_FREQ_26M: u32 = 26000000;
+pub const SDIOC_OUTPUT_CLK_FREQ_50M: u32 = 50000000;
+pub const SDIOC_OUTPUT_CLK_FREQ_52M: u32 = 52000000;
+pub const SDIOC_HOST_FLAG_CMDL: u32 = 16777216;
+pub const SDIOC_HOST_FLAG_DATL: u32 = 15728640;
+pub const SDIOC_HOST_FLAG_DATL_D0: u32 = 1048576;
+pub const SDIOC_HOST_FLAG_DATL_D1: u32 = 2097152;
+pub const SDIOC_HOST_FLAG_DATL_D2: u32 = 4194304;
+pub const SDIOC_HOST_FLAG_DATL_D3: u32 = 8388608;
+pub const SDIOC_HOST_FLAG_WPL: u32 = 524288;
+pub const SDIOC_HOST_FLAG_CDL: u32 = 262144;
+pub const SDIOC_HOST_FLAG_CSS: u32 = 131072;
+pub const SDIOC_HOST_FLAG_CIN: u32 = 65536;
+pub const SDIOC_HOST_FLAG_BRE: u32 = 2048;
+pub const SDIOC_HOST_FLAG_BWE: u32 = 1024;
+pub const SDIOC_HOST_FLAG_RTA: u32 = 512;
+pub const SDIOC_HOST_FLAG_WTA: u32 = 256;
+pub const SDIOC_HOST_FLAG_DA: u32 = 4;
+pub const SDIOC_HOST_FLAG_CID: u32 = 2;
+pub const SDIOC_HOST_FLAG_CIC: u32 = 1;
+pub const SDIOC_HOST_FLAG_ALL: u32 = 33492743;
+pub const SDIOC_INT_FLAG_EI: u32 = 32768;
+pub const SDIOC_INT_FLAG_CINT: u32 = 256;
+pub const SDIOC_INT_FLAG_CRM: u32 = 128;
+pub const SDIOC_INT_FLAG_CIST: u32 = 64;
+pub const SDIOC_INT_FLAG_BRR: u32 = 32;
+pub const SDIOC_INT_FLAG_BWR: u32 = 16;
+pub const SDIOC_INT_FLAG_BGE: u32 = 4;
+pub const SDIOC_INT_FLAG_TC: u32 = 2;
+pub const SDIOC_INT_FLAG_CC: u32 = 1;
+pub const SDIOC_NORMAL_INT_FLAG_ALL: u32 = 33271;
+pub const SDIOC_INT_CINTSEN: u32 = 256;
+pub const SDIOC_INT_CRMSEN: u32 = 128;
+pub const SDIOC_INT_CISTSEN: u32 = 64;
+pub const SDIOC_INT_BRRSEN: u32 = 32;
+pub const SDIOC_INT_BWRSEN: u32 = 16;
+pub const SDIOC_INT_BGESEN: u32 = 4;
+pub const SDIOC_INT_TCSEN: u32 = 2;
+pub const SDIOC_INT_CCSEN: u32 = 1;
+pub const SDIOC_NORMAL_INT_ALL: u32 = 503;
+pub const SDIOC_AUTO_CMD_ERR_FLAG_CMDE: u32 = 128;
+pub const SDIOC_AUTO_CMD_ERR_FLAG_IE: u32 = 16;
+pub const SDIOC_AUTO_CMD_ERR_FLAG_EBE: u32 = 8;
+pub const SDIOC_AUTO_CMD_ERR_FLAG_CE: u32 = 4;
+pub const SDIOC_AUTO_CMD_ERR_FLAG_TOE: u32 = 2;
+pub const SDIOC_AUTO_CMD_ERR_FLAG_NE: u32 = 1;
+pub const SDIOC_AUTO_CMD_ERR_FLAG_ALL: u32 = 159;
+pub const SDIOC_FORCE_AUTO_CMD_ERR_FCMDE: u32 = 128;
+pub const SDIOC_FORCE_AUTO_CMD_ERR_FIE: u32 = 16;
+pub const SDIOC_FORCE_AUTO_CMD_ERR_FEBE: u32 = 8;
+pub const SDIOC_FORCE_AUTO_CMD_ERR_FCE: u32 = 4;
+pub const SDIOC_FORCE_AUTO_CMD_ERR_FTOE: u32 = 2;
+pub const SDIOC_FORCE_AUTO_CMD_ERR_FNE: u32 = 1;
+pub const SDIOC_FORCE_AUTO_CMD_ERR_ALL: u32 = 159;
+pub const SDIOC_FORCE_ERR_INT_FACE: u32 = 256;
+pub const SDIOC_FORCE_ERR_INT_FDEBE: u32 = 64;
+pub const SDIOC_FORCE_ERR_INT_FDCE: u32 = 32;
+pub const SDIOC_FORCE_ERR_INT_FDTOE: u32 = 16;
+pub const SDIOC_FORCE_ERR_INT_FCIE: u32 = 8;
+pub const SDIOC_FORCE_ERR_INT_FCEBE: u32 = 4;
+pub const SDIOC_FORCE_ERR_INT_FCCE: u32 = 2;
+pub const SDIOC_FORCE_ERR_INT_FCTOE: u32 = 1;
+pub const SDIOC_FORCE_ERR_INT_ALL: u32 = 383;
+pub const SDIOC_RESP_TYPE_NO: u32 = 0;
+pub const SDIOC_RESP_TYPE_R2: u32 = 1;
+pub const SDIOC_RESP_TYPE_R3_R4: u32 = 2;
+pub const SDIOC_RESP_TYPE_R1_R5_R6_R7: u32 = 26;
+pub const SDIOC_RESP_TYPE_R1B_R5B: u32 = 27;
+pub const SDIOC_CMD0_GO_IDLE_STATE: u32 = 0;
+pub const SDIOC_CMD1_SEND_OP_COND: u32 = 1;
+pub const SDIOC_CMD2_ALL_SEND_CID: u32 = 2;
+pub const SDIOC_CMD3_SEND_RELATIVE_ADDR: u32 = 3;
+pub const SDIOC_CMD4_SET_DSR: u32 = 4;
+pub const SDIOC_CMD5_IO_SEND_OP_COND: u32 = 5;
+pub const SDIOC_CMD6_SWITCH_FUNC: u32 = 6;
+pub const SDIOC_CMD7_SELECT_DESELECT_CARD: u32 = 7;
+pub const SDIOC_CMD8_SEND_IF_COND: u32 = 8;
+pub const SDIOC_CMD9_SEND_CSD: u32 = 9;
+pub const SDIOC_CMD10_SEND_CID: u32 = 10;
+pub const SDIOC_CMD11_READ_DAT_UNTIL_STOP: u32 = 11;
+pub const SDIOC_CMD12_STOP_TRANSMISSION: u32 = 12;
+pub const SDIOC_CMD13_SEND_STATUS: u32 = 13;
+pub const SDIOC_CMD14_HS_BUSTEST_READ: u32 = 14;
+pub const SDIOC_CMD15_GO_INACTIVE_STATE: u32 = 15;
+pub const SDIOC_CMD16_SET_BLOCKLEN: u32 = 16;
+pub const SDIOC_CMD17_READ_SINGLE_BLOCK: u32 = 17;
+pub const SDIOC_CMD18_READ_MULTI_BLOCK: u32 = 18;
+pub const SDIOC_CMD19_HS_BUSTEST_WRITE: u32 = 19;
+pub const SDIOC_CMD20_WRITE_DAT_UNTIL_STOP: u32 = 20;
+pub const SDIOC_CMD23_SET_BLOCK_COUNT: u32 = 23;
+pub const SDIOC_CMD24_WRITE_SINGLE_BLOCK: u32 = 24;
+pub const SDIOC_CMD25_WRITE_MULTI_BLOCK: u32 = 25;
+pub const SDIOC_CMD26_PROGRAM_CID: u32 = 26;
+pub const SDIOC_CMD27_PROGRAM_CSD: u32 = 27;
+pub const SDIOC_CMD28_SET_WRITE_PROT: u32 = 28;
+pub const SDIOC_CMD29_CLR_WRITE_PROT: u32 = 29;
+pub const SDIOC_CMD30_SEND_WRITE_PROT: u32 = 30;
+pub const SDIOC_CMD32_ERASE_WR_BLK_START: u32 = 32;
+pub const SDIOC_CMD33_ERASE_WR_BLK_END: u32 = 33;
+pub const SDIOC_CMD35_ERASE_GROUP_START: u32 = 35;
+pub const SDIOC_CMD36_ERASE_GROUP_END: u32 = 36;
+pub const SDIOC_CMD38_ERASE: u32 = 38;
+pub const SDIOC_CMD39_FAST_IO: u32 = 39;
+pub const SDIOC_CMD40_GO_IRQ_STATE: u32 = 40;
+pub const SDIOC_CMD42_LOCK_UNLOCK: u32 = 42;
+pub const SDIOC_CMD52_IO_RW_DIRECT: u32 = 52;
+pub const SDIOC_CMD53_IO_RW_EXTENDED: u32 = 53;
+pub const SDIOC_CMD55_APP_CMD: u32 = 55;
+pub const SDIOC_CMD56_GEN_CMD: u32 = 56;
+pub const SDIOC_CMD64_NO_CMD: u32 = 64;
+pub const SDIOC_ACMD6_SET_BUS_WIDTH: u32 = 6;
+pub const SDIOC_ACMD13_SD_STATUS: u32 = 13;
+pub const SDIOC_ACMD22_SEND_NUM_WR_BLOCKS: u32 = 22;
+pub const SDIOC_ACMD23_SET_WR_BLK_ERASE_COUNT: u32 = 23;
+pub const SDIOC_ACMD41_SD_APP_OP_COND: u32 = 41;
+pub const SDIOC_ACMD42_SET_CLR_CARD_DETECT: u32 = 42;
+pub const SDIOC_ACMD51_SEND_SCR: u32 = 51;
+pub const SDIOC_ACMD43_GET_MKB: u32 = 43;
+pub const SDIOC_ACMD44_GET_MID: u32 = 44;
+pub const SDIOC_ACMD45_SET_CER_RN1: u32 = 45;
+pub const SDIOC_ACMD46_GET_CER_RN2: u32 = 46;
+pub const SDIOC_ACMD47_SET_CER_RES2: u32 = 47;
+pub const SDIOC_ACMD48_GET_CER_RES1: u32 = 48;
+pub const SDIOC_ACMD18_SECURE_READ_MULTI_BLOCK: u32 = 18;
+pub const SDIOC_ACMD25_SECURE_WRITE_MULTI_BLOCK: u32 = 25;
+pub const SDIOC_ACMD38_SECURE_ERASE: u32 = 38;
+pub const SDIOC_ACMD49_CHANGE_SECURE_AREA: u32 = 49;
+pub const SDIOC_ACMD48_SECURE_WRITE_MKB: u32 = 48;
+pub const SDMMC_ERR_NONE: u32 = 0;
+pub const SDMMC_ERR_ADDR_OUT_OF_RANGE: u32 = 2147483648;
+pub const SDMMC_ERR_ADDR_MISALIGNED: u32 = 1073741824;
+pub const SDMMC_ERR_BLOCK_LEN_ERR: u32 = 536870912;
+pub const SDMMC_ERR_ERASE_SEQ_ERR: u32 = 268435456;
+pub const SDMMC_ERR_BAD_ERASE_PARAM: u32 = 134217728;
+pub const SDMMC_ERR_WR_PROT_VIOLATION: u32 = 67108864;
+pub const SDMMC_ERR_LOCK_UNLOCK_FAILED: u32 = 16777216;
+pub const SDMMC_ERR_COM_CRC_FAILED: u32 = 8388608;
+pub const SDMMC_ERR_ILLEGAL_CMD: u32 = 4194304;
+pub const SDMMC_ERR_CARD_ECC_FAILED: u32 = 2097152;
+pub const SDMMC_ERR_CC_ERR: u32 = 1048576;
+pub const SDMMC_ERR_GENERAL_UNKNOWN_ERR: u32 = 524288;
+pub const SDMMC_ERR_STREAM_RD_UNDERRUN: u32 = 262144;
+pub const SDMMC_ERR_STREAM_WR_OVERRUN: u32 = 131072;
+pub const SDMMC_ERR_CID_CSD_OVERWRITE: u32 = 65536;
+pub const SDMMC_ERR_WP_ERASE_SKIP: u32 = 32768;
+pub const SDMMC_ERR_CARD_ECC_DISABLED: u32 = 16384;
+pub const SDMMC_ERR_ERASE_RST: u32 = 8192;
+pub const SDMMC_ERR_CMD_AUTO_SEND: u32 = 4096;
+pub const SDMMC_ERR_CMD_INDEX: u32 = 2048;
+pub const SDMMC_ERR_CMD_STOP_BIT: u32 = 1024;
+pub const SDMMC_ERR_CMD_CRC_FAIL: u32 = 512;
+pub const SDMMC_ERR_CMD_TIMEOUT: u32 = 256;
+pub const SDMMC_ERR_SWITCH_ERR: u32 = 128;
+pub const SDMMC_ERR_DATA_STOP_BIT: u32 = 64;
+pub const SDMMC_ERR_DATA_CRC_FAIL: u32 = 32;
+pub const SDMMC_ERR_DATA_TIMEOUT: u32 = 16;
+pub const SDMMC_ERR_AKE_SEQ_ERR: u32 = 8;
+pub const SDMMC_ERR_INVD_VOLT: u32 = 4;
+pub const SDMMC_ERR_REQ_NOT_APPLICABLE: u32 = 2;
+pub const SDMMC_ERR_UNSUPPORT_FEATURE: u32 = 1;
+pub const SDMMC_ERR_BITS_MASK: u32 = 4261404744;
+pub const SDMMC_STATUS_CARD_IS_LOCKED_POS: u32 = 24;
+pub const SDMMC_STATUS_CARD_IS_LOCKED: u32 = 33554432;
+pub const SDMMC_STATUS_CURR_STATE_POS: u32 = 9;
+pub const SDMMC_STATUS_CURR_STATE: u32 = 7680;
+pub const SDMMC_STATUS_RDY_FOR_DATA_POS: u32 = 8;
+pub const SDMMC_STATUS_RDY_FOR_DATA: u32 = 256;
+pub const SDMMC_STATUS_APP_CMD_POS: u32 = 5;
+pub const SDMMC_STATUS_APP_CMD: u32 = 32;
+pub const SDMMC_SCR_PHY_SPEC_VER_1P0: u32 = 0;
+pub const SDMMC_SCR_PHY_SPEC_VER_1P1: u32 = 16777216;
+pub const SDMMC_SCR_PHY_SPEC_VER_2P0: u32 = 33554432;
+pub const SDMMC_SCR_BUS_WIDTH_4BIT: u32 = 262144;
+pub const SDMMC_SCR_BUS_WIDTH_1BIT: u32 = 65536;
+pub const SDMMC_OCR_HIGH_CAPACITY: u32 = 1073741824;
+pub const SDMMC_OCR_STD_CAPACITY: u32 = 0;
+pub const SDMMC_CSD_SUPPORT_CLASS5_ERASE: u32 = 32;
+pub const SDMMC_DATA_TIMEOUT: u32 = 65535;
+pub const SDMMC_MAX_VOLT_TRIAL: u32 = 65535;
+pub const SDIO_CMD52_ARG_RD: u32 = 0;
+pub const SDIO_CMD52_ARG_WR: u32 = 2147483648;
+pub const SDIO_CMD52_ARG_RAW_FLAG_0: u32 = 0;
+pub const SDIO_CMD52_ARG_RAW_FLAG_1: u32 = 134217728;
+pub const SDIO_CMD53_ARG_RD: u32 = 0;
+pub const SDIO_CMD53_ARG_WR: u32 = 2147483648;
+pub const SDIO_CMD53_ARG_TRANS_MD_BYTE: u32 = 0;
+pub const SDIO_CMD53_ARG_TRANS_MD_BLOCK: u32 = 134217728;
+pub const SDIO_CMD53_ARG_OP_CODE_ADDR_FIX: u32 = 0;
+pub const SDIO_CMD53_ARG_OP_CODE_ADDR_INC: u32 = 67108864;
+pub const SPI_4_WIRE: u32 = 0;
+pub const SPI_3_WIRE: u32 = 1;
+pub const SPI_FULL_DUPLEX: u32 = 0;
+pub const SPI_SEND_ONLY: u32 = 2;
+pub const SPI_SLAVE: u32 = 0;
+pub const SPI_MASTER: u32 = 8;
+pub const SPI_LOOPBACK_INVD: u32 = 0;
+pub const SPI_LOOPBACK_MOSI_INVT: u32 = 16;
+pub const SPI_LOOPBACK_MOSI: u32 = 32;
+pub const SPI_INT_ERR: u32 = 256;
+pub const SPI_INT_TX_BUF_EMPTY: u32 = 512;
+pub const SPI_INT_RX_BUF_FULL: u32 = 1024;
+pub const SPI_INT_IDLE: u32 = 2048;
+pub const SPI_INT_ALL: u32 = 3840;
+pub const SPI_MD_FAULT_DETECT_DISABLE: u32 = 0;
+pub const SPI_MD_FAULT_DETECT_ENABLE: u32 = 4096;
+pub const SPI_PARITY_INVD: u32 = 0;
+pub const SPI_PARITY_EVEN: u32 = 32768;
+pub const SPI_PARITY_ODD: u32 = 49152;
+pub const SPI_PIN_SS0: u32 = 256;
+pub const SPI_PIN_SS1: u32 = 512;
+pub const SPI_PIN_SS2: u32 = 1024;
+pub const SPI_PIN_SS3: u32 = 2048;
+pub const SPI_SS_VALID_LVL_HIGH: u32 = 1;
+pub const SPI_SS_VALID_LVL_LOW: u32 = 0;
+pub const SPI_RD_TARGET_RD_BUF: u32 = 0;
+pub const SPI_RD_TARGET_WR_BUF: u32 = 64;
+pub const SPI_1_FRAME: u32 = 0;
+pub const SPI_2_FRAME: u32 = 1;
+pub const SPI_3_FRAME: u32 = 2;
+pub const SPI_4_FRAME: u32 = 3;
+pub const SPI_INTERVAL_TIME_1SCK: u32 = 0;
+pub const SPI_INTERVAL_TIME_2SCK: u32 = 268435456;
+pub const SPI_INTERVAL_TIME_3SCK: u32 = 536870912;
+pub const SPI_INTERVAL_TIME_4SCK: u32 = 805306368;
+pub const SPI_INTERVAL_TIME_5SCK: u32 = 1073741824;
+pub const SPI_INTERVAL_TIME_6SCK: u32 = 1342177280;
+pub const SPI_INTERVAL_TIME_7SCK: u32 = 1610612736;
+pub const SPI_INTERVAL_TIME_8SCK: u32 = 1879048192;
+pub const SPI_RELEASE_TIME_1SCK: u32 = 0;
+pub const SPI_RELEASE_TIME_2SCK: u32 = 16777216;
+pub const SPI_RELEASE_TIME_3SCK: u32 = 33554432;
+pub const SPI_RELEASE_TIME_4SCK: u32 = 50331648;
+pub const SPI_RELEASE_TIME_5SCK: u32 = 67108864;
+pub const SPI_RELEASE_TIME_6SCK: u32 = 83886080;
+pub const SPI_RELEASE_TIME_7SCK: u32 = 100663296;
+pub const SPI_RELEASE_TIME_8SCK: u32 = 117440512;
+pub const SPI_SETUP_TIME_1SCK: u32 = 0;
+pub const SPI_SETUP_TIME_2SCK: u32 = 1048576;
+pub const SPI_SETUP_TIME_3SCK: u32 = 2097152;
+pub const SPI_SETUP_TIME_4SCK: u32 = 3145728;
+pub const SPI_SETUP_TIME_5SCK: u32 = 4194304;
+pub const SPI_SETUP_TIME_6SCK: u32 = 5242880;
+pub const SPI_SETUP_TIME_7SCK: u32 = 6291456;
+pub const SPI_SETUP_TIME_8SCK: u32 = 7340032;
+pub const SPI_COM_SUSP_FUNC_OFF: u32 = 0;
+pub const SPI_COM_SUSP_FUNC_ON: u32 = 128;
+pub const SPI_MD_0: u32 = 0;
+pub const SPI_MD_1: u32 = 1;
+pub const SPI_MD_2: u32 = 2;
+pub const SPI_MD_3: u32 = 3;
+pub const SPI_SCK_POLARITY_LOW: u32 = 0;
+pub const SPI_SCK_POLARITY_HIGH: u32 = 2;
+pub const SPI_SCK_PHASE_ODD_EDGE_SAMPLE: u32 = 0;
+pub const SPI_SCK_PHASE_EVEN_EDGE_SAMPLE: u32 = 1;
+pub const SPI_BR_CLK_DIV2: u32 = 0;
+pub const SPI_BR_CLK_DIV4: u32 = 4;
+pub const SPI_BR_CLK_DIV8: u32 = 8;
+pub const SPI_BR_CLK_DIV16: u32 = 12;
+pub const SPI_BR_CLK_DIV32: u32 = 16;
+pub const SPI_BR_CLK_DIV64: u32 = 20;
+pub const SPI_BR_CLK_DIV128: u32 = 24;
+pub const SPI_BR_CLK_DIV256: u32 = 28;
+pub const SPI_DATA_SIZE_4BIT: u32 = 0;
+pub const SPI_DATA_SIZE_5BIT: u32 = 256;
+pub const SPI_DATA_SIZE_6BIT: u32 = 512;
+pub const SPI_DATA_SIZE_7BIT: u32 = 768;
+pub const SPI_DATA_SIZE_8BIT: u32 = 1024;
+pub const SPI_DATA_SIZE_9BIT: u32 = 1280;
+pub const SPI_DATA_SIZE_10BIT: u32 = 1536;
+pub const SPI_DATA_SIZE_11BIT: u32 = 1792;
+pub const SPI_DATA_SIZE_12BIT: u32 = 2048;
+pub const SPI_DATA_SIZE_13BIT: u32 = 2304;
+pub const SPI_DATA_SIZE_14BIT: u32 = 2560;
+pub const SPI_DATA_SIZE_15BIT: u32 = 2816;
+pub const SPI_DATA_SIZE_16BIT: u32 = 3072;
+pub const SPI_DATA_SIZE_20BIT: u32 = 3328;
+pub const SPI_DATA_SIZE_24BIT: u32 = 3584;
+pub const SPI_DATA_SIZE_32BIT: u32 = 3840;
+pub const SPI_FIRST_MSB: u32 = 0;
+pub const SPI_FIRST_LSB: u32 = 4096;
+pub const SPI_FLAG_OVERRUN: u32 = 1;
+pub const SPI_FLAG_IDLE: u32 = 2;
+pub const SPI_FLAG_MD_FAULT: u32 = 4;
+pub const SPI_FLAG_PARITY_ERR: u32 = 8;
+pub const SPI_FLAG_UNDERRUN: u32 = 16;
+pub const SPI_FLAG_TX_BUF_EMPTY: u32 = 32;
+pub const SPI_FLAG_RX_BUF_FULL: u32 = 128;
+pub const SPI_FLAG_CLR_ALL: u32 = 29;
+pub const SPI_FLAG_ALL: u32 = 191;
+pub const SRAM_SRAMH: u32 = 4;
+pub const SRAM_SRAM12: u32 = 1;
+pub const SRAM_SRAM3: u32 = 2;
+pub const SRAM_SRAMR: u32 = 8;
+pub const SRAM_SRAM_ALL: u32 = 15;
+pub const SRAM_ECC_SRAM3: u32 = 1;
+pub const SRAM_ECC_SRAM_ALL: u32 = 1;
+pub const SRAM_WAIT_CYCLE0: u32 = 0;
+pub const SRAM_WAIT_CYCLE1: u32 = 1;
+pub const SRAM_WAIT_CYCLE2: u32 = 2;
+pub const SRAM_WAIT_CYCLE3: u32 = 3;
+pub const SRAM_WAIT_CYCLE4: u32 = 4;
+pub const SRAM_WAIT_CYCLE5: u32 = 5;
+pub const SRAM_WAIT_CYCLE6: u32 = 6;
+pub const SRAM_WAIT_CYCLE7: u32 = 7;
+pub const SRAM_EXP_TYPE_NMI: u32 = 0;
+pub const SRAM_EXP_TYPE_RST: u32 = 1;
+pub const SRAM_CHECK_SRAM3: u32 = 65536;
+pub const SRAM_CHECK_SRAMH_1_2_B: u32 = 1;
+pub const SRAM_CHECK_SRAM_ALL: u32 = 65537;
+pub const SRAM_SRAM3_ECC_INVD: u32 = 0;
+pub const SRAM_SRAM3_ECC_MD1: u32 = 16777216;
+pub const SRAM_SRAM3_ECC_MD2: u32 = 33554432;
+pub const SRAM_SRAM3_ECC_MD3: u32 = 50331648;
+pub const SRAM_ECC_MD_INVD: u32 = 0;
+pub const SRAM_FLAG_SRAM3_1ERR: u32 = 1;
+pub const SRAM_FLAG_SRAM3_2ERR: u32 = 2;
+pub const SRAM_FLAG_SRAM12_PYERR: u32 = 4;
+pub const SRAM_FLAG_SRAMH_PYERR: u32 = 8;
+pub const SRAM_FLAG_SRAMR_PYERR: u32 = 16;
+pub const SRAM_FLAG_ALL: u32 = 31;
+pub const SRAM_REG_LOCK_KEY: u32 = 118;
+pub const SRAM_REG_UNLOCK_KEY: u32 = 119;
+pub const SWDT_FLAG_UDF: u32 = 65536;
+pub const SWDT_FLAG_REFRESH: u32 = 131072;
+pub const SWDT_FLAG_ALL: u32 = 196608;
+pub const TMR0_CH_A: u32 = 0;
+pub const TMR0_CH_B: u32 = 1;
+pub const TMR0_CLK_SRC_INTERN_CLK: u32 = 0;
+pub const TMR0_CLK_SRC_SPEC_EVT: u32 = 512;
+pub const TMR0_CLK_SRC_LRC: u32 = 256;
+pub const TMR0_CLK_SRC_XTAL32: u32 = 1280;
+pub const TMR0_CLK_DIV1: u32 = 0;
+pub const TMR0_CLK_DIV2: u32 = 16;
+pub const TMR0_CLK_DIV4: u32 = 32;
+pub const TMR0_CLK_DIV8: u32 = 48;
+pub const TMR0_CLK_DIV16: u32 = 64;
+pub const TMR0_CLK_DIV32: u32 = 80;
+pub const TMR0_CLK_DIV64: u32 = 96;
+pub const TMR0_CLK_DIV128: u32 = 112;
+pub const TMR0_CLK_DIV256: u32 = 128;
+pub const TMR0_CLK_DIV512: u32 = 144;
+pub const TMR0_CLK_DIV1024: u32 = 160;
+pub const TMR0_FUNC_CMP: u32 = 0;
+pub const TMR0_FUNC_CAPT: u32 = 32770;
+pub const TMR0_INT_CMP_A: u32 = 4;
+pub const TMR0_INT_CMP_B: u32 = 262144;
+pub const TMR0_INT_ALL: u32 = 262148;
+pub const TMR0_FLAG_CMP_A: u32 = 1;
+pub const TMR0_FLAG_CMP_B: u32 = 65536;
+pub const TMR0_FLAG_ALL: u32 = 65537;
+pub const TMR4_CLK_SRC_INTERNCLK: u32 = 0;
+pub const TMR4_CLK_SRC_EXTCLK: u32 = 32768;
+pub const TMR4_CLK_DIV1: u32 = 0;
+pub const TMR4_CLK_DIV2: u32 = 1;
+pub const TMR4_CLK_DIV4: u32 = 2;
+pub const TMR4_CLK_DIV8: u32 = 3;
+pub const TMR4_CLK_DIV16: u32 = 4;
+pub const TMR4_CLK_DIV32: u32 = 5;
+pub const TMR4_CLK_DIV64: u32 = 6;
+pub const TMR4_CLK_DIV128: u32 = 7;
+pub const TMR4_CLK_DIV256: u32 = 8;
+pub const TMR4_CLK_DIV512: u32 = 9;
+pub const TMR4_CLK_DIV1024: u32 = 10;
+pub const TMR4_MD_SAWTOOTH: u32 = 0;
+pub const TMR4_MD_TRIANGLE: u32 = 32;
+pub const TMR4_FLAG_RELOAD_TMR_U: u32 = 1;
+pub const TMR4_FLAG_RELOAD_TMR_V: u32 = 16;
+pub const TMR4_FLAG_RELOAD_TMR_W: u32 = 256;
+pub const TMR4_FLAG_OC_CMP_UH: u32 = 65536;
+pub const TMR4_FLAG_OC_CMP_UL: u32 = 131072;
+pub const TMR4_FLAG_OC_CMP_VH: u32 = 262144;
+pub const TMR4_FLAG_OC_CMP_VL: u32 = 524288;
+pub const TMR4_FLAG_OC_CMP_WH: u32 = 1048576;
+pub const TMR4_FLAG_OC_CMP_WL: u32 = 2097152;
+pub const TMR4_INT_RELOAD_TMR_U: u32 = 1;
+pub const TMR4_INT_RELOAD_TMR_V: u32 = 2;
+pub const TMR4_INT_RELOAD_TMR_W: u32 = 4;
+pub const TMR4_INT_OC_CMP_UH: u32 = 65536;
+pub const TMR4_INT_OC_CMP_UL: u32 = 131072;
+pub const TMR4_INT_OC_CMP_VH: u32 = 262144;
+pub const TMR4_INT_OC_CMP_VL: u32 = 524288;
+pub const TMR4_INT_OC_CMP_WH: u32 = 1048576;
+pub const TMR4_INT_OC_CMP_WL: u32 = 2097152;
+pub const TMR4_INT_CNT_MASK0: u32 = 0;
+pub const TMR4_INT_CNT_MASK1: u32 = 1;
+pub const TMR4_INT_CNT_MASK2: u32 = 2;
+pub const TMR4_INT_CNT_MASK3: u32 = 3;
+pub const TMR4_INT_CNT_MASK4: u32 = 4;
+pub const TMR4_INT_CNT_MASK5: u32 = 5;
+pub const TMR4_INT_CNT_MASK6: u32 = 6;
+pub const TMR4_INT_CNT_MASK7: u32 = 7;
+pub const TMR4_INT_CNT_MASK8: u32 = 8;
+pub const TMR4_INT_CNT_MASK9: u32 = 9;
+pub const TMR4_INT_CNT_MASK10: u32 = 10;
+pub const TMR4_INT_CNT_MASK11: u32 = 11;
+pub const TMR4_INT_CNT_MASK12: u32 = 12;
+pub const TMR4_INT_CNT_MASK13: u32 = 13;
+pub const TMR4_INT_CNT_MASK14: u32 = 14;
+pub const TMR4_INT_CNT_MASK15: u32 = 15;
+pub const TMR4_OC_CH_UH: u32 = 0;
+pub const TMR4_OC_CH_UL: u32 = 1;
+pub const TMR4_OC_CH_VH: u32 = 2;
+pub const TMR4_OC_CH_VL: u32 = 3;
+pub const TMR4_OC_CH_WH: u32 = 4;
+pub const TMR4_OC_CH_WL: u32 = 5;
+pub const TMR4_OC_INVD_LOW: u32 = 0;
+pub const TMR4_OC_INVD_HIGH: u32 = 4;
+pub const TMR4_OC_PORT_LOW: u32 = 0;
+pub const TMR4_OC_PORT_HIGH: u32 = 4;
+pub const TMR4_OC_BUF_NONE: u32 = 0;
+pub const TMR4_OC_BUF_CMP_VALUE: u32 = 1;
+pub const TMR4_OC_BUF_CMP_MD: u32 = 2;
+pub const TMR4_OC_BUF_COND_IMMED: u32 = 0;
+pub const TMR4_OC_BUF_COND_VALLEY: u32 = 1;
+pub const TMR4_OC_BUF_COND_PEAK: u32 = 2;
+pub const TMR4_OC_BUF_COND_PEAK_VALLEY: u32 = 3;
+pub const TMR4_OC_OCF_HOLD: u32 = 0;
+pub const TMR4_OC_OCF_SET: u32 = 1;
+pub const TMR4_OC_HOLD: u32 = 0;
+pub const TMR4_OC_HIGH: u32 = 1;
+pub const TMR4_OC_LOW: u32 = 2;
+pub const TMR4_OC_INVT: u32 = 3;
+pub const TMR4_PWM_CH_U: u32 = 0;
+pub const TMR4_PWM_CH_V: u32 = 1;
+pub const TMR4_PWM_CH_W: u32 = 2;
+pub const TMR4_PWM_PIN_OUH: u32 = 0;
+pub const TMR4_PWM_PIN_OUL: u32 = 1;
+pub const TMR4_PWM_PIN_OVH: u32 = 2;
+pub const TMR4_PWM_PIN_OVL: u32 = 3;
+pub const TMR4_PWM_PIN_OWH: u32 = 4;
+pub const TMR4_PWM_PIN_OWL: u32 = 5;
+pub const TMR4_PWM_CLK_DIV1: u32 = 0;
+pub const TMR4_PWM_CLK_DIV2: u32 = 1;
+pub const TMR4_PWM_CLK_DIV4: u32 = 2;
+pub const TMR4_PWM_CLK_DIV8: u32 = 3;
+pub const TMR4_PWM_CLK_DIV16: u32 = 4;
+pub const TMR4_PWM_CLK_DIV32: u32 = 5;
+pub const TMR4_PWM_CLK_DIV64: u32 = 6;
+pub const TMR4_PWM_CLK_DIV128: u32 = 7;
+pub const TMR4_PWM_MD_THROUGH: u32 = 0;
+pub const TMR4_PWM_MD_DEAD_TMR: u32 = 16;
+pub const TMR4_PWM_MD_DEAD_TMR_FILTER: u32 = 32;
+pub const TMR4_PWM_OXH_HOLD_OXL_HOLD: u32 = 0;
+pub const TMR4_PWM_OXH_INVT_OXL_INVT: u32 = 64;
+pub const TMR4_PWM_OXH_INVT_OXL_HOLD: u32 = 128;
+pub const TMR4_PWM_OXH_HOLD_OXL_INVT: u32 = 192;
+pub const TMR4_PWM_PDAR_IDX: u32 = 0;
+pub const TMR4_PWM_PDBR_IDX: u32 = 1;
+pub const TMR4_PWM_ABNORMAL_PIN_NORMAL: u32 = 0;
+pub const TMR4_PWM_ABNORMAL_PIN_HIZ: u32 = 1;
+pub const TMR4_PWM_ABNORMAL_PIN_LOW: u32 = 2;
+pub const TMR4_PWM_ABNORMAL_PIN_HIGH: u32 = 3;
+pub const TMR4_PWM_ABNORMAL_PIN_HOLD: u32 = 4;
+pub const TMR4_EVT_CH_UH: u32 = 0;
+pub const TMR4_EVT_CH_UL: u32 = 1;
+pub const TMR4_EVT_CH_VH: u32 = 2;
+pub const TMR4_EVT_CH_VL: u32 = 3;
+pub const TMR4_EVT_CH_WH: u32 = 4;
+pub const TMR4_EVT_CH_WL: u32 = 5;
+pub const TMR4_EVT_MATCH_CNT_UP: u32 = 16384;
+pub const TMR4_EVT_MATCH_CNT_DOWN: u32 = 4096;
+pub const TMR4_EVT_MATCH_CNT_PEAK: u32 = 8192;
+pub const TMR4_EVT_MATCH_CNT_VALLEY: u32 = 32768;
+pub const TMR4_EVT_MATCH_CNT_ALL: u32 = 61440;
+pub const TMR4_EVT_MASK_PEAK: u32 = 128;
+pub const TMR4_EVT_MASK_VALLEY: u32 = 64;
+pub const TMR4_EVT_MASK_TYPE_ALL: u32 = 192;
+pub const TMR4_EVT_BUF_COND_IMMED: u32 = 0;
+pub const TMR4_EVT_BUF_COND_VALLEY: u32 = 1;
+pub const TMR4_EVT_BUF_COND_PEAK: u32 = 2;
+pub const TMR4_EVT_BUF_COND_PEAK_VALLEY: u32 = 3;
+pub const TMR4_EVT_MD_CMP: u32 = 0;
+pub const TMR4_EVT_MD_DELAY: u32 = 256;
+pub const TMR4_EVT_DELAY_OCCRXH: u32 = 0;
+pub const TMR4_EVT_DELAY_OCCRXL: u32 = 512;
+pub const TMR4_EVT_MASK0: u32 = 0;
+pub const TMR4_EVT_MASK1: u32 = 1;
+pub const TMR4_EVT_MASK2: u32 = 2;
+pub const TMR4_EVT_MASK3: u32 = 3;
+pub const TMR4_EVT_MASK4: u32 = 4;
+pub const TMR4_EVT_MASK5: u32 = 5;
+pub const TMR4_EVT_MASK6: u32 = 6;
+pub const TMR4_EVT_MASK7: u32 = 7;
+pub const TMR4_EVT_MASK8: u32 = 8;
+pub const TMR4_EVT_MASK9: u32 = 9;
+pub const TMR4_EVT_MASK10: u32 = 10;
+pub const TMR4_EVT_MASK11: u32 = 11;
+pub const TMR4_EVT_MASK12: u32 = 12;
+pub const TMR4_EVT_MASK13: u32 = 13;
+pub const TMR4_EVT_MASK14: u32 = 14;
+pub const TMR4_EVT_MASK15: u32 = 15;
+pub const TMR4_EVT_OUTPUT_EVT0: u32 = 0;
+pub const TMR4_EVT_OUTPUT_EVT1: u32 = 4;
+pub const TMR4_EVT_OUTPUT_EVT2: u32 = 8;
+pub const TMR4_EVT_OUTPUT_EVT3: u32 = 12;
+pub const TMR4_EVT_OUTPUT_EVT4: u32 = 16;
+pub const TMR4_EVT_OUTPUT_EVT5: u32 = 20;
+pub const TMR4_EVT_OUTPUT_NONE: u32 = 0;
+pub const TMR4_EVT_OUTPUT_EVT0_SIGNAL: u32 = 1;
+pub const TMR4_EVT_OUTPUT_EVT1_SIGNAL: u32 = 2;
+pub const TMR4_EVT_OUTPUT_EVT2_SIGNAL: u32 = 3;
+pub const TMR4_EVT_OUTPUT_EVT3_SIGNAL: u32 = 4;
+pub const TMR4_EVT_OUTPUT_EVT4_SIGNAL: u32 = 5;
+pub const TMR4_EVT_OUTPUT_EVT5_SIGNAL: u32 = 6;
+pub const TMR6_CNT_SRC_SW: u32 = 0;
+pub const TMR6_CNT_SRC_HW: u32 = 1;
+pub const TMR6_FLAG_MATCH_A: u32 = 1;
+pub const TMR6_FLAG_MATCH_B: u32 = 2;
+pub const TMR6_FLAG_MATCH_C: u32 = 4;
+pub const TMR6_FLAG_MATCH_D: u32 = 8;
+pub const TMR6_FLAG_MATCH_E: u32 = 16;
+pub const TMR6_FLAG_MATCH_F: u32 = 32;
+pub const TMR6_FLAG_OVF: u32 = 64;
+pub const TMR6_FLAG_UDF: u32 = 128;
+pub const TMR6_FLAG_DEAD_TIME_ERR: u32 = 256;
+pub const TMR6_FLAG_UP_CNT_SPECIAL_MATCH_A: u32 = 512;
+pub const TMR6_FLAG_DOWN_CNT_SPECIAL_MATCH_A: u32 = 1024;
+pub const TMR6_FLAG_UP_CNT_SPECIAL_MATCH_B: u32 = 2048;
+pub const TMR6_FLAG_DOWN_CNT_SPECIAL_MATCH_B: u32 = 4096;
+pub const TMR6_FLAG_CNT_DIR: u32 = 2147483648;
+pub const TMR6_FLAG_CLR_ALL: u32 = 7935;
+pub const TMR6_FLAG_ALL: u32 = 2147491839;
+pub const TMR6_INT_MATCH_A: u32 = 1;
+pub const TMR6_INT_MATCH_B: u32 = 2;
+pub const TMR6_INT_MATCH_C: u32 = 4;
+pub const TMR6_INT_MATCH_D: u32 = 8;
+pub const TMR6_INT_MATCH_E: u32 = 16;
+pub const TMR6_INT_MATCH_F: u32 = 32;
+pub const TMR6_INT_OVF: u32 = 64;
+pub const TMR6_INT_UDF: u32 = 128;
+pub const TMR6_INT_DEAD_TIME_ERR: u32 = 256;
+pub const TMR6_INT_UP_CNT_SPECIAL_MATCH_A: u32 = 65536;
+pub const TMR6_INT_DOWN_CNT_SPECIAL_MATCH_A: u32 = 131072;
+pub const TMR6_INT_UP_CNT_SPECIAL_MATCH_B: u32 = 262144;
+pub const TMR6_INT_DOWN_CNT_SPECIAL_MATCH_B: u32 = 524288;
+pub const TMR6_INT_ALL: u32 = 983551;
+pub const TMR6_PERIOD_REG_A: u32 = 0;
+pub const TMR6_PERIOD_REG_B: u32 = 1;
+pub const TMR6_PERIOD_REG_C: u32 = 2;
+pub const TMR6_CMP_REG_A: u32 = 0;
+pub const TMR6_CMP_REG_B: u32 = 1;
+pub const TMR6_CMP_REG_C: u32 = 2;
+pub const TMR6_CMP_REG_D: u32 = 3;
+pub const TMR6_CMP_REG_E: u32 = 4;
+pub const TMR6_CMP_REG_F: u32 = 5;
+pub const TMR6_CH_A: u32 = 0;
+pub const TMR6_CH_B: u32 = 1;
+pub const TMR6_BUF_SINGLE: u32 = 0;
+pub const TMR6_BUF_DUAL: u32 = 2;
+pub const TMR6_BUF_TRANS_INVD: u32 = 0;
+pub const TMR6_BUF_TRANS_OVF: u32 = 4;
+pub const TMR6_BUF_TRANS_UDF: u32 = 8;
+pub const TMR6_BUF_TRANS_OVF_UDF: u32 = 12;
+pub const TMR6_VALID_PERIOD_INVD: u32 = 0;
+pub const TMR6_VALID_PERIOD_CNT_COND_VALLEY: u32 = 65536;
+pub const TMR6_VALID_PERIOD_CNT_COND_PEAK: u32 = 131072;
+pub const TMR6_VALID_PERIOD_CNT_COND_VALLEY_PEAK: u32 = 196608;
+pub const TMR6_VALID_PERIOD_CNT_INVD: u32 = 0;
+pub const TMR6_VALID_PERIOD_CNT1: u32 = 262144;
+pub const TMR6_VALID_PERIOD_CNT2: u32 = 524288;
+pub const TMR6_VALID_PERIOD_CNT3: u32 = 786432;
+pub const TMR6_VALID_PERIOD_CNT4: u32 = 1048576;
+pub const TMR6_VALID_PERIOD_CNT5: u32 = 1310720;
+pub const TMR6_VALID_PERIOD_CNT6: u32 = 1572864;
+pub const TMR6_VALID_PERIOD_CNT7: u32 = 1835008;
+pub const TMR6_DEADTIME_REG_UP_A: u32 = 0;
+pub const TMR6_DEADTIME_REG_DOWN_A: u32 = 1;
+pub const TMR6_DEADTIME_REG_UP_B: u32 = 2;
+pub const TMR6_DEADTIME_REG_DOWN_B: u32 = 3;
+pub const TMR6_IO_PWMA: u32 = 0;
+pub const TMR6_IO_PWMB: u32 = 1;
+pub const TMR6_INPUT_TRIGA: u32 = 2;
+pub const TMR6_INPUT_TRIGB: u32 = 3;
+pub const TMR6_FILTER_CLK_DIV1: u32 = 0;
+pub const TMR6_FILTER_CLK_DIV4: u32 = 1;
+pub const TMR6_FILTER_CLK_DIV16: u32 = 2;
+pub const TMR6_FILTER_CLK_DIV64: u32 = 3;
+pub const TMR6_PIN_CMP_OUTPUT: u32 = 0;
+pub const TMR6_PIN_CAPT_INPUT: u32 = 1;
+pub const TMR6_STAT_START: u32 = 0;
+pub const TMR6_STAT_STOP: u32 = 1;
+pub const TMR6_STAT_MATCH_CMP: u32 = 2;
+pub const TMR6_STAT_MATCH_PERIOD: u32 = 3;
+pub const TMR6_PWM_LOW: u32 = 0;
+pub const TMR6_PWM_HIGH: u32 = 1;
+pub const TMR6_PWM_HOLD: u32 = 2;
+pub const TMR6_PWM_INVT: u32 = 3;
+pub const TMR6_PWM_START_STOP_HOLD: u32 = 8;
+pub const TMR6_PWM_START_STOP_CHANGE: u32 = 0;
+pub const TMR6_EMB_PIN_NORMAL: u32 = 0;
+pub const TMR6_EMB_PIN_HIZ: u32 = 2048;
+pub const TMR6_EMB_PIN_LOW: u32 = 4096;
+pub const TMR6_EMB_PIN_HIGH: u32 = 6144;
+pub const TMR6_DEADTIME_CNT_UP_BUF_OFF: u32 = 0;
+pub const TMR6_DEADTIME_CNT_UP_BUF_ON: u32 = 16;
+pub const TMR6_DEADTIME_CNT_DOWN_BUF_OFF: u32 = 0;
+pub const TMR6_DEADTIME_CNT_DOWN_BUF_ON: u32 = 32;
+pub const TMR6_DEADTIME_EQUAL_OFF: u32 = 0;
+pub const TMR6_DEADTIME_EQUAL_ON: u32 = 256;
+pub const TMR6_SW_SYNC_U1: u32 = 1;
+pub const TMR6_SW_SYNC_U2: u32 = 2;
+pub const TMR6_SW_SYNC_U3: u32 = 4;
+pub const TMR6_SW_SYNC_ALL: u32 = 7;
+pub const TMR6_START_COND_EVT0: u32 = 1;
+pub const TMR6_START_COND_EVT1: u32 = 2;
+pub const TMR6_START_COND_PWMA_RISING: u32 = 16;
+pub const TMR6_START_COND_PWMA_FALLING: u32 = 32;
+pub const TMR6_START_COND_PWMB_RISING: u32 = 64;
+pub const TMR6_START_COND_PWMB_FALLING: u32 = 128;
+pub const TMR6_START_COND_TRIGA_RISING: u32 = 256;
+pub const TMR6_START_COND_TRIGA_FALLING: u32 = 512;
+pub const TMR6_START_COND_TRIGB_RISING: u32 = 1024;
+pub const TMR6_START_COND_TRIGB_FALLING: u32 = 2048;
+pub const TMR6_START_COND_ALL: u32 = 4083;
+pub const TMR6_STOP_COND_EVT0: u32 = 1;
+pub const TMR6_STOP_COND_EVT1: u32 = 2;
+pub const TMR6_STOP_COND_PWMA_RISING: u32 = 16;
+pub const TMR6_STOP_COND_PWMA_FALLING: u32 = 32;
+pub const TMR6_STOP_COND_PWMB_RISING: u32 = 64;
+pub const TMR6_STOP_COND_PWMB_FALLING: u32 = 128;
+pub const TMR6_STOP_COND_TRIGA_RISING: u32 = 256;
+pub const TMR6_STOP_COND_TRIGA_FALLING: u32 = 512;
+pub const TMR6_STOP_COND_TRIGB_RISING: u32 = 1024;
+pub const TMR6_STOP_COND_TRIGB_FALLING: u32 = 2048;
+pub const TMR6_STOP_COND_ALL: u32 = 4083;
+pub const TMR6_CLR_COND_EVT0: u32 = 1;
+pub const TMR6_CLR_COND_EVT1: u32 = 2;
+pub const TMR6_CLR_COND_PWMA_RISING: u32 = 16;
+pub const TMR6_CLR_COND_PWMA_FALLING: u32 = 32;
+pub const TMR6_CLR_COND_PWMB_RISING: u32 = 64;
+pub const TMR6_CLR_COND_PWMB_FALLING: u32 = 128;
+pub const TMR6_CLR_COND_TRIGA_RISING: u32 = 256;
+pub const TMR6_CLR_COND_TRIGA_FALLING: u32 = 512;
+pub const TMR6_CLR_COND_TRIGB_RISING: u32 = 1024;
+pub const TMR6_CLR_COND_TRIGB_FALLING: u32 = 2048;
+pub const TMR6_CLR_COND_ALL: u32 = 4083;
+pub const TMR6_CAPT_COND_EVT0: u32 = 1;
+pub const TMR6_CAPT_COND_EVT1: u32 = 2;
+pub const TMR6_CAPT_COND_PWMA_RISING: u32 = 16;
+pub const TMR6_CAPT_COND_PWMA_FALLING: u32 = 32;
+pub const TMR6_CAPT_COND_PWMB_RISING: u32 = 64;
+pub const TMR6_CAPT_COND_PWMB_FALLING: u32 = 128;
+pub const TMR6_CAPT_COND_TRIGA_RISING: u32 = 256;
+pub const TMR6_CAPT_COND_TRIGA_FALLING: u32 = 512;
+pub const TMR6_CAPT_COND_TRIGB_RISING: u32 = 1024;
+pub const TMR6_CAPT_COND_TRIGB_FALLING: u32 = 2048;
+pub const TMR6_CAPT_COND_ALL: u32 = 4083;
+pub const TMR6_CNT_UP_COND_INVD: u32 = 0;
+pub const TMR6_CNT_UP_COND_PWMA_LOW_PWMB_RISING: u32 = 1;
+pub const TMR6_CNT_UP_COND_PWMA_LOW_PWMB_FALLING: u32 = 2;
+pub const TMR6_CNT_UP_COND_PWMA_HIGH_PWMB_RISING: u32 = 4;
+pub const TMR6_CNT_UP_COND_PWMA_HIGH_PWMB_FALLING: u32 = 8;
+pub const TMR6_CNT_UP_COND_PWMB_LOW_PWMA_RISING: u32 = 16;
+pub const TMR6_CNT_UP_COND_PWMB_LOW_PWMA_FALLING: u32 = 32;
+pub const TMR6_CNT_UP_COND_PWMB_HIGH_PWMA_RISING: u32 = 64;
+pub const TMR6_CNT_UP_COND_PWMB_HIGH_PWMA_FALLING: u32 = 128;
+pub const TMR6_CNT_UP_COND_TRIGA_RISING: u32 = 256;
+pub const TMR6_CNT_UP_COND_TRIGA_FALLING: u32 = 512;
+pub const TMR6_CNT_UP_COND_TRIGB_RISING: u32 = 1024;
+pub const TMR6_CNT_UP_COND_TRIGB_FALLING: u32 = 2048;
+pub const TMR6_CNT_UP_COND_EVT0: u32 = 65536;
+pub const TMR6_CNT_UP_COND_EVT1: u32 = 131072;
+pub const TMR6_CNT_UP_COND_ALL: u32 = 200703;
+pub const TMR6_CNT_DOWN_COND_INVD: u32 = 0;
+pub const TMR6_CNT_DOWN_COND_PWMA_LOW_PWMB_RISING: u32 = 1;
+pub const TMR6_CNT_DOWN_COND_PWMA_LOW_PWMB_FALLING: u32 = 2;
+pub const TMR6_CNT_DOWN_COND_PWMA_HIGH_PWMB_RISING: u32 = 4;
+pub const TMR6_CNT_DOWN_COND_PWMA_HIGH_PWMB_FALLING: u32 = 8;
+pub const TMR6_CNT_DOWN_COND_PWMB_LOW_PWMA_RISING: u32 = 16;
+pub const TMR6_CNT_DOWN_COND_PWMB_LOW_PWMA_FALLING: u32 = 32;
+pub const TMR6_CNT_DOWN_COND_PWMB_HIGH_PWMA_RISING: u32 = 64;
+pub const TMR6_CNT_DOWN_COND_PWMB_HIGH_PWMA_FALLING: u32 = 128;
+pub const TMR6_CNT_DOWN_COND_TRIGA_RISING: u32 = 256;
+pub const TMR6_CNT_DOWN_COND_TRIGA_FALLING: u32 = 512;
+pub const TMR6_CNT_DOWN_COND_TRIGB_RISING: u32 = 1024;
+pub const TMR6_CNT_DOWN_COND_TRIGB_FALLING: u32 = 2048;
+pub const TMR6_CNT_DOWN_COND_EVT0: u32 = 65536;
+pub const TMR6_CNT_DOWN_COND_EVT1: u32 = 131072;
+pub const TMR6_CNT_DOWN_COND_ALL: u32 = 200703;
+pub const TMR6_CNT_UP: u32 = 256;
+pub const TMR6_CNT_DOWN: u32 = 0;
+pub const TMR6_STAT_CNT_UP: u32 = 2147483648;
+pub const TMR6_STAT_CNT_DOWN: u32 = 0;
+pub const TMR6_MD_SAWTOOTH: u32 = 0;
+pub const TMR6_MD_TRIANGLE_A: u32 = 8;
+pub const TMR6_MD_TRIANGLE_B: u32 = 10;
+pub const TMR6_CLK_DIV1: u32 = 0;
+pub const TMR6_CLK_DIV2: u32 = 16;
+pub const TMR6_CLK_DIV4: u32 = 32;
+pub const TMR6_CLK_DIV8: u32 = 48;
+pub const TMR6_CLK_DIV16: u32 = 64;
+pub const TMR6_CLK_DIV64: u32 = 80;
+pub const TMR6_CLK_DIV256: u32 = 96;
+pub const TMR6_CLK_DIV1024: u32 = 112;
+pub const TMR6_ZMASK_FUNC_INVD: u32 = 0;
+pub const TMR6_ZMASK_CYCLE_4: u32 = 262144;
+pub const TMR6_ZMASK_CYCLE_8: u32 = 524288;
+pub const TMR6_ZMASK_CYCLE_16: u32 = 786432;
+pub const TMR6_POS_CLR_ZMASK_FUNC_OFF: u32 = 0;
+pub const TMR6_POS_CLR_ZMASK_FUNC_ON: u32 = 131072;
+pub const TMR6_REVO_CNT_ZMASK_FUNC_OFF: u32 = 0;
+pub const TMR6_REVO_CNT_ZMASK_FUNC_ON: u32 = 65536;
+pub const TMRA_CNT_SRC_SW: u32 = 0;
+pub const TMRA_CNT_SRC_HW: u32 = 1;
+pub const TMRA_CH1: u32 = 0;
+pub const TMRA_CH2: u32 = 1;
+pub const TMRA_CH3: u32 = 2;
+pub const TMRA_CH4: u32 = 3;
+pub const TMRA_CH5: u32 = 4;
+pub const TMRA_CH6: u32 = 5;
+pub const TMRA_CH7: u32 = 6;
+pub const TMRA_CH8: u32 = 7;
+pub const TMRA_DIR_DOWN: u32 = 0;
+pub const TMRA_DIR_UP: u32 = 2;
+pub const TMRA_MD_SAWTOOTH: u32 = 0;
+pub const TMRA_MD_TRIANGLE: u32 = 4;
+pub const TMRA_FUNC_CMP: u32 = 0;
+pub const TMRA_FUNC_CAPT: u32 = 1;
+pub const TMRA_CLK_DIV1: u32 = 0;
+pub const TMRA_CLK_DIV2: u32 = 16;
+pub const TMRA_CLK_DIV4: u32 = 32;
+pub const TMRA_CLK_DIV8: u32 = 48;
+pub const TMRA_CLK_DIV16: u32 = 64;
+pub const TMRA_CLK_DIV32: u32 = 80;
+pub const TMRA_CLK_DIV64: u32 = 96;
+pub const TMRA_CLK_DIV128: u32 = 112;
+pub const TMRA_CLK_DIV256: u32 = 128;
+pub const TMRA_CLK_DIV512: u32 = 144;
+pub const TMRA_CLK_DIV1024: u32 = 160;
+pub const TMRA_PIN_TRIG: u32 = 0;
+pub const TMRA_PIN_CLKA: u32 = 1;
+pub const TMRA_PIN_CLKB: u32 = 2;
+pub const TMRA_PIN_PWM1: u32 = 3;
+pub const TMRA_PIN_PWM2: u32 = 4;
+pub const TMRA_PIN_PWM3: u32 = 5;
+pub const TMRA_PIN_PWM4: u32 = 6;
+pub const TMRA_PIN_PWM5: u32 = 7;
+pub const TMRA_PIN_PWM6: u32 = 8;
+pub const TMRA_PIN_PWM7: u32 = 9;
+pub const TMRA_PIN_PWM8: u32 = 10;
+pub const TMRA_CNT_UP_COND_INVD: u32 = 0;
+pub const TMRA_CNT_UP_COND_CLKA_LOW_CLKB_RISING: u32 = 1;
+pub const TMRA_CNT_UP_COND_CLKA_LOW_CLKB_FALLING: u32 = 2;
+pub const TMRA_CNT_UP_COND_CLKA_HIGH_CLKB_RISING: u32 = 4;
+pub const TMRA_CNT_UP_COND_CLKA_HIGH_CLKB_FALLING: u32 = 8;
+pub const TMRA_CNT_UP_COND_CLKB_LOW_CLKA_RISING: u32 = 16;
+pub const TMRA_CNT_UP_COND_CLKB_LOW_CLKA_FALLING: u32 = 32;
+pub const TMRA_CNT_UP_COND_CLKB_HIGH_CLKA_RISING: u32 = 64;
+pub const TMRA_CNT_UP_COND_CLKB_HIGH_CLKA_FALLING: u32 = 128;
+pub const TMRA_CNT_UP_COND_TRIG_RISING: u32 = 256;
+pub const TMRA_CNT_UP_COND_TRIG_FALLING: u32 = 512;
+pub const TMRA_CNT_UP_COND_EVT: u32 = 1024;
+pub const TMRA_CNT_UP_COND_SYM_OVF: u32 = 2048;
+pub const TMRA_CNT_UP_COND_SYM_UDF: u32 = 4096;
+pub const TMRA_CNT_UP_COND_ALL: u32 = 8191;
+pub const TMRA_CNT_DOWN_COND_INVD: u32 = 0;
+pub const TMRA_CNT_DOWN_COND_CLKA_LOW_CLKB_RISING: u32 = 1;
+pub const TMRA_CNT_DOWN_COND_CLKA_LOW_CLKB_FALLING: u32 = 2;
+pub const TMRA_CNT_DOWN_COND_CLKA_HIGH_CLKB_RISING: u32 = 4;
+pub const TMRA_CNT_DOWN_COND_CLKA_HIGH_CLKB_FALLING: u32 = 8;
+pub const TMRA_CNT_DOWN_COND_CLKB_LOW_CLKA_RISING: u32 = 16;
+pub const TMRA_CNT_DOWN_COND_CLKB_LOW_CLKA_FALLING: u32 = 32;
+pub const TMRA_CNT_DOWN_COND_CLKB_HIGH_CLKA_RISING: u32 = 64;
+pub const TMRA_CNT_DOWN_COND_CLKB_HIGH_CLKA_FALLING: u32 = 128;
+pub const TMRA_CNT_DOWN_COND_TRIG_RISING: u32 = 256;
+pub const TMRA_CNT_DOWN_COND_TRIG_FALLING: u32 = 512;
+pub const TMRA_CNT_DOWN_COND_EVT: u32 = 1024;
+pub const TMRA_CNT_DOWN_COND_SYM_OVF: u32 = 2048;
+pub const TMRA_CNT_DOWN_COND_SYM_UDF: u32 = 4096;
+pub const TMRA_CNT_DOWN_COND_ALL: u32 = 8191;
+pub const TMRA_INT_OVF: u32 = 16;
+pub const TMRA_INT_UDF: u32 = 32;
+pub const TMRA_INT_CMP_CH1: u32 = 65536;
+pub const TMRA_INT_CMP_CH2: u32 = 131072;
+pub const TMRA_INT_CMP_CH3: u32 = 262144;
+pub const TMRA_INT_CMP_CH4: u32 = 524288;
+pub const TMRA_INT_CMP_CH5: u32 = 1048576;
+pub const TMRA_INT_CMP_CH6: u32 = 2097152;
+pub const TMRA_INT_CMP_CH7: u32 = 4194304;
+pub const TMRA_INT_CMP_CH8: u32 = 8388608;
+pub const TMRA_INT_ALL: u32 = 16711728;
+pub const TMRA_EVT_CMP_CH1: u32 = 1;
+pub const TMRA_EVT_CMP_CH2: u32 = 2;
+pub const TMRA_EVT_CMP_CH3: u32 = 4;
+pub const TMRA_EVT_CMP_CH4: u32 = 8;
+pub const TMRA_EVT_CMP_CH5: u32 = 16;
+pub const TMRA_EVT_CMP_CH6: u32 = 32;
+pub const TMRA_EVT_CMP_CH7: u32 = 64;
+pub const TMRA_EVT_CMP_CH8: u32 = 128;
+pub const TMRA_EVT_ALL: u32 = 255;
+pub const TMRA_FLAG_OVF: u32 = 64;
+pub const TMRA_FLAG_UDF: u32 = 128;
+pub const TMRA_FLAG_CMP_CH1: u32 = 65536;
+pub const TMRA_FLAG_CMP_CH2: u32 = 131072;
+pub const TMRA_FLAG_CMP_CH3: u32 = 262144;
+pub const TMRA_FLAG_CMP_CH4: u32 = 524288;
+pub const TMRA_FLAG_CMP_CH5: u32 = 1048576;
+pub const TMRA_FLAG_CMP_CH6: u32 = 2097152;
+pub const TMRA_FLAG_CMP_CH7: u32 = 4194304;
+pub const TMRA_FLAG_CMP_CH8: u32 = 8388608;
+pub const TMRA_FLAG_ALL: u32 = 16711872;
+pub const TMRA_CAPT_COND_INVD: u32 = 0;
+pub const TMRA_CAPT_COND_PWM_RISING: u32 = 16;
+pub const TMRA_CAPT_COND_PWM_FALLING: u32 = 32;
+pub const TMRA_CAPT_COND_EVT: u32 = 64;
+pub const TMRA_CAPT_COND_TRIG_RISING: u32 = 256;
+pub const TMRA_CAPT_COND_TRIG_FALLING: u32 = 512;
+pub const TMRA_CAPT_COND_ALL: u32 = 880;
+pub const TMRA_BUF_TRANS_COND_OVF_UDF_CLR: u32 = 0;
+pub const TMRA_BUF_TRANS_COND_PEAK: u32 = 2;
+pub const TMRA_BUF_TRANS_COND_VALLEY: u32 = 4;
+pub const TMRA_BUF_TRANS_COND_PEAK_VALLEY: u32 = 6;
+pub const TMRA_FILTER_CLK_DIV1: u32 = 0;
+pub const TMRA_FILTER_CLK_DIV4: u32 = 1;
+pub const TMRA_FILTER_CLK_DIV16: u32 = 2;
+pub const TMRA_FILTER_CLK_DIV64: u32 = 3;
+pub const TMRA_CNT_STAT_START: u32 = 0;
+pub const TMRA_CNT_STAT_STOP: u32 = 1;
+pub const TMRA_CNT_STAT_MATCH_CMP: u32 = 2;
+pub const TMRA_CNT_STAT_MATCH_PERIOD: u32 = 3;
+pub const TMRA_PWM_LOW: u32 = 0;
+pub const TMRA_PWM_HIGH: u32 = 1;
+pub const TMRA_PWM_HOLD: u32 = 2;
+pub const TMRA_PWM_INVT: u32 = 3;
+pub const TMRA_PWM_FORCE_INVD: u32 = 0;
+pub const TMRA_PWM_FORCE_LOW: u32 = 512;
+pub const TMRA_PWM_FORCE_HIGH: u32 = 768;
+pub const TMRA_START_COND_INVD: u32 = 0;
+pub const TMRA_START_COND_TRIG_RISING: u32 = 1;
+pub const TMRA_START_COND_TRIG_FALLING: u32 = 2;
+pub const TMRA_START_COND_EVT: u32 = 4;
+pub const TMRA_START_COND_ALL: u32 = 7;
+pub const TMRA_STOP_COND_INVD: u32 = 0;
+pub const TMRA_STOP_COND_TRIG_RISING: u32 = 16;
+pub const TMRA_STOP_COND_TRIG_FALLING: u32 = 32;
+pub const TMRA_STOP_COND_EVT: u32 = 64;
+pub const TMRA_STOP_COND_ALL: u32 = 112;
+pub const TMRA_CLR_COND_INVD: u32 = 0;
+pub const TMRA_CLR_COND_TRIG_RISING: u32 = 256;
+pub const TMRA_CLR_COND_TRIG_FALLING: u32 = 512;
+pub const TMRA_CLR_COND_EVT: u32 = 1024;
+pub const TMRA_CLR_COND_SYM_TRIG_RISING: u32 = 4096;
+pub const TMRA_CLR_COND_SYM_TRIG_FALLING: u32 = 8192;
+pub const TMRA_CLR_COND_PWM3_RISING: u32 = 16384;
+pub const TMRA_CLR_COND_PWM3_FALLING: u32 = 32768;
+pub const TMRA_CLR_COND_ALL: u32 = 63232;
+pub const TRNG_RELOAD_INIT_VAL_ENABLE: u32 = 1;
+pub const TRNG_RELOAD_INIT_VAL_DISABLE: u32 = 0;
+pub const TRNG_SHIFT_CNT32: u32 = 12;
+pub const TRNG_SHIFT_CNT64: u32 = 16;
+pub const TRNG_SHIFT_CNT128: u32 = 20;
+pub const TRNG_SHIFT_CNT256: u32 = 24;
+pub const USART_FLAG_RX_FULL: u32 = 32;
+pub const USART_FLAG_OVERRUN: u32 = 8;
+pub const USART_FLAG_TX_CPLT: u32 = 64;
+pub const USART_FLAG_TX_EMPTY: u32 = 128;
+pub const USART_FLAG_FRAME_ERR: u32 = 2;
+pub const USART_FLAG_PARITY_ERR: u32 = 1;
+pub const USART_FLAG_MX_PROCESSOR: u32 = 65536;
+pub const USART_FLAG_RX_TIMEOUT: u32 = 256;
+pub const USART_FLAG_ALL: u32 = 66027;
+pub const USART_TRANS_DATA: u32 = 0;
+pub const USART_TRANS_ID: u32 = 512;
+pub const USART_TX: u32 = 8;
+pub const USART_RX: u32 = 4;
+pub const USART_INT_RX: u32 = 32;
+pub const USART_INT_TX_CPLT: u32 = 64;
+pub const USART_INT_TX_EMPTY: u32 = 128;
+pub const USART_RX_TIMEOUT: u32 = 1;
+pub const USART_INT_RX_TIMEOUT: u32 = 2;
+pub const USART_FUNC_ALL: u32 = 239;
+pub const USART_PARITY_NONE: u32 = 0;
+pub const USART_PARITY_EVEN: u32 = 1024;
+pub const USART_PARITY_ODD: u32 = 1536;
+pub const USART_DATA_WIDTH_8BIT: u32 = 0;
+pub const USART_DATA_WIDTH_9BIT: u32 = 4096;
+pub const USART_OVER_SAMPLE_16BIT: u32 = 0;
+pub const USART_OVER_SAMPLE_8BIT: u32 = 32768;
+pub const USART_FIRST_BIT_LSB: u32 = 0;
+pub const USART_FIRST_BIT_MSB: u32 = 268435456;
+pub const USART_START_BIT_LOW: u32 = 0;
+pub const USART_START_BIT_FALLING: u32 = 2147483648;
+pub const USART_CLK_SRC_INTERNCLK: u32 = 0;
+pub const USART_CLK_SRC_EXTCLK: u32 = 4096;
+pub const USART_CK_OUTPUT_DISABLE: u32 = 0;
+pub const USART_CK_OUTPUT_ENABLE: u32 = 2048;
+pub const USART_STOPBIT_1BIT: u32 = 0;
+pub const USART_STOPBIT_2BIT: u32 = 8192;
+pub const USART_HW_FLOWCTRL_CTS: u32 = 512;
+pub const USART_HW_FLOWCTRL_RTS: u32 = 256;
+pub const USART_CLK_DIV1: u32 = 0;
+pub const USART_CLK_DIV4: u32 = 1;
+pub const USART_CLK_DIV16: u32 = 2;
+pub const USART_CLK_DIV64: u32 = 3;
+pub const USART_MAX_TIMEOUT: u32 = 4294967295;
+pub const USART_SC_ETU_CLK32: u32 = 0;
+pub const USART_SC_ETU_CLK64: u32 = 2097152;
+pub const USART_SC_ETU_CLK128: u32 = 6291456;
+pub const USART_SC_ETU_CLK256: u32 = 10485760;
+pub const USART_SC_ETU_CLK372: u32 = 12582912;
+pub const CDC_IN_EP: u32 = 130;
+pub const CDC_OUT_EP: u32 = 1;
+pub const CDC_CMD_EP: u32 = 133;
+pub const RX_FIFO_FS_SIZE: u32 = 128;
+pub const TX0_FIFO_FS_SIZE: u32 = 64;
+pub const TX1_FIFO_FS_SIZE: u32 = 0;
+pub const TX2_FIFO_FS_SIZE: u32 = 32;
+pub const TX3_FIFO_FS_SIZE: u32 = 0;
+pub const TX4_FIFO_FS_SIZE: u32 = 0;
+pub const TX5_FIFO_FS_SIZE: u32 = 32;
+pub const DEV_MAX_CFG_NUM: u32 = 1;
+pub const USBD_ITF_MAX_NUM: u32 = 1;
+pub const USB_MAX_STR_DESC_SIZ: u32 = 128;
+pub const MAX_CDC_PACKET_SIZE: u32 = 64;
+pub const CDC_CMD_PACKET_SIZE: u32 = 8;
+pub const CDC_IN_FRAME_INTERVAL: u32 = 5;
+pub const APP_RX_DATA_SIZE: u32 = 2048;
+pub const USB_MAX_TX_FIFOS: u32 = 6;
+pub const USB_MAX_CH_NUM: u32 = 12;
+pub const USB_MAX_EP_NUM: u32 = 6;
+pub const USBFS_CORE_ID: u32 = 0;
+pub const USBHS_CORE_ID: u32 = 1;
+pub const USBHS_PHY_EMBED: u32 = 0;
+pub const USBHS_PHY_EXT: u32 = 1;
+pub const USB_MAX_EP0_SIZE: u32 = 64;
+pub const DEVICE_MODE: u32 = 0;
+pub const HOST_MODE: u32 = 1;
+pub const DSTS_ENUMSPD_HS_PHY_30MHZ_OR_60MHZ: u32 = 0;
+pub const DSTS_ENUMSPD_FS_PHY_30MHZ_OR_60MHZ: u32 = 2;
+pub const DSTS_ENUMSPD_LS_PHY_6MHZ: u32 = 4;
+pub const DSTS_ENUMSPD_FS_PHY_48MHZ: u32 = 6;
+pub const EP_TYPE_CTRL: u32 = 0;
+pub const EP_TYPE_ISOC: u32 = 1;
+pub const EP_TYPE_BULK: u32 = 2;
+pub const EP_TYPE_INTR: u32 = 3;
+pub const EP_TYPE_MSK: u32 = 3;
+pub const PRTSPD_FULL_SPEED: u32 = 1;
+pub const PRTSPD_LOW_SPEED: u32 = 2;
+pub const HCFG_30_60_MHZ: u32 = 0;
+pub const HCFG_48_MHZ: u32 = 1;
+pub const HCFG_6_MHZ: u32 = 2;
+pub const USB_EP_TX_DIS: u32 = 0;
+pub const USB_EP_TX_STALL: u32 = 16;
+pub const USB_EP_TX_NAK: u32 = 32;
+pub const USB_EP_TX_VALID: u32 = 48;
+pub const USB_EP_RX_DIS: u32 = 0;
+pub const USB_EP_RX_STALL: u32 = 4096;
+pub const USB_EP_RX_NAK: u32 = 8192;
+pub const USB_EP_RX_VALID: u32 = 12288;
+pub const USB_OK: u32 = 0;
+pub const USB_ERROR: u32 = 1;
+pub const USB_FRAME_INTERVAL_80: u32 = 0;
+pub const USB_FRAME_INTERVAL_85: u32 = 2048;
+pub const USB_FRAME_INTERVAL_90: u32 = 4096;
+pub const USB_FRAME_INTERVAL_95: u32 = 6144;
+pub const WDT_CNT_PERIOD256: u32 = 0;
+pub const WDT_CNT_PERIOD4096: u32 = 1;
+pub const WDT_CNT_PERIOD16384: u32 = 2;
+pub const WDT_CNT_PERIOD65536: u32 = 3;
+pub const WDT_CLK_DIV4: u32 = 32;
+pub const WDT_CLK_DIV64: u32 = 96;
+pub const WDT_CLK_DIV128: u32 = 112;
+pub const WDT_CLK_DIV256: u32 = 128;
+pub const WDT_CLK_DIV512: u32 = 144;
+pub const WDT_CLK_DIV1024: u32 = 160;
+pub const WDT_CLK_DIV2048: u32 = 176;
+pub const WDT_CLK_DIV8192: u32 = 208;
+pub const WDT_RANGE_0TO25PCT: u32 = 256;
+pub const WDT_RANGE_25TO50PCT: u32 = 512;
+pub const WDT_RANGE_0TO50PCT: u32 = 768;
+pub const WDT_RANGE_50TO75PCT: u32 = 1024;
+pub const WDT_RANGE_0TO25PCT_50TO75PCT: u32 = 1280;
+pub const WDT_RANGE_25TO75PCT: u32 = 1536;
+pub const WDT_RANGE_0TO75PCT: u32 = 1792;
+pub const WDT_RANGE_75TO100PCT: u32 = 2048;
+pub const WDT_RANGE_0TO25PCT_75TO100PCT: u32 = 2304;
+pub const WDT_RANGE_25TO50PCT_75TO100PCT: u32 = 2560;
+pub const WDT_RANGE_0TO50PCT_75TO100PCT: u32 = 2816;
+pub const WDT_RANGE_50TO100PCT: u32 = 3072;
+pub const WDT_RANGE_0TO25PCT_50TO100PCT: u32 = 3328;
+pub const WDT_RANGE_25TO100PCT: u32 = 3584;
+pub const WDT_RANGE_0TO100PCT: u32 = 3840;
+pub const WDT_LPM_CNT_CONT: u32 = 0;
+pub const WDT_LPM_CNT_STOP: u32 = 65536;
+pub const WDT_EXP_TYPE_INT: u32 = 0;
+pub const WDT_EXP_TYPE_RST: u32 = 2147483648;
+pub const WDT_FLAG_UDF: u32 = 65536;
+pub const WDT_FLAG_REFRESH: u32 = 131072;
+pub const WDT_FLAG_ALL: u32 = 196608;
+pub const IRQn_Type_NMI_IRQn: IRQn_Type = -14;
+pub const IRQn_Type_HardFault_IRQn: IRQn_Type = -13;
+pub const IRQn_Type_MemManageFault_IRQn: IRQn_Type = -12;
+pub const IRQn_Type_BusFault_IRQn: IRQn_Type = -11;
+pub const IRQn_Type_UsageFault_IRQn: IRQn_Type = -10;
+pub const IRQn_Type_SVC_IRQn: IRQn_Type = -5;
+pub const IRQn_Type_DebugMonitor_IRQn: IRQn_Type = -4;
+pub const IRQn_Type_PendSV_IRQn: IRQn_Type = -2;
+pub const IRQn_Type_SysTick_IRQn: IRQn_Type = -1;
+pub const IRQn_Type_INT000_IRQn: IRQn_Type = 0;
+pub const IRQn_Type_INT001_IRQn: IRQn_Type = 1;
+pub const IRQn_Type_INT002_IRQn: IRQn_Type = 2;
+pub const IRQn_Type_INT003_IRQn: IRQn_Type = 3;
+pub const IRQn_Type_INT004_IRQn: IRQn_Type = 4;
+pub const IRQn_Type_INT005_IRQn: IRQn_Type = 5;
+pub const IRQn_Type_INT006_IRQn: IRQn_Type = 6;
+pub const IRQn_Type_INT007_IRQn: IRQn_Type = 7;
+pub const IRQn_Type_INT008_IRQn: IRQn_Type = 8;
+pub const IRQn_Type_INT009_IRQn: IRQn_Type = 9;
+pub const IRQn_Type_INT010_IRQn: IRQn_Type = 10;
+pub const IRQn_Type_INT011_IRQn: IRQn_Type = 11;
+pub const IRQn_Type_INT012_IRQn: IRQn_Type = 12;
+pub const IRQn_Type_INT013_IRQn: IRQn_Type = 13;
+pub const IRQn_Type_INT014_IRQn: IRQn_Type = 14;
+pub const IRQn_Type_INT015_IRQn: IRQn_Type = 15;
+pub const IRQn_Type_INT016_IRQn: IRQn_Type = 16;
+pub const IRQn_Type_INT017_IRQn: IRQn_Type = 17;
+pub const IRQn_Type_INT018_IRQn: IRQn_Type = 18;
+pub const IRQn_Type_INT019_IRQn: IRQn_Type = 19;
+pub const IRQn_Type_INT020_IRQn: IRQn_Type = 20;
+pub const IRQn_Type_INT021_IRQn: IRQn_Type = 21;
+pub const IRQn_Type_INT022_IRQn: IRQn_Type = 22;
+pub const IRQn_Type_INT023_IRQn: IRQn_Type = 23;
+pub const IRQn_Type_INT024_IRQn: IRQn_Type = 24;
+pub const IRQn_Type_INT025_IRQn: IRQn_Type = 25;
+pub const IRQn_Type_INT026_IRQn: IRQn_Type = 26;
+pub const IRQn_Type_INT027_IRQn: IRQn_Type = 27;
+pub const IRQn_Type_INT028_IRQn: IRQn_Type = 28;
+pub const IRQn_Type_INT029_IRQn: IRQn_Type = 29;
+pub const IRQn_Type_INT030_IRQn: IRQn_Type = 30;
+pub const IRQn_Type_INT031_IRQn: IRQn_Type = 31;
+pub const IRQn_Type_INT032_IRQn: IRQn_Type = 32;
+pub const IRQn_Type_INT033_IRQn: IRQn_Type = 33;
+pub const IRQn_Type_INT034_IRQn: IRQn_Type = 34;
+pub const IRQn_Type_INT035_IRQn: IRQn_Type = 35;
+pub const IRQn_Type_INT036_IRQn: IRQn_Type = 36;
+pub const IRQn_Type_INT037_IRQn: IRQn_Type = 37;
+pub const IRQn_Type_INT038_IRQn: IRQn_Type = 38;
+pub const IRQn_Type_INT039_IRQn: IRQn_Type = 39;
+pub const IRQn_Type_INT040_IRQn: IRQn_Type = 40;
+pub const IRQn_Type_INT041_IRQn: IRQn_Type = 41;
+pub const IRQn_Type_INT042_IRQn: IRQn_Type = 42;
+pub const IRQn_Type_INT043_IRQn: IRQn_Type = 43;
+pub const IRQn_Type_INT044_IRQn: IRQn_Type = 44;
+pub const IRQn_Type_INT045_IRQn: IRQn_Type = 45;
+pub const IRQn_Type_INT046_IRQn: IRQn_Type = 46;
+pub const IRQn_Type_INT047_IRQn: IRQn_Type = 47;
+pub const IRQn_Type_INT048_IRQn: IRQn_Type = 48;
+pub const IRQn_Type_INT049_IRQn: IRQn_Type = 49;
+pub const IRQn_Type_INT050_IRQn: IRQn_Type = 50;
+pub const IRQn_Type_INT051_IRQn: IRQn_Type = 51;
+pub const IRQn_Type_INT052_IRQn: IRQn_Type = 52;
+pub const IRQn_Type_INT053_IRQn: IRQn_Type = 53;
+pub const IRQn_Type_INT054_IRQn: IRQn_Type = 54;
+pub const IRQn_Type_INT055_IRQn: IRQn_Type = 55;
+pub const IRQn_Type_INT056_IRQn: IRQn_Type = 56;
+pub const IRQn_Type_INT057_IRQn: IRQn_Type = 57;
+pub const IRQn_Type_INT058_IRQn: IRQn_Type = 58;
+pub const IRQn_Type_INT059_IRQn: IRQn_Type = 59;
+pub const IRQn_Type_INT060_IRQn: IRQn_Type = 60;
+pub const IRQn_Type_INT061_IRQn: IRQn_Type = 61;
+pub const IRQn_Type_INT062_IRQn: IRQn_Type = 62;
+pub const IRQn_Type_INT063_IRQn: IRQn_Type = 63;
+pub const IRQn_Type_INT064_IRQn: IRQn_Type = 64;
+pub const IRQn_Type_INT065_IRQn: IRQn_Type = 65;
+pub const IRQn_Type_INT066_IRQn: IRQn_Type = 66;
+pub const IRQn_Type_INT067_IRQn: IRQn_Type = 67;
+pub const IRQn_Type_INT068_IRQn: IRQn_Type = 68;
+pub const IRQn_Type_INT069_IRQn: IRQn_Type = 69;
+pub const IRQn_Type_INT070_IRQn: IRQn_Type = 70;
+pub const IRQn_Type_INT071_IRQn: IRQn_Type = 71;
+pub const IRQn_Type_INT072_IRQn: IRQn_Type = 72;
+pub const IRQn_Type_INT073_IRQn: IRQn_Type = 73;
+pub const IRQn_Type_INT074_IRQn: IRQn_Type = 74;
+pub const IRQn_Type_INT075_IRQn: IRQn_Type = 75;
+pub const IRQn_Type_INT076_IRQn: IRQn_Type = 76;
+pub const IRQn_Type_INT077_IRQn: IRQn_Type = 77;
+pub const IRQn_Type_INT078_IRQn: IRQn_Type = 78;
+pub const IRQn_Type_INT079_IRQn: IRQn_Type = 79;
+pub const IRQn_Type_INT080_IRQn: IRQn_Type = 80;
+pub const IRQn_Type_INT081_IRQn: IRQn_Type = 81;
+pub const IRQn_Type_INT082_IRQn: IRQn_Type = 82;
+pub const IRQn_Type_INT083_IRQn: IRQn_Type = 83;
+pub const IRQn_Type_INT084_IRQn: IRQn_Type = 84;
+pub const IRQn_Type_INT085_IRQn: IRQn_Type = 85;
+pub const IRQn_Type_INT086_IRQn: IRQn_Type = 86;
+pub const IRQn_Type_INT087_IRQn: IRQn_Type = 87;
+pub const IRQn_Type_INT088_IRQn: IRQn_Type = 88;
+pub const IRQn_Type_INT089_IRQn: IRQn_Type = 89;
+pub const IRQn_Type_INT090_IRQn: IRQn_Type = 90;
+pub const IRQn_Type_INT091_IRQn: IRQn_Type = 91;
+pub const IRQn_Type_INT092_IRQn: IRQn_Type = 92;
+pub const IRQn_Type_INT093_IRQn: IRQn_Type = 93;
+pub const IRQn_Type_INT094_IRQn: IRQn_Type = 94;
+pub const IRQn_Type_INT095_IRQn: IRQn_Type = 95;
+pub const IRQn_Type_INT096_IRQn: IRQn_Type = 96;
+pub const IRQn_Type_INT097_IRQn: IRQn_Type = 97;
+pub const IRQn_Type_INT098_IRQn: IRQn_Type = 98;
+pub const IRQn_Type_INT099_IRQn: IRQn_Type = 99;
+pub const IRQn_Type_INT100_IRQn: IRQn_Type = 100;
+pub const IRQn_Type_INT101_IRQn: IRQn_Type = 101;
+pub const IRQn_Type_INT102_IRQn: IRQn_Type = 102;
+pub const IRQn_Type_INT103_IRQn: IRQn_Type = 103;
+pub const IRQn_Type_INT104_IRQn: IRQn_Type = 104;
+pub const IRQn_Type_INT105_IRQn: IRQn_Type = 105;
+pub const IRQn_Type_INT106_IRQn: IRQn_Type = 106;
+pub const IRQn_Type_INT107_IRQn: IRQn_Type = 107;
+pub const IRQn_Type_INT108_IRQn: IRQn_Type = 108;
+pub const IRQn_Type_INT109_IRQn: IRQn_Type = 109;
+pub const IRQn_Type_INT110_IRQn: IRQn_Type = 110;
+pub const IRQn_Type_INT111_IRQn: IRQn_Type = 111;
+pub const IRQn_Type_INT112_IRQn: IRQn_Type = 112;
+pub const IRQn_Type_INT113_IRQn: IRQn_Type = 113;
+pub const IRQn_Type_INT114_IRQn: IRQn_Type = 114;
+pub const IRQn_Type_INT115_IRQn: IRQn_Type = 115;
+pub const IRQn_Type_INT116_IRQn: IRQn_Type = 116;
+pub const IRQn_Type_INT117_IRQn: IRQn_Type = 117;
+pub const IRQn_Type_INT118_IRQn: IRQn_Type = 118;
+pub const IRQn_Type_INT119_IRQn: IRQn_Type = 119;
+pub const IRQn_Type_INT120_IRQn: IRQn_Type = 120;
+pub const IRQn_Type_INT121_IRQn: IRQn_Type = 121;
+pub const IRQn_Type_INT122_IRQn: IRQn_Type = 122;
+pub const IRQn_Type_INT123_IRQn: IRQn_Type = 123;
+pub const IRQn_Type_INT124_IRQn: IRQn_Type = 124;
+pub const IRQn_Type_INT125_IRQn: IRQn_Type = 125;
+pub const IRQn_Type_INT126_IRQn: IRQn_Type = 126;
+pub const IRQn_Type_INT127_IRQn: IRQn_Type = 127;
+pub const IRQn_Type_INT128_IRQn: IRQn_Type = 128;
+pub const IRQn_Type_INT129_IRQn: IRQn_Type = 129;
+pub const IRQn_Type_INT130_IRQn: IRQn_Type = 130;
+pub const IRQn_Type_INT131_IRQn: IRQn_Type = 131;
+pub const IRQn_Type_INT132_IRQn: IRQn_Type = 132;
+pub const IRQn_Type_INT133_IRQn: IRQn_Type = 133;
+pub const IRQn_Type_INT134_IRQn: IRQn_Type = 134;
+pub const IRQn_Type_INT135_IRQn: IRQn_Type = 135;
+pub const IRQn_Type_INT136_IRQn: IRQn_Type = 136;
+pub const IRQn_Type_INT137_IRQn: IRQn_Type = 137;
+pub const IRQn_Type_INT138_IRQn: IRQn_Type = 138;
+pub const IRQn_Type_INT139_IRQn: IRQn_Type = 139;
+pub const IRQn_Type_INT140_IRQn: IRQn_Type = 140;
+pub const IRQn_Type_INT141_IRQn: IRQn_Type = 141;
+pub const IRQn_Type_INT142_IRQn: IRQn_Type = 142;
+pub const IRQn_Type_INT143_IRQn: IRQn_Type = 143;
+#[doc = " Interrupt Number Definition"]
+pub type IRQn_Type = ::core::ffi::c_int;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ0: en_event_src_t = 0;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ1: en_event_src_t = 1;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ2: en_event_src_t = 2;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ3: en_event_src_t = 3;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ4: en_event_src_t = 4;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ5: en_event_src_t = 5;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ6: en_event_src_t = 6;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ7: en_event_src_t = 7;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ8: en_event_src_t = 8;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ9: en_event_src_t = 9;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ10: en_event_src_t = 10;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ11: en_event_src_t = 11;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ12: en_event_src_t = 12;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ13: en_event_src_t = 13;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ14: en_event_src_t = 14;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ15: en_event_src_t = 15;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ16: en_event_src_t = 16;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ17: en_event_src_t = 17;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ18: en_event_src_t = 18;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ19: en_event_src_t = 19;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ20: en_event_src_t = 20;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ21: en_event_src_t = 21;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ22: en_event_src_t = 22;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ23: en_event_src_t = 23;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ24: en_event_src_t = 24;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ25: en_event_src_t = 25;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ26: en_event_src_t = 26;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ27: en_event_src_t = 27;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ28: en_event_src_t = 28;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ29: en_event_src_t = 29;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ30: en_event_src_t = 30;
+pub const en_event_src_t_EVT_SRC_SWI_IRQ31: en_event_src_t = 31;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ0: en_event_src_t = 0;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ1: en_event_src_t = 1;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ2: en_event_src_t = 2;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ3: en_event_src_t = 3;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ4: en_event_src_t = 4;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ5: en_event_src_t = 5;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ6: en_event_src_t = 6;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ7: en_event_src_t = 7;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ8: en_event_src_t = 8;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ9: en_event_src_t = 9;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ10: en_event_src_t = 10;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ11: en_event_src_t = 11;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ12: en_event_src_t = 12;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ13: en_event_src_t = 13;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ14: en_event_src_t = 14;
+pub const en_event_src_t_EVT_SRC_PORT_EIRQ15: en_event_src_t = 15;
+pub const en_event_src_t_EVT_SRC_DMA1_TC0: en_event_src_t = 32;
+pub const en_event_src_t_EVT_SRC_DMA1_TC1: en_event_src_t = 33;
+pub const en_event_src_t_EVT_SRC_DMA1_TC2: en_event_src_t = 34;
+pub const en_event_src_t_EVT_SRC_DMA1_TC3: en_event_src_t = 35;
+pub const en_event_src_t_EVT_SRC_DMA2_TC0: en_event_src_t = 36;
+pub const en_event_src_t_EVT_SRC_DMA2_TC1: en_event_src_t = 37;
+pub const en_event_src_t_EVT_SRC_DMA2_TC2: en_event_src_t = 38;
+pub const en_event_src_t_EVT_SRC_DMA2_TC3: en_event_src_t = 39;
+pub const en_event_src_t_EVT_SRC_DMA1_BTC0: en_event_src_t = 40;
+pub const en_event_src_t_EVT_SRC_DMA1_BTC1: en_event_src_t = 41;
+pub const en_event_src_t_EVT_SRC_DMA1_BTC2: en_event_src_t = 42;
+pub const en_event_src_t_EVT_SRC_DMA1_BTC3: en_event_src_t = 43;
+pub const en_event_src_t_EVT_SRC_DMA2_BTC0: en_event_src_t = 44;
+pub const en_event_src_t_EVT_SRC_DMA2_BTC1: en_event_src_t = 45;
+pub const en_event_src_t_EVT_SRC_DMA2_BTC2: en_event_src_t = 46;
+pub const en_event_src_t_EVT_SRC_DMA2_BTC3: en_event_src_t = 47;
+pub const en_event_src_t_EVT_SRC_EFM_OPTEND: en_event_src_t = 52;
+pub const en_event_src_t_EVT_SRC_USBFS_SOF: en_event_src_t = 53;
+pub const en_event_src_t_EVT_SRC_DCU1: en_event_src_t = 55;
+pub const en_event_src_t_EVT_SRC_DCU2: en_event_src_t = 56;
+pub const en_event_src_t_EVT_SRC_DCU3: en_event_src_t = 57;
+pub const en_event_src_t_EVT_SRC_DCU4: en_event_src_t = 58;
+pub const en_event_src_t_EVT_SRC_TMR0_1_CMP_A: en_event_src_t = 64;
+pub const en_event_src_t_EVT_SRC_TMR0_1_CMP_B: en_event_src_t = 65;
+pub const en_event_src_t_EVT_SRC_TMR0_2_CMP_A: en_event_src_t = 66;
+pub const en_event_src_t_EVT_SRC_TMR0_2_CMP_B: en_event_src_t = 67;
+pub const en_event_src_t_EVT_SRC_RTC_ALM: en_event_src_t = 81;
+pub const en_event_src_t_EVT_SRC_RTC_PRD: en_event_src_t = 82;
+pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_A: en_event_src_t = 96;
+pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_B: en_event_src_t = 97;
+pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_C: en_event_src_t = 98;
+pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_D: en_event_src_t = 99;
+pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_E: en_event_src_t = 100;
+pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_F: en_event_src_t = 101;
+pub const en_event_src_t_EVT_SRC_TMR6_1_OVF: en_event_src_t = 102;
+pub const en_event_src_t_EVT_SRC_TMR6_1_UDF: en_event_src_t = 103;
+pub const en_event_src_t_EVT_SRC_TMR6_1_SCMP_A: en_event_src_t = 107;
+pub const en_event_src_t_EVT_SRC_TMR6_1_SCMP_B: en_event_src_t = 108;
+pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_A: en_event_src_t = 112;
+pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_B: en_event_src_t = 113;
+pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_C: en_event_src_t = 114;
+pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_D: en_event_src_t = 115;
+pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_E: en_event_src_t = 116;
+pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_F: en_event_src_t = 117;
+pub const en_event_src_t_EVT_SRC_TMR6_2_OVF: en_event_src_t = 118;
+pub const en_event_src_t_EVT_SRC_TMR6_2_UDF: en_event_src_t = 119;
+pub const en_event_src_t_EVT_SRC_TMR6_2_SCMP_A: en_event_src_t = 123;
+pub const en_event_src_t_EVT_SRC_TMR6_2_SCMP_B: en_event_src_t = 124;
+pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_A: en_event_src_t = 128;
+pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_B: en_event_src_t = 129;
+pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_C: en_event_src_t = 130;
+pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_D: en_event_src_t = 131;
+pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_E: en_event_src_t = 132;
+pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_F: en_event_src_t = 133;
+pub const en_event_src_t_EVT_SRC_TMR6_3_OVF: en_event_src_t = 134;
+pub const en_event_src_t_EVT_SRC_TMR6_3_UDF: en_event_src_t = 135;
+pub const en_event_src_t_EVT_SRC_TMR6_3_SCMP_A: en_event_src_t = 139;
+pub const en_event_src_t_EVT_SRC_TMR6_3_SCMP_B: en_event_src_t = 140;
+pub const en_event_src_t_EVT_SRC_TMRA_1_OVF: en_event_src_t = 256;
+pub const en_event_src_t_EVT_SRC_TMRA_1_UDF: en_event_src_t = 257;
+pub const en_event_src_t_EVT_SRC_TMRA_1_CMP: en_event_src_t = 258;
+pub const en_event_src_t_EVT_SRC_TMRA_2_OVF: en_event_src_t = 259;
+pub const en_event_src_t_EVT_SRC_TMRA_2_UDF: en_event_src_t = 260;
+pub const en_event_src_t_EVT_SRC_TMRA_2_CMP: en_event_src_t = 261;
+pub const en_event_src_t_EVT_SRC_TMRA_3_OVF: en_event_src_t = 262;
+pub const en_event_src_t_EVT_SRC_TMRA_3_UDF: en_event_src_t = 263;
+pub const en_event_src_t_EVT_SRC_TMRA_3_CMP: en_event_src_t = 264;
+pub const en_event_src_t_EVT_SRC_TMRA_4_OVF: en_event_src_t = 265;
+pub const en_event_src_t_EVT_SRC_TMRA_4_UDF: en_event_src_t = 266;
+pub const en_event_src_t_EVT_SRC_TMRA_4_CMP: en_event_src_t = 267;
+pub const en_event_src_t_EVT_SRC_TMRA_5_OVF: en_event_src_t = 268;
+pub const en_event_src_t_EVT_SRC_TMRA_5_UDF: en_event_src_t = 269;
+pub const en_event_src_t_EVT_SRC_TMRA_5_CMP: en_event_src_t = 270;
+pub const en_event_src_t_EVT_SRC_TMRA_6_OVF: en_event_src_t = 272;
+pub const en_event_src_t_EVT_SRC_TMRA_6_UDF: en_event_src_t = 273;
+pub const en_event_src_t_EVT_SRC_TMRA_6_CMP: en_event_src_t = 274;
+pub const en_event_src_t_EVT_SRC_USART1_EI: en_event_src_t = 278;
+pub const en_event_src_t_EVT_SRC_USART1_RI: en_event_src_t = 279;
+pub const en_event_src_t_EVT_SRC_USART1_TI: en_event_src_t = 280;
+pub const en_event_src_t_EVT_SRC_USART1_TCI: en_event_src_t = 281;
+pub const en_event_src_t_EVT_SRC_USART1_RTO: en_event_src_t = 282;
+pub const en_event_src_t_EVT_SRC_USART2_EI: en_event_src_t = 283;
+pub const en_event_src_t_EVT_SRC_USART2_RI: en_event_src_t = 284;
+pub const en_event_src_t_EVT_SRC_USART2_TI: en_event_src_t = 285;
+pub const en_event_src_t_EVT_SRC_USART2_TCI: en_event_src_t = 286;
+pub const en_event_src_t_EVT_SRC_USART2_RTO: en_event_src_t = 287;
+pub const en_event_src_t_EVT_SRC_USART3_EI: en_event_src_t = 288;
+pub const en_event_src_t_EVT_SRC_USART3_RI: en_event_src_t = 289;
+pub const en_event_src_t_EVT_SRC_USART3_TI: en_event_src_t = 290;
+pub const en_event_src_t_EVT_SRC_USART3_TCI: en_event_src_t = 291;
+pub const en_event_src_t_EVT_SRC_USART3_RTO: en_event_src_t = 292;
+pub const en_event_src_t_EVT_SRC_USART4_EI: en_event_src_t = 293;
+pub const en_event_src_t_EVT_SRC_USART4_RI: en_event_src_t = 294;
+pub const en_event_src_t_EVT_SRC_USART4_TI: en_event_src_t = 295;
+pub const en_event_src_t_EVT_SRC_USART4_TCI: en_event_src_t = 296;
+pub const en_event_src_t_EVT_SRC_USART4_RTO: en_event_src_t = 297;
+pub const en_event_src_t_EVT_SRC_SPI1_SPRI: en_event_src_t = 299;
+pub const en_event_src_t_EVT_SRC_SPI1_SPTI: en_event_src_t = 300;
+pub const en_event_src_t_EVT_SRC_SPI1_SPII: en_event_src_t = 301;
+pub const en_event_src_t_EVT_SRC_SPI1_SPEI: en_event_src_t = 302;
+pub const en_event_src_t_EVT_SRC_SPI1_SPTEND: en_event_src_t = 303;
+pub const en_event_src_t_EVT_SRC_SPI2_SPRI: en_event_src_t = 304;
+pub const en_event_src_t_EVT_SRC_SPI2_SPTI: en_event_src_t = 305;
+pub const en_event_src_t_EVT_SRC_SPI2_SPII: en_event_src_t = 306;
+pub const en_event_src_t_EVT_SRC_SPI2_SPEI: en_event_src_t = 307;
+pub const en_event_src_t_EVT_SRC_SPI2_SPTEND: en_event_src_t = 308;
+pub const en_event_src_t_EVT_SRC_SPI3_SPRI: en_event_src_t = 309;
+pub const en_event_src_t_EVT_SRC_SPI3_SPTI: en_event_src_t = 310;
+pub const en_event_src_t_EVT_SRC_SPI3_SPII: en_event_src_t = 311;
+pub const en_event_src_t_EVT_SRC_SPI3_SPEI: en_event_src_t = 312;
+pub const en_event_src_t_EVT_SRC_SPI3_SPTEND: en_event_src_t = 313;
+pub const en_event_src_t_EVT_SRC_SPI4_SPRI: en_event_src_t = 314;
+pub const en_event_src_t_EVT_SRC_SPI4_SPTI: en_event_src_t = 315;
+pub const en_event_src_t_EVT_SRC_SPI4_SPII: en_event_src_t = 316;
+pub const en_event_src_t_EVT_SRC_SPI4_SPEI: en_event_src_t = 317;
+pub const en_event_src_t_EVT_SRC_SPI4_SPTEND: en_event_src_t = 318;
+pub const en_event_src_t_EVT_SRC_AOS_STRG: en_event_src_t = 319;
+pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP0: en_event_src_t = 368;
+pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP1: en_event_src_t = 369;
+pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP2: en_event_src_t = 370;
+pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP3: en_event_src_t = 371;
+pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP4: en_event_src_t = 372;
+pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP5: en_event_src_t = 373;
+pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP0: en_event_src_t = 374;
+pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP1: en_event_src_t = 375;
+pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP2: en_event_src_t = 376;
+pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP3: en_event_src_t = 377;
+pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP4: en_event_src_t = 378;
+pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP5: en_event_src_t = 379;
+pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP0: en_event_src_t = 384;
+pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP1: en_event_src_t = 385;
+pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP2: en_event_src_t = 386;
+pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP3: en_event_src_t = 387;
+pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP4: en_event_src_t = 388;
+pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP5: en_event_src_t = 389;
+pub const en_event_src_t_EVT_SRC_EVENT_PORT1: en_event_src_t = 394;
+pub const en_event_src_t_EVT_SRC_EVENT_PORT2: en_event_src_t = 395;
+pub const en_event_src_t_EVT_SRC_EVENT_PORT3: en_event_src_t = 396;
+pub const en_event_src_t_EVT_SRC_EVENT_PORT4: en_event_src_t = 397;
+pub const en_event_src_t_EVT_SRC_I2S1_TXIRQOUT: en_event_src_t = 400;
+pub const en_event_src_t_EVT_SRC_I2S1_RXIRQOUT: en_event_src_t = 401;
+pub const en_event_src_t_EVT_SRC_I2S2_TXIRQOUT: en_event_src_t = 403;
+pub const en_event_src_t_EVT_SRC_I2S2_RXIRQOUT: en_event_src_t = 404;
+pub const en_event_src_t_EVT_SRC_I2S3_TXIRQOUT: en_event_src_t = 406;
+pub const en_event_src_t_EVT_SRC_I2S3_RXIRQOUT: en_event_src_t = 407;
+pub const en_event_src_t_EVT_SRC_I2S4_TXIRQOUT: en_event_src_t = 409;
+pub const en_event_src_t_EVT_SRC_I2S4_RXIRQOUT: en_event_src_t = 410;
+pub const en_event_src_t_EVT_SRC_CMP1: en_event_src_t = 416;
+pub const en_event_src_t_EVT_SRC_CMP2: en_event_src_t = 417;
+pub const en_event_src_t_EVT_SRC_CMP3: en_event_src_t = 418;
+pub const en_event_src_t_EVT_SRC_I2C1_RXI: en_event_src_t = 420;
+pub const en_event_src_t_EVT_SRC_I2C1_TXI: en_event_src_t = 421;
+pub const en_event_src_t_EVT_SRC_I2C1_TEI: en_event_src_t = 422;
+pub const en_event_src_t_EVT_SRC_I2C1_EEI: en_event_src_t = 423;
+pub const en_event_src_t_EVT_SRC_I2C2_RXI: en_event_src_t = 424;
+pub const en_event_src_t_EVT_SRC_I2C2_TXI: en_event_src_t = 425;
+pub const en_event_src_t_EVT_SRC_I2C2_TEI: en_event_src_t = 426;
+pub const en_event_src_t_EVT_SRC_I2C2_EEI: en_event_src_t = 427;
+pub const en_event_src_t_EVT_SRC_I2C3_RXI: en_event_src_t = 428;
+pub const en_event_src_t_EVT_SRC_I2C3_TXI: en_event_src_t = 429;
+pub const en_event_src_t_EVT_SRC_I2C3_TEI: en_event_src_t = 430;
+pub const en_event_src_t_EVT_SRC_I2C3_EEI: en_event_src_t = 431;
+pub const en_event_src_t_EVT_SRC_LVD1: en_event_src_t = 433;
+pub const en_event_src_t_EVT_SRC_LVD2: en_event_src_t = 434;
+pub const en_event_src_t_EVT_SRC_OTS: en_event_src_t = 435;
+pub const en_event_src_t_EVT_SRC_WDT_REFUDF: en_event_src_t = 439;
+pub const en_event_src_t_EVT_SRC_ADC1_EOCA: en_event_src_t = 448;
+pub const en_event_src_t_EVT_SRC_ADC1_EOCB: en_event_src_t = 449;
+pub const en_event_src_t_EVT_SRC_ADC1_CHCMP: en_event_src_t = 450;
+pub const en_event_src_t_EVT_SRC_ADC1_SEQCMP: en_event_src_t = 451;
+pub const en_event_src_t_EVT_SRC_ADC2_EOCA: en_event_src_t = 452;
+pub const en_event_src_t_EVT_SRC_ADC2_EOCB: en_event_src_t = 453;
+pub const en_event_src_t_EVT_SRC_ADC2_CHCMP: en_event_src_t = 454;
+pub const en_event_src_t_EVT_SRC_ADC2_SEQCMP: en_event_src_t = 455;
+pub const en_event_src_t_EVT_SRC_TRNG_END: en_event_src_t = 456;
+pub const en_event_src_t_EVT_SRC_SDIOC1_DMAR: en_event_src_t = 480;
+pub const en_event_src_t_EVT_SRC_SDIOC1_DMAW: en_event_src_t = 481;
+pub const en_event_src_t_EVT_SRC_SDIOC2_DMAR: en_event_src_t = 483;
+pub const en_event_src_t_EVT_SRC_SDIOC2_DMAW: en_event_src_t = 484;
+pub const en_event_src_t_EVT_SRC_MAX: en_event_src_t = 511;
+#[doc = " \\brief Event number enumeration"]
+pub type en_event_src_t = ::core::ffi::c_uint;
+pub const en_int_src_t_INT_SRC_SWI_IRQ0: en_int_src_t = 0;
+pub const en_int_src_t_INT_SRC_SWI_IRQ1: en_int_src_t = 1;
+pub const en_int_src_t_INT_SRC_SWI_IRQ2: en_int_src_t = 2;
+pub const en_int_src_t_INT_SRC_SWI_IRQ3: en_int_src_t = 3;
+pub const en_int_src_t_INT_SRC_SWI_IRQ4: en_int_src_t = 4;
+pub const en_int_src_t_INT_SRC_SWI_IRQ5: en_int_src_t = 5;
+pub const en_int_src_t_INT_SRC_SWI_IRQ6: en_int_src_t = 6;
+pub const en_int_src_t_INT_SRC_SWI_IRQ7: en_int_src_t = 7;
+pub const en_int_src_t_INT_SRC_SWI_IRQ8: en_int_src_t = 8;
+pub const en_int_src_t_INT_SRC_SWI_IRQ9: en_int_src_t = 9;
+pub const en_int_src_t_INT_SRC_SWI_IRQ10: en_int_src_t = 10;
+pub const en_int_src_t_INT_SRC_SWI_IRQ11: en_int_src_t = 11;
+pub const en_int_src_t_INT_SRC_SWI_IRQ12: en_int_src_t = 12;
+pub const en_int_src_t_INT_SRC_SWI_IRQ13: en_int_src_t = 13;
+pub const en_int_src_t_INT_SRC_SWI_IRQ14: en_int_src_t = 14;
+pub const en_int_src_t_INT_SRC_SWI_IRQ15: en_int_src_t = 15;
+pub const en_int_src_t_INT_SRC_SWI_IRQ16: en_int_src_t = 16;
+pub const en_int_src_t_INT_SRC_SWI_IRQ17: en_int_src_t = 17;
+pub const en_int_src_t_INT_SRC_SWI_IRQ18: en_int_src_t = 18;
+pub const en_int_src_t_INT_SRC_SWI_IRQ19: en_int_src_t = 19;
+pub const en_int_src_t_INT_SRC_SWI_IRQ20: en_int_src_t = 20;
+pub const en_int_src_t_INT_SRC_SWI_IRQ21: en_int_src_t = 21;
+pub const en_int_src_t_INT_SRC_SWI_IRQ22: en_int_src_t = 22;
+pub const en_int_src_t_INT_SRC_SWI_IRQ23: en_int_src_t = 23;
+pub const en_int_src_t_INT_SRC_SWI_IRQ24: en_int_src_t = 24;
+pub const en_int_src_t_INT_SRC_SWI_IRQ25: en_int_src_t = 25;
+pub const en_int_src_t_INT_SRC_SWI_IRQ26: en_int_src_t = 26;
+pub const en_int_src_t_INT_SRC_SWI_IRQ27: en_int_src_t = 27;
+pub const en_int_src_t_INT_SRC_SWI_IRQ28: en_int_src_t = 28;
+pub const en_int_src_t_INT_SRC_SWI_IRQ29: en_int_src_t = 29;
+pub const en_int_src_t_INT_SRC_SWI_IRQ30: en_int_src_t = 30;
+pub const en_int_src_t_INT_SRC_SWI_IRQ31: en_int_src_t = 31;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ0: en_int_src_t = 0;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ1: en_int_src_t = 1;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ2: en_int_src_t = 2;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ3: en_int_src_t = 3;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ4: en_int_src_t = 4;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ5: en_int_src_t = 5;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ6: en_int_src_t = 6;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ7: en_int_src_t = 7;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ8: en_int_src_t = 8;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ9: en_int_src_t = 9;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ10: en_int_src_t = 10;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ11: en_int_src_t = 11;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ12: en_int_src_t = 12;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ13: en_int_src_t = 13;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ14: en_int_src_t = 14;
+pub const en_int_src_t_INT_SRC_PORT_EIRQ15: en_int_src_t = 15;
+pub const en_int_src_t_INT_SRC_DMA1_TC0: en_int_src_t = 32;
+pub const en_int_src_t_INT_SRC_DMA1_TC1: en_int_src_t = 33;
+pub const en_int_src_t_INT_SRC_DMA1_TC2: en_int_src_t = 34;
+pub const en_int_src_t_INT_SRC_DMA1_TC3: en_int_src_t = 35;
+pub const en_int_src_t_INT_SRC_DMA2_TC0: en_int_src_t = 36;
+pub const en_int_src_t_INT_SRC_DMA2_TC1: en_int_src_t = 37;
+pub const en_int_src_t_INT_SRC_DMA2_TC2: en_int_src_t = 38;
+pub const en_int_src_t_INT_SRC_DMA2_TC3: en_int_src_t = 39;
+pub const en_int_src_t_INT_SRC_DMA1_BTC0: en_int_src_t = 40;
+pub const en_int_src_t_INT_SRC_DMA1_BTC1: en_int_src_t = 41;
+pub const en_int_src_t_INT_SRC_DMA1_BTC2: en_int_src_t = 42;
+pub const en_int_src_t_INT_SRC_DMA1_BTC3: en_int_src_t = 43;
+pub const en_int_src_t_INT_SRC_DMA2_BTC0: en_int_src_t = 44;
+pub const en_int_src_t_INT_SRC_DMA2_BTC1: en_int_src_t = 45;
+pub const en_int_src_t_INT_SRC_DMA2_BTC2: en_int_src_t = 46;
+pub const en_int_src_t_INT_SRC_DMA2_BTC3: en_int_src_t = 47;
+pub const en_int_src_t_INT_SRC_DMA1_ERR: en_int_src_t = 48;
+pub const en_int_src_t_INT_SRC_DMA2_ERR: en_int_src_t = 49;
+pub const en_int_src_t_INT_SRC_EFM_PEERR: en_int_src_t = 50;
+pub const en_int_src_t_INT_SRC_EFM_COLERR: en_int_src_t = 51;
+pub const en_int_src_t_INT_SRC_EFM_OPTEND: en_int_src_t = 52;
+pub const en_int_src_t_INT_SRC_QSPI_INTR: en_int_src_t = 54;
+pub const en_int_src_t_INT_SRC_DCU1: en_int_src_t = 55;
+pub const en_int_src_t_INT_SRC_DCU2: en_int_src_t = 56;
+pub const en_int_src_t_INT_SRC_DCU3: en_int_src_t = 57;
+pub const en_int_src_t_INT_SRC_DCU4: en_int_src_t = 58;
+pub const en_int_src_t_INT_SRC_TMR0_1_CMP_A: en_int_src_t = 64;
+pub const en_int_src_t_INT_SRC_TMR0_1_CMP_B: en_int_src_t = 65;
+pub const en_int_src_t_INT_SRC_TMR0_2_CMP_A: en_int_src_t = 66;
+pub const en_int_src_t_INT_SRC_TMR0_2_CMP_B: en_int_src_t = 67;
+pub const en_int_src_t_INT_SRC_RTC_ALM: en_int_src_t = 81;
+pub const en_int_src_t_INT_SRC_RTC_PRD: en_int_src_t = 82;
+pub const en_int_src_t_INT_SRC_XTAL32_STOP: en_int_src_t = 84;
+pub const en_int_src_t_INT_SRC_XTAL_STOP: en_int_src_t = 85;
+pub const en_int_src_t_INT_SRC_WKTM_PRD: en_int_src_t = 86;
+pub const en_int_src_t_INT_SRC_SWDT_REFUDF: en_int_src_t = 87;
+pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_A: en_int_src_t = 96;
+pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_B: en_int_src_t = 97;
+pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_C: en_int_src_t = 98;
+pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_D: en_int_src_t = 99;
+pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_E: en_int_src_t = 100;
+pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_F: en_int_src_t = 101;
+pub const en_int_src_t_INT_SRC_TMR6_1_OVF: en_int_src_t = 102;
+pub const en_int_src_t_INT_SRC_TMR6_1_UDF: en_int_src_t = 103;
+pub const en_int_src_t_INT_SRC_TMR6_1_DTE: en_int_src_t = 104;
+pub const en_int_src_t_INT_SRC_TMR6_1_SCMP_A: en_int_src_t = 107;
+pub const en_int_src_t_INT_SRC_TMR6_1_SCMP_B: en_int_src_t = 108;
+pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_A: en_int_src_t = 112;
+pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_B: en_int_src_t = 113;
+pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_C: en_int_src_t = 114;
+pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_D: en_int_src_t = 115;
+pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_E: en_int_src_t = 116;
+pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_F: en_int_src_t = 117;
+pub const en_int_src_t_INT_SRC_TMR6_2_OVF: en_int_src_t = 118;
+pub const en_int_src_t_INT_SRC_TMR6_2_UDF: en_int_src_t = 119;
+pub const en_int_src_t_INT_SRC_TMR6_2_DTE: en_int_src_t = 120;
+pub const en_int_src_t_INT_SRC_TMR6_2_SCMP_A: en_int_src_t = 123;
+pub const en_int_src_t_INT_SRC_TMR6_2_SCMP_B: en_int_src_t = 124;
+pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_A: en_int_src_t = 128;
+pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_B: en_int_src_t = 129;
+pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_C: en_int_src_t = 130;
+pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_D: en_int_src_t = 131;
+pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_E: en_int_src_t = 132;
+pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_F: en_int_src_t = 133;
+pub const en_int_src_t_INT_SRC_TMR6_3_OVF: en_int_src_t = 134;
+pub const en_int_src_t_INT_SRC_TMR6_3_UDF: en_int_src_t = 135;
+pub const en_int_src_t_INT_SRC_TMR6_3_DTE: en_int_src_t = 136;
+pub const en_int_src_t_INT_SRC_TMR6_3_SCMP_A: en_int_src_t = 139;
+pub const en_int_src_t_INT_SRC_TMR6_3_SCMP_B: en_int_src_t = 140;
+pub const en_int_src_t_INT_SRC_TMRA_1_OVF: en_int_src_t = 256;
+pub const en_int_src_t_INT_SRC_TMRA_1_UDF: en_int_src_t = 257;
+pub const en_int_src_t_INT_SRC_TMRA_1_CMP: en_int_src_t = 258;
+pub const en_int_src_t_INT_SRC_TMRA_2_OVF: en_int_src_t = 259;
+pub const en_int_src_t_INT_SRC_TMRA_2_UDF: en_int_src_t = 260;
+pub const en_int_src_t_INT_SRC_TMRA_2_CMP: en_int_src_t = 261;
+pub const en_int_src_t_INT_SRC_TMRA_3_OVF: en_int_src_t = 262;
+pub const en_int_src_t_INT_SRC_TMRA_3_UDF: en_int_src_t = 263;
+pub const en_int_src_t_INT_SRC_TMRA_3_CMP: en_int_src_t = 264;
+pub const en_int_src_t_INT_SRC_TMRA_4_OVF: en_int_src_t = 265;
+pub const en_int_src_t_INT_SRC_TMRA_4_UDF: en_int_src_t = 266;
+pub const en_int_src_t_INT_SRC_TMRA_4_CMP: en_int_src_t = 267;
+pub const en_int_src_t_INT_SRC_TMRA_5_OVF: en_int_src_t = 268;
+pub const en_int_src_t_INT_SRC_TMRA_5_UDF: en_int_src_t = 269;
+pub const en_int_src_t_INT_SRC_TMRA_5_CMP: en_int_src_t = 270;
+pub const en_int_src_t_INT_SRC_TMRA_6_OVF: en_int_src_t = 272;
+pub const en_int_src_t_INT_SRC_TMRA_6_UDF: en_int_src_t = 273;
+pub const en_int_src_t_INT_SRC_TMRA_6_CMP: en_int_src_t = 274;
+pub const en_int_src_t_INT_SRC_USBFS_GLB: en_int_src_t = 275;
+pub const en_int_src_t_INT_SRC_USART1_EI: en_int_src_t = 278;
+pub const en_int_src_t_INT_SRC_USART1_RI: en_int_src_t = 279;
+pub const en_int_src_t_INT_SRC_USART1_TI: en_int_src_t = 280;
+pub const en_int_src_t_INT_SRC_USART1_TCI: en_int_src_t = 281;
+pub const en_int_src_t_INT_SRC_USART1_RTO: en_int_src_t = 282;
+pub const en_int_src_t_INT_SRC_USART1_WUPI: en_int_src_t = 432;
+pub const en_int_src_t_INT_SRC_USART2_EI: en_int_src_t = 283;
+pub const en_int_src_t_INT_SRC_USART2_RI: en_int_src_t = 284;
+pub const en_int_src_t_INT_SRC_USART2_TI: en_int_src_t = 285;
+pub const en_int_src_t_INT_SRC_USART2_TCI: en_int_src_t = 286;
+pub const en_int_src_t_INT_SRC_USART2_RTO: en_int_src_t = 287;
+pub const en_int_src_t_INT_SRC_USART3_EI: en_int_src_t = 288;
+pub const en_int_src_t_INT_SRC_USART3_RI: en_int_src_t = 289;
+pub const en_int_src_t_INT_SRC_USART3_TI: en_int_src_t = 290;
+pub const en_int_src_t_INT_SRC_USART3_TCI: en_int_src_t = 291;
+pub const en_int_src_t_INT_SRC_USART3_RTO: en_int_src_t = 292;
+pub const en_int_src_t_INT_SRC_USART4_EI: en_int_src_t = 293;
+pub const en_int_src_t_INT_SRC_USART4_RI: en_int_src_t = 294;
+pub const en_int_src_t_INT_SRC_USART4_TI: en_int_src_t = 295;
+pub const en_int_src_t_INT_SRC_USART4_TCI: en_int_src_t = 296;
+pub const en_int_src_t_INT_SRC_USART4_RTO: en_int_src_t = 297;
+pub const en_int_src_t_INT_SRC_SPI1_SPRI: en_int_src_t = 299;
+pub const en_int_src_t_INT_SRC_SPI1_SPTI: en_int_src_t = 300;
+pub const en_int_src_t_INT_SRC_SPI1_SPII: en_int_src_t = 301;
+pub const en_int_src_t_INT_SRC_SPI1_SPEI: en_int_src_t = 302;
+pub const en_int_src_t_INT_SRC_SPI2_SPRI: en_int_src_t = 304;
+pub const en_int_src_t_INT_SRC_SPI2_SPTI: en_int_src_t = 305;
+pub const en_int_src_t_INT_SRC_SPI2_SPII: en_int_src_t = 306;
+pub const en_int_src_t_INT_SRC_SPI2_SPEI: en_int_src_t = 307;
+pub const en_int_src_t_INT_SRC_SPI3_SPRI: en_int_src_t = 309;
+pub const en_int_src_t_INT_SRC_SPI3_SPTI: en_int_src_t = 310;
+pub const en_int_src_t_INT_SRC_SPI3_SPII: en_int_src_t = 311;
+pub const en_int_src_t_INT_SRC_SPI3_SPEI: en_int_src_t = 312;
+pub const en_int_src_t_INT_SRC_SPI4_SPRI: en_int_src_t = 314;
+pub const en_int_src_t_INT_SRC_SPI4_SPTI: en_int_src_t = 315;
+pub const en_int_src_t_INT_SRC_SPI4_SPII: en_int_src_t = 316;
+pub const en_int_src_t_INT_SRC_SPI4_SPEI: en_int_src_t = 317;
+pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_UH: en_int_src_t = 320;
+pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_UL: en_int_src_t = 321;
+pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_VH: en_int_src_t = 322;
+pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_VL: en_int_src_t = 323;
+pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_WH: en_int_src_t = 324;
+pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_WL: en_int_src_t = 325;
+pub const en_int_src_t_INT_SRC_TMR4_1_OVF: en_int_src_t = 326;
+pub const en_int_src_t_INT_SRC_TMR4_1_UDF: en_int_src_t = 327;
+pub const en_int_src_t_INT_SRC_TMR4_1_RELOAD_U: en_int_src_t = 328;
+pub const en_int_src_t_INT_SRC_TMR4_1_RELOAD_V: en_int_src_t = 329;
+pub const en_int_src_t_INT_SRC_TMR4_1_RELOAD_W: en_int_src_t = 330;
+pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_UH: en_int_src_t = 336;
+pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_UL: en_int_src_t = 337;
+pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_VH: en_int_src_t = 338;
+pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_VL: en_int_src_t = 339;
+pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_WH: en_int_src_t = 340;
+pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_WL: en_int_src_t = 341;
+pub const en_int_src_t_INT_SRC_TMR4_2_OVF: en_int_src_t = 342;
+pub const en_int_src_t_INT_SRC_TMR4_2_UDF: en_int_src_t = 343;
+pub const en_int_src_t_INT_SRC_TMR4_2_RELOAD_U: en_int_src_t = 344;
+pub const en_int_src_t_INT_SRC_TMR4_2_RELOAD_V: en_int_src_t = 345;
+pub const en_int_src_t_INT_SRC_TMR4_2_RELOAD_W: en_int_src_t = 346;
+pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_UH: en_int_src_t = 352;
+pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_UL: en_int_src_t = 353;
+pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_VH: en_int_src_t = 354;
+pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_VL: en_int_src_t = 355;
+pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_WH: en_int_src_t = 356;
+pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_WL: en_int_src_t = 357;
+pub const en_int_src_t_INT_SRC_TMR4_3_OVF: en_int_src_t = 358;
+pub const en_int_src_t_INT_SRC_TMR4_3_UDF: en_int_src_t = 359;
+pub const en_int_src_t_INT_SRC_TMR4_3_RELOAD_U: en_int_src_t = 360;
+pub const en_int_src_t_INT_SRC_TMR4_3_RELOAD_V: en_int_src_t = 361;
+pub const en_int_src_t_INT_SRC_TMR4_3_RELOAD_W: en_int_src_t = 362;
+pub const en_int_src_t_INT_SRC_EMB_GR0: en_int_src_t = 390;
+pub const en_int_src_t_INT_SRC_EMB_GR1: en_int_src_t = 391;
+pub const en_int_src_t_INT_SRC_EMB_GR2: en_int_src_t = 392;
+pub const en_int_src_t_INT_SRC_EMB_GR3: en_int_src_t = 393;
+pub const en_int_src_t_INT_SRC_EVENT_PORT1: en_int_src_t = 394;
+pub const en_int_src_t_INT_SRC_EVENT_PORT2: en_int_src_t = 395;
+pub const en_int_src_t_INT_SRC_EVENT_PORT3: en_int_src_t = 396;
+pub const en_int_src_t_INT_SRC_EVENT_PORT4: en_int_src_t = 397;
+pub const en_int_src_t_INT_SRC_I2S1_TXIRQOUT: en_int_src_t = 400;
+pub const en_int_src_t_INT_SRC_I2S1_RXIRQOUT: en_int_src_t = 401;
+pub const en_int_src_t_INT_SRC_I2S1_ERRIRQOUT: en_int_src_t = 402;
+pub const en_int_src_t_INT_SRC_I2S2_TXIRQOUT: en_int_src_t = 403;
+pub const en_int_src_t_INT_SRC_I2S2_RXIRQOUT: en_int_src_t = 404;
+pub const en_int_src_t_INT_SRC_I2S2_ERRIRQOUT: en_int_src_t = 405;
+pub const en_int_src_t_INT_SRC_I2S3_TXIRQOUT: en_int_src_t = 406;
+pub const en_int_src_t_INT_SRC_I2S3_RXIRQOUT: en_int_src_t = 407;
+pub const en_int_src_t_INT_SRC_I2S3_ERRIRQOUT: en_int_src_t = 408;
+pub const en_int_src_t_INT_SRC_I2S4_TXIRQOUT: en_int_src_t = 409;
+pub const en_int_src_t_INT_SRC_I2S4_RXIRQOUT: en_int_src_t = 410;
+pub const en_int_src_t_INT_SRC_I2S4_ERRIRQOUT: en_int_src_t = 411;
+pub const en_int_src_t_INT_SRC_CMP1: en_int_src_t = 416;
+pub const en_int_src_t_INT_SRC_CMP2: en_int_src_t = 417;
+pub const en_int_src_t_INT_SRC_CMP3: en_int_src_t = 418;
+pub const en_int_src_t_INT_SRC_I2C1_RXI: en_int_src_t = 420;
+pub const en_int_src_t_INT_SRC_I2C1_TXI: en_int_src_t = 421;
+pub const en_int_src_t_INT_SRC_I2C1_TEI: en_int_src_t = 422;
+pub const en_int_src_t_INT_SRC_I2C1_EEI: en_int_src_t = 423;
+pub const en_int_src_t_INT_SRC_I2C2_RXI: en_int_src_t = 424;
+pub const en_int_src_t_INT_SRC_I2C2_TXI: en_int_src_t = 425;
+pub const en_int_src_t_INT_SRC_I2C2_TEI: en_int_src_t = 426;
+pub const en_int_src_t_INT_SRC_I2C2_EEI: en_int_src_t = 427;
+pub const en_int_src_t_INT_SRC_I2C3_RXI: en_int_src_t = 428;
+pub const en_int_src_t_INT_SRC_I2C3_TXI: en_int_src_t = 429;
+pub const en_int_src_t_INT_SRC_I2C3_TEI: en_int_src_t = 430;
+pub const en_int_src_t_INT_SRC_I2C3_EEI: en_int_src_t = 431;
+pub const en_int_src_t_INT_SRC_LVD1: en_int_src_t = 433;
+pub const en_int_src_t_INT_SRC_LVD2: en_int_src_t = 434;
+pub const en_int_src_t_INT_SRC_OTS: en_int_src_t = 435;
+pub const en_int_src_t_INT_SRC_FCMFERRI: en_int_src_t = 436;
+pub const en_int_src_t_INT_SRC_FCMMENDI: en_int_src_t = 437;
+pub const en_int_src_t_INT_SRC_FCMCOVFI: en_int_src_t = 438;
+pub const en_int_src_t_INT_SRC_WDT_REFUDF: en_int_src_t = 439;
+pub const en_int_src_t_INT_SRC_ADC1_EOCA: en_int_src_t = 448;
+pub const en_int_src_t_INT_SRC_ADC1_EOCB: en_int_src_t = 449;
+pub const en_int_src_t_INT_SRC_ADC1_CHCMP: en_int_src_t = 450;
+pub const en_int_src_t_INT_SRC_ADC1_SEQCMP: en_int_src_t = 451;
+pub const en_int_src_t_INT_SRC_ADC2_EOCA: en_int_src_t = 452;
+pub const en_int_src_t_INT_SRC_ADC2_EOCB: en_int_src_t = 453;
+pub const en_int_src_t_INT_SRC_ADC2_CHCMP: en_int_src_t = 454;
+pub const en_int_src_t_INT_SRC_ADC2_SEQCMP: en_int_src_t = 455;
+pub const en_int_src_t_INT_SRC_TRNG_END: en_int_src_t = 456;
+pub const en_int_src_t_INT_SRC_SDIOC1_SD: en_int_src_t = 482;
+pub const en_int_src_t_INT_SRC_SDIOC2_SD: en_int_src_t = 485;
+pub const en_int_src_t_INT_SRC_CAN_INT: en_int_src_t = 486;
+pub const en_int_src_t_INT_SRC_MAX: en_int_src_t = 511;
+#[doc = " \\brief Interrupt number enumeration"]
+pub type en_int_src_t = ::core::ffi::c_uint;
 #[doc = " @brief ADC"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialEq)]
@@ -429,6 +9164,78 @@ pub struct CM_DMA_TypeDef {
     pub MONRPT3: u32,
     pub MONSNSEQCTL3: u32,
     pub MONDNSEQCTL3: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_1 {
+    pub RPT0: u32,
+    pub RPTB0: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_2 {
+    pub SNSEQCTL0: u32,
+    pub SNSEQCTLB0: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_3 {
+    pub DNSEQCTL0: u32,
+    pub DNSEQCTLB0: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_4 {
+    pub RPT1: u32,
+    pub RPTB1: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_5 {
+    pub SNSEQCTL1: u32,
+    pub SNSEQCTLB1: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_6 {
+    pub DNSEQCTL1: u32,
+    pub DNSEQCTLB1: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_7 {
+    pub RPT2: u32,
+    pub RPTB2: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_8 {
+    pub SNSEQCTL2: u32,
+    pub SNSEQCTLB2: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_9 {
+    pub DNSEQCTL2: u32,
+    pub DNSEQCTLB2: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_10 {
+    pub RPT3: u32,
+    pub RPTB3: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_11 {
+    pub SNSEQCTL3: u32,
+    pub SNSEQCTLB3: u32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CM_DMA_TypeDef__bindgen_ty_12 {
+    pub DNSEQCTL3: u32,
+    pub DNSEQCTLB3: u32,
 }
 #[doc = " @brief EFM"]
 #[repr(C)]
@@ -5469,260 +14276,22 @@ pub struct bCM_WDT_TypeDef {
     pub CR_b: stc_wdt_cr_bit_t,
     pub SR_b: stc_wdt_sr_bit_t,
 }
-#[doc = " @}\n/\n/*******************************************************************************\n Global type definitions ('typedef')\n/\n/**\n @defgroup USB_Global_Types USB Global Types\n @{"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_CORE_GREGS {
-    pub GVBUSCFG: u32,
-    pub Reserved04: u32,
-    pub GAHBCFG: u32,
-    pub GUSBCFG: u32,
-    pub GRSTCTL: u32,
-    pub GINTSTS: u32,
-    pub GINTMSK: u32,
-    pub GRXSTSR: u32,
-    pub GRXSTSP: u32,
-    pub GRXFSIZ: u32,
-    pub HNPTXFSIZ: u32,
-    pub HNPTXSTS: u32,
-    pub Reserved30: [u32; 3usize],
-    pub CID: u32,
-    pub Reserved40: [u32; 5usize],
-    pub GLPMCFG: u32,
-    pub Reserved58: [u32; 42usize],
-    pub HPTXFSIZ: u32,
-    pub DIEPTXF: [u32; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_CORE_DREGS {
-    pub DCFG: u32,
-    pub DCTL: u32,
-    pub DSTS: u32,
-    pub Reserved0C: u32,
-    pub DIEPMSK: u32,
-    pub DOEPMSK: u32,
-    pub DAINT: u32,
-    pub DAINTMSK: u32,
-    pub Reserved20: [u32; 4usize],
-    pub DTHRCTL: u32,
-    pub DIEPEMPMSK: u32,
-    pub DEACHINT: u32,
-    pub DEACHINTMSK: u32,
-    pub Reserved40: u32,
-    pub DIEPEACHMSK1: u32,
-    pub Reserved48: [u32; 15usize],
-    pub DOEPEACHMSK1: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_CORE_INEPREGS {
-    pub DIEPCTL: u32,
-    pub Reserved04: u32,
-    pub DIEPINT: u32,
-    pub Reserved0C: u32,
-    pub DIEPTSIZ: u32,
-    pub DIEPDMA: u32,
-    pub DTXFSTS: u32,
-    pub Reserved18: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_CORE_OUTEPREGS {
-    pub DOEPCTL: u32,
-    pub Reserved04: u32,
-    pub DOEPINT: u32,
-    pub Reserved0C: u32,
-    pub DOEPTSIZ: u32,
-    pub DOEPDMA: u32,
-    pub Reserved18: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_CORE_HREGS {
-    pub HCFG: u32,
-    pub HFIR: u32,
-    pub HFNUM: u32,
-    pub Reserved40C: u32,
-    pub HPTXSTS: u32,
-    pub HAINT: u32,
-    pub HAINTMSK: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_CORE_HC_REGS {
-    pub HCCHAR: u32,
-    pub HCSPLT: u32,
-    pub HCINT: u32,
-    pub HCINTMSK: u32,
-    pub HCTSIZ: u32,
-    pub HCDMA: u32,
-    pub Reserved: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct LL_USB_TypeDef {
-    pub GREGS: *mut USB_CORE_GREGS,
-    pub DREGS: *mut USB_CORE_DREGS,
-    pub HREGS: *mut USB_CORE_HREGS,
-    pub INEP_REGS: [*mut USB_CORE_INEPREGS; 6usize],
-    pub OUTEP_REGS: [*mut USB_CORE_OUTEPREGS; 6usize],
-    pub HC_REGS: [*mut USB_CORE_HC_REGS; 12usize],
-    pub HPRT: *mut u32,
-    pub DFIFO: [*mut u32; 6usize],
-    pub GCCTL: *mut u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_CORE_BASIC_CFGS {
-    pub host_chnum: u8,
-    pub dev_epnum: u8,
-    pub dmaen: u8,
-    pub low_power: u8,
-    pub phy_type: u8,
-    pub core_type: u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_HOST_CH {
-    pub dev_addr: u8,
-    pub ep_idx: u8,
-    pub is_epin: u8,
-    pub ch_speed: u8,
-    pub do_ping: u8,
-    pub ep_type: u8,
-    pub max_packet: u16,
-    pub pid_type: u8,
-    pub in_toggle: u8,
-    pub out_toggle: u8,
-    pub dma_addr: u32,
-    pub xfer_len: u32,
-    pub xfer_count: u32,
-    pub xfer_buff: *mut u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_DEV_EP {
-    pub epidx: u8,
-    pub ep_dir: u8,
-    pub trans_type: u8,
-    pub ep_stall: u8,
-    pub data_pid_start: u8,
-    pub datax_pid: u8,
-    pub tx_fifo_num: u16,
-    pub maxpacket: u32,
-    pub rem_data_len: u32,
-    pub total_data_len: u32,
-    pub ctl_data_len: u32,
-    pub dma_addr: u32,
-    pub xfer_len: u32,
-    pub xfer_count: u32,
-    pub xfer_buff: *mut u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usb_port_identify {
-    pub u8CoreID: u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_SETUP_REQ {
-    pub bmRequest: u8,
-    pub bRequest: u8,
-    pub wValue: u16,
-    pub wIndex: u16,
-    pub wLength: u16,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct usb_dev_desc_func {
-    pub get_dev_desc: ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub get_dev_langiddesc:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub get_dev_manufacturerstr:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub get_dev_productstr:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub get_dev_serialstr:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub get_dev_configstr:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub get_dev_interfacestr:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub get_dev_winusbosstr:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct usb_dev_class_func {
-    pub class_init: ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void)>,
-    pub class_deinit: ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void)>,
-    pub ep0_setup: ::core::option::Option<
-        unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void, req: *mut USB_SETUP_REQ) -> u8,
-    >,
-    pub ep0_datain: ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void)>,
-    pub ep0_dataout: ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void)>,
-    pub class_getconfigdesc:
-        ::core::option::Option<unsafe extern "C" fn(length: *mut u16) -> *mut u8>,
-    pub class_sof:
-        ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void) -> u8>,
-    pub class_datain:
-        ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void, epnum: u8)>,
-    pub class_dataout:
-        ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void, epnum: u8)>,
-    pub class_syn_in_incomplt:
-        ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void)>,
-    pub class_syn_out_incomplt:
-        ::core::option::Option<unsafe extern "C" fn(pdev: *mut ::core::ffi::c_void)>,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct usb_dev_user_func {
-    pub user_init: ::core::option::Option<unsafe extern "C" fn()>,
-    pub user_devrst: ::core::option::Option<unsafe extern "C" fn()>,
-    pub user_devconfig: ::core::option::Option<unsafe extern "C" fn()>,
-    pub user_devsusp: ::core::option::Option<unsafe extern "C" fn()>,
-    pub user_devresume: ::core::option::Option<unsafe extern "C" fn()>,
-    pub user_devconn: ::core::option::Option<unsafe extern "C" fn()>,
-    pub user_devdisconn: ::core::option::Option<unsafe extern "C" fn()>,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_DEV_PARAM {
-    pub device_config: u8,
-    pub device_address: u8,
-    pub device_state: u8,
-    pub device_old_status: u8,
-    pub device_cur_status: u8,
-    pub connection_status: u8,
-    pub device_remote_wakeup: u8,
-    pub test_mode: u8,
-    pub in_ep: [USB_DEV_EP; 6usize],
-    pub out_ep: [USB_DEV_EP; 6usize],
-    pub setup_pkt_buf: [u8; 24usize],
-    pub class_callback: *mut usb_dev_class_func,
-    pub user_callback: *mut usb_dev_user_func,
-    pub desc_callback: *mut usb_dev_desc_func,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct USB_HOST_PARAM {
-    pub channel: [u16; 12usize],
-    pub hc: [USB_HOST_CH; 12usize],
-    pub is_dev_connect: u32,
-    pub Rx_Buffer: [u8; 512usize],
-    pub ErrCnt: [u32; 12usize],
-    pub XferCnt: [u32; 12usize],
-    pub HC_Status: [HOST_CH_STATUS; 12usize],
-    pub URB_State: [HOST_CH_XFER_STATE; 12usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct usb_core_instance {
-    pub basic_cfgs: USB_CORE_BASIC_CFGS,
-    pub regs: LL_USB_TypeDef,
-    pub dev: USB_DEV_PARAM,
-}
+#[doc = " @brief Single precision floating point number (4 byte)"]
+pub type float32_t = f32;
+#[doc = " @brief Double precision floating point number (8 byte)"]
+pub type float64_t = f64;
+#[doc = " @brief Function pointer type to void/void function"]
+pub type func_ptr_t = ::core::option::Option<unsafe extern "C" fn()>;
+pub const en_functional_state_t_DISABLE: en_functional_state_t = 0;
+pub const en_functional_state_t_ENABLE: en_functional_state_t = 1;
+#[doc = " @brief Functional state"]
+pub type en_functional_state_t = ::core::ffi::c_uint;
+pub const en_flag_status_t_RESET: en_flag_status_t = 0;
+pub const en_flag_status_t_SET: en_flag_status_t = 1;
+#[doc = " @brief Flag status"]
+pub type en_flag_status_t = ::core::ffi::c_uint;
+#[doc = " @brief Flag status"]
+pub use self::en_flag_status_t as en_int_status_t;
 #[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup ADC_Global_Types ADC Global Types\n @{\n/\n/**\n @brief Structure definition of analog watchdog(AWD) configuration."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialEq)]
@@ -5845,9960 +14414,16 @@ pub struct stc_can_tx_frame_t {
     pub au8Data: [u8; 8usize],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_can_tx_frame_t__bindgen_ty_1__bindgen_ty_1 {
-    pub _bitfield_align_1: [u32; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief CAN RX frame data structure."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct stc_can_rx_frame_t {
-    #[doc = "< 11 bits standard ID or 29 bits extended ID, depending on IDE."]
-    pub u32ID: u32,
-    pub __bindgen_anon_1: stc_can_rx_frame_t__bindgen_ty_1,
-    #[doc = "< RX data payload."]
-    pub au8Data: [u8; 8usize],
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_can_rx_frame_t__bindgen_ty_1__bindgen_ty_1 {
-    pub _bitfield_align_1: [u16; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup CLK_Global_Types CLK Global Types\n @{\n/\n/**\n @brief  CLK XTAL configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_xtal_init_t {
-    #[doc = "< The new state of the XTAL.\nThis parameter can be a value of @ref CLK_XTAL_State"]
-    pub u8State: u8,
-    #[doc = "< The XTAL drive ability.\nThis parameter can be a value of @ref CLK_XTAL_Driver"]
-    pub u8Drv: u8,
-    #[doc = "< The XTAL mode selection osc or exclk.\nThis parameter can be a value of @ref CLK_XTAL_Mode_Selection"]
-    pub u8Mode: u8,
-    #[doc = "< The XTAL super drive on or off.\nThis parameter can be a value of @ref CLK_XTAL_Super_Drive_State"]
-    pub u8SuperDrv: u8,
-    #[doc = "< The XTAL stable time selection.\nThis parameter can be a value of @ref CLK_XTAL_Stable_Time_Selection"]
-    pub u8StableTime: u8,
-}
-#[doc = " @brief  CLK XTAL fault detect configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_xtalstd_init_t {
-    #[doc = "< Specifies the new state of XTALSTD.\nThis parameter can be a value of @ref CLK_XTALSTD_State"]
-    pub u8State: u8,
-    #[doc = "< Specifies the XTALSTD exception type.\nThis parameter can be a value of @ref CLK_XTALSTD_Exception_type"]
-    pub u8ExceptionType: u8,
-}
-#[doc = " @brief  CLK XTAL32 configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_xtal32_init_t {
-    #[doc = "< The new state of the XTAL32 divide.\nThis parameter can be a value of @ref CLK_XTAL32_State"]
-    pub u8State: u8,
-    #[doc = "< The Xtal32 drive ability setting,\nThis parameter can be a value of @ref CLK_XTAL32_Drive"]
-    pub u8Drv: u8,
-    #[doc = "< Xtal32 noise filter setting,\nThis parameter can be a value of@ref CLK_XTAL32_Filter_Selection"]
-    pub u8Filter: u8,
-}
-#[doc = " @brief  CLK clock frequency configuration structure definition"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct stc_clock_scale_t {
-    pub __bindgen_anon_1: stc_clock_scale_t__bindgen_ty_1,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief  CLK PLL configuration structure definition\n @note   PLL for MPLL"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct stc_clock_pll_init_t {
-    #[doc = "< PLL new state, @ref CLK_PLL_State for details"]
-    pub u8PLLState: u8,
-    pub __bindgen_anon_1: stc_clock_pll_init_t__bindgen_ty_1,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
-    pub _bitfield_align_1: [u16; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief  CLK PLLx configuration structure definition\n @note   PLLx for UPLL"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct stc_clock_pllx_init_t {
-    #[doc = "< PLLx new state, @ref CLK_PLLx_State for details"]
-    pub u8PLLState: u8,
-    pub __bindgen_anon_1: stc_clock_pllx_init_t__bindgen_ty_1,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_pllx_init_t__bindgen_ty_1__bindgen_ty_1 {
-    pub _bitfield_align_1: [u16; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief  CLK bus frequency structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_clock_freq_t {
-    #[doc = "< System clock frequency."]
-    pub u32SysclkFreq: u32,
-    #[doc = "< Hclk frequency."]
-    pub u32HclkFreq: u32,
-    #[doc = "< Pclk0 frequency."]
-    pub u32Pclk0Freq: u32,
-    #[doc = "< Pclk1 frequency."]
-    pub u32Pclk1Freq: u32,
-    #[doc = "< Pclk2 frequency."]
-    pub u32Pclk2Freq: u32,
-    #[doc = "< Pclk3 frequency."]
-    pub u32Pclk3Freq: u32,
-    #[doc = "< Pclk4 frequency."]
-    pub u32Pclk4Freq: u32,
-    #[doc = "< Exclk frequency."]
-    pub u32ExclkFreq: u32,
-}
-#[doc = " @brief  CLK PLL clock frequency structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pll_clock_freq_t {
-    #[doc = "< PLL vcin clock frequency."]
-    pub u32PllVcin: u32,
-    #[doc = "< PLL vco clock frequency."]
-    pub u32PllVco: u32,
-    #[doc = "< PLLp clock frequency."]
-    pub u32PllP: u32,
-    #[doc = "< PLLq clock frequency."]
-    pub u32PllQ: u32,
-    #[doc = "< PLLr clock frequency."]
-    pub u32PllR: u32,
-    #[doc = "< pllx vcin clock frequency."]
-    pub u32PllxVcin: u32,
-    #[doc = "< pllx vco clock frequency."]
-    pub u32PllxVco: u32,
-    #[doc = "< pllxp clock frequency."]
-    pub u32PllxP: u32,
-    #[doc = "< pllxq clock frequency."]
-    pub u32PllxQ: u32,
-    #[doc = "< pllxr clock frequency."]
-    pub u32PllxR: u32,
-}
-#[doc = " @brief CMP normal mode configuration structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_cmp_init_t {
-    #[doc = "< Positive(compare voltage) input @ref CMP_Positive_Input_Select"]
-    pub u16PositiveInput: u16,
-    #[doc = "< Negative(Reference voltage) input @ref CMP_Negative_Input_Select"]
-    pub u16NegativeInput: u16,
-    #[doc = "< Output polarity select, @ref CMP_Out_Polarity_Select"]
-    pub u16OutPolarity: u16,
-    #[doc = "< Output detect edge, @ref CMP_Out_Detect_Edge_Select"]
-    pub u16OutDetectEdge: u16,
-    #[doc = "< Output Filter, @ref CMP_Out_Filter"]
-    pub u16OutFilter: u16,
-}
-#[doc = " @brief CRC initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_crc_init_t {
-    #[doc = "< Specifies CRC Protocol.\nThis parameter can be a value of @ref CRC_Protocol_Control_Bit"]
-    pub u32Protocol: u32,
-    #[doc = "< Specifies initial CRC value.\nThis parameter can be CRC_INIT_VALUE_DEFAULT @ref CRC_Init_Value_Default"]
-    pub u32InitValue: u32,
-    #[doc = "< Specifies CRC Retroflexion Input.\nThis parameter can be a value of @ref CRC_Retroflexion_Input"]
-    pub u32RefIn: u32,
-    #[doc = "< Specifies CRC Retroflexion Output.\nThis parameter can be a value of @ref CRC_Retroflexion_Output"]
-    pub u32RefOut: u32,
-    #[doc = "< Specifies CRC XOR Output.\nThis parameter can be a value of @ref CRC_XOR_Output"]
-    pub u32XorOut: u32,
-}
-#[doc = " @brief DCU initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dcu_init_t {
-    #[doc = "< Specifies DCU operation.\nThis parameter can be a value of @ref DCU_Mode"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies DCU data width.\nThis parameter can be a value of @ref DCU_Data_Width"]
-    pub u32DataWidth: u32,
-}
-#[doc = " @brief  DMA basic configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_init_t {
-    #[doc = "< Specifies the DMA interrupt function.\nThis parameter can be a value of @ref DMA_Int_Config"]
-    pub u32IntEn: u32,
-    #[doc = "< Specifies the DMA source address."]
-    pub u32SrcAddr: u32,
-    #[doc = "< Specifies the DMA destination address."]
-    pub u32DestAddr: u32,
-    #[doc = "< Specifies the DMA transfer data width.\nThis parameter can be a value of @ref DMA_DataWidth_Sel"]
-    pub u32DataWidth: u32,
-    #[doc = "< Specifies the DMA block size."]
-    pub u32BlockSize: u32,
-    #[doc = "< Specifies the DMA transfer count."]
-    pub u32TransCount: u32,
-    #[doc = "< Specifies the source address increment mode.\nThis parameter can be a value of @ref DMA_SrcAddr_Incremented_Mode"]
-    pub u32SrcAddrInc: u32,
-    #[doc = "< Specifies the destination address increment mode.\nThis parameter can be a value of @ref DMA_DesAddr_Incremented_Mode"]
-    pub u32DestAddrInc: u32,
-}
-#[doc = " @brief  DMA repeat mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_repeat_init_t {
-    #[doc = "< Specifies the DMA source repeat function.\nThis parameter can be a value of @ref DMA_Repeat_Config"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA source repeat size."]
-    pub u32SrcCount: u32,
-    #[doc = "< Specifies the DMA destination repeat size."]
-    pub u32DestCount: u32,
-}
-#[doc = " @brief  DMA non-sequence mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_nonseq_init_t {
-    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA source non-sequence function count."]
-    pub u32SrcCount: u32,
-    #[doc = "< Specifies the DMA source non-sequence function offset."]
-    pub u32SrcOffset: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function count."]
-    pub u32DestCount: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function offset."]
-    pub u32DestOffset: u32,
-}
-#[doc = " @brief  DMA Link List Pointer (LLP) mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_llp_init_t {
-    #[doc = "< Specifies the DMA LLP function.\nThis parameter can be a value of @ref DMA_Llp_En"]
-    pub u32State: u32,
-    #[doc = "< Specifies the DMA LLP auto or wait REQ.\nThis parameter can be a value of @ref DMA_Llp_Mode"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA list pointer address for LLP function."]
-    pub u32Addr: u32,
-}
-#[doc = " @brief  DMA re-config function configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_reconfig_init_t {
-    #[doc = "< Specifies the DMA reconfig function count mode.\nThis parameter can be a value of @ref DMA_Reconfig_Count_Sel"]
-    pub u32CountMode: u32,
-    #[doc = "< Specifies the DMA reconfig function destination address mode.\nThis parameter can be a value of @ref DMA_Reconfig_DestAddr_Sel"]
-    pub u32DestAddrMode: u32,
-    #[doc = "< Specifies the DMA reconfig function source address mode.\nThis parameter can be a value of @ref DMA_Reconfig_SrcAddr_Sel"]
-    pub u32SrcAddrMode: u32,
-}
-#[doc = " @brief  DMA re-config non-sequence mode configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_rc_nonseq_init_t {
-    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the DMA source non-sequence function count."]
-    pub u32SrcCount: u32,
-    #[doc = "< Specifies the DMA source non-sequence function distance."]
-    pub u32SrcDist: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function count."]
-    pub u32DestCount: u32,
-    #[doc = "< Specifies the DMA destination non-sequence function distance."]
-    pub u32DestDist: u32,
-}
-#[doc = " @brief  Dma LLP(linked list pointer) descriptor structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_dma_llp_descriptor_t {
-    #[doc = "< LLP source address"]
-    pub SARx: u32,
-    #[doc = "< LLP destination address"]
-    pub DARx: u32,
-    #[doc = "< LLP transfer count and block size"]
-    pub DTCTLx: u32,
-    #[doc = "< LLP source & destination repeat size"]
-    pub RPTx: u32,
-    #[doc = "< LLP source non-seq count and offset"]
-    pub SNSEQCTLx: u32,
-    #[doc = "< LLP destination non-seq count and offset"]
-    pub DNSEQCTLx: u32,
-    #[doc = "< LLP next list pointer"]
-    pub LLPx: u32,
-    #[doc = "< LLP channel control"]
-    pub CHCTLx: u32,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup EFM_Global_Types EFM Global Types\n @{\n/\n/**\n @brief EFM unique ID definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_unique_id_t {
-    #[doc = "< unique ID 0."]
-    pub u32UniqueID0: u32,
-    #[doc = "< unique ID 1."]
-    pub u32UniqueID1: u32,
-    #[doc = "< unique ID 2."]
-    pub u32UniqueID2: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_efm_remap_init_t {
-    pub u32State: u32,
-    pub u32Addr: u32,
-    pub u32Size: u32,
-}
-#[doc = " @brief EMB monitor OSC failure configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_osc_t {
-    #[doc = "< Enable or disable EMB detect OSC failure function\nThis parameter can be a value of @ref EMB_OSC_Selection"]
-    pub u32OscState: u32,
-}
-#[doc = " @brief EMB monitor EMB port configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_port_config_t {
-    #[doc = "< Enable or disable EMB detect port in control function\nThis parameter can be a value of @ref EMB_Port_Selection"]
-    pub u32PortState: u32,
-    #[doc = "< EMB detect port level\nThis parameter can be a value of @ref EMB_Detect_Port_Level"]
-    pub u32PortLevel: u32,
-    #[doc = "< EMB port filter division\nThis parameter can be a value of @ref EMB_Port_Filter_Clock_Division"]
-    pub u32PortFilterDiv: u32,
-    #[doc = "< Enable or disable EMB detect port filter in control function\nThis parameter can be a value of @ref EMB_Port_Filter_Selection"]
-    pub u32PortFilterState: u32,
-}
-#[doc = " @brief EMB monitor PWM configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_tmr_pwm_t {
-    #[doc = "< Enable or disable EMB detect timer same phase function\nThis parameter can be a value of @ref EMB_Detect_PWM state."]
-    pub u32PwmState: u32,
-    #[doc = "< Detect timer polarity level\nThis parameter can be a value of @ref EMB_Detect_PWM level"]
-    pub u32PwmLevel: u32,
-}
-#[doc = " @brief EMB monitor port in configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_port_t {
-    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
-    pub stcPort1: stc_emb_monitor_port_config_t,
-}
-#[doc = " @brief EMB monitor CMP configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_cmp_t {
-    #[doc = "< Enable or disable EMB detect CMP1 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
-    pub u32Cmp1State: u32,
-    #[doc = "< Enable or disable EMB detect CMP2 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
-    pub u32Cmp2State: u32,
-    #[doc = "< Enable or disable EMB detect CMP3 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
-    pub u32Cmp3State: u32,
-}
-#[doc = " @brief EMB monitor TMR4 configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_tmr4_t {
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr4PwmU: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr4PwmV: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr4PwmW: stc_emb_monitor_tmr_pwm_t,
-}
-#[doc = " @brief EMB control TMR4 initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_tmr4_init_t {
-    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
-    pub stcCmp: stc_emb_monitor_cmp_t,
-    #[doc = "< EMB detect OSC function\nThis parameter details refer @ref stc_emb_monitor_osc_t structure"]
-    pub stcOsc: stc_emb_monitor_osc_t,
-    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
-    pub stcPort: stc_emb_monitor_port_t,
-    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr4_t structure"]
-    pub stcTmr4: stc_emb_monitor_tmr4_t,
-}
-#[doc = " @brief EMB monitor TMR6 configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_monitor_tmr6_t {
-    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr6_1: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr6_2: stc_emb_monitor_tmr_pwm_t,
-    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
-    pub stcTmr6_3: stc_emb_monitor_tmr_pwm_t,
-}
-#[doc = " @brief EMB control TMR6 initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_emb_tmr6_init_t {
-    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
-    pub stcCmp: stc_emb_monitor_cmp_t,
-    #[doc = "< EMB detect OSC function\nThis parameter details refer @ref stc_emb_monitor_osc_t structure"]
-    pub stcOsc: stc_emb_monitor_osc_t,
-    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
-    pub stcPort: stc_emb_monitor_port_t,
-    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr6_t structure"]
-    pub stcTmr6: stc_emb_monitor_tmr6_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_ep_init_t {
-    #[doc = "< Input/Output setting, @ref EP_PinDirection_Sel for details"]
-    pub u32PinDir: u32,
-    #[doc = "< Corresponding pin initial state, @ref en_ep_state_t for details"]
-    pub enPinState: en_ep_state_t,
-    #[doc = "< Corresponding pin state after triggered, @ref EP_TriggerOps_Sel for details"]
-    pub u32PinTriggerOps: u32,
-    #[doc = "< Event port trigger edge, @ref EP_Trigger_Sel for details"]
-    pub u32Edge: u32,
-    #[doc = "< Filter clock function setting, @ref EP_FilterClock_Sel for details"]
-    pub u32Filter: u32,
-    #[doc = "< Filter clock, ref@ EP_FilterClock_Div for details"]
-    pub u32FilterClock: u32,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup FCM_Global_Types FCM Global Types\n @{\n/\n/**\n @brief  FCM Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_fcm_init_t {
-    #[doc = "< FCM lower limit value"]
-    pub u16LowerLimit: u16,
-    #[doc = "< FCM upper limit value"]
-    pub u16UpperLimit: u16,
-    #[doc = "< FCM target clock source selection, @ref FCM_Target_Clock_Src"]
-    pub u32TargetClock: u32,
-    #[doc = "< FCM target clock source division selection, @ref FCM_Target_Clock_Div"]
-    pub u32TargetClockDiv: u32,
-    #[doc = "< FCM external reference clock function config, @ref FCM_Ext_Ref_Clock_Config"]
-    pub u32ExtRefClockEnable: u32,
-    #[doc = "< FCM reference clock trigger edge selection, @ref FCM_Ref_Clock_Edge"]
-    pub u32RefClockEdge: u32,
-    #[doc = "< FCM digital filter function config, @ref FCM_Digital_Filter_Config"]
-    pub u32DigitalFilter: u32,
-    #[doc = "< FCM reference clock source selection, @ref FCM_Ref_Clock_Src"]
-    pub u32RefClock: u32,
-    #[doc = "< FCM reference clock source division selection, @ref FCM_Ref_Clock_Div"]
-    pub u32RefClockDiv: u32,
-    #[doc = "< FCM exception type select,  @ref FCM_Exception_Type"]
-    pub u32ExceptionType: u32,
-}
-#[doc = " @brief  GPIO Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_gpio_init_t {
-    #[doc = "< Set pin state to High or Low, @ref GPIO_PinState_Sel for details"]
-    pub u16PinState: u16,
-    #[doc = "< Pin mode setting, @ref GPIO_PinDirection_Sel for details"]
-    pub u16PinDir: u16,
-    #[doc = "< Output type setting, @ref GPIO_PinOutType_Sel for details"]
-    pub u16PinOutputType: u16,
-    #[doc = "< Pin drive capacity setting, @ref GPIO_PinDrv_Sel for details"]
-    pub u16PinDrv: u16,
-    #[doc = "< Pin latch setting, @ref GPIO_PinLatch_Sel for details"]
-    pub u16Latch: u16,
-    #[doc = "< Internal pull-up resistor setting, @ref GPIO_PinPU_Sel for details"]
-    pub u16PullUp: u16,
-    #[doc = "< Pin input/output invert setting, @ref GPIO_PinInvert_Sel for details"]
-    pub u16Invert: u16,
-    #[doc = "< External interrupt pin setting, @ref GPIO_PinExtInt_Sel for details"]
-    pub u16ExtInt: u16,
-    #[doc = "< Digital or analog attribute setting, @ref GPIO_PinMode_Sel for details"]
-    pub u16PinAttr: u16,
-}
-#[doc = " @brief I2c configuration structure"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2c_init_t {
-    #[doc = "< I2C clock division for i2c source clock"]
-    pub u32ClockDiv: u32,
-    #[doc = "< I2C baudrate config"]
-    pub u32Baudrate: u32,
-    #[doc = "< The SCL rising and falling time, count of T(i2c source clock after frequency divider)"]
-    pub u32SclTime: u32,
-}
-#[doc = " @brief I2S Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_i2s_init_t {
-    #[doc = "< Specifies the clock source of I2S.\nThis parameter can be a value of @ref I2S_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Specifies the master/slave mode of I2S.\nThis parameter can be a value of @ref I2S_Mode"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the communication protocol of I2S.\nThis parameter can be a value of @ref I2S_Protocol"]
-    pub u32Protocol: u32,
-    #[doc = "< Specifies the transmission mode for the I2S communication.\nThis parameter can be a value of @ref I2S_Trans_Mode"]
-    pub u32TransMode: u32,
-    #[doc = "< Specifies the frequency selected for the I2S communication.\nThis parameter can be a value of @ref I2S_Audio_Frequency"]
-    pub u32AudioFreq: u32,
-    #[doc = "< Specifies the channel length for the I2S communication.\nThis parameter can be a value of @ref I2S_Channel_Length"]
-    pub u32ChWidth: u32,
-    #[doc = "< Specifies the data length for the I2S communication.\nThis parameter can be a value of @ref I2S_Data_Length"]
-    pub u32DataWidth: u32,
-    #[doc = "< Specifies the validity of the MCK output for I2S.\nThis parameter can be a value of @ref I2S_MCK_Output"]
-    pub u32MCKOutput: u32,
-    #[doc = "< Specifies the level of transfer FIFO.\nThis parameter can be a value of @ref I2S_Trans_Level"]
-    pub u32TransFIFOLevel: u32,
-    #[doc = "< Specifies the level of receive FIFO.\nThis parameter can be a value of @ref I2S_Receive_Level"]
-    pub u32ReceiveFIFOLevel: u32,
-}
-#[doc = " @brief  Interrupt registration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_irq_signin_config_t {
-    #[doc = "< Peripheral interrupt number, can be any value @ref en_int_src_t"]
-    pub enIntSrc: en_int_src_t,
-    #[doc = "< Peripheral IRQ type, can be INT000_IRQn~INT127_IRQn @ref IRQn_Type"]
-    pub enIRQn: IRQn_Type,
-    #[doc = "< Callback function for corresponding peripheral IRQ"]
-    pub pfnCallback: func_ptr_t,
-}
-#[doc = " @brief  NMI initialize configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_nmi_init_t {
-    #[doc = "< NMI trigger source, @ref NMI_TriggerSrc_Sel for details"]
-    pub u32Src: u32,
-    #[doc = "< NMI pin trigger edge, @ref NMI_Trigger_level_Sel for details"]
-    pub u32Edge: u32,
-    #[doc = "< NMI filter function setting, @ref NMI_FilterClock_Sel for details"]
-    pub u32Filter: u32,
-    #[doc = "< NMI filter clock division, @ref NMI_FilterClock_Div for details"]
-    pub u32FilterClock: u32,
-}
-#[doc = " @brief  EXTINT initialize configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_extint_init_t {
-    #[doc = "< ExtInt filter (A) function setting, @ref EXTINT_FilterClock_Sel for details"]
-    pub u32Filter: u32,
-    #[doc = "< ExtInt filter (A) clock division, @ref EXTINT_FilterClock_Div for details"]
-    pub u32FilterClock: u32,
-    #[doc = "< ExtInt trigger edge, @ref EXTINT_Trigger_Sel for details"]
-    pub u32Edge: u32,
-}
-#[doc = " @brief  KEYSCAN configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_keyscan_init_t {
-    #[doc = "< Specifies the KEYSCAN Hiz cycles.\nThis parameter can be a value of @ref KEYSCAN_Hiz_Cycle_Sel"]
-    pub u32HizCycle: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Low_Cycle_Sel"]
-    pub u32LowCycle: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Clock_Sel"]
-    pub u32KeyClock: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyout_Sel"]
-    pub u32KeyOut: u32,
-    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyin_Sel"]
-    pub u32KeyIn: u32,
-}
-#[doc = " @brief MPU Unit configure structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_unit_config_t {
-    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
-    pub u32ExceptionType: u32,
-    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
-    pub u32BackgroundWrite: u32,
-    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
-    pub u32BackgroundRead: u32,
-}
-#[doc = " @brief MPU Unit initialize structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_unit_init_t {
-    #[doc = "< Specifies the unit's state of mpu\nThis parameter can be a value of @ref MPU_Unit_State"]
-    pub u32MpuState: u32,
-    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
-    pub u32ExceptionType: u32,
-    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
-    pub u32BackgroundWrite: u32,
-    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
-    pub u32BackgroundRead: u32,
-}
-#[doc = " @brief MPU Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_init_t {
-    #[doc = "< Configure storage protection unit of DMA1"]
-    pub stcDma1: stc_mpu_unit_config_t,
-    #[doc = "< Configure storage protection unit of DMA2"]
-    pub stcDma2: stc_mpu_unit_config_t,
-    #[doc = "< Configure storage protection unit of USBFS_DMA"]
-    pub stcUsbFSDma: stc_mpu_unit_config_t,
-}
-#[doc = " @brief MPU Region Permission structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_region_permission_t {
-    #[doc = "< Specifies the unit's write permission for the region.\nThis parameter can be a value of @ref MPU_Region_Write_Permission"]
-    pub u32RegionWrite: u32,
-    #[doc = "< Specifies the unit's read permission  for the region.\nThis parameter can be a value of @ref MPU_Region_Read_Permission"]
-    pub u32RegionRead: u32,
-}
-#[doc = " @brief MPU region initialization structure definition\n @note  The effective bits of the 'u32BaseAddr' are related to the 'u32Size' of the region,\n        and the low 'u32Size+1' bits are fixed at 0."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_mpu_region_init_t {
-    #[doc = "< Specifies the base address of the region.\nThis parameter can be a number between 0UL and 0xFFFFFFE0UL"]
-    pub u32BaseAddr: u32,
-    #[doc = "< Specifies the size of the region.\nThis parameter can be a value of @ref MPU_Region_Size"]
-    pub u32Size: u32,
-    #[doc = "< Specifies the DMA1 access permission for the region"]
-    pub stcDma1: stc_mpu_region_permission_t,
-    #[doc = "< Specifies the DMA2 access permission for the region"]
-    pub stcDma2: stc_mpu_region_permission_t,
-    #[doc = "< Specifies the USBFS_DMA access permission for the region"]
-    pub stcUsbFSDma: stc_mpu_region_permission_t,
-}
-#[doc = " @brief OTS initialization structure."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_ots_init_t {
-    #[doc = "< Specifies clock source for OTS.\nThis parameter can be a value of @ref OTS_Clock_Source"]
-    pub u16ClockSrc: u16,
-    #[doc = "< Enable or disable OTS automatic-off(after sampled temperature).\nThis parameter can be a value of @ref OTS_Auto_Off_En"]
-    pub u16AutoOffEn: u16,
-    #[doc = "< K: Temperature slope (calculated by calibration experiment).\nIf you want to use the default parameters(slope K and offset M),\nspecify both 'f32SlopeK' and 'f32OffsetM' as ZERO."]
-    pub f32SlopeK: float32_t,
-    #[doc = "< M: Temperature offset (calculated by calibration experiment).\nIf you want to use the default parameters(slope K and offset M),\nspecify both 'f32SlopeK' and 'f32OffsetM' as ZERO."]
-    pub f32OffsetM: float32_t,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup PWC_Global_Types PWC Global Types\n @{\n/\n/**\n @brief PWC LVD Init"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_lvd_init_t {
-    #[doc = "< LVD function setting, @ref PWC_LVD_Config for details"]
-    pub u32State: u32,
-    #[doc = "< LVD compare output function setting, @ref PWC_LVD_CMP_Config for details"]
-    pub u32CompareOutputState: u32,
-    #[doc = "< LVD interrupt or reset selection, @ref PWC_LVD_Exception_Type_Sel for details"]
-    pub u32ExceptionType: u32,
-    #[doc = "< LVD digital filter function setting, @ref PWC_LVD_DF_Config for details"]
-    pub u32Filter: u32,
-    #[doc = "< LVD digital filter clock setting, @ref PWC_LVD_DFS_Clk_Sel for details"]
-    pub u32FilterClock: u32,
-    #[doc = "< LVD detect voltage setting, @ref PWC_LVD_Detection_Voltage_Sel for details"]
-    pub u32ThresholdVoltage: u32,
-}
-#[doc = " @brief PWC power down mode innit"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_pd_mode_config_t {
-    #[doc = "< Power down mode, @ref PWC_PDMode_Sel for details."]
-    pub u8Mode: u8,
-    #[doc = "< IO state in power down mode, @ref PWC_PDMode_IO_Sel for details."]
-    pub u8IOState: u8,
-    #[doc = "< Power down Wakeup time control, @ref PWC_PD_VCAP_Sel for details."]
-    pub u8VcapCtrl: u8,
-}
-#[doc = " @brief PWC Stop mode Init"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_pwc_stop_mode_config_t {
-    #[doc = "< System clock setting after wake-up from stop mode,\n@ref PWC_STOP_CLK_Sel for details."]
-    pub u16Clock: u16,
-    #[doc = "< Stop mode drive capacity,\n@ref PWC_STOP_DRV_Sel for details."]
-    pub u8StopDrv: u8,
-    #[doc = "< Waiting flash stable after wake-up from stop mode,\n@ref PWC_STOP_Flash_Wait_Sel for details."]
-    pub u16FlashWait: u16,
-}
-#[doc = " @brief QSPI initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_qspi_init_t {
-    #[doc = "< Specifies the clock division.\nThis parameter can be a value of @ref QSPI_Clock_Division"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Specifies the SPI mode.\nThis parameter can be a value of @ref QSPI_SPI_Mode"]
-    pub u32SpiMode: u32,
-    #[doc = "< Specifies the prefetch mode.\nThis parameter can be a value of @ref QSPI_Prefetch_Mode"]
-    pub u32PrefetchMode: u32,
-    #[doc = "< Specifies the read mode.\nThis parameter can be a value of @ref QSPI_Read_Mode"]
-    pub u32ReadMode: u32,
-    #[doc = "< Specifies the number of dummy cycles.\nThis parameter can be a value of @ref QSPI_Dummy_Cycle"]
-    pub u32DummyCycle: u32,
-    #[doc = "< Specifies the address width.\nThis parameter can be a value of @ref QSPI_Addr_Width"]
-    pub u32AddrWidth: u32,
-    #[doc = "< Specifies the advance time of QSSN setup.\nThis parameter can be a value of @ref QSPI_QSSN_Setup_Time"]
-    pub u32SetupTime: u32,
-    #[doc = "< Specifies the delay time of QSSN release.\nThis parameter can be a value of @ref QSPI_QSSN_Release_Time"]
-    pub u32ReleaseTime: u32,
-    #[doc = "< Specifies the minimum interval time of QSSN.\nThis parameter can be a value of @ref QSPI_QSSN_Interval_Time"]
-    pub u32IntervalTime: u32,
-}
-#[doc = " @brief QSPI Custom read mode structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_qspi_custom_mode_t {
-    #[doc = "< Specifies the instruction stage protocol.\nThis parameter can be a value of @ref QSPI_Instruction_Protocol"]
-    pub u32InstrProtocol: u32,
-    #[doc = "< Specifies the address stage protocol.\nThis parameter can be a value of @ref QSPI_Addr_Protocol"]
-    pub u32AddrProtocol: u32,
-    #[doc = "< Specifies the data stage protocol.\nThis parameter can be a value of @ref QSPI_Data_Protocol"]
-    pub u32DataProtocol: u32,
-    #[doc = "< Specifies the instruction code in custom read mode.\nThis parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFF"]
-    pub u8InstrCode: u8,
-}
-#[doc = " @brief RTC Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_init_t {
-    #[doc = "< Specifies the RTC clock source.\nThis parameter can be a value of @ref RTC_Clock_Source"]
-    pub u8ClockSrc: u8,
-    #[doc = "< Specifies the RTC hour format.\nThis parameter can be a value of @ref RTC_Hour_Format"]
-    pub u8HourFormat: u8,
-    #[doc = "< Specifies the RTC interrupt period.\nThis parameter can be a value of @ref RTC_Interrupt_Period"]
-    pub u8IntPeriod: u8,
-    #[doc = "< Specifies the validity of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation"]
-    pub u8ClockCompen: u8,
-    #[doc = "< Specifies the mode of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation_Mode"]
-    pub u8CompenMode: u8,
-    #[doc = "< Specifies the value of RTC clock compensation.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 0x1FF"]
-    pub u16CompenValue: u16,
-}
-#[doc = " @brief RTC Date structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_date_t {
-    #[doc = "< Specifies the RTC Year.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 99"]
-    pub u8Year: u8,
-    #[doc = "< Specifies the RTC Month (in Decimal format).\nThis parameter can be a value of @ref RTC_Month"]
-    pub u8Month: u8,
-    #[doc = "< Specifies the RTC Day.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 31"]
-    pub u8Day: u8,
-    #[doc = "< Specifies the RTC Weekday.\nThis parameter can be a value of @ref RTC_Weekday"]
-    pub u8Weekday: u8,
-}
-#[doc = " @brief RTC Time structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_time_t {
-    #[doc = "< Specifies the RTC Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
-    pub u8Hour: u8,
-    #[doc = "< Specifies the RTC Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
-    pub u8Minute: u8,
-    #[doc = "< Specifies the RTC Second.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
-    pub u8Second: u8,
-    #[doc = "< Specifies the RTC Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
-    pub u8AmPm: u8,
-}
-#[doc = " @brief RTC Alarm structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_rtc_alarm_t {
-    #[doc = "< Specifies the RTC Alarm Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
-    pub u8AlarmHour: u8,
-    #[doc = "< Specifies the RTC Alarm Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
-    pub u8AlarmMinute: u8,
-    #[doc = "< Specifies the RTC Alarm Weekday.\nThis parameter can be a value of @ref RTC_Alarm_Weekday"]
-    pub u8AlarmWeekday: u8,
-    #[doc = "< Specifies the RTC Alarm Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
-    pub u8AlarmAmPm: u8,
-}
-#[doc = " @brief SDIOC Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sdioc_init_t {
-    #[doc = "< Specifies the SDIOC work mode.\nThis parameter can be a value of @ref SDIOC_Mode"]
-    pub u32Mode: u32,
-    #[doc = "< Specifies the SDIOC card detect way.\nThis parameter can be a value of @ref SDIOC_Card_Detect_Way"]
-    pub u8CardDetect: u8,
-    #[doc = "< Specifies the SDIOC speed mode.\nThis parameter can be a value of @ref SDIOC_Speed_Mode"]
-    pub u8SpeedMode: u8,
-    #[doc = "< Specifies the SDIOC bus width.\nThis parameter can be a value of @ref SDIOC_Bus_Width"]
-    pub u8BusWidth: u8,
-    #[doc = "< Specifies the SDIOC clock division.\nThis parameter can be a value of @ref SDIOC_Clock_Division"]
-    pub u16ClockDiv: u16,
-}
-#[doc = " @brief SDIOC Command Configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sdioc_cmd_config_t {
-    #[doc = "< Specifies the SDIOC command argument."]
-    pub u32Argument: u32,
-    #[doc = "< Specifies the SDIOC command index.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 63"]
-    pub u16CmdIndex: u16,
-    #[doc = "< Specifies the SDIOC command type.\nThis parameter can be a value of @ref SDIOC_Command_Type"]
-    pub u16CmdType: u16,
-    #[doc = "< Specifies whether SDIOC uses data lines in current command.\nThis parameter can be a value of @ref SDIOC_Data_Line_Valid"]
-    pub u16DataLine: u16,
-    #[doc = "< Specifies the SDIOC response type.\nThis parameter can be a value of @ref SDIOC_Response_Type"]
-    pub u16ResponseType: u16,
-}
-#[doc = " @brief SDIOC Data Configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sdioc_data_config_t {
-    #[doc = "< Specifies the SDIOC data block size.\nThis parameter must be a number between Min_Data = 1 and Max_Data = 512"]
-    pub u16BlockSize: u16,
-    #[doc = "< Specifies the SDIOC data block count.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0xFFFF"]
-    pub u16BlockCount: u16,
-    #[doc = "< Specifies the SDIOC data transfer direction.\nThis parameter can be a value of @ref SDIOC_Transfer_Direction"]
-    pub u16TransDir: u16,
-    #[doc = "< Specifies the validity of the SDIOC Auto Send CMD12.\nThis parameter can be a value of @ref SDIOC_Auto_Send_CMD12"]
-    pub u16AutoCmd12: u16,
-    #[doc = "< Specifies the SDIOC data transfer mode.\nThis parameter can be a value of @ref SDIOC_Transfer_Mode"]
-    pub u16TransMode: u16,
-    #[doc = "< Specifies the SDIOC data timeout time.\nThis parameter can be a value of @ref SDIOC_Data_Timeout_Time"]
-    pub u16DataTimeout: u8,
-}
-#[doc = " @brief SDIO CMD52 arguments structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sdio_cmd52_arg_t {
-    #[doc = "< Specifies the number of the function within the I/O card.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 7"]
-    pub u8FuncNum: u8,
-    #[doc = "< Specifies the direction of the I/O operation.\nThis parameter can be a value of @ref SDIO_CMD52_Arguments_RW_Flag"]
-    pub u32RwFlag: u32,
-    #[doc = "< Specifies the address of the byte of data inside of the selected function.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0x1FFFF"]
-    pub u32RegAddr: u32,
-    #[doc = "< Specifies the direction of the I/O operation.\nThis parameter can be a value of @ref SDIO_CMD52_Arguments_RAW_Flag"]
-    pub u32RawFlag: u32,
-}
-#[doc = " @brief SDIO CMD53 arguments structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_sdio_cmd53_arg_t {
-    #[doc = "< Specifies the number of the function within the I/O card.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 7"]
-    pub u8FuncNum: u8,
-    #[doc = "< Specifies the direction of the I/O operation.\nThis parameter can be a value of @ref SDIO_CMD53_Arguments_RW_Flag"]
-    pub u32RwFlag: u32,
-    #[doc = "< Specifies the address of the byte of data inside of the selected function.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0x1FFFF"]
-    pub u32RegAddr: u32,
-    #[doc = "< Specifies the operation code.\nThis parameter can be a value of @ref SDIO_CMD53_Arguments_Operate_Code"]
-    pub u32OperateCode: u32,
-    #[doc = "< Specifies the operation code.\nThis parameter can be a value of @ref SDIO_CMD53_Arguments_Block_Mode"]
-    pub u32BlockMode: u32,
-    #[doc = "< Specifies the byte/block count.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0x1FF"]
-    pub u32Count: u32,
-}
-#[doc = " @brief Structure definition of SPI initialization.\n @note The parameter u32BaudRatePrescaler is invalid while slave mode"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_init_t {
-    #[doc = "< SPI wire mode, 3 wire mode or 4 wire mode.\nThis parameter can be a value of @ref SPI_Wire_Mode_Define"]
-    pub u32WireMode: u32,
-    #[doc = "< SPI transfer mode, send only or full duplex.\nThis parameter can be a value of @ref SPI_Trans_Mode_Define"]
-    pub u32TransMode: u32,
-    #[doc = "< SPI master/slave mode.\nThis parameter can be a value of @ref SPI_Master_Slave_Mode_Define"]
-    pub u32MasterSlave: u32,
-    #[doc = "< SPI mode fault detect command.\nThis parameter can be a value of @ref SPI_Mode_Fault_Detect_Command_Define"]
-    pub u32ModeFaultDetect: u32,
-    #[doc = "< SPI parity check selection.\nThis parameter can be a value of @ref SPI_Parity_Check_Define"]
-    pub u32Parity: u32,
-    #[doc = "< SPI mode.\nThis parameter can be a value of @ref SPI_Mode_Define"]
-    pub u32SpiMode: u32,
-    #[doc = "< SPI baud rate prescaler.\nThis parameter can be a value of @ref SPI_Baud_Rate_Prescaler_Define"]
-    pub u32BaudRatePrescaler: u32,
-    #[doc = "< SPI data bits, 4 bits ~ 32 bits.\nThis parameter can be a value of @ref SPI_Data_Size_Define"]
-    pub u32DataBits: u32,
-    #[doc = "< MSB first or LSB first.\nThis parameter can be a value of @ref SPI_First_Bit_Define"]
-    pub u32FirstBit: u32,
-    #[doc = "< SPI communication suspend function.\nThis parameter can be a value of @ref SPI_Com_Suspend_Func_Define"]
-    pub u32SuspendMode: u32,
-    #[doc = "< SPI frame level, SPI_1_FRAME ~ SPI_4_FRAME.\nThis parameter can be a value of @ref SPI_Frame_Level_Define"]
-    pub u32FrameLevel: u32,
-}
-#[doc = " @brief Structure definition of SPI delay time configuration."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_spi_delay_t {
-    #[doc = "< SPI interval time delay (Next access delay time)\nThis parameter can be a value of @ref SPI_Interval_Delay_Time_define"]
-    pub u32IntervalDelay: u32,
-    #[doc = "< SPI release time delay (SCK invalid delay time)\nThis parameter can be a value of @ref SPI_Release_Delay_Time_define"]
-    pub u32ReleaseDelay: u32,
-    #[doc = "< SPI Setup time delay (SCK valid delay time) define\nThis parameter can be a value of @ref SPI_Setup_Delay_Time_define"]
-    pub u32SetupDelay: u32,
-}
-#[doc = " @brief TMR0 initialization structure definition\n @note  The 'u32ClockDiv' is invalid when the value of 'u32ClockSrc' is \"TMR0_CLK_SRC_SPEC_EVT\"."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr0_init_t {
-    #[doc = "< Specifies the clock source of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Specifies the clock division of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Division"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Specifies the function of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Function"]
-    pub u32Func: u32,
-    #[doc = "< Specifies the compare value of TMR0 channel.\nThis parameter can be a value of half-word"]
-    pub u16CompareValue: u16,
-}
-#[doc = " @brief TMR4 Counter function initialization configuration\n @note The TMR4 division(u16ClockDiv) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_init_t {
-    #[doc = "< TMR4 counter clock source.\nThis parameter can be a value of @ref TMR4_Count_Clock_Source"]
-    pub u16ClockSrc: u16,
-    #[doc = "< TMR4 counter internal clock division.\nThis parameter can be a value of @ref TMR4_Count_Clock_Division."]
-    pub u16ClockDiv: u16,
-    #[doc = "< TMR4 counter mode.\nThis parameter can be a value of @ref TMR4_Count_Mode"]
-    pub u16CountMode: u16,
-    #[doc = "< TMR4 counter period value.\nThis parameter can be a value of half-word"]
-    pub u16PeriodValue: u16,
-}
-#[repr(C)]
-#[repr(align(2))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
-}
-#[repr(C)]
-#[repr(align(4))]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[doc = " @brief TMR4 Output-Compare(OC) initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_oc_init_t {
-    #[doc = "< TMR4 OC compare match value.\nThis parameter can be a value of half-word."]
-    pub u16CompareValue: u16,
-    #[doc = "< Port output polarity when OC is disabled.\nThis parameter can be a value of @ref TMR4_OC_Invalid_Output_Polarity."]
-    pub u16OcInvalidPolarity: u16,
-    #[doc = "< Register OCMR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
-    pub u16CompareModeBufCond: u16,
-    #[doc = "< Register OCCR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
-    pub u16CompareValueBufCond: u16,
-    #[doc = "< Enable the specified object(OCMR/OCCR) register buffer linked transfer with the counter interrupt mask.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Object."]
-    pub u16BufLinkTransObject: u16,
-}
-#[doc = " @brief TMR4 PWM initialization configuration\n @note The clock division(u16ClockDiv) is valid when TMR4 clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_pwm_init_t {
-    #[doc = "< Select PWM mode\nThis parameter can be a value of @ref TMR4_PWM_Mode"]
-    pub u16Mode: u16,
-    #[doc = "< The internal clock division of PWM timer.\nThis parameter can be a value of @ref TMR4_PWM_Clock_Division."]
-    pub u16ClockDiv: u16,
-    #[doc = "< TMR4 PWM polarity\nThis parameter can be a value of @ref TMR4_PWM_Polarity"]
-    pub u16Polarity: u16,
-}
-#[doc = " @brief TMR4 Special-Event(EVT) initialization configuration"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr4_evt_init_t {
-    #[doc = "< TMR4 event mode\nThis parameter can be a value of @ref TMR4_Event_Mode"]
-    pub u16Mode: u16,
-    #[doc = "< TMR4 event compare match value.\nThis parameter can be a value of half-word"]
-    pub u16CompareValue: u16,
-    #[doc = "< TMR4 event output event when match count compare condition.\nThis parameter can be a value of @ref TMR4_Event_Output_Event"]
-    pub u16OutputEvent: u16,
-    #[doc = "< Enable the specified count compare type with counter count to generate event.\nThis parameter can be a value of @ref TMR4_Event_Match_Condition"]
-    pub u16MatchCond: u16,
-}
-#[doc = " @brief Timer6 count function structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_init_t {
-    #[doc = "< Specifies the count source @ref TMR6_Count_Src_Define"]
-    pub u8CountSrc: u8,
-    pub sw_count: stc_tmr6_init_t__bindgen_ty_1,
-    pub hw_count: stc_tmr6_init_t__bindgen_ty_2,
-    #[doc = "< The period reference value. (0x00 ~ 0xFFFF) or (0x00 ~ 0xFFFFFFFF)"]
-    pub u32PeriodValue: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_init_t__bindgen_ty_1 {
-    #[doc = "< Count clock division select, @ref TMR6_Count_Clock_Define"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Count mode, @ref TMR6_Count_Mode_Define"]
-    pub u32CountMode: u32,
-    #[doc = "< Count direction, @ref TMR6_Count_Dir_Define"]
-    pub u32CountDir: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_init_t__bindgen_ty_2 {
-    #[doc = "< Hardware count up condition. @ref TMR6_HW_Count_Up_Cond_Define"]
-    pub u32CountUpCond: u32,
-    #[doc = "< Hardware count down condition. @ref TMR6_HW_Count_Down_Cond_Define"]
-    pub u32CountDownCond: u32,
-}
-#[doc = " @brief Timer6 pwm output function structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_pwm_init_t {
-    #[doc = "< Range (0 ~ 0xFFFF) or (0 ~ 0xFFFFFFFF)"]
-    pub u32CompareValue: u32,
-    #[doc = "< Pin polarity when count start @ref TMR6_Pin_Polarity_Define"]
-    pub u32StartPolarity: u32,
-    #[doc = "< Pin polarity when count stop @ref TMR6_Pin_Polarity_Define"]
-    pub u32StopPolarity: u32,
-    pub u32CompareMatchPolarity: u32,
-    #[doc = " Pin polarity when compare register @ref TMR6_Pin_Polarity_Define"]
-    pub u32PeriodMatchPolarity: u32,
-    #[doc = " Pin polarity when period register @ref TMR6_Pin_Polarity_Define"]
-    pub u32StartStopHold: u32,
-}
-#[doc = " @brief Timer6 buffer function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_buf_config_t {
-    #[doc = "< The buffer number, and this parameter can be a value of \\\n@ref TMR6_Buf_Num_Define"]
-    pub u32BufNum: u32,
-    #[doc = "< The buffer send time, and this parameter can be a value of \\\n@ref TMR6_Buf_Trans_Cond_Define"]
-    pub u32BufTransCond: u32,
-}
-#[doc = " @brief Timer6 Valid period function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_valid_period_config_t {
-    #[doc = "< The count condition, and this parameter can be a value of \\\n@ref TMR6_Valid_Period_Count_Cond_Define"]
-    pub u32CountCond: u32,
-    #[doc = "< The interval of the valid period @ref TMR6_Valid_Period_Count_Define"]
-    pub u32PeriodInterval: u32,
-}
-#[doc = " @brief Timer6 EMB configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_emb_config_t {
-    #[doc = "< Pin output status when EMB event valid @ref TMR6_Emb_Pin_Status_Define"]
-    pub u32PinStatus: u32,
-}
-#[doc = " @brief Timer6 Dead time function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_deadtime_config_t {
-    #[doc = "< Enable down count dead time register equal to up count DT register \\\n@ref TMR6_DeadTime_Reg_Equal_Func_Define"]
-    pub u32EqualUpDown: u32,
-    #[doc = "< Enable buffer transfer for up count dead time register (DTUBR-->DTUAR) \\\n@ref TMR6_DeadTime_CountUp_Buf_Func_Define"]
-    pub u32BufUp: u32,
-    #[doc = "< Enable buffer transfer for down count dead time register (DTDBR-->DTDAR) \\\n@ref TMR6_DeadTime_CountDown_Buf_Func_Define"]
-    pub u32BufDown: u32,
-}
-#[doc = " @brief Timer6 Dead time function configuration structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmr6_zmask_config_t {
-    #[doc = "< Z phase input mask periods selection @ref TMR6_Zmask_Cycle_Define"]
-    pub u32ZMaskCycle: u32,
-    #[doc = "< As position count timer, clear function enable(TRUE) or disable(FALSE) during \\\nthe time of Z phase input mask @ref TMR6_Zmask_Pos_Unit_Clear_Func_Define"]
-    pub u32PosCountMaskFunc: u32,
-    #[doc = "< As revolution count timer, the counter function enable(TRUE) or disable(FALSE) \\\nduring the time of Z phase input mask \\\n@ref TMR6_Zmask_Revo_Unit_Count_Func_Define"]
-    pub u32RevoCountMaskFunc: u32,
-}
-#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup TMRA_Global_Types TMRA Global Types\n @{\n/\n/**\n @brief TMRA initialization structure."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_init_t {
-    #[doc = "< Specifies the count source of TMRA.\nThis parameter can be a value of @ref TMRA_Count_Src"]
-    pub u8CountSrc: u8,
-    pub sw_count: stc_tmra_init_t__bindgen_ty_1,
-    pub hw_count: stc_tmra_init_t__bindgen_ty_2,
-    #[doc = "< Specifies the period reference value.\nThis parameter can be a number between 0U and 0xFFFFU, inclusive."]
-    pub u32PeriodValue: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_init_t__bindgen_ty_1 {
-    #[doc = "< Specifies the divider of software clock source.\nThis parameter can be a value of @ref TMRA_Clock_Divider"]
-    pub u8ClockDiv: u8,
-    #[doc = "< Specifies count mode.\nThis parameter can be a value of @ref TMRA_Count_Mode"]
-    pub u8CountMode: u8,
-    #[doc = "< Specifies count direction.\nThis parameter can be a value of @ref TMRA_Count_Dir"]
-    pub u8CountDir: u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_init_t__bindgen_ty_2 {
-    #[doc = "< Hardware count up condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Up_Condition"]
-    pub u16CountUpCond: u16,
-    #[doc = "< Hardware count down condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Down_Condition"]
-    pub u16CountDownCond: u16,
-}
-#[doc = " @brief TMRA PWM configuration structure."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_tmra_pwm_init_t {
-    #[doc = "< Specifies compare value of the TMRA channel.\nThis parameter can be a number between:\n0UL and 0xFFFFFFFFUL for 32-bit TimerA units.\n0UL and 0xFFFFUL for 16-bit TimerA units."]
-    pub u32CompareValue: u32,
-    #[doc = "< Specifies the polarity when the counter start counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity\nNOTE: CAN NOT be specified as TMRA_PWM_LOW or TMRA_PWM_HIGH when\nsw_count.u16ClockDiv of @ref stc_tmra_init_t is NOT specified\nas @ref TMRA_CLK_DIV1"]
-    pub u16StartPolarity: u16,
-    #[doc = "< Specifies the polarity when the counter stop counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
-    pub u16StopPolarity: u16,
-    #[doc = "< Specifies the polarity when the counter matches the compare register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
-    pub u16CompareMatchPolarity: u16,
-    #[doc = "< Specifies the polarity when the counter matches the period register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
-    pub u16PeriodMatchPolarity: u16,
-}
-#[doc = " @brief clock synchronization mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_clocksync_init_t {
-    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
-    pub u32HWFlowControl: u32,
-}
-#[doc = " @brief UART multiple-processor initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_multiprocessor_init_t {
-    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
-    pub u32CKOutput: u32,
-    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
-    pub u32DataWidth: u32,
-    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
-    pub u32StopBit: u32,
-    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
-    pub u32OverSampleBit: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
-    pub u32StartBitPolarity: u32,
-    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
-    pub u32HWFlowControl: u32,
-}
-#[doc = " @brief UART mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_uart_init_t {
-    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
-    pub u32ClockSrc: u32,
-    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
-    pub u32CKOutput: u32,
-    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
-    pub u32DataWidth: u32,
-    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
-    pub u32StopBit: u32,
-    #[doc = "< Parity format.\nThis parameter can be a value of @ref USART_Parity_Control"]
-    pub u32Parity: u32,
-    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
-    pub u32OverSampleBit: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
-    pub u32StartBitPolarity: u32,
-    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
-    pub u32HWFlowControl: u32,
-}
-#[doc = " @brief Smartcard mode initialization structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_usart_smartcard_init_t {
-    #[doc = "< Clock division. This parameter can be a value of @ref USART_Clock_Division.\n@note This parameter is valid when clock source is the internal clock."]
-    pub u32ClockDiv: u32,
-    #[doc = "< USART_CK output selection. This parameter can be a value of @ref USART_CK_Output_Selection.\n@note This parameter is valid when clock source is the internal clock."]
-    pub u32CKOutput: u32,
-    #[doc = "< USART baudrate.\nThis parameter is calculated according with smartcard default ETU and clock."]
-    pub u32Baudrate: u32,
-    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
-    pub u32FirstBit: u32,
-}
-#[doc = " @brief WDT Init structure definition"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq)]
-pub struct stc_wdt_init_t {
-    #[doc = "< Specifies the counting period of WDT.\nThis parameter can be a value of @ref WDT_Count_Period"]
-    pub u32CountPeriod: u32,
-    #[doc = "< Specifies the clock division factor of WDT.\nThis parameter can be a value of @ref WDT_Clock_Division"]
-    pub u32ClockDiv: u32,
-    #[doc = "< Specifies the allow refresh range of WDT.\nThis parameter can be a value of @ref WDT_Refresh_Range"]
-    pub u32RefreshRange: u32,
-    #[doc = "< Specifies the count state in Low Power Mode (Sleep Mode).\nThis parameter can be a value of @ref WDT_LPM_Count"]
-    pub u32LPMCount: u32,
-    #[doc = "< Specifies the type of exception response for WDT.\nThis parameter can be a value of @ref WDT_Exception_Type"]
-    pub u32ExceptionType: u32,
-}
-pub const __MPU_PRESENT: u32 = 1;
-pub const __VTOR_PRESENT: u32 = 1;
-pub const __NVIC_PRIO_BITS: u32 = 4;
-pub const __Vendor_SysTickConfig: u32 = 0;
-pub const __FPU_PRESENT: u32 = 1;
-pub const EFM_BASE: u32 = 0;
-pub const SRAM_BASE: u32 = 536838144;
-pub const QSPI_BASE: u32 = 2550136832;
-pub const CM_ADC1_BASE: u32 = 1074003968;
-pub const CM_ADC2_BASE: u32 = 1074004992;
-pub const CM_AES_BASE: u32 = 1073774592;
-pub const CM_AOS_BASE: u32 = 1073809408;
-pub const CM_CAN_BASE: u32 = 1074201600;
-pub const CM_CMP1_BASE: u32 = 1074044928;
-pub const CM_CMP2_BASE: u32 = 1074044944;
-pub const CM_CMP3_BASE: u32 = 1074044960;
-pub const CM_CMP_COMMON_BASE: u32 = 1074044928;
-pub const CM_CMU_BASE: u32 = 1074085888;
-pub const CM_CRC_BASE: u32 = 1073777664;
-pub const CM_DBGC_BASE: u32 = 3758366720;
-pub const CM_DCU1_BASE: u32 = 1074077696;
-pub const CM_DCU2_BASE: u32 = 1074078720;
-pub const CM_DCU3_BASE: u32 = 1074079744;
-pub const CM_DCU4_BASE: u32 = 1074080768;
-pub const CM_DMA1_BASE: u32 = 1074081792;
-pub const CM_DMA2_BASE: u32 = 1074082816;
-pub const CM_EFM_BASE: u32 = 1073808384;
-pub const CM_EMB0_BASE: u32 = 1073839104;
-pub const CM_EMB1_BASE: u32 = 1073839136;
-pub const CM_EMB2_BASE: u32 = 1073839168;
-pub const CM_EMB3_BASE: u32 = 1073839200;
-pub const CM_FCM_BASE: u32 = 1074037760;
-pub const CM_GPIO_BASE: u32 = 1074083840;
-pub const CM_HASH_BASE: u32 = 1073775616;
-pub const CM_I2C1_BASE: u32 = 1074061312;
-pub const CM_I2C2_BASE: u32 = 1074062336;
-pub const CM_I2C3_BASE: u32 = 1074063360;
-pub const CM_I2S1_BASE: u32 = 1073864704;
-pub const CM_I2S2_BASE: u32 = 1073865728;
-pub const CM_I2S3_BASE: u32 = 1073881088;
-pub const CM_I2S4_BASE: u32 = 1073882112;
-pub const CM_ICG_BASE: u32 = 1024;
-pub const CM_INTC_BASE: u32 = 1074073600;
-pub const CM_KEYSCAN_BASE: u32 = 1074072576;
-pub const CM_MPU_BASE: u32 = 1074069504;
-pub const CM_OTS_BASE: u32 = 1074045952;
-pub const CM_PERIC_BASE: u32 = 1074091008;
-pub const CM_PWC_BASE: u32 = 1074036736;
-pub const CM_QSPI_BASE: u32 = 2617245696;
-pub const CM_RMU_BASE: u32 = 1074086080;
-pub const CM_RTC_BASE: u32 = 1074053120;
-pub const CM_SDIOC1_BASE: u32 = 1074199552;
-pub const CM_SDIOC2_BASE: u32 = 1074200576;
-pub const CM_SPI1_BASE: u32 = 1073856512;
-pub const CM_SPI2_BASE: u32 = 1073857536;
-pub const CM_SPI3_BASE: u32 = 1073872896;
-pub const CM_SPI4_BASE: u32 = 1073873920;
-pub const CM_SRAMC_BASE: u32 = 1074071552;
-pub const CM_SWDT_BASE: u32 = 1074041856;
-pub const CM_TMR0_1_BASE: u32 = 1073889280;
-pub const CM_TMR0_2_BASE: u32 = 1073890304;
-pub const CM_TMR4_1_BASE: u32 = 1073836032;
-pub const CM_TMR4_2_BASE: u32 = 1073891328;
-pub const CM_TMR4_3_BASE: u32 = 1073892352;
-pub const CM_TMR4_ECER_BASE: u32 = 1074091016;
-pub const CM_TMR6_1_BASE: u32 = 1073840128;
-pub const CM_TMR6_2_BASE: u32 = 1073841152;
-pub const CM_TMR6_3_BASE: u32 = 1073842176;
-pub const CM_TMR6_COMMON_BASE: u32 = 1073840896;
-pub const CM_TMRA_1_BASE: u32 = 1073827840;
-pub const CM_TMRA_2_BASE: u32 = 1073828864;
-pub const CM_TMRA_3_BASE: u32 = 1073829888;
-pub const CM_TMRA_4_BASE: u32 = 1073830912;
-pub const CM_TMRA_5_BASE: u32 = 1073831936;
-pub const CM_TMRA_6_BASE: u32 = 1073832960;
-pub const CM_TRNG_BASE: u32 = 1074008064;
-pub const CM_USART1_BASE: u32 = 1073860608;
-pub const CM_USART2_BASE: u32 = 1073861632;
-pub const CM_USART3_BASE: u32 = 1073876992;
-pub const CM_USART4_BASE: u32 = 1073878016;
-pub const CM_USBFS_BASE: u32 = 1074528256;
-pub const CM_WDT_BASE: u32 = 1074040832;
-pub const ADC_STR_STRT: u32 = 1;
-pub const ADC_CR0_MS_POS: u32 = 0;
-pub const ADC_CR0_MS: u32 = 3;
-pub const ADC_CR0_MS_0: u32 = 1;
-pub const ADC_CR0_MS_1: u32 = 2;
-pub const ADC_CR0_ACCSEL_POS: u32 = 4;
-pub const ADC_CR0_ACCSEL: u32 = 48;
-pub const ADC_CR0_ACCSEL_0: u32 = 16;
-pub const ADC_CR0_ACCSEL_1: u32 = 32;
-pub const ADC_CR0_CLREN_POS: u32 = 6;
-pub const ADC_CR0_CLREN: u32 = 64;
-pub const ADC_CR0_DFMT_POS: u32 = 7;
-pub const ADC_CR0_DFMT: u32 = 128;
-pub const ADC_CR0_AVCNT_POS: u32 = 8;
-pub const ADC_CR0_AVCNT: u32 = 1792;
-pub const ADC_CR1_RSCHSEL_POS: u32 = 2;
-pub const ADC_CR1_RSCHSEL: u32 = 4;
-pub const ADC_TRGSR_TRGSELA_POS: u32 = 0;
-pub const ADC_TRGSR_TRGSELA: u32 = 3;
-pub const ADC_TRGSR_TRGSELA_0: u32 = 1;
-pub const ADC_TRGSR_TRGSELA_1: u32 = 2;
-pub const ADC_TRGSR_TRGENA_POS: u32 = 7;
-pub const ADC_TRGSR_TRGENA: u32 = 128;
-pub const ADC_TRGSR_TRGSELB_POS: u32 = 8;
-pub const ADC_TRGSR_TRGSELB: u32 = 768;
-pub const ADC_TRGSR_TRGSELB_0: u32 = 256;
-pub const ADC_TRGSR_TRGSELB_1: u32 = 512;
-pub const ADC_TRGSR_TRGENB_POS: u32 = 15;
-pub const ADC_TRGSR_TRGENB: u32 = 32768;
-pub const ADC_CHSELRA_CHSELA: u32 = 131071;
-pub const ADC_CHSELRB_CHSELB: u32 = 131071;
-pub const ADC_AVCHSELR_AVCHSEL: u32 = 131071;
-pub const ADC_SSTR0: u32 = 255;
-pub const ADC_SSTR1: u32 = 255;
-pub const ADC_SSTR2: u32 = 255;
-pub const ADC_SSTR3: u32 = 255;
-pub const ADC_SSTR4: u32 = 255;
-pub const ADC_SSTR5: u32 = 255;
-pub const ADC_SSTR6: u32 = 255;
-pub const ADC_SSTR7: u32 = 255;
-pub const ADC_SSTR8: u32 = 255;
-pub const ADC_SSTR9: u32 = 255;
-pub const ADC_SSTR10: u32 = 255;
-pub const ADC_SSTR11: u32 = 255;
-pub const ADC_SSTR12: u32 = 255;
-pub const ADC_SSTR13: u32 = 255;
-pub const ADC_SSTR14: u32 = 255;
-pub const ADC_SSTR15: u32 = 255;
-pub const ADC_SSTRL: u32 = 255;
-pub const ADC_CHMUXR0_CH00MUX_POS: u32 = 0;
-pub const ADC_CHMUXR0_CH00MUX: u32 = 15;
-pub const ADC_CHMUXR0_CH01MUX_POS: u32 = 4;
-pub const ADC_CHMUXR0_CH01MUX: u32 = 240;
-pub const ADC_CHMUXR0_CH02MUX_POS: u32 = 8;
-pub const ADC_CHMUXR0_CH02MUX: u32 = 3840;
-pub const ADC_CHMUXR0_CH03MUX_POS: u32 = 12;
-pub const ADC_CHMUXR0_CH03MUX: u32 = 61440;
-pub const ADC_CHMUXR1_CH04MUX_POS: u32 = 0;
-pub const ADC_CHMUXR1_CH04MUX: u32 = 15;
-pub const ADC_CHMUXR1_CH05MUX_POS: u32 = 4;
-pub const ADC_CHMUXR1_CH05MUX: u32 = 240;
-pub const ADC_CHMUXR1_CH06MUX_POS: u32 = 8;
-pub const ADC_CHMUXR1_CH06MUX: u32 = 3840;
-pub const ADC_CHMUXR1_CH07MUX_POS: u32 = 12;
-pub const ADC_CHMUXR1_CH07MUX: u32 = 61440;
-pub const ADC_CHMUXR2_CH08MUX_POS: u32 = 0;
-pub const ADC_CHMUXR2_CH08MUX: u32 = 15;
-pub const ADC_CHMUXR2_CH09MUX_POS: u32 = 4;
-pub const ADC_CHMUXR2_CH09MUX: u32 = 240;
-pub const ADC_CHMUXR2_CH10MUX_POS: u32 = 8;
-pub const ADC_CHMUXR2_CH10MUX: u32 = 3840;
-pub const ADC_CHMUXR2_CH11MUX_POS: u32 = 12;
-pub const ADC_CHMUXR2_CH11MUX: u32 = 61440;
-pub const ADC_CHMUXR3_CH12MUX_POS: u32 = 0;
-pub const ADC_CHMUXR3_CH12MUX: u32 = 15;
-pub const ADC_CHMUXR3_CH13MUX_POS: u32 = 4;
-pub const ADC_CHMUXR3_CH13MUX: u32 = 240;
-pub const ADC_CHMUXR3_CH14MUX_POS: u32 = 8;
-pub const ADC_CHMUXR3_CH14MUX: u32 = 3840;
-pub const ADC_CHMUXR3_CH15MUX_POS: u32 = 12;
-pub const ADC_CHMUXR3_CH15MUX: u32 = 61440;
-pub const ADC_ISR_EOCAF_POS: u32 = 0;
-pub const ADC_ISR_EOCAF: u32 = 1;
-pub const ADC_ISR_EOCBF_POS: u32 = 1;
-pub const ADC_ISR_EOCBF: u32 = 2;
-pub const ADC_ICR_EOCAIEN_POS: u32 = 0;
-pub const ADC_ICR_EOCAIEN: u32 = 1;
-pub const ADC_ICR_EOCBIEN_POS: u32 = 1;
-pub const ADC_ICR_EOCBIEN: u32 = 2;
-pub const ADC_SYNCCR_SYNCEN_POS: u32 = 0;
-pub const ADC_SYNCCR_SYNCEN: u32 = 1;
-pub const ADC_SYNCCR_SYNCMD_POS: u32 = 4;
-pub const ADC_SYNCCR_SYNCMD: u32 = 112;
-pub const ADC_SYNCCR_SYNCDLY_POS: u32 = 8;
-pub const ADC_SYNCCR_SYNCDLY: u32 = 65280;
-pub const ADC_DR0: u32 = 65535;
-pub const ADC_DR1: u32 = 65535;
-pub const ADC_DR2: u32 = 65535;
-pub const ADC_DR3: u32 = 65535;
-pub const ADC_DR4: u32 = 65535;
-pub const ADC_DR5: u32 = 65535;
-pub const ADC_DR6: u32 = 65535;
-pub const ADC_DR7: u32 = 65535;
-pub const ADC_DR8: u32 = 65535;
-pub const ADC_DR9: u32 = 65535;
-pub const ADC_DR10: u32 = 65535;
-pub const ADC_DR11: u32 = 65535;
-pub const ADC_DR12: u32 = 65535;
-pub const ADC_DR13: u32 = 65535;
-pub const ADC_DR14: u32 = 65535;
-pub const ADC_DR15: u32 = 65535;
-pub const ADC_DR16: u32 = 65535;
-pub const ADC_AWDCR_AWDEN_POS: u32 = 0;
-pub const ADC_AWDCR_AWDEN: u32 = 1;
-pub const ADC_AWDCR_AWDMD_POS: u32 = 4;
-pub const ADC_AWDCR_AWDMD: u32 = 16;
-pub const ADC_AWDCR_AWDSS_POS: u32 = 6;
-pub const ADC_AWDCR_AWDSS: u32 = 192;
-pub const ADC_AWDCR_AWDSS_0: u32 = 64;
-pub const ADC_AWDCR_AWDSS_1: u32 = 128;
-pub const ADC_AWDCR_AWDIEN_POS: u32 = 8;
-pub const ADC_AWDCR_AWDIEN: u32 = 256;
-pub const ADC_AWDDR0: u32 = 65535;
-pub const ADC_AWDDR1: u32 = 65535;
-pub const ADC_AWDCHSR_AWDCH: u32 = 131071;
-pub const ADC_AWDSR_AWDF: u32 = 131071;
-pub const ADC_PGACR_PGACTL: u32 = 15;
-pub const ADC_PGAGSR_GAIN: u32 = 15;
-pub const ADC_PGAINSR0_PGAINSEL: u32 = 511;
-pub const ADC_PGAINSR0_PGAINSEL_0: u32 = 1;
-pub const ADC_PGAINSR0_PGAINSEL_1: u32 = 2;
-pub const ADC_PGAINSR0_PGAINSEL_2: u32 = 4;
-pub const ADC_PGAINSR0_PGAINSEL_3: u32 = 8;
-pub const ADC_PGAINSR0_PGAINSEL_4: u32 = 16;
-pub const ADC_PGAINSR0_PGAINSEL_5: u32 = 32;
-pub const ADC_PGAINSR0_PGAINSEL_6: u32 = 64;
-pub const ADC_PGAINSR0_PGAINSEL_7: u32 = 128;
-pub const ADC_PGAINSR0_PGAINSEL_8: u32 = 256;
-pub const ADC_PGAINSR1_PGAVSSEN: u32 = 1;
-pub const AES_CR_START_POS: u32 = 0;
-pub const AES_CR_START: u32 = 1;
-pub const AES_CR_MODE_POS: u32 = 1;
-pub const AES_CR_MODE: u32 = 2;
-pub const AES_DR0: u32 = 4294967295;
-pub const AES_DR1: u32 = 4294967295;
-pub const AES_DR2: u32 = 4294967295;
-pub const AES_DR3: u32 = 4294967295;
-pub const AES_KR0: u32 = 4294967295;
-pub const AES_KR1: u32 = 4294967295;
-pub const AES_KR2: u32 = 4294967295;
-pub const AES_KR3: u32 = 4294967295;
-pub const AOS_INTSFTTRG_STRG: u32 = 1;
-pub const AOS_DCU_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_DCU_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_DCU_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_DCU_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_DCU_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_DCU_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_DMA1_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_DMA1_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_DMA1_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_DMA1_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_DMA1_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_DMA1_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_DMA2_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_DMA2_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_DMA2_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_DMA2_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_DMA2_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_DMA2_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_DMA_RC_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_DMA_RC_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_DMA_RC_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_DMA_RC_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_DMA_RC_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_DMA_RC_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_TMR6_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_TMR6_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_TMR6_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_TMR6_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_TMR6_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_TMR6_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_TMR0_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_TMR0_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_TMR0_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_TMR0_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_TMR0_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_TMR0_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_PEVNT_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_PEVNT_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_PEVNT_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_PEVNT_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_PEVNT_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_PEVNT_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_TMRA_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_TMRA_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_TMRA_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_TMRA_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_TMRA_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_TMRA_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_OTS_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_OTS_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_OTS_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_OTS_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_OTS_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_OTS_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_ADC1_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_ADC1_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_ADC1_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_ADC1_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_ADC1_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_ADC1_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_ADC2_TRGSEL_TRGSEL_POS: u32 = 0;
-pub const AOS_ADC2_TRGSEL_TRGSEL: u32 = 511;
-pub const AOS_ADC2_TRGSEL_COMEN_POS: u32 = 30;
-pub const AOS_ADC2_TRGSEL_COMEN: u32 = 3221225472;
-pub const AOS_ADC2_TRGSEL_COMEN_0: u32 = 1073741824;
-pub const AOS_ADC2_TRGSEL_COMEN_1: u32 = 2147483648;
-pub const AOS_COMTRG1_COMTRG: u32 = 511;
-pub const AOS_COMTRG2_COMTRG: u32 = 511;
-pub const AOS_PEVNTDIRR_PDIR: u32 = 65535;
-pub const AOS_PEVNTIDR_PIN: u32 = 65535;
-pub const AOS_PEVNTODR_POUT: u32 = 65535;
-pub const AOS_PEVNTORR_POR: u32 = 65535;
-pub const AOS_PEVNTOSR_POS: u32 = 65535;
-pub const AOS_PEVNTRISR_RIS: u32 = 65535;
-pub const AOS_PEVNTFALR_FAL: u32 = 65535;
-pub const AOS_PEVNTNFCR_NFEN1_POS: u32 = 0;
-pub const AOS_PEVNTNFCR_NFEN1: u32 = 1;
-pub const AOS_PEVNTNFCR_DIVS1_POS: u32 = 1;
-pub const AOS_PEVNTNFCR_DIVS1: u32 = 6;
-pub const AOS_PEVNTNFCR_NFEN2_POS: u32 = 8;
-pub const AOS_PEVNTNFCR_NFEN2: u32 = 256;
-pub const AOS_PEVNTNFCR_DIVS2_POS: u32 = 9;
-pub const AOS_PEVNTNFCR_DIVS2: u32 = 1536;
-pub const AOS_PEVNTNFCR_NFEN3_POS: u32 = 16;
-pub const AOS_PEVNTNFCR_NFEN3: u32 = 65536;
-pub const AOS_PEVNTNFCR_DIVS3_POS: u32 = 17;
-pub const AOS_PEVNTNFCR_DIVS3: u32 = 393216;
-pub const AOS_PEVNTNFCR_NFEN4_POS: u32 = 24;
-pub const AOS_PEVNTNFCR_NFEN4: u32 = 16777216;
-pub const AOS_PEVNTNFCR_DIVS4_POS: u32 = 25;
-pub const AOS_PEVNTNFCR_DIVS4: u32 = 100663296;
-pub const CAN_RBUF: u32 = 4294967295;
-pub const CAN_TBUF: u32 = 4294967295;
-pub const CAN_CFG_STAT_BUSOFF_POS: u32 = 0;
-pub const CAN_CFG_STAT_BUSOFF: u32 = 1;
-pub const CAN_CFG_STAT_TACTIVE_POS: u32 = 1;
-pub const CAN_CFG_STAT_TACTIVE: u32 = 2;
-pub const CAN_CFG_STAT_RACTIVE_POS: u32 = 2;
-pub const CAN_CFG_STAT_RACTIVE: u32 = 4;
-pub const CAN_CFG_STAT_TSSS_POS: u32 = 3;
-pub const CAN_CFG_STAT_TSSS: u32 = 8;
-pub const CAN_CFG_STAT_TPSS_POS: u32 = 4;
-pub const CAN_CFG_STAT_TPSS: u32 = 16;
-pub const CAN_CFG_STAT_LBMI_POS: u32 = 5;
-pub const CAN_CFG_STAT_LBMI: u32 = 32;
-pub const CAN_CFG_STAT_LBME_POS: u32 = 6;
-pub const CAN_CFG_STAT_LBME: u32 = 64;
-pub const CAN_CFG_STAT_RESET_POS: u32 = 7;
-pub const CAN_CFG_STAT_RESET: u32 = 128;
-pub const CAN_TCMD_TSA_POS: u32 = 0;
-pub const CAN_TCMD_TSA: u32 = 1;
-pub const CAN_TCMD_TSALL_POS: u32 = 1;
-pub const CAN_TCMD_TSALL: u32 = 2;
-pub const CAN_TCMD_TSONE_POS: u32 = 2;
-pub const CAN_TCMD_TSONE: u32 = 4;
-pub const CAN_TCMD_TPA_POS: u32 = 3;
-pub const CAN_TCMD_TPA: u32 = 8;
-pub const CAN_TCMD_TPE_POS: u32 = 4;
-pub const CAN_TCMD_TPE: u32 = 16;
-pub const CAN_TCMD_LOM_POS: u32 = 6;
-pub const CAN_TCMD_LOM: u32 = 64;
-pub const CAN_TCMD_TBSEL_POS: u32 = 7;
-pub const CAN_TCMD_TBSEL: u32 = 128;
-pub const CAN_TCTRL_TSSTAT_POS: u32 = 0;
-pub const CAN_TCTRL_TSSTAT: u32 = 3;
-pub const CAN_TCTRL_TSSTAT_0: u32 = 1;
-pub const CAN_TCTRL_TSSTAT_1: u32 = 2;
-pub const CAN_TCTRL_TTTBM_POS: u32 = 4;
-pub const CAN_TCTRL_TTTBM: u32 = 16;
-pub const CAN_TCTRL_TSMODE_POS: u32 = 5;
-pub const CAN_TCTRL_TSMODE: u32 = 32;
-pub const CAN_TCTRL_TSNEXT_POS: u32 = 6;
-pub const CAN_TCTRL_TSNEXT: u32 = 64;
-pub const CAN_RCTRL_RSTAT_POS: u32 = 0;
-pub const CAN_RCTRL_RSTAT: u32 = 3;
-pub const CAN_RCTRL_RSTAT_0: u32 = 1;
-pub const CAN_RCTRL_RSTAT_1: u32 = 2;
-pub const CAN_RCTRL_RBALL_POS: u32 = 3;
-pub const CAN_RCTRL_RBALL: u32 = 8;
-pub const CAN_RCTRL_RREL_POS: u32 = 4;
-pub const CAN_RCTRL_RREL: u32 = 16;
-pub const CAN_RCTRL_ROV_POS: u32 = 5;
-pub const CAN_RCTRL_ROV: u32 = 32;
-pub const CAN_RCTRL_ROM_POS: u32 = 6;
-pub const CAN_RCTRL_ROM: u32 = 64;
-pub const CAN_RCTRL_SACK_POS: u32 = 7;
-pub const CAN_RCTRL_SACK: u32 = 128;
-pub const CAN_RTIE_TSFF_POS: u32 = 0;
-pub const CAN_RTIE_TSFF: u32 = 1;
-pub const CAN_RTIE_EIE_POS: u32 = 1;
-pub const CAN_RTIE_EIE: u32 = 2;
-pub const CAN_RTIE_TSIE_POS: u32 = 2;
-pub const CAN_RTIE_TSIE: u32 = 4;
-pub const CAN_RTIE_TPIE_POS: u32 = 3;
-pub const CAN_RTIE_TPIE: u32 = 8;
-pub const CAN_RTIE_RAFIE_POS: u32 = 4;
-pub const CAN_RTIE_RAFIE: u32 = 16;
-pub const CAN_RTIE_RFIE_POS: u32 = 5;
-pub const CAN_RTIE_RFIE: u32 = 32;
-pub const CAN_RTIE_ROIE_POS: u32 = 6;
-pub const CAN_RTIE_ROIE: u32 = 64;
-pub const CAN_RTIE_RIE_POS: u32 = 7;
-pub const CAN_RTIE_RIE: u32 = 128;
-pub const CAN_RTIF_AIF_POS: u32 = 0;
-pub const CAN_RTIF_AIF: u32 = 1;
-pub const CAN_RTIF_EIF_POS: u32 = 1;
-pub const CAN_RTIF_EIF: u32 = 2;
-pub const CAN_RTIF_TSIF_POS: u32 = 2;
-pub const CAN_RTIF_TSIF: u32 = 4;
-pub const CAN_RTIF_TPIF_POS: u32 = 3;
-pub const CAN_RTIF_TPIF: u32 = 8;
-pub const CAN_RTIF_RAFIF_POS: u32 = 4;
-pub const CAN_RTIF_RAFIF: u32 = 16;
-pub const CAN_RTIF_RFIF_POS: u32 = 5;
-pub const CAN_RTIF_RFIF: u32 = 32;
-pub const CAN_RTIF_ROIF_POS: u32 = 6;
-pub const CAN_RTIF_ROIF: u32 = 64;
-pub const CAN_RTIF_RIF_POS: u32 = 7;
-pub const CAN_RTIF_RIF: u32 = 128;
-pub const CAN_ERRINT_BEIF_POS: u32 = 0;
-pub const CAN_ERRINT_BEIF: u32 = 1;
-pub const CAN_ERRINT_BEIE_POS: u32 = 1;
-pub const CAN_ERRINT_BEIE: u32 = 2;
-pub const CAN_ERRINT_ALIF_POS: u32 = 2;
-pub const CAN_ERRINT_ALIF: u32 = 4;
-pub const CAN_ERRINT_ALIE_POS: u32 = 3;
-pub const CAN_ERRINT_ALIE: u32 = 8;
-pub const CAN_ERRINT_EPIF_POS: u32 = 4;
-pub const CAN_ERRINT_EPIF: u32 = 16;
-pub const CAN_ERRINT_EPIE_POS: u32 = 5;
-pub const CAN_ERRINT_EPIE: u32 = 32;
-pub const CAN_ERRINT_EPASS_POS: u32 = 6;
-pub const CAN_ERRINT_EPASS: u32 = 64;
-pub const CAN_ERRINT_EWARN_POS: u32 = 7;
-pub const CAN_ERRINT_EWARN: u32 = 128;
-pub const CAN_LIMIT_EWL_POS: u32 = 0;
-pub const CAN_LIMIT_EWL: u32 = 15;
-pub const CAN_LIMIT_AFWL_POS: u32 = 4;
-pub const CAN_LIMIT_AFWL: u32 = 240;
-pub const CAN_SBT_S_SEG_1_POS: u32 = 0;
-pub const CAN_SBT_S_SEG_1: u32 = 255;
-pub const CAN_SBT_S_SEG_2_POS: u32 = 8;
-pub const CAN_SBT_S_SEG_2: u32 = 32512;
-pub const CAN_SBT_S_SJW_POS: u32 = 16;
-pub const CAN_SBT_S_SJW: u32 = 8323072;
-pub const CAN_SBT_S_PRESC_POS: u32 = 24;
-pub const CAN_SBT_S_PRESC: u32 = 4278190080;
-pub const CAN_EALCAP_ALC_POS: u32 = 0;
-pub const CAN_EALCAP_ALC: u32 = 31;
-pub const CAN_EALCAP_KOER_POS: u32 = 5;
-pub const CAN_EALCAP_KOER: u32 = 224;
-pub const CAN_RECNT: u32 = 255;
-pub const CAN_TECNT: u32 = 255;
-pub const CAN_ACFCTRL_ACFADR_POS: u32 = 0;
-pub const CAN_ACFCTRL_ACFADR: u32 = 15;
-pub const CAN_ACFCTRL_SELMASK_POS: u32 = 5;
-pub const CAN_ACFCTRL_SELMASK: u32 = 32;
-pub const CAN_ACFEN_AE_1_POS: u32 = 0;
-pub const CAN_ACFEN_AE_1: u32 = 1;
-pub const CAN_ACFEN_AE_2_POS: u32 = 1;
-pub const CAN_ACFEN_AE_2: u32 = 2;
-pub const CAN_ACFEN_AE_3_POS: u32 = 2;
-pub const CAN_ACFEN_AE_3: u32 = 4;
-pub const CAN_ACFEN_AE_4_POS: u32 = 3;
-pub const CAN_ACFEN_AE_4: u32 = 8;
-pub const CAN_ACFEN_AE_5_POS: u32 = 4;
-pub const CAN_ACFEN_AE_5: u32 = 16;
-pub const CAN_ACFEN_AE_6_POS: u32 = 5;
-pub const CAN_ACFEN_AE_6: u32 = 32;
-pub const CAN_ACFEN_AE_7_POS: u32 = 6;
-pub const CAN_ACFEN_AE_7: u32 = 64;
-pub const CAN_ACFEN_AE_8_POS: u32 = 7;
-pub const CAN_ACFEN_AE_8: u32 = 128;
-pub const CAN_ACF_ACODEORAMASK_POS: u32 = 0;
-pub const CAN_ACF_ACODEORAMASK: u32 = 536870911;
-pub const CAN_ACF_AIDE_POS: u32 = 29;
-pub const CAN_ACF_AIDE: u32 = 536870912;
-pub const CAN_ACF_AIDEE_POS: u32 = 30;
-pub const CAN_ACF_AIDEE: u32 = 1073741824;
-pub const CAN_TBSLOT_TBPTR_POS: u32 = 0;
-pub const CAN_TBSLOT_TBPTR: u32 = 63;
-pub const CAN_TBSLOT_TBF_POS: u32 = 6;
-pub const CAN_TBSLOT_TBF: u32 = 64;
-pub const CAN_TBSLOT_TBE_POS: u32 = 7;
-pub const CAN_TBSLOT_TBE: u32 = 128;
-pub const CAN_TTCFG_TTEN_POS: u32 = 0;
-pub const CAN_TTCFG_TTEN: u32 = 1;
-pub const CAN_TTCFG_T_PRESC_POS: u32 = 1;
-pub const CAN_TTCFG_T_PRESC: u32 = 6;
-pub const CAN_TTCFG_T_PRESC_0: u32 = 2;
-pub const CAN_TTCFG_T_PRESC_1: u32 = 4;
-pub const CAN_TTCFG_TTIF_POS: u32 = 3;
-pub const CAN_TTCFG_TTIF: u32 = 8;
-pub const CAN_TTCFG_TTIE_POS: u32 = 4;
-pub const CAN_TTCFG_TTIE: u32 = 16;
-pub const CAN_TTCFG_TEIF_POS: u32 = 5;
-pub const CAN_TTCFG_TEIF: u32 = 32;
-pub const CAN_TTCFG_WTIF_POS: u32 = 6;
-pub const CAN_TTCFG_WTIF: u32 = 64;
-pub const CAN_TTCFG_WTIE_POS: u32 = 7;
-pub const CAN_TTCFG_WTIE: u32 = 128;
-pub const CAN_REF_MSG_REF_ID_POS: u32 = 0;
-pub const CAN_REF_MSG_REF_ID: u32 = 536870911;
-pub const CAN_REF_MSG_REF_IDE_POS: u32 = 31;
-pub const CAN_REF_MSG_REF_IDE: u32 = 2147483648;
-pub const CAN_TRG_CFG_TTPTR_POS: u32 = 0;
-pub const CAN_TRG_CFG_TTPTR: u32 = 63;
-pub const CAN_TRG_CFG_TTYPE_POS: u32 = 8;
-pub const CAN_TRG_CFG_TTYPE: u32 = 1792;
-pub const CAN_TRG_CFG_TTYPE_0: u32 = 256;
-pub const CAN_TRG_CFG_TTYPE_1: u32 = 512;
-pub const CAN_TRG_CFG_TTYPE_2: u32 = 1024;
-pub const CAN_TRG_CFG_TEW_POS: u32 = 12;
-pub const CAN_TRG_CFG_TEW: u32 = 61440;
-pub const CAN_TT_TRIG: u32 = 65535;
-pub const CAN_TT_WTRIG: u32 = 65535;
-pub const CMP_CTRL_FLTSL_POS: u32 = 0;
-pub const CMP_CTRL_FLTSL: u32 = 7;
-pub const CMP_CTRL_EDGSL_POS: u32 = 5;
-pub const CMP_CTRL_EDGSL: u32 = 96;
-pub const CMP_CTRL_EDGSL_0: u32 = 32;
-pub const CMP_CTRL_EDGSL_1: u32 = 64;
-pub const CMP_CTRL_IEN_POS: u32 = 7;
-pub const CMP_CTRL_IEN: u32 = 128;
-pub const CMP_CTRL_CVSEN_POS: u32 = 8;
-pub const CMP_CTRL_CVSEN: u32 = 256;
-pub const CMP_CTRL_OUTEN_POS: u32 = 12;
-pub const CMP_CTRL_OUTEN: u32 = 4096;
-pub const CMP_CTRL_INV_POS: u32 = 13;
-pub const CMP_CTRL_INV: u32 = 8192;
-pub const CMP_CTRL_CMPOE_POS: u32 = 14;
-pub const CMP_CTRL_CMPOE: u32 = 16384;
-pub const CMP_CTRL_CMPON_POS: u32 = 15;
-pub const CMP_CTRL_CMPON: u32 = 32768;
-pub const CMP_VLTSEL_RVSL_POS: u32 = 0;
-pub const CMP_VLTSEL_RVSL: u32 = 15;
-pub const CMP_VLTSEL_RVSL_0: u32 = 1;
-pub const CMP_VLTSEL_RVSL_1: u32 = 2;
-pub const CMP_VLTSEL_RVSL_2: u32 = 4;
-pub const CMP_VLTSEL_RVSL_3: u32 = 8;
-pub const CMP_VLTSEL_CVSL_POS: u32 = 8;
-pub const CMP_VLTSEL_CVSL: u32 = 3840;
-pub const CMP_VLTSEL_CVSL_0: u32 = 256;
-pub const CMP_VLTSEL_CVSL_1: u32 = 512;
-pub const CMP_VLTSEL_CVSL_2: u32 = 1024;
-pub const CMP_VLTSEL_CVSL_3: u32 = 2048;
-pub const CMP_VLTSEL_C4SL_POS: u32 = 12;
-pub const CMP_VLTSEL_C4SL: u32 = 28672;
-pub const CMP_VLTSEL_C4SL_0: u32 = 4096;
-pub const CMP_VLTSEL_C4SL_1: u32 = 8192;
-pub const CMP_VLTSEL_C4SL_2: u32 = 16384;
-pub const CMP_OUTMON_OMON_POS: u32 = 0;
-pub const CMP_OUTMON_OMON: u32 = 1;
-pub const CMP_OUTMON_CVST_POS: u32 = 8;
-pub const CMP_OUTMON_CVST: u32 = 3840;
-pub const CMP_CVSSTB_STB: u32 = 15;
-pub const CMP_CVSPRD_PRD: u32 = 255;
-pub const CMP_COMMON_DADR1_DATA: u32 = 255;
-pub const CMP_COMMON_DADR2_DATA: u32 = 255;
-pub const CMP_COMMON_DACR_DA1EN_POS: u32 = 0;
-pub const CMP_COMMON_DACR_DA1EN: u32 = 1;
-pub const CMP_COMMON_DACR_DA2EN_POS: u32 = 1;
-pub const CMP_COMMON_DACR_DA2EN: u32 = 2;
-pub const CMP_COMMON_RVADC_DA1SW_POS: u32 = 0;
-pub const CMP_COMMON_RVADC_DA1SW: u32 = 1;
-pub const CMP_COMMON_RVADC_DA2SW_POS: u32 = 1;
-pub const CMP_COMMON_RVADC_DA2SW: u32 = 2;
-pub const CMP_COMMON_RVADC_VREFSW_POS: u32 = 4;
-pub const CMP_COMMON_RVADC_VREFSW: u32 = 16;
-pub const CMP_COMMON_RVADC_WPRT_POS: u32 = 8;
-pub const CMP_COMMON_RVADC_WPRT: u32 = 65280;
-pub const CMU_PERICKSEL_PERICKSEL: u32 = 15;
-pub const CMU_I2SCKSEL_I2S1CKSEL_POS: u32 = 0;
-pub const CMU_I2SCKSEL_I2S1CKSEL: u32 = 15;
-pub const CMU_I2SCKSEL_I2S2CKSEL_POS: u32 = 4;
-pub const CMU_I2SCKSEL_I2S2CKSEL: u32 = 240;
-pub const CMU_I2SCKSEL_I2S3CKSEL_POS: u32 = 8;
-pub const CMU_I2SCKSEL_I2S3CKSEL: u32 = 3840;
-pub const CMU_I2SCKSEL_I2S4CKSEL_POS: u32 = 12;
-pub const CMU_I2SCKSEL_I2S4CKSEL: u32 = 61440;
-pub const CMU_SCFGR_PCLK0S_POS: u32 = 0;
-pub const CMU_SCFGR_PCLK0S: u32 = 7;
-pub const CMU_SCFGR_PCLK1S_POS: u32 = 4;
-pub const CMU_SCFGR_PCLK1S: u32 = 112;
-pub const CMU_SCFGR_PCLK2S_POS: u32 = 8;
-pub const CMU_SCFGR_PCLK2S: u32 = 1792;
-pub const CMU_SCFGR_PCLK3S_POS: u32 = 12;
-pub const CMU_SCFGR_PCLK3S: u32 = 28672;
-pub const CMU_SCFGR_PCLK4S_POS: u32 = 16;
-pub const CMU_SCFGR_PCLK4S: u32 = 458752;
-pub const CMU_SCFGR_EXCKS_POS: u32 = 20;
-pub const CMU_SCFGR_EXCKS: u32 = 7340032;
-pub const CMU_SCFGR_HCLKS_POS: u32 = 24;
-pub const CMU_SCFGR_HCLKS: u32 = 117440512;
-pub const CMU_USBCKCFGR_USBCKS_POS: u32 = 4;
-pub const CMU_USBCKCFGR_USBCKS: u32 = 240;
-pub const CMU_CKSWR_CKSW: u32 = 7;
-pub const CMU_PLLCR_MPLLOFF: u32 = 1;
-pub const CMU_UPLLCR_UPLLOFF: u32 = 1;
-pub const CMU_XTALCR_XTALSTP: u32 = 1;
-pub const CMU_HRCCR_HRCSTP: u32 = 1;
-pub const CMU_MRCCR_MRCSTP: u32 = 1;
-pub const CMU_OSCSTBSR_HRCSTBF_POS: u32 = 0;
-pub const CMU_OSCSTBSR_HRCSTBF: u32 = 1;
-pub const CMU_OSCSTBSR_XTALSTBF_POS: u32 = 3;
-pub const CMU_OSCSTBSR_XTALSTBF: u32 = 8;
-pub const CMU_OSCSTBSR_MPLLSTBF_POS: u32 = 5;
-pub const CMU_OSCSTBSR_MPLLSTBF: u32 = 32;
-pub const CMU_OSCSTBSR_UPLLSTBF_POS: u32 = 6;
-pub const CMU_OSCSTBSR_UPLLSTBF: u32 = 64;
-pub const CMU_MCOCFGR_MCOSEL_POS: u32 = 0;
-pub const CMU_MCOCFGR_MCOSEL: u32 = 15;
-pub const CMU_MCOCFGR_MCODIV_POS: u32 = 4;
-pub const CMU_MCOCFGR_MCODIV: u32 = 112;
-pub const CMU_MCOCFGR_MCOEN_POS: u32 = 7;
-pub const CMU_MCOCFGR_MCOEN: u32 = 128;
-pub const CMU_TPIUCKCFGR_TPIUCKS_POS: u32 = 0;
-pub const CMU_TPIUCKCFGR_TPIUCKS: u32 = 3;
-pub const CMU_TPIUCKCFGR_TPIUCKS_0: u32 = 1;
-pub const CMU_TPIUCKCFGR_TPIUCKS_1: u32 = 2;
-pub const CMU_TPIUCKCFGR_TPIUCKOE_POS: u32 = 7;
-pub const CMU_TPIUCKCFGR_TPIUCKOE: u32 = 128;
-pub const CMU_XTALSTDCR_XTALSTDIE_POS: u32 = 0;
-pub const CMU_XTALSTDCR_XTALSTDIE: u32 = 1;
-pub const CMU_XTALSTDCR_XTALSTDRE_POS: u32 = 1;
-pub const CMU_XTALSTDCR_XTALSTDRE: u32 = 2;
-pub const CMU_XTALSTDCR_XTALSTDRIS_POS: u32 = 2;
-pub const CMU_XTALSTDCR_XTALSTDRIS: u32 = 4;
-pub const CMU_XTALSTDCR_XTALSTDE_POS: u32 = 7;
-pub const CMU_XTALSTDCR_XTALSTDE: u32 = 128;
-pub const CMU_XTALSTDSR_XTALSTDF: u32 = 1;
-pub const CMU_MRCTRM: u32 = 255;
-pub const CMU_HRCTRM: u32 = 255;
-pub const CMU_XTALSTBCR_XTALSTB: u32 = 15;
-pub const CMU_XTALSTBCR_XTALSTB_0: u32 = 1;
-pub const CMU_XTALSTBCR_XTALSTB_1: u32 = 2;
-pub const CMU_XTALSTBCR_XTALSTB_2: u32 = 4;
-pub const CMU_XTALSTBCR_XTALSTB_3: u32 = 8;
-pub const CMU_PLLCFGR_MPLLM_POS: u32 = 0;
-pub const CMU_PLLCFGR_MPLLM: u32 = 31;
-pub const CMU_PLLCFGR_PLLSRC_POS: u32 = 7;
-pub const CMU_PLLCFGR_PLLSRC: u32 = 128;
-pub const CMU_PLLCFGR_MPLLN_POS: u32 = 8;
-pub const CMU_PLLCFGR_MPLLN: u32 = 130816;
-pub const CMU_PLLCFGR_MPLLR_POS: u32 = 20;
-pub const CMU_PLLCFGR_MPLLR: u32 = 15728640;
-pub const CMU_PLLCFGR_MPLLQ_POS: u32 = 24;
-pub const CMU_PLLCFGR_MPLLQ: u32 = 251658240;
-pub const CMU_PLLCFGR_MPLLP_POS: u32 = 28;
-pub const CMU_PLLCFGR_MPLLP: u32 = 4026531840;
-pub const CMU_UPLLCFGR_UPLLM_POS: u32 = 0;
-pub const CMU_UPLLCFGR_UPLLM: u32 = 31;
-pub const CMU_UPLLCFGR_UPLLN_POS: u32 = 8;
-pub const CMU_UPLLCFGR_UPLLN: u32 = 130816;
-pub const CMU_UPLLCFGR_UPLLR_POS: u32 = 20;
-pub const CMU_UPLLCFGR_UPLLR: u32 = 15728640;
-pub const CMU_UPLLCFGR_UPLLQ_POS: u32 = 24;
-pub const CMU_UPLLCFGR_UPLLQ: u32 = 251658240;
-pub const CMU_UPLLCFGR_UPLLP_POS: u32 = 28;
-pub const CMU_UPLLCFGR_UPLLP: u32 = 4026531840;
-pub const CMU_XTALCFGR_XTALDRV_POS: u32 = 4;
-pub const CMU_XTALCFGR_XTALDRV: u32 = 48;
-pub const CMU_XTALCFGR_XTALDRV_0: u32 = 16;
-pub const CMU_XTALCFGR_XTALDRV_1: u32 = 32;
-pub const CMU_XTALCFGR_XTALMS_POS: u32 = 6;
-pub const CMU_XTALCFGR_XTALMS: u32 = 64;
-pub const CMU_XTALCFGR_SUPDRV_POS: u32 = 7;
-pub const CMU_XTALCFGR_SUPDRV: u32 = 128;
-pub const CMU_XTAL32CR_XTAL32STP: u32 = 1;
-pub const CMU_XTAL32CFGR_XTAL32DRV: u32 = 7;
-pub const CMU_XTAL32CFGR_XTAL32DRV_0: u32 = 1;
-pub const CMU_XTAL32CFGR_XTAL32DRV_1: u32 = 2;
-pub const CMU_XTAL32CFGR_XTAL32DRV_2: u32 = 4;
-pub const CMU_XTAL32NFR_XTAL32NF: u32 = 3;
-pub const CMU_XTAL32NFR_XTAL32NF_0: u32 = 1;
-pub const CMU_XTAL32NFR_XTAL32NF_1: u32 = 2;
-pub const CMU_LRCCR_LRCSTP: u32 = 1;
-pub const CMU_LRCTRM: u32 = 255;
-pub const CRC_CR_CR_POS: u32 = 1;
-pub const CRC_CR_CR: u32 = 2;
-pub const CRC_CR_REFIN_POS: u32 = 2;
-pub const CRC_CR_REFIN: u32 = 4;
-pub const CRC_CR_REFOUT_POS: u32 = 3;
-pub const CRC_CR_REFOUT: u32 = 8;
-pub const CRC_CR_XOROUT_POS: u32 = 4;
-pub const CRC_CR_XOROUT: u32 = 16;
-pub const CRC_RESLT_CRC_REG_POS: u32 = 0;
-pub const CRC_RESLT_CRC_REG: u32 = 65535;
-pub const CRC_RESLT_CRCFLAG_16_POS: u32 = 16;
-pub const CRC_RESLT_CRCFLAG_16: u32 = 65536;
-pub const CRC_FLG_CRCFLAG_32: u32 = 1;
-pub const CRC_DAT0: u32 = 4294967295;
-pub const CRC_DAT1: u32 = 4294967295;
-pub const CRC_DAT2: u32 = 4294967295;
-pub const CRC_DAT3: u32 = 4294967295;
-pub const CRC_DAT4: u32 = 4294967295;
-pub const CRC_DAT5: u32 = 4294967295;
-pub const CRC_DAT6: u32 = 4294967295;
-pub const CRC_DAT7: u32 = 4294967295;
-pub const CRC_DAT8: u32 = 4294967295;
-pub const CRC_DAT9: u32 = 4294967295;
-pub const CRC_DAT10: u32 = 4294967295;
-pub const CRC_DAT11: u32 = 4294967295;
-pub const CRC_DAT12: u32 = 4294967295;
-pub const CRC_DAT13: u32 = 4294967295;
-pub const CRC_DAT14: u32 = 4294967295;
-pub const CRC_DAT15: u32 = 4294967295;
-pub const CRC_DAT16: u32 = 4294967295;
-pub const CRC_DAT17: u32 = 4294967295;
-pub const CRC_DAT18: u32 = 4294967295;
-pub const CRC_DAT19: u32 = 4294967295;
-pub const CRC_DAT20: u32 = 4294967295;
-pub const CRC_DAT21: u32 = 4294967295;
-pub const CRC_DAT22: u32 = 4294967295;
-pub const CRC_DAT23: u32 = 4294967295;
-pub const CRC_DAT24: u32 = 4294967295;
-pub const CRC_DAT25: u32 = 4294967295;
-pub const CRC_DAT26: u32 = 4294967295;
-pub const CRC_DAT27: u32 = 4294967295;
-pub const CRC_DAT28: u32 = 4294967295;
-pub const CRC_DAT29: u32 = 4294967295;
-pub const CRC_DAT30: u32 = 4294967295;
-pub const CRC_DAT31: u32 = 4294967295;
-pub const DBGC_MCUDBGSTAT_CDBGPWRUPREQ_POS: u32 = 0;
-pub const DBGC_MCUDBGSTAT_CDBGPWRUPREQ: u32 = 1;
-pub const DBGC_MCUDBGSTAT_CDBGPWRUPACK_POS: u32 = 1;
-pub const DBGC_MCUDBGSTAT_CDBGPWRUPACK: u32 = 2;
-pub const DBGC_MCUSTPCTL_SWDTSTP_POS: u32 = 0;
-pub const DBGC_MCUSTPCTL_SWDTSTP: u32 = 1;
-pub const DBGC_MCUSTPCTL_WDTSTP_POS: u32 = 1;
-pub const DBGC_MCUSTPCTL_WDTSTP: u32 = 2;
-pub const DBGC_MCUSTPCTL_RTCSTP_POS: u32 = 2;
-pub const DBGC_MCUSTPCTL_RTCSTP: u32 = 4;
-pub const DBGC_MCUSTPCTL_TMR01STP_POS: u32 = 14;
-pub const DBGC_MCUSTPCTL_TMR01STP: u32 = 16384;
-pub const DBGC_MCUSTPCTL_TMR02STP_POS: u32 = 15;
-pub const DBGC_MCUSTPCTL_TMR02STP: u32 = 32768;
-pub const DBGC_MCUSTPCTL_TMR41STP_POS: u32 = 20;
-pub const DBGC_MCUSTPCTL_TMR41STP: u32 = 1048576;
-pub const DBGC_MCUSTPCTL_TMR42STP_POS: u32 = 21;
-pub const DBGC_MCUSTPCTL_TMR42STP: u32 = 2097152;
-pub const DBGC_MCUSTPCTL_TMR43STP_POS: u32 = 22;
-pub const DBGC_MCUSTPCTL_TMR43STP: u32 = 4194304;
-pub const DBGC_MCUSTPCTL_TM61STP_POS: u32 = 23;
-pub const DBGC_MCUSTPCTL_TM61STP: u32 = 8388608;
-pub const DBGC_MCUSTPCTL_TM62STP_POS: u32 = 24;
-pub const DBGC_MCUSTPCTL_TM62STP: u32 = 16777216;
-pub const DBGC_MCUSTPCTL_TMR63STP_POS: u32 = 25;
-pub const DBGC_MCUSTPCTL_TMR63STP: u32 = 33554432;
-pub const DBGC_MCUSTPCTL_TMRA1STP_POS: u32 = 26;
-pub const DBGC_MCUSTPCTL_TMRA1STP: u32 = 67108864;
-pub const DBGC_MCUSTPCTL_TMRA2STP_POS: u32 = 27;
-pub const DBGC_MCUSTPCTL_TMRA2STP: u32 = 134217728;
-pub const DBGC_MCUSTPCTL_TMRA3STP_POS: u32 = 28;
-pub const DBGC_MCUSTPCTL_TMRA3STP: u32 = 268435456;
-pub const DBGC_MCUSTPCTL_TMRA4STP_POS: u32 = 29;
-pub const DBGC_MCUSTPCTL_TMRA4STP: u32 = 536870912;
-pub const DBGC_MCUSTPCTL_TMRA5STP_POS: u32 = 30;
-pub const DBGC_MCUSTPCTL_TMRA5STP: u32 = 1073741824;
-pub const DBGC_MCUSTPCTL_TMRA6STP_POS: u32 = 31;
-pub const DBGC_MCUSTPCTL_TMRA6STP: u32 = 2147483648;
-pub const DBGC_MCUTRACECTL_TRACEMODE_POS: u32 = 0;
-pub const DBGC_MCUTRACECTL_TRACEMODE: u32 = 3;
-pub const DBGC_MCUTRACECTL_TRACEMODE_0: u32 = 1;
-pub const DBGC_MCUTRACECTL_TRACEMODE_1: u32 = 2;
-pub const DBGC_MCUTRACECTL_TRACEIOEN_POS: u32 = 2;
-pub const DBGC_MCUTRACECTL_TRACEIOEN: u32 = 4;
-pub const DCU_CTL_MODE_POS: u32 = 0;
-pub const DCU_CTL_MODE: u32 = 7;
-pub const DCU_CTL_DATASIZE_POS: u32 = 3;
-pub const DCU_CTL_DATASIZE: u32 = 24;
-pub const DCU_CTL_DATASIZE_0: u32 = 8;
-pub const DCU_CTL_DATASIZE_1: u32 = 16;
-pub const DCU_CTL_COMPTRG_POS: u32 = 8;
-pub const DCU_CTL_COMPTRG: u32 = 256;
-pub const DCU_CTL_INTEN_POS: u32 = 31;
-pub const DCU_CTL_INTEN: u32 = 2147483648;
-pub const DCU_FLAG_FLAG_OP_POS: u32 = 0;
-pub const DCU_FLAG_FLAG_OP: u32 = 1;
-pub const DCU_FLAG_FLAG_LS2_POS: u32 = 1;
-pub const DCU_FLAG_FLAG_LS2: u32 = 2;
-pub const DCU_FLAG_FLAG_EQ2_POS: u32 = 2;
-pub const DCU_FLAG_FLAG_EQ2: u32 = 4;
-pub const DCU_FLAG_FLAG_GT2_POS: u32 = 3;
-pub const DCU_FLAG_FLAG_GT2: u32 = 8;
-pub const DCU_FLAG_FLAG_LS1_POS: u32 = 4;
-pub const DCU_FLAG_FLAG_LS1: u32 = 16;
-pub const DCU_FLAG_FLAG_EQ1_POS: u32 = 5;
-pub const DCU_FLAG_FLAG_EQ1: u32 = 32;
-pub const DCU_FLAG_FLAG_GT1_POS: u32 = 6;
-pub const DCU_FLAG_FLAG_GT1: u32 = 64;
-pub const DCU_DATA0: u32 = 4294967295;
-pub const DCU_DATA1: u32 = 4294967295;
-pub const DCU_DATA2: u32 = 4294967295;
-pub const DCU_FLAGCLR_CLR_OP_POS: u32 = 0;
-pub const DCU_FLAGCLR_CLR_OP: u32 = 1;
-pub const DCU_FLAGCLR_CLR_LS2_POS: u32 = 1;
-pub const DCU_FLAGCLR_CLR_LS2: u32 = 2;
-pub const DCU_FLAGCLR_CLR_EQ2_POS: u32 = 2;
-pub const DCU_FLAGCLR_CLR_EQ2: u32 = 4;
-pub const DCU_FLAGCLR_CLR_GT2_POS: u32 = 3;
-pub const DCU_FLAGCLR_CLR_GT2: u32 = 8;
-pub const DCU_FLAGCLR_CLR_LS1_POS: u32 = 4;
-pub const DCU_FLAGCLR_CLR_LS1: u32 = 16;
-pub const DCU_FLAGCLR_CLR_EQ1_POS: u32 = 5;
-pub const DCU_FLAGCLR_CLR_EQ1: u32 = 32;
-pub const DCU_FLAGCLR_CLR_GT1_POS: u32 = 6;
-pub const DCU_FLAGCLR_CLR_GT1: u32 = 64;
-pub const DCU_INTEVTSEL_SEL_OP_POS: u32 = 0;
-pub const DCU_INTEVTSEL_SEL_OP: u32 = 1;
-pub const DCU_INTEVTSEL_SEL_LS2_POS: u32 = 1;
-pub const DCU_INTEVTSEL_SEL_LS2: u32 = 2;
-pub const DCU_INTEVTSEL_SEL_EQ2_POS: u32 = 2;
-pub const DCU_INTEVTSEL_SEL_EQ2: u32 = 4;
-pub const DCU_INTEVTSEL_SEL_GT2_POS: u32 = 3;
-pub const DCU_INTEVTSEL_SEL_GT2: u32 = 8;
-pub const DCU_INTEVTSEL_SEL_LS1_POS: u32 = 4;
-pub const DCU_INTEVTSEL_SEL_LS1: u32 = 16;
-pub const DCU_INTEVTSEL_SEL_EQ1_POS: u32 = 5;
-pub const DCU_INTEVTSEL_SEL_EQ1: u32 = 32;
-pub const DCU_INTEVTSEL_SEL_GT1_POS: u32 = 6;
-pub const DCU_INTEVTSEL_SEL_GT1: u32 = 64;
-pub const DCU_INTEVTSEL_SEL_WIN_POS: u32 = 7;
-pub const DCU_INTEVTSEL_SEL_WIN: u32 = 384;
-pub const DCU_INTEVTSEL_SEL_WIN_0: u32 = 128;
-pub const DCU_INTEVTSEL_SEL_WIN_1: u32 = 256;
-pub const DMA_EN_EN: u32 = 1;
-pub const DMA_INTSTAT0_TRNERR_POS: u32 = 0;
-pub const DMA_INTSTAT0_TRNERR: u32 = 15;
-pub const DMA_INTSTAT0_TRNERR_0: u32 = 1;
-pub const DMA_INTSTAT0_TRNERR_1: u32 = 2;
-pub const DMA_INTSTAT0_TRNERR_2: u32 = 4;
-pub const DMA_INTSTAT0_TRNERR_3: u32 = 8;
-pub const DMA_INTSTAT0_REQERR_POS: u32 = 16;
-pub const DMA_INTSTAT0_REQERR: u32 = 983040;
-pub const DMA_INTSTAT0_REQERR_0: u32 = 65536;
-pub const DMA_INTSTAT0_REQERR_1: u32 = 131072;
-pub const DMA_INTSTAT0_REQERR_2: u32 = 262144;
-pub const DMA_INTSTAT0_REQERR_3: u32 = 524288;
-pub const DMA_INTSTAT1_TC_POS: u32 = 0;
-pub const DMA_INTSTAT1_TC: u32 = 15;
-pub const DMA_INTSTAT1_TC_0: u32 = 1;
-pub const DMA_INTSTAT1_TC_1: u32 = 2;
-pub const DMA_INTSTAT1_TC_2: u32 = 4;
-pub const DMA_INTSTAT1_TC_3: u32 = 8;
-pub const DMA_INTSTAT1_BTC_POS: u32 = 16;
-pub const DMA_INTSTAT1_BTC: u32 = 983040;
-pub const DMA_INTSTAT1_BTC_0: u32 = 65536;
-pub const DMA_INTSTAT1_BTC_1: u32 = 131072;
-pub const DMA_INTSTAT1_BTC_2: u32 = 262144;
-pub const DMA_INTSTAT1_BTC_3: u32 = 524288;
-pub const DMA_INTMASK0_MSKTRNERR_POS: u32 = 0;
-pub const DMA_INTMASK0_MSKTRNERR: u32 = 15;
-pub const DMA_INTMASK0_MSKTRNERR_0: u32 = 1;
-pub const DMA_INTMASK0_MSKTRNERR_1: u32 = 2;
-pub const DMA_INTMASK0_MSKTRNERR_2: u32 = 4;
-pub const DMA_INTMASK0_MSKTRNERR_3: u32 = 8;
-pub const DMA_INTMASK0_MSKREQERR_POS: u32 = 16;
-pub const DMA_INTMASK0_MSKREQERR: u32 = 983040;
-pub const DMA_INTMASK0_MSKREQERR_0: u32 = 65536;
-pub const DMA_INTMASK0_MSKREQERR_1: u32 = 131072;
-pub const DMA_INTMASK0_MSKREQERR_2: u32 = 262144;
-pub const DMA_INTMASK0_MSKREQERR_3: u32 = 524288;
-pub const DMA_INTMASK1_MSKTC_POS: u32 = 0;
-pub const DMA_INTMASK1_MSKTC: u32 = 15;
-pub const DMA_INTMASK1_MSKTC_0: u32 = 1;
-pub const DMA_INTMASK1_MSKTC_1: u32 = 2;
-pub const DMA_INTMASK1_MSKTC_2: u32 = 4;
-pub const DMA_INTMASK1_MSKTC_3: u32 = 8;
-pub const DMA_INTMASK1_MSKBTC_POS: u32 = 16;
-pub const DMA_INTMASK1_MSKBTC: u32 = 983040;
-pub const DMA_INTMASK1_MSKBTC_0: u32 = 65536;
-pub const DMA_INTMASK1_MSKBTC_1: u32 = 131072;
-pub const DMA_INTMASK1_MSKBTC_2: u32 = 262144;
-pub const DMA_INTMASK1_MSKBTC_3: u32 = 524288;
-pub const DMA_INTCLR0_CLRTRNERR_POS: u32 = 0;
-pub const DMA_INTCLR0_CLRTRNERR: u32 = 15;
-pub const DMA_INTCLR0_CLRTRNERR_0: u32 = 1;
-pub const DMA_INTCLR0_CLRTRNERR_1: u32 = 2;
-pub const DMA_INTCLR0_CLRTRNERR_2: u32 = 4;
-pub const DMA_INTCLR0_CLRTRNERR_3: u32 = 8;
-pub const DMA_INTCLR0_CLRREQERR_POS: u32 = 16;
-pub const DMA_INTCLR0_CLRREQERR: u32 = 983040;
-pub const DMA_INTCLR0_CLRREQERR_0: u32 = 65536;
-pub const DMA_INTCLR0_CLRREQERR_1: u32 = 131072;
-pub const DMA_INTCLR0_CLRREQERR_2: u32 = 262144;
-pub const DMA_INTCLR0_CLRREQERR_3: u32 = 524288;
-pub const DMA_INTCLR1_CLRTC_POS: u32 = 0;
-pub const DMA_INTCLR1_CLRTC: u32 = 15;
-pub const DMA_INTCLR1_CLRTC_0: u32 = 1;
-pub const DMA_INTCLR1_CLRTC_1: u32 = 2;
-pub const DMA_INTCLR1_CLRTC_2: u32 = 4;
-pub const DMA_INTCLR1_CLRTC_3: u32 = 8;
-pub const DMA_INTCLR1_CLRBTC_POS: u32 = 16;
-pub const DMA_INTCLR1_CLRBTC: u32 = 983040;
-pub const DMA_INTCLR1_CLRBTC_0: u32 = 65536;
-pub const DMA_INTCLR1_CLRBTC_1: u32 = 131072;
-pub const DMA_INTCLR1_CLRBTC_2: u32 = 262144;
-pub const DMA_INTCLR1_CLRBTC_3: u32 = 524288;
-pub const DMA_CHEN_CHEN: u32 = 15;
-pub const DMA_CHEN_CHEN_0: u32 = 1;
-pub const DMA_CHEN_CHEN_1: u32 = 2;
-pub const DMA_CHEN_CHEN_2: u32 = 4;
-pub const DMA_CHEN_CHEN_3: u32 = 8;
-pub const DMA_REQSTAT_CHREQ_POS: u32 = 0;
-pub const DMA_REQSTAT_CHREQ: u32 = 15;
-pub const DMA_REQSTAT_CHREQ_0: u32 = 1;
-pub const DMA_REQSTAT_CHREQ_1: u32 = 2;
-pub const DMA_REQSTAT_CHREQ_2: u32 = 4;
-pub const DMA_REQSTAT_CHREQ_3: u32 = 8;
-pub const DMA_REQSTAT_RCFGREQ_POS: u32 = 15;
-pub const DMA_REQSTAT_RCFGREQ: u32 = 32768;
-pub const DMA_CHSTAT_DMAACT_POS: u32 = 0;
-pub const DMA_CHSTAT_DMAACT: u32 = 1;
-pub const DMA_CHSTAT_RCFGACT_POS: u32 = 1;
-pub const DMA_CHSTAT_RCFGACT: u32 = 2;
-pub const DMA_CHSTAT_CHACT_POS: u32 = 16;
-pub const DMA_CHSTAT_CHACT: u32 = 983040;
-pub const DMA_CHSTAT_CHACT_0: u32 = 65536;
-pub const DMA_CHSTAT_CHACT_1: u32 = 131072;
-pub const DMA_CHSTAT_CHACT_2: u32 = 262144;
-pub const DMA_CHSTAT_CHACT_3: u32 = 524288;
-pub const DMA_RCFGCTL_RCFGEN_POS: u32 = 0;
-pub const DMA_RCFGCTL_RCFGEN: u32 = 1;
-pub const DMA_RCFGCTL_RCFGLLP_POS: u32 = 1;
-pub const DMA_RCFGCTL_RCFGLLP: u32 = 2;
-pub const DMA_RCFGCTL_RCFGCHS_POS: u32 = 8;
-pub const DMA_RCFGCTL_RCFGCHS: u32 = 3840;
-pub const DMA_RCFGCTL_RCFGCHS_0: u32 = 256;
-pub const DMA_RCFGCTL_RCFGCHS_1: u32 = 512;
-pub const DMA_RCFGCTL_RCFGCHS_2: u32 = 1024;
-pub const DMA_RCFGCTL_RCFGCHS_3: u32 = 2048;
-pub const DMA_RCFGCTL_SARMD_POS: u32 = 16;
-pub const DMA_RCFGCTL_SARMD: u32 = 196608;
-pub const DMA_RCFGCTL_SARMD_0: u32 = 65536;
-pub const DMA_RCFGCTL_SARMD_1: u32 = 131072;
-pub const DMA_RCFGCTL_DARMD_POS: u32 = 18;
-pub const DMA_RCFGCTL_DARMD: u32 = 786432;
-pub const DMA_RCFGCTL_DARMD_0: u32 = 262144;
-pub const DMA_RCFGCTL_DARMD_1: u32 = 524288;
-pub const DMA_RCFGCTL_CNTMD_POS: u32 = 20;
-pub const DMA_RCFGCTL_CNTMD: u32 = 3145728;
-pub const DMA_RCFGCTL_CNTMD_0: u32 = 1048576;
-pub const DMA_RCFGCTL_CNTMD_1: u32 = 2097152;
-pub const DMA_SWREQ_SWREQ_POS: u32 = 0;
-pub const DMA_SWREQ_SWREQ: u32 = 255;
-pub const DMA_SWREQ_SWREQ_0: u32 = 1;
-pub const DMA_SWREQ_SWREQ_1: u32 = 2;
-pub const DMA_SWREQ_SWREQ_2: u32 = 4;
-pub const DMA_SWREQ_SWREQ_3: u32 = 8;
-pub const DMA_SWREQ_SWREQ_4: u32 = 16;
-pub const DMA_SWREQ_SWREQ_5: u32 = 32;
-pub const DMA_SWREQ_SWREQ_6: u32 = 64;
-pub const DMA_SWREQ_SWREQ_7: u32 = 128;
-pub const DMA_SWREQ_SWRCFGREQ_POS: u32 = 15;
-pub const DMA_SWREQ_SWRCFGREQ: u32 = 32768;
-pub const DMA_SWREQ_SWREQWP_POS: u32 = 16;
-pub const DMA_SWREQ_SWREQWP: u32 = 16711680;
-pub const DMA_SWREQ_SWRCFGWP_POS: u32 = 24;
-pub const DMA_SWREQ_SWRCFGWP: u32 = 4278190080;
-pub const DMA_SAR: u32 = 4294967295;
-pub const DMA_DAR: u32 = 4294967295;
-pub const DMA_DTCTL_BLKSIZE_POS: u32 = 0;
-pub const DMA_DTCTL_BLKSIZE: u32 = 1023;
-pub const DMA_DTCTL_CNT_POS: u32 = 16;
-pub const DMA_DTCTL_CNT: u32 = 4294901760;
-pub const DMA_RPT_SRPT_POS: u32 = 0;
-pub const DMA_RPT_SRPT: u32 = 1023;
-pub const DMA_RPT_DRPT_POS: u32 = 16;
-pub const DMA_RPT_DRPT: u32 = 67043328;
-pub const DMA_RPTB_SRPTB_POS: u32 = 0;
-pub const DMA_RPTB_SRPTB: u32 = 1023;
-pub const DMA_RPTB_DRPTB_POS: u32 = 16;
-pub const DMA_RPTB_DRPTB: u32 = 67043328;
-pub const DMA_SNSEQCTL_SOFFSET_POS: u32 = 0;
-pub const DMA_SNSEQCTL_SOFFSET: u32 = 1048575;
-pub const DMA_SNSEQCTL_SNSCNT_POS: u32 = 20;
-pub const DMA_SNSEQCTL_SNSCNT: u32 = 4293918720;
-pub const DMA_SNSEQCTLB_SNSDIST_POS: u32 = 0;
-pub const DMA_SNSEQCTLB_SNSDIST: u32 = 1048575;
-pub const DMA_SNSEQCTLB_SNSCNTB_POS: u32 = 20;
-pub const DMA_SNSEQCTLB_SNSCNTB: u32 = 4293918720;
-pub const DMA_DNSEQCTL_DOFFSET_POS: u32 = 0;
-pub const DMA_DNSEQCTL_DOFFSET: u32 = 1048575;
-pub const DMA_DNSEQCTL_DNSCNT_POS: u32 = 20;
-pub const DMA_DNSEQCTL_DNSCNT: u32 = 4293918720;
-pub const DMA_DNSEQCTLB_DNSDIST_POS: u32 = 0;
-pub const DMA_DNSEQCTLB_DNSDIST: u32 = 1048575;
-pub const DMA_DNSEQCTLB_DNSCNTB_POS: u32 = 20;
-pub const DMA_DNSEQCTLB_DNSCNTB: u32 = 4293918720;
-pub const DMA_LLP_LLP_POS: u32 = 2;
-pub const DMA_LLP_LLP: u32 = 4294967292;
-pub const DMA_CHCTL_SINC_POS: u32 = 0;
-pub const DMA_CHCTL_SINC: u32 = 3;
-pub const DMA_CHCTL_SINC_0: u32 = 1;
-pub const DMA_CHCTL_SINC_1: u32 = 2;
-pub const DMA_CHCTL_DINC_POS: u32 = 2;
-pub const DMA_CHCTL_DINC: u32 = 12;
-pub const DMA_CHCTL_DINC_0: u32 = 4;
-pub const DMA_CHCTL_DINC_1: u32 = 8;
-pub const DMA_CHCTL_SRPTEN_POS: u32 = 4;
-pub const DMA_CHCTL_SRPTEN: u32 = 16;
-pub const DMA_CHCTL_DRPTEN_POS: u32 = 5;
-pub const DMA_CHCTL_DRPTEN: u32 = 32;
-pub const DMA_CHCTL_SNSEQEN_POS: u32 = 6;
-pub const DMA_CHCTL_SNSEQEN: u32 = 64;
-pub const DMA_CHCTL_DNSEQEN_POS: u32 = 7;
-pub const DMA_CHCTL_DNSEQEN: u32 = 128;
-pub const DMA_CHCTL_HSIZE_POS: u32 = 8;
-pub const DMA_CHCTL_HSIZE: u32 = 768;
-pub const DMA_CHCTL_HSIZE_0: u32 = 256;
-pub const DMA_CHCTL_HSIZE_1: u32 = 512;
-pub const DMA_CHCTL_LLPEN_POS: u32 = 10;
-pub const DMA_CHCTL_LLPEN: u32 = 1024;
-pub const DMA_CHCTL_LLPRUN_POS: u32 = 11;
-pub const DMA_CHCTL_LLPRUN: u32 = 2048;
-pub const DMA_CHCTL_IE_POS: u32 = 12;
-pub const DMA_CHCTL_IE: u32 = 4096;
-pub const DMA_MONSAR: u32 = 4294967295;
-pub const DMA_MONDAR: u32 = 4294967295;
-pub const DMA_MONDTCTL_BLKSIZE_POS: u32 = 0;
-pub const DMA_MONDTCTL_BLKSIZE: u32 = 1023;
-pub const DMA_MONDTCTL_CNT_POS: u32 = 16;
-pub const DMA_MONDTCTL_CNT: u32 = 4294901760;
-pub const DMA_MONRPT_SRPT_POS: u32 = 0;
-pub const DMA_MONRPT_SRPT: u32 = 1023;
-pub const DMA_MONRPT_DRPT_POS: u32 = 16;
-pub const DMA_MONRPT_DRPT: u32 = 67043328;
-pub const DMA_MONSNSEQCTL_SOFFSET_POS: u32 = 0;
-pub const DMA_MONSNSEQCTL_SOFFSET: u32 = 1048575;
-pub const DMA_MONSNSEQCTL_SNSCNT_POS: u32 = 20;
-pub const DMA_MONSNSEQCTL_SNSCNT: u32 = 4293918720;
-pub const DMA_MONDNSEQCTL_DOFFSET_POS: u32 = 0;
-pub const DMA_MONDNSEQCTL_DOFFSET: u32 = 1048575;
-pub const DMA_MONDNSEQCTL_DNSCNT_POS: u32 = 20;
-pub const DMA_MONDNSEQCTL_DNSCNT: u32 = 4293918720;
-pub const EFM_FAPRT_FAPRT: u32 = 65535;
-pub const EFM_FSTP_FSTP: u32 = 1;
-pub const EFM_FRMC_SLPMD_POS: u32 = 0;
-pub const EFM_FRMC_SLPMD: u32 = 1;
-pub const EFM_FRMC_FLWT_POS: u32 = 4;
-pub const EFM_FRMC_FLWT: u32 = 240;
-pub const EFM_FRMC_LVM_POS: u32 = 8;
-pub const EFM_FRMC_LVM: u32 = 256;
-pub const EFM_FRMC_CACHE_POS: u32 = 16;
-pub const EFM_FRMC_CACHE: u32 = 65536;
-pub const EFM_FRMC_CRST_POS: u32 = 24;
-pub const EFM_FRMC_CRST: u32 = 16777216;
-pub const EFM_FWMC_PEMODE_POS: u32 = 0;
-pub const EFM_FWMC_PEMODE: u32 = 1;
-pub const EFM_FWMC_PEMOD_POS: u32 = 4;
-pub const EFM_FWMC_PEMOD: u32 = 112;
-pub const EFM_FWMC_BUSHLDCTL_POS: u32 = 8;
-pub const EFM_FWMC_BUSHLDCTL: u32 = 256;
-pub const EFM_FSR_PEWERR_POS: u32 = 0;
-pub const EFM_FSR_PEWERR: u32 = 1;
-pub const EFM_FSR_PEPRTERR_POS: u32 = 1;
-pub const EFM_FSR_PEPRTERR: u32 = 2;
-pub const EFM_FSR_PGSZERR_POS: u32 = 2;
-pub const EFM_FSR_PGSZERR: u32 = 4;
-pub const EFM_FSR_PGMISMTCH_POS: u32 = 3;
-pub const EFM_FSR_PGMISMTCH: u32 = 8;
-pub const EFM_FSR_OPTEND_POS: u32 = 4;
-pub const EFM_FSR_OPTEND: u32 = 16;
-pub const EFM_FSR_COLERR_POS: u32 = 5;
-pub const EFM_FSR_COLERR: u32 = 32;
-pub const EFM_FSR_RDY_POS: u32 = 8;
-pub const EFM_FSR_RDY: u32 = 256;
-pub const EFM_FSCLR_PEWERRCLR_POS: u32 = 0;
-pub const EFM_FSCLR_PEWERRCLR: u32 = 1;
-pub const EFM_FSCLR_PEPRTERRCLR_POS: u32 = 1;
-pub const EFM_FSCLR_PEPRTERRCLR: u32 = 2;
-pub const EFM_FSCLR_PGSZERRCLR_POS: u32 = 2;
-pub const EFM_FSCLR_PGSZERRCLR: u32 = 4;
-pub const EFM_FSCLR_PGMISMTCHCLR_POS: u32 = 3;
-pub const EFM_FSCLR_PGMISMTCHCLR: u32 = 8;
-pub const EFM_FSCLR_OPTENDCLR_POS: u32 = 4;
-pub const EFM_FSCLR_OPTENDCLR: u32 = 16;
-pub const EFM_FSCLR_COLERRCLR_POS: u32 = 5;
-pub const EFM_FSCLR_COLERRCLR: u32 = 32;
-pub const EFM_FITE_PEERRITE_POS: u32 = 0;
-pub const EFM_FITE_PEERRITE: u32 = 1;
-pub const EFM_FITE_OPTENDITE_POS: u32 = 1;
-pub const EFM_FITE_OPTENDITE: u32 = 2;
-pub const EFM_FITE_COLERRITE_POS: u32 = 2;
-pub const EFM_FITE_COLERRITE: u32 = 4;
-pub const EFM_FSWP_FSWP: u32 = 1;
-pub const EFM_FPMTSW_FPMTSW: u32 = 524287;
-pub const EFM_FPMTEW_FPMTEW: u32 = 524287;
-pub const EFM_UQID0: u32 = 4294967295;
-pub const EFM_UQID1: u32 = 4294967295;
-pub const EFM_UQID2: u32 = 4294967295;
-pub const EFM_MMF_REMPRT_REMPRT: u32 = 65535;
-pub const EFM_MMF_REMCR_RMSIZE_POS: u32 = 0;
-pub const EFM_MMF_REMCR_RMSIZE: u32 = 31;
-pub const EFM_MMF_REMCR_RMTADDR_POS: u32 = 12;
-pub const EFM_MMF_REMCR_RMTADDR: u32 = 536866816;
-pub const EFM_MMF_REMCR_EN_POS: u32 = 31;
-pub const EFM_MMF_REMCR_EN: u32 = 2147483648;
-pub const EMB_CTL_PORTINEN_POS: u32 = 0;
-pub const EMB_CTL_PORTINEN: u32 = 1;
-pub const EMB_CTL_CMPEN1_POS: u32 = 1;
-pub const EMB_CTL_CMPEN1: u32 = 2;
-pub const EMB_CTL_CMPEN2_POS: u32 = 2;
-pub const EMB_CTL_CMPEN2: u32 = 4;
-pub const EMB_CTL_CMPEN3_POS: u32 = 3;
-pub const EMB_CTL_CMPEN3: u32 = 8;
-pub const EMB_CTL_OSCSTPEN_POS: u32 = 5;
-pub const EMB_CTL_OSCSTPEN: u32 = 32;
-pub const EMB_CTL_PWMSEN0_POS: u32 = 6;
-pub const EMB_CTL_PWMSEN0: u32 = 64;
-pub const EMB_CTL_PWMSEN1_POS: u32 = 7;
-pub const EMB_CTL_PWMSEN1: u32 = 128;
-pub const EMB_CTL_PWMSEN2_POS: u32 = 8;
-pub const EMB_CTL_PWMSEN2: u32 = 256;
-pub const EMB_CTL_NFSEL_POS: u32 = 28;
-pub const EMB_CTL_NFSEL: u32 = 805306368;
-pub const EMB_CTL_NFEN_POS: u32 = 30;
-pub const EMB_CTL_NFEN: u32 = 1073741824;
-pub const EMB_CTL_INVSEL_POS: u32 = 31;
-pub const EMB_CTL_INVSEL: u32 = 2147483648;
-pub const EMB_PWMLV_PWMLV0_POS: u32 = 0;
-pub const EMB_PWMLV_PWMLV0: u32 = 1;
-pub const EMB_PWMLV_PWMLV1_POS: u32 = 1;
-pub const EMB_PWMLV_PWMLV1: u32 = 2;
-pub const EMB_PWMLV_PWMLV2_POS: u32 = 2;
-pub const EMB_PWMLV_PWMLV2: u32 = 4;
-pub const EMB_SOE_SOE: u32 = 1;
-pub const EMB_STAT_PORTINF_POS: u32 = 0;
-pub const EMB_STAT_PORTINF: u32 = 1;
-pub const EMB_STAT_PWMSF_POS: u32 = 1;
-pub const EMB_STAT_PWMSF: u32 = 2;
-pub const EMB_STAT_CMPF_POS: u32 = 2;
-pub const EMB_STAT_CMPF: u32 = 4;
-pub const EMB_STAT_OSF_POS: u32 = 3;
-pub const EMB_STAT_OSF: u32 = 8;
-pub const EMB_STAT_PORTINST_POS: u32 = 4;
-pub const EMB_STAT_PORTINST: u32 = 16;
-pub const EMB_STAT_PWMST_POS: u32 = 5;
-pub const EMB_STAT_PWMST: u32 = 32;
-pub const EMB_STATCLR_PORTINFCLR_POS: u32 = 0;
-pub const EMB_STATCLR_PORTINFCLR: u32 = 1;
-pub const EMB_STATCLR_PWMSFCLR_POS: u32 = 1;
-pub const EMB_STATCLR_PWMSFCLR: u32 = 2;
-pub const EMB_STATCLR_CMPFCLR_POS: u32 = 2;
-pub const EMB_STATCLR_CMPFCLR: u32 = 4;
-pub const EMB_STATCLR_OSFCLR_POS: u32 = 3;
-pub const EMB_STATCLR_OSFCLR: u32 = 8;
-pub const EMB_INTEN_PORTININTEN_POS: u32 = 0;
-pub const EMB_INTEN_PORTININTEN: u32 = 1;
-pub const EMB_INTEN_PWMSINTEN_POS: u32 = 1;
-pub const EMB_INTEN_PWMSINTEN: u32 = 2;
-pub const EMB_INTEN_CMPINTEN_POS: u32 = 2;
-pub const EMB_INTEN_CMPINTEN: u32 = 4;
-pub const EMB_INTEN_OSINTEN_POS: u32 = 3;
-pub const EMB_INTEN_OSINTEN: u32 = 8;
-pub const FCM_LVR_LVR: u32 = 65535;
-pub const FCM_UVR_UVR: u32 = 65535;
-pub const FCM_CNTR_CNTR: u32 = 65535;
-pub const FCM_STR_START: u32 = 1;
-pub const FCM_MCCR_MDIVS_POS: u32 = 0;
-pub const FCM_MCCR_MDIVS: u32 = 3;
-pub const FCM_MCCR_MDIVS_0: u32 = 1;
-pub const FCM_MCCR_MDIVS_1: u32 = 2;
-pub const FCM_MCCR_MCKS_POS: u32 = 4;
-pub const FCM_MCCR_MCKS: u32 = 240;
-pub const FCM_RCCR_RDIVS_POS: u32 = 0;
-pub const FCM_RCCR_RDIVS: u32 = 3;
-pub const FCM_RCCR_RDIVS_0: u32 = 1;
-pub const FCM_RCCR_RDIVS_1: u32 = 2;
-pub const FCM_RCCR_RCKS_POS: u32 = 3;
-pub const FCM_RCCR_RCKS: u32 = 120;
-pub const FCM_RCCR_INEXS_POS: u32 = 7;
-pub const FCM_RCCR_INEXS: u32 = 128;
-pub const FCM_RCCR_DNFS_POS: u32 = 8;
-pub const FCM_RCCR_DNFS: u32 = 768;
-pub const FCM_RCCR_DNFS_0: u32 = 256;
-pub const FCM_RCCR_DNFS_1: u32 = 512;
-pub const FCM_RCCR_EDGES_POS: u32 = 12;
-pub const FCM_RCCR_EDGES: u32 = 12288;
-pub const FCM_RCCR_EDGES_0: u32 = 4096;
-pub const FCM_RCCR_EDGES_1: u32 = 8192;
-pub const FCM_RCCR_EXREFE_POS: u32 = 15;
-pub const FCM_RCCR_EXREFE: u32 = 32768;
-pub const FCM_RIER_ERRIE_POS: u32 = 0;
-pub const FCM_RIER_ERRIE: u32 = 1;
-pub const FCM_RIER_MENDIE_POS: u32 = 1;
-pub const FCM_RIER_MENDIE: u32 = 2;
-pub const FCM_RIER_OVFIE_POS: u32 = 2;
-pub const FCM_RIER_OVFIE: u32 = 4;
-pub const FCM_RIER_ERRINTRS_POS: u32 = 4;
-pub const FCM_RIER_ERRINTRS: u32 = 16;
-pub const FCM_RIER_ERRE_POS: u32 = 7;
-pub const FCM_RIER_ERRE: u32 = 128;
-pub const FCM_SR_ERRF_POS: u32 = 0;
-pub const FCM_SR_ERRF: u32 = 1;
-pub const FCM_SR_MENDF_POS: u32 = 1;
-pub const FCM_SR_MENDF: u32 = 2;
-pub const FCM_SR_OVF_POS: u32 = 2;
-pub const FCM_SR_OVF: u32 = 4;
-pub const FCM_CLR_ERRFCLR_POS: u32 = 0;
-pub const FCM_CLR_ERRFCLR: u32 = 1;
-pub const FCM_CLR_MENDFCLR_POS: u32 = 1;
-pub const FCM_CLR_MENDFCLR: u32 = 2;
-pub const FCM_CLR_OVFCLR_POS: u32 = 2;
-pub const FCM_CLR_OVFCLR: u32 = 4;
-pub const GPIO_PIDR_PIN00_POS: u32 = 0;
-pub const GPIO_PIDR_PIN00: u32 = 1;
-pub const GPIO_PIDR_PIN01_POS: u32 = 1;
-pub const GPIO_PIDR_PIN01: u32 = 2;
-pub const GPIO_PIDR_PIN02_POS: u32 = 2;
-pub const GPIO_PIDR_PIN02: u32 = 4;
-pub const GPIO_PIDR_PIN03_POS: u32 = 3;
-pub const GPIO_PIDR_PIN03: u32 = 8;
-pub const GPIO_PIDR_PIN04_POS: u32 = 4;
-pub const GPIO_PIDR_PIN04: u32 = 16;
-pub const GPIO_PIDR_PIN05_POS: u32 = 5;
-pub const GPIO_PIDR_PIN05: u32 = 32;
-pub const GPIO_PIDR_PIN06_POS: u32 = 6;
-pub const GPIO_PIDR_PIN06: u32 = 64;
-pub const GPIO_PIDR_PIN07_POS: u32 = 7;
-pub const GPIO_PIDR_PIN07: u32 = 128;
-pub const GPIO_PIDR_PIN08_POS: u32 = 8;
-pub const GPIO_PIDR_PIN08: u32 = 256;
-pub const GPIO_PIDR_PIN09_POS: u32 = 9;
-pub const GPIO_PIDR_PIN09: u32 = 512;
-pub const GPIO_PIDR_PIN10_POS: u32 = 10;
-pub const GPIO_PIDR_PIN10: u32 = 1024;
-pub const GPIO_PIDR_PIN11_POS: u32 = 11;
-pub const GPIO_PIDR_PIN11: u32 = 2048;
-pub const GPIO_PIDR_PIN12_POS: u32 = 12;
-pub const GPIO_PIDR_PIN12: u32 = 4096;
-pub const GPIO_PIDR_PIN13_POS: u32 = 13;
-pub const GPIO_PIDR_PIN13: u32 = 8192;
-pub const GPIO_PIDR_PIN14_POS: u32 = 14;
-pub const GPIO_PIDR_PIN14: u32 = 16384;
-pub const GPIO_PIDR_PIN15_POS: u32 = 15;
-pub const GPIO_PIDR_PIN15: u32 = 32768;
-pub const GPIO_PODR_POUT00_POS: u32 = 0;
-pub const GPIO_PODR_POUT00: u32 = 1;
-pub const GPIO_PODR_POUT01_POS: u32 = 1;
-pub const GPIO_PODR_POUT01: u32 = 2;
-pub const GPIO_PODR_POUT02_POS: u32 = 2;
-pub const GPIO_PODR_POUT02: u32 = 4;
-pub const GPIO_PODR_POUT03_POS: u32 = 3;
-pub const GPIO_PODR_POUT03: u32 = 8;
-pub const GPIO_PODR_POUT04_POS: u32 = 4;
-pub const GPIO_PODR_POUT04: u32 = 16;
-pub const GPIO_PODR_POUT05_POS: u32 = 5;
-pub const GPIO_PODR_POUT05: u32 = 32;
-pub const GPIO_PODR_POUT06_POS: u32 = 6;
-pub const GPIO_PODR_POUT06: u32 = 64;
-pub const GPIO_PODR_POUT07_POS: u32 = 7;
-pub const GPIO_PODR_POUT07: u32 = 128;
-pub const GPIO_PODR_POUT08_POS: u32 = 8;
-pub const GPIO_PODR_POUT08: u32 = 256;
-pub const GPIO_PODR_POUT09_POS: u32 = 9;
-pub const GPIO_PODR_POUT09: u32 = 512;
-pub const GPIO_PODR_POUT10_POS: u32 = 10;
-pub const GPIO_PODR_POUT10: u32 = 1024;
-pub const GPIO_PODR_POUT11_POS: u32 = 11;
-pub const GPIO_PODR_POUT11: u32 = 2048;
-pub const GPIO_PODR_POUT12_POS: u32 = 12;
-pub const GPIO_PODR_POUT12: u32 = 4096;
-pub const GPIO_PODR_POUT13_POS: u32 = 13;
-pub const GPIO_PODR_POUT13: u32 = 8192;
-pub const GPIO_PODR_POUT14_POS: u32 = 14;
-pub const GPIO_PODR_POUT14: u32 = 16384;
-pub const GPIO_PODR_POUT15_POS: u32 = 15;
-pub const GPIO_PODR_POUT15: u32 = 32768;
-pub const GPIO_POER_POUTE00_POS: u32 = 0;
-pub const GPIO_POER_POUTE00: u32 = 1;
-pub const GPIO_POER_POUTE01_POS: u32 = 1;
-pub const GPIO_POER_POUTE01: u32 = 2;
-pub const GPIO_POER_POUTE02_POS: u32 = 2;
-pub const GPIO_POER_POUTE02: u32 = 4;
-pub const GPIO_POER_POUTE03_POS: u32 = 3;
-pub const GPIO_POER_POUTE03: u32 = 8;
-pub const GPIO_POER_POUTE04_POS: u32 = 4;
-pub const GPIO_POER_POUTE04: u32 = 16;
-pub const GPIO_POER_POUTE05_POS: u32 = 5;
-pub const GPIO_POER_POUTE05: u32 = 32;
-pub const GPIO_POER_POUTE06_POS: u32 = 6;
-pub const GPIO_POER_POUTE06: u32 = 64;
-pub const GPIO_POER_POUTE07_POS: u32 = 7;
-pub const GPIO_POER_POUTE07: u32 = 128;
-pub const GPIO_POER_POUTE08_POS: u32 = 8;
-pub const GPIO_POER_POUTE08: u32 = 256;
-pub const GPIO_POER_POUTE09_POS: u32 = 9;
-pub const GPIO_POER_POUTE09: u32 = 512;
-pub const GPIO_POER_POUTE10_POS: u32 = 10;
-pub const GPIO_POER_POUTE10: u32 = 1024;
-pub const GPIO_POER_POUTE11_POS: u32 = 11;
-pub const GPIO_POER_POUTE11: u32 = 2048;
-pub const GPIO_POER_POUTE12_POS: u32 = 12;
-pub const GPIO_POER_POUTE12: u32 = 4096;
-pub const GPIO_POER_POUTE13_POS: u32 = 13;
-pub const GPIO_POER_POUTE13: u32 = 8192;
-pub const GPIO_POER_POUTE14_POS: u32 = 14;
-pub const GPIO_POER_POUTE14: u32 = 16384;
-pub const GPIO_POER_POUTE15_POS: u32 = 15;
-pub const GPIO_POER_POUTE15: u32 = 32768;
-pub const GPIO_POSR_POS00_POS: u32 = 0;
-pub const GPIO_POSR_POS00: u32 = 1;
-pub const GPIO_POSR_POS01_POS: u32 = 1;
-pub const GPIO_POSR_POS01: u32 = 2;
-pub const GPIO_POSR_POS02_POS: u32 = 2;
-pub const GPIO_POSR_POS02: u32 = 4;
-pub const GPIO_POSR_POS03_POS: u32 = 3;
-pub const GPIO_POSR_POS03: u32 = 8;
-pub const GPIO_POSR_POS04_POS: u32 = 4;
-pub const GPIO_POSR_POS04: u32 = 16;
-pub const GPIO_POSR_POS05_POS: u32 = 5;
-pub const GPIO_POSR_POS05: u32 = 32;
-pub const GPIO_POSR_POS06_POS: u32 = 6;
-pub const GPIO_POSR_POS06: u32 = 64;
-pub const GPIO_POSR_POS07_POS: u32 = 7;
-pub const GPIO_POSR_POS07: u32 = 128;
-pub const GPIO_POSR_POS08_POS: u32 = 8;
-pub const GPIO_POSR_POS08: u32 = 256;
-pub const GPIO_POSR_POS09_POS: u32 = 9;
-pub const GPIO_POSR_POS09: u32 = 512;
-pub const GPIO_POSR_POS10_POS: u32 = 10;
-pub const GPIO_POSR_POS10: u32 = 1024;
-pub const GPIO_POSR_POS11_POS: u32 = 11;
-pub const GPIO_POSR_POS11: u32 = 2048;
-pub const GPIO_POSR_POS12_POS: u32 = 12;
-pub const GPIO_POSR_POS12: u32 = 4096;
-pub const GPIO_POSR_POS13_POS: u32 = 13;
-pub const GPIO_POSR_POS13: u32 = 8192;
-pub const GPIO_POSR_POS14_POS: u32 = 14;
-pub const GPIO_POSR_POS14: u32 = 16384;
-pub const GPIO_POSR_POS15_POS: u32 = 15;
-pub const GPIO_POSR_POS15: u32 = 32768;
-pub const GPIO_PORR_POR00_POS: u32 = 0;
-pub const GPIO_PORR_POR00: u32 = 1;
-pub const GPIO_PORR_POR01_POS: u32 = 1;
-pub const GPIO_PORR_POR01: u32 = 2;
-pub const GPIO_PORR_POR02_POS: u32 = 2;
-pub const GPIO_PORR_POR02: u32 = 4;
-pub const GPIO_PORR_POR03_POS: u32 = 3;
-pub const GPIO_PORR_POR03: u32 = 8;
-pub const GPIO_PORR_POR04_POS: u32 = 4;
-pub const GPIO_PORR_POR04: u32 = 16;
-pub const GPIO_PORR_POR05_POS: u32 = 5;
-pub const GPIO_PORR_POR05: u32 = 32;
-pub const GPIO_PORR_POR06_POS: u32 = 6;
-pub const GPIO_PORR_POR06: u32 = 64;
-pub const GPIO_PORR_POR07_POS: u32 = 7;
-pub const GPIO_PORR_POR07: u32 = 128;
-pub const GPIO_PORR_POR08_POS: u32 = 8;
-pub const GPIO_PORR_POR08: u32 = 256;
-pub const GPIO_PORR_POR09_POS: u32 = 9;
-pub const GPIO_PORR_POR09: u32 = 512;
-pub const GPIO_PORR_POR10_POS: u32 = 10;
-pub const GPIO_PORR_POR10: u32 = 1024;
-pub const GPIO_PORR_POR11_POS: u32 = 11;
-pub const GPIO_PORR_POR11: u32 = 2048;
-pub const GPIO_PORR_POR12_POS: u32 = 12;
-pub const GPIO_PORR_POR12: u32 = 4096;
-pub const GPIO_PORR_POR13_POS: u32 = 13;
-pub const GPIO_PORR_POR13: u32 = 8192;
-pub const GPIO_PORR_POR14_POS: u32 = 14;
-pub const GPIO_PORR_POR14: u32 = 16384;
-pub const GPIO_PORR_POR15_POS: u32 = 15;
-pub const GPIO_PORR_POR15: u32 = 32768;
-pub const GPIO_POTR_POT00_POS: u32 = 0;
-pub const GPIO_POTR_POT00: u32 = 1;
-pub const GPIO_POTR_POT01_POS: u32 = 1;
-pub const GPIO_POTR_POT01: u32 = 2;
-pub const GPIO_POTR_POT02_POS: u32 = 2;
-pub const GPIO_POTR_POT02: u32 = 4;
-pub const GPIO_POTR_POT03_POS: u32 = 3;
-pub const GPIO_POTR_POT03: u32 = 8;
-pub const GPIO_POTR_POT04_POS: u32 = 4;
-pub const GPIO_POTR_POT04: u32 = 16;
-pub const GPIO_POTR_POT05_POS: u32 = 5;
-pub const GPIO_POTR_POT05: u32 = 32;
-pub const GPIO_POTR_POT06_POS: u32 = 6;
-pub const GPIO_POTR_POT06: u32 = 64;
-pub const GPIO_POTR_POT07_POS: u32 = 7;
-pub const GPIO_POTR_POT07: u32 = 128;
-pub const GPIO_POTR_POT08_POS: u32 = 8;
-pub const GPIO_POTR_POT08: u32 = 256;
-pub const GPIO_POTR_POT09_POS: u32 = 9;
-pub const GPIO_POTR_POT09: u32 = 512;
-pub const GPIO_POTR_POT10_POS: u32 = 10;
-pub const GPIO_POTR_POT10: u32 = 1024;
-pub const GPIO_POTR_POT11_POS: u32 = 11;
-pub const GPIO_POTR_POT11: u32 = 2048;
-pub const GPIO_POTR_POT12_POS: u32 = 12;
-pub const GPIO_POTR_POT12: u32 = 4096;
-pub const GPIO_POTR_POT13_POS: u32 = 13;
-pub const GPIO_POTR_POT13: u32 = 8192;
-pub const GPIO_POTR_POT14_POS: u32 = 14;
-pub const GPIO_POTR_POT14: u32 = 16384;
-pub const GPIO_POTR_POT15_POS: u32 = 15;
-pub const GPIO_POTR_POT15: u32 = 32768;
-pub const GPIO_PIDRH_PIN00_POS: u32 = 0;
-pub const GPIO_PIDRH_PIN00: u32 = 1;
-pub const GPIO_PIDRH_PIN01_POS: u32 = 1;
-pub const GPIO_PIDRH_PIN01: u32 = 2;
-pub const GPIO_PIDRH_PIN02_POS: u32 = 2;
-pub const GPIO_PIDRH_PIN02: u32 = 4;
-pub const GPIO_PODRH_POUT00_POS: u32 = 0;
-pub const GPIO_PODRH_POUT00: u32 = 1;
-pub const GPIO_PODRH_POUT01_POS: u32 = 1;
-pub const GPIO_PODRH_POUT01: u32 = 2;
-pub const GPIO_PODRH_POUT02_POS: u32 = 2;
-pub const GPIO_PODRH_POUT02: u32 = 4;
-pub const GPIO_POERH_POUTE00_POS: u32 = 0;
-pub const GPIO_POERH_POUTE00: u32 = 1;
-pub const GPIO_POERH_POUTE01_POS: u32 = 1;
-pub const GPIO_POERH_POUTE01: u32 = 2;
-pub const GPIO_POERH_POUTE02_POS: u32 = 2;
-pub const GPIO_POERH_POUTE02: u32 = 4;
-pub const GPIO_POSRH_POS00_POS: u32 = 0;
-pub const GPIO_POSRH_POS00: u32 = 1;
-pub const GPIO_POSRH_POS01_POS: u32 = 1;
-pub const GPIO_POSRH_POS01: u32 = 2;
-pub const GPIO_POSRH_POS02_POS: u32 = 2;
-pub const GPIO_POSRH_POS02: u32 = 4;
-pub const GPIO_PORRH_POR00_POS: u32 = 0;
-pub const GPIO_PORRH_POR00: u32 = 1;
-pub const GPIO_PORRH_POR01_POS: u32 = 1;
-pub const GPIO_PORRH_POR01: u32 = 2;
-pub const GPIO_PORRH_POR02_POS: u32 = 2;
-pub const GPIO_PORRH_POR02: u32 = 4;
-pub const GPIO_POTRH_POT00_POS: u32 = 0;
-pub const GPIO_POTRH_POT00: u32 = 1;
-pub const GPIO_POTRH_POT01_POS: u32 = 1;
-pub const GPIO_POTRH_POT01: u32 = 2;
-pub const GPIO_POTRH_POT02_POS: u32 = 2;
-pub const GPIO_POTRH_POT02: u32 = 4;
-pub const GPIO_PSPCR_SPFE: u32 = 31;
-pub const GPIO_PSPCR_SPFE_0: u32 = 1;
-pub const GPIO_PSPCR_SPFE_1: u32 = 2;
-pub const GPIO_PSPCR_SPFE_2: u32 = 4;
-pub const GPIO_PSPCR_SPFE_3: u32 = 8;
-pub const GPIO_PSPCR_SPFE_4: u32 = 16;
-pub const GPIO_PCCR_BFSEL_POS: u32 = 0;
-pub const GPIO_PCCR_BFSEL: u32 = 15;
-pub const GPIO_PCCR_BFSEL_0: u32 = 1;
-pub const GPIO_PCCR_BFSEL_1: u32 = 2;
-pub const GPIO_PCCR_BFSEL_2: u32 = 4;
-pub const GPIO_PCCR_BFSEL_3: u32 = 8;
-pub const GPIO_PCCR_RDWT_POS: u32 = 14;
-pub const GPIO_PCCR_RDWT: u32 = 49152;
-pub const GPIO_PCCR_RDWT_0: u32 = 16384;
-pub const GPIO_PCCR_RDWT_1: u32 = 32768;
-pub const GPIO_PINAER_PINAE: u32 = 63;
-pub const GPIO_PINAER_PINAE_0: u32 = 1;
-pub const GPIO_PINAER_PINAE_1: u32 = 2;
-pub const GPIO_PINAER_PINAE_2: u32 = 4;
-pub const GPIO_PINAER_PINAE_3: u32 = 8;
-pub const GPIO_PINAER_PINAE_4: u32 = 16;
-pub const GPIO_PINAER_PINAE_5: u32 = 32;
-pub const GPIO_PWPR_WE_POS: u32 = 0;
-pub const GPIO_PWPR_WE: u32 = 1;
-pub const GPIO_PWPR_WP_POS: u32 = 8;
-pub const GPIO_PWPR_WP: u32 = 65280;
-pub const GPIO_PWPR_WP_0: u32 = 256;
-pub const GPIO_PWPR_WP_1: u32 = 512;
-pub const GPIO_PWPR_WP_2: u32 = 1024;
-pub const GPIO_PWPR_WP_3: u32 = 2048;
-pub const GPIO_PWPR_WP_4: u32 = 4096;
-pub const GPIO_PWPR_WP_5: u32 = 8192;
-pub const GPIO_PWPR_WP_6: u32 = 16384;
-pub const GPIO_PWPR_WP_7: u32 = 32768;
-pub const GPIO_PCR_POUT_POS: u32 = 0;
-pub const GPIO_PCR_POUT: u32 = 1;
-pub const GPIO_PCR_POUTE_POS: u32 = 1;
-pub const GPIO_PCR_POUTE: u32 = 2;
-pub const GPIO_PCR_NOD_POS: u32 = 2;
-pub const GPIO_PCR_NOD: u32 = 4;
-pub const GPIO_PCR_DRV_POS: u32 = 4;
-pub const GPIO_PCR_DRV: u32 = 48;
-pub const GPIO_PCR_DRV_0: u32 = 16;
-pub const GPIO_PCR_DRV_1: u32 = 32;
-pub const GPIO_PCR_PUU_POS: u32 = 6;
-pub const GPIO_PCR_PUU: u32 = 64;
-pub const GPIO_PCR_PIN_POS: u32 = 8;
-pub const GPIO_PCR_PIN: u32 = 256;
-pub const GPIO_PCR_INVE_POS: u32 = 9;
-pub const GPIO_PCR_INVE: u32 = 512;
-pub const GPIO_PCR_INTE_POS: u32 = 12;
-pub const GPIO_PCR_INTE: u32 = 4096;
-pub const GPIO_PCR_LTE_POS: u32 = 14;
-pub const GPIO_PCR_LTE: u32 = 16384;
-pub const GPIO_PCR_DDIS_POS: u32 = 15;
-pub const GPIO_PCR_DDIS: u32 = 32768;
-pub const GPIO_PFSR_FSEL_POS: u32 = 0;
-pub const GPIO_PFSR_FSEL: u32 = 63;
-pub const GPIO_PFSR_FSEL_0: u32 = 1;
-pub const GPIO_PFSR_FSEL_1: u32 = 2;
-pub const GPIO_PFSR_FSEL_2: u32 = 4;
-pub const GPIO_PFSR_FSEL_3: u32 = 8;
-pub const GPIO_PFSR_FSEL_4: u32 = 16;
-pub const GPIO_PFSR_FSEL_5: u32 = 32;
-pub const GPIO_PFSR_BFE_POS: u32 = 8;
-pub const GPIO_PFSR_BFE: u32 = 256;
-pub const HASH_CR_START_POS: u32 = 0;
-pub const HASH_CR_START: u32 = 1;
-pub const HASH_CR_FST_GRP_POS: u32 = 1;
-pub const HASH_CR_FST_GRP: u32 = 2;
-pub const HASH_HR7: u32 = 4294967295;
-pub const HASH_HR6: u32 = 4294967295;
-pub const HASH_HR5: u32 = 4294967295;
-pub const HASH_HR4: u32 = 4294967295;
-pub const HASH_HR3: u32 = 4294967295;
-pub const HASH_HR2: u32 = 4294967295;
-pub const HASH_HR1: u32 = 4294967295;
-pub const HASH_HR0: u32 = 4294967295;
-pub const HASH_DR15: u32 = 4294967295;
-pub const HASH_DR14: u32 = 4294967295;
-pub const HASH_DR13: u32 = 4294967295;
-pub const HASH_DR12: u32 = 4294967295;
-pub const HASH_DR11: u32 = 4294967295;
-pub const HASH_DR10: u32 = 4294967295;
-pub const HASH_DR9: u32 = 4294967295;
-pub const HASH_DR8: u32 = 4294967295;
-pub const HASH_DR7: u32 = 4294967295;
-pub const HASH_DR6: u32 = 4294967295;
-pub const HASH_DR5: u32 = 4294967295;
-pub const HASH_DR4: u32 = 4294967295;
-pub const HASH_DR3: u32 = 4294967295;
-pub const HASH_DR2: u32 = 4294967295;
-pub const HASH_DR1: u32 = 4294967295;
-pub const HASH_DR0: u32 = 4294967295;
-pub const I2C_CR1_PE_POS: u32 = 0;
-pub const I2C_CR1_PE: u32 = 1;
-pub const I2C_CR1_SMBUS_POS: u32 = 1;
-pub const I2C_CR1_SMBUS: u32 = 2;
-pub const I2C_CR1_SMBALRTEN_POS: u32 = 2;
-pub const I2C_CR1_SMBALRTEN: u32 = 4;
-pub const I2C_CR1_SMBDEFAULTEN_POS: u32 = 3;
-pub const I2C_CR1_SMBDEFAULTEN: u32 = 8;
-pub const I2C_CR1_SMBHOSTEN_POS: u32 = 4;
-pub const I2C_CR1_SMBHOSTEN: u32 = 16;
-pub const I2C_CR1_GCEN_POS: u32 = 6;
-pub const I2C_CR1_GCEN: u32 = 64;
-pub const I2C_CR1_RESTART_POS: u32 = 7;
-pub const I2C_CR1_RESTART: u32 = 128;
-pub const I2C_CR1_START_POS: u32 = 8;
-pub const I2C_CR1_START: u32 = 256;
-pub const I2C_CR1_STOP_POS: u32 = 9;
-pub const I2C_CR1_STOP: u32 = 512;
-pub const I2C_CR1_ACK_POS: u32 = 10;
-pub const I2C_CR1_ACK: u32 = 1024;
-pub const I2C_CR1_SWRST_POS: u32 = 15;
-pub const I2C_CR1_SWRST: u32 = 32768;
-pub const I2C_CR2_STARTIE_POS: u32 = 0;
-pub const I2C_CR2_STARTIE: u32 = 1;
-pub const I2C_CR2_SLADDR0IE_POS: u32 = 1;
-pub const I2C_CR2_SLADDR0IE: u32 = 2;
-pub const I2C_CR2_SLADDR1IE_POS: u32 = 2;
-pub const I2C_CR2_SLADDR1IE: u32 = 4;
-pub const I2C_CR2_TENDIE_POS: u32 = 3;
-pub const I2C_CR2_TENDIE: u32 = 8;
-pub const I2C_CR2_STOPIE_POS: u32 = 4;
-pub const I2C_CR2_STOPIE: u32 = 16;
-pub const I2C_CR2_RFULLIE_POS: u32 = 6;
-pub const I2C_CR2_RFULLIE: u32 = 64;
-pub const I2C_CR2_TEMPTYIE_POS: u32 = 7;
-pub const I2C_CR2_TEMPTYIE: u32 = 128;
-pub const I2C_CR2_ARLOIE_POS: u32 = 9;
-pub const I2C_CR2_ARLOIE: u32 = 512;
-pub const I2C_CR2_NACKIE_POS: u32 = 12;
-pub const I2C_CR2_NACKIE: u32 = 4096;
-pub const I2C_CR2_TMOUTIE_POS: u32 = 14;
-pub const I2C_CR2_TMOUTIE: u32 = 16384;
-pub const I2C_CR2_GENCALLIE_POS: u32 = 20;
-pub const I2C_CR2_GENCALLIE: u32 = 1048576;
-pub const I2C_CR2_SMBDEFAULTIE_POS: u32 = 21;
-pub const I2C_CR2_SMBDEFAULTIE: u32 = 2097152;
-pub const I2C_CR2_SMBHOSTIE_POS: u32 = 22;
-pub const I2C_CR2_SMBHOSTIE: u32 = 4194304;
-pub const I2C_CR2_SMBALRTIE_POS: u32 = 23;
-pub const I2C_CR2_SMBALRTIE: u32 = 8388608;
-pub const I2C_CR3_TMOUTEN_POS: u32 = 0;
-pub const I2C_CR3_TMOUTEN: u32 = 1;
-pub const I2C_CR3_LTMOUT_POS: u32 = 1;
-pub const I2C_CR3_LTMOUT: u32 = 2;
-pub const I2C_CR3_HTMOUT_POS: u32 = 2;
-pub const I2C_CR3_HTMOUT: u32 = 4;
-pub const I2C_CR3_FACKEN_POS: u32 = 7;
-pub const I2C_CR3_FACKEN: u32 = 128;
-pub const I2C_CR4_BUSWAIT_POS: u32 = 10;
-pub const I2C_CR4_BUSWAIT: u32 = 1024;
-pub const I2C_SLR0_SLADDR0_POS: u32 = 0;
-pub const I2C_SLR0_SLADDR0: u32 = 1023;
-pub const I2C_SLR0_SLADDR0EN_POS: u32 = 12;
-pub const I2C_SLR0_SLADDR0EN: u32 = 4096;
-pub const I2C_SLR0_ADDRMOD0_POS: u32 = 15;
-pub const I2C_SLR0_ADDRMOD0: u32 = 32768;
-pub const I2C_SLR1_SLADDR1_POS: u32 = 0;
-pub const I2C_SLR1_SLADDR1: u32 = 1023;
-pub const I2C_SLR1_SLADDR1EN_POS: u32 = 12;
-pub const I2C_SLR1_SLADDR1EN: u32 = 4096;
-pub const I2C_SLR1_ADDRMOD1_POS: u32 = 15;
-pub const I2C_SLR1_ADDRMOD1: u32 = 32768;
-pub const I2C_SLTR_TOUTLOW_POS: u32 = 0;
-pub const I2C_SLTR_TOUTLOW: u32 = 65535;
-pub const I2C_SLTR_TOUTHIGH_POS: u32 = 16;
-pub const I2C_SLTR_TOUTHIGH: u32 = 4294901760;
-pub const I2C_SR_STARTF_POS: u32 = 0;
-pub const I2C_SR_STARTF: u32 = 1;
-pub const I2C_SR_SLADDR0F_POS: u32 = 1;
-pub const I2C_SR_SLADDR0F: u32 = 2;
-pub const I2C_SR_SLADDR1F_POS: u32 = 2;
-pub const I2C_SR_SLADDR1F: u32 = 4;
-pub const I2C_SR_TENDF_POS: u32 = 3;
-pub const I2C_SR_TENDF: u32 = 8;
-pub const I2C_SR_STOPF_POS: u32 = 4;
-pub const I2C_SR_STOPF: u32 = 16;
-pub const I2C_SR_RFULLF_POS: u32 = 6;
-pub const I2C_SR_RFULLF: u32 = 64;
-pub const I2C_SR_TEMPTYF_POS: u32 = 7;
-pub const I2C_SR_TEMPTYF: u32 = 128;
-pub const I2C_SR_ARLOF_POS: u32 = 9;
-pub const I2C_SR_ARLOF: u32 = 512;
-pub const I2C_SR_ACKRF_POS: u32 = 10;
-pub const I2C_SR_ACKRF: u32 = 1024;
-pub const I2C_SR_NACKF_POS: u32 = 12;
-pub const I2C_SR_NACKF: u32 = 4096;
-pub const I2C_SR_TMOUTF_POS: u32 = 14;
-pub const I2C_SR_TMOUTF: u32 = 16384;
-pub const I2C_SR_MSL_POS: u32 = 16;
-pub const I2C_SR_MSL: u32 = 65536;
-pub const I2C_SR_BUSY_POS: u32 = 17;
-pub const I2C_SR_BUSY: u32 = 131072;
-pub const I2C_SR_TRA_POS: u32 = 18;
-pub const I2C_SR_TRA: u32 = 262144;
-pub const I2C_SR_GENCALLF_POS: u32 = 20;
-pub const I2C_SR_GENCALLF: u32 = 1048576;
-pub const I2C_SR_SMBDEFAULTF_POS: u32 = 21;
-pub const I2C_SR_SMBDEFAULTF: u32 = 2097152;
-pub const I2C_SR_SMBHOSTF_POS: u32 = 22;
-pub const I2C_SR_SMBHOSTF: u32 = 4194304;
-pub const I2C_SR_SMBALRTF_POS: u32 = 23;
-pub const I2C_SR_SMBALRTF: u32 = 8388608;
-pub const I2C_CLR_STARTFCLR_POS: u32 = 0;
-pub const I2C_CLR_STARTFCLR: u32 = 1;
-pub const I2C_CLR_SLADDR0FCLR_POS: u32 = 1;
-pub const I2C_CLR_SLADDR0FCLR: u32 = 2;
-pub const I2C_CLR_SLADDR1FCLR_POS: u32 = 2;
-pub const I2C_CLR_SLADDR1FCLR: u32 = 4;
-pub const I2C_CLR_TENDFCLR_POS: u32 = 3;
-pub const I2C_CLR_TENDFCLR: u32 = 8;
-pub const I2C_CLR_STOPFCLR_POS: u32 = 4;
-pub const I2C_CLR_STOPFCLR: u32 = 16;
-pub const I2C_CLR_RFULLFCLR_POS: u32 = 6;
-pub const I2C_CLR_RFULLFCLR: u32 = 64;
-pub const I2C_CLR_TEMPTYFCLR_POS: u32 = 7;
-pub const I2C_CLR_TEMPTYFCLR: u32 = 128;
-pub const I2C_CLR_ARLOFCLR_POS: u32 = 9;
-pub const I2C_CLR_ARLOFCLR: u32 = 512;
-pub const I2C_CLR_NACKFCLR_POS: u32 = 12;
-pub const I2C_CLR_NACKFCLR: u32 = 4096;
-pub const I2C_CLR_TMOUTFCLR_POS: u32 = 14;
-pub const I2C_CLR_TMOUTFCLR: u32 = 16384;
-pub const I2C_CLR_GENCALLFCLR_POS: u32 = 20;
-pub const I2C_CLR_GENCALLFCLR: u32 = 1048576;
-pub const I2C_CLR_SMBDEFAULTFCLR_POS: u32 = 21;
-pub const I2C_CLR_SMBDEFAULTFCLR: u32 = 2097152;
-pub const I2C_CLR_SMBHOSTFCLR_POS: u32 = 22;
-pub const I2C_CLR_SMBHOSTFCLR: u32 = 4194304;
-pub const I2C_CLR_SMBALRTFCLR_POS: u32 = 23;
-pub const I2C_CLR_SMBALRTFCLR: u32 = 8388608;
-pub const I2C_DTR_DT: u32 = 255;
-pub const I2C_DRR_DR: u32 = 255;
-pub const I2C_CCR_SLOWW_POS: u32 = 0;
-pub const I2C_CCR_SLOWW: u32 = 31;
-pub const I2C_CCR_SHIGHW_POS: u32 = 8;
-pub const I2C_CCR_SHIGHW: u32 = 7936;
-pub const I2C_CCR_CKDIV_POS: u32 = 16;
-pub const I2C_CCR_CKDIV: u32 = 458752;
-pub const I2C_FLTR_DNF_POS: u32 = 0;
-pub const I2C_FLTR_DNF: u32 = 3;
-pub const I2C_FLTR_DNF_0: u32 = 1;
-pub const I2C_FLTR_DNF_1: u32 = 2;
-pub const I2C_FLTR_DNFEN_POS: u32 = 4;
-pub const I2C_FLTR_DNFEN: u32 = 16;
-pub const I2C_FLTR_ANFEN_POS: u32 = 5;
-pub const I2C_FLTR_ANFEN: u32 = 32;
-pub const I2S_CTRL_TXE_POS: u32 = 0;
-pub const I2S_CTRL_TXE: u32 = 1;
-pub const I2S_CTRL_TXIE_POS: u32 = 1;
-pub const I2S_CTRL_TXIE: u32 = 2;
-pub const I2S_CTRL_RXE_POS: u32 = 2;
-pub const I2S_CTRL_RXE: u32 = 4;
-pub const I2S_CTRL_RXIE_POS: u32 = 3;
-pub const I2S_CTRL_RXIE: u32 = 8;
-pub const I2S_CTRL_EIE_POS: u32 = 4;
-pub const I2S_CTRL_EIE: u32 = 16;
-pub const I2S_CTRL_WMS_POS: u32 = 5;
-pub const I2S_CTRL_WMS: u32 = 32;
-pub const I2S_CTRL_ODD_POS: u32 = 6;
-pub const I2S_CTRL_ODD: u32 = 64;
-pub const I2S_CTRL_MCKOE_POS: u32 = 7;
-pub const I2S_CTRL_MCKOE: u32 = 128;
-pub const I2S_CTRL_TXBIRQWL_POS: u32 = 8;
-pub const I2S_CTRL_TXBIRQWL: u32 = 1792;
-pub const I2S_CTRL_RXBIRQWL_POS: u32 = 12;
-pub const I2S_CTRL_RXBIRQWL: u32 = 28672;
-pub const I2S_CTRL_FIFOR_POS: u32 = 16;
-pub const I2S_CTRL_FIFOR: u32 = 65536;
-pub const I2S_CTRL_I2SPLLSEL_POS: u32 = 18;
-pub const I2S_CTRL_I2SPLLSEL: u32 = 262144;
-pub const I2S_CTRL_SDOE_POS: u32 = 19;
-pub const I2S_CTRL_SDOE: u32 = 524288;
-pub const I2S_CTRL_LRCKOE_POS: u32 = 20;
-pub const I2S_CTRL_LRCKOE: u32 = 1048576;
-pub const I2S_CTRL_CKOE_POS: u32 = 21;
-pub const I2S_CTRL_CKOE: u32 = 2097152;
-pub const I2S_CTRL_DUPLEX_POS: u32 = 22;
-pub const I2S_CTRL_DUPLEX: u32 = 4194304;
-pub const I2S_CTRL_CLKSEL_POS: u32 = 23;
-pub const I2S_CTRL_CLKSEL: u32 = 8388608;
-pub const I2S_SR_TXBA_POS: u32 = 0;
-pub const I2S_SR_TXBA: u32 = 1;
-pub const I2S_SR_RXBA_POS: u32 = 1;
-pub const I2S_SR_RXBA: u32 = 2;
-pub const I2S_SR_TXBE_POS: u32 = 2;
-pub const I2S_SR_TXBE: u32 = 4;
-pub const I2S_SR_TXBF_POS: u32 = 3;
-pub const I2S_SR_TXBF: u32 = 8;
-pub const I2S_SR_RXBE_POS: u32 = 4;
-pub const I2S_SR_RXBE: u32 = 16;
-pub const I2S_SR_RXBF_POS: u32 = 5;
-pub const I2S_SR_RXBF: u32 = 32;
-pub const I2S_ER_TXERR_POS: u32 = 0;
-pub const I2S_ER_TXERR: u32 = 1;
-pub const I2S_ER_RXERR_POS: u32 = 1;
-pub const I2S_ER_RXERR: u32 = 2;
-pub const I2S_CFGR_I2SSTD_POS: u32 = 0;
-pub const I2S_CFGR_I2SSTD: u32 = 3;
-pub const I2S_CFGR_I2SSTD_0: u32 = 1;
-pub const I2S_CFGR_I2SSTD_1: u32 = 2;
-pub const I2S_CFGR_DATLEN_POS: u32 = 2;
-pub const I2S_CFGR_DATLEN: u32 = 12;
-pub const I2S_CFGR_DATLEN_0: u32 = 4;
-pub const I2S_CFGR_DATLEN_1: u32 = 8;
-pub const I2S_CFGR_CHLEN_POS: u32 = 4;
-pub const I2S_CFGR_CHLEN: u32 = 16;
-pub const I2S_CFGR_PCMSYNC_POS: u32 = 5;
-pub const I2S_CFGR_PCMSYNC: u32 = 32;
-pub const I2S_TXBUF: u32 = 4294967295;
-pub const I2S_RXBUF: u32 = 4294967295;
-pub const I2S_PR_I2SDIV: u32 = 255;
-pub const ICG_ICG0_SWDTAUTS_POS: u32 = 0;
-pub const ICG_ICG0_SWDTAUTS: u32 = 1;
-pub const ICG_ICG0_SWDTITS_POS: u32 = 1;
-pub const ICG_ICG0_SWDTITS: u32 = 2;
-pub const ICG_ICG0_SWDTPERI_POS: u32 = 2;
-pub const ICG_ICG0_SWDTPERI: u32 = 12;
-pub const ICG_ICG0_SWDTPERI_0: u32 = 4;
-pub const ICG_ICG0_SWDTPERI_1: u32 = 8;
-pub const ICG_ICG0_SWDTCKS_POS: u32 = 4;
-pub const ICG_ICG0_SWDTCKS: u32 = 240;
-pub const ICG_ICG0_SWDTWDPT_POS: u32 = 8;
-pub const ICG_ICG0_SWDTWDPT: u32 = 3840;
-pub const ICG_ICG0_SWDTSLPOFF_POS: u32 = 12;
-pub const ICG_ICG0_SWDTSLPOFF: u32 = 4096;
-pub const ICG_ICG0_WDTAUTS_POS: u32 = 16;
-pub const ICG_ICG0_WDTAUTS: u32 = 65536;
-pub const ICG_ICG0_WDTITS_POS: u32 = 17;
-pub const ICG_ICG0_WDTITS: u32 = 131072;
-pub const ICG_ICG0_WDTPERI_POS: u32 = 18;
-pub const ICG_ICG0_WDTPERI: u32 = 786432;
-pub const ICG_ICG0_WDTPERI_0: u32 = 262144;
-pub const ICG_ICG0_WDTPERI_1: u32 = 524288;
-pub const ICG_ICG0_WDTCKS_POS: u32 = 20;
-pub const ICG_ICG0_WDTCKS: u32 = 15728640;
-pub const ICG_ICG0_WDTWDPT_POS: u32 = 24;
-pub const ICG_ICG0_WDTWDPT: u32 = 251658240;
-pub const ICG_ICG0_WDTSLPOFF_POS: u32 = 28;
-pub const ICG_ICG0_WDTSLPOFF: u32 = 268435456;
-pub const ICG_ICG1_HRCFREQSEL_POS: u32 = 0;
-pub const ICG_ICG1_HRCFREQSEL: u32 = 1;
-pub const ICG_ICG1_HRCSTOP_POS: u32 = 8;
-pub const ICG_ICG1_HRCSTOP: u32 = 256;
-pub const ICG_ICG1_BOR_LEV_POS: u32 = 16;
-pub const ICG_ICG1_BOR_LEV: u32 = 196608;
-pub const ICG_ICG1_BOR_LEV_0: u32 = 65536;
-pub const ICG_ICG1_BOR_LEV_1: u32 = 131072;
-pub const ICG_ICG1_BORDIS_POS: u32 = 18;
-pub const ICG_ICG1_BORDIS: u32 = 262144;
-pub const ICG_ICG1_SMPCLK_POS: u32 = 26;
-pub const ICG_ICG1_SMPCLK: u32 = 201326592;
-pub const ICG_ICG1_SMPCLK_0: u32 = 67108864;
-pub const ICG_ICG1_SMPCLK_1: u32 = 134217728;
-pub const ICG_ICG1_NMITRG_POS: u32 = 28;
-pub const ICG_ICG1_NMITRG: u32 = 268435456;
-pub const ICG_ICG1_NMIEN_POS: u32 = 29;
-pub const ICG_ICG1_NMIEN: u32 = 536870912;
-pub const ICG_ICG1_NFEN_POS: u32 = 30;
-pub const ICG_ICG1_NFEN: u32 = 1073741824;
-pub const ICG_ICG1_NMIICGEN_POS: u32 = 31;
-pub const ICG_ICG1_NMIICGEN: u32 = 2147483648;
-pub const ICG_ICG2: u32 = 4294967295;
-pub const ICG_ICG3: u32 = 4294967295;
-pub const ICG_ICG4: u32 = 4294967295;
-pub const ICG_ICG5: u32 = 4294967295;
-pub const ICG_ICG6: u32 = 4294967295;
-pub const ICG_ICG7: u32 = 4294967295;
-pub const INTC_NMICR_NMITRG_POS: u32 = 0;
-pub const INTC_NMICR_NMITRG: u32 = 1;
-pub const INTC_NMICR_NSMPCLK_POS: u32 = 4;
-pub const INTC_NMICR_NSMPCLK: u32 = 48;
-pub const INTC_NMICR_NSMPCLK_0: u32 = 16;
-pub const INTC_NMICR_NSMPCLK_1: u32 = 32;
-pub const INTC_NMICR_NFEN_POS: u32 = 7;
-pub const INTC_NMICR_NFEN: u32 = 128;
-pub const INTC_NMIENR_NMIENR_POS: u32 = 0;
-pub const INTC_NMIENR_NMIENR: u32 = 1;
-pub const INTC_NMIENR_SWDTENR_POS: u32 = 1;
-pub const INTC_NMIENR_SWDTENR: u32 = 2;
-pub const INTC_NMIENR_PVD1ENR_POS: u32 = 2;
-pub const INTC_NMIENR_PVD1ENR: u32 = 4;
-pub const INTC_NMIENR_PVD2ENR_POS: u32 = 3;
-pub const INTC_NMIENR_PVD2ENR: u32 = 8;
-pub const INTC_NMIENR_XTALSTPENR_POS: u32 = 5;
-pub const INTC_NMIENR_XTALSTPENR: u32 = 32;
-pub const INTC_NMIENR_REPENR_POS: u32 = 8;
-pub const INTC_NMIENR_REPENR: u32 = 256;
-pub const INTC_NMIENR_RECCENR_POS: u32 = 9;
-pub const INTC_NMIENR_RECCENR: u32 = 512;
-pub const INTC_NMIENR_BUSMENR_POS: u32 = 10;
-pub const INTC_NMIENR_BUSMENR: u32 = 1024;
-pub const INTC_NMIENR_WDTENR_POS: u32 = 11;
-pub const INTC_NMIENR_WDTENR: u32 = 2048;
-pub const INTC_NMIFR_NMIFR_POS: u32 = 0;
-pub const INTC_NMIFR_NMIFR: u32 = 1;
-pub const INTC_NMIFR_SWDTFR_POS: u32 = 1;
-pub const INTC_NMIFR_SWDTFR: u32 = 2;
-pub const INTC_NMIFR_PVD1FR_POS: u32 = 2;
-pub const INTC_NMIFR_PVD1FR: u32 = 4;
-pub const INTC_NMIFR_PVD2FR_POS: u32 = 3;
-pub const INTC_NMIFR_PVD2FR: u32 = 8;
-pub const INTC_NMIFR_XTALSTPFR_POS: u32 = 5;
-pub const INTC_NMIFR_XTALSTPFR: u32 = 32;
-pub const INTC_NMIFR_REPFR_POS: u32 = 8;
-pub const INTC_NMIFR_REPFR: u32 = 256;
-pub const INTC_NMIFR_RECCFR_POS: u32 = 9;
-pub const INTC_NMIFR_RECCFR: u32 = 512;
-pub const INTC_NMIFR_BUSMFR_POS: u32 = 10;
-pub const INTC_NMIFR_BUSMFR: u32 = 1024;
-pub const INTC_NMIFR_WDTFR_POS: u32 = 11;
-pub const INTC_NMIFR_WDTFR: u32 = 2048;
-pub const INTC_NMICFR_NMICFR_POS: u32 = 0;
-pub const INTC_NMICFR_NMICFR: u32 = 1;
-pub const INTC_NMICFR_SWDTCFR_POS: u32 = 1;
-pub const INTC_NMICFR_SWDTCFR: u32 = 2;
-pub const INTC_NMICFR_PVD1CFR_POS: u32 = 2;
-pub const INTC_NMICFR_PVD1CFR: u32 = 4;
-pub const INTC_NMICFR_PVD2CFR_POS: u32 = 3;
-pub const INTC_NMICFR_PVD2CFR: u32 = 8;
-pub const INTC_NMICFR_XTALSTPCFR_POS: u32 = 5;
-pub const INTC_NMICFR_XTALSTPCFR: u32 = 32;
-pub const INTC_NMICFR_REPCFR_POS: u32 = 8;
-pub const INTC_NMICFR_REPCFR: u32 = 256;
-pub const INTC_NMICFR_RECCCFR_POS: u32 = 9;
-pub const INTC_NMICFR_RECCCFR: u32 = 512;
-pub const INTC_NMICFR_BUSMCFR_POS: u32 = 10;
-pub const INTC_NMICFR_BUSMCFR: u32 = 1024;
-pub const INTC_NMICFR_WDTCFR_POS: u32 = 11;
-pub const INTC_NMICFR_WDTCFR: u32 = 2048;
-pub const INTC_EIRQCR_EIRQTRG_POS: u32 = 0;
-pub const INTC_EIRQCR_EIRQTRG: u32 = 3;
-pub const INTC_EIRQCR_EIRQTRG_0: u32 = 1;
-pub const INTC_EIRQCR_EIRQTRG_1: u32 = 2;
-pub const INTC_EIRQCR_EISMPCLK_POS: u32 = 4;
-pub const INTC_EIRQCR_EISMPCLK: u32 = 48;
-pub const INTC_EIRQCR_EISMPCLK_0: u32 = 16;
-pub const INTC_EIRQCR_EISMPCLK_1: u32 = 32;
-pub const INTC_EIRQCR_EFEN_POS: u32 = 7;
-pub const INTC_EIRQCR_EFEN: u32 = 128;
-pub const INTC_WUPEN_EIRQWUEN_POS: u32 = 0;
-pub const INTC_WUPEN_EIRQWUEN: u32 = 65535;
-pub const INTC_WUPEN_EIRQWUEN_0: u32 = 1;
-pub const INTC_WUPEN_EIRQWUEN_1: u32 = 2;
-pub const INTC_WUPEN_EIRQWUEN_2: u32 = 4;
-pub const INTC_WUPEN_EIRQWUEN_3: u32 = 8;
-pub const INTC_WUPEN_EIRQWUEN_4: u32 = 16;
-pub const INTC_WUPEN_EIRQWUEN_5: u32 = 32;
-pub const INTC_WUPEN_EIRQWUEN_6: u32 = 64;
-pub const INTC_WUPEN_EIRQWUEN_7: u32 = 128;
-pub const INTC_WUPEN_EIRQWUEN_8: u32 = 256;
-pub const INTC_WUPEN_EIRQWUEN_9: u32 = 512;
-pub const INTC_WUPEN_EIRQWUEN_10: u32 = 1024;
-pub const INTC_WUPEN_EIRQWUEN_11: u32 = 2048;
-pub const INTC_WUPEN_EIRQWUEN_12: u32 = 4096;
-pub const INTC_WUPEN_EIRQWUEN_13: u32 = 8192;
-pub const INTC_WUPEN_EIRQWUEN_14: u32 = 16384;
-pub const INTC_WUPEN_EIRQWUEN_15: u32 = 32768;
-pub const INTC_WUPEN_SWDTWUEN_POS: u32 = 16;
-pub const INTC_WUPEN_SWDTWUEN: u32 = 65536;
-pub const INTC_WUPEN_PVD1WUEN_POS: u32 = 17;
-pub const INTC_WUPEN_PVD1WUEN: u32 = 131072;
-pub const INTC_WUPEN_PVD2WUEN_POS: u32 = 18;
-pub const INTC_WUPEN_PVD2WUEN: u32 = 262144;
-pub const INTC_WUPEN_CMPI0WUEN_POS: u32 = 19;
-pub const INTC_WUPEN_CMPI0WUEN: u32 = 524288;
-pub const INTC_WUPEN_WKTMWUEN_POS: u32 = 20;
-pub const INTC_WUPEN_WKTMWUEN: u32 = 1048576;
-pub const INTC_WUPEN_RTCALMWUEN_POS: u32 = 21;
-pub const INTC_WUPEN_RTCALMWUEN: u32 = 2097152;
-pub const INTC_WUPEN_RTCPRDWUEN_POS: u32 = 22;
-pub const INTC_WUPEN_RTCPRDWUEN: u32 = 4194304;
-pub const INTC_WUPEN_TMR0WUEN_POS: u32 = 23;
-pub const INTC_WUPEN_TMR0WUEN: u32 = 8388608;
-pub const INTC_WUPEN_RXWUEN_POS: u32 = 25;
-pub const INTC_WUPEN_RXWUEN: u32 = 33554432;
-pub const INTC_EIFR_EIFR0_POS: u32 = 0;
-pub const INTC_EIFR_EIFR0: u32 = 1;
-pub const INTC_EIFR_EIFR1_POS: u32 = 1;
-pub const INTC_EIFR_EIFR1: u32 = 2;
-pub const INTC_EIFR_EIFR2_POS: u32 = 2;
-pub const INTC_EIFR_EIFR2: u32 = 4;
-pub const INTC_EIFR_EIFR3_POS: u32 = 3;
-pub const INTC_EIFR_EIFR3: u32 = 8;
-pub const INTC_EIFR_EIFR4_POS: u32 = 4;
-pub const INTC_EIFR_EIFR4: u32 = 16;
-pub const INTC_EIFR_EIFR5_POS: u32 = 5;
-pub const INTC_EIFR_EIFR5: u32 = 32;
-pub const INTC_EIFR_EIFR6_POS: u32 = 6;
-pub const INTC_EIFR_EIFR6: u32 = 64;
-pub const INTC_EIFR_EIFR7_POS: u32 = 7;
-pub const INTC_EIFR_EIFR7: u32 = 128;
-pub const INTC_EIFR_EIFR8_POS: u32 = 8;
-pub const INTC_EIFR_EIFR8: u32 = 256;
-pub const INTC_EIFR_EIFR9_POS: u32 = 9;
-pub const INTC_EIFR_EIFR9: u32 = 512;
-pub const INTC_EIFR_EIFR10_POS: u32 = 10;
-pub const INTC_EIFR_EIFR10: u32 = 1024;
-pub const INTC_EIFR_EIFR11_POS: u32 = 11;
-pub const INTC_EIFR_EIFR11: u32 = 2048;
-pub const INTC_EIFR_EIFR12_POS: u32 = 12;
-pub const INTC_EIFR_EIFR12: u32 = 4096;
-pub const INTC_EIFR_EIFR13_POS: u32 = 13;
-pub const INTC_EIFR_EIFR13: u32 = 8192;
-pub const INTC_EIFR_EIFR14_POS: u32 = 14;
-pub const INTC_EIFR_EIFR14: u32 = 16384;
-pub const INTC_EIFR_EIFR15_POS: u32 = 15;
-pub const INTC_EIFR_EIFR15: u32 = 32768;
-pub const INTC_EIFCR_EIFCR0_POS: u32 = 0;
-pub const INTC_EIFCR_EIFCR0: u32 = 1;
-pub const INTC_EIFCR_EIFCR1_POS: u32 = 1;
-pub const INTC_EIFCR_EIFCR1: u32 = 2;
-pub const INTC_EIFCR_EIFCR2_POS: u32 = 2;
-pub const INTC_EIFCR_EIFCR2: u32 = 4;
-pub const INTC_EIFCR_EIFCR3_POS: u32 = 3;
-pub const INTC_EIFCR_EIFCR3: u32 = 8;
-pub const INTC_EIFCR_EIFCR4_POS: u32 = 4;
-pub const INTC_EIFCR_EIFCR4: u32 = 16;
-pub const INTC_EIFCR_EIFCR5_POS: u32 = 5;
-pub const INTC_EIFCR_EIFCR5: u32 = 32;
-pub const INTC_EIFCR_EIFCR6_POS: u32 = 6;
-pub const INTC_EIFCR_EIFCR6: u32 = 64;
-pub const INTC_EIFCR_EIFCR7_POS: u32 = 7;
-pub const INTC_EIFCR_EIFCR7: u32 = 128;
-pub const INTC_EIFCR_EIFCR8_POS: u32 = 8;
-pub const INTC_EIFCR_EIFCR8: u32 = 256;
-pub const INTC_EIFCR_EIFCR9_POS: u32 = 9;
-pub const INTC_EIFCR_EIFCR9: u32 = 512;
-pub const INTC_EIFCR_EIFCR10_POS: u32 = 10;
-pub const INTC_EIFCR_EIFCR10: u32 = 1024;
-pub const INTC_EIFCR_EIFCR11_POS: u32 = 11;
-pub const INTC_EIFCR_EIFCR11: u32 = 2048;
-pub const INTC_EIFCR_EIFCR12_POS: u32 = 12;
-pub const INTC_EIFCR_EIFCR12: u32 = 4096;
-pub const INTC_EIFCR_EIFCR13_POS: u32 = 13;
-pub const INTC_EIFCR_EIFCR13: u32 = 8192;
-pub const INTC_EIFCR_EIFCR14_POS: u32 = 14;
-pub const INTC_EIFCR_EIFCR14: u32 = 16384;
-pub const INTC_EIFCR_EIFCR15_POS: u32 = 15;
-pub const INTC_EIFCR_EIFCR15: u32 = 32768;
-pub const INTC_SEL_INTSEL: u32 = 511;
-pub const INTC_SEL_INTSEL_0: u32 = 1;
-pub const INTC_SEL_INTSEL_1: u32 = 2;
-pub const INTC_SEL_INTSEL_2: u32 = 4;
-pub const INTC_SEL_INTSEL_3: u32 = 8;
-pub const INTC_SEL_INTSEL_4: u32 = 16;
-pub const INTC_SEL_INTSEL_5: u32 = 32;
-pub const INTC_SEL_INTSEL_6: u32 = 64;
-pub const INTC_SEL_INTSEL_7: u32 = 128;
-pub const INTC_SEL_INTSEL_8: u32 = 256;
-pub const INTC_VSSEL_VSEL0_POS: u32 = 0;
-pub const INTC_VSSEL_VSEL0: u32 = 1;
-pub const INTC_VSSEL_VSEL1_POS: u32 = 1;
-pub const INTC_VSSEL_VSEL1: u32 = 2;
-pub const INTC_VSSEL_VSEL2_POS: u32 = 2;
-pub const INTC_VSSEL_VSEL2: u32 = 4;
-pub const INTC_VSSEL_VSEL3_POS: u32 = 3;
-pub const INTC_VSSEL_VSEL3: u32 = 8;
-pub const INTC_VSSEL_VSEL4_POS: u32 = 4;
-pub const INTC_VSSEL_VSEL4: u32 = 16;
-pub const INTC_VSSEL_VSEL5_POS: u32 = 5;
-pub const INTC_VSSEL_VSEL5: u32 = 32;
-pub const INTC_VSSEL_VSEL6_POS: u32 = 6;
-pub const INTC_VSSEL_VSEL6: u32 = 64;
-pub const INTC_VSSEL_VSEL7_POS: u32 = 7;
-pub const INTC_VSSEL_VSEL7: u32 = 128;
-pub const INTC_VSSEL_VSEL8_POS: u32 = 8;
-pub const INTC_VSSEL_VSEL8: u32 = 256;
-pub const INTC_VSSEL_VSEL9_POS: u32 = 9;
-pub const INTC_VSSEL_VSEL9: u32 = 512;
-pub const INTC_VSSEL_VSEL10_POS: u32 = 10;
-pub const INTC_VSSEL_VSEL10: u32 = 1024;
-pub const INTC_VSSEL_VSEL11_POS: u32 = 11;
-pub const INTC_VSSEL_VSEL11: u32 = 2048;
-pub const INTC_VSSEL_VSEL12_POS: u32 = 12;
-pub const INTC_VSSEL_VSEL12: u32 = 4096;
-pub const INTC_VSSEL_VSEL13_POS: u32 = 13;
-pub const INTC_VSSEL_VSEL13: u32 = 8192;
-pub const INTC_VSSEL_VSEL14_POS: u32 = 14;
-pub const INTC_VSSEL_VSEL14: u32 = 16384;
-pub const INTC_VSSEL_VSEL15_POS: u32 = 15;
-pub const INTC_VSSEL_VSEL15: u32 = 32768;
-pub const INTC_VSSEL_VSEL16_POS: u32 = 16;
-pub const INTC_VSSEL_VSEL16: u32 = 65536;
-pub const INTC_VSSEL_VSEL17_POS: u32 = 17;
-pub const INTC_VSSEL_VSEL17: u32 = 131072;
-pub const INTC_VSSEL_VSEL18_POS: u32 = 18;
-pub const INTC_VSSEL_VSEL18: u32 = 262144;
-pub const INTC_VSSEL_VSEL19_POS: u32 = 19;
-pub const INTC_VSSEL_VSEL19: u32 = 524288;
-pub const INTC_VSSEL_VSEL20_POS: u32 = 20;
-pub const INTC_VSSEL_VSEL20: u32 = 1048576;
-pub const INTC_VSSEL_VSEL21_POS: u32 = 21;
-pub const INTC_VSSEL_VSEL21: u32 = 2097152;
-pub const INTC_VSSEL_VSEL22_POS: u32 = 22;
-pub const INTC_VSSEL_VSEL22: u32 = 4194304;
-pub const INTC_VSSEL_VSEL23_POS: u32 = 23;
-pub const INTC_VSSEL_VSEL23: u32 = 8388608;
-pub const INTC_VSSEL_VSEL24_POS: u32 = 24;
-pub const INTC_VSSEL_VSEL24: u32 = 16777216;
-pub const INTC_VSSEL_VSEL25_POS: u32 = 25;
-pub const INTC_VSSEL_VSEL25: u32 = 33554432;
-pub const INTC_VSSEL_VSEL26_POS: u32 = 26;
-pub const INTC_VSSEL_VSEL26: u32 = 67108864;
-pub const INTC_VSSEL_VSEL27_POS: u32 = 27;
-pub const INTC_VSSEL_VSEL27: u32 = 134217728;
-pub const INTC_VSSEL_VSEL28_POS: u32 = 28;
-pub const INTC_VSSEL_VSEL28: u32 = 268435456;
-pub const INTC_VSSEL_VSEL29_POS: u32 = 29;
-pub const INTC_VSSEL_VSEL29: u32 = 536870912;
-pub const INTC_VSSEL_VSEL30_POS: u32 = 30;
-pub const INTC_VSSEL_VSEL30: u32 = 1073741824;
-pub const INTC_VSSEL_VSEL31_POS: u32 = 31;
-pub const INTC_VSSEL_VSEL31: u32 = 2147483648;
-pub const INTC_SWIER_SWIE0_POS: u32 = 0;
-pub const INTC_SWIER_SWIE0: u32 = 1;
-pub const INTC_SWIER_SWIE1_POS: u32 = 1;
-pub const INTC_SWIER_SWIE1: u32 = 2;
-pub const INTC_SWIER_SWIE2_POS: u32 = 2;
-pub const INTC_SWIER_SWIE2: u32 = 4;
-pub const INTC_SWIER_SWIE3_POS: u32 = 3;
-pub const INTC_SWIER_SWIE3: u32 = 8;
-pub const INTC_SWIER_SWIE4_POS: u32 = 4;
-pub const INTC_SWIER_SWIE4: u32 = 16;
-pub const INTC_SWIER_SWIE5_POS: u32 = 5;
-pub const INTC_SWIER_SWIE5: u32 = 32;
-pub const INTC_SWIER_SWIE6_POS: u32 = 6;
-pub const INTC_SWIER_SWIE6: u32 = 64;
-pub const INTC_SWIER_SWIE7_POS: u32 = 7;
-pub const INTC_SWIER_SWIE7: u32 = 128;
-pub const INTC_SWIER_SWIE8_POS: u32 = 8;
-pub const INTC_SWIER_SWIE8: u32 = 256;
-pub const INTC_SWIER_SWIE9_POS: u32 = 9;
-pub const INTC_SWIER_SWIE9: u32 = 512;
-pub const INTC_SWIER_SWIE10_POS: u32 = 10;
-pub const INTC_SWIER_SWIE10: u32 = 1024;
-pub const INTC_SWIER_SWIE11_POS: u32 = 11;
-pub const INTC_SWIER_SWIE11: u32 = 2048;
-pub const INTC_SWIER_SWIE12_POS: u32 = 12;
-pub const INTC_SWIER_SWIE12: u32 = 4096;
-pub const INTC_SWIER_SWIE13_POS: u32 = 13;
-pub const INTC_SWIER_SWIE13: u32 = 8192;
-pub const INTC_SWIER_SWIE14_POS: u32 = 14;
-pub const INTC_SWIER_SWIE14: u32 = 16384;
-pub const INTC_SWIER_SWIE15_POS: u32 = 15;
-pub const INTC_SWIER_SWIE15: u32 = 32768;
-pub const INTC_SWIER_SWIE16_POS: u32 = 16;
-pub const INTC_SWIER_SWIE16: u32 = 65536;
-pub const INTC_SWIER_SWIE17_POS: u32 = 17;
-pub const INTC_SWIER_SWIE17: u32 = 131072;
-pub const INTC_SWIER_SWIE18_POS: u32 = 18;
-pub const INTC_SWIER_SWIE18: u32 = 262144;
-pub const INTC_SWIER_SWIE19_POS: u32 = 19;
-pub const INTC_SWIER_SWIE19: u32 = 524288;
-pub const INTC_SWIER_SWIE20_POS: u32 = 20;
-pub const INTC_SWIER_SWIE20: u32 = 1048576;
-pub const INTC_SWIER_SWIE21_POS: u32 = 21;
-pub const INTC_SWIER_SWIE21: u32 = 2097152;
-pub const INTC_SWIER_SWIE22_POS: u32 = 22;
-pub const INTC_SWIER_SWIE22: u32 = 4194304;
-pub const INTC_SWIER_SWIE23_POS: u32 = 23;
-pub const INTC_SWIER_SWIE23: u32 = 8388608;
-pub const INTC_SWIER_SWIE24_POS: u32 = 24;
-pub const INTC_SWIER_SWIE24: u32 = 16777216;
-pub const INTC_SWIER_SWIE25_POS: u32 = 25;
-pub const INTC_SWIER_SWIE25: u32 = 33554432;
-pub const INTC_SWIER_SWIE26_POS: u32 = 26;
-pub const INTC_SWIER_SWIE26: u32 = 67108864;
-pub const INTC_SWIER_SWIE27_POS: u32 = 27;
-pub const INTC_SWIER_SWIE27: u32 = 134217728;
-pub const INTC_SWIER_SWIE28_POS: u32 = 28;
-pub const INTC_SWIER_SWIE28: u32 = 268435456;
-pub const INTC_SWIER_SWIE29_POS: u32 = 29;
-pub const INTC_SWIER_SWIE29: u32 = 536870912;
-pub const INTC_SWIER_SWIE30_POS: u32 = 30;
-pub const INTC_SWIER_SWIE30: u32 = 1073741824;
-pub const INTC_SWIER_SWIE31_POS: u32 = 31;
-pub const INTC_SWIER_SWIE31: u32 = 2147483648;
-pub const INTC_EVTER_EVTE0_POS: u32 = 0;
-pub const INTC_EVTER_EVTE0: u32 = 1;
-pub const INTC_EVTER_EVTE1_POS: u32 = 1;
-pub const INTC_EVTER_EVTE1: u32 = 2;
-pub const INTC_EVTER_EVTE2_POS: u32 = 2;
-pub const INTC_EVTER_EVTE2: u32 = 4;
-pub const INTC_EVTER_EVTE3_POS: u32 = 3;
-pub const INTC_EVTER_EVTE3: u32 = 8;
-pub const INTC_EVTER_EVTE4_POS: u32 = 4;
-pub const INTC_EVTER_EVTE4: u32 = 16;
-pub const INTC_EVTER_EVTE5_POS: u32 = 5;
-pub const INTC_EVTER_EVTE5: u32 = 32;
-pub const INTC_EVTER_EVTE6_POS: u32 = 6;
-pub const INTC_EVTER_EVTE6: u32 = 64;
-pub const INTC_EVTER_EVTE7_POS: u32 = 7;
-pub const INTC_EVTER_EVTE7: u32 = 128;
-pub const INTC_EVTER_EVTE8_POS: u32 = 8;
-pub const INTC_EVTER_EVTE8: u32 = 256;
-pub const INTC_EVTER_EVTE9_POS: u32 = 9;
-pub const INTC_EVTER_EVTE9: u32 = 512;
-pub const INTC_EVTER_EVTE10_POS: u32 = 10;
-pub const INTC_EVTER_EVTE10: u32 = 1024;
-pub const INTC_EVTER_EVTE11_POS: u32 = 11;
-pub const INTC_EVTER_EVTE11: u32 = 2048;
-pub const INTC_EVTER_EVTE12_POS: u32 = 12;
-pub const INTC_EVTER_EVTE12: u32 = 4096;
-pub const INTC_EVTER_EVTE13_POS: u32 = 13;
-pub const INTC_EVTER_EVTE13: u32 = 8192;
-pub const INTC_EVTER_EVTE14_POS: u32 = 14;
-pub const INTC_EVTER_EVTE14: u32 = 16384;
-pub const INTC_EVTER_EVTE15_POS: u32 = 15;
-pub const INTC_EVTER_EVTE15: u32 = 32768;
-pub const INTC_EVTER_EVTE16_POS: u32 = 16;
-pub const INTC_EVTER_EVTE16: u32 = 65536;
-pub const INTC_EVTER_EVTE17_POS: u32 = 17;
-pub const INTC_EVTER_EVTE17: u32 = 131072;
-pub const INTC_EVTER_EVTE18_POS: u32 = 18;
-pub const INTC_EVTER_EVTE18: u32 = 262144;
-pub const INTC_EVTER_EVTE19_POS: u32 = 19;
-pub const INTC_EVTER_EVTE19: u32 = 524288;
-pub const INTC_EVTER_EVTE20_POS: u32 = 20;
-pub const INTC_EVTER_EVTE20: u32 = 1048576;
-pub const INTC_EVTER_EVTE21_POS: u32 = 21;
-pub const INTC_EVTER_EVTE21: u32 = 2097152;
-pub const INTC_EVTER_EVTE22_POS: u32 = 22;
-pub const INTC_EVTER_EVTE22: u32 = 4194304;
-pub const INTC_EVTER_EVTE23_POS: u32 = 23;
-pub const INTC_EVTER_EVTE23: u32 = 8388608;
-pub const INTC_EVTER_EVTE24_POS: u32 = 24;
-pub const INTC_EVTER_EVTE24: u32 = 16777216;
-pub const INTC_EVTER_EVTE25_POS: u32 = 25;
-pub const INTC_EVTER_EVTE25: u32 = 33554432;
-pub const INTC_EVTER_EVTE26_POS: u32 = 26;
-pub const INTC_EVTER_EVTE26: u32 = 67108864;
-pub const INTC_EVTER_EVTE27_POS: u32 = 27;
-pub const INTC_EVTER_EVTE27: u32 = 134217728;
-pub const INTC_EVTER_EVTE28_POS: u32 = 28;
-pub const INTC_EVTER_EVTE28: u32 = 268435456;
-pub const INTC_EVTER_EVTE29_POS: u32 = 29;
-pub const INTC_EVTER_EVTE29: u32 = 536870912;
-pub const INTC_EVTER_EVTE30_POS: u32 = 30;
-pub const INTC_EVTER_EVTE30: u32 = 1073741824;
-pub const INTC_EVTER_EVTE31_POS: u32 = 31;
-pub const INTC_EVTER_EVTE31: u32 = 2147483648;
-pub const INTC_IER_IER0_POS: u32 = 0;
-pub const INTC_IER_IER0: u32 = 1;
-pub const INTC_IER_IER1_POS: u32 = 1;
-pub const INTC_IER_IER1: u32 = 2;
-pub const INTC_IER_IER2_POS: u32 = 2;
-pub const INTC_IER_IER2: u32 = 4;
-pub const INTC_IER_IER3_POS: u32 = 3;
-pub const INTC_IER_IER3: u32 = 8;
-pub const INTC_IER_IER4_POS: u32 = 4;
-pub const INTC_IER_IER4: u32 = 16;
-pub const INTC_IER_IER5_POS: u32 = 5;
-pub const INTC_IER_IER5: u32 = 32;
-pub const INTC_IER_IER6_POS: u32 = 6;
-pub const INTC_IER_IER6: u32 = 64;
-pub const INTC_IER_IER7_POS: u32 = 7;
-pub const INTC_IER_IER7: u32 = 128;
-pub const INTC_IER_IER8_POS: u32 = 8;
-pub const INTC_IER_IER8: u32 = 256;
-pub const INTC_IER_IER9_POS: u32 = 9;
-pub const INTC_IER_IER9: u32 = 512;
-pub const INTC_IER_IER10_POS: u32 = 10;
-pub const INTC_IER_IER10: u32 = 1024;
-pub const INTC_IER_IER11_POS: u32 = 11;
-pub const INTC_IER_IER11: u32 = 2048;
-pub const INTC_IER_IER12_POS: u32 = 12;
-pub const INTC_IER_IER12: u32 = 4096;
-pub const INTC_IER_IER13_POS: u32 = 13;
-pub const INTC_IER_IER13: u32 = 8192;
-pub const INTC_IER_IER14_POS: u32 = 14;
-pub const INTC_IER_IER14: u32 = 16384;
-pub const INTC_IER_IER15_POS: u32 = 15;
-pub const INTC_IER_IER15: u32 = 32768;
-pub const INTC_IER_IER16_POS: u32 = 16;
-pub const INTC_IER_IER16: u32 = 65536;
-pub const INTC_IER_IER17_POS: u32 = 17;
-pub const INTC_IER_IER17: u32 = 131072;
-pub const INTC_IER_IER18_POS: u32 = 18;
-pub const INTC_IER_IER18: u32 = 262144;
-pub const INTC_IER_IER19_POS: u32 = 19;
-pub const INTC_IER_IER19: u32 = 524288;
-pub const INTC_IER_IER20_POS: u32 = 20;
-pub const INTC_IER_IER20: u32 = 1048576;
-pub const INTC_IER_IER21_POS: u32 = 21;
-pub const INTC_IER_IER21: u32 = 2097152;
-pub const INTC_IER_IER22_POS: u32 = 22;
-pub const INTC_IER_IER22: u32 = 4194304;
-pub const INTC_IER_IER23_POS: u32 = 23;
-pub const INTC_IER_IER23: u32 = 8388608;
-pub const INTC_IER_IER24_POS: u32 = 24;
-pub const INTC_IER_IER24: u32 = 16777216;
-pub const INTC_IER_IER25_POS: u32 = 25;
-pub const INTC_IER_IER25: u32 = 33554432;
-pub const INTC_IER_IER26_POS: u32 = 26;
-pub const INTC_IER_IER26: u32 = 67108864;
-pub const INTC_IER_IER27_POS: u32 = 27;
-pub const INTC_IER_IER27: u32 = 134217728;
-pub const INTC_IER_IER28_POS: u32 = 28;
-pub const INTC_IER_IER28: u32 = 268435456;
-pub const INTC_IER_IER29_POS: u32 = 29;
-pub const INTC_IER_IER29: u32 = 536870912;
-pub const INTC_IER_IER30_POS: u32 = 30;
-pub const INTC_IER_IER30: u32 = 1073741824;
-pub const INTC_IER_IER31_POS: u32 = 31;
-pub const INTC_IER_IER31: u32 = 2147483648;
-pub const KEYSCAN_SCR_KEYINSEL_POS: u32 = 0;
-pub const KEYSCAN_SCR_KEYINSEL: u32 = 65535;
-pub const KEYSCAN_SCR_KEYOUTSEL_POS: u32 = 16;
-pub const KEYSCAN_SCR_KEYOUTSEL: u32 = 458752;
-pub const KEYSCAN_SCR_CKSEL_POS: u32 = 20;
-pub const KEYSCAN_SCR_CKSEL: u32 = 3145728;
-pub const KEYSCAN_SCR_CKSEL_0: u32 = 1048576;
-pub const KEYSCAN_SCR_CKSEL_1: u32 = 2097152;
-pub const KEYSCAN_SCR_T_LLEVEL_POS: u32 = 24;
-pub const KEYSCAN_SCR_T_LLEVEL: u32 = 520093696;
-pub const KEYSCAN_SCR_T_HIZ_POS: u32 = 29;
-pub const KEYSCAN_SCR_T_HIZ: u32 = 3758096384;
-pub const KEYSCAN_SER_SEN: u32 = 1;
-pub const KEYSCAN_SSR_INDEX: u32 = 7;
-pub const MPU_RGD_MPURGSIZE_POS: u32 = 0;
-pub const MPU_RGD_MPURGSIZE: u32 = 31;
-pub const MPU_RGD_MPURGADDR_POS: u32 = 5;
-pub const MPU_RGD_MPURGADDR: u32 = 4294967264;
-pub const MPU_RGCR_S2RGRP_POS: u32 = 0;
-pub const MPU_RGCR_S2RGRP: u32 = 1;
-pub const MPU_RGCR_S2RGWP_POS: u32 = 1;
-pub const MPU_RGCR_S2RGWP: u32 = 2;
-pub const MPU_RGCR_S2RGE_POS: u32 = 7;
-pub const MPU_RGCR_S2RGE: u32 = 128;
-pub const MPU_RGCR_S1RGRP_POS: u32 = 8;
-pub const MPU_RGCR_S1RGRP: u32 = 256;
-pub const MPU_RGCR_S1RGWP_POS: u32 = 9;
-pub const MPU_RGCR_S1RGWP: u32 = 512;
-pub const MPU_RGCR_S1RGE_POS: u32 = 15;
-pub const MPU_RGCR_S1RGE: u32 = 32768;
-pub const MPU_RGCR_FRGRP_POS: u32 = 16;
-pub const MPU_RGCR_FRGRP: u32 = 65536;
-pub const MPU_RGCR_FRGWP_POS: u32 = 17;
-pub const MPU_RGCR_FRGWP: u32 = 131072;
-pub const MPU_RGCR_FRGE_POS: u32 = 23;
-pub const MPU_RGCR_FRGE: u32 = 8388608;
-pub const MPU_CR_SMPU2BRP_POS: u32 = 0;
-pub const MPU_CR_SMPU2BRP: u32 = 1;
-pub const MPU_CR_SMPU2BWP_POS: u32 = 1;
-pub const MPU_CR_SMPU2BWP: u32 = 2;
-pub const MPU_CR_SMPU2ACT_POS: u32 = 2;
-pub const MPU_CR_SMPU2ACT: u32 = 12;
-pub const MPU_CR_SMPU2ACT_0: u32 = 4;
-pub const MPU_CR_SMPU2ACT_1: u32 = 8;
-pub const MPU_CR_SMPU2E_POS: u32 = 7;
-pub const MPU_CR_SMPU2E: u32 = 128;
-pub const MPU_CR_SMPU1BRP_POS: u32 = 8;
-pub const MPU_CR_SMPU1BRP: u32 = 256;
-pub const MPU_CR_SMPU1BWP_POS: u32 = 9;
-pub const MPU_CR_SMPU1BWP: u32 = 512;
-pub const MPU_CR_SMPU1ACT_POS: u32 = 10;
-pub const MPU_CR_SMPU1ACT: u32 = 3072;
-pub const MPU_CR_SMPU1ACT_0: u32 = 1024;
-pub const MPU_CR_SMPU1ACT_1: u32 = 2048;
-pub const MPU_CR_SMPU1E_POS: u32 = 15;
-pub const MPU_CR_SMPU1E: u32 = 32768;
-pub const MPU_CR_FMPUBRP_POS: u32 = 16;
-pub const MPU_CR_FMPUBRP: u32 = 65536;
-pub const MPU_CR_FMPUBWP_POS: u32 = 17;
-pub const MPU_CR_FMPUBWP: u32 = 131072;
-pub const MPU_CR_FMPUACT_POS: u32 = 18;
-pub const MPU_CR_FMPUACT: u32 = 786432;
-pub const MPU_CR_FMPUACT_0: u32 = 262144;
-pub const MPU_CR_FMPUACT_1: u32 = 524288;
-pub const MPU_CR_FMPUE_POS: u32 = 23;
-pub const MPU_CR_FMPUE: u32 = 8388608;
-pub const MPU_SR_SMPU2EAF_POS: u32 = 0;
-pub const MPU_SR_SMPU2EAF: u32 = 1;
-pub const MPU_SR_SMPU1EAF_POS: u32 = 8;
-pub const MPU_SR_SMPU1EAF: u32 = 256;
-pub const MPU_SR_FMPUEAF_POS: u32 = 16;
-pub const MPU_SR_FMPUEAF: u32 = 65536;
-pub const MPU_ECLR_SMPU2ECLR_POS: u32 = 0;
-pub const MPU_ECLR_SMPU2ECLR: u32 = 1;
-pub const MPU_ECLR_SMPU1ECLR_POS: u32 = 8;
-pub const MPU_ECLR_SMPU1ECLR: u32 = 256;
-pub const MPU_ECLR_FMPUECLR_POS: u32 = 16;
-pub const MPU_ECLR_FMPUECLR: u32 = 65536;
-pub const MPU_WP_MPUWE_POS: u32 = 0;
-pub const MPU_WP_MPUWE: u32 = 1;
-pub const MPU_WP_WKEY_POS: u32 = 1;
-pub const MPU_WP_WKEY: u32 = 65534;
-pub const MPU_IPPR_AESRDP_POS: u32 = 0;
-pub const MPU_IPPR_AESRDP: u32 = 1;
-pub const MPU_IPPR_AESWRP_POS: u32 = 1;
-pub const MPU_IPPR_AESWRP: u32 = 2;
-pub const MPU_IPPR_HASHRDP_POS: u32 = 2;
-pub const MPU_IPPR_HASHRDP: u32 = 4;
-pub const MPU_IPPR_HASHWRP_POS: u32 = 3;
-pub const MPU_IPPR_HASHWRP: u32 = 8;
-pub const MPU_IPPR_TRNGRDP_POS: u32 = 4;
-pub const MPU_IPPR_TRNGRDP: u32 = 16;
-pub const MPU_IPPR_TRNGWRP_POS: u32 = 5;
-pub const MPU_IPPR_TRNGWRP: u32 = 32;
-pub const MPU_IPPR_CRCRDP_POS: u32 = 6;
-pub const MPU_IPPR_CRCRDP: u32 = 64;
-pub const MPU_IPPR_CRCWRP_POS: u32 = 7;
-pub const MPU_IPPR_CRCWRP: u32 = 128;
-pub const MPU_IPPR_EFMRDP_POS: u32 = 8;
-pub const MPU_IPPR_EFMRDP: u32 = 256;
-pub const MPU_IPPR_EFMWRP_POS: u32 = 9;
-pub const MPU_IPPR_EFMWRP: u32 = 512;
-pub const MPU_IPPR_WDTRDP_POS: u32 = 12;
-pub const MPU_IPPR_WDTRDP: u32 = 4096;
-pub const MPU_IPPR_WDTWRP_POS: u32 = 13;
-pub const MPU_IPPR_WDTWRP: u32 = 8192;
-pub const MPU_IPPR_SWDTRDP_POS: u32 = 14;
-pub const MPU_IPPR_SWDTRDP: u32 = 16384;
-pub const MPU_IPPR_SWDTWRP_POS: u32 = 15;
-pub const MPU_IPPR_SWDTWRP: u32 = 32768;
-pub const MPU_IPPR_BKSRAMRDP_POS: u32 = 16;
-pub const MPU_IPPR_BKSRAMRDP: u32 = 65536;
-pub const MPU_IPPR_BKSRAMWRP_POS: u32 = 17;
-pub const MPU_IPPR_BKSRAMWRP: u32 = 131072;
-pub const MPU_IPPR_RTCRDP_POS: u32 = 18;
-pub const MPU_IPPR_RTCRDP: u32 = 262144;
-pub const MPU_IPPR_RTCWRP_POS: u32 = 19;
-pub const MPU_IPPR_RTCWRP: u32 = 524288;
-pub const MPU_IPPR_DMPURDP_POS: u32 = 20;
-pub const MPU_IPPR_DMPURDP: u32 = 1048576;
-pub const MPU_IPPR_DMPUWRP_POS: u32 = 21;
-pub const MPU_IPPR_DMPUWRP: u32 = 2097152;
-pub const MPU_IPPR_SRAMCRDP_POS: u32 = 22;
-pub const MPU_IPPR_SRAMCRDP: u32 = 4194304;
-pub const MPU_IPPR_SRAMCWRP_POS: u32 = 23;
-pub const MPU_IPPR_SRAMCWRP: u32 = 8388608;
-pub const MPU_IPPR_INTCRDP_POS: u32 = 24;
-pub const MPU_IPPR_INTCRDP: u32 = 16777216;
-pub const MPU_IPPR_INTCWRP_POS: u32 = 25;
-pub const MPU_IPPR_INTCWRP: u32 = 33554432;
-pub const MPU_IPPR_SYSCRDP_POS: u32 = 26;
-pub const MPU_IPPR_SYSCRDP: u32 = 67108864;
-pub const MPU_IPPR_SYSCWRP_POS: u32 = 27;
-pub const MPU_IPPR_SYSCWRP: u32 = 134217728;
-pub const MPU_IPPR_MSTPRDP_POS: u32 = 28;
-pub const MPU_IPPR_MSTPRDP: u32 = 268435456;
-pub const MPU_IPPR_MSTPWRP_POS: u32 = 29;
-pub const MPU_IPPR_MSTPWRP: u32 = 536870912;
-pub const MPU_IPPR_BUSERRE_POS: u32 = 31;
-pub const MPU_IPPR_BUSERRE: u32 = 2147483648;
-pub const OTS_CTL_OTSST_POS: u32 = 0;
-pub const OTS_CTL_OTSST: u32 = 1;
-pub const OTS_CTL_OTSCK_POS: u32 = 1;
-pub const OTS_CTL_OTSCK: u32 = 2;
-pub const OTS_CTL_OTSIE_POS: u32 = 2;
-pub const OTS_CTL_OTSIE: u32 = 4;
-pub const OTS_CTL_TSSTP_POS: u32 = 3;
-pub const OTS_CTL_TSSTP: u32 = 8;
-pub const OTS_DR1: u32 = 65535;
-pub const OTS_DR2: u32 = 65535;
-pub const OTS_ECR: u32 = 65535;
-pub const PERIC_USBFS_SYCTLREG_DFB_POS: u32 = 0;
-pub const PERIC_USBFS_SYCTLREG_DFB: u32 = 1;
-pub const PERIC_USBFS_SYCTLREG_SOFEN_POS: u32 = 1;
-pub const PERIC_USBFS_SYCTLREG_SOFEN: u32 = 2;
-pub const PERIC_SDIOC_SYCTLREG_SELMMC1_POS: u32 = 1;
-pub const PERIC_SDIOC_SYCTLREG_SELMMC1: u32 = 2;
-pub const PERIC_SDIOC_SYCTLREG_SELMMC2_POS: u32 = 3;
-pub const PERIC_SDIOC_SYCTLREG_SELMMC2: u32 = 8;
-pub const PWC_FCG0_SRAMH_POS: u32 = 0;
-pub const PWC_FCG0_SRAMH: u32 = 1;
-pub const PWC_FCG0_SRAM12_POS: u32 = 4;
-pub const PWC_FCG0_SRAM12: u32 = 16;
-pub const PWC_FCG0_SRAM3_POS: u32 = 8;
-pub const PWC_FCG0_SRAM3: u32 = 256;
-pub const PWC_FCG0_SRAMRET_POS: u32 = 10;
-pub const PWC_FCG0_SRAMRET: u32 = 1024;
-pub const PWC_FCG0_DMA1_POS: u32 = 14;
-pub const PWC_FCG0_DMA1: u32 = 16384;
-pub const PWC_FCG0_DMA2_POS: u32 = 15;
-pub const PWC_FCG0_DMA2: u32 = 32768;
-pub const PWC_FCG0_FCM_POS: u32 = 16;
-pub const PWC_FCG0_FCM: u32 = 65536;
-pub const PWC_FCG0_AOS_POS: u32 = 17;
-pub const PWC_FCG0_AOS: u32 = 131072;
-pub const PWC_FCG0_AES_POS: u32 = 20;
-pub const PWC_FCG0_AES: u32 = 1048576;
-pub const PWC_FCG0_HASH_POS: u32 = 21;
-pub const PWC_FCG0_HASH: u32 = 2097152;
-pub const PWC_FCG0_TRNG_POS: u32 = 22;
-pub const PWC_FCG0_TRNG: u32 = 4194304;
-pub const PWC_FCG0_CRC_POS: u32 = 23;
-pub const PWC_FCG0_CRC: u32 = 8388608;
-pub const PWC_FCG0_DCU1_POS: u32 = 24;
-pub const PWC_FCG0_DCU1: u32 = 16777216;
-pub const PWC_FCG0_DCU2_POS: u32 = 25;
-pub const PWC_FCG0_DCU2: u32 = 33554432;
-pub const PWC_FCG0_DCU3_POS: u32 = 26;
-pub const PWC_FCG0_DCU3: u32 = 67108864;
-pub const PWC_FCG0_DCU4_POS: u32 = 27;
-pub const PWC_FCG0_DCU4: u32 = 134217728;
-pub const PWC_FCG0_KEY_POS: u32 = 31;
-pub const PWC_FCG0_KEY: u32 = 2147483648;
-pub const PWC_FCG1_CAN_POS: u32 = 0;
-pub const PWC_FCG1_CAN: u32 = 1;
-pub const PWC_FCG1_QSPI_POS: u32 = 3;
-pub const PWC_FCG1_QSPI: u32 = 8;
-pub const PWC_FCG1_I2C1_POS: u32 = 4;
-pub const PWC_FCG1_I2C1: u32 = 16;
-pub const PWC_FCG1_I2C2_POS: u32 = 5;
-pub const PWC_FCG1_I2C2: u32 = 32;
-pub const PWC_FCG1_I2C3_POS: u32 = 6;
-pub const PWC_FCG1_I2C3: u32 = 64;
-pub const PWC_FCG1_USBFS_POS: u32 = 8;
-pub const PWC_FCG1_USBFS: u32 = 256;
-pub const PWC_FCG1_SDIOC1_POS: u32 = 10;
-pub const PWC_FCG1_SDIOC1: u32 = 1024;
-pub const PWC_FCG1_SDIOC2_POS: u32 = 11;
-pub const PWC_FCG1_SDIOC2: u32 = 2048;
-pub const PWC_FCG1_I2S1_POS: u32 = 12;
-pub const PWC_FCG1_I2S1: u32 = 4096;
-pub const PWC_FCG1_I2S2_POS: u32 = 13;
-pub const PWC_FCG1_I2S2: u32 = 8192;
-pub const PWC_FCG1_I2S3_POS: u32 = 14;
-pub const PWC_FCG1_I2S3: u32 = 16384;
-pub const PWC_FCG1_I2S4_POS: u32 = 15;
-pub const PWC_FCG1_I2S4: u32 = 32768;
-pub const PWC_FCG1_SPI1_POS: u32 = 16;
-pub const PWC_FCG1_SPI1: u32 = 65536;
-pub const PWC_FCG1_SPI2_POS: u32 = 17;
-pub const PWC_FCG1_SPI2: u32 = 131072;
-pub const PWC_FCG1_SPI3_POS: u32 = 18;
-pub const PWC_FCG1_SPI3: u32 = 262144;
-pub const PWC_FCG1_SPI4_POS: u32 = 19;
-pub const PWC_FCG1_SPI4: u32 = 524288;
-pub const PWC_FCG1_USART1_POS: u32 = 24;
-pub const PWC_FCG1_USART1: u32 = 16777216;
-pub const PWC_FCG1_USART2_POS: u32 = 25;
-pub const PWC_FCG1_USART2: u32 = 33554432;
-pub const PWC_FCG1_USART3_POS: u32 = 26;
-pub const PWC_FCG1_USART3: u32 = 67108864;
-pub const PWC_FCG1_USART4_POS: u32 = 27;
-pub const PWC_FCG1_USART4: u32 = 134217728;
-pub const PWC_FCG2_TIMER0_1_POS: u32 = 0;
-pub const PWC_FCG2_TIMER0_1: u32 = 1;
-pub const PWC_FCG2_TIMER0_2_POS: u32 = 1;
-pub const PWC_FCG2_TIMER0_2: u32 = 2;
-pub const PWC_FCG2_TIMERA_1_POS: u32 = 2;
-pub const PWC_FCG2_TIMERA_1: u32 = 4;
-pub const PWC_FCG2_TIMERA_2_POS: u32 = 3;
-pub const PWC_FCG2_TIMERA_2: u32 = 8;
-pub const PWC_FCG2_TIMERA_3_POS: u32 = 4;
-pub const PWC_FCG2_TIMERA_3: u32 = 16;
-pub const PWC_FCG2_TIMERA_4_POS: u32 = 5;
-pub const PWC_FCG2_TIMERA_4: u32 = 32;
-pub const PWC_FCG2_TIMERA_5_POS: u32 = 6;
-pub const PWC_FCG2_TIMERA_5: u32 = 64;
-pub const PWC_FCG2_TIMERA_6_POS: u32 = 7;
-pub const PWC_FCG2_TIMERA_6: u32 = 128;
-pub const PWC_FCG2_TIMER4_1_POS: u32 = 8;
-pub const PWC_FCG2_TIMER4_1: u32 = 256;
-pub const PWC_FCG2_TIMER4_2_POS: u32 = 9;
-pub const PWC_FCG2_TIMER4_2: u32 = 512;
-pub const PWC_FCG2_TIMER4_3_POS: u32 = 10;
-pub const PWC_FCG2_TIMER4_3: u32 = 1024;
-pub const PWC_FCG2_EMB_POS: u32 = 15;
-pub const PWC_FCG2_EMB: u32 = 32768;
-pub const PWC_FCG2_TIMER6_1_POS: u32 = 16;
-pub const PWC_FCG2_TIMER6_1: u32 = 65536;
-pub const PWC_FCG2_TIMER6_2_POS: u32 = 17;
-pub const PWC_FCG2_TIMER6_2: u32 = 131072;
-pub const PWC_FCG2_TIMER6_3_POS: u32 = 18;
-pub const PWC_FCG2_TIMER6_3: u32 = 262144;
-pub const PWC_FCG3_ADC1_POS: u32 = 0;
-pub const PWC_FCG3_ADC1: u32 = 1;
-pub const PWC_FCG3_ADC2_POS: u32 = 1;
-pub const PWC_FCG3_ADC2: u32 = 2;
-pub const PWC_FCG3_CMP_POS: u32 = 8;
-pub const PWC_FCG3_CMP: u32 = 256;
-pub const PWC_FCG3_OTS_POS: u32 = 12;
-pub const PWC_FCG3_OTS: u32 = 4096;
-pub const PWC_FCG0PC_PRT0_POS: u32 = 0;
-pub const PWC_FCG0PC_PRT0: u32 = 1;
-pub const PWC_FCG0PC_FCG0PCWE_POS: u32 = 16;
-pub const PWC_FCG0PC_FCG0PCWE: u32 = 4294901760;
-pub const PWC_WKTCR_WKTMCMP_POS: u32 = 0;
-pub const PWC_WKTCR_WKTMCMP: u32 = 4095;
-pub const PWC_WKTCR_WKOVF_POS: u32 = 12;
-pub const PWC_WKTCR_WKOVF: u32 = 4096;
-pub const PWC_WKTCR_WKCKS_POS: u32 = 13;
-pub const PWC_WKTCR_WKCKS: u32 = 24576;
-pub const PWC_WKTCR_WKCKS_0: u32 = 8192;
-pub const PWC_WKTCR_WKCKS_1: u32 = 16384;
-pub const PWC_WKTCR_WKTCE_POS: u32 = 15;
-pub const PWC_WKTCR_WKTCE: u32 = 32768;
-pub const PWC_STPMCR_FLNWT_POS: u32 = 0;
-pub const PWC_STPMCR_FLNWT: u32 = 1;
-pub const PWC_STPMCR_CKSMRC_POS: u32 = 1;
-pub const PWC_STPMCR_CKSMRC: u32 = 2;
-pub const PWC_STPMCR_STOP_POS: u32 = 15;
-pub const PWC_STPMCR_STOP: u32 = 32768;
-pub const PWC_RAMPC0_RAMPDC0_POS: u32 = 0;
-pub const PWC_RAMPC0_RAMPDC0: u32 = 1;
-pub const PWC_RAMPC0_RAMPDC1_POS: u32 = 1;
-pub const PWC_RAMPC0_RAMPDC1: u32 = 2;
-pub const PWC_RAMPC0_RAMPDC2_POS: u32 = 2;
-pub const PWC_RAMPC0_RAMPDC2: u32 = 4;
-pub const PWC_RAMPC0_RAMPDC3_POS: u32 = 3;
-pub const PWC_RAMPC0_RAMPDC3: u32 = 8;
-pub const PWC_RAMPC0_RAMPDC4_POS: u32 = 4;
-pub const PWC_RAMPC0_RAMPDC4: u32 = 16;
-pub const PWC_RAMPC0_RAMPDC5_POS: u32 = 5;
-pub const PWC_RAMPC0_RAMPDC5: u32 = 32;
-pub const PWC_RAMPC0_RAMPDC6_POS: u32 = 6;
-pub const PWC_RAMPC0_RAMPDC6: u32 = 64;
-pub const PWC_RAMPC0_RAMPDC7_POS: u32 = 7;
-pub const PWC_RAMPC0_RAMPDC7: u32 = 128;
-pub const PWC_RAMPC0_RAMPDC8_POS: u32 = 8;
-pub const PWC_RAMPC0_RAMPDC8: u32 = 256;
-pub const PWC_RAMOPM: u32 = 65535;
-pub const PWC_PVDICR_PVD1NMIS_POS: u32 = 0;
-pub const PWC_PVDICR_PVD1NMIS: u32 = 1;
-pub const PWC_PVDICR_PVD2NMIS_POS: u32 = 4;
-pub const PWC_PVDICR_PVD2NMIS: u32 = 16;
-pub const PWC_PVDDSR_PVD1MON_POS: u32 = 0;
-pub const PWC_PVDDSR_PVD1MON: u32 = 1;
-pub const PWC_PVDDSR_PVD1DETFLG_POS: u32 = 1;
-pub const PWC_PVDDSR_PVD1DETFLG: u32 = 2;
-pub const PWC_PVDDSR_PVD2MON_POS: u32 = 4;
-pub const PWC_PVDDSR_PVD2MON: u32 = 16;
-pub const PWC_PVDDSR_PVD2DETFLG_POS: u32 = 5;
-pub const PWC_PVDDSR_PVD2DETFLG: u32 = 32;
-pub const PWC_FPRC_FPRCB0_POS: u32 = 0;
-pub const PWC_FPRC_FPRCB0: u32 = 1;
-pub const PWC_FPRC_FPRCB1_POS: u32 = 1;
-pub const PWC_FPRC_FPRCB1: u32 = 2;
-pub const PWC_FPRC_FPRCB2_POS: u32 = 2;
-pub const PWC_FPRC_FPRCB2: u32 = 4;
-pub const PWC_FPRC_FPRCB3_POS: u32 = 3;
-pub const PWC_FPRC_FPRCB3: u32 = 8;
-pub const PWC_FPRC_FPRCWE_POS: u32 = 8;
-pub const PWC_FPRC_FPRCWE: u32 = 65280;
-pub const PWC_PWRC0_PDMDS_POS: u32 = 0;
-pub const PWC_PWRC0_PDMDS: u32 = 3;
-pub const PWC_PWRC0_PDMDS_0: u32 = 1;
-pub const PWC_PWRC0_PDMDS_1: u32 = 2;
-pub const PWC_PWRC0_VVDRSD_POS: u32 = 2;
-pub const PWC_PWRC0_VVDRSD: u32 = 4;
-pub const PWC_PWRC0_RETRAMSD_POS: u32 = 3;
-pub const PWC_PWRC0_RETRAMSD: u32 = 8;
-pub const PWC_PWRC0_IORTN_POS: u32 = 4;
-pub const PWC_PWRC0_IORTN: u32 = 48;
-pub const PWC_PWRC0_IORTN_0: u32 = 16;
-pub const PWC_PWRC0_IORTN_1: u32 = 32;
-pub const PWC_PWRC0_PWDN_POS: u32 = 7;
-pub const PWC_PWRC0_PWDN: u32 = 128;
-pub const PWC_PWRC1_VPLLSD_POS: u32 = 0;
-pub const PWC_PWRC1_VPLLSD: u32 = 1;
-pub const PWC_PWRC1_VHRCSD_POS: u32 = 1;
-pub const PWC_PWRC1_VHRCSD: u32 = 2;
-pub const PWC_PWRC1_STPDAS_POS: u32 = 6;
-pub const PWC_PWRC1_STPDAS: u32 = 192;
-pub const PWC_PWRC1_STPDAS_0: u32 = 64;
-pub const PWC_PWRC1_STPDAS_1: u32 = 128;
-pub const PWC_PWRC2_DDAS_POS: u32 = 0;
-pub const PWC_PWRC2_DDAS: u32 = 15;
-pub const PWC_PWRC2_DDAS_0: u32 = 1;
-pub const PWC_PWRC2_DDAS_1: u32 = 2;
-pub const PWC_PWRC2_DDAS_2: u32 = 4;
-pub const PWC_PWRC2_DDAS_3: u32 = 8;
-pub const PWC_PWRC2_DVS_POS: u32 = 4;
-pub const PWC_PWRC2_DVS: u32 = 48;
-pub const PWC_PWRC2_DVS_0: u32 = 16;
-pub const PWC_PWRC2_DVS_1: u32 = 32;
-pub const PWC_PWRC3_PDTS_POS: u32 = 2;
-pub const PWC_PWRC3_PDTS: u32 = 4;
-pub const PWC_PDWKE0_WKE00_POS: u32 = 0;
-pub const PWC_PDWKE0_WKE00: u32 = 1;
-pub const PWC_PDWKE0_WKE01_POS: u32 = 1;
-pub const PWC_PDWKE0_WKE01: u32 = 2;
-pub const PWC_PDWKE0_WKE02_POS: u32 = 2;
-pub const PWC_PDWKE0_WKE02: u32 = 4;
-pub const PWC_PDWKE0_WKE03_POS: u32 = 3;
-pub const PWC_PDWKE0_WKE03: u32 = 8;
-pub const PWC_PDWKE0_WKE10_POS: u32 = 4;
-pub const PWC_PDWKE0_WKE10: u32 = 16;
-pub const PWC_PDWKE0_WKE11_POS: u32 = 5;
-pub const PWC_PDWKE0_WKE11: u32 = 32;
-pub const PWC_PDWKE0_WKE12_POS: u32 = 6;
-pub const PWC_PDWKE0_WKE12: u32 = 64;
-pub const PWC_PDWKE0_WKE13_POS: u32 = 7;
-pub const PWC_PDWKE0_WKE13: u32 = 128;
-pub const PWC_PDWKE1_WKE20_POS: u32 = 0;
-pub const PWC_PDWKE1_WKE20: u32 = 1;
-pub const PWC_PDWKE1_WKE21_POS: u32 = 1;
-pub const PWC_PDWKE1_WKE21: u32 = 2;
-pub const PWC_PDWKE1_WKE22_POS: u32 = 2;
-pub const PWC_PDWKE1_WKE22: u32 = 4;
-pub const PWC_PDWKE1_WKE23_POS: u32 = 3;
-pub const PWC_PDWKE1_WKE23: u32 = 8;
-pub const PWC_PDWKE1_WKE30_POS: u32 = 4;
-pub const PWC_PDWKE1_WKE30: u32 = 16;
-pub const PWC_PDWKE1_WKE31_POS: u32 = 5;
-pub const PWC_PDWKE1_WKE31: u32 = 32;
-pub const PWC_PDWKE1_WKE32_POS: u32 = 6;
-pub const PWC_PDWKE1_WKE32: u32 = 64;
-pub const PWC_PDWKE1_WKE33_POS: u32 = 7;
-pub const PWC_PDWKE1_WKE33: u32 = 128;
-pub const PWC_PDWKE2_VD1WKE_POS: u32 = 0;
-pub const PWC_PDWKE2_VD1WKE: u32 = 1;
-pub const PWC_PDWKE2_VD2WKE_POS: u32 = 1;
-pub const PWC_PDWKE2_VD2WKE: u32 = 2;
-pub const PWC_PDWKE2_NMIWKE_POS: u32 = 2;
-pub const PWC_PDWKE2_NMIWKE: u32 = 4;
-pub const PWC_PDWKE2_RTCPRDWKE_POS: u32 = 4;
-pub const PWC_PDWKE2_RTCPRDWKE: u32 = 16;
-pub const PWC_PDWKE2_RTCALMWKE_POS: u32 = 5;
-pub const PWC_PDWKE2_RTCALMWKE: u32 = 32;
-pub const PWC_PDWKE2_WKTMWKE_POS: u32 = 7;
-pub const PWC_PDWKE2_WKTMWKE: u32 = 128;
-pub const PWC_PDWKES_WK0EGS_POS: u32 = 0;
-pub const PWC_PDWKES_WK0EGS: u32 = 1;
-pub const PWC_PDWKES_WK1EGS_POS: u32 = 1;
-pub const PWC_PDWKES_WK1EGS: u32 = 2;
-pub const PWC_PDWKES_WK2EGS_POS: u32 = 2;
-pub const PWC_PDWKES_WK2EGS: u32 = 4;
-pub const PWC_PDWKES_WK3EGS_POS: u32 = 3;
-pub const PWC_PDWKES_WK3EGS: u32 = 8;
-pub const PWC_PDWKES_VD1EGS_POS: u32 = 4;
-pub const PWC_PDWKES_VD1EGS: u32 = 16;
-pub const PWC_PDWKES_VD2EGS_POS: u32 = 5;
-pub const PWC_PDWKES_VD2EGS: u32 = 32;
-pub const PWC_PDWKES_NMIEGS_POS: u32 = 6;
-pub const PWC_PDWKES_NMIEGS: u32 = 64;
-pub const PWC_PDWKF0_PTWK0F_POS: u32 = 0;
-pub const PWC_PDWKF0_PTWK0F: u32 = 1;
-pub const PWC_PDWKF0_PTWK1F_POS: u32 = 1;
-pub const PWC_PDWKF0_PTWK1F: u32 = 2;
-pub const PWC_PDWKF0_PTWK2F_POS: u32 = 2;
-pub const PWC_PDWKF0_PTWK2F: u32 = 4;
-pub const PWC_PDWKF0_PTWK3F_POS: u32 = 3;
-pub const PWC_PDWKF0_PTWK3F: u32 = 8;
-pub const PWC_PDWKF0_VD1WKF_POS: u32 = 4;
-pub const PWC_PDWKF0_VD1WKF: u32 = 16;
-pub const PWC_PDWKF0_VD2WKF_POS: u32 = 5;
-pub const PWC_PDWKF0_VD2WKF: u32 = 32;
-pub const PWC_PDWKF0_NMIWKF_POS: u32 = 6;
-pub const PWC_PDWKF0_NMIWKF: u32 = 64;
-pub const PWC_PDWKF1_RTCPRDWKF_POS: u32 = 4;
-pub const PWC_PDWKF1_RTCPRDWKF: u32 = 16;
-pub const PWC_PDWKF1_RTCALMWKF_POS: u32 = 5;
-pub const PWC_PDWKF1_RTCALMWKF: u32 = 32;
-pub const PWC_PDWKF1_WKTMWKF_POS: u32 = 7;
-pub const PWC_PDWKF1_WKTMWKF: u32 = 128;
-pub const PWC_PWCMR_ADBUFE_POS: u32 = 7;
-pub const PWC_PWCMR_ADBUFE: u32 = 128;
-pub const PWC_MDSWCR: u32 = 255;
-pub const PWC_PVDCR0_EXVCCINEN_POS: u32 = 0;
-pub const PWC_PVDCR0_EXVCCINEN: u32 = 1;
-pub const PWC_PVDCR0_PVD1EN_POS: u32 = 5;
-pub const PWC_PVDCR0_PVD1EN: u32 = 32;
-pub const PWC_PVDCR0_PVD2EN_POS: u32 = 6;
-pub const PWC_PVDCR0_PVD2EN: u32 = 64;
-pub const PWC_PVDCR1_PVD1IRE_POS: u32 = 0;
-pub const PWC_PVDCR1_PVD1IRE: u32 = 1;
-pub const PWC_PVDCR1_PVD1IRS_POS: u32 = 1;
-pub const PWC_PVDCR1_PVD1IRS: u32 = 2;
-pub const PWC_PVDCR1_PVD1CMPOE_POS: u32 = 2;
-pub const PWC_PVDCR1_PVD1CMPOE: u32 = 4;
-pub const PWC_PVDCR1_PVD2IRE_POS: u32 = 4;
-pub const PWC_PVDCR1_PVD2IRE: u32 = 16;
-pub const PWC_PVDCR1_PVD2IRS_POS: u32 = 5;
-pub const PWC_PVDCR1_PVD2IRS: u32 = 32;
-pub const PWC_PVDCR1_PVD2CMPOE_POS: u32 = 6;
-pub const PWC_PVDCR1_PVD2CMPOE: u32 = 64;
-pub const PWC_PVDFCR_PVD1NFDIS_POS: u32 = 0;
-pub const PWC_PVDFCR_PVD1NFDIS: u32 = 1;
-pub const PWC_PVDFCR_PVD1NFCKS_POS: u32 = 1;
-pub const PWC_PVDFCR_PVD1NFCKS: u32 = 6;
-pub const PWC_PVDFCR_PVD1NFCKS_0: u32 = 2;
-pub const PWC_PVDFCR_PVD1NFCKS_1: u32 = 4;
-pub const PWC_PVDFCR_PVD2NFDIS_POS: u32 = 4;
-pub const PWC_PVDFCR_PVD2NFDIS: u32 = 16;
-pub const PWC_PVDFCR_PVD2NFCKS_POS: u32 = 5;
-pub const PWC_PVDFCR_PVD2NFCKS: u32 = 96;
-pub const PWC_PVDFCR_PVD2NFCKS_0: u32 = 32;
-pub const PWC_PVDFCR_PVD2NFCKS_1: u32 = 64;
-pub const PWC_PVDLCR_PVD1LVL_POS: u32 = 0;
-pub const PWC_PVDLCR_PVD1LVL: u32 = 7;
-pub const PWC_PVDLCR_PVD1LVL_0: u32 = 1;
-pub const PWC_PVDLCR_PVD1LVL_1: u32 = 2;
-pub const PWC_PVDLCR_PVD1LVL_2: u32 = 4;
-pub const PWC_PVDLCR_PVD2LVL_POS: u32 = 4;
-pub const PWC_PVDLCR_PVD2LVL: u32 = 112;
-pub const PWC_PVDLCR_PVD2LVL_0: u32 = 16;
-pub const PWC_PVDLCR_PVD2LVL_1: u32 = 32;
-pub const PWC_PVDLCR_PVD2LVL_2: u32 = 64;
-pub const PWC_XTAL32CS_CSDIS_POS: u32 = 7;
-pub const PWC_XTAL32CS_CSDIS: u32 = 128;
-pub const QSPI_CR_MDSEL_POS: u32 = 0;
-pub const QSPI_CR_MDSEL: u32 = 7;
-pub const QSPI_CR_PFE_POS: u32 = 3;
-pub const QSPI_CR_PFE: u32 = 8;
-pub const QSPI_CR_PFSAE_POS: u32 = 4;
-pub const QSPI_CR_PFSAE: u32 = 16;
-pub const QSPI_CR_DCOME_POS: u32 = 5;
-pub const QSPI_CR_DCOME: u32 = 32;
-pub const QSPI_CR_XIPE_POS: u32 = 6;
-pub const QSPI_CR_XIPE: u32 = 64;
-pub const QSPI_CR_SPIMD3_POS: u32 = 7;
-pub const QSPI_CR_SPIMD3: u32 = 128;
-pub const QSPI_CR_IPRSL_POS: u32 = 8;
-pub const QSPI_CR_IPRSL: u32 = 768;
-pub const QSPI_CR_IPRSL_0: u32 = 256;
-pub const QSPI_CR_IPRSL_1: u32 = 512;
-pub const QSPI_CR_APRSL_POS: u32 = 10;
-pub const QSPI_CR_APRSL: u32 = 3072;
-pub const QSPI_CR_APRSL_0: u32 = 1024;
-pub const QSPI_CR_APRSL_1: u32 = 2048;
-pub const QSPI_CR_DPRSL_POS: u32 = 12;
-pub const QSPI_CR_DPRSL: u32 = 12288;
-pub const QSPI_CR_DPRSL_0: u32 = 4096;
-pub const QSPI_CR_DPRSL_1: u32 = 8192;
-pub const QSPI_CR_DIV_POS: u32 = 16;
-pub const QSPI_CR_DIV: u32 = 4128768;
-pub const QSPI_CSCR_SSHW_POS: u32 = 0;
-pub const QSPI_CSCR_SSHW: u32 = 15;
-pub const QSPI_CSCR_SSNW_POS: u32 = 4;
-pub const QSPI_CSCR_SSNW: u32 = 48;
-pub const QSPI_CSCR_SSNW_0: u32 = 16;
-pub const QSPI_CSCR_SSNW_1: u32 = 32;
-pub const QSPI_FCR_AWSL_POS: u32 = 0;
-pub const QSPI_FCR_AWSL: u32 = 3;
-pub const QSPI_FCR_AWSL_0: u32 = 1;
-pub const QSPI_FCR_AWSL_1: u32 = 2;
-pub const QSPI_FCR_FOUR_BIC_POS: u32 = 2;
-pub const QSPI_FCR_FOUR_BIC: u32 = 4;
-pub const QSPI_FCR_SSNHD_POS: u32 = 4;
-pub const QSPI_FCR_SSNHD: u32 = 16;
-pub const QSPI_FCR_SSNLD_POS: u32 = 5;
-pub const QSPI_FCR_SSNLD: u32 = 32;
-pub const QSPI_FCR_WPOL_POS: u32 = 6;
-pub const QSPI_FCR_WPOL: u32 = 64;
-pub const QSPI_FCR_DMCYCN_POS: u32 = 8;
-pub const QSPI_FCR_DMCYCN: u32 = 3840;
-pub const QSPI_FCR_DUTY_POS: u32 = 15;
-pub const QSPI_FCR_DUTY: u32 = 32768;
-pub const QSPI_SR_BUSY_POS: u32 = 0;
-pub const QSPI_SR_BUSY: u32 = 1;
-pub const QSPI_SR_XIPF_POS: u32 = 6;
-pub const QSPI_SR_XIPF: u32 = 64;
-pub const QSPI_SR_RAER_POS: u32 = 7;
-pub const QSPI_SR_RAER: u32 = 128;
-pub const QSPI_SR_PFNUM_POS: u32 = 8;
-pub const QSPI_SR_PFNUM: u32 = 7936;
-pub const QSPI_SR_PFFUL_POS: u32 = 14;
-pub const QSPI_SR_PFFUL: u32 = 16384;
-pub const QSPI_SR_PFAN_POS: u32 = 15;
-pub const QSPI_SR_PFAN: u32 = 32768;
-pub const QSPI_DCOM_DCOM: u32 = 255;
-pub const QSPI_CCMD_RIC: u32 = 255;
-pub const QSPI_XCMD_XIPMC: u32 = 255;
-pub const QSPI_CLR_RAERCLR_POS: u32 = 7;
-pub const QSPI_CLR_RAERCLR: u32 = 128;
-pub const QSPI_EXAR_EXADR_POS: u32 = 26;
-pub const QSPI_EXAR_EXADR: u32 = 4227858432;
-pub const RMU_RSTF0_PORF_POS: u32 = 0;
-pub const RMU_RSTF0_PORF: u32 = 1;
-pub const RMU_RSTF0_PINRF_POS: u32 = 1;
-pub const RMU_RSTF0_PINRF: u32 = 2;
-pub const RMU_RSTF0_BORF_POS: u32 = 2;
-pub const RMU_RSTF0_BORF: u32 = 4;
-pub const RMU_RSTF0_PVD1RF_POS: u32 = 3;
-pub const RMU_RSTF0_PVD1RF: u32 = 8;
-pub const RMU_RSTF0_PVD2RF_POS: u32 = 4;
-pub const RMU_RSTF0_PVD2RF: u32 = 16;
-pub const RMU_RSTF0_WDRF_POS: u32 = 5;
-pub const RMU_RSTF0_WDRF: u32 = 32;
-pub const RMU_RSTF0_SWDRF_POS: u32 = 6;
-pub const RMU_RSTF0_SWDRF: u32 = 64;
-pub const RMU_RSTF0_PDRF_POS: u32 = 7;
-pub const RMU_RSTF0_PDRF: u32 = 128;
-pub const RMU_RSTF0_SWRF_POS: u32 = 8;
-pub const RMU_RSTF0_SWRF: u32 = 256;
-pub const RMU_RSTF0_MPUERF_POS: u32 = 9;
-pub const RMU_RSTF0_MPUERF: u32 = 512;
-pub const RMU_RSTF0_RAPERF_POS: u32 = 10;
-pub const RMU_RSTF0_RAPERF: u32 = 1024;
-pub const RMU_RSTF0_RAECRF_POS: u32 = 11;
-pub const RMU_RSTF0_RAECRF: u32 = 2048;
-pub const RMU_RSTF0_CKFERF_POS: u32 = 12;
-pub const RMU_RSTF0_CKFERF: u32 = 4096;
-pub const RMU_RSTF0_XTALERF_POS: u32 = 13;
-pub const RMU_RSTF0_XTALERF: u32 = 8192;
-pub const RMU_RSTF0_MULTIRF_POS: u32 = 14;
-pub const RMU_RSTF0_MULTIRF: u32 = 16384;
-pub const RMU_RSTF0_CLRF_POS: u32 = 15;
-pub const RMU_RSTF0_CLRF: u32 = 32768;
-pub const RTC_CR0_RESET: u32 = 1;
-pub const RTC_CR1_PRDS_POS: u32 = 0;
-pub const RTC_CR1_PRDS: u32 = 7;
-pub const RTC_CR1_AMPM_POS: u32 = 3;
-pub const RTC_CR1_AMPM: u32 = 8;
-pub const RTC_CR1_ALMFCLR_POS: u32 = 4;
-pub const RTC_CR1_ALMFCLR: u32 = 16;
-pub const RTC_CR1_ONEHZOE_POS: u32 = 5;
-pub const RTC_CR1_ONEHZOE: u32 = 32;
-pub const RTC_CR1_ONEHZSEL_POS: u32 = 6;
-pub const RTC_CR1_ONEHZSEL: u32 = 64;
-pub const RTC_CR1_START_POS: u32 = 7;
-pub const RTC_CR1_START: u32 = 128;
-pub const RTC_CR2_RWREQ_POS: u32 = 0;
-pub const RTC_CR2_RWREQ: u32 = 1;
-pub const RTC_CR2_RWEN_POS: u32 = 1;
-pub const RTC_CR2_RWEN: u32 = 2;
-pub const RTC_CR2_ALMF_POS: u32 = 3;
-pub const RTC_CR2_ALMF: u32 = 8;
-pub const RTC_CR2_PRDIE_POS: u32 = 5;
-pub const RTC_CR2_PRDIE: u32 = 32;
-pub const RTC_CR2_ALMIE_POS: u32 = 6;
-pub const RTC_CR2_ALMIE: u32 = 64;
-pub const RTC_CR2_ALME_POS: u32 = 7;
-pub const RTC_CR2_ALME: u32 = 128;
-pub const RTC_CR3_LRCEN_POS: u32 = 4;
-pub const RTC_CR3_LRCEN: u32 = 16;
-pub const RTC_CR3_RCKSEL_POS: u32 = 7;
-pub const RTC_CR3_RCKSEL: u32 = 128;
-pub const RTC_SEC_SECU_POS: u32 = 0;
-pub const RTC_SEC_SECU: u32 = 15;
-pub const RTC_SEC_SECD_POS: u32 = 4;
-pub const RTC_SEC_SECD: u32 = 112;
-pub const RTC_MIN_MINU_POS: u32 = 0;
-pub const RTC_MIN_MINU: u32 = 15;
-pub const RTC_MIN_MIND_POS: u32 = 4;
-pub const RTC_MIN_MIND: u32 = 112;
-pub const RTC_HOUR_HOURU_POS: u32 = 0;
-pub const RTC_HOUR_HOURU: u32 = 15;
-pub const RTC_HOUR_HOURU_0: u32 = 1;
-pub const RTC_HOUR_HOURU_1: u32 = 2;
-pub const RTC_HOUR_HOURU_2: u32 = 4;
-pub const RTC_HOUR_HOURU_3: u32 = 8;
-pub const RTC_HOUR_HOURD_POS: u32 = 4;
-pub const RTC_HOUR_HOURD: u32 = 48;
-pub const RTC_HOUR_HOURD_0: u32 = 16;
-pub const RTC_HOUR_HOURD_1: u32 = 32;
-pub const RTC_WEEK_WEEK: u32 = 7;
-pub const RTC_DAY_DAYU_POS: u32 = 0;
-pub const RTC_DAY_DAYU: u32 = 15;
-pub const RTC_DAY_DAYD_POS: u32 = 4;
-pub const RTC_DAY_DAYD: u32 = 48;
-pub const RTC_MON_MON: u32 = 31;
-pub const RTC_YEAR_YEARU_POS: u32 = 0;
-pub const RTC_YEAR_YEARU: u32 = 15;
-pub const RTC_YEAR_YEARD_POS: u32 = 4;
-pub const RTC_YEAR_YEARD: u32 = 240;
-pub const RTC_ALMMIN_ALMMINU_POS: u32 = 0;
-pub const RTC_ALMMIN_ALMMINU: u32 = 15;
-pub const RTC_ALMMIN_ALMMIND_POS: u32 = 4;
-pub const RTC_ALMMIN_ALMMIND: u32 = 112;
-pub const RTC_ALMHOUR_ALMHOURU_POS: u32 = 0;
-pub const RTC_ALMHOUR_ALMHOURU: u32 = 15;
-pub const RTC_ALMHOUR_ALMHOURD_POS: u32 = 4;
-pub const RTC_ALMHOUR_ALMHOURD: u32 = 48;
-pub const RTC_ALMHOUR_ALMHOURD_0: u32 = 16;
-pub const RTC_ALMHOUR_ALMHOURD_1: u32 = 32;
-pub const RTC_ALMWEEK_ALMWEEK: u32 = 127;
-pub const RTC_ALMWEEK_ALMWEEK_0: u32 = 1;
-pub const RTC_ALMWEEK_ALMWEEK_1: u32 = 2;
-pub const RTC_ALMWEEK_ALMWEEK_2: u32 = 4;
-pub const RTC_ALMWEEK_ALMWEEK_3: u32 = 8;
-pub const RTC_ALMWEEK_ALMWEEK_4: u32 = 16;
-pub const RTC_ALMWEEK_ALMWEEK_5: u32 = 32;
-pub const RTC_ALMWEEK_ALMWEEK_6: u32 = 64;
-pub const RTC_ERRCRH_COMP8_POS: u32 = 0;
-pub const RTC_ERRCRH_COMP8: u32 = 1;
-pub const RTC_ERRCRH_COMPEN_POS: u32 = 7;
-pub const RTC_ERRCRH_COMPEN: u32 = 128;
-pub const RTC_ERRCRL_COMP: u32 = 255;
-pub const SDIOC_BLKSIZE_TBS: u32 = 4095;
-pub const SDIOC_BLKCNT: u32 = 65535;
-pub const SDIOC_ARG0: u32 = 65535;
-pub const SDIOC_ARG1: u32 = 65535;
-pub const SDIOC_TRANSMODE_BCE_POS: u32 = 1;
-pub const SDIOC_TRANSMODE_BCE: u32 = 2;
-pub const SDIOC_TRANSMODE_ATCEN_POS: u32 = 2;
-pub const SDIOC_TRANSMODE_ATCEN: u32 = 12;
-pub const SDIOC_TRANSMODE_ATCEN_0: u32 = 4;
-pub const SDIOC_TRANSMODE_ATCEN_1: u32 = 8;
-pub const SDIOC_TRANSMODE_DDIR_POS: u32 = 4;
-pub const SDIOC_TRANSMODE_DDIR: u32 = 16;
-pub const SDIOC_TRANSMODE_MULB_POS: u32 = 5;
-pub const SDIOC_TRANSMODE_MULB: u32 = 32;
-pub const SDIOC_CMD_RESTYP_POS: u32 = 0;
-pub const SDIOC_CMD_RESTYP: u32 = 3;
-pub const SDIOC_CMD_RESTYP_0: u32 = 1;
-pub const SDIOC_CMD_RESTYP_1: u32 = 2;
-pub const SDIOC_CMD_CCE_POS: u32 = 3;
-pub const SDIOC_CMD_CCE: u32 = 8;
-pub const SDIOC_CMD_ICE_POS: u32 = 4;
-pub const SDIOC_CMD_ICE: u32 = 16;
-pub const SDIOC_CMD_DAT_POS: u32 = 5;
-pub const SDIOC_CMD_DAT: u32 = 32;
-pub const SDIOC_CMD_TYP_POS: u32 = 6;
-pub const SDIOC_CMD_TYP: u32 = 192;
-pub const SDIOC_CMD_TYP_0: u32 = 64;
-pub const SDIOC_CMD_TYP_1: u32 = 128;
-pub const SDIOC_CMD_IDX_POS: u32 = 8;
-pub const SDIOC_CMD_IDX: u32 = 16128;
-pub const SDIOC_RESP0: u32 = 65535;
-pub const SDIOC_RESP1: u32 = 65535;
-pub const SDIOC_RESP2: u32 = 65535;
-pub const SDIOC_RESP3: u32 = 65535;
-pub const SDIOC_RESP4: u32 = 65535;
-pub const SDIOC_RESP5: u32 = 65535;
-pub const SDIOC_RESP6: u32 = 65535;
-pub const SDIOC_RESP7: u32 = 65535;
-pub const SDIOC_BUF0: u32 = 65535;
-pub const SDIOC_BUF1: u32 = 65535;
-pub const SDIOC_PSTAT_CIC_POS: u32 = 0;
-pub const SDIOC_PSTAT_CIC: u32 = 1;
-pub const SDIOC_PSTAT_CID_POS: u32 = 1;
-pub const SDIOC_PSTAT_CID: u32 = 2;
-pub const SDIOC_PSTAT_DA_POS: u32 = 2;
-pub const SDIOC_PSTAT_DA: u32 = 4;
-pub const SDIOC_PSTAT_WTA_POS: u32 = 8;
-pub const SDIOC_PSTAT_WTA: u32 = 256;
-pub const SDIOC_PSTAT_RTA_POS: u32 = 9;
-pub const SDIOC_PSTAT_RTA: u32 = 512;
-pub const SDIOC_PSTAT_BWE_POS: u32 = 10;
-pub const SDIOC_PSTAT_BWE: u32 = 1024;
-pub const SDIOC_PSTAT_BRE_POS: u32 = 11;
-pub const SDIOC_PSTAT_BRE: u32 = 2048;
-pub const SDIOC_PSTAT_CIN_POS: u32 = 16;
-pub const SDIOC_PSTAT_CIN: u32 = 65536;
-pub const SDIOC_PSTAT_CSS_POS: u32 = 17;
-pub const SDIOC_PSTAT_CSS: u32 = 131072;
-pub const SDIOC_PSTAT_CDL_POS: u32 = 18;
-pub const SDIOC_PSTAT_CDL: u32 = 262144;
-pub const SDIOC_PSTAT_WPL_POS: u32 = 19;
-pub const SDIOC_PSTAT_WPL: u32 = 524288;
-pub const SDIOC_PSTAT_DATL_POS: u32 = 20;
-pub const SDIOC_PSTAT_DATL: u32 = 15728640;
-pub const SDIOC_PSTAT_DATL_0: u32 = 1048576;
-pub const SDIOC_PSTAT_DATL_1: u32 = 2097152;
-pub const SDIOC_PSTAT_DATL_2: u32 = 4194304;
-pub const SDIOC_PSTAT_DATL_3: u32 = 8388608;
-pub const SDIOC_PSTAT_CMDL_POS: u32 = 24;
-pub const SDIOC_PSTAT_CMDL: u32 = 16777216;
-pub const SDIOC_HOSTCON_DW_POS: u32 = 1;
-pub const SDIOC_HOSTCON_DW: u32 = 2;
-pub const SDIOC_HOSTCON_HSEN_POS: u32 = 2;
-pub const SDIOC_HOSTCON_HSEN: u32 = 4;
-pub const SDIOC_HOSTCON_EXDW_POS: u32 = 5;
-pub const SDIOC_HOSTCON_EXDW: u32 = 32;
-pub const SDIOC_HOSTCON_CDTL_POS: u32 = 6;
-pub const SDIOC_HOSTCON_CDTL: u32 = 64;
-pub const SDIOC_HOSTCON_CDSS_POS: u32 = 7;
-pub const SDIOC_HOSTCON_CDSS: u32 = 128;
-pub const SDIOC_PWRCON_PWON: u32 = 1;
-pub const SDIOC_BLKGPCON_SABGR_POS: u32 = 0;
-pub const SDIOC_BLKGPCON_SABGR: u32 = 1;
-pub const SDIOC_BLKGPCON_CR_POS: u32 = 1;
-pub const SDIOC_BLKGPCON_CR: u32 = 2;
-pub const SDIOC_BLKGPCON_RWC_POS: u32 = 2;
-pub const SDIOC_BLKGPCON_RWC: u32 = 4;
-pub const SDIOC_BLKGPCON_IABG_POS: u32 = 3;
-pub const SDIOC_BLKGPCON_IABG: u32 = 8;
-pub const SDIOC_CLKCON_ICE_POS: u32 = 0;
-pub const SDIOC_CLKCON_ICE: u32 = 1;
-pub const SDIOC_CLKCON_CE_POS: u32 = 2;
-pub const SDIOC_CLKCON_CE: u32 = 4;
-pub const SDIOC_CLKCON_FS_POS: u32 = 8;
-pub const SDIOC_CLKCON_FS: u32 = 65280;
-pub const SDIOC_CLKCON_FS_0: u32 = 256;
-pub const SDIOC_CLKCON_FS_1: u32 = 512;
-pub const SDIOC_CLKCON_FS_2: u32 = 1024;
-pub const SDIOC_CLKCON_FS_3: u32 = 2048;
-pub const SDIOC_CLKCON_FS_4: u32 = 4096;
-pub const SDIOC_CLKCON_FS_5: u32 = 8192;
-pub const SDIOC_CLKCON_FS_6: u32 = 16384;
-pub const SDIOC_CLKCON_FS_7: u32 = 32768;
-pub const SDIOC_TOUTCON_DTO: u32 = 15;
-pub const SDIOC_SFTRST_RSTA_POS: u32 = 0;
-pub const SDIOC_SFTRST_RSTA: u32 = 1;
-pub const SDIOC_SFTRST_RSTC_POS: u32 = 1;
-pub const SDIOC_SFTRST_RSTC: u32 = 2;
-pub const SDIOC_SFTRST_RSTD_POS: u32 = 2;
-pub const SDIOC_SFTRST_RSTD: u32 = 4;
-pub const SDIOC_NORINTST_CC_POS: u32 = 0;
-pub const SDIOC_NORINTST_CC: u32 = 1;
-pub const SDIOC_NORINTST_TC_POS: u32 = 1;
-pub const SDIOC_NORINTST_TC: u32 = 2;
-pub const SDIOC_NORINTST_BGE_POS: u32 = 2;
-pub const SDIOC_NORINTST_BGE: u32 = 4;
-pub const SDIOC_NORINTST_BWR_POS: u32 = 4;
-pub const SDIOC_NORINTST_BWR: u32 = 16;
-pub const SDIOC_NORINTST_BRR_POS: u32 = 5;
-pub const SDIOC_NORINTST_BRR: u32 = 32;
-pub const SDIOC_NORINTST_CIST_POS: u32 = 6;
-pub const SDIOC_NORINTST_CIST: u32 = 64;
-pub const SDIOC_NORINTST_CRM_POS: u32 = 7;
-pub const SDIOC_NORINTST_CRM: u32 = 128;
-pub const SDIOC_NORINTST_CINT_POS: u32 = 8;
-pub const SDIOC_NORINTST_CINT: u32 = 256;
-pub const SDIOC_NORINTST_EI_POS: u32 = 15;
-pub const SDIOC_NORINTST_EI: u32 = 32768;
-pub const SDIOC_ERRINTST_CTOE_POS: u32 = 0;
-pub const SDIOC_ERRINTST_CTOE: u32 = 1;
-pub const SDIOC_ERRINTST_CCE_POS: u32 = 1;
-pub const SDIOC_ERRINTST_CCE: u32 = 2;
-pub const SDIOC_ERRINTST_CEBE_POS: u32 = 2;
-pub const SDIOC_ERRINTST_CEBE: u32 = 4;
-pub const SDIOC_ERRINTST_CIE_POS: u32 = 3;
-pub const SDIOC_ERRINTST_CIE: u32 = 8;
-pub const SDIOC_ERRINTST_DTOE_POS: u32 = 4;
-pub const SDIOC_ERRINTST_DTOE: u32 = 16;
-pub const SDIOC_ERRINTST_DCE_POS: u32 = 5;
-pub const SDIOC_ERRINTST_DCE: u32 = 32;
-pub const SDIOC_ERRINTST_DEBE_POS: u32 = 6;
-pub const SDIOC_ERRINTST_DEBE: u32 = 64;
-pub const SDIOC_ERRINTST_ACE_POS: u32 = 8;
-pub const SDIOC_ERRINTST_ACE: u32 = 256;
-pub const SDIOC_NORINTSTEN_CCEN_POS: u32 = 0;
-pub const SDIOC_NORINTSTEN_CCEN: u32 = 1;
-pub const SDIOC_NORINTSTEN_TCEN_POS: u32 = 1;
-pub const SDIOC_NORINTSTEN_TCEN: u32 = 2;
-pub const SDIOC_NORINTSTEN_BGEEN_POS: u32 = 2;
-pub const SDIOC_NORINTSTEN_BGEEN: u32 = 4;
-pub const SDIOC_NORINTSTEN_BWREN_POS: u32 = 4;
-pub const SDIOC_NORINTSTEN_BWREN: u32 = 16;
-pub const SDIOC_NORINTSTEN_BRREN_POS: u32 = 5;
-pub const SDIOC_NORINTSTEN_BRREN: u32 = 32;
-pub const SDIOC_NORINTSTEN_CISTEN_POS: u32 = 6;
-pub const SDIOC_NORINTSTEN_CISTEN: u32 = 64;
-pub const SDIOC_NORINTSTEN_CRMEN_POS: u32 = 7;
-pub const SDIOC_NORINTSTEN_CRMEN: u32 = 128;
-pub const SDIOC_NORINTSTEN_CINTEN_POS: u32 = 8;
-pub const SDIOC_NORINTSTEN_CINTEN: u32 = 256;
-pub const SDIOC_ERRINTSTEN_CTOEEN_POS: u32 = 0;
-pub const SDIOC_ERRINTSTEN_CTOEEN: u32 = 1;
-pub const SDIOC_ERRINTSTEN_CCEEN_POS: u32 = 1;
-pub const SDIOC_ERRINTSTEN_CCEEN: u32 = 2;
-pub const SDIOC_ERRINTSTEN_CEBEEN_POS: u32 = 2;
-pub const SDIOC_ERRINTSTEN_CEBEEN: u32 = 4;
-pub const SDIOC_ERRINTSTEN_CIEEN_POS: u32 = 3;
-pub const SDIOC_ERRINTSTEN_CIEEN: u32 = 8;
-pub const SDIOC_ERRINTSTEN_DTOEEN_POS: u32 = 4;
-pub const SDIOC_ERRINTSTEN_DTOEEN: u32 = 16;
-pub const SDIOC_ERRINTSTEN_DCEEN_POS: u32 = 5;
-pub const SDIOC_ERRINTSTEN_DCEEN: u32 = 32;
-pub const SDIOC_ERRINTSTEN_DEBEEN_POS: u32 = 6;
-pub const SDIOC_ERRINTSTEN_DEBEEN: u32 = 64;
-pub const SDIOC_ERRINTSTEN_ACEEN_POS: u32 = 8;
-pub const SDIOC_ERRINTSTEN_ACEEN: u32 = 256;
-pub const SDIOC_NORINTSGEN_CCSEN_POS: u32 = 0;
-pub const SDIOC_NORINTSGEN_CCSEN: u32 = 1;
-pub const SDIOC_NORINTSGEN_TCSEN_POS: u32 = 1;
-pub const SDIOC_NORINTSGEN_TCSEN: u32 = 2;
-pub const SDIOC_NORINTSGEN_BGESEN_POS: u32 = 2;
-pub const SDIOC_NORINTSGEN_BGESEN: u32 = 4;
-pub const SDIOC_NORINTSGEN_BWRSEN_POS: u32 = 4;
-pub const SDIOC_NORINTSGEN_BWRSEN: u32 = 16;
-pub const SDIOC_NORINTSGEN_BRRSEN_POS: u32 = 5;
-pub const SDIOC_NORINTSGEN_BRRSEN: u32 = 32;
-pub const SDIOC_NORINTSGEN_CISTSEN_POS: u32 = 6;
-pub const SDIOC_NORINTSGEN_CISTSEN: u32 = 64;
-pub const SDIOC_NORINTSGEN_CRMSEN_POS: u32 = 7;
-pub const SDIOC_NORINTSGEN_CRMSEN: u32 = 128;
-pub const SDIOC_NORINTSGEN_CINTSEN_POS: u32 = 8;
-pub const SDIOC_NORINTSGEN_CINTSEN: u32 = 256;
-pub const SDIOC_ERRINTSGEN_CTOESEN_POS: u32 = 0;
-pub const SDIOC_ERRINTSGEN_CTOESEN: u32 = 1;
-pub const SDIOC_ERRINTSGEN_CCESEN_POS: u32 = 1;
-pub const SDIOC_ERRINTSGEN_CCESEN: u32 = 2;
-pub const SDIOC_ERRINTSGEN_CEBESEN_POS: u32 = 2;
-pub const SDIOC_ERRINTSGEN_CEBESEN: u32 = 4;
-pub const SDIOC_ERRINTSGEN_CIESEN_POS: u32 = 3;
-pub const SDIOC_ERRINTSGEN_CIESEN: u32 = 8;
-pub const SDIOC_ERRINTSGEN_DTOESEN_POS: u32 = 4;
-pub const SDIOC_ERRINTSGEN_DTOESEN: u32 = 16;
-pub const SDIOC_ERRINTSGEN_DCESEN_POS: u32 = 5;
-pub const SDIOC_ERRINTSGEN_DCESEN: u32 = 32;
-pub const SDIOC_ERRINTSGEN_DEBESEN_POS: u32 = 6;
-pub const SDIOC_ERRINTSGEN_DEBESEN: u32 = 64;
-pub const SDIOC_ERRINTSGEN_ACESEN_POS: u32 = 8;
-pub const SDIOC_ERRINTSGEN_ACESEN: u32 = 256;
-pub const SDIOC_ATCERRST_NE_POS: u32 = 0;
-pub const SDIOC_ATCERRST_NE: u32 = 1;
-pub const SDIOC_ATCERRST_TOE_POS: u32 = 1;
-pub const SDIOC_ATCERRST_TOE: u32 = 2;
-pub const SDIOC_ATCERRST_CE_POS: u32 = 2;
-pub const SDIOC_ATCERRST_CE: u32 = 4;
-pub const SDIOC_ATCERRST_EBE_POS: u32 = 3;
-pub const SDIOC_ATCERRST_EBE: u32 = 8;
-pub const SDIOC_ATCERRST_IE_POS: u32 = 4;
-pub const SDIOC_ATCERRST_IE: u32 = 16;
-pub const SDIOC_ATCERRST_CMDE_POS: u32 = 7;
-pub const SDIOC_ATCERRST_CMDE: u32 = 128;
-pub const SDIOC_FEA_FNE_POS: u32 = 0;
-pub const SDIOC_FEA_FNE: u32 = 1;
-pub const SDIOC_FEA_FTOE_POS: u32 = 1;
-pub const SDIOC_FEA_FTOE: u32 = 2;
-pub const SDIOC_FEA_FCE_POS: u32 = 2;
-pub const SDIOC_FEA_FCE: u32 = 4;
-pub const SDIOC_FEA_FEBE_POS: u32 = 3;
-pub const SDIOC_FEA_FEBE: u32 = 8;
-pub const SDIOC_FEA_FIE_POS: u32 = 4;
-pub const SDIOC_FEA_FIE: u32 = 16;
-pub const SDIOC_FEA_FCMDE_POS: u32 = 7;
-pub const SDIOC_FEA_FCMDE: u32 = 128;
-pub const SDIOC_FEE_FCTOE_POS: u32 = 0;
-pub const SDIOC_FEE_FCTOE: u32 = 1;
-pub const SDIOC_FEE_FCCE_POS: u32 = 1;
-pub const SDIOC_FEE_FCCE: u32 = 2;
-pub const SDIOC_FEE_FCEBE_POS: u32 = 2;
-pub const SDIOC_FEE_FCEBE: u32 = 4;
-pub const SDIOC_FEE_FCIE_POS: u32 = 3;
-pub const SDIOC_FEE_FCIE: u32 = 8;
-pub const SDIOC_FEE_FDTOE_POS: u32 = 4;
-pub const SDIOC_FEE_FDTOE: u32 = 16;
-pub const SDIOC_FEE_FDCE_POS: u32 = 5;
-pub const SDIOC_FEE_FDCE: u32 = 32;
-pub const SDIOC_FEE_FDEBE_POS: u32 = 6;
-pub const SDIOC_FEE_FDEBE: u32 = 64;
-pub const SDIOC_FEE_FACE_POS: u32 = 8;
-pub const SDIOC_FEE_FACE: u32 = 256;
-pub const SPI_DR: u32 = 4294967295;
-pub const SPI_CR1_SPIMDS_POS: u32 = 0;
-pub const SPI_CR1_SPIMDS: u32 = 1;
-pub const SPI_CR1_TXMDS_POS: u32 = 1;
-pub const SPI_CR1_TXMDS: u32 = 2;
-pub const SPI_CR1_MSTR_POS: u32 = 3;
-pub const SPI_CR1_MSTR: u32 = 8;
-pub const SPI_CR1_SPLPBK_POS: u32 = 4;
-pub const SPI_CR1_SPLPBK: u32 = 16;
-pub const SPI_CR1_SPLPBK2_POS: u32 = 5;
-pub const SPI_CR1_SPLPBK2: u32 = 32;
-pub const SPI_CR1_SPE_POS: u32 = 6;
-pub const SPI_CR1_SPE: u32 = 64;
-pub const SPI_CR1_CSUSPE_POS: u32 = 7;
-pub const SPI_CR1_CSUSPE: u32 = 128;
-pub const SPI_CR1_EIE_POS: u32 = 8;
-pub const SPI_CR1_EIE: u32 = 256;
-pub const SPI_CR1_TXIE_POS: u32 = 9;
-pub const SPI_CR1_TXIE: u32 = 512;
-pub const SPI_CR1_RXIE_POS: u32 = 10;
-pub const SPI_CR1_RXIE: u32 = 1024;
-pub const SPI_CR1_IDIE_POS: u32 = 11;
-pub const SPI_CR1_IDIE: u32 = 2048;
-pub const SPI_CR1_MODFE_POS: u32 = 12;
-pub const SPI_CR1_MODFE: u32 = 4096;
-pub const SPI_CR1_PATE_POS: u32 = 13;
-pub const SPI_CR1_PATE: u32 = 8192;
-pub const SPI_CR1_PAOE_POS: u32 = 14;
-pub const SPI_CR1_PAOE: u32 = 16384;
-pub const SPI_CR1_PAE_POS: u32 = 15;
-pub const SPI_CR1_PAE: u32 = 32768;
-pub const SPI_CFG1_FTHLV_POS: u32 = 0;
-pub const SPI_CFG1_FTHLV: u32 = 3;
-pub const SPI_CFG1_FTHLV_0: u32 = 1;
-pub const SPI_CFG1_FTHLV_1: u32 = 2;
-pub const SPI_CFG1_SPRDTD_POS: u32 = 6;
-pub const SPI_CFG1_SPRDTD: u32 = 64;
-pub const SPI_CFG1_SS0PV_POS: u32 = 8;
-pub const SPI_CFG1_SS0PV: u32 = 256;
-pub const SPI_CFG1_SS1PV_POS: u32 = 9;
-pub const SPI_CFG1_SS1PV: u32 = 512;
-pub const SPI_CFG1_SS2PV_POS: u32 = 10;
-pub const SPI_CFG1_SS2PV: u32 = 1024;
-pub const SPI_CFG1_SS3PV_POS: u32 = 11;
-pub const SPI_CFG1_SS3PV: u32 = 2048;
-pub const SPI_CFG1_MSSI_POS: u32 = 20;
-pub const SPI_CFG1_MSSI: u32 = 7340032;
-pub const SPI_CFG1_MSSDL_POS: u32 = 24;
-pub const SPI_CFG1_MSSDL: u32 = 117440512;
-pub const SPI_CFG1_MIDI_POS: u32 = 28;
-pub const SPI_CFG1_MIDI: u32 = 1879048192;
-pub const SPI_SR_OVRERF_POS: u32 = 0;
-pub const SPI_SR_OVRERF: u32 = 1;
-pub const SPI_SR_IDLNF_POS: u32 = 1;
-pub const SPI_SR_IDLNF: u32 = 2;
-pub const SPI_SR_MODFERF_POS: u32 = 2;
-pub const SPI_SR_MODFERF: u32 = 4;
-pub const SPI_SR_PERF_POS: u32 = 3;
-pub const SPI_SR_PERF: u32 = 8;
-pub const SPI_SR_UDRERF_POS: u32 = 4;
-pub const SPI_SR_UDRERF: u32 = 16;
-pub const SPI_SR_TDEF_POS: u32 = 5;
-pub const SPI_SR_TDEF: u32 = 32;
-pub const SPI_SR_RDFF_POS: u32 = 7;
-pub const SPI_SR_RDFF: u32 = 128;
-pub const SPI_CFG2_CPHA_POS: u32 = 0;
-pub const SPI_CFG2_CPHA: u32 = 1;
-pub const SPI_CFG2_CPOL_POS: u32 = 1;
-pub const SPI_CFG2_CPOL: u32 = 2;
-pub const SPI_CFG2_MBR_POS: u32 = 2;
-pub const SPI_CFG2_MBR: u32 = 28;
-pub const SPI_CFG2_SSA_POS: u32 = 5;
-pub const SPI_CFG2_SSA: u32 = 224;
-pub const SPI_CFG2_SSA_0: u32 = 32;
-pub const SPI_CFG2_SSA_1: u32 = 64;
-pub const SPI_CFG2_SSA_2: u32 = 128;
-pub const SPI_CFG2_DSIZE_POS: u32 = 8;
-pub const SPI_CFG2_DSIZE: u32 = 3840;
-pub const SPI_CFG2_LSBF_POS: u32 = 12;
-pub const SPI_CFG2_LSBF: u32 = 4096;
-pub const SPI_CFG2_MIDIE_POS: u32 = 13;
-pub const SPI_CFG2_MIDIE: u32 = 8192;
-pub const SPI_CFG2_MSSDLE_POS: u32 = 14;
-pub const SPI_CFG2_MSSDLE: u32 = 16384;
-pub const SPI_CFG2_MSSIE_POS: u32 = 15;
-pub const SPI_CFG2_MSSIE: u32 = 32768;
-pub const SRAMC_WTCR_SRAM12_RWT_POS: u32 = 0;
-pub const SRAMC_WTCR_SRAM12_RWT: u32 = 7;
-pub const SRAMC_WTCR_SRAM12_WWT_POS: u32 = 4;
-pub const SRAMC_WTCR_SRAM12_WWT: u32 = 112;
-pub const SRAMC_WTCR_SRAM3_RWT_POS: u32 = 8;
-pub const SRAMC_WTCR_SRAM3_RWT: u32 = 1792;
-pub const SRAMC_WTCR_SRAM3_WWT_POS: u32 = 12;
-pub const SRAMC_WTCR_SRAM3_WWT: u32 = 28672;
-pub const SRAMC_WTCR_SRAMH_RWT_POS: u32 = 16;
-pub const SRAMC_WTCR_SRAMH_RWT: u32 = 458752;
-pub const SRAMC_WTCR_SRAMH_WWT_POS: u32 = 20;
-pub const SRAMC_WTCR_SRAMH_WWT: u32 = 7340032;
-pub const SRAMC_WTCR_SRAMR_RWT_POS: u32 = 24;
-pub const SRAMC_WTCR_SRAMR_RWT: u32 = 117440512;
-pub const SRAMC_WTCR_SRAMR_WWT_POS: u32 = 28;
-pub const SRAMC_WTCR_SRAMR_WWT: u32 = 1879048192;
-pub const SRAMC_WTPR_WTPRC_POS: u32 = 0;
-pub const SRAMC_WTPR_WTPRC: u32 = 1;
-pub const SRAMC_WTPR_WTPRKW_POS: u32 = 1;
-pub const SRAMC_WTPR_WTPRKW: u32 = 254;
-pub const SRAMC_CKCR_PYOAD_POS: u32 = 0;
-pub const SRAMC_CKCR_PYOAD: u32 = 1;
-pub const SRAMC_CKCR_ECCOAD_POS: u32 = 16;
-pub const SRAMC_CKCR_ECCOAD: u32 = 65536;
-pub const SRAMC_CKCR_ECCMOD_POS: u32 = 24;
-pub const SRAMC_CKCR_ECCMOD: u32 = 50331648;
-pub const SRAMC_CKCR_ECCMOD_0: u32 = 16777216;
-pub const SRAMC_CKCR_ECCMOD_1: u32 = 33554432;
-pub const SRAMC_CKPR_CKPRC_POS: u32 = 0;
-pub const SRAMC_CKPR_CKPRC: u32 = 1;
-pub const SRAMC_CKPR_CKPRKW_POS: u32 = 1;
-pub const SRAMC_CKPR_CKPRKW: u32 = 254;
-pub const SRAMC_CKSR_SRAM3_1ERR_POS: u32 = 0;
-pub const SRAMC_CKSR_SRAM3_1ERR: u32 = 1;
-pub const SRAMC_CKSR_SRAM3_2ERR_POS: u32 = 1;
-pub const SRAMC_CKSR_SRAM3_2ERR: u32 = 2;
-pub const SRAMC_CKSR_SRAM12_PYERR_POS: u32 = 2;
-pub const SRAMC_CKSR_SRAM12_PYERR: u32 = 4;
-pub const SRAMC_CKSR_SRAMH_PYERR_POS: u32 = 3;
-pub const SRAMC_CKSR_SRAMH_PYERR: u32 = 8;
-pub const SRAMC_CKSR_SRAMR_PYERR_POS: u32 = 4;
-pub const SRAMC_CKSR_SRAMR_PYERR: u32 = 16;
-pub const SWDT_SR_CNT_POS: u32 = 0;
-pub const SWDT_SR_CNT: u32 = 65535;
-pub const SWDT_SR_UDF_POS: u32 = 16;
-pub const SWDT_SR_UDF: u32 = 65536;
-pub const SWDT_SR_REF_POS: u32 = 17;
-pub const SWDT_SR_REF: u32 = 131072;
-pub const SWDT_RR_RF: u32 = 65535;
-pub const TMR0_CNTAR_CNTA: u32 = 65535;
-pub const TMR0_CNTBR_CNTB: u32 = 65535;
-pub const TMR0_CMPAR_CMPA: u32 = 65535;
-pub const TMR0_CMPBR_CMPB: u32 = 65535;
-pub const TMR0_BCONR_CSTA_POS: u32 = 0;
-pub const TMR0_BCONR_CSTA: u32 = 1;
-pub const TMR0_BCONR_CAPMDA_POS: u32 = 1;
-pub const TMR0_BCONR_CAPMDA: u32 = 2;
-pub const TMR0_BCONR_INTENA_POS: u32 = 2;
-pub const TMR0_BCONR_INTENA: u32 = 4;
-pub const TMR0_BCONR_CKDIVA_POS: u32 = 4;
-pub const TMR0_BCONR_CKDIVA: u32 = 240;
-pub const TMR0_BCONR_SYNSA_POS: u32 = 8;
-pub const TMR0_BCONR_SYNSA: u32 = 256;
-pub const TMR0_BCONR_SYNCLKA_POS: u32 = 9;
-pub const TMR0_BCONR_SYNCLKA: u32 = 512;
-pub const TMR0_BCONR_ASYNCLKA_POS: u32 = 10;
-pub const TMR0_BCONR_ASYNCLKA: u32 = 1024;
-pub const TMR0_BCONR_HSTAA_POS: u32 = 12;
-pub const TMR0_BCONR_HSTAA: u32 = 4096;
-pub const TMR0_BCONR_HSTPA_POS: u32 = 13;
-pub const TMR0_BCONR_HSTPA: u32 = 8192;
-pub const TMR0_BCONR_HCLEA_POS: u32 = 14;
-pub const TMR0_BCONR_HCLEA: u32 = 16384;
-pub const TMR0_BCONR_HICPA_POS: u32 = 15;
-pub const TMR0_BCONR_HICPA: u32 = 32768;
-pub const TMR0_BCONR_CSTB_POS: u32 = 16;
-pub const TMR0_BCONR_CSTB: u32 = 65536;
-pub const TMR0_BCONR_CAPMDB_POS: u32 = 17;
-pub const TMR0_BCONR_CAPMDB: u32 = 131072;
-pub const TMR0_BCONR_INTENB_POS: u32 = 18;
-pub const TMR0_BCONR_INTENB: u32 = 262144;
-pub const TMR0_BCONR_CKDIVB_POS: u32 = 20;
-pub const TMR0_BCONR_CKDIVB: u32 = 15728640;
-pub const TMR0_BCONR_SYNSB_POS: u32 = 24;
-pub const TMR0_BCONR_SYNSB: u32 = 16777216;
-pub const TMR0_BCONR_SYNCLKB_POS: u32 = 25;
-pub const TMR0_BCONR_SYNCLKB: u32 = 33554432;
-pub const TMR0_BCONR_ASYNCLKB_POS: u32 = 26;
-pub const TMR0_BCONR_ASYNCLKB: u32 = 67108864;
-pub const TMR0_BCONR_HSTAB_POS: u32 = 28;
-pub const TMR0_BCONR_HSTAB: u32 = 268435456;
-pub const TMR0_BCONR_HSTPB_POS: u32 = 29;
-pub const TMR0_BCONR_HSTPB: u32 = 536870912;
-pub const TMR0_BCONR_HCLEB_POS: u32 = 30;
-pub const TMR0_BCONR_HCLEB: u32 = 1073741824;
-pub const TMR0_BCONR_HICPB_POS: u32 = 31;
-pub const TMR0_BCONR_HICPB: u32 = 2147483648;
-pub const TMR0_STFLR_CMFA_POS: u32 = 0;
-pub const TMR0_STFLR_CMFA: u32 = 1;
-pub const TMR0_STFLR_CMFB_POS: u32 = 16;
-pub const TMR0_STFLR_CMFB: u32 = 65536;
-pub const TMR4_OCCRUH: u32 = 65535;
-pub const TMR4_OCCRUL: u32 = 65535;
-pub const TMR4_OCCRVH: u32 = 65535;
-pub const TMR4_OCCRVL: u32 = 65535;
-pub const TMR4_OCCRWH: u32 = 65535;
-pub const TMR4_OCCRWL: u32 = 65535;
-pub const TMR4_OCSR_OCEH_POS: u32 = 0;
-pub const TMR4_OCSR_OCEH: u32 = 1;
-pub const TMR4_OCSR_OCEL_POS: u32 = 1;
-pub const TMR4_OCSR_OCEL: u32 = 2;
-pub const TMR4_OCSR_OCPH_POS: u32 = 2;
-pub const TMR4_OCSR_OCPH: u32 = 4;
-pub const TMR4_OCSR_OCPL_POS: u32 = 3;
-pub const TMR4_OCSR_OCPL: u32 = 8;
-pub const TMR4_OCSR_OCIEH_POS: u32 = 4;
-pub const TMR4_OCSR_OCIEH: u32 = 16;
-pub const TMR4_OCSR_OCIEL_POS: u32 = 5;
-pub const TMR4_OCSR_OCIEL: u32 = 32;
-pub const TMR4_OCSR_OCFH_POS: u32 = 6;
-pub const TMR4_OCSR_OCFH: u32 = 64;
-pub const TMR4_OCSR_OCFL_POS: u32 = 7;
-pub const TMR4_OCSR_OCFL: u32 = 128;
-pub const TMR4_OCER_CHBUFEN_POS: u32 = 0;
-pub const TMR4_OCER_CHBUFEN: u32 = 3;
-pub const TMR4_OCER_CHBUFEN_0: u32 = 1;
-pub const TMR4_OCER_CHBUFEN_1: u32 = 2;
-pub const TMR4_OCER_CLBUFEN_POS: u32 = 2;
-pub const TMR4_OCER_CLBUFEN: u32 = 12;
-pub const TMR4_OCER_CLBUFEN_0: u32 = 4;
-pub const TMR4_OCER_CLBUFEN_1: u32 = 8;
-pub const TMR4_OCER_MHBUFEN_POS: u32 = 4;
-pub const TMR4_OCER_MHBUFEN: u32 = 48;
-pub const TMR4_OCER_MHBUFEN_0: u32 = 16;
-pub const TMR4_OCER_MHBUFEN_1: u32 = 32;
-pub const TMR4_OCER_MLBUFEN_POS: u32 = 6;
-pub const TMR4_OCER_MLBUFEN: u32 = 192;
-pub const TMR4_OCER_MLBUFEN_0: u32 = 64;
-pub const TMR4_OCER_MLBUFEN_1: u32 = 128;
-pub const TMR4_OCER_LMCH_POS: u32 = 8;
-pub const TMR4_OCER_LMCH: u32 = 256;
-pub const TMR4_OCER_LMCL_POS: u32 = 9;
-pub const TMR4_OCER_LMCL: u32 = 512;
-pub const TMR4_OCER_LMMH_POS: u32 = 10;
-pub const TMR4_OCER_LMMH: u32 = 1024;
-pub const TMR4_OCER_LMML_POS: u32 = 11;
-pub const TMR4_OCER_LMML: u32 = 2048;
-pub const TMR4_OCER_MCECH_POS: u32 = 12;
-pub const TMR4_OCER_MCECH: u32 = 4096;
-pub const TMR4_OCER_MCECL_POS: u32 = 13;
-pub const TMR4_OCER_MCECL: u32 = 8192;
-pub const TMR4_OCMRH_OCFDCH_POS: u32 = 0;
-pub const TMR4_OCMRH_OCFDCH: u32 = 1;
-pub const TMR4_OCMRH_OCFPKH_POS: u32 = 1;
-pub const TMR4_OCMRH_OCFPKH: u32 = 2;
-pub const TMR4_OCMRH_OCFUCH_POS: u32 = 2;
-pub const TMR4_OCMRH_OCFUCH: u32 = 4;
-pub const TMR4_OCMRH_OCFZRH_POS: u32 = 3;
-pub const TMR4_OCMRH_OCFZRH: u32 = 8;
-pub const TMR4_OCMRH_OPDCH_POS: u32 = 4;
-pub const TMR4_OCMRH_OPDCH: u32 = 48;
-pub const TMR4_OCMRH_OPDCH_0: u32 = 16;
-pub const TMR4_OCMRH_OPDCH_1: u32 = 32;
-pub const TMR4_OCMRH_OPPKH_POS: u32 = 6;
-pub const TMR4_OCMRH_OPPKH: u32 = 192;
-pub const TMR4_OCMRH_OPPKH_0: u32 = 64;
-pub const TMR4_OCMRH_OPPKH_1: u32 = 128;
-pub const TMR4_OCMRH_OPUCH_POS: u32 = 8;
-pub const TMR4_OCMRH_OPUCH: u32 = 768;
-pub const TMR4_OCMRH_OPUCH_0: u32 = 256;
-pub const TMR4_OCMRH_OPUCH_1: u32 = 512;
-pub const TMR4_OCMRH_OPZRH_POS: u32 = 10;
-pub const TMR4_OCMRH_OPZRH: u32 = 3072;
-pub const TMR4_OCMRH_OPZRH_0: u32 = 1024;
-pub const TMR4_OCMRH_OPZRH_1: u32 = 2048;
-pub const TMR4_OCMRH_OPNPKH_POS: u32 = 12;
-pub const TMR4_OCMRH_OPNPKH: u32 = 12288;
-pub const TMR4_OCMRH_OPNPKH_0: u32 = 4096;
-pub const TMR4_OCMRH_OPNPKH_1: u32 = 8192;
-pub const TMR4_OCMRH_OPNZRH_POS: u32 = 14;
-pub const TMR4_OCMRH_OPNZRH: u32 = 49152;
-pub const TMR4_OCMRH_OPNZRH_0: u32 = 16384;
-pub const TMR4_OCMRH_OPNZRH_1: u32 = 32768;
-pub const TMR4_OCMRL_OCFDCL_POS: u32 = 0;
-pub const TMR4_OCMRL_OCFDCL: u32 = 1;
-pub const TMR4_OCMRL_OCFPKL_POS: u32 = 1;
-pub const TMR4_OCMRL_OCFPKL: u32 = 2;
-pub const TMR4_OCMRL_OCFUCL_POS: u32 = 2;
-pub const TMR4_OCMRL_OCFUCL: u32 = 4;
-pub const TMR4_OCMRL_OCFZRL_POS: u32 = 3;
-pub const TMR4_OCMRL_OCFZRL: u32 = 8;
-pub const TMR4_OCMRL_OPDCL_POS: u32 = 4;
-pub const TMR4_OCMRL_OPDCL: u32 = 48;
-pub const TMR4_OCMRL_OPDCL_0: u32 = 16;
-pub const TMR4_OCMRL_OPDCL_1: u32 = 32;
-pub const TMR4_OCMRL_OPPKL_POS: u32 = 6;
-pub const TMR4_OCMRL_OPPKL: u32 = 192;
-pub const TMR4_OCMRL_OPPKL_0: u32 = 64;
-pub const TMR4_OCMRL_OPPKL_1: u32 = 128;
-pub const TMR4_OCMRL_OPUCL_POS: u32 = 8;
-pub const TMR4_OCMRL_OPUCL: u32 = 768;
-pub const TMR4_OCMRL_OPUCL_0: u32 = 256;
-pub const TMR4_OCMRL_OPUCL_1: u32 = 512;
-pub const TMR4_OCMRL_OPZRL_POS: u32 = 10;
-pub const TMR4_OCMRL_OPZRL: u32 = 3072;
-pub const TMR4_OCMRL_OPZRL_0: u32 = 1024;
-pub const TMR4_OCMRL_OPZRL_1: u32 = 2048;
-pub const TMR4_OCMRL_OPNPKL_POS: u32 = 12;
-pub const TMR4_OCMRL_OPNPKL: u32 = 12288;
-pub const TMR4_OCMRL_OPNPKL_0: u32 = 4096;
-pub const TMR4_OCMRL_OPNPKL_1: u32 = 8192;
-pub const TMR4_OCMRL_OPNZRL_POS: u32 = 14;
-pub const TMR4_OCMRL_OPNZRL: u32 = 49152;
-pub const TMR4_OCMRL_OPNZRL_0: u32 = 16384;
-pub const TMR4_OCMRL_OPNZRL_1: u32 = 32768;
-pub const TMR4_OCMRL_EOPNDCL_POS: u32 = 16;
-pub const TMR4_OCMRL_EOPNDCL: u32 = 196608;
-pub const TMR4_OCMRL_EOPNDCL_0: u32 = 65536;
-pub const TMR4_OCMRL_EOPNDCL_1: u32 = 131072;
-pub const TMR4_OCMRL_EOPNUCL_POS: u32 = 18;
-pub const TMR4_OCMRL_EOPNUCL: u32 = 786432;
-pub const TMR4_OCMRL_EOPNUCL_0: u32 = 262144;
-pub const TMR4_OCMRL_EOPNUCL_1: u32 = 524288;
-pub const TMR4_OCMRL_EOPDCL_POS: u32 = 20;
-pub const TMR4_OCMRL_EOPDCL: u32 = 3145728;
-pub const TMR4_OCMRL_EOPDCL_0: u32 = 1048576;
-pub const TMR4_OCMRL_EOPDCL_1: u32 = 2097152;
-pub const TMR4_OCMRL_EOPPKL_POS: u32 = 22;
-pub const TMR4_OCMRL_EOPPKL: u32 = 12582912;
-pub const TMR4_OCMRL_EOPPKL_0: u32 = 4194304;
-pub const TMR4_OCMRL_EOPPKL_1: u32 = 8388608;
-pub const TMR4_OCMRL_EOPUCL_POS: u32 = 24;
-pub const TMR4_OCMRL_EOPUCL: u32 = 50331648;
-pub const TMR4_OCMRL_EOPUCL_0: u32 = 16777216;
-pub const TMR4_OCMRL_EOPUCL_1: u32 = 33554432;
-pub const TMR4_OCMRL_EOPZRL_POS: u32 = 26;
-pub const TMR4_OCMRL_EOPZRL: u32 = 201326592;
-pub const TMR4_OCMRL_EOPZRL_0: u32 = 67108864;
-pub const TMR4_OCMRL_EOPZRL_1: u32 = 134217728;
-pub const TMR4_OCMRL_EOPNPKL_POS: u32 = 28;
-pub const TMR4_OCMRL_EOPNPKL: u32 = 805306368;
-pub const TMR4_OCMRL_EOPNPKL_0: u32 = 268435456;
-pub const TMR4_OCMRL_EOPNPKL_1: u32 = 536870912;
-pub const TMR4_OCMRL_EOPNZRL_POS: u32 = 30;
-pub const TMR4_OCMRL_EOPNZRL: u32 = 3221225472;
-pub const TMR4_OCMRL_EOPNZRL_0: u32 = 1073741824;
-pub const TMR4_OCMRL_EOPNZRL_1: u32 = 2147483648;
-pub const TMR4_CPSR: u32 = 65535;
-pub const TMR4_CNTR: u32 = 65535;
-pub const TMR4_CCSR_CKDIV_POS: u32 = 0;
-pub const TMR4_CCSR_CKDIV: u32 = 15;
-pub const TMR4_CCSR_CLEAR_POS: u32 = 4;
-pub const TMR4_CCSR_CLEAR: u32 = 16;
-pub const TMR4_CCSR_MODE_POS: u32 = 5;
-pub const TMR4_CCSR_MODE: u32 = 32;
-pub const TMR4_CCSR_STOP_POS: u32 = 6;
-pub const TMR4_CCSR_STOP: u32 = 64;
-pub const TMR4_CCSR_BUFEN_POS: u32 = 7;
-pub const TMR4_CCSR_BUFEN: u32 = 128;
-pub const TMR4_CCSR_IRQPEN_POS: u32 = 8;
-pub const TMR4_CCSR_IRQPEN: u32 = 256;
-pub const TMR4_CCSR_IRQPF_POS: u32 = 9;
-pub const TMR4_CCSR_IRQPF: u32 = 512;
-pub const TMR4_CCSR_IRQZEN_POS: u32 = 13;
-pub const TMR4_CCSR_IRQZEN: u32 = 8192;
-pub const TMR4_CCSR_IRQZF_POS: u32 = 14;
-pub const TMR4_CCSR_IRQZF: u32 = 16384;
-pub const TMR4_CCSR_ECKEN_POS: u32 = 15;
-pub const TMR4_CCSR_ECKEN: u32 = 32768;
-pub const TMR4_CVPR_ZIM_POS: u32 = 0;
-pub const TMR4_CVPR_ZIM: u32 = 15;
-pub const TMR4_CVPR_PIM_POS: u32 = 4;
-pub const TMR4_CVPR_PIM: u32 = 240;
-pub const TMR4_CVPR_ZIC_POS: u32 = 8;
-pub const TMR4_CVPR_ZIC: u32 = 3840;
-pub const TMR4_CVPR_PIC_POS: u32 = 12;
-pub const TMR4_CVPR_PIC: u32 = 61440;
-pub const TMR4_PFSRU: u32 = 65535;
-pub const TMR4_PDARU: u32 = 65535;
-pub const TMR4_PDBRU: u32 = 65535;
-pub const TMR4_PFSRV: u32 = 65535;
-pub const TMR4_PDARV: u32 = 65535;
-pub const TMR4_PDBRV: u32 = 65535;
-pub const TMR4_PFSRW: u32 = 65535;
-pub const TMR4_PDARW: u32 = 65535;
-pub const TMR4_PDBRW: u32 = 65535;
-pub const TMR4_POCR_DIVCK_POS: u32 = 0;
-pub const TMR4_POCR_DIVCK: u32 = 7;
-pub const TMR4_POCR_PWMMD_POS: u32 = 4;
-pub const TMR4_POCR_PWMMD: u32 = 48;
-pub const TMR4_POCR_PWMMD_0: u32 = 16;
-pub const TMR4_POCR_PWMMD_1: u32 = 32;
-pub const TMR4_POCR_LVLS_POS: u32 = 6;
-pub const TMR4_POCR_LVLS: u32 = 192;
-pub const TMR4_POCR_LVLS_0: u32 = 64;
-pub const TMR4_POCR_LVLS_1: u32 = 128;
-pub const TMR4_RCSR_RTIDU_POS: u32 = 0;
-pub const TMR4_RCSR_RTIDU: u32 = 1;
-pub const TMR4_RCSR_RTIDV_POS: u32 = 1;
-pub const TMR4_RCSR_RTIDV: u32 = 2;
-pub const TMR4_RCSR_RTIDW_POS: u32 = 2;
-pub const TMR4_RCSR_RTIDW: u32 = 4;
-pub const TMR4_RCSR_RTIFU_POS: u32 = 4;
-pub const TMR4_RCSR_RTIFU: u32 = 16;
-pub const TMR4_RCSR_RTICU_POS: u32 = 5;
-pub const TMR4_RCSR_RTICU: u32 = 32;
-pub const TMR4_RCSR_RTEU_POS: u32 = 6;
-pub const TMR4_RCSR_RTEU: u32 = 64;
-pub const TMR4_RCSR_RTSU_POS: u32 = 7;
-pub const TMR4_RCSR_RTSU: u32 = 128;
-pub const TMR4_RCSR_RTIFV_POS: u32 = 8;
-pub const TMR4_RCSR_RTIFV: u32 = 256;
-pub const TMR4_RCSR_RTICV_POS: u32 = 9;
-pub const TMR4_RCSR_RTICV: u32 = 512;
-pub const TMR4_RCSR_RTEV_POS: u32 = 10;
-pub const TMR4_RCSR_RTEV: u32 = 1024;
-pub const TMR4_RCSR_RTSV_POS: u32 = 11;
-pub const TMR4_RCSR_RTSV: u32 = 2048;
-pub const TMR4_RCSR_RTIFW_POS: u32 = 12;
-pub const TMR4_RCSR_RTIFW: u32 = 4096;
-pub const TMR4_RCSR_RTICW_POS: u32 = 13;
-pub const TMR4_RCSR_RTICW: u32 = 8192;
-pub const TMR4_RCSR_RTEW_POS: u32 = 14;
-pub const TMR4_RCSR_RTEW: u32 = 16384;
-pub const TMR4_RCSR_RTSW_POS: u32 = 15;
-pub const TMR4_RCSR_RTSW: u32 = 32768;
-pub const TMR4_SCCRUH: u32 = 65535;
-pub const TMR4_SCCRUL: u32 = 65535;
-pub const TMR4_SCCRVH: u32 = 65535;
-pub const TMR4_SCCRVL: u32 = 65535;
-pub const TMR4_SCCRWH: u32 = 65535;
-pub const TMR4_SCCRWL: u32 = 65535;
-pub const TMR4_SCSR_BUFEN_POS: u32 = 0;
-pub const TMR4_SCSR_BUFEN: u32 = 3;
-pub const TMR4_SCSR_BUFEN_0: u32 = 1;
-pub const TMR4_SCSR_BUFEN_1: u32 = 2;
-pub const TMR4_SCSR_EVTOS_POS: u32 = 2;
-pub const TMR4_SCSR_EVTOS: u32 = 28;
-pub const TMR4_SCSR_LMC_POS: u32 = 5;
-pub const TMR4_SCSR_LMC: u32 = 32;
-pub const TMR4_SCSR_EVTMS_POS: u32 = 8;
-pub const TMR4_SCSR_EVTMS: u32 = 256;
-pub const TMR4_SCSR_EVTDS_POS: u32 = 9;
-pub const TMR4_SCSR_EVTDS: u32 = 512;
-pub const TMR4_SCSR_DEN_POS: u32 = 12;
-pub const TMR4_SCSR_DEN: u32 = 4096;
-pub const TMR4_SCSR_PEN_POS: u32 = 13;
-pub const TMR4_SCSR_PEN: u32 = 8192;
-pub const TMR4_SCSR_UEN_POS: u32 = 14;
-pub const TMR4_SCSR_UEN: u32 = 16384;
-pub const TMR4_SCSR_ZEN_POS: u32 = 15;
-pub const TMR4_SCSR_ZEN: u32 = 32768;
-pub const TMR4_SCMR_AMC_POS: u32 = 0;
-pub const TMR4_SCMR_AMC: u32 = 15;
-pub const TMR4_SCMR_MZCE_POS: u32 = 6;
-pub const TMR4_SCMR_MZCE: u32 = 64;
-pub const TMR4_SCMR_MPCE_POS: u32 = 7;
-pub const TMR4_SCMR_MPCE: u32 = 128;
-pub const TMR4_ECSR_HOLD_POS: u32 = 7;
-pub const TMR4_ECSR_HOLD: u32 = 128;
-pub const TMR4_ECER_ECER_EMBVAL: u32 = 3;
-pub const TMR6_CNTER_CNT: u32 = 65535;
-pub const TMR6_PERAR_PERA: u32 = 65535;
-pub const TMR6_PERBR_PERB: u32 = 65535;
-pub const TMR6_PERCR_PERC: u32 = 65535;
-pub const TMR6_GCMAR_GCMA: u32 = 65535;
-pub const TMR6_GCMBR_GCMB: u32 = 65535;
-pub const TMR6_GCMCR_GCMC: u32 = 65535;
-pub const TMR6_GCMDR_GCMD: u32 = 65535;
-pub const TMR6_GCMER_GCME: u32 = 65535;
-pub const TMR6_GCMFR_GCMF: u32 = 65535;
-pub const TMR6_SCMAR_SCMA: u32 = 65535;
-pub const TMR6_SCMBR_SCMB: u32 = 65535;
-pub const TMR6_SCMCR_SCMC: u32 = 65535;
-pub const TMR6_SCMDR_SCMD: u32 = 65535;
-pub const TMR6_SCMER_SCME: u32 = 65535;
-pub const TMR6_SCMFR_SCMF: u32 = 65535;
-pub const TMR6_DTUAR_DTUA: u32 = 65535;
-pub const TMR6_DTDAR_DTDA: u32 = 65535;
-pub const TMR6_DTUBR_DTUB: u32 = 65535;
-pub const TMR6_DTDBR_DTDB: u32 = 65535;
-pub const TMR6_GCONR_START_POS: u32 = 0;
-pub const TMR6_GCONR_START: u32 = 1;
-pub const TMR6_GCONR_MODE_POS: u32 = 1;
-pub const TMR6_GCONR_MODE: u32 = 14;
-pub const TMR6_GCONR_CKDIV_POS: u32 = 4;
-pub const TMR6_GCONR_CKDIV: u32 = 112;
-pub const TMR6_GCONR_DIR_POS: u32 = 8;
-pub const TMR6_GCONR_DIR: u32 = 256;
-pub const TMR6_GCONR_ZMSKREV_POS: u32 = 16;
-pub const TMR6_GCONR_ZMSKREV: u32 = 65536;
-pub const TMR6_GCONR_ZMSKPOS_POS: u32 = 17;
-pub const TMR6_GCONR_ZMSKPOS: u32 = 131072;
-pub const TMR6_GCONR_ZMSKVAL_POS: u32 = 18;
-pub const TMR6_GCONR_ZMSKVAL: u32 = 786432;
-pub const TMR6_GCONR_ZMSKVAL_0: u32 = 262144;
-pub const TMR6_GCONR_ZMSKVAL_1: u32 = 524288;
-pub const TMR6_ICONR_INTENA_POS: u32 = 0;
-pub const TMR6_ICONR_INTENA: u32 = 1;
-pub const TMR6_ICONR_INTENB_POS: u32 = 1;
-pub const TMR6_ICONR_INTENB: u32 = 2;
-pub const TMR6_ICONR_INTENC_POS: u32 = 2;
-pub const TMR6_ICONR_INTENC: u32 = 4;
-pub const TMR6_ICONR_INTEND_POS: u32 = 3;
-pub const TMR6_ICONR_INTEND: u32 = 8;
-pub const TMR6_ICONR_INTENE_POS: u32 = 4;
-pub const TMR6_ICONR_INTENE: u32 = 16;
-pub const TMR6_ICONR_INTENF_POS: u32 = 5;
-pub const TMR6_ICONR_INTENF: u32 = 32;
-pub const TMR6_ICONR_INTENOVF_POS: u32 = 6;
-pub const TMR6_ICONR_INTENOVF: u32 = 64;
-pub const TMR6_ICONR_INTENUDF_POS: u32 = 7;
-pub const TMR6_ICONR_INTENUDF: u32 = 128;
-pub const TMR6_ICONR_INTENDTE_POS: u32 = 8;
-pub const TMR6_ICONR_INTENDTE: u32 = 256;
-pub const TMR6_ICONR_INTENSAU_POS: u32 = 16;
-pub const TMR6_ICONR_INTENSAU: u32 = 65536;
-pub const TMR6_ICONR_INTENSAD_POS: u32 = 17;
-pub const TMR6_ICONR_INTENSAD: u32 = 131072;
-pub const TMR6_ICONR_INTENSBU_POS: u32 = 18;
-pub const TMR6_ICONR_INTENSBU: u32 = 262144;
-pub const TMR6_ICONR_INTENSBD_POS: u32 = 19;
-pub const TMR6_ICONR_INTENSBD: u32 = 524288;
-pub const TMR6_PCONR_CAPMDA_POS: u32 = 0;
-pub const TMR6_PCONR_CAPMDA: u32 = 1;
-pub const TMR6_PCONR_STACA_POS: u32 = 1;
-pub const TMR6_PCONR_STACA: u32 = 2;
-pub const TMR6_PCONR_STPCA_POS: u32 = 2;
-pub const TMR6_PCONR_STPCA: u32 = 4;
-pub const TMR6_PCONR_STASTPSA_POS: u32 = 3;
-pub const TMR6_PCONR_STASTPSA: u32 = 8;
-pub const TMR6_PCONR_CMPCA_POS: u32 = 4;
-pub const TMR6_PCONR_CMPCA: u32 = 48;
-pub const TMR6_PCONR_CMPCA_0: u32 = 16;
-pub const TMR6_PCONR_CMPCA_1: u32 = 32;
-pub const TMR6_PCONR_PERCA_POS: u32 = 6;
-pub const TMR6_PCONR_PERCA: u32 = 192;
-pub const TMR6_PCONR_PERCA_0: u32 = 64;
-pub const TMR6_PCONR_PERCA_1: u32 = 128;
-pub const TMR6_PCONR_OUTENA_POS: u32 = 8;
-pub const TMR6_PCONR_OUTENA: u32 = 256;
-pub const TMR6_PCONR_EMBVALA_POS: u32 = 11;
-pub const TMR6_PCONR_EMBVALA: u32 = 6144;
-pub const TMR6_PCONR_EMBVALA_0: u32 = 2048;
-pub const TMR6_PCONR_EMBVALA_1: u32 = 4096;
-pub const TMR6_PCONR_CAPMDB_POS: u32 = 16;
-pub const TMR6_PCONR_CAPMDB: u32 = 65536;
-pub const TMR6_PCONR_STACB_POS: u32 = 17;
-pub const TMR6_PCONR_STACB: u32 = 131072;
-pub const TMR6_PCONR_STPCB_POS: u32 = 18;
-pub const TMR6_PCONR_STPCB: u32 = 262144;
-pub const TMR6_PCONR_STASTPSB_POS: u32 = 19;
-pub const TMR6_PCONR_STASTPSB: u32 = 524288;
-pub const TMR6_PCONR_CMPCB_POS: u32 = 20;
-pub const TMR6_PCONR_CMPCB: u32 = 3145728;
-pub const TMR6_PCONR_CMPCB_0: u32 = 1048576;
-pub const TMR6_PCONR_CMPCB_1: u32 = 2097152;
-pub const TMR6_PCONR_PERCB_POS: u32 = 22;
-pub const TMR6_PCONR_PERCB: u32 = 12582912;
-pub const TMR6_PCONR_PERCB_0: u32 = 4194304;
-pub const TMR6_PCONR_PERCB_1: u32 = 8388608;
-pub const TMR6_PCONR_OUTENB_POS: u32 = 24;
-pub const TMR6_PCONR_OUTENB: u32 = 16777216;
-pub const TMR6_PCONR_EMBVALB_POS: u32 = 27;
-pub const TMR6_PCONR_EMBVALB: u32 = 402653184;
-pub const TMR6_PCONR_EMBVALB_0: u32 = 134217728;
-pub const TMR6_PCONR_EMBVALB_1: u32 = 268435456;
-pub const TMR6_BCONR_BENA_POS: u32 = 0;
-pub const TMR6_BCONR_BENA: u32 = 1;
-pub const TMR6_BCONR_BSEA_POS: u32 = 1;
-pub const TMR6_BCONR_BSEA: u32 = 2;
-pub const TMR6_BCONR_BENB_POS: u32 = 2;
-pub const TMR6_BCONR_BENB: u32 = 4;
-pub const TMR6_BCONR_BSEB_POS: u32 = 3;
-pub const TMR6_BCONR_BSEB: u32 = 8;
-pub const TMR6_BCONR_BENP_POS: u32 = 8;
-pub const TMR6_BCONR_BENP: u32 = 256;
-pub const TMR6_BCONR_BSEP_POS: u32 = 9;
-pub const TMR6_BCONR_BSEP: u32 = 512;
-pub const TMR6_BCONR_BENSPA_POS: u32 = 16;
-pub const TMR6_BCONR_BENSPA: u32 = 65536;
-pub const TMR6_BCONR_BSESPA_POS: u32 = 17;
-pub const TMR6_BCONR_BSESPA: u32 = 131072;
-pub const TMR6_BCONR_BTRUSPA_POS: u32 = 20;
-pub const TMR6_BCONR_BTRUSPA: u32 = 1048576;
-pub const TMR6_BCONR_BTRDSPA_POS: u32 = 21;
-pub const TMR6_BCONR_BTRDSPA: u32 = 2097152;
-pub const TMR6_BCONR_BENSPB_POS: u32 = 24;
-pub const TMR6_BCONR_BENSPB: u32 = 16777216;
-pub const TMR6_BCONR_BSESPB_POS: u32 = 25;
-pub const TMR6_BCONR_BSESPB: u32 = 33554432;
-pub const TMR6_BCONR_BTRUSPB_POS: u32 = 28;
-pub const TMR6_BCONR_BTRUSPB: u32 = 268435456;
-pub const TMR6_BCONR_BTRDSPB_POS: u32 = 29;
-pub const TMR6_BCONR_BTRDSPB: u32 = 536870912;
-pub const TMR6_DCONR_DTCEN_POS: u32 = 0;
-pub const TMR6_DCONR_DTCEN: u32 = 1;
-pub const TMR6_DCONR_DTBENU_POS: u32 = 4;
-pub const TMR6_DCONR_DTBENU: u32 = 16;
-pub const TMR6_DCONR_DTBEND_POS: u32 = 5;
-pub const TMR6_DCONR_DTBEND: u32 = 32;
-pub const TMR6_DCONR_SEPA_POS: u32 = 8;
-pub const TMR6_DCONR_SEPA: u32 = 256;
-pub const TMR6_FCONR_NOFIENGA_POS: u32 = 0;
-pub const TMR6_FCONR_NOFIENGA: u32 = 1;
-pub const TMR6_FCONR_NOFICKGA_POS: u32 = 1;
-pub const TMR6_FCONR_NOFICKGA: u32 = 6;
-pub const TMR6_FCONR_NOFICKGA_0: u32 = 2;
-pub const TMR6_FCONR_NOFICKGA_1: u32 = 4;
-pub const TMR6_FCONR_NOFIENGB_POS: u32 = 4;
-pub const TMR6_FCONR_NOFIENGB: u32 = 16;
-pub const TMR6_FCONR_NOFICKGB_POS: u32 = 5;
-pub const TMR6_FCONR_NOFICKGB: u32 = 96;
-pub const TMR6_FCONR_NOFICKGB_0: u32 = 32;
-pub const TMR6_FCONR_NOFICKGB_1: u32 = 64;
-pub const TMR6_FCONR_NOFIENTA_POS: u32 = 16;
-pub const TMR6_FCONR_NOFIENTA: u32 = 65536;
-pub const TMR6_FCONR_NOFICKTA_POS: u32 = 17;
-pub const TMR6_FCONR_NOFICKTA: u32 = 393216;
-pub const TMR6_FCONR_NOFICKTA_0: u32 = 131072;
-pub const TMR6_FCONR_NOFICKTA_1: u32 = 262144;
-pub const TMR6_FCONR_NOFIENTB_POS: u32 = 20;
-pub const TMR6_FCONR_NOFIENTB: u32 = 1048576;
-pub const TMR6_FCONR_NOFICKTB_POS: u32 = 21;
-pub const TMR6_FCONR_NOFICKTB: u32 = 6291456;
-pub const TMR6_FCONR_NOFICKTB_0: u32 = 2097152;
-pub const TMR6_FCONR_NOFICKTB_1: u32 = 4194304;
-pub const TMR6_VPERR_SPPERIA_POS: u32 = 8;
-pub const TMR6_VPERR_SPPERIA: u32 = 256;
-pub const TMR6_VPERR_SPPERIB_POS: u32 = 9;
-pub const TMR6_VPERR_SPPERIB: u32 = 512;
-pub const TMR6_VPERR_PCNTE_POS: u32 = 16;
-pub const TMR6_VPERR_PCNTE: u32 = 196608;
-pub const TMR6_VPERR_PCNTE_0: u32 = 65536;
-pub const TMR6_VPERR_PCNTE_1: u32 = 131072;
-pub const TMR6_VPERR_PCNTS_POS: u32 = 18;
-pub const TMR6_VPERR_PCNTS: u32 = 1835008;
-pub const TMR6_STFLR_CMAF_POS: u32 = 0;
-pub const TMR6_STFLR_CMAF: u32 = 1;
-pub const TMR6_STFLR_CMBF_POS: u32 = 1;
-pub const TMR6_STFLR_CMBF: u32 = 2;
-pub const TMR6_STFLR_CMCF_POS: u32 = 2;
-pub const TMR6_STFLR_CMCF: u32 = 4;
-pub const TMR6_STFLR_CMDF_POS: u32 = 3;
-pub const TMR6_STFLR_CMDF: u32 = 8;
-pub const TMR6_STFLR_CMEF_POS: u32 = 4;
-pub const TMR6_STFLR_CMEF: u32 = 16;
-pub const TMR6_STFLR_CMFF_POS: u32 = 5;
-pub const TMR6_STFLR_CMFF: u32 = 32;
-pub const TMR6_STFLR_OVFF_POS: u32 = 6;
-pub const TMR6_STFLR_OVFF: u32 = 64;
-pub const TMR6_STFLR_UDFF_POS: u32 = 7;
-pub const TMR6_STFLR_UDFF: u32 = 128;
-pub const TMR6_STFLR_DTEF_POS: u32 = 8;
-pub const TMR6_STFLR_DTEF: u32 = 256;
-pub const TMR6_STFLR_CMSAUF_POS: u32 = 9;
-pub const TMR6_STFLR_CMSAUF: u32 = 512;
-pub const TMR6_STFLR_CMSADF_POS: u32 = 10;
-pub const TMR6_STFLR_CMSADF: u32 = 1024;
-pub const TMR6_STFLR_CMSBUF_POS: u32 = 11;
-pub const TMR6_STFLR_CMSBUF: u32 = 2048;
-pub const TMR6_STFLR_CMSBDF_POS: u32 = 12;
-pub const TMR6_STFLR_CMSBDF: u32 = 4096;
-pub const TMR6_STFLR_VPERNUM_POS: u32 = 21;
-pub const TMR6_STFLR_VPERNUM: u32 = 14680064;
-pub const TMR6_STFLR_DIRF_POS: u32 = 31;
-pub const TMR6_STFLR_DIRF: u32 = 2147483648;
-pub const TMR6_HSTAR_HSTA0_POS: u32 = 0;
-pub const TMR6_HSTAR_HSTA0: u32 = 1;
-pub const TMR6_HSTAR_HSTA1_POS: u32 = 1;
-pub const TMR6_HSTAR_HSTA1: u32 = 2;
-pub const TMR6_HSTAR_HSTA4_POS: u32 = 4;
-pub const TMR6_HSTAR_HSTA4: u32 = 16;
-pub const TMR6_HSTAR_HSTA5_POS: u32 = 5;
-pub const TMR6_HSTAR_HSTA5: u32 = 32;
-pub const TMR6_HSTAR_HSTA6_POS: u32 = 6;
-pub const TMR6_HSTAR_HSTA6: u32 = 64;
-pub const TMR6_HSTAR_HSTA7_POS: u32 = 7;
-pub const TMR6_HSTAR_HSTA7: u32 = 128;
-pub const TMR6_HSTAR_HSTA8_POS: u32 = 8;
-pub const TMR6_HSTAR_HSTA8: u32 = 256;
-pub const TMR6_HSTAR_HSTA9_POS: u32 = 9;
-pub const TMR6_HSTAR_HSTA9: u32 = 512;
-pub const TMR6_HSTAR_HSTA10_POS: u32 = 10;
-pub const TMR6_HSTAR_HSTA10: u32 = 1024;
-pub const TMR6_HSTAR_HSTA11_POS: u32 = 11;
-pub const TMR6_HSTAR_HSTA11: u32 = 2048;
-pub const TMR6_HSTAR_STAS_POS: u32 = 31;
-pub const TMR6_HSTAR_STAS: u32 = 2147483648;
-pub const TMR6_HSTPR_HSTP0_POS: u32 = 0;
-pub const TMR6_HSTPR_HSTP0: u32 = 1;
-pub const TMR6_HSTPR_HSTP1_POS: u32 = 1;
-pub const TMR6_HSTPR_HSTP1: u32 = 2;
-pub const TMR6_HSTPR_HSTP4_POS: u32 = 4;
-pub const TMR6_HSTPR_HSTP4: u32 = 16;
-pub const TMR6_HSTPR_HSTP5_POS: u32 = 5;
-pub const TMR6_HSTPR_HSTP5: u32 = 32;
-pub const TMR6_HSTPR_HSTP6_POS: u32 = 6;
-pub const TMR6_HSTPR_HSTP6: u32 = 64;
-pub const TMR6_HSTPR_HSTP7_POS: u32 = 7;
-pub const TMR6_HSTPR_HSTP7: u32 = 128;
-pub const TMR6_HSTPR_HSTP8_POS: u32 = 8;
-pub const TMR6_HSTPR_HSTP8: u32 = 256;
-pub const TMR6_HSTPR_HSTP9_POS: u32 = 9;
-pub const TMR6_HSTPR_HSTP9: u32 = 512;
-pub const TMR6_HSTPR_HSTP10_POS: u32 = 10;
-pub const TMR6_HSTPR_HSTP10: u32 = 1024;
-pub const TMR6_HSTPR_HSTP11_POS: u32 = 11;
-pub const TMR6_HSTPR_HSTP11: u32 = 2048;
-pub const TMR6_HSTPR_STPS_POS: u32 = 31;
-pub const TMR6_HSTPR_STPS: u32 = 2147483648;
-pub const TMR6_HCLRR_HCLE0_POS: u32 = 0;
-pub const TMR6_HCLRR_HCLE0: u32 = 1;
-pub const TMR6_HCLRR_HCLE1_POS: u32 = 1;
-pub const TMR6_HCLRR_HCLE1: u32 = 2;
-pub const TMR6_HCLRR_HCLE4_POS: u32 = 4;
-pub const TMR6_HCLRR_HCLE4: u32 = 16;
-pub const TMR6_HCLRR_HCLE5_POS: u32 = 5;
-pub const TMR6_HCLRR_HCLE5: u32 = 32;
-pub const TMR6_HCLRR_HCLE6_POS: u32 = 6;
-pub const TMR6_HCLRR_HCLE6: u32 = 64;
-pub const TMR6_HCLRR_HCLE7_POS: u32 = 7;
-pub const TMR6_HCLRR_HCLE7: u32 = 128;
-pub const TMR6_HCLRR_HCLE8_POS: u32 = 8;
-pub const TMR6_HCLRR_HCLE8: u32 = 256;
-pub const TMR6_HCLRR_HCLE9_POS: u32 = 9;
-pub const TMR6_HCLRR_HCLE9: u32 = 512;
-pub const TMR6_HCLRR_HCLE10_POS: u32 = 10;
-pub const TMR6_HCLRR_HCLE10: u32 = 1024;
-pub const TMR6_HCLRR_HCLE11_POS: u32 = 11;
-pub const TMR6_HCLRR_HCLE11: u32 = 2048;
-pub const TMR6_HCLRR_CLES_POS: u32 = 31;
-pub const TMR6_HCLRR_CLES: u32 = 2147483648;
-pub const TMR6_HCPAR_HCPA0_POS: u32 = 0;
-pub const TMR6_HCPAR_HCPA0: u32 = 1;
-pub const TMR6_HCPAR_HCPA1_POS: u32 = 1;
-pub const TMR6_HCPAR_HCPA1: u32 = 2;
-pub const TMR6_HCPAR_HCPA4_POS: u32 = 4;
-pub const TMR6_HCPAR_HCPA4: u32 = 16;
-pub const TMR6_HCPAR_HCPA5_POS: u32 = 5;
-pub const TMR6_HCPAR_HCPA5: u32 = 32;
-pub const TMR6_HCPAR_HCPA6_POS: u32 = 6;
-pub const TMR6_HCPAR_HCPA6: u32 = 64;
-pub const TMR6_HCPAR_HCPA7_POS: u32 = 7;
-pub const TMR6_HCPAR_HCPA7: u32 = 128;
-pub const TMR6_HCPAR_HCPA8_POS: u32 = 8;
-pub const TMR6_HCPAR_HCPA8: u32 = 256;
-pub const TMR6_HCPAR_HCPA9_POS: u32 = 9;
-pub const TMR6_HCPAR_HCPA9: u32 = 512;
-pub const TMR6_HCPAR_HCPA10_POS: u32 = 10;
-pub const TMR6_HCPAR_HCPA10: u32 = 1024;
-pub const TMR6_HCPAR_HCPA11_POS: u32 = 11;
-pub const TMR6_HCPAR_HCPA11: u32 = 2048;
-pub const TMR6_HCPBR_HCPB0_POS: u32 = 0;
-pub const TMR6_HCPBR_HCPB0: u32 = 1;
-pub const TMR6_HCPBR_HCPB1_POS: u32 = 1;
-pub const TMR6_HCPBR_HCPB1: u32 = 2;
-pub const TMR6_HCPBR_HCPB4_POS: u32 = 4;
-pub const TMR6_HCPBR_HCPB4: u32 = 16;
-pub const TMR6_HCPBR_HCPB5_POS: u32 = 5;
-pub const TMR6_HCPBR_HCPB5: u32 = 32;
-pub const TMR6_HCPBR_HCPB6_POS: u32 = 6;
-pub const TMR6_HCPBR_HCPB6: u32 = 64;
-pub const TMR6_HCPBR_HCPB7_POS: u32 = 7;
-pub const TMR6_HCPBR_HCPB7: u32 = 128;
-pub const TMR6_HCPBR_HCPB8_POS: u32 = 8;
-pub const TMR6_HCPBR_HCPB8: u32 = 256;
-pub const TMR6_HCPBR_HCPB9_POS: u32 = 9;
-pub const TMR6_HCPBR_HCPB9: u32 = 512;
-pub const TMR6_HCPBR_HCPB10_POS: u32 = 10;
-pub const TMR6_HCPBR_HCPB10: u32 = 1024;
-pub const TMR6_HCPBR_HCPB11_POS: u32 = 11;
-pub const TMR6_HCPBR_HCPB11: u32 = 2048;
-pub const TMR6_HCUPR_HCUP0_POS: u32 = 0;
-pub const TMR6_HCUPR_HCUP0: u32 = 1;
-pub const TMR6_HCUPR_HCUP1_POS: u32 = 1;
-pub const TMR6_HCUPR_HCUP1: u32 = 2;
-pub const TMR6_HCUPR_HCUP2_POS: u32 = 2;
-pub const TMR6_HCUPR_HCUP2: u32 = 4;
-pub const TMR6_HCUPR_HCUP3_POS: u32 = 3;
-pub const TMR6_HCUPR_HCUP3: u32 = 8;
-pub const TMR6_HCUPR_HCUP4_POS: u32 = 4;
-pub const TMR6_HCUPR_HCUP4: u32 = 16;
-pub const TMR6_HCUPR_HCUP5_POS: u32 = 5;
-pub const TMR6_HCUPR_HCUP5: u32 = 32;
-pub const TMR6_HCUPR_HCUP6_POS: u32 = 6;
-pub const TMR6_HCUPR_HCUP6: u32 = 64;
-pub const TMR6_HCUPR_HCUP7_POS: u32 = 7;
-pub const TMR6_HCUPR_HCUP7: u32 = 128;
-pub const TMR6_HCUPR_HCUP8_POS: u32 = 8;
-pub const TMR6_HCUPR_HCUP8: u32 = 256;
-pub const TMR6_HCUPR_HCUP9_POS: u32 = 9;
-pub const TMR6_HCUPR_HCUP9: u32 = 512;
-pub const TMR6_HCUPR_HCUP10_POS: u32 = 10;
-pub const TMR6_HCUPR_HCUP10: u32 = 1024;
-pub const TMR6_HCUPR_HCUP11_POS: u32 = 11;
-pub const TMR6_HCUPR_HCUP11: u32 = 2048;
-pub const TMR6_HCUPR_HCUP16_POS: u32 = 16;
-pub const TMR6_HCUPR_HCUP16: u32 = 65536;
-pub const TMR6_HCUPR_HCUP17_POS: u32 = 17;
-pub const TMR6_HCUPR_HCUP17: u32 = 131072;
-pub const TMR6_HCDOR_HCDO0_POS: u32 = 0;
-pub const TMR6_HCDOR_HCDO0: u32 = 1;
-pub const TMR6_HCDOR_HCDO1_POS: u32 = 1;
-pub const TMR6_HCDOR_HCDO1: u32 = 2;
-pub const TMR6_HCDOR_HCDO2_POS: u32 = 2;
-pub const TMR6_HCDOR_HCDO2: u32 = 4;
-pub const TMR6_HCDOR_HCDO3_POS: u32 = 3;
-pub const TMR6_HCDOR_HCDO3: u32 = 8;
-pub const TMR6_HCDOR_HCDO4_POS: u32 = 4;
-pub const TMR6_HCDOR_HCDO4: u32 = 16;
-pub const TMR6_HCDOR_HCDO5_POS: u32 = 5;
-pub const TMR6_HCDOR_HCDO5: u32 = 32;
-pub const TMR6_HCDOR_HCDO6_POS: u32 = 6;
-pub const TMR6_HCDOR_HCDO6: u32 = 64;
-pub const TMR6_HCDOR_HCDO7_POS: u32 = 7;
-pub const TMR6_HCDOR_HCDO7: u32 = 128;
-pub const TMR6_HCDOR_HCDO8_POS: u32 = 8;
-pub const TMR6_HCDOR_HCDO8: u32 = 256;
-pub const TMR6_HCDOR_HCDO9_POS: u32 = 9;
-pub const TMR6_HCDOR_HCDO9: u32 = 512;
-pub const TMR6_HCDOR_HCDO10_POS: u32 = 10;
-pub const TMR6_HCDOR_HCDO10: u32 = 1024;
-pub const TMR6_HCDOR_HCDO11_POS: u32 = 11;
-pub const TMR6_HCDOR_HCDO11: u32 = 2048;
-pub const TMR6_HCDOR_HCDO16_POS: u32 = 16;
-pub const TMR6_HCDOR_HCDO16: u32 = 65536;
-pub const TMR6_HCDOR_HCDO17_POS: u32 = 17;
-pub const TMR6_HCDOR_HCDO17: u32 = 131072;
-pub const TMR6_COMMON_SSTAR_SSTA1_POS: u32 = 0;
-pub const TMR6_COMMON_SSTAR_SSTA1: u32 = 1;
-pub const TMR6_COMMON_SSTAR_SSTA2_POS: u32 = 1;
-pub const TMR6_COMMON_SSTAR_SSTA2: u32 = 2;
-pub const TMR6_COMMON_SSTAR_SSTA3_POS: u32 = 2;
-pub const TMR6_COMMON_SSTAR_SSTA3: u32 = 4;
-pub const TMR6_COMMON_SSTPR_SSTP1_POS: u32 = 0;
-pub const TMR6_COMMON_SSTPR_SSTP1: u32 = 1;
-pub const TMR6_COMMON_SSTPR_SSTP2_POS: u32 = 1;
-pub const TMR6_COMMON_SSTPR_SSTP2: u32 = 2;
-pub const TMR6_COMMON_SSTPR_SSTP3_POS: u32 = 2;
-pub const TMR6_COMMON_SSTPR_SSTP3: u32 = 4;
-pub const TMR6_COMMON_SCLRR_SCLE1_POS: u32 = 0;
-pub const TMR6_COMMON_SCLRR_SCLE1: u32 = 1;
-pub const TMR6_COMMON_SCLRR_SCLE2_POS: u32 = 1;
-pub const TMR6_COMMON_SCLRR_SCLE2: u32 = 2;
-pub const TMR6_COMMON_SCLRR_SCLE3_POS: u32 = 2;
-pub const TMR6_COMMON_SCLRR_SCLE3: u32 = 4;
-pub const TMRA_CNTER_CNT: u32 = 65535;
-pub const TMRA_PERAR_PER: u32 = 65535;
-pub const TMRA_CMPAR_CMP: u32 = 65535;
-pub const TMRA_BCSTRL_START_POS: u32 = 0;
-pub const TMRA_BCSTRL_START: u32 = 1;
-pub const TMRA_BCSTRL_DIR_POS: u32 = 1;
-pub const TMRA_BCSTRL_DIR: u32 = 2;
-pub const TMRA_BCSTRL_MODE_POS: u32 = 2;
-pub const TMRA_BCSTRL_MODE: u32 = 4;
-pub const TMRA_BCSTRL_SYNST_POS: u32 = 3;
-pub const TMRA_BCSTRL_SYNST: u32 = 8;
-pub const TMRA_BCSTRL_CKDIV_POS: u32 = 4;
-pub const TMRA_BCSTRL_CKDIV: u32 = 240;
-pub const TMRA_BCSTRH_OVSTP_POS: u32 = 0;
-pub const TMRA_BCSTRH_OVSTP: u32 = 1;
-pub const TMRA_BCSTRH_ITENOVF_POS: u32 = 4;
-pub const TMRA_BCSTRH_ITENOVF: u32 = 16;
-pub const TMRA_BCSTRH_ITENUDF_POS: u32 = 5;
-pub const TMRA_BCSTRH_ITENUDF: u32 = 32;
-pub const TMRA_BCSTRH_OVFF_POS: u32 = 6;
-pub const TMRA_BCSTRH_OVFF: u32 = 64;
-pub const TMRA_BCSTRH_UDFF_POS: u32 = 7;
-pub const TMRA_BCSTRH_UDFF: u32 = 128;
-pub const TMRA_HCONR_HSTA0_POS: u32 = 0;
-pub const TMRA_HCONR_HSTA0: u32 = 1;
-pub const TMRA_HCONR_HSTA1_POS: u32 = 1;
-pub const TMRA_HCONR_HSTA1: u32 = 2;
-pub const TMRA_HCONR_HSTA2_POS: u32 = 2;
-pub const TMRA_HCONR_HSTA2: u32 = 4;
-pub const TMRA_HCONR_HSTP0_POS: u32 = 4;
-pub const TMRA_HCONR_HSTP0: u32 = 16;
-pub const TMRA_HCONR_HSTP1_POS: u32 = 5;
-pub const TMRA_HCONR_HSTP1: u32 = 32;
-pub const TMRA_HCONR_HSTP2_POS: u32 = 6;
-pub const TMRA_HCONR_HSTP2: u32 = 64;
-pub const TMRA_HCONR_HCLE0_POS: u32 = 8;
-pub const TMRA_HCONR_HCLE0: u32 = 256;
-pub const TMRA_HCONR_HCLE1_POS: u32 = 9;
-pub const TMRA_HCONR_HCLE1: u32 = 512;
-pub const TMRA_HCONR_HCLE2_POS: u32 = 10;
-pub const TMRA_HCONR_HCLE2: u32 = 1024;
-pub const TMRA_HCONR_HCLE3_POS: u32 = 12;
-pub const TMRA_HCONR_HCLE3: u32 = 4096;
-pub const TMRA_HCONR_HCLE4_POS: u32 = 13;
-pub const TMRA_HCONR_HCLE4: u32 = 8192;
-pub const TMRA_HCONR_HCLE5_POS: u32 = 14;
-pub const TMRA_HCONR_HCLE5: u32 = 16384;
-pub const TMRA_HCONR_HCLE6_POS: u32 = 15;
-pub const TMRA_HCONR_HCLE6: u32 = 32768;
-pub const TMRA_HCUPR_HCUP0_POS: u32 = 0;
-pub const TMRA_HCUPR_HCUP0: u32 = 1;
-pub const TMRA_HCUPR_HCUP1_POS: u32 = 1;
-pub const TMRA_HCUPR_HCUP1: u32 = 2;
-pub const TMRA_HCUPR_HCUP2_POS: u32 = 2;
-pub const TMRA_HCUPR_HCUP2: u32 = 4;
-pub const TMRA_HCUPR_HCUP3_POS: u32 = 3;
-pub const TMRA_HCUPR_HCUP3: u32 = 8;
-pub const TMRA_HCUPR_HCUP4_POS: u32 = 4;
-pub const TMRA_HCUPR_HCUP4: u32 = 16;
-pub const TMRA_HCUPR_HCUP5_POS: u32 = 5;
-pub const TMRA_HCUPR_HCUP5: u32 = 32;
-pub const TMRA_HCUPR_HCUP6_POS: u32 = 6;
-pub const TMRA_HCUPR_HCUP6: u32 = 64;
-pub const TMRA_HCUPR_HCUP7_POS: u32 = 7;
-pub const TMRA_HCUPR_HCUP7: u32 = 128;
-pub const TMRA_HCUPR_HCUP8_POS: u32 = 8;
-pub const TMRA_HCUPR_HCUP8: u32 = 256;
-pub const TMRA_HCUPR_HCUP9_POS: u32 = 9;
-pub const TMRA_HCUPR_HCUP9: u32 = 512;
-pub const TMRA_HCUPR_HCUP10_POS: u32 = 10;
-pub const TMRA_HCUPR_HCUP10: u32 = 1024;
-pub const TMRA_HCUPR_HCUP11_POS: u32 = 11;
-pub const TMRA_HCUPR_HCUP11: u32 = 2048;
-pub const TMRA_HCUPR_HCUP12_POS: u32 = 12;
-pub const TMRA_HCUPR_HCUP12: u32 = 4096;
-pub const TMRA_HCDOR_HCDO0_POS: u32 = 0;
-pub const TMRA_HCDOR_HCDO0: u32 = 1;
-pub const TMRA_HCDOR_HCDO1_POS: u32 = 1;
-pub const TMRA_HCDOR_HCDO1: u32 = 2;
-pub const TMRA_HCDOR_HCDO2_POS: u32 = 2;
-pub const TMRA_HCDOR_HCDO2: u32 = 4;
-pub const TMRA_HCDOR_HCDO3_POS: u32 = 3;
-pub const TMRA_HCDOR_HCDO3: u32 = 8;
-pub const TMRA_HCDOR_HCDO4_POS: u32 = 4;
-pub const TMRA_HCDOR_HCDO4: u32 = 16;
-pub const TMRA_HCDOR_HCDO5_POS: u32 = 5;
-pub const TMRA_HCDOR_HCDO5: u32 = 32;
-pub const TMRA_HCDOR_HCDO6_POS: u32 = 6;
-pub const TMRA_HCDOR_HCDO6: u32 = 64;
-pub const TMRA_HCDOR_HCDO7_POS: u32 = 7;
-pub const TMRA_HCDOR_HCDO7: u32 = 128;
-pub const TMRA_HCDOR_HCDO8_POS: u32 = 8;
-pub const TMRA_HCDOR_HCDO8: u32 = 256;
-pub const TMRA_HCDOR_HCDO9_POS: u32 = 9;
-pub const TMRA_HCDOR_HCDO9: u32 = 512;
-pub const TMRA_HCDOR_HCDO10_POS: u32 = 10;
-pub const TMRA_HCDOR_HCDO10: u32 = 1024;
-pub const TMRA_HCDOR_HCDO11_POS: u32 = 11;
-pub const TMRA_HCDOR_HCDO11: u32 = 2048;
-pub const TMRA_HCDOR_HCDO12_POS: u32 = 12;
-pub const TMRA_HCDOR_HCDO12: u32 = 4096;
-pub const TMRA_ICONR_ITEN1_POS: u32 = 0;
-pub const TMRA_ICONR_ITEN1: u32 = 1;
-pub const TMRA_ICONR_ITEN2_POS: u32 = 1;
-pub const TMRA_ICONR_ITEN2: u32 = 2;
-pub const TMRA_ICONR_ITEN3_POS: u32 = 2;
-pub const TMRA_ICONR_ITEN3: u32 = 4;
-pub const TMRA_ICONR_ITEN4_POS: u32 = 3;
-pub const TMRA_ICONR_ITEN4: u32 = 8;
-pub const TMRA_ICONR_ITEN5_POS: u32 = 4;
-pub const TMRA_ICONR_ITEN5: u32 = 16;
-pub const TMRA_ICONR_ITEN6_POS: u32 = 5;
-pub const TMRA_ICONR_ITEN6: u32 = 32;
-pub const TMRA_ICONR_ITEN7_POS: u32 = 6;
-pub const TMRA_ICONR_ITEN7: u32 = 64;
-pub const TMRA_ICONR_ITEN8_POS: u32 = 7;
-pub const TMRA_ICONR_ITEN8: u32 = 128;
-pub const TMRA_ECONR_ETEN1_POS: u32 = 0;
-pub const TMRA_ECONR_ETEN1: u32 = 1;
-pub const TMRA_ECONR_ETEN2_POS: u32 = 1;
-pub const TMRA_ECONR_ETEN2: u32 = 2;
-pub const TMRA_ECONR_ETEN3_POS: u32 = 2;
-pub const TMRA_ECONR_ETEN3: u32 = 4;
-pub const TMRA_ECONR_ETEN4_POS: u32 = 3;
-pub const TMRA_ECONR_ETEN4: u32 = 8;
-pub const TMRA_ECONR_ETEN5_POS: u32 = 4;
-pub const TMRA_ECONR_ETEN5: u32 = 16;
-pub const TMRA_ECONR_ETEN6_POS: u32 = 5;
-pub const TMRA_ECONR_ETEN6: u32 = 32;
-pub const TMRA_ECONR_ETEN7_POS: u32 = 6;
-pub const TMRA_ECONR_ETEN7: u32 = 64;
-pub const TMRA_ECONR_ETEN8_POS: u32 = 7;
-pub const TMRA_ECONR_ETEN8: u32 = 128;
-pub const TMRA_FCONR_NOFIENTG_POS: u32 = 0;
-pub const TMRA_FCONR_NOFIENTG: u32 = 1;
-pub const TMRA_FCONR_NOFICKTG_POS: u32 = 1;
-pub const TMRA_FCONR_NOFICKTG: u32 = 6;
-pub const TMRA_FCONR_NOFIENCA_POS: u32 = 8;
-pub const TMRA_FCONR_NOFIENCA: u32 = 256;
-pub const TMRA_FCONR_NOFICKCA_POS: u32 = 9;
-pub const TMRA_FCONR_NOFICKCA: u32 = 1536;
-pub const TMRA_FCONR_NOFIENCB_POS: u32 = 12;
-pub const TMRA_FCONR_NOFIENCB: u32 = 4096;
-pub const TMRA_FCONR_NOFICKCB_POS: u32 = 13;
-pub const TMRA_FCONR_NOFICKCB: u32 = 24576;
-pub const TMRA_STFLR_CMPF1_POS: u32 = 0;
-pub const TMRA_STFLR_CMPF1: u32 = 1;
-pub const TMRA_STFLR_CMPF2_POS: u32 = 1;
-pub const TMRA_STFLR_CMPF2: u32 = 2;
-pub const TMRA_STFLR_CMPF3_POS: u32 = 2;
-pub const TMRA_STFLR_CMPF3: u32 = 4;
-pub const TMRA_STFLR_CMPF4_POS: u32 = 3;
-pub const TMRA_STFLR_CMPF4: u32 = 8;
-pub const TMRA_STFLR_CMPF5_POS: u32 = 4;
-pub const TMRA_STFLR_CMPF5: u32 = 16;
-pub const TMRA_STFLR_CMPF6_POS: u32 = 5;
-pub const TMRA_STFLR_CMPF6: u32 = 32;
-pub const TMRA_STFLR_CMPF7_POS: u32 = 6;
-pub const TMRA_STFLR_CMPF7: u32 = 64;
-pub const TMRA_STFLR_CMPF8_POS: u32 = 7;
-pub const TMRA_STFLR_CMPF8: u32 = 128;
-pub const TMRA_BCONR_BEN_POS: u32 = 0;
-pub const TMRA_BCONR_BEN: u32 = 1;
-pub const TMRA_BCONR_BSE0_POS: u32 = 1;
-pub const TMRA_BCONR_BSE0: u32 = 2;
-pub const TMRA_BCONR_BSE1_POS: u32 = 2;
-pub const TMRA_BCONR_BSE1: u32 = 4;
-pub const TMRA_CCONR_CAPMD_POS: u32 = 0;
-pub const TMRA_CCONR_CAPMD: u32 = 1;
-pub const TMRA_CCONR_HICP0_POS: u32 = 4;
-pub const TMRA_CCONR_HICP0: u32 = 16;
-pub const TMRA_CCONR_HICP1_POS: u32 = 5;
-pub const TMRA_CCONR_HICP1: u32 = 32;
-pub const TMRA_CCONR_HICP2_POS: u32 = 6;
-pub const TMRA_CCONR_HICP2: u32 = 64;
-pub const TMRA_CCONR_HICP3_POS: u32 = 8;
-pub const TMRA_CCONR_HICP3: u32 = 256;
-pub const TMRA_CCONR_HICP4_POS: u32 = 9;
-pub const TMRA_CCONR_HICP4: u32 = 512;
-pub const TMRA_CCONR_NOFIENCP_POS: u32 = 12;
-pub const TMRA_CCONR_NOFIENCP: u32 = 4096;
-pub const TMRA_CCONR_NOFICKCP_POS: u32 = 13;
-pub const TMRA_CCONR_NOFICKCP: u32 = 24576;
-pub const TMRA_CCONR_NOFICKCP_0: u32 = 8192;
-pub const TMRA_CCONR_NOFICKCP_1: u32 = 16384;
-pub const TMRA_PCONR_STAC_POS: u32 = 0;
-pub const TMRA_PCONR_STAC: u32 = 3;
-pub const TMRA_PCONR_STAC_0: u32 = 1;
-pub const TMRA_PCONR_STAC_1: u32 = 2;
-pub const TMRA_PCONR_STPC_POS: u32 = 2;
-pub const TMRA_PCONR_STPC: u32 = 12;
-pub const TMRA_PCONR_STPC_0: u32 = 4;
-pub const TMRA_PCONR_STPC_1: u32 = 8;
-pub const TMRA_PCONR_CMPC_POS: u32 = 4;
-pub const TMRA_PCONR_CMPC: u32 = 48;
-pub const TMRA_PCONR_CMPC_0: u32 = 16;
-pub const TMRA_PCONR_CMPC_1: u32 = 32;
-pub const TMRA_PCONR_PERC_POS: u32 = 6;
-pub const TMRA_PCONR_PERC: u32 = 192;
-pub const TMRA_PCONR_PERC_0: u32 = 64;
-pub const TMRA_PCONR_PERC_1: u32 = 128;
-pub const TMRA_PCONR_FORC_POS: u32 = 8;
-pub const TMRA_PCONR_FORC: u32 = 768;
-pub const TMRA_PCONR_FORC_0: u32 = 256;
-pub const TMRA_PCONR_FORC_1: u32 = 512;
-pub const TMRA_PCONR_OUTEN_POS: u32 = 12;
-pub const TMRA_PCONR_OUTEN: u32 = 4096;
-pub const TRNG_CR_EN_POS: u32 = 0;
-pub const TRNG_CR_EN: u32 = 1;
-pub const TRNG_CR_RUN_POS: u32 = 1;
-pub const TRNG_CR_RUN: u32 = 2;
-pub const TRNG_MR_LOAD_POS: u32 = 0;
-pub const TRNG_MR_LOAD: u32 = 1;
-pub const TRNG_MR_CNT_POS: u32 = 2;
-pub const TRNG_MR_CNT: u32 = 28;
-pub const TRNG_DR0: u32 = 4294967295;
-pub const TRNG_DR1: u32 = 4294967295;
-pub const USART_SR_PE_POS: u32 = 0;
-pub const USART_SR_PE: u32 = 1;
-pub const USART_SR_FE_POS: u32 = 1;
-pub const USART_SR_FE: u32 = 2;
-pub const USART_SR_ORE_POS: u32 = 3;
-pub const USART_SR_ORE: u32 = 8;
-pub const USART_SR_RXNE_POS: u32 = 5;
-pub const USART_SR_RXNE: u32 = 32;
-pub const USART_SR_TC_POS: u32 = 6;
-pub const USART_SR_TC: u32 = 64;
-pub const USART_SR_TXE_POS: u32 = 7;
-pub const USART_SR_TXE: u32 = 128;
-pub const USART_SR_RTOF_POS: u32 = 8;
-pub const USART_SR_RTOF: u32 = 256;
-pub const USART_SR_MPB_POS: u32 = 16;
-pub const USART_SR_MPB: u32 = 65536;
-pub const USART_TDR_TDR_POS: u32 = 0;
-pub const USART_TDR_TDR: u32 = 511;
-pub const USART_TDR_MPID_POS: u32 = 9;
-pub const USART_TDR_MPID: u32 = 512;
-pub const USART_RDR_RDR: u32 = 511;
-pub const USART_BRR_DIV_FRACTION_POS: u32 = 0;
-pub const USART_BRR_DIV_FRACTION: u32 = 127;
-pub const USART_BRR_DIV_INTEGER_POS: u32 = 8;
-pub const USART_BRR_DIV_INTEGER: u32 = 65280;
-pub const USART_CR1_RTOE_POS: u32 = 0;
-pub const USART_CR1_RTOE: u32 = 1;
-pub const USART_CR1_RTOIE_POS: u32 = 1;
-pub const USART_CR1_RTOIE: u32 = 2;
-pub const USART_CR1_RE_POS: u32 = 2;
-pub const USART_CR1_RE: u32 = 4;
-pub const USART_CR1_TE_POS: u32 = 3;
-pub const USART_CR1_TE: u32 = 8;
-pub const USART_CR1_SLME_POS: u32 = 4;
-pub const USART_CR1_SLME: u32 = 16;
-pub const USART_CR1_RIE_POS: u32 = 5;
-pub const USART_CR1_RIE: u32 = 32;
-pub const USART_CR1_TCIE_POS: u32 = 6;
-pub const USART_CR1_TCIE: u32 = 64;
-pub const USART_CR1_TXEIE_POS: u32 = 7;
-pub const USART_CR1_TXEIE: u32 = 128;
-pub const USART_CR1_PS_POS: u32 = 9;
-pub const USART_CR1_PS: u32 = 512;
-pub const USART_CR1_PCE_POS: u32 = 10;
-pub const USART_CR1_PCE: u32 = 1024;
-pub const USART_CR1_M_POS: u32 = 12;
-pub const USART_CR1_M: u32 = 4096;
-pub const USART_CR1_OVER8_POS: u32 = 15;
-pub const USART_CR1_OVER8: u32 = 32768;
-pub const USART_CR1_CPE_POS: u32 = 16;
-pub const USART_CR1_CPE: u32 = 65536;
-pub const USART_CR1_CFE_POS: u32 = 17;
-pub const USART_CR1_CFE: u32 = 131072;
-pub const USART_CR1_CORE_POS: u32 = 19;
-pub const USART_CR1_CORE: u32 = 524288;
-pub const USART_CR1_CRTOF_POS: u32 = 20;
-pub const USART_CR1_CRTOF: u32 = 1048576;
-pub const USART_CR1_MS_POS: u32 = 24;
-pub const USART_CR1_MS: u32 = 16777216;
-pub const USART_CR1_ML_POS: u32 = 28;
-pub const USART_CR1_ML: u32 = 268435456;
-pub const USART_CR1_FBME_POS: u32 = 29;
-pub const USART_CR1_FBME: u32 = 536870912;
-pub const USART_CR1_NFE_POS: u32 = 30;
-pub const USART_CR1_NFE: u32 = 1073741824;
-pub const USART_CR1_SBS_POS: u32 = 31;
-pub const USART_CR1_SBS: u32 = 2147483648;
-pub const USART_CR2_MPE_POS: u32 = 0;
-pub const USART_CR2_MPE: u32 = 1;
-pub const USART_CR2_CLKC_POS: u32 = 11;
-pub const USART_CR2_CLKC: u32 = 6144;
-pub const USART_CR2_CLKC_0: u32 = 2048;
-pub const USART_CR2_CLKC_1: u32 = 4096;
-pub const USART_CR2_STOP_POS: u32 = 13;
-pub const USART_CR2_STOP: u32 = 8192;
-pub const USART_CR3_SCEN_POS: u32 = 5;
-pub const USART_CR3_SCEN: u32 = 32;
-pub const USART_CR3_CTSE_POS: u32 = 9;
-pub const USART_CR3_CTSE: u32 = 512;
-pub const USART_CR3_BCN_POS: u32 = 21;
-pub const USART_CR3_BCN: u32 = 14680064;
-pub const USART_PR_PSC: u32 = 3;
-pub const USART_PR_PSC_0: u32 = 1;
-pub const USART_PR_PSC_1: u32 = 2;
-pub const USBFS_GVBUSCFG_VBUSOVEN_POS: u32 = 6;
-pub const USBFS_GVBUSCFG_VBUSOVEN: u32 = 64;
-pub const USBFS_GVBUSCFG_VBUSVAL_POS: u32 = 7;
-pub const USBFS_GVBUSCFG_VBUSVAL: u32 = 128;
-pub const USBFS_GAHBCFG_GINTMSK_POS: u32 = 0;
-pub const USBFS_GAHBCFG_GINTMSK: u32 = 1;
-pub const USBFS_GAHBCFG_HBSTLEN_POS: u32 = 1;
-pub const USBFS_GAHBCFG_HBSTLEN: u32 = 30;
-pub const USBFS_GAHBCFG_DMAEN_POS: u32 = 5;
-pub const USBFS_GAHBCFG_DMAEN: u32 = 32;
-pub const USBFS_GAHBCFG_TXFELVL_POS: u32 = 7;
-pub const USBFS_GAHBCFG_TXFELVL: u32 = 128;
-pub const USBFS_GAHBCFG_PTXFELVL_POS: u32 = 8;
-pub const USBFS_GAHBCFG_PTXFELVL: u32 = 256;
-pub const USBFS_GUSBCFG_TOCAL_POS: u32 = 0;
-pub const USBFS_GUSBCFG_TOCAL: u32 = 7;
-pub const USBFS_GUSBCFG_PHYSEL_POS: u32 = 6;
-pub const USBFS_GUSBCFG_PHYSEL: u32 = 64;
-pub const USBFS_GUSBCFG_TRDT_POS: u32 = 10;
-pub const USBFS_GUSBCFG_TRDT: u32 = 15360;
-pub const USBFS_GUSBCFG_FHMOD_POS: u32 = 29;
-pub const USBFS_GUSBCFG_FHMOD: u32 = 536870912;
-pub const USBFS_GUSBCFG_FDMOD_POS: u32 = 30;
-pub const USBFS_GUSBCFG_FDMOD: u32 = 1073741824;
-pub const USBFS_GRSTCTL_CSRST_POS: u32 = 0;
-pub const USBFS_GRSTCTL_CSRST: u32 = 1;
-pub const USBFS_GRSTCTL_HSRST_POS: u32 = 1;
-pub const USBFS_GRSTCTL_HSRST: u32 = 2;
-pub const USBFS_GRSTCTL_FCRST_POS: u32 = 2;
-pub const USBFS_GRSTCTL_FCRST: u32 = 4;
-pub const USBFS_GRSTCTL_RXFFLSH_POS: u32 = 4;
-pub const USBFS_GRSTCTL_RXFFLSH: u32 = 16;
-pub const USBFS_GRSTCTL_TXFFLSH_POS: u32 = 5;
-pub const USBFS_GRSTCTL_TXFFLSH: u32 = 32;
-pub const USBFS_GRSTCTL_TXFNUM_POS: u32 = 6;
-pub const USBFS_GRSTCTL_TXFNUM: u32 = 1984;
-pub const USBFS_GRSTCTL_DMAREQ_POS: u32 = 30;
-pub const USBFS_GRSTCTL_DMAREQ: u32 = 1073741824;
-pub const USBFS_GRSTCTL_AHBIDL_POS: u32 = 31;
-pub const USBFS_GRSTCTL_AHBIDL: u32 = 2147483648;
-pub const USBFS_GINTSTS_CMOD_POS: u32 = 0;
-pub const USBFS_GINTSTS_CMOD: u32 = 1;
-pub const USBFS_GINTSTS_MMIS_POS: u32 = 1;
-pub const USBFS_GINTSTS_MMIS: u32 = 2;
-pub const USBFS_GINTSTS_SOF_POS: u32 = 3;
-pub const USBFS_GINTSTS_SOF: u32 = 8;
-pub const USBFS_GINTSTS_RXFNE_POS: u32 = 4;
-pub const USBFS_GINTSTS_RXFNE: u32 = 16;
-pub const USBFS_GINTSTS_NPTXFE_POS: u32 = 5;
-pub const USBFS_GINTSTS_NPTXFE: u32 = 32;
-pub const USBFS_GINTSTS_GINAKEFF_POS: u32 = 6;
-pub const USBFS_GINTSTS_GINAKEFF: u32 = 64;
-pub const USBFS_GINTSTS_GONAKEFF_POS: u32 = 7;
-pub const USBFS_GINTSTS_GONAKEFF: u32 = 128;
-pub const USBFS_GINTSTS_ESUSP_POS: u32 = 10;
-pub const USBFS_GINTSTS_ESUSP: u32 = 1024;
-pub const USBFS_GINTSTS_USBSUSP_POS: u32 = 11;
-pub const USBFS_GINTSTS_USBSUSP: u32 = 2048;
-pub const USBFS_GINTSTS_USBRST_POS: u32 = 12;
-pub const USBFS_GINTSTS_USBRST: u32 = 4096;
-pub const USBFS_GINTSTS_ENUMDNE_POS: u32 = 13;
-pub const USBFS_GINTSTS_ENUMDNE: u32 = 8192;
-pub const USBFS_GINTSTS_ISOODRP_POS: u32 = 14;
-pub const USBFS_GINTSTS_ISOODRP: u32 = 16384;
-pub const USBFS_GINTSTS_EOPF_POS: u32 = 15;
-pub const USBFS_GINTSTS_EOPF: u32 = 32768;
-pub const USBFS_GINTSTS_IEPINT_POS: u32 = 18;
-pub const USBFS_GINTSTS_IEPINT: u32 = 262144;
-pub const USBFS_GINTSTS_OEPINT_POS: u32 = 19;
-pub const USBFS_GINTSTS_OEPINT: u32 = 524288;
-pub const USBFS_GINTSTS_IISOIXFR_POS: u32 = 20;
-pub const USBFS_GINTSTS_IISOIXFR: u32 = 1048576;
-pub const USBFS_GINTSTS_IPXFR_INCOMPISOOUT_POS: u32 = 21;
-pub const USBFS_GINTSTS_IPXFR_INCOMPISOOUT: u32 = 2097152;
-pub const USBFS_GINTSTS_DATAFSUSP_POS: u32 = 22;
-pub const USBFS_GINTSTS_DATAFSUSP: u32 = 4194304;
-pub const USBFS_GINTSTS_HPRTINT_POS: u32 = 24;
-pub const USBFS_GINTSTS_HPRTINT: u32 = 16777216;
-pub const USBFS_GINTSTS_HCINT_POS: u32 = 25;
-pub const USBFS_GINTSTS_HCINT: u32 = 33554432;
-pub const USBFS_GINTSTS_PTXFE_POS: u32 = 26;
-pub const USBFS_GINTSTS_PTXFE: u32 = 67108864;
-pub const USBFS_GINTSTS_CIDSCHG_POS: u32 = 28;
-pub const USBFS_GINTSTS_CIDSCHG: u32 = 268435456;
-pub const USBFS_GINTSTS_DISCINT_POS: u32 = 29;
-pub const USBFS_GINTSTS_DISCINT: u32 = 536870912;
-pub const USBFS_GINTSTS_VBUSVINT_POS: u32 = 30;
-pub const USBFS_GINTSTS_VBUSVINT: u32 = 1073741824;
-pub const USBFS_GINTSTS_WKUINT_POS: u32 = 31;
-pub const USBFS_GINTSTS_WKUINT: u32 = 2147483648;
-pub const USBFS_GINTMSK_MMISM_POS: u32 = 1;
-pub const USBFS_GINTMSK_MMISM: u32 = 2;
-pub const USBFS_GINTMSK_SOFM_POS: u32 = 3;
-pub const USBFS_GINTMSK_SOFM: u32 = 8;
-pub const USBFS_GINTMSK_RXFNEM_POS: u32 = 4;
-pub const USBFS_GINTMSK_RXFNEM: u32 = 16;
-pub const USBFS_GINTMSK_NPTXFEM_POS: u32 = 5;
-pub const USBFS_GINTMSK_NPTXFEM: u32 = 32;
-pub const USBFS_GINTMSK_GINAKEFFM_POS: u32 = 6;
-pub const USBFS_GINTMSK_GINAKEFFM: u32 = 64;
-pub const USBFS_GINTMSK_GONAKEFFM_POS: u32 = 7;
-pub const USBFS_GINTMSK_GONAKEFFM: u32 = 128;
-pub const USBFS_GINTMSK_ESUSPM_POS: u32 = 10;
-pub const USBFS_GINTMSK_ESUSPM: u32 = 1024;
-pub const USBFS_GINTMSK_USBSUSPM_POS: u32 = 11;
-pub const USBFS_GINTMSK_USBSUSPM: u32 = 2048;
-pub const USBFS_GINTMSK_USBRSTM_POS: u32 = 12;
-pub const USBFS_GINTMSK_USBRSTM: u32 = 4096;
-pub const USBFS_GINTMSK_ENUMDNEM_POS: u32 = 13;
-pub const USBFS_GINTMSK_ENUMDNEM: u32 = 8192;
-pub const USBFS_GINTMSK_ISOODRPM_POS: u32 = 14;
-pub const USBFS_GINTMSK_ISOODRPM: u32 = 16384;
-pub const USBFS_GINTMSK_EOPFM_POS: u32 = 15;
-pub const USBFS_GINTMSK_EOPFM: u32 = 32768;
-pub const USBFS_GINTMSK_IEPIM_POS: u32 = 18;
-pub const USBFS_GINTMSK_IEPIM: u32 = 262144;
-pub const USBFS_GINTMSK_OEPIM_POS: u32 = 19;
-pub const USBFS_GINTMSK_OEPIM: u32 = 524288;
-pub const USBFS_GINTMSK_IISOIXFRM_POS: u32 = 20;
-pub const USBFS_GINTMSK_IISOIXFRM: u32 = 1048576;
-pub const USBFS_GINTMSK_IPXFRM_INCOMPISOOUTM_POS: u32 = 21;
-pub const USBFS_GINTMSK_IPXFRM_INCOMPISOOUTM: u32 = 2097152;
-pub const USBFS_GINTMSK_DATAFSUSPM_POS: u32 = 22;
-pub const USBFS_GINTMSK_DATAFSUSPM: u32 = 4194304;
-pub const USBFS_GINTMSK_HPRTIM_POS: u32 = 24;
-pub const USBFS_GINTMSK_HPRTIM: u32 = 16777216;
-pub const USBFS_GINTMSK_HCIM_POS: u32 = 25;
-pub const USBFS_GINTMSK_HCIM: u32 = 33554432;
-pub const USBFS_GINTMSK_PTXFEM_POS: u32 = 26;
-pub const USBFS_GINTMSK_PTXFEM: u32 = 67108864;
-pub const USBFS_GINTMSK_CIDSCHGM_POS: u32 = 28;
-pub const USBFS_GINTMSK_CIDSCHGM: u32 = 268435456;
-pub const USBFS_GINTMSK_DISCIM_POS: u32 = 29;
-pub const USBFS_GINTMSK_DISCIM: u32 = 536870912;
-pub const USBFS_GINTMSK_VBUSVIM_POS: u32 = 30;
-pub const USBFS_GINTMSK_VBUSVIM: u32 = 1073741824;
-pub const USBFS_GINTMSK_WKUIM_POS: u32 = 31;
-pub const USBFS_GINTMSK_WKUIM: u32 = 2147483648;
-pub const USBFS_GRXSTSR_CHNUM_EPNUM_POS: u32 = 0;
-pub const USBFS_GRXSTSR_CHNUM_EPNUM: u32 = 15;
-pub const USBFS_GRXSTSR_BCNT_POS: u32 = 4;
-pub const USBFS_GRXSTSR_BCNT: u32 = 32752;
-pub const USBFS_GRXSTSR_DPID_POS: u32 = 15;
-pub const USBFS_GRXSTSR_DPID: u32 = 98304;
-pub const USBFS_GRXSTSR_PKTSTS_POS: u32 = 17;
-pub const USBFS_GRXSTSR_PKTSTS: u32 = 1966080;
-pub const USBFS_GRXSTSP_CHNUM_EPNUM_POS: u32 = 0;
-pub const USBFS_GRXSTSP_CHNUM_EPNUM: u32 = 15;
-pub const USBFS_GRXSTSP_BCNT_POS: u32 = 4;
-pub const USBFS_GRXSTSP_BCNT: u32 = 32752;
-pub const USBFS_GRXSTSP_DPID_POS: u32 = 15;
-pub const USBFS_GRXSTSP_DPID: u32 = 98304;
-pub const USBFS_GRXSTSP_PKTSTS_POS: u32 = 17;
-pub const USBFS_GRXSTSP_PKTSTS: u32 = 1966080;
-pub const USBFS_GRXFSIZ_RXFD: u32 = 2047;
-pub const USBFS_HNPTXFSIZ_NPTXFSA_POS: u32 = 0;
-pub const USBFS_HNPTXFSIZ_NPTXFSA: u32 = 65535;
-pub const USBFS_HNPTXFSIZ_NPTXFD_POS: u32 = 16;
-pub const USBFS_HNPTXFSIZ_NPTXFD: u32 = 4294901760;
-pub const USBFS_HNPTXSTS_NPTXFSAV_POS: u32 = 0;
-pub const USBFS_HNPTXSTS_NPTXFSAV: u32 = 65535;
-pub const USBFS_HNPTXSTS_NPTQXSAV_POS: u32 = 16;
-pub const USBFS_HNPTXSTS_NPTQXSAV: u32 = 16711680;
-pub const USBFS_HNPTXSTS_NPTXQTOP_POS: u32 = 24;
-pub const USBFS_HNPTXSTS_NPTXQTOP: u32 = 2130706432;
-pub const USBFS_CID: u32 = 4294967295;
-pub const USBFS_HPTXFSIZ_PTXSA_POS: u32 = 0;
-pub const USBFS_HPTXFSIZ_PTXSA: u32 = 4095;
-pub const USBFS_HPTXFSIZ_PTXFD_POS: u32 = 16;
-pub const USBFS_HPTXFSIZ_PTXFD: u32 = 134152192;
-pub const USBFS_DIEPTXF_INEPTXSA_POS: u32 = 0;
-pub const USBFS_DIEPTXF_INEPTXSA: u32 = 4095;
-pub const USBFS_DIEPTXF_INEPTXFD_POS: u32 = 16;
-pub const USBFS_DIEPTXF_INEPTXFD: u32 = 67043328;
-pub const USBFS_HCFG_FSLSPCS_POS: u32 = 0;
-pub const USBFS_HCFG_FSLSPCS: u32 = 3;
-pub const USBFS_HCFG_FSLSS_POS: u32 = 2;
-pub const USBFS_HCFG_FSLSS: u32 = 4;
-pub const USBFS_HFIR_FRIVL: u32 = 65535;
-pub const USBFS_HFNUM_FRNUM_POS: u32 = 0;
-pub const USBFS_HFNUM_FRNUM: u32 = 65535;
-pub const USBFS_HFNUM_FTREM_POS: u32 = 16;
-pub const USBFS_HFNUM_FTREM: u32 = 4294901760;
-pub const USBFS_HPTXSTS_PTXFSAVL_POS: u32 = 0;
-pub const USBFS_HPTXSTS_PTXFSAVL: u32 = 65535;
-pub const USBFS_HPTXSTS_PTXQSAV_POS: u32 = 16;
-pub const USBFS_HPTXSTS_PTXQSAV: u32 = 16711680;
-pub const USBFS_HPTXSTS_PTXQTOP_POS: u32 = 24;
-pub const USBFS_HPTXSTS_PTXQTOP: u32 = 4278190080;
-pub const USBFS_HAINT_HAINT: u32 = 4095;
-pub const USBFS_HAINTMSK_HAINTM: u32 = 4095;
-pub const USBFS_HPRT_PCSTS_POS: u32 = 0;
-pub const USBFS_HPRT_PCSTS: u32 = 1;
-pub const USBFS_HPRT_PCDET_POS: u32 = 1;
-pub const USBFS_HPRT_PCDET: u32 = 2;
-pub const USBFS_HPRT_PENA_POS: u32 = 2;
-pub const USBFS_HPRT_PENA: u32 = 4;
-pub const USBFS_HPRT_PENCHNG_POS: u32 = 3;
-pub const USBFS_HPRT_PENCHNG: u32 = 8;
-pub const USBFS_HPRT_PRES_POS: u32 = 6;
-pub const USBFS_HPRT_PRES: u32 = 64;
-pub const USBFS_HPRT_PSUSP_POS: u32 = 7;
-pub const USBFS_HPRT_PSUSP: u32 = 128;
-pub const USBFS_HPRT_PRST_POS: u32 = 8;
-pub const USBFS_HPRT_PRST: u32 = 256;
-pub const USBFS_HPRT_PLSTS_POS: u32 = 10;
-pub const USBFS_HPRT_PLSTS: u32 = 3072;
-pub const USBFS_HPRT_PWPR_POS: u32 = 12;
-pub const USBFS_HPRT_PWPR: u32 = 4096;
-pub const USBFS_HPRT_PSPD_POS: u32 = 17;
-pub const USBFS_HPRT_PSPD: u32 = 393216;
-pub const USBFS_HCCHAR_MPSIZ_POS: u32 = 0;
-pub const USBFS_HCCHAR_MPSIZ: u32 = 2047;
-pub const USBFS_HCCHAR_EPNUM_POS: u32 = 11;
-pub const USBFS_HCCHAR_EPNUM: u32 = 30720;
-pub const USBFS_HCCHAR_EPDIR_POS: u32 = 15;
-pub const USBFS_HCCHAR_EPDIR: u32 = 32768;
-pub const USBFS_HCCHAR_LSDEV_POS: u32 = 17;
-pub const USBFS_HCCHAR_LSDEV: u32 = 131072;
-pub const USBFS_HCCHAR_EPTYP_POS: u32 = 18;
-pub const USBFS_HCCHAR_EPTYP: u32 = 786432;
-pub const USBFS_HCCHAR_DAD_POS: u32 = 22;
-pub const USBFS_HCCHAR_DAD: u32 = 532676608;
-pub const USBFS_HCCHAR_ODDFRM_POS: u32 = 29;
-pub const USBFS_HCCHAR_ODDFRM: u32 = 536870912;
-pub const USBFS_HCCHAR_CHDIS_POS: u32 = 30;
-pub const USBFS_HCCHAR_CHDIS: u32 = 1073741824;
-pub const USBFS_HCCHAR_CHENA_POS: u32 = 31;
-pub const USBFS_HCCHAR_CHENA: u32 = 2147483648;
-pub const USBFS_HCINT_XFRC_POS: u32 = 0;
-pub const USBFS_HCINT_XFRC: u32 = 1;
-pub const USBFS_HCINT_CHH_POS: u32 = 1;
-pub const USBFS_HCINT_CHH: u32 = 2;
-pub const USBFS_HCINT_STALL_POS: u32 = 3;
-pub const USBFS_HCINT_STALL: u32 = 8;
-pub const USBFS_HCINT_NAK_POS: u32 = 4;
-pub const USBFS_HCINT_NAK: u32 = 16;
-pub const USBFS_HCINT_ACK_POS: u32 = 5;
-pub const USBFS_HCINT_ACK: u32 = 32;
-pub const USBFS_HCINT_TXERR_POS: u32 = 7;
-pub const USBFS_HCINT_TXERR: u32 = 128;
-pub const USBFS_HCINT_BBERR_POS: u32 = 8;
-pub const USBFS_HCINT_BBERR: u32 = 256;
-pub const USBFS_HCINT_FRMOR_POS: u32 = 9;
-pub const USBFS_HCINT_FRMOR: u32 = 512;
-pub const USBFS_HCINT_DTERR_POS: u32 = 10;
-pub const USBFS_HCINT_DTERR: u32 = 1024;
-pub const USBFS_HCINTMSK_XFRCM_POS: u32 = 0;
-pub const USBFS_HCINTMSK_XFRCM: u32 = 1;
-pub const USBFS_HCINTMSK_CHHM_POS: u32 = 1;
-pub const USBFS_HCINTMSK_CHHM: u32 = 2;
-pub const USBFS_HCINTMSK_STALLM_POS: u32 = 3;
-pub const USBFS_HCINTMSK_STALLM: u32 = 8;
-pub const USBFS_HCINTMSK_NAKM_POS: u32 = 4;
-pub const USBFS_HCINTMSK_NAKM: u32 = 16;
-pub const USBFS_HCINTMSK_ACKM_POS: u32 = 5;
-pub const USBFS_HCINTMSK_ACKM: u32 = 32;
-pub const USBFS_HCINTMSK_TXERRM_POS: u32 = 7;
-pub const USBFS_HCINTMSK_TXERRM: u32 = 128;
-pub const USBFS_HCINTMSK_BBERRM_POS: u32 = 8;
-pub const USBFS_HCINTMSK_BBERRM: u32 = 256;
-pub const USBFS_HCINTMSK_FRMORM_POS: u32 = 9;
-pub const USBFS_HCINTMSK_FRMORM: u32 = 512;
-pub const USBFS_HCINTMSK_DTERRM_POS: u32 = 10;
-pub const USBFS_HCINTMSK_DTERRM: u32 = 1024;
-pub const USBFS_HCTSIZ_XFRSIZ_POS: u32 = 0;
-pub const USBFS_HCTSIZ_XFRSIZ: u32 = 524287;
-pub const USBFS_HCTSIZ_PKTCNT_POS: u32 = 19;
-pub const USBFS_HCTSIZ_PKTCNT: u32 = 536346624;
-pub const USBFS_HCTSIZ_DPID_POS: u32 = 29;
-pub const USBFS_HCTSIZ_DPID: u32 = 1610612736;
-pub const USBFS_HCDMA: u32 = 4294967295;
-pub const USBFS_DCFG_DSPD_POS: u32 = 0;
-pub const USBFS_DCFG_DSPD: u32 = 3;
-pub const USBFS_DCFG_NZLSOHSK_POS: u32 = 2;
-pub const USBFS_DCFG_NZLSOHSK: u32 = 4;
-pub const USBFS_DCFG_DAD_POS: u32 = 4;
-pub const USBFS_DCFG_DAD: u32 = 2032;
-pub const USBFS_DCFG_PFIVL_POS: u32 = 11;
-pub const USBFS_DCFG_PFIVL: u32 = 6144;
-pub const USBFS_DCTL_RWUSIG_POS: u32 = 0;
-pub const USBFS_DCTL_RWUSIG: u32 = 1;
-pub const USBFS_DCTL_SDIS_POS: u32 = 1;
-pub const USBFS_DCTL_SDIS: u32 = 2;
-pub const USBFS_DCTL_GINSTS_POS: u32 = 2;
-pub const USBFS_DCTL_GINSTS: u32 = 4;
-pub const USBFS_DCTL_GONSTS_POS: u32 = 3;
-pub const USBFS_DCTL_GONSTS: u32 = 8;
-pub const USBFS_DCTL_SGINAK_POS: u32 = 7;
-pub const USBFS_DCTL_SGINAK: u32 = 128;
-pub const USBFS_DCTL_CGINAK_POS: u32 = 8;
-pub const USBFS_DCTL_CGINAK: u32 = 256;
-pub const USBFS_DCTL_SGONAK_POS: u32 = 9;
-pub const USBFS_DCTL_SGONAK: u32 = 512;
-pub const USBFS_DCTL_CGONAK_POS: u32 = 10;
-pub const USBFS_DCTL_CGONAK: u32 = 1024;
-pub const USBFS_DCTL_POPRGDNE_POS: u32 = 11;
-pub const USBFS_DCTL_POPRGDNE: u32 = 2048;
-pub const USBFS_DSTS_SUSPSTS_POS: u32 = 0;
-pub const USBFS_DSTS_SUSPSTS: u32 = 1;
-pub const USBFS_DSTS_ENUMSPD_POS: u32 = 1;
-pub const USBFS_DSTS_ENUMSPD: u32 = 6;
-pub const USBFS_DSTS_EERR_POS: u32 = 3;
-pub const USBFS_DSTS_EERR: u32 = 8;
-pub const USBFS_DSTS_FNSOF_POS: u32 = 8;
-pub const USBFS_DSTS_FNSOF: u32 = 4194048;
-pub const USBFS_DIEPMSK_XFRCM_POS: u32 = 0;
-pub const USBFS_DIEPMSK_XFRCM: u32 = 1;
-pub const USBFS_DIEPMSK_EPDM_POS: u32 = 1;
-pub const USBFS_DIEPMSK_EPDM: u32 = 2;
-pub const USBFS_DIEPMSK_TOM_POS: u32 = 3;
-pub const USBFS_DIEPMSK_TOM: u32 = 8;
-pub const USBFS_DIEPMSK_TTXFEMSK_POS: u32 = 4;
-pub const USBFS_DIEPMSK_TTXFEMSK: u32 = 16;
-pub const USBFS_DIEPMSK_INEPNMM_POS: u32 = 5;
-pub const USBFS_DIEPMSK_INEPNMM: u32 = 32;
-pub const USBFS_DIEPMSK_INEPNEM_POS: u32 = 6;
-pub const USBFS_DIEPMSK_INEPNEM: u32 = 64;
-pub const USBFS_DOEPMSK_XFRCM_POS: u32 = 0;
-pub const USBFS_DOEPMSK_XFRCM: u32 = 1;
-pub const USBFS_DOEPMSK_EPDM_POS: u32 = 1;
-pub const USBFS_DOEPMSK_EPDM: u32 = 2;
-pub const USBFS_DOEPMSK_STUPM_POS: u32 = 3;
-pub const USBFS_DOEPMSK_STUPM: u32 = 8;
-pub const USBFS_DOEPMSK_OTEPDM_POS: u32 = 4;
-pub const USBFS_DOEPMSK_OTEPDM: u32 = 16;
-pub const USBFS_DAINT_IEPINT_POS: u32 = 0;
-pub const USBFS_DAINT_IEPINT: u32 = 63;
-pub const USBFS_DAINT_OEPINT_POS: u32 = 16;
-pub const USBFS_DAINT_OEPINT: u32 = 4128768;
-pub const USBFS_DAINTMSK_IEPINTM_POS: u32 = 0;
-pub const USBFS_DAINTMSK_IEPINTM: u32 = 63;
-pub const USBFS_DAINTMSK_OEPINTM_POS: u32 = 16;
-pub const USBFS_DAINTMSK_OEPINTM: u32 = 4128768;
-pub const USBFS_DIEPEMPMSK_INEPTXFEM: u32 = 63;
-pub const USBFS_DIEPCTL0_MPSIZ_POS: u32 = 0;
-pub const USBFS_DIEPCTL0_MPSIZ: u32 = 3;
-pub const USBFS_DIEPCTL0_USBAEP_POS: u32 = 15;
-pub const USBFS_DIEPCTL0_USBAEP: u32 = 32768;
-pub const USBFS_DIEPCTL0_NAKSTS_POS: u32 = 17;
-pub const USBFS_DIEPCTL0_NAKSTS: u32 = 131072;
-pub const USBFS_DIEPCTL0_EPTYP_POS: u32 = 18;
-pub const USBFS_DIEPCTL0_EPTYP: u32 = 786432;
-pub const USBFS_DIEPCTL0_STALL_POS: u32 = 21;
-pub const USBFS_DIEPCTL0_STALL: u32 = 2097152;
-pub const USBFS_DIEPCTL0_TXFNUM_POS: u32 = 22;
-pub const USBFS_DIEPCTL0_TXFNUM: u32 = 62914560;
-pub const USBFS_DIEPCTL0_CNAK_POS: u32 = 26;
-pub const USBFS_DIEPCTL0_CNAK: u32 = 67108864;
-pub const USBFS_DIEPCTL0_SNAK_POS: u32 = 27;
-pub const USBFS_DIEPCTL0_SNAK: u32 = 134217728;
-pub const USBFS_DIEPCTL0_EPDIS_POS: u32 = 30;
-pub const USBFS_DIEPCTL0_EPDIS: u32 = 1073741824;
-pub const USBFS_DIEPCTL0_EPENA_POS: u32 = 31;
-pub const USBFS_DIEPCTL0_EPENA: u32 = 2147483648;
-pub const USBFS_DIEPINT_XFRC_POS: u32 = 0;
-pub const USBFS_DIEPINT_XFRC: u32 = 1;
-pub const USBFS_DIEPINT_EPDISD_POS: u32 = 1;
-pub const USBFS_DIEPINT_EPDISD: u32 = 2;
-pub const USBFS_DIEPINT_TOC_POS: u32 = 3;
-pub const USBFS_DIEPINT_TOC: u32 = 8;
-pub const USBFS_DIEPINT_TTXFE_POS: u32 = 4;
-pub const USBFS_DIEPINT_TTXFE: u32 = 16;
-pub const USBFS_DIEPINT_INEPNE_POS: u32 = 6;
-pub const USBFS_DIEPINT_INEPNE: u32 = 64;
-pub const USBFS_DIEPINT_TXFE_POS: u32 = 7;
-pub const USBFS_DIEPINT_TXFE: u32 = 128;
-pub const USBFS_DIEPTSIZ0_XFRSIZ_POS: u32 = 0;
-pub const USBFS_DIEPTSIZ0_XFRSIZ: u32 = 127;
-pub const USBFS_DIEPTSIZ0_PKTCNT_POS: u32 = 19;
-pub const USBFS_DIEPTSIZ0_PKTCNT: u32 = 1572864;
-pub const USBFS_DIEPDMA: u32 = 4294967295;
-pub const USBFS_DTXFSTS_INEPTFSAV: u32 = 65535;
-pub const USBFS_DIEPCTL_MPSIZ_POS: u32 = 0;
-pub const USBFS_DIEPCTL_MPSIZ: u32 = 2047;
-pub const USBFS_DIEPCTL_USBAEP_POS: u32 = 15;
-pub const USBFS_DIEPCTL_USBAEP: u32 = 32768;
-pub const USBFS_DIEPCTL_EONUM_DPID_POS: u32 = 16;
-pub const USBFS_DIEPCTL_EONUM_DPID: u32 = 65536;
-pub const USBFS_DIEPCTL_NAKSTS_POS: u32 = 17;
-pub const USBFS_DIEPCTL_NAKSTS: u32 = 131072;
-pub const USBFS_DIEPCTL_EPTYP_POS: u32 = 18;
-pub const USBFS_DIEPCTL_EPTYP: u32 = 786432;
-pub const USBFS_DIEPCTL_STALL_POS: u32 = 21;
-pub const USBFS_DIEPCTL_STALL: u32 = 2097152;
-pub const USBFS_DIEPCTL_TXFNUM_POS: u32 = 22;
-pub const USBFS_DIEPCTL_TXFNUM: u32 = 62914560;
-pub const USBFS_DIEPCTL_CNAK_POS: u32 = 26;
-pub const USBFS_DIEPCTL_CNAK: u32 = 67108864;
-pub const USBFS_DIEPCTL_SNAK_POS: u32 = 27;
-pub const USBFS_DIEPCTL_SNAK: u32 = 134217728;
-pub const USBFS_DIEPCTL_SD0PID_SEVNFRM_POS: u32 = 28;
-pub const USBFS_DIEPCTL_SD0PID_SEVNFRM: u32 = 268435456;
-pub const USBFS_DIEPCTL_SODDFRM_POS: u32 = 29;
-pub const USBFS_DIEPCTL_SODDFRM: u32 = 536870912;
-pub const USBFS_DIEPCTL_EPDIS_POS: u32 = 30;
-pub const USBFS_DIEPCTL_EPDIS: u32 = 1073741824;
-pub const USBFS_DIEPCTL_EPENA_POS: u32 = 31;
-pub const USBFS_DIEPCTL_EPENA: u32 = 2147483648;
-pub const USBFS_DIEPTSIZ_XFRSIZ_POS: u32 = 0;
-pub const USBFS_DIEPTSIZ_XFRSIZ: u32 = 524287;
-pub const USBFS_DIEPTSIZ_PKTCNT_POS: u32 = 19;
-pub const USBFS_DIEPTSIZ_PKTCNT: u32 = 536346624;
-pub const USBFS_DOEPCTL0_MPSIZ_POS: u32 = 0;
-pub const USBFS_DOEPCTL0_MPSIZ: u32 = 3;
-pub const USBFS_DOEPCTL0_USBAEP_POS: u32 = 15;
-pub const USBFS_DOEPCTL0_USBAEP: u32 = 32768;
-pub const USBFS_DOEPCTL0_NAKSTS_POS: u32 = 17;
-pub const USBFS_DOEPCTL0_NAKSTS: u32 = 131072;
-pub const USBFS_DOEPCTL0_EPTYP_POS: u32 = 18;
-pub const USBFS_DOEPCTL0_EPTYP: u32 = 786432;
-pub const USBFS_DOEPCTL0_SNPM_POS: u32 = 20;
-pub const USBFS_DOEPCTL0_SNPM: u32 = 1048576;
-pub const USBFS_DOEPCTL0_STALL_POS: u32 = 21;
-pub const USBFS_DOEPCTL0_STALL: u32 = 2097152;
-pub const USBFS_DOEPCTL0_CNAK_POS: u32 = 26;
-pub const USBFS_DOEPCTL0_CNAK: u32 = 67108864;
-pub const USBFS_DOEPCTL0_SNAK_POS: u32 = 27;
-pub const USBFS_DOEPCTL0_SNAK: u32 = 134217728;
-pub const USBFS_DOEPCTL0_EPDIS_POS: u32 = 30;
-pub const USBFS_DOEPCTL0_EPDIS: u32 = 1073741824;
-pub const USBFS_DOEPCTL0_EPENA_POS: u32 = 31;
-pub const USBFS_DOEPCTL0_EPENA: u32 = 2147483648;
-pub const USBFS_DOEPINT_XFRC_POS: u32 = 0;
-pub const USBFS_DOEPINT_XFRC: u32 = 1;
-pub const USBFS_DOEPINT_EPDISD_POS: u32 = 1;
-pub const USBFS_DOEPINT_EPDISD: u32 = 2;
-pub const USBFS_DOEPINT_STUP_POS: u32 = 3;
-pub const USBFS_DOEPINT_STUP: u32 = 8;
-pub const USBFS_DOEPINT_OTEPDIS_POS: u32 = 4;
-pub const USBFS_DOEPINT_OTEPDIS: u32 = 16;
-pub const USBFS_DOEPINT_B2BSTUP_POS: u32 = 6;
-pub const USBFS_DOEPINT_B2BSTUP: u32 = 64;
-pub const USBFS_DOEPTSIZ0_XFRSIZ_POS: u32 = 0;
-pub const USBFS_DOEPTSIZ0_XFRSIZ: u32 = 127;
-pub const USBFS_DOEPTSIZ0_PKTCNT_POS: u32 = 19;
-pub const USBFS_DOEPTSIZ0_PKTCNT: u32 = 524288;
-pub const USBFS_DOEPTSIZ0_STUPCNT_POS: u32 = 29;
-pub const USBFS_DOEPTSIZ0_STUPCNT: u32 = 1610612736;
-pub const USBFS_DOEPDMA: u32 = 4294967295;
-pub const USBFS_DOEPCTL_MPSIZ_POS: u32 = 0;
-pub const USBFS_DOEPCTL_MPSIZ: u32 = 2047;
-pub const USBFS_DOEPCTL_USBAEP_POS: u32 = 15;
-pub const USBFS_DOEPCTL_USBAEP: u32 = 32768;
-pub const USBFS_DOEPCTL_DPID_POS: u32 = 16;
-pub const USBFS_DOEPCTL_DPID: u32 = 65536;
-pub const USBFS_DOEPCTL_NAKSTS_POS: u32 = 17;
-pub const USBFS_DOEPCTL_NAKSTS: u32 = 131072;
-pub const USBFS_DOEPCTL_EPTYP_POS: u32 = 18;
-pub const USBFS_DOEPCTL_EPTYP: u32 = 786432;
-pub const USBFS_DOEPCTL_SNPM_POS: u32 = 20;
-pub const USBFS_DOEPCTL_SNPM: u32 = 1048576;
-pub const USBFS_DOEPCTL_STALL_POS: u32 = 21;
-pub const USBFS_DOEPCTL_STALL: u32 = 2097152;
-pub const USBFS_DOEPCTL_CNAK_POS: u32 = 26;
-pub const USBFS_DOEPCTL_CNAK: u32 = 67108864;
-pub const USBFS_DOEPCTL_SNAK_POS: u32 = 27;
-pub const USBFS_DOEPCTL_SNAK: u32 = 134217728;
-pub const USBFS_DOEPCTL_SD0PID_POS: u32 = 28;
-pub const USBFS_DOEPCTL_SD0PID: u32 = 268435456;
-pub const USBFS_DOEPCTL_SD1PID_POS: u32 = 29;
-pub const USBFS_DOEPCTL_SD1PID: u32 = 536870912;
-pub const USBFS_DOEPCTL_EPDIS_POS: u32 = 30;
-pub const USBFS_DOEPCTL_EPDIS: u32 = 1073741824;
-pub const USBFS_DOEPCTL_EPENA_POS: u32 = 31;
-pub const USBFS_DOEPCTL_EPENA: u32 = 2147483648;
-pub const USBFS_DOEPTSIZ_XFRSIZ_POS: u32 = 0;
-pub const USBFS_DOEPTSIZ_XFRSIZ: u32 = 524287;
-pub const USBFS_DOEPTSIZ_PKTCNT_POS: u32 = 19;
-pub const USBFS_DOEPTSIZ_PKTCNT: u32 = 536346624;
-pub const USBFS_GCCTL_STPPCLK_POS: u32 = 0;
-pub const USBFS_GCCTL_STPPCLK: u32 = 1;
-pub const USBFS_GCCTL_GATEHCLK_POS: u32 = 1;
-pub const USBFS_GCCTL_GATEHCLK: u32 = 2;
-pub const WDT_CR_PERI_POS: u32 = 0;
-pub const WDT_CR_PERI: u32 = 3;
-pub const WDT_CR_PERI_0: u32 = 1;
-pub const WDT_CR_PERI_1: u32 = 2;
-pub const WDT_CR_CKS_POS: u32 = 4;
-pub const WDT_CR_CKS: u32 = 240;
-pub const WDT_CR_WDPT_POS: u32 = 8;
-pub const WDT_CR_WDPT: u32 = 3840;
-pub const WDT_CR_SLPOFF_POS: u32 = 16;
-pub const WDT_CR_SLPOFF: u32 = 65536;
-pub const WDT_CR_ITS_POS: u32 = 31;
-pub const WDT_CR_ITS: u32 = 2147483648;
-pub const WDT_SR_CNT_POS: u32 = 0;
-pub const WDT_SR_CNT: u32 = 65535;
-pub const WDT_SR_UDF_POS: u32 = 16;
-pub const WDT_SR_UDF: u32 = 65536;
-pub const WDT_SR_REF_POS: u32 = 17;
-pub const WDT_SR_REF: u32 = 131072;
-pub const WDT_RR_RF: u32 = 65535;
-pub const __PERIPH_BIT_BAND_BASE: u32 = 1107296256;
-pub const __PERIPH_BASE: u32 = 1073741824;
-pub const LL_OK: u32 = 0;
-pub const LL_ERR: i32 = -1;
-pub const LL_ERR_UNINIT: i32 = -2;
-pub const LL_ERR_INVD_PARAM: i32 = -3;
-pub const LL_ERR_INVD_MD: i32 = -4;
-pub const LL_ERR_NOT_RDY: i32 = -5;
-pub const LL_ERR_BUSY: i32 = -6;
-pub const LL_ERR_ADDR_ALIGN: i32 = -7;
-pub const LL_ERR_TIMEOUT: i32 = -8;
-pub const LL_ERR_BUF_EMPTY: i32 = -9;
-pub const LL_ERR_BUF_FULL: i32 = -10;
-pub const DDL_ON: u32 = 1;
-pub const DDL_OFF: u32 = 0;
-pub const BIT_MASK_00: u32 = 1;
-pub const BIT_MASK_01: u32 = 2;
-pub const BIT_MASK_02: u32 = 4;
-pub const BIT_MASK_03: u32 = 8;
-pub const BIT_MASK_04: u32 = 16;
-pub const BIT_MASK_05: u32 = 32;
-pub const BIT_MASK_06: u32 = 64;
-pub const BIT_MASK_07: u32 = 128;
-pub const BIT_MASK_08: u32 = 256;
-pub const BIT_MASK_09: u32 = 512;
-pub const BIT_MASK_10: u32 = 1024;
-pub const BIT_MASK_11: u32 = 2048;
-pub const BIT_MASK_12: u32 = 4096;
-pub const BIT_MASK_13: u32 = 8192;
-pub const BIT_MASK_14: u32 = 16384;
-pub const BIT_MASK_15: u32 = 32768;
-pub const BIT_MASK_16: u32 = 65536;
-pub const BIT_MASK_17: u32 = 131072;
-pub const BIT_MASK_18: u32 = 262144;
-pub const BIT_MASK_19: u32 = 524288;
-pub const BIT_MASK_20: u32 = 1048576;
-pub const BIT_MASK_21: u32 = 2097152;
-pub const BIT_MASK_22: u32 = 4194304;
-pub const BIT_MASK_23: u32 = 8388608;
-pub const BIT_MASK_24: u32 = 16777216;
-pub const BIT_MASK_25: u32 = 33554432;
-pub const BIT_MASK_26: u32 = 67108864;
-pub const BIT_MASK_27: u32 = 134217728;
-pub const BIT_MASK_28: u32 = 268435456;
-pub const BIT_MASK_29: u32 = 536870912;
-pub const BIT_MASK_30: u32 = 1073741824;
-pub const BIT_MASK_31: u32 = 2147483648;
-pub const MRC_VALUE: u32 = 8000000;
-pub const LRC_VALUE: u32 = 32768;
-pub const SWDTLRC_VALUE: u32 = 10000;
-pub const USB_MAX_TX_FIFOS: u32 = 6;
-pub const USB_MAX_CH_NUM: u32 = 12;
-pub const USB_MAX_EP_NUM: u32 = 6;
-pub const USBFS_CORE_ID: u32 = 0;
-pub const USBHS_CORE_ID: u32 = 1;
-pub const USBHS_PHY_EMBED: u32 = 0;
-pub const USBHS_PHY_EXT: u32 = 1;
-pub const USB_MAX_EP0_SIZE: u32 = 64;
-pub const DEVICE_MODE: u32 = 0;
-pub const HOST_MODE: u32 = 1;
-pub const DSTS_ENUMSPD_HS_PHY_30MHZ_OR_60MHZ: u32 = 0;
-pub const DSTS_ENUMSPD_FS_PHY_30MHZ_OR_60MHZ: u32 = 2;
-pub const DSTS_ENUMSPD_LS_PHY_6MHZ: u32 = 4;
-pub const DSTS_ENUMSPD_FS_PHY_48MHZ: u32 = 6;
-pub const EP_TYPE_CTRL: u32 = 0;
-pub const EP_TYPE_ISOC: u32 = 1;
-pub const EP_TYPE_BULK: u32 = 2;
-pub const EP_TYPE_INTR: u32 = 3;
-pub const EP_TYPE_MSK: u32 = 3;
-pub const PRTSPD_FULL_SPEED: u32 = 1;
-pub const PRTSPD_LOW_SPEED: u32 = 2;
-pub const HCFG_30_60_MHZ: u32 = 0;
-pub const HCFG_48_MHZ: u32 = 1;
-pub const HCFG_6_MHZ: u32 = 2;
-pub const USB_EP_TX_DIS: u32 = 0;
-pub const USB_EP_TX_STALL: u32 = 16;
-pub const USB_EP_TX_NAK: u32 = 32;
-pub const USB_EP_TX_VALID: u32 = 48;
-pub const USB_EP_RX_DIS: u32 = 0;
-pub const USB_EP_RX_STALL: u32 = 4096;
-pub const USB_EP_RX_NAK: u32 = 8192;
-pub const USB_EP_RX_VALID: u32 = 12288;
-pub const USB_OK: u32 = 0;
-pub const USB_ERROR: u32 = 1;
-pub const USB_FRAME_INTERVAL_80: u32 = 0;
-pub const USB_FRAME_INTERVAL_85: u32 = 2048;
-pub const USB_FRAME_INTERVAL_90: u32 = 4096;
-pub const USB_FRAME_INTERVAL_95: u32 = 6144;
-pub const LL_PERIPH_EFM: u32 = 1;
-pub const LL_PERIPH_FCG: u32 = 2;
-pub const LL_PERIPH_GPIO: u32 = 4;
-pub const LL_PERIPH_INTC: u32 = 8;
-pub const LL_PERIPH_LVD: u32 = 16;
-pub const LL_PERIPH_MPU: u32 = 32;
-pub const LL_PERIPH_PWC_CLK_RMU: u32 = 64;
-pub const LL_PERIPH_SRAM: u32 = 128;
-pub const LL_PERIPH_ALL: u32 = 255;
-pub const HC32_DDL_REV_MAIN: u32 = 3;
-pub const HC32_DDL_REV_SUB1: u32 = 3;
-pub const HC32_DDL_REV_SUB2: u32 = 0;
-pub const HC32_DDL_REV_PATCH: u32 = 0;
-pub const HC32_DDL_REV: u32 = 50528256;
-pub const MAX_DATA_LENGTH: u32 = 512;
-pub const ADC_SEQ_A: u32 = 0;
-pub const ADC_SEQ_B: u32 = 1;
-pub const ADC_CH0: u32 = 0;
-pub const ADC_CH1: u32 = 1;
-pub const ADC_CH2: u32 = 2;
-pub const ADC_CH3: u32 = 3;
-pub const ADC_CH4: u32 = 4;
-pub const ADC_CH5: u32 = 5;
-pub const ADC_CH6: u32 = 6;
-pub const ADC_CH7: u32 = 7;
-pub const ADC_CH8: u32 = 8;
-pub const ADC_CH9: u32 = 9;
-pub const ADC_CH10: u32 = 10;
-pub const ADC_CH11: u32 = 11;
-pub const ADC_CH12: u32 = 12;
-pub const ADC_CH13: u32 = 13;
-pub const ADC_CH14: u32 = 14;
-pub const ADC_CH15: u32 = 15;
-pub const ADC_CH16: u32 = 16;
-pub const ADC1_EXT_CH: u32 = 16;
-pub const ADC2_EXT_CH: u32 = 8;
-pub const ADC_MX_CH0: u32 = 1;
-pub const ADC_MX_CH1: u32 = 2;
-pub const ADC_MX_CH2: u32 = 4;
-pub const ADC_MX_CH3: u32 = 8;
-pub const ADC_MX_CH4: u32 = 16;
-pub const ADC_MX_CH5: u32 = 32;
-pub const ADC_MX_CH6: u32 = 64;
-pub const ADC_MX_CH7: u32 = 128;
-pub const ADC_MX_CH8: u32 = 256;
-pub const ADC_MX_CH9: u32 = 512;
-pub const ADC_MX_CH10: u32 = 1024;
-pub const ADC_MX_CH11: u32 = 2048;
-pub const ADC_MX_CH12: u32 = 4096;
-pub const ADC_MX_CH13: u32 = 8192;
-pub const ADC_MX_CH14: u32 = 16384;
-pub const ADC_MX_CH15: u32 = 32768;
-pub const ADC_MX_CH16: u32 = 65536;
-pub const ADC1_MX_CH_ALL: u32 = 65535;
-pub const ADC2_MX_CH_ALL: u32 = 511;
-pub const ADC_MD_SEQA_SINGLESHOT: u32 = 0;
-pub const ADC_MD_SEQA_CONT: u32 = 1;
-pub const ADC_MD_SEQA_SEQB_SINGLESHOT: u32 = 2;
-pub const ADC_MD_SEQA_CONT_SEQB_SINGLESHOT: u32 = 3;
-pub const ADC_RESOLUTION_12BIT: u32 = 0;
-pub const ADC_RESOLUTION_10BIT: u32 = 16;
-pub const ADC_RESOLUTION_8BIT: u32 = 32;
-pub const ADC_DATAALIGN_RIGHT: u32 = 0;
-pub const ADC_DATAALIGN_LEFT: u32 = 128;
-pub const ADC_AVG_CNT2: u32 = 0;
-pub const ADC_AVG_CNT4: u32 = 256;
-pub const ADC_AVG_CNT8: u32 = 512;
-pub const ADC_AVG_CNT16: u32 = 768;
-pub const ADC_AVG_CNT32: u32 = 1024;
-pub const ADC_AVG_CNT64: u32 = 1280;
-pub const ADC_AVG_CNT128: u32 = 1536;
-pub const ADC_AVG_CNT256: u32 = 1792;
-pub const ADC_SEQA_RESUME_SCAN_CONT: u32 = 0;
-pub const ADC_SEQA_RESUME_SCAN_RESTART: u32 = 4;
-pub const ADC_HARDTRIG_ADTRG_PIN: u32 = 0;
-pub const ADC_HARDTRIG_EVT0: u32 = 1;
-pub const ADC_HARDTRIG_EVT1: u32 = 2;
-pub const ADC_HARDTRIG_EVT0_EVT1: u32 = 3;
-pub const ADC_INT_EOCA: u32 = 1;
-pub const ADC_INT_EOCB: u32 = 2;
-pub const ADC_INT_ALL: u32 = 3;
-pub const ADC_FLAG_EOCA: u32 = 1;
-pub const ADC_FLAG_EOCB: u32 = 2;
-pub const ADC_FLAG_ALL: u32 = 3;
-pub const ADC_SYNC_ADC1_ADC2: u32 = 0;
-pub const ADC_SYNC_SINGLE_DELAY_TRIG: u32 = 0;
-pub const ADC_SYNC_SINGLE_PARALLEL_TRIG: u32 = 32;
-pub const ADC_SYNC_CYCLIC_DELAY_TRIG: u32 = 64;
-pub const ADC_SYNC_CYCLIC_PARALLEL_TRIG: u32 = 96;
-pub const ADC_AWD0: u32 = 0;
-pub const ADC_AWD_INT_SEQA: u32 = 64;
-pub const ADC_AWD_INT_SEQB: u32 = 128;
-pub const ADC_AWD_INT_ALL: u32 = 192;
-pub const ADC_AWD_MD_CMP_OUT: u32 = 0;
-pub const ADC_AWD_MD_CMP_IN: u32 = 1;
-pub const ADC_AWD_FLAG_CH0: u32 = 1;
-pub const ADC_AWD_FLAG_CH1: u32 = 2;
-pub const ADC_AWD_FLAG_CH2: u32 = 4;
-pub const ADC_AWD_FLAG_CH3: u32 = 8;
-pub const ADC_AWD_FLAG_CH4: u32 = 16;
-pub const ADC_AWD_FLAG_CH5: u32 = 32;
-pub const ADC_AWD_FLAG_CH6: u32 = 64;
-pub const ADC_AWD_FLAG_CH7: u32 = 128;
-pub const ADC_AWD_FLAG_CH8: u32 = 256;
-pub const ADC_AWD_FLAG_CH9: u32 = 512;
-pub const ADC_AWD_FLAG_CH10: u32 = 1024;
-pub const ADC_AWD_FLAG_CH11: u32 = 2048;
-pub const ADC_AWD_FLAG_CH12: u32 = 4096;
-pub const ADC_AWD_FLAG_CH13: u32 = 8192;
-pub const ADC_AWD_FLAG_CH14: u32 = 16384;
-pub const ADC_AWD_FLAG_CH15: u32 = 32768;
-pub const ADC_AWD_FLAG_CH16: u32 = 65536;
-pub const ADC1_AWD_FLAG_ALL: u32 = 131071;
-pub const ADC2_AWD_FLAG_ALL: u32 = 511;
-pub const ADC_PGA1: u32 = 0;
-pub const ADC_PGA_GAIN_2: u32 = 0;
-pub const ADC_PGA_GAIN_2P133: u32 = 1;
-pub const ADC_PGA_GAIN_2P286: u32 = 2;
-pub const ADC_PGA_GAIN_2P667: u32 = 3;
-pub const ADC_PGA_GAIN_2P909: u32 = 4;
-pub const ADC_PGA_GAIN_3P2: u32 = 5;
-pub const ADC_PGA_GAIN_3P556: u32 = 6;
-pub const ADC_PGA_GAIN_4: u32 = 7;
-pub const ADC_PGA_GAIN_4P571: u32 = 8;
-pub const ADC_PGA_GAIN_5P333: u32 = 9;
-pub const ADC_PGA_GAIN_6P4: u32 = 10;
-pub const ADC_PGA_GAIN_8: u32 = 11;
-pub const ADC_PGA_GAIN_10P667: u32 = 12;
-pub const ADC_PGA_GAIN_16: u32 = 13;
-pub const ADC_PGA_GAIN_32: u32 = 14;
-pub const ADC_PGA_VSS_PGAVSS: u32 = 0;
-pub const ADC_PGA_VSS_AVSS: u32 = 1;
-pub const ADC_PGA_PIN_ADC1_PA0: u32 = 1;
-pub const ADC_PGA_PIN_ADC1_PA1: u32 = 2;
-pub const ADC_PGA_PIN_ADC1_PA2: u32 = 4;
-pub const ADC_PGA_PIN_ADC1_PA3: u32 = 8;
-pub const ADC_PGA_PIN_ADC1_PA4: u32 = 16;
-pub const ADC_PGA_PIN_ADC1_PA5: u32 = 32;
-pub const ADC_PGA_PIN_ADC1_PA6: u32 = 64;
-pub const ADC_PGA_PIN_ADC1_PA7: u32 = 128;
-pub const ADC_PGA_8BIT_DAC: u32 = 256;
-pub const ADC1_PIN_PA0: u32 = 0;
-pub const ADC1_PIN_PA1: u32 = 1;
-pub const ADC1_PIN_PA2: u32 = 2;
-pub const ADC1_PIN_PA3: u32 = 3;
-pub const ADC1_PIN_PA4: u32 = 4;
-pub const ADC1_PIN_PA5: u32 = 5;
-pub const ADC1_PIN_PA6: u32 = 6;
-pub const ADC1_PIN_PA7: u32 = 7;
-pub const ADC1_PIN_PB0: u32 = 8;
-pub const ADC1_PIN_PB1: u32 = 9;
-pub const ADC1_PIN_PC0: u32 = 10;
-pub const ADC1_PIN_PC1: u32 = 11;
-pub const ADC1_PIN_PC2: u32 = 12;
-pub const ADC1_PIN_PC3: u32 = 13;
-pub const ADC1_PIN_PC4: u32 = 14;
-pub const ADC1_PIN_PC5: u32 = 15;
-pub const ADC2_PIN_PA4: u32 = 0;
-pub const ADC2_PIN_PA5: u32 = 1;
-pub const ADC2_PIN_PA6: u32 = 2;
-pub const ADC2_PIN_PA7: u32 = 3;
-pub const ADC2_PIN_PB0: u32 = 4;
-pub const ADC2_PIN_PB1: u32 = 5;
-pub const ADC2_PIN_PC0: u32 = 6;
-pub const ADC2_PIN_PC1: u32 = 7;
-pub const AES_KEY_SIZE_16BYTE: u32 = 16;
-pub const AOS_COMM_TRIG1: u32 = 1073741824;
-pub const AOS_COMM_TRIG2: u32 = 2147483648;
-pub const AOS_COMM_TRIG_MASK: u32 = 3221225472;
-pub const AOS_TRIG_SEL_MASK: u32 = 511;
-pub const CAN_WORK_MD_NORMAL: u32 = 0;
-pub const CAN_WORK_MD_SILENT: u32 = 1;
-pub const CAN_WORK_MD_ILB: u32 = 2;
-pub const CAN_WORK_MD_ELB: u32 = 3;
-pub const CAN_WORK_MD_ELB_SILENT: u32 = 4;
-pub const CAN_TX_BUF_PTB: u32 = 0;
-pub const CAN_TX_BUF_STB: u32 = 1;
-pub const CAN_DLC0: u32 = 0;
-pub const CAN_DLC1: u32 = 1;
-pub const CAN_DLC2: u32 = 2;
-pub const CAN_DLC3: u32 = 3;
-pub const CAN_DLC4: u32 = 4;
-pub const CAN_DLC5: u32 = 5;
-pub const CAN_DLC6: u32 = 6;
-pub const CAN_DLC7: u32 = 7;
-pub const CAN_DLC8: u32 = 8;
-pub const CAN_PTB_SINGLESHOT_TX_DISABLE: u32 = 0;
-pub const CAN_PTB_SINGLESHOT_TX_ENABLE: u32 = 16;
-pub const CAN_STB_SINGLESHOT_TX_DISABLE: u32 = 0;
-pub const CAN_STB_SINGLESHOT_TX_ENABLE: u32 = 8;
-pub const CAN_TX_REQ_STB_ONE: u32 = 4;
-pub const CAN_TX_REQ_STB_ALL: u32 = 2;
-pub const CAN_TX_REQ_PTB: u32 = 16;
-pub const CAN_STB_PRIO_MD_DISABLE: u32 = 0;
-pub const CAN_STB_PRIO_MD_ENABLE: u32 = 32;
-pub const CAN_TX_BUF_EMPTY: u32 = 0;
-pub const CAN_TX_BUF_NOT_MORE_THAN_HALF: u32 = 1;
-pub const CAN_TX_BUF_MORE_THAN_HALF: u32 = 2;
-pub const CAN_TX_BUF_FULL: u32 = 3;
-pub const CAN_RX_BUF_EMPTY: u32 = 0;
-pub const CAN_RX_BUF_NOT_WARN: u32 = 1;
-pub const CAN_RX_BUF_WARN: u32 = 2;
-pub const CAN_RX_BUF_FULL: u32 = 3;
-pub const CAN_RX_ALL_FRAME_DISABLE: u32 = 0;
-pub const CAN_RX_ALL_FRAME_ENABLE: u32 = 8;
-pub const CAN_RX_OVF_SAVE_NEW: u32 = 0;
-pub const CAN_RX_OVF_DISCARD_NEW: u32 = 64;
-pub const CAN_SELF_ACK_DISABLE: u32 = 0;
-pub const CAN_SELF_ACK_ENABLE: u32 = 128;
-pub const CAN_INT_ERR_INT: u32 = 2;
-pub const CAN_INT_STB_TX: u32 = 4;
-pub const CAN_INT_PTB_TX: u32 = 8;
-pub const CAN_INT_RX_BUF_WARN: u32 = 16;
-pub const CAN_INT_RX_BUF_FULL: u32 = 32;
-pub const CAN_INT_RX_OVERRUN: u32 = 64;
-pub const CAN_INT_RX: u32 = 128;
-pub const CAN_INT_BUS_ERR: u32 = 512;
-pub const CAN_INT_ARBITR_LOST: u32 = 2048;
-pub const CAN_INT_ERR_PASSIVE: u32 = 8192;
-pub const CAN_INT_ALL: u32 = 11006;
-pub const CAN_FLAG_BUS_OFF: u32 = 1;
-pub const CAN_FLAG_TX_GOING: u32 = 2;
-pub const CAN_FLAG_RX_GOING: u32 = 4;
-pub const CAN_FLAG_RX_BUF_OVF: u32 = 32;
-pub const CAN_FLAG_TX_BUF_FULL: u32 = 256;
-pub const CAN_FLAG_TX_ABORTED: u32 = 65536;
-pub const CAN_FLAG_ERR_INT: u32 = 131072;
-pub const CAN_FLAG_STB_TX: u32 = 262144;
-pub const CAN_FLAG_PTB_TX: u32 = 524288;
-pub const CAN_FLAG_RX_BUF_WARN: u32 = 1048576;
-pub const CAN_FLAG_RX_BUF_FULL: u32 = 2097152;
-pub const CAN_FLAG_RX_OVERRUN: u32 = 4194304;
-pub const CAN_FLAG_RX: u32 = 8388608;
-pub const CAN_FLAG_BUS_ERR: u32 = 16777216;
-pub const CAN_FLAG_ARBITR_LOST: u32 = 67108864;
-pub const CAN_FLAG_ERR_PASSIVE: u32 = 268435456;
-pub const CAN_FLAG_ERR_PASSIVE_NODE: u32 = 1073741824;
-pub const CAN_FLAG_TEC_REC_WARN: u32 = 2147483648;
-pub const CAN_FLAG_ALL: u32 = 3590258983;
-pub const CAN_FLAG_CLR_ALL: u32 = 369033216;
-pub const CAN_ID_STD_EXT: u32 = 0;
-pub const CAN_ID_STD: u32 = 1073741824;
-pub const CAN_ID_EXT: u32 = 1610612736;
-pub const CAN_STD_ID_MASK: u32 = 2047;
-pub const CAN_EXT_ID_MASK: u32 = 536870911;
-pub const CAN_ERR_NONE: u32 = 0;
-pub const CAN_ERR_BIT: u32 = 1;
-pub const CAN_ERR_FORM: u32 = 2;
-pub const CAN_ERR_STUFF: u32 = 3;
-pub const CAN_ERR_ACK: u32 = 4;
-pub const CAN_ERR_CRC: u32 = 5;
-pub const CAN_ERR_OTHER: u32 = 6;
-pub const CAN_FILTER1: u32 = 1;
-pub const CAN_FILTER2: u32 = 2;
-pub const CAN_FILTER3: u32 = 4;
-pub const CAN_FILTER4: u32 = 8;
-pub const CAN_FILTER5: u32 = 16;
-pub const CAN_FILTER6: u32 = 32;
-pub const CAN_FILTER7: u32 = 64;
-pub const CAN_FILTER8: u32 = 128;
-pub const CAN_FILTER_ALL: u32 = 255;
-pub const CAN_TTC_TX_BUF_MD_CAN: u32 = 0;
-pub const CAN_TTC_TX_BUF_MD_TTCAN: u32 = 16;
-pub const CAN_TTC_TX_BUF_PTB: u32 = 0;
-pub const CAN_TTC_TX_BUF_STB1: u32 = 1;
-pub const CAN_TTC_TX_BUF_STB2: u32 = 2;
-pub const CAN_TTC_TX_BUF_STB3: u32 = 3;
-pub const CAN_TTC_TX_BUF_STB4: u32 = 4;
-pub const CAN_TTC_TX_BUF_MARK_EMPTY: u32 = 128;
-pub const CAN_TTC_TX_BUF_MARK_FILLED: u32 = 64;
-pub const CAN_TTC_INT_TIME_TRIG: u32 = 16;
-pub const CAN_TTC_INT_WATCH_TRIG: u32 = 128;
-pub const CAN_TTC_INT_ALL: u32 = 144;
-pub const CAN_TTC_FLAG_TIME_TRIG: u32 = 8;
-pub const CAN_TTC_FLAG_TRIG_ERR: u32 = 32;
-pub const CAN_TTC_FLAG_WATCH_TRIG: u32 = 64;
-pub const CAN_TTC_FLAG_ALL: u32 = 104;
-pub const CAN_TTC_NTU_PRESCALER1: u32 = 0;
-pub const CAN_TTC_NTU_PRESCALER2: u32 = 2;
-pub const CAN_TTC_NTU_PRESCALER4: u32 = 4;
-pub const CAN_TTC_NTU_PRESCALER8: u32 = 6;
-pub const CAN_TTC_TRIG_IMMED_TRIG: u32 = 0;
-pub const CAN_TTC_TRIG_TIME_TRIG: u32 = 256;
-pub const CAN_TTC_TRIG_SINGLESHOT_TX_TRIG: u32 = 512;
-pub const CAN_TTC_TRIG_TX_START_TRIG: u32 = 768;
-pub const CAN_TTC_TRIG_TX_STOP_TRIG: u32 = 1024;
-pub const CLK_PLLX_OFF: u32 = 1;
-pub const CLK_PLLX_ON: u32 = 0;
-pub const CLK_PLL_OFF: u32 = 1;
-pub const CLK_PLL_ON: u32 = 0;
-pub const CLK_PLL_SRC_XTAL: u32 = 0;
-pub const CLK_PLL_SRC_HRC: u32 = 1;
-pub const CLK_XTAL_OFF: u32 = 1;
-pub const CLK_XTAL_ON: u32 = 0;
-pub const CLK_XTAL_DRV_HIGH: u32 = 0;
-pub const CLK_XTAL_DRV_MID: u32 = 16;
-pub const CLK_XTAL_DRV_LOW: u32 = 32;
-pub const CLK_XTAL_DRV_ULOW: u32 = 48;
-pub const CLK_XTAL_SUPDRV_ON: u32 = 128;
-pub const CLK_XTAL_SUPDRV_OFF: u32 = 0;
-pub const CLK_XTAL_MD_OSC: u32 = 0;
-pub const CLK_XTAL_MD_EXCLK: u32 = 64;
-pub const CLK_XTAL_STB_133US: u32 = 1;
-pub const CLK_XTAL_STB_255US: u32 = 2;
-pub const CLK_XTAL_STB_499US: u32 = 3;
-pub const CLK_XTAL_STB_988US: u32 = 4;
-pub const CLK_XTAL_STB_2MS: u32 = 5;
-pub const CLK_XTAL_STB_4MS: u32 = 6;
-pub const CLK_XTAL_STB_8MS: u32 = 7;
-pub const CLK_XTAL_STB_16MS: u32 = 8;
-pub const CLK_XTAL_STB_31MS: u32 = 9;
-pub const CLK_XTALSTD_OFF: u32 = 0;
-pub const CLK_XTALSTD_ON: u32 = 128;
-pub const CLK_XTALSTD_EXP_TYPE_NONE: u32 = 0;
-pub const CLK_XTALSTD_EXP_TYPE_RST: u32 = 6;
-pub const CLK_XTALSTD_EXP_TYPE_INT: u32 = 1;
-pub const CLK_XTAL32_OFF: u32 = 1;
-pub const CLK_XTAL32_ON: u32 = 0;
-pub const CLK_XTAL32_DRV_MID: u32 = 0;
-pub const CLK_XTAL32_DRV_HIGH: u32 = 1;
-pub const CLK_XTAL32_FILTER_ALL_MD: u32 = 0;
-pub const CLK_XTAL32_FILTER_RUN_MD: u32 = 1;
-pub const CLK_XTAL32_FILTER_OFF: u32 = 3;
-pub const CLK_HRC_OFF: u32 = 1;
-pub const CLK_HRC_ON: u32 = 0;
-pub const CLK_STB_FLAG_HRC: u32 = 1;
-pub const CLK_STB_FLAG_XTAL: u32 = 8;
-pub const CLK_STB_FLAG_PLL: u32 = 32;
-pub const CLK_STB_FLAG_PLLX: u32 = 64;
-pub const CLK_STB_FLAG_MASK: u32 = 105;
-pub const CLK_SYSCLK_SRC_HRC: u32 = 0;
-pub const CLK_SYSCLK_SRC_MRC: u32 = 1;
-pub const CLK_SYSCLK_SRC_LRC: u32 = 2;
-pub const CLK_SYSCLK_SRC_XTAL: u32 = 3;
-pub const CLK_SYSCLK_SRC_XTAL32: u32 = 4;
-pub const CLK_SYSCLK_SRC_PLL: u32 = 5;
-pub const CLK_BUS_PCLK0: u32 = 7;
-pub const CLK_BUS_PCLK1: u32 = 112;
-pub const CLK_BUS_PCLK2: u32 = 1792;
-pub const CLK_BUS_PCLK3: u32 = 28672;
-pub const CLK_BUS_PCLK4: u32 = 458752;
-pub const CLK_BUS_EXCLK: u32 = 7340032;
-pub const CLK_BUS_HCLK: u32 = 117440512;
-pub const CLK_BUS_CLK_ALL: u32 = 125269879;
-pub const CLK_SYSCLK_DIV1: u32 = 0;
-pub const CLK_SYSCLK_DIV2: u32 = 1;
-pub const CLK_SYSCLK_DIV4: u32 = 2;
-pub const CLK_SYSCLK_DIV8: u32 = 3;
-pub const CLK_SYSCLK_DIV16: u32 = 4;
-pub const CLK_SYSCLK_DIV32: u32 = 5;
-pub const CLK_SYSCLK_DIV64: u32 = 6;
-pub const CLK_HCLK_DIV1: u32 = 0;
-pub const CLK_HCLK_DIV2: u32 = 16777216;
-pub const CLK_HCLK_DIV4: u32 = 33554432;
-pub const CLK_HCLK_DIV8: u32 = 50331648;
-pub const CLK_HCLK_DIV16: u32 = 67108864;
-pub const CLK_HCLK_DIV32: u32 = 83886080;
-pub const CLK_HCLK_DIV64: u32 = 100663296;
-pub const CLK_PCLK1_DIV1: u32 = 0;
-pub const CLK_PCLK1_DIV2: u32 = 16;
-pub const CLK_PCLK1_DIV4: u32 = 32;
-pub const CLK_PCLK1_DIV8: u32 = 48;
-pub const CLK_PCLK1_DIV16: u32 = 64;
-pub const CLK_PCLK1_DIV32: u32 = 80;
-pub const CLK_PCLK1_DIV64: u32 = 96;
-pub const CLK_PCLK4_DIV1: u32 = 0;
-pub const CLK_PCLK4_DIV2: u32 = 65536;
-pub const CLK_PCLK4_DIV4: u32 = 131072;
-pub const CLK_PCLK4_DIV8: u32 = 196608;
-pub const CLK_PCLK4_DIV16: u32 = 262144;
-pub const CLK_PCLK4_DIV32: u32 = 327680;
-pub const CLK_PCLK4_DIV64: u32 = 393216;
-pub const CLK_PCLK3_DIV1: u32 = 0;
-pub const CLK_PCLK3_DIV2: u32 = 4096;
-pub const CLK_PCLK3_DIV4: u32 = 8192;
-pub const CLK_PCLK3_DIV8: u32 = 12288;
-pub const CLK_PCLK3_DIV16: u32 = 16384;
-pub const CLK_PCLK3_DIV32: u32 = 20480;
-pub const CLK_PCLK3_DIV64: u32 = 24576;
-pub const CLK_EXCLK_DIV1: u32 = 0;
-pub const CLK_EXCLK_DIV2: u32 = 1048576;
-pub const CLK_EXCLK_DIV4: u32 = 2097152;
-pub const CLK_EXCLK_DIV8: u32 = 3145728;
-pub const CLK_EXCLK_DIV16: u32 = 4194304;
-pub const CLK_EXCLK_DIV32: u32 = 5242880;
-pub const CLK_EXCLK_DIV64: u32 = 6291456;
-pub const CLK_PCLK2_DIV1: u32 = 0;
-pub const CLK_PCLK2_DIV2: u32 = 256;
-pub const CLK_PCLK2_DIV4: u32 = 512;
-pub const CLK_PCLK2_DIV8: u32 = 768;
-pub const CLK_PCLK2_DIV16: u32 = 1024;
-pub const CLK_PCLK2_DIV32: u32 = 1280;
-pub const CLK_PCLK2_DIV64: u32 = 1536;
-pub const CLK_PCLK0_DIV1: u32 = 0;
-pub const CLK_PCLK0_DIV2: u32 = 1;
-pub const CLK_PCLK0_DIV4: u32 = 2;
-pub const CLK_PCLK0_DIV8: u32 = 3;
-pub const CLK_PCLK0_DIV16: u32 = 4;
-pub const CLK_PCLK0_DIV32: u32 = 5;
-pub const CLK_PCLK0_DIV64: u32 = 6;
-pub const CLK_USBCLK_SYSCLK_DIV2: u32 = 32;
-pub const CLK_USBCLK_SYSCLK_DIV3: u32 = 48;
-pub const CLK_USBCLK_SYSCLK_DIV4: u32 = 64;
-pub const CLK_USBCLK_PLLP: u32 = 128;
-pub const CLK_USBCLK_PLLQ: u32 = 144;
-pub const CLK_USBCLK_PLLR: u32 = 160;
-pub const CLK_USBCLK_PLLXP: u32 = 176;
-pub const CLK_USBCLK_PLLXQ: u32 = 192;
-pub const CLK_USBCLK_PLLXR: u32 = 208;
-pub const CLK_PERIPHCLK_PCLK: u32 = 0;
-pub const CLK_PERIPHCLK_PLLP: u32 = 8;
-pub const CLK_PERIPHCLK_PLLQ: u32 = 9;
-pub const CLK_PERIPHCLK_PLLR: u32 = 10;
-pub const CLK_PERIPHCLK_PLLXP: u32 = 11;
-pub const CLK_PERIPHCLK_PLLXQ: u32 = 12;
-pub const CLK_PERIPHCLK_PLLXR: u32 = 13;
-pub const CLK_I2S1: u32 = 0;
-pub const CLK_I2S2: u32 = 1;
-pub const CLK_I2S3: u32 = 2;
-pub const CLK_I2S4: u32 = 3;
-pub const CLK_TPIUCLK_DIV1: u32 = 0;
-pub const CLK_TPIUCLK_DIV2: u32 = 1;
-pub const CLK_TPIUCLK_DIV4: u32 = 2;
-pub const CLK_MCO1: u32 = 0;
-pub const CLK_MCO2: u32 = 1;
-pub const CLK_MCO_SRC_HRC: u32 = 0;
-pub const CLK_MCO_SRC_MRC: u32 = 1;
-pub const CLK_MCO_SRC_LRC: u32 = 2;
-pub const CLK_MCO_SRC_XTAL: u32 = 3;
-pub const CLK_MCO_SRC_XTAL32: u32 = 4;
-pub const CLK_MCO_SRC_PLLP: u32 = 6;
-pub const CLK_MCO_SRC_PLLXP: u32 = 7;
-pub const CLK_MCO_SRC_PLLQ: u32 = 8;
-pub const CLK_MCO_SRC_PLLXQ: u32 = 9;
-pub const CLK_MCO_SRC_HCLK: u32 = 11;
-pub const CLK_MCO_DIV1: u32 = 0;
-pub const CLK_MCO_DIV2: u32 = 16;
-pub const CLK_MCO_DIV4: u32 = 32;
-pub const CLK_MCO_DIV8: u32 = 48;
-pub const CLK_MCO_DIV16: u32 = 64;
-pub const CLK_MCO_DIV32: u32 = 80;
-pub const CLK_MCO_DIV64: u32 = 96;
-pub const CLK_MCO_DIV128: u32 = 112;
-pub const VISR_OFFSET: u32 = 8;
-pub const CMP_POSITIVE_NONE: u32 = 0;
-pub const CMP1_POSITIVE_CMP1_INP1: u32 = 256;
-pub const CMP1_POSITIVE_CMP1_INP2: u32 = 512;
-pub const CMP1_POSITIVE_CMP1_INP3: u32 = 1024;
-pub const CMP1_POSITIVE_PGAO: u32 = 6144;
-pub const CMP1_POSITIVE_PGAO_BP: u32 = 10240;
-pub const CMP1_POSITIVE_CMP1_INP4: u32 = 18432;
-pub const CMP2_POSITIVE_CMP2_INP1: u32 = 256;
-pub const CMP2_POSITIVE_CMP2_INP2: u32 = 512;
-pub const CMP2_POSITIVE_CMP2_INP3: u32 = 1024;
-pub const CMP2_POSITIVE_PGAO: u32 = 6144;
-pub const CMP2_POSITIVE_PGAO_BP: u32 = 10240;
-pub const CMP3_POSITIVE_CMP3_INP1: u32 = 256;
-pub const CMP3_POSITIVE_CMP3_INP2: u32 = 512;
-pub const CMP3_POSITIVE_CMP3_INP3: u32 = 1024;
-pub const CMP3_POSITIVE_CMP3_INP4: u32 = 2048;
-pub const CMP_SCAN_STAT_INP_NONE: u32 = 0;
-pub const CMP_SCAN_STAT_INP1: u32 = 256;
-pub const CMP_SCAN_STAT_INP2: u32 = 512;
-pub const CMP_SCAN_STAT_INP3: u32 = 1024;
-pub const CMP_SCAN_STAT_INP4: u32 = 2048;
-pub const CMP_NEGATIVE_NONE: u32 = 0;
-pub const CMP_NEGATIVE_INM1: u32 = 1;
-pub const CMP_NEGATIVE_INM2: u32 = 2;
-pub const CMP_NEGATIVE_INM3: u32 = 4;
-pub const CMP_NEGATIVE_INM4: u32 = 8;
-pub const CMP_OUT_INVT_OFF: u32 = 0;
-pub const CMP_OUT_INVT_ON: u32 = 8192;
-pub const CMP_DETECT_EDGS_NONE: u32 = 0;
-pub const CMP_DETECT_EDGS_RISING: u32 = 32;
-pub const CMP_DETECT_EDGS_FALLING: u32 = 64;
-pub const CMP_DETECT_EDGS_BOTH: u32 = 96;
-pub const CMP_OUT_FILTER_NONE: u32 = 0;
-pub const CMP_OUT_FILTER_CLK: u32 = 1;
-pub const CMP_OUT_FILTER_CLK_DIV2: u32 = 2;
-pub const CMP_OUT_FILTER_CLK_DIV4: u32 = 3;
-pub const CMP_OUT_FILTER_CLK_DIV8: u32 = 4;
-pub const CMP_OUT_FILTER_CLK_DIV16: u32 = 5;
-pub const CMP_OUT_FILTER_CLK_DIV32: u32 = 6;
-pub const CMP_OUT_FILTER_CLK_DIV64: u32 = 7;
-pub const CMP_ADC_REF_VREF: u32 = 16;
-pub const CMP_ADC_REF_DA2: u32 = 2;
-pub const CMP_ADC_REF_DA1: u32 = 1;
-pub const CMP_8BITDAC_CH1: u32 = 1;
-pub const CMP_8BITDAC_CH2: u32 = 2;
-pub const CRC_CRC16: u32 = 0;
-pub const CRC_CRC32: u32 = 2;
-pub const CRC_DATA_WIDTH_8BIT: u32 = 1;
-pub const CRC_DATA_WIDTH_16BIT: u32 = 2;
-pub const CRC_DATA_WIDTH_32BIT: u32 = 4;
-pub const CRC_INIT_VALUE_DEFAULT: u32 = 4294967295;
-pub const CRC_REFIN_DISABLE: u32 = 0;
-pub const CRC_REFIN_ENABLE: u32 = 4;
-pub const CRC_REFOUT_DISABLE: u32 = 0;
-pub const CRC_REFOUT_ENABLE: u32 = 8;
-pub const CRC_XOROUT_DISABLE: u32 = 0;
-pub const CRC_XOROUT_ENABLE: u32 = 16;
-pub const DBGC_PERIPH_SWDT: u32 = 1;
-pub const DBGC_PERIPH_WDT: u32 = 2;
-pub const DBGC_PERIPH_RTC: u32 = 4;
-pub const DBGC_PERIPH_TMR0_1: u32 = 16384;
-pub const DBGC_PERIPH_TMR0_2: u32 = 32768;
-pub const DBGC_PERIPH_TMR4_1: u32 = 1048576;
-pub const DBGC_PERIPH_TMR4_2: u32 = 2097152;
-pub const DBGC_PERIPH_TMR4_3: u32 = 4194304;
-pub const DBGC_PERIPH_TMR6_1: u32 = 8388608;
-pub const DBGC_PERIPH_TMR6_2: u32 = 16777216;
-pub const DBGC_PERIPH_TMR6_3: u32 = 33554432;
-pub const DBGC_PERIPH_TMRA_1: u32 = 67108864;
-pub const DBGC_PERIPH_TMRA_2: u32 = 134217728;
-pub const DBGC_PERIPH_TMRA_3: u32 = 268435456;
-pub const DBGC_PERIPH_TMRA_4: u32 = 536870912;
-pub const DBGC_PERIPH_TMRA_5: u32 = 1073741824;
-pub const DBGC_PERIPH_TMRA_6: u32 = 2147483648;
-pub const DBGC_TRACE_ASYNC: u32 = 0;
-pub const DBGC_TRACE_SYNC_1BIT: u32 = 1;
-pub const DBGC_TRACE_SYNC_2BIT: u32 = 2;
-pub const DBGC_TRACE_SYNC_4BIT: u32 = 3;
-pub const DCU_DATA_WIDTH_8BIT: u32 = 0;
-pub const DCU_DATA_WIDTH_16BIT: u32 = 8;
-pub const DCU_DATA_WIDTH_32BIT: u32 = 16;
-pub const DCU_CMP_TRIG_DATA0: u32 = 0;
-pub const DCU_CMP_TRIG_DATA0_DATA1_DATA2: u32 = 256;
-pub const DCU_MD_INVD: u32 = 0;
-pub const DCU_MD_ADD: u32 = 1;
-pub const DCU_MD_SUB: u32 = 2;
-pub const DCU_MD_HW_ADD: u32 = 3;
-pub const DCU_MD_HW_SUB: u32 = 4;
-pub const DCU_MD_CMP: u32 = 5;
-pub const DCU_FLAG_CARRY: u32 = 1;
-pub const DCU_FLAG_DATA0_LT_DATA2: u32 = 2;
-pub const DCU_FLAG_DATA0_EQ_DATA2: u32 = 4;
-pub const DCU_FLAG_DATA0_GT_DATA2: u32 = 8;
-pub const DCU_FLAG_DATA0_LT_DATA1: u32 = 16;
-pub const DCU_FLAG_DATA0_EQ_DATA1: u32 = 32;
-pub const DCU_FLAG_DATA0_GT_DATA1: u32 = 64;
-pub const DCU_FLAG_ALL: u32 = 127;
-pub const DCU_CATEGORY_OP: u32 = 0;
-pub const DCU_CATEGORY_CMP_WIN: u32 = 1;
-pub const DCU_CATEGORY_CMP_NON_WIN: u32 = 2;
-pub const DCU_INT_CMP_DATA0_LT_DATA2: u32 = 2;
-pub const DCU_INT_CMP_DATA0_EQ_DATA2: u32 = 4;
-pub const DCU_INT_CMP_DATA0_GT_DATA2: u32 = 8;
-pub const DCU_INT_CMP_DATA0_LT_DATA1: u32 = 16;
-pub const DCU_INT_CMP_DATA0_EQ_DATA1: u32 = 32;
-pub const DCU_INT_CMP_DATA0_GT_DATA1: u32 = 64;
-pub const DCU_INT_CMP_NON_WIN_ALL: u32 = 126;
-pub const DCU_INT_CMP_WIN_INSIDE: u32 = 128;
-pub const DCU_INT_CMP_WIN_OUTSIDE: u32 = 256;
-pub const DCU_INT_CMP_WIN_ALL: u32 = 384;
-pub const DCU_INT_OP_CARRY: u32 = 1;
-pub const DCU_DATA0_IDX: u32 = 0;
-pub const DCU_DATA1_IDX: u32 = 1;
-pub const DCU_DATA2_IDX: u32 = 2;
-pub const DMA_CH0: u32 = 0;
-pub const DMA_CH1: u32 = 1;
-pub const DMA_CH2: u32 = 2;
-pub const DMA_CH3: u32 = 3;
-pub const DMA_MX_CH0: u32 = 1;
-pub const DMA_MX_CH1: u32 = 2;
-pub const DMA_MX_CH2: u32 = 4;
-pub const DMA_MX_CH3: u32 = 8;
-pub const DMA_MX_CH_ALL: u32 = 15;
-pub const DMA_FLAG_REQ_ERR_CH0: u32 = 65536;
-pub const DMA_FLAG_REQ_ERR_CH1: u32 = 131072;
-pub const DMA_FLAG_REQ_ERR_CH2: u32 = 262144;
-pub const DMA_FLAG_REQ_ERR_CH3: u32 = 524288;
-pub const DMA_FLAG_TRANS_ERR_CH0: u32 = 1;
-pub const DMA_FLAG_TRANS_ERR_CH1: u32 = 2;
-pub const DMA_FLAG_TRANS_ERR_CH2: u32 = 4;
-pub const DMA_FLAG_TRANS_ERR_CH3: u32 = 8;
-pub const DMA_FLAG_BTC_CH0: u32 = 65536;
-pub const DMA_FLAG_BTC_CH1: u32 = 131072;
-pub const DMA_FLAG_BTC_CH2: u32 = 262144;
-pub const DMA_FLAG_BTC_CH3: u32 = 524288;
-pub const DMA_FLAG_TC_CH0: u32 = 1;
-pub const DMA_FLAG_TC_CH1: u32 = 2;
-pub const DMA_FLAG_TC_CH2: u32 = 4;
-pub const DMA_FLAG_TC_CH3: u32 = 8;
-pub const DMA_INT_REQ_ERR_CH0: u32 = 65536;
-pub const DMA_INT_REQ_ERR_CH1: u32 = 131072;
-pub const DMA_INT_REQ_ERR_CH2: u32 = 262144;
-pub const DMA_INT_REQ_ERR_CH3: u32 = 524288;
-pub const DMA_INT_TRANS_ERR_CH0: u32 = 1;
-pub const DMA_INT_TRANS_ERR_CH1: u32 = 2;
-pub const DMA_INT_TRANS_ERR_CH2: u32 = 4;
-pub const DMA_INT_TRANS_ERR_CH3: u32 = 8;
-pub const DMA_INT_BTC_CH0: u32 = 65536;
-pub const DMA_INT_BTC_CH1: u32 = 131072;
-pub const DMA_INT_BTC_CH2: u32 = 262144;
-pub const DMA_INT_BTC_CH3: u32 = 524288;
-pub const DMA_INT_TC_CH0: u32 = 1;
-pub const DMA_INT_TC_CH1: u32 = 2;
-pub const DMA_INT_TC_CH2: u32 = 4;
-pub const DMA_INT_TC_CH3: u32 = 8;
-pub const DMA_FLAG_ERR_MASK: u32 = 983055;
-pub const DMA_FLAG_TRANS_MASK: u32 = 983055;
-pub const DMA_INT_ERR_MASK: u32 = 983055;
-pub const DMA_INT_TRANS_MASK: u32 = 983055;
-pub const DMA_STAT_REQ_RECONFIG: u32 = 32768;
-pub const DMA_STAT_REQ_CH0: u32 = 1;
-pub const DMA_STAT_REQ_CH1: u32 = 2;
-pub const DMA_STAT_REQ_CH2: u32 = 4;
-pub const DMA_STAT_REQ_CH3: u32 = 8;
-pub const DMA_STAT_REQ_MASK: u32 = 32783;
-pub const DMA_STAT_TRANS_CH0: u32 = 65536;
-pub const DMA_STAT_TRANS_CH1: u32 = 131072;
-pub const DMA_STAT_TRANS_CH2: u32 = 262144;
-pub const DMA_STAT_TRANS_CH3: u32 = 524288;
-pub const DMA_STAT_TRANS_DMA: u32 = 1;
-pub const DMA_STAT_TRANS_RECONFIG: u32 = 2;
-pub const DMA_STAT_TRANS_MASK: u32 = 983043;
-pub const DMA_DATAWIDTH_8BIT: u32 = 0;
-pub const DMA_DATAWIDTH_16BIT: u32 = 256;
-pub const DMA_DATAWIDTH_32BIT: u32 = 512;
-pub const DMA_LLP_DISABLE: u32 = 0;
-pub const DMA_LLP_ENABLE: u32 = 1024;
-pub const DMA_LLP_WAIT: u32 = 0;
-pub const DMA_LLP_RUN: u32 = 2048;
-pub const DMA_SRC_ADDR_FIX: u32 = 0;
-pub const DMA_SRC_ADDR_INC: u32 = 1;
-pub const DMA_SRC_ADDR_DEC: u32 = 2;
-pub const DMA_DEST_ADDR_FIX: u32 = 0;
-pub const DMA_DEST_ADDR_INC: u32 = 4;
-pub const DMA_DEST_ADDR_DEC: u32 = 8;
-pub const DMA_INT_ENABLE: u32 = 4096;
-pub const DMA_INT_DISABLE: u32 = 0;
-pub const DMA_RPT_NONE: u32 = 0;
-pub const DMA_RPT_SRC: u32 = 16;
-pub const DMA_RPT_DEST: u32 = 32;
-pub const DMA_RPT_BOTH: u32 = 48;
-pub const DMA_NON_SEQ_NONE: u32 = 0;
-pub const DMA_NON_SEQ_SRC: u32 = 64;
-pub const DMA_NON_SEQ_DEST: u32 = 128;
-pub const DMA_NON_SEQ_BOTH: u32 = 192;
-pub const DMA_RC_CNT_KEEP: u32 = 0;
-pub const DMA_RC_CNT_SRC: u32 = 1048576;
-pub const DMA_RC_CNT_DEST: u32 = 2097152;
-pub const DMA_RC_DEST_ADDR_KEEP: u32 = 0;
-pub const DMA_RC_DEST_ADDR_NS: u32 = 262144;
-pub const DMA_RC_DEST_ADDR_RPT: u32 = 524288;
-pub const DMA_RC_SRC_ADDR_KEEP: u32 = 0;
-pub const DMA_RC_SRC_ADDR_NS: u32 = 65536;
-pub const DMA_RC_SRC_ADDR_RPT: u32 = 131072;
-pub const EFM_START_ADDR: u32 = 0;
-pub const EFM_END_ADDR: u32 = 524287;
-pub const EFM_OTP_START_ADDR: u32 = 50334720;
-pub const EFM_OTP_END_ADDR: u32 = 50335739;
-pub const EFM_OTP_LOCK_ADDR_START: u32 = 50335680;
-pub const EFM_OTP_LOCK_ADDR_END: u32 = 50335740;
-pub const EFM_SECURITY_START_ADDR: u32 = 51904480;
-pub const EFM_SECURITY_END_ADDR: u32 = 51904511;
-pub const EFM_CHIP_ALL: u32 = 1;
-pub const EFM_BUS_HOLD: u32 = 0;
-pub const EFM_BUS_RELEASE: u32 = 1;
-pub const EFM_WAIT_CYCLE0: u32 = 0;
-pub const EFM_WAIT_CYCLE1: u32 = 16;
-pub const EFM_WAIT_CYCLE2: u32 = 32;
-pub const EFM_WAIT_CYCLE3: u32 = 48;
-pub const EFM_WAIT_CYCLE4: u32 = 64;
-pub const EFM_WAIT_CYCLE5: u32 = 80;
-pub const EFM_WAIT_CYCLE6: u32 = 96;
-pub const EFM_WAIT_CYCLE7: u32 = 112;
-pub const EFM_WAIT_CYCLE8: u32 = 128;
-pub const EFM_WAIT_CYCLE9: u32 = 144;
-pub const EFM_WAIT_CYCLE10: u32 = 160;
-pub const EFM_WAIT_CYCLE11: u32 = 176;
-pub const EFM_WAIT_CYCLE12: u32 = 192;
-pub const EFM_WAIT_CYCLE13: u32 = 208;
-pub const EFM_WAIT_CYCLE14: u32 = 224;
-pub const EFM_WAIT_CYCLE15: u32 = 240;
-pub const EFM_SWAP_ADDR: u32 = 524252;
-pub const EFM_SWAP_DATA: u32 = 4294918945;
-pub const EFM_MD_READONLY: u32 = 0;
-pub const EFM_MD_PGM_SINGLE: u32 = 16;
-pub const EFM_MD_PGM_READBACK: u32 = 32;
-pub const EFM_MD_PGM_SEQ: u32 = 48;
-pub const EFM_MD_ERASE_SECTOR: u32 = 64;
-pub const EFM_MD_ERASE_ALL_CHIP: u32 = 80;
-pub const EFM_FLAG_PEWERR: u32 = 1;
-pub const EFM_FLAG_PGMISMTCH: u32 = 8;
-pub const EFM_FLAG_OPTEND: u32 = 16;
-pub const EFM_FLAG_COLERR: u32 = 32;
-pub const EFM_FLAG_PEPRTERR: u32 = 2;
-pub const EFM_FLAG_RDY: u32 = 256;
-pub const EFM_FLAG_PGSZERR: u32 = 4;
-pub const EFM_FLAG_ALL: u32 = 319;
-pub const EFM_INT_PEERR: u32 = 1;
-pub const EFM_INT_OPTEND: u32 = 2;
-pub const EFM_INT_COLERR: u32 = 4;
-pub const EFM_INT_ALL: u32 = 7;
-pub const EFM_CACHE_ALL: u32 = 16842752;
-pub const EFM_REG_UNLOCK_KEY1: u32 = 291;
-pub const EFM_REG_UNLOCK_KEY2: u32 = 12816;
-pub const EFM_REG_LOCK_KEY: u32 = 0;
-pub const EFM_SECTOR_SIZE: u32 = 8192;
-pub const EFM_OTP_BASE1_ADDR: u32 = 50334720;
-pub const EFM_OTP_BASE1_SIZE: u32 = 64;
-pub const EFM_OTP_BASE1_OFFSET: u32 = 0;
-pub const EFM_OTP_LOCK_ADDR: u32 = 50335680;
-pub const EFM_OTP_BLOCK0: u32 = 50334720;
-pub const EFM_OTP_BLOCK1: u32 = 50334784;
-pub const EFM_OTP_BLOCK2: u32 = 50334848;
-pub const EFM_OTP_BLOCK3: u32 = 50334912;
-pub const EFM_OTP_BLOCK4: u32 = 50334976;
-pub const EFM_OTP_BLOCK5: u32 = 50335040;
-pub const EFM_OTP_BLOCK6: u32 = 50335104;
-pub const EFM_OTP_BLOCK7: u32 = 50335168;
-pub const EFM_OTP_BLOCK8: u32 = 50335232;
-pub const EFM_OTP_BLOCK9: u32 = 50335296;
-pub const EFM_OTP_BLOCK10: u32 = 50335360;
-pub const EFM_OTP_BLOCK11: u32 = 50335424;
-pub const EFM_OTP_BLOCK12: u32 = 50335488;
-pub const EFM_OTP_BLOCK13: u32 = 50335552;
-pub const EFM_OTP_BLOCK14: u32 = 50335616;
-pub const EFM_REMAP_REG_LOCK_KEY: u32 = 0;
-pub const EFM_REMAP_REG_UNLOCK_KEY1: u32 = 291;
-pub const EFM_REMAP_REG_UNLOCK_KEY2: u32 = 12816;
-pub const EFM_REMAP_OFF: u32 = 0;
-pub const EFM_REMAP_ON: u32 = 2147483648;
-pub const EFM_REMAP_4K: u32 = 12;
-pub const EFM_REMAP_8K: u32 = 13;
-pub const EFM_REMAP_16K: u32 = 14;
-pub const EFM_REMAP_32K: u32 = 15;
-pub const EFM_REMAP_64K: u32 = 16;
-pub const EFM_REMAP_128K: u32 = 17;
-pub const EFM_REMAP_256K: u32 = 18;
-pub const EFM_REMAP_512K: u32 = 19;
-pub const EFM_REMAP_SIZE_MAX: u32 = 19;
-pub const EFM_REMAP_IDX0: u32 = 0;
-pub const EFM_REMAP_IDX1: u32 = 1;
-pub const EFM_REMAP_BASE_ADDR0: u32 = 33554432;
-pub const EFM_REMAP_BASE_ADDR1: u32 = 34078720;
-pub const EFM_REMAP_ROM_END_ADDR: u32 = 524287;
-pub const EFM_REMAP_RAM_START_ADDR: u32 = 536838144;
-pub const EFM_REMAP_RAM_END_ADDR: u32 = 536870911;
-pub const EFM_PROTECT_LEVEL1: u32 = 1;
-pub const EFM_PROTECT_LEVEL2: u32 = 2;
-pub const EFM_PROTECT_LEVEL_ALL: u32 = 3;
-pub const EFM_MCU_PROTECT1_FREE: u32 = 0;
-pub const EFM_MCU_PROTECT1_LOCK: u32 = 1;
-pub const EFM_MCU_PROTECT1_UNLOCK: u32 = 2;
-pub const EFM_MCU_PROTECT2_LOCK: u32 = 4;
-pub const EMB_CMP1_DISABLE: u32 = 0;
-pub const EMB_CMP2_DISABLE: u32 = 0;
-pub const EMB_CMP3_DISABLE: u32 = 0;
-pub const EMB_CMP1_ENABLE: u32 = 2;
-pub const EMB_CMP2_ENABLE: u32 = 4;
-pub const EMB_CMP3_ENABLE: u32 = 8;
-pub const EMB_OSC_DISABLE: u32 = 0;
-pub const EMB_OSC_ENABLE: u32 = 32;
-pub const EMB_TMR4_PWM_W_DISABLE: u32 = 0;
-pub const EMB_TMR4_PWM_V_DISABLE: u32 = 0;
-pub const EMB_TMR4_PWM_U_DISABLE: u32 = 0;
-pub const EMB_TMR4_PWM_W_ENABLE: u32 = 64;
-pub const EMB_TMR4_PWM_V_ENABLE: u32 = 128;
-pub const EMB_TMR4_PWM_U_ENABLE: u32 = 256;
-pub const EMB_DETECT_TMR4_PWM_W_BOTH_LOW: u32 = 0;
-pub const EMB_DETECT_TMR4_PWM_V_BOTH_LOW: u32 = 0;
-pub const EMB_DETECT_TMR4_PWM_U_BOTH_LOW: u32 = 0;
-pub const EMB_DETECT_TMR4_PWM_W_BOTH_HIGH: u32 = 1;
-pub const EMB_DETECT_TMR4_PWM_V_BOTH_HIGH: u32 = 2;
-pub const EMB_DETECT_TMR4_PWM_U_BOTH_HIGH: u32 = 4;
-pub const EMB_TMR6_1_PWM_DISABLE: u32 = 0;
-pub const EMB_TMR6_2_PWM_DISABLE: u32 = 0;
-pub const EMB_TMR6_3_PWM_DISABLE: u32 = 0;
-pub const EMB_TMR6_1_PWM_ENABLE: u32 = 64;
-pub const EMB_TMR6_2_PWM_ENABLE: u32 = 128;
-pub const EMB_TMR6_3_PWM_ENABLE: u32 = 256;
-pub const EMB_DETECT_TMR6_1_PWM_BOTH_LOW: u32 = 0;
-pub const EMB_DETECT_TMR6_2_PWM_BOTH_LOW: u32 = 0;
-pub const EMB_DETECT_TMR6_3_PWM_BOTH_LOW: u32 = 0;
-pub const EMB_DETECT_TMR6_1_PWM_BOTH_HIGH: u32 = 1;
-pub const EMB_DETECT_TMR6_2_PWM_BOTH_HIGH: u32 = 2;
-pub const EMB_DETECT_TMR6_3_PWM_BOTH_HIGH: u32 = 4;
-pub const EMB_PORT1_DISABLE: u32 = 0;
-pub const EMB_PORT1_ENABLE: u32 = 1;
-pub const EMB_PORT1_DETECT_LVL_HIGH: u32 = 0;
-pub const EMB_PORT1_DETECT_LVL_LOW: u32 = 2147483648;
-pub const EMB_PORT1_FILTER_DISABLE: u32 = 0;
-pub const EMB_PORT1_FILTER_ENABLE: u32 = 1073741824;
-pub const EMB_PORT1_FILTER_CLK_DIV1: u32 = 0;
-pub const EMB_PORT1_FILTER_CLK_DIV8: u32 = 268435456;
-pub const EMB_PORT1_FILTER_CLK_DIV32: u32 = 536870912;
-pub const EMB_PORT1_FILTER_CLK_DIV128: u32 = 805306368;
-pub const EMB_FLAG_PWMS: u32 = 2;
-pub const EMB_FLAG_CMP: u32 = 4;
-pub const EMB_FLAG_OSC: u32 = 8;
-pub const EMB_FLAG_PORT1: u32 = 1;
-pub const EMB_STAT_PWMS: u32 = 32;
-pub const EMB_STAT_PORT1: u32 = 16;
-pub const EMB_FLAG_ALL: u32 = 63;
-pub const EMB_FLAG_CLR_ALL: u32 = 15;
-pub const EMB_INT_PWMS: u32 = 2;
-pub const EMB_INT_CMP: u32 = 4;
-pub const EMB_INT_OSC: u32 = 8;
-pub const EMB_INT_PORT1: u32 = 1;
-pub const EMB_INT_ALL: u32 = 15;
-pub const EVT_PORT_1: u32 = 0;
-pub const EVT_PORT_2: u32 = 1;
-pub const EVT_PORT_3: u32 = 2;
-pub const EVT_PORT_4: u32 = 3;
-pub const EVT_PIN_00: u32 = 1;
-pub const EVT_PIN_01: u32 = 2;
-pub const EVT_PIN_02: u32 = 4;
-pub const EVT_PIN_03: u32 = 8;
-pub const EVT_PIN_04: u32 = 16;
-pub const EVT_PIN_05: u32 = 32;
-pub const EVT_PIN_06: u32 = 64;
-pub const EVT_PIN_07: u32 = 128;
-pub const EVT_PIN_08: u32 = 256;
-pub const EVT_PIN_09: u32 = 512;
-pub const EVT_PIN_10: u32 = 1024;
-pub const EVT_PIN_11: u32 = 2048;
-pub const EVT_PIN_12: u32 = 4096;
-pub const EVT_PIN_13: u32 = 8192;
-pub const EVT_PIN_14: u32 = 16384;
-pub const EVT_PIN_15: u32 = 32768;
-pub const EVT_PIN_All: u32 = 65535;
-pub const EVT_PIN_MASK: u32 = 65535;
-pub const EP_DIR_IN: u32 = 0;
-pub const EP_DIR_OUT: u32 = 1;
-pub const EP_FILTER_OFF: u32 = 0;
-pub const EP_FILTER_ON: u32 = 1;
-pub const EP_FCLK_DIV1: u32 = 0;
-pub const EP_FCLK_DIV8: u32 = 2;
-pub const EP_FCLK_DIV32: u32 = 4;
-pub const EP_FCLK_DIV64: u32 = 6;
-pub const EP_TRIG_NONE: u32 = 0;
-pub const EP_TRIG_FALLING: u32 = 1;
-pub const EP_TRIG_RISING: u32 = 2;
-pub const EP_TRIG_BOTH: u32 = 3;
-pub const EP_OPS_NONE: u32 = 0;
-pub const EP_OPS_LOW: u32 = 1;
-pub const EP_OPS_HIGH: u32 = 2;
-pub const EP_OPS_TOGGLE: u32 = 3;
-pub const FCG0_PERIPH_SRAMH: u32 = 1;
-pub const FCG0_PERIPH_SRAM12: u32 = 16;
-pub const FCG0_PERIPH_SRAM3: u32 = 256;
-pub const FCG0_PERIPH_SRAMRET: u32 = 1024;
-pub const FCG0_PERIPH_DMA1: u32 = 16384;
-pub const FCG0_PERIPH_DMA2: u32 = 32768;
-pub const FCG0_PERIPH_FCM: u32 = 65536;
-pub const FCG0_PERIPH_AOS: u32 = 131072;
-pub const FCG0_PERIPH_AES: u32 = 1048576;
-pub const FCG0_PERIPH_HASH: u32 = 2097152;
-pub const FCG0_PERIPH_TRNG: u32 = 4194304;
-pub const FCG0_PERIPH_CRC: u32 = 8388608;
-pub const FCG0_PERIPH_DCU1: u32 = 16777216;
-pub const FCG0_PERIPH_DCU2: u32 = 33554432;
-pub const FCG0_PERIPH_DCU3: u32 = 67108864;
-pub const FCG0_PERIPH_DCU4: u32 = 134217728;
-pub const FCG0_PERIPH_KEY: u32 = 2147483648;
-pub const FCG1_PERIPH_CAN: u32 = 1;
-pub const FCG1_PERIPH_QSPI: u32 = 8;
-pub const FCG1_PERIPH_I2C1: u32 = 16;
-pub const FCG1_PERIPH_I2C2: u32 = 32;
-pub const FCG1_PERIPH_I2C3: u32 = 64;
-pub const FCG1_PERIPH_USBFS: u32 = 256;
-pub const FCG1_PERIPH_SDIOC1: u32 = 1024;
-pub const FCG1_PERIPH_SDIOC2: u32 = 2048;
-pub const FCG1_PERIPH_I2S1: u32 = 4096;
-pub const FCG1_PERIPH_I2S2: u32 = 8192;
-pub const FCG1_PERIPH_I2S3: u32 = 16384;
-pub const FCG1_PERIPH_I2S4: u32 = 32768;
-pub const FCG1_PERIPH_SPI1: u32 = 65536;
-pub const FCG1_PERIPH_SPI2: u32 = 131072;
-pub const FCG1_PERIPH_SPI3: u32 = 262144;
-pub const FCG1_PERIPH_SPI4: u32 = 524288;
-pub const FCG1_PERIPH_USART1: u32 = 16777216;
-pub const FCG1_PERIPH_USART2: u32 = 33554432;
-pub const FCG1_PERIPH_USART3: u32 = 67108864;
-pub const FCG1_PERIPH_USART4: u32 = 134217728;
-pub const FCG2_PERIPH_TMR0_1: u32 = 1;
-pub const FCG2_PERIPH_TMR0_2: u32 = 2;
-pub const FCG2_PERIPH_TMRA_1: u32 = 4;
-pub const FCG2_PERIPH_TMRA_2: u32 = 8;
-pub const FCG2_PERIPH_TMRA_3: u32 = 16;
-pub const FCG2_PERIPH_TMRA_4: u32 = 32;
-pub const FCG2_PERIPH_TMRA_5: u32 = 64;
-pub const FCG2_PERIPH_TMRA_6: u32 = 128;
-pub const FCG2_PERIPH_TMR4_1: u32 = 256;
-pub const FCG2_PERIPH_TMR4_2: u32 = 512;
-pub const FCG2_PERIPH_TMR4_3: u32 = 1024;
-pub const FCG2_PERIPH_EMB: u32 = 32768;
-pub const FCG2_PERIPH_TMR6_1: u32 = 65536;
-pub const FCG2_PERIPH_TMR6_2: u32 = 131072;
-pub const FCG2_PERIPH_TMR6_3: u32 = 262144;
-pub const FCG3_PERIPH_ADC1: u32 = 1;
-pub const FCG3_PERIPH_ADC2: u32 = 2;
-pub const FCG3_PERIPH_CMP: u32 = 256;
-pub const FCG3_PERIPH_OTS: u32 = 4096;
-pub const FCG_FCG0_PERIPH_MASK: u32 = 2415117585;
-pub const FCG_FCG1_PERIPH_MASK: u32 = 252706169;
-pub const FCG_FCG2_PERIPH_MASK: u32 = 493567;
-pub const FCG_FCG3_PERIPH_MASK: u32 = 4355;
-pub const FCM_TARGET_CLK_XTAL: u32 = 0;
-pub const FCM_TARGET_CLK_XTAL32: u32 = 16;
-pub const FCM_TARGET_CLK_HRC: u32 = 32;
-pub const FCM_TARGET_CLK_LRC: u32 = 48;
-pub const FCM_TARGET_CLK_SWDTLRC: u32 = 64;
-pub const FCM_TARGET_CLK_PCLK1: u32 = 80;
-pub const FCM_TARGET_CLK_UPLLP: u32 = 96;
-pub const FCM_TARGET_CLK_MRC: u32 = 112;
-pub const FCM_TARGET_CLK_MPLLP: u32 = 128;
-pub const FCM_TARGET_CLK_DIV1: u32 = 0;
-pub const FCM_TARGET_CLK_DIV4: u32 = 1;
-pub const FCM_TARGET_CLK_DIV8: u32 = 2;
-pub const FCM_TARGET_CLK_DIV32: u32 = 3;
-pub const FCM_EXT_REF_OFF: u32 = 0;
-pub const FCM_EXT_REF_ON: u32 = 32768;
-pub const FCM_REF_CLK_RISING: u32 = 0;
-pub const FCM_REF_CLK_FALLING: u32 = 4096;
-pub const FCM_REF_CLK_BOTH: u32 = 8192;
-pub const FCM_DIG_FILTER_OFF: u32 = 0;
-pub const FCM_DIG_FILTER_DIV1: u32 = 256;
-pub const FCM_DIG_FILTER_DIV4: u32 = 512;
-pub const FCM_DIG_FILTER_DIV16: u32 = 768;
-pub const FCM_REF_CLK_EXTCLK: u32 = 0;
-pub const FCM_REF_CLK_XTAL: u32 = 128;
-pub const FCM_REF_CLK_XTAL32: u32 = 136;
-pub const FCM_REF_CLK_HRC: u32 = 144;
-pub const FCM_REF_CLK_LRC: u32 = 152;
-pub const FCM_REF_CLK_SWDTLRC: u32 = 160;
-pub const FCM_REF_CLK_PCLK1: u32 = 168;
-pub const FCM_REF_CLK_UPLLP: u32 = 176;
-pub const FCM_REF_CLK_MRC: u32 = 184;
-pub const FCM_REF_CLK_MPLLP: u32 = 192;
-pub const FCM_REF_CLK_DIV32: u32 = 0;
-pub const FCM_REF_CLK_DIV128: u32 = 1;
-pub const FCM_REF_CLK_DIV1024: u32 = 2;
-pub const FCM_REF_CLK_DIV8192: u32 = 3;
-pub const FCM_ERR_RST_OFF: u32 = 0;
-pub const FCM_ERR_RST_ON: u32 = 128;
-pub const FCM_EXP_TYPE_INT: u32 = 0;
-pub const FCM_EXP_TYPE_RST: u32 = 16;
-pub const FCM_INT_OVF: u32 = 4;
-pub const FCM_INT_END: u32 = 2;
-pub const FCM_INT_ERR: u32 = 1;
-pub const FCM_FLAG_ERR: u32 = 1;
-pub const FCM_FLAG_END: u32 = 2;
-pub const FCM_FLAG_OVF: u32 = 4;
-pub const GPIO_PIN_00: u32 = 1;
-pub const GPIO_PIN_01: u32 = 2;
-pub const GPIO_PIN_02: u32 = 4;
-pub const GPIO_PIN_03: u32 = 8;
-pub const GPIO_PIN_04: u32 = 16;
-pub const GPIO_PIN_05: u32 = 32;
-pub const GPIO_PIN_06: u32 = 64;
-pub const GPIO_PIN_07: u32 = 128;
-pub const GPIO_PIN_08: u32 = 256;
-pub const GPIO_PIN_09: u32 = 512;
-pub const GPIO_PIN_10: u32 = 1024;
-pub const GPIO_PIN_11: u32 = 2048;
-pub const GPIO_PIN_12: u32 = 4096;
-pub const GPIO_PIN_13: u32 = 8192;
-pub const GPIO_PIN_14: u32 = 16384;
-pub const GPIO_PIN_15: u32 = 32768;
-pub const GPIO_PIN_ALL: u32 = 65535;
-pub const GPIO_PIN_A_ALL: u32 = 65535;
-pub const GPIO_PIN_B_ALL: u32 = 65535;
-pub const GPIO_PIN_C_ALL: u32 = 65535;
-pub const GPIO_PIN_D_ALL: u32 = 65535;
-pub const GPIO_PIN_E_ALL: u32 = 65535;
-pub const GPIO_PIN_H_ALL: u32 = 7;
-pub const GPIO_PORT_A: u32 = 0;
-pub const GPIO_PORT_B: u32 = 1;
-pub const GPIO_PORT_C: u32 = 2;
-pub const GPIO_PORT_D: u32 = 3;
-pub const GPIO_PORT_E: u32 = 4;
-pub const GPIO_PORT_H: u32 = 5;
-pub const GPIO_FUNC_0: u32 = 0;
-pub const GPIO_FUNC_1: u32 = 1;
-pub const GPIO_FUNC_2: u32 = 2;
-pub const GPIO_FUNC_3: u32 = 3;
-pub const GPIO_FUNC_4: u32 = 4;
-pub const GPIO_FUNC_5: u32 = 5;
-pub const GPIO_FUNC_6: u32 = 6;
-pub const GPIO_FUNC_7: u32 = 7;
-pub const GPIO_FUNC_8: u32 = 8;
-pub const GPIO_FUNC_9: u32 = 9;
-pub const GPIO_FUNC_10: u32 = 10;
-pub const GPIO_FUNC_11: u32 = 11;
-pub const GPIO_FUNC_12: u32 = 12;
-pub const GPIO_FUNC_13: u32 = 13;
-pub const GPIO_FUNC_14: u32 = 14;
-pub const GPIO_FUNC_15: u32 = 15;
-pub const GPIO_FUNC_32: u32 = 32;
-pub const GPIO_FUNC_33: u32 = 33;
-pub const GPIO_FUNC_34: u32 = 34;
-pub const GPIO_FUNC_35: u32 = 35;
-pub const GPIO_FUNC_36: u32 = 36;
-pub const GPIO_FUNC_37: u32 = 37;
-pub const GPIO_FUNC_38: u32 = 38;
-pub const GPIO_FUNC_39: u32 = 39;
-pub const GPIO_FUNC_40: u32 = 40;
-pub const GPIO_FUNC_41: u32 = 41;
-pub const GPIO_FUNC_42: u32 = 42;
-pub const GPIO_FUNC_43: u32 = 43;
-pub const GPIO_FUNC_44: u32 = 44;
-pub const GPIO_FUNC_45: u32 = 45;
-pub const GPIO_FUNC_46: u32 = 46;
-pub const GPIO_FUNC_47: u32 = 47;
-pub const GPIO_FUNC_48: u32 = 48;
-pub const GPIO_FUNC_49: u32 = 49;
-pub const GPIO_FUNC_50: u32 = 50;
-pub const GPIO_FUNC_51: u32 = 51;
-pub const GPIO_FUNC_52: u32 = 52;
-pub const GPIO_FUNC_53: u32 = 53;
-pub const GPIO_FUNC_54: u32 = 54;
-pub const GPIO_FUNC_55: u32 = 55;
-pub const GPIO_FUNC_56: u32 = 56;
-pub const GPIO_FUNC_57: u32 = 57;
-pub const GPIO_FUNC_58: u32 = 58;
-pub const GPIO_FUNC_59: u32 = 59;
-pub const GPIO_PIN_TCK: u32 = 1;
-pub const GPIO_PIN_TMS: u32 = 2;
-pub const GPIO_PIN_TDO: u32 = 4;
-pub const GPIO_PIN_TDI: u32 = 8;
-pub const GPIO_PIN_TRST: u32 = 16;
-pub const GPIO_PIN_DEBUG_JTAG: u32 = 31;
-pub const GPIO_PIN_SWCLK: u32 = 1;
-pub const GPIO_PIN_SWDIO: u32 = 2;
-pub const GPIO_PIN_SWO: u32 = 4;
-pub const GPIO_PIN_DEBUG_SWD: u32 = 7;
-pub const GPIO_PIN_DEBUG: u32 = 31;
-pub const GPIO_RD_WAIT0: u32 = 0;
-pub const GPIO_RD_WAIT1: u32 = 16384;
-pub const GPIO_RD_WAIT2: u32 = 32768;
-pub const GPIO_RD_WAIT3: u32 = 49152;
-pub const PIN_STAT_RST: u32 = 0;
-pub const PIN_STAT_SET: u32 = 1;
-pub const PIN_DIR_IN: u32 = 0;
-pub const PIN_DIR_OUT: u32 = 2;
-pub const PIN_OUT_TYPE_CMOS: u32 = 0;
-pub const PIN_OUT_TYPE_NMOS: u32 = 4;
-pub const PIN_LOW_DRV: u32 = 0;
-pub const PIN_MID_DRV: u32 = 16;
-pub const PIN_HIGH_DRV: u32 = 32;
-pub const PIN_LATCH_OFF: u32 = 0;
-pub const PIN_LATCH_ON: u32 = 16384;
-pub const PIN_PU_OFF: u32 = 0;
-pub const PIN_PU_ON: u32 = 64;
-pub const PIN_INVT_OFF: u32 = 0;
-pub const PIN_INVT_ON: u32 = 512;
-pub const PIN_EXTINT_OFF: u32 = 0;
-pub const PIN_EXTINT_ON: u32 = 4096;
-pub const PIN_ATTR_DIGITAL: u32 = 0;
-pub const PIN_ATTR_ANALOG: u32 = 32768;
-pub const PIN_SUBFUNC_DISABLE: u32 = 0;
-pub const PIN_SUBFUNC_ENABLE: u32 = 256;
-pub const GPIO_REG_LOCK_KEY: u32 = 42240;
-pub const GPIO_REG_UNLOCK_KEY: u32 = 42241;
-pub const I2C_WIDTH_MAX_IMME: u32 = 68;
-pub const I2C_DIR_TX: u32 = 0;
-pub const I2C_DIR_RX: u32 = 1;
-pub const I2C_ADDR_DISABLE: u32 = 0;
-pub const I2C_ADDR_7BIT: u32 = 4096;
-pub const I2C_ADDR_10BIT: u32 = 36864;
-pub const I2C_CLK_DIV1: u32 = 0;
-pub const I2C_CLK_DIV2: u32 = 1;
-pub const I2C_CLK_DIV4: u32 = 2;
-pub const I2C_CLK_DIV8: u32 = 3;
-pub const I2C_CLK_DIV16: u32 = 4;
-pub const I2C_CLK_DIV32: u32 = 5;
-pub const I2C_CLK_DIV64: u32 = 6;
-pub const I2C_CLK_DIV128: u32 = 7;
-pub const I2C_ADDR0: u32 = 0;
-pub const I2C_ADDR1: u32 = 1;
-pub const I2C_ACK: u32 = 0;
-pub const I2C_NACK: u32 = 1024;
-pub const I2C_SMBUS_MATCH_ALERT: u32 = 4;
-pub const I2C_SMBUS_MATCH_DEFAULT: u32 = 8;
-pub const I2C_SMBUS_MATCH_HOST: u32 = 16;
-pub const I2C_SMBUS_MATCH_ALL: u32 = 28;
-pub const I2C_DIG_FILTER_CLK_DIV1: u32 = 0;
-pub const I2C_DIG_FILTER_CLK_DIV2: u32 = 1;
-pub const I2C_DIG_FILTER_CLK_DIV3: u32 = 2;
-pub const I2C_DIG_FILTER_CLK_DIV4: u32 = 3;
-pub const I2C_FLAG_START: u32 = 1;
-pub const I2C_FLAG_MATCH_ADDR0: u32 = 2;
-pub const I2C_FLAG_MATCH_ADDR1: u32 = 4;
-pub const I2C_FLAG_TX_CPLT: u32 = 8;
-pub const I2C_FLAG_STOP: u32 = 16;
-pub const I2C_FLAG_RX_FULL: u32 = 64;
-pub const I2C_FLAG_TX_EMPTY: u32 = 128;
-pub const I2C_FLAG_ARBITRATE_FAIL: u32 = 512;
-pub const I2C_FLAG_ACKR: u32 = 1024;
-pub const I2C_FLAG_NACKF: u32 = 4096;
-pub const I2C_FLAG_TMOUTF: u32 = 16384;
-pub const I2C_FLAG_MASTER: u32 = 65536;
-pub const I2C_FLAG_BUSY: u32 = 131072;
-pub const I2C_FLAG_TRA: u32 = 262144;
-pub const I2C_FLAG_GENERAL_CALL: u32 = 1048576;
-pub const I2C_FLAG_SMBUS_DEFAULT_MATCH: u32 = 2097152;
-pub const I2C_FLAG_SMBUS_HOST_MATCH: u32 = 4194304;
-pub const I2C_FLAG_SMBUS_ALERT_MATCH: u32 = 8388608;
-pub const I2C_FLAG_ALL: u32 = 16209631;
-pub const I2C_FLAG_CLR_START: u32 = 1;
-pub const I2C_FLAG_CLR_MATCH_ADDR0: u32 = 2;
-pub const I2C_FLAG_CLR_MATCH_ADDR1: u32 = 4;
-pub const I2C_FLAG_CLR_TX_CPLT: u32 = 8;
-pub const I2C_FLAG_CLR_STOP: u32 = 16;
-pub const I2C_FLAG_CLR_RX_FULL: u32 = 64;
-pub const I2C_FLAG_CLR_ARBITRATE_FAIL: u32 = 512;
-pub const I2C_FLAG_CLR_NACK: u32 = 4096;
-pub const I2C_FLAG_CLR_TMOUTF: u32 = 16384;
-pub const I2C_FLAG_CLR_GENERAL_CALL: u32 = 1048576;
-pub const I2C_FLAG_CLR_SMBUS_DEFAULT_MATCH: u32 = 2097152;
-pub const I2C_FLAG_CLR_SMBUS_HOST_MATCH: u32 = 4194304;
-pub const I2C_FLAG_CLR_SMBUS_ALERT_MATCH: u32 = 8388608;
-pub const I2C_FLAG_CLR_ALL: u32 = 15749727;
-pub const I2C_INT_START: u32 = 1;
-pub const I2C_INT_MATCH_ADDR0: u32 = 2;
-pub const I2C_INT_MATCH_ADDR1: u32 = 4;
-pub const I2C_INT_TX_CPLT: u32 = 8;
-pub const I2C_INT_STOP: u32 = 16;
-pub const I2C_INT_RX_FULL: u32 = 64;
-pub const I2C_INT_TX_EMPTY: u32 = 128;
-pub const I2C_INT_ARBITRATE_FAIL: u32 = 512;
-pub const I2C_INT_NACK: u32 = 4096;
-pub const I2C_INT_TMOUTIE: u32 = 16384;
-pub const I2C_INT_GENERAL_CALL: u32 = 1048576;
-pub const I2C_INT_SMBUS_DEFAULT_MATCH: u32 = 2097152;
-pub const I2C_INT_SMBUS_HOST_MATCH: u32 = 4194304;
-pub const I2C_INT_SMBUS_ALERT_MATCH: u32 = 8388608;
-pub const I2C_INT_ALL: u32 = 15749855;
-pub const I2S_EXT_CLK_FREQ: u32 = 12288000;
-pub const I2S_CLK_SRC_PLL: u32 = 262144;
-pub const I2S_CLK_SRC_EXT: u32 = 8388608;
-pub const I2S_MD_MASTER: u32 = 0;
-pub const I2S_MD_SLAVE: u32 = 32;
-pub const I2S_PROTOCOL_PHILLIPS: u32 = 0;
-pub const I2S_PROTOCOL_MSB: u32 = 1;
-pub const I2S_PROTOCOL_LSB: u32 = 2;
-pub const I2S_PROTOCOL_PCM_SHORT: u32 = 3;
-pub const I2S_PROTOCOL_PCM_LONG: u32 = 35;
-pub const I2S_TRANS_MD_HALF_DUPLEX_RX: u32 = 0;
-pub const I2S_TRANS_MD_HALF_DUPLEX_TX: u32 = 524288;
-pub const I2S_TRANS_MD_FULL_DUPLEX: u32 = 4718592;
-pub const I2S_AUDIO_FREQ_192K: u32 = 192000;
-pub const I2S_AUDIO_FREQ_96K: u32 = 96000;
-pub const I2S_AUDIO_FREQ_48K: u32 = 48000;
-pub const I2S_AUDIO_FREQ_44K: u32 = 44100;
-pub const I2S_AUDIO_FREQ_32K: u32 = 32000;
-pub const I2S_AUDIO_FREQ_22K: u32 = 22050;
-pub const I2S_AUDIO_FREQ_16K: u32 = 16000;
-pub const I2S_AUDIO_FREQ_8K: u32 = 8000;
-pub const I2S_AUDIO_FREQ_DEFAULT: u32 = 2;
-pub const I2S_CH_LEN_16BIT: u32 = 0;
-pub const I2S_CH_LEN_32BIT: u32 = 16;
-pub const I2S_DATA_LEN_16BIT: u32 = 0;
-pub const I2S_DATA_LEN_24BIT: u32 = 4;
-pub const I2S_DATA_LEN_32BIT: u32 = 8;
-pub const I2S_MCK_OUTPUT_DISABLE: u32 = 0;
-pub const I2S_MCK_OUTPUT_ENABLE: u32 = 128;
-pub const I2S_TRANS_LVL0: u32 = 0;
-pub const I2S_TRANS_LVL1: u32 = 256;
-pub const I2S_TRANS_LVL2: u32 = 512;
-pub const I2S_RECEIVE_LVL0: u32 = 0;
-pub const I2S_RECEIVE_LVL1: u32 = 4096;
-pub const I2S_RECEIVE_LVL2: u32 = 8192;
-pub const I2S_FUNC_TX: u32 = 1;
-pub const I2S_FUNC_RX: u32 = 4;
-pub const I2S_FUNC_ALL: u32 = 5;
-pub const I2S_RST_TYPE_FIFO: u32 = 65536;
-pub const I2S_RST_TYPE_ALL: u32 = 65536;
-pub const I2S_INT_TX: u32 = 2;
-pub const I2S_INT_RX: u32 = 8;
-pub const I2S_INT_ERR: u32 = 16;
-pub const I2S_INT_ALL: u32 = 26;
-pub const I2S_FLAG_TX_ALARM: u32 = 1;
-pub const I2S_FLAG_RX_ALARM: u32 = 2;
-pub const I2S_FLAG_TX_EMPTY: u32 = 4;
-pub const I2S_FLAG_TX_FULL: u32 = 8;
-pub const I2S_FLAG_RX_EMPTY: u32 = 16;
-pub const I2S_FLAG_RX_FULL: u32 = 32;
-pub const I2S_FLAG_TX_ERR: u32 = 65536;
-pub const I2S_FLAG_RX_ERR: u32 = 131072;
-pub const I2S_FLAG_ALL: u32 = 196671;
-pub const I2S_FLAG_CLR_ALL: u32 = 196608;
-pub const ICG_SWDT_RST_START: u32 = 0;
-pub const ICG_SWDT_RST_STOP: u32 = 1;
-pub const ICG_SWDT_EXP_TYPE_INT: u32 = 0;
-pub const ICG_SWDT_EXP_TYPE_RST: u32 = 2;
-pub const ICG_SWDT_CNT_PERIOD256: u32 = 0;
-pub const ICG_SWDT_CNT_PERIOD4096: u32 = 4;
-pub const ICG_SWDT_CNT_PERIOD16384: u32 = 8;
-pub const ICG_SWDT_CNT_PERIOD65536: u32 = 12;
-pub const ICG_SWDT_CLK_DIV1: u32 = 0;
-pub const ICG_SWDT_CLK_DIV16: u32 = 64;
-pub const ICG_SWDT_CLK_DIV32: u32 = 80;
-pub const ICG_SWDT_CLK_DIV64: u32 = 96;
-pub const ICG_SWDT_CLK_DIV128: u32 = 112;
-pub const ICG_SWDT_CLK_DIV256: u32 = 128;
-pub const ICG_SWDT_CLK_DIV2048: u32 = 176;
-pub const ICG_SWDT_RANGE_0TO25PCT: u32 = 256;
-pub const ICG_SWDT_RANGE_25TO50PCT: u32 = 512;
-pub const ICG_SWDT_RANGE_0TO50PCT: u32 = 768;
-pub const ICG_SWDT_RANGE_50TO75PCT: u32 = 1024;
-pub const ICG_SWDT_RANGE_0TO25PCT_50TO75PCT: u32 = 1280;
-pub const ICG_SWDT_RANGE_25TO75PCT: u32 = 1536;
-pub const ICG_SWDT_RANGE_0TO75PCT: u32 = 1792;
-pub const ICG_SWDT_RANGE_75TO100PCT: u32 = 2048;
-pub const ICG_SWDT_RANGE_0TO25PCT_75TO100PCT: u32 = 2304;
-pub const ICG_SWDT_RANGE_25TO50PCT_75TO100PCT: u32 = 2560;
-pub const ICG_SWDT_RANGE_0TO50PCT_75TO100PCT: u32 = 2816;
-pub const ICG_SWDT_RANGE_50TO100PCT: u32 = 3072;
-pub const ICG_SWDT_RANGE_0TO25PCT_50TO100PCT: u32 = 3328;
-pub const ICG_SWDT_RANGE_25TO100PCT: u32 = 3584;
-pub const ICG_SWDT_RANGE_0TO100PCT: u32 = 3840;
-pub const ICG_SWDT_LPM_CNT_CONT: u32 = 0;
-pub const ICG_SWDT_LPM_CNT_STOP: u32 = 4096;
-pub const ICG_WDT_RST_START: u32 = 0;
-pub const ICG_WDT_RST_STOP: u32 = 65536;
-pub const ICG_WDT_EXP_TYPE_INT: u32 = 0;
-pub const ICG_WDT_EXP_TYPE_RST: u32 = 131072;
-pub const REDEF_ICG_WDTPERI_POS: u32 = 18;
-pub const ICG_WDT_CNT_PERIOD256: u32 = 0;
-pub const ICG_WDT_CNT_PERIOD4096: u32 = 262144;
-pub const ICG_WDT_CNT_PERIOD16384: u32 = 524288;
-pub const ICG_WDT_CNT_PERIOD65536: u32 = 786432;
-pub const REDEF_ICG_WDTCKS_POS: u32 = 20;
-pub const ICG_WDT_CLK_DIV4: u32 = 2097152;
-pub const ICG_WDT_CLK_DIV64: u32 = 6291456;
-pub const ICG_WDT_CLK_DIV128: u32 = 7340032;
-pub const ICG_WDT_CLK_DIV256: u32 = 8388608;
-pub const ICG_WDT_CLK_DIV512: u32 = 9437184;
-pub const ICG_WDT_CLK_DIV1024: u32 = 10485760;
-pub const ICG_WDT_CLK_DIV2048: u32 = 11534336;
-pub const ICG_WDT_CLK_DIV8192: u32 = 13631488;
-pub const REDEF_ICG_WDTWDPT_POS: u32 = 24;
-pub const ICG_WDT_RANGE_0TO25PCT: u32 = 16777216;
-pub const ICG_WDT_RANGE_25TO50PCT: u32 = 33554432;
-pub const ICG_WDT_RANGE_0TO50PCT: u32 = 50331648;
-pub const ICG_WDT_RANGE_50TO75PCT: u32 = 67108864;
-pub const ICG_WDT_RANGE_0TO25PCT_50TO75PCT: u32 = 83886080;
-pub const ICG_WDT_RANGE_25TO75PCT: u32 = 100663296;
-pub const ICG_WDT_RANGE_0TO75PCT: u32 = 117440512;
-pub const ICG_WDT_RANGE_75TO100PCT: u32 = 134217728;
-pub const ICG_WDT_RANGE_0TO25PCT_75TO100PCT: u32 = 150994944;
-pub const ICG_WDT_RANGE_25TO50PCT_75TO100PCT: u32 = 167772160;
-pub const ICG_WDT_RANGE_0TO50PCT_75TO100PCT: u32 = 184549376;
-pub const ICG_WDT_RANGE_50TO100PCT: u32 = 201326592;
-pub const ICG_WDT_RANGE_0TO25PCT_50TO100PCT: u32 = 218103808;
-pub const ICG_WDT_RANGE_25TO100PCT: u32 = 234881024;
-pub const ICG_WDT_RANGE_0TO100PCT: u32 = 251658240;
-pub const ICG_WDT_LPM_CNT_CONT: u32 = 0;
-pub const ICG_WDT_LPM_CNT_STOP: u32 = 268435456;
-pub const REDEF_ICG_NMIFCLK_POS: u32 = 26;
-pub const ICG_NMI_PIN_FILTER_CLK_DIV1: u32 = 0;
-pub const ICG_NMI_PIN_FILTER_CLK_DIV8: u32 = 67108864;
-pub const ICG_NMI_PIN_FILTER_CLK_DIV32: u32 = 134217728;
-pub const ICG_NMI_PIN_FILTER_CLK_DIV64: u32 = 201326592;
-pub const ICG_NMI_PIN_FILTER_DISABLE: u32 = 0;
-pub const ICG_NMI_PIN_FILTER_ENABLE: u32 = 1073741824;
-pub const ICG_NMI_PIN_TRIG_EDGE_FALLING: u32 = 0;
-pub const ICG_NMI_PIN_TRIG_EDGE_RISING: u32 = 268435456;
-pub const ICG_NMI_PIN_INT_DISABLE: u32 = 0;
-pub const ICG_NMI_PIN_INT_ENABLE: u32 = 536870912;
-pub const ICG_NMI_PIN_RST_ENABLE: u32 = 0;
-pub const ICG_NMI_PIN_RST_DISABLE: u32 = 2147483648;
-pub const ICG_BOR_VOL_THRESHOLD_LVL0: u32 = 0;
-pub const ICG_BOR_VOL_THRESHOLD_LVL1: u32 = 65536;
-pub const ICG_BOR_VOL_THRESHOLD_LVL2: u32 = 131072;
-pub const ICG_BOR_VOL_THRESHOLD_LVL3: u32 = 196608;
-pub const ICG_BOR_RST_ENABLE: u32 = 0;
-pub const ICG_BOR_RST_DISABLE: u32 = 262144;
-pub const ICG_HRC_20M: u32 = 0;
-pub const ICG_HRC_16M: u32 = 1;
-pub const ICG_HRC_RST_OSCILLATION: u32 = 0;
-pub const ICG_HRC_RST_STOP: u32 = 256;
-pub const ICG_RB_SWDT_AUTS: u32 = 1;
-pub const ICG_RB_SWDT_ITS: u32 = 2;
-pub const ICG_RB_SWDT_PERI: u32 = 12;
-pub const ICG_RB_SWDT_CKS: u32 = 176;
-pub const ICG_RB_SWDT_WDPT: u32 = 3840;
-pub const ICG_RB_SWDT_SLTPOFF: u32 = 4096;
-pub const ICG_REG_SWDT_CONFIG: u32 = 8127;
-pub const ICG_RB_WDT_AUTS: u32 = 65536;
-pub const ICG_RB_WDT_ITS: u32 = 131072;
-pub const ICG_RB_WDT_PERI: u32 = 786432;
-pub const ICG_RB_WDT_CKS: u32 = 13631488;
-pub const ICG_RB_WDT_WDPT: u32 = 251658240;
-pub const ICG_RB_WDT_SLTPOFF: u32 = 268435456;
-pub const ICG_REG_WDT_CONFIG: u32 = 534708224;
-pub const ICG_RB_NMI_FCLK: u32 = 201326592;
-pub const ICG_RB_NMI_FEN: u32 = 1073741824;
-pub const ICG_RB_NMI_TRG: u32 = 268435456;
-pub const ICG_RB_NMI_EN: u32 = 536870912;
-pub const ICG_RB_NMI_ICGEN: u32 = 2147483648;
-pub const ICG_REG_NMI_CONFIG: u32 = 4227858432;
-pub const ICG_RB_BOR_LEV: u32 = 196608;
-pub const ICG_RB_BOR_DIS: u32 = 262144;
-pub const ICG_REG_BOR_CONFIG: u32 = 458752;
-pub const ICG_RB_HRC_FREQSEL: u32 = 1;
-pub const ICG_RB_HRC_STOP: u32 = 0;
-pub const ICG_REG_HRC_CONFIG: u32 = 1;
-pub const ICG_REG_CFG0_CONST: u32 = 4292870079;
-pub const ICG_REG_CFG1_CONST: u32 = 4294967039;
-pub const ICG_REG_RESV_CONST: u32 = 4294967295;
-pub const DDL_IRQ_PRIO_00: u32 = 0;
-pub const DDL_IRQ_PRIO_01: u32 = 1;
-pub const DDL_IRQ_PRIO_02: u32 = 2;
-pub const DDL_IRQ_PRIO_03: u32 = 3;
-pub const DDL_IRQ_PRIO_04: u32 = 4;
-pub const DDL_IRQ_PRIO_05: u32 = 5;
-pub const DDL_IRQ_PRIO_06: u32 = 6;
-pub const DDL_IRQ_PRIO_07: u32 = 7;
-pub const DDL_IRQ_PRIO_08: u32 = 8;
-pub const DDL_IRQ_PRIO_09: u32 = 9;
-pub const DDL_IRQ_PRIO_10: u32 = 10;
-pub const DDL_IRQ_PRIO_11: u32 = 11;
-pub const DDL_IRQ_PRIO_12: u32 = 12;
-pub const DDL_IRQ_PRIO_13: u32 = 13;
-pub const DDL_IRQ_PRIO_14: u32 = 14;
-pub const DDL_IRQ_PRIO_15: u32 = 15;
-pub const DDL_IRQ_PRIO_DEFAULT: u32 = 15;
-pub const NMI_SRC_PIN: u32 = 1;
-pub const NMI_SRC_SWDT: u32 = 2;
-pub const NMI_SRC_LVD1: u32 = 4;
-pub const NMI_SRC_LVD2: u32 = 8;
-pub const NMI_SRC_XTAL: u32 = 32;
-pub const NMI_SRC_SRAM_PARITY: u32 = 256;
-pub const NMI_SRC_SRAM_ECC: u32 = 512;
-pub const NMI_SRC_BUS_ERR: u32 = 1024;
-pub const NMI_SRC_WDT: u32 = 2048;
-pub const NMI_SRC_ALL: u32 = 3887;
-pub const NMI_TRIG_FALLING: u32 = 0;
-pub const NMI_TRIG_RISING: u32 = 1;
-pub const NMI_FILTER_OFF: u32 = 0;
-pub const NMI_FILTER_ON: u32 = 128;
-pub const NMI_FCLK_DIV1: u32 = 0;
-pub const NMI_FCLK_DIV8: u32 = 16;
-pub const NMI_FCLK_DIV32: u32 = 32;
-pub const NMI_FCLK_DIV64: u32 = 48;
-pub const EXTINT_CH00: u32 = 1;
-pub const EXTINT_CH01: u32 = 2;
-pub const EXTINT_CH02: u32 = 4;
-pub const EXTINT_CH03: u32 = 8;
-pub const EXTINT_CH04: u32 = 16;
-pub const EXTINT_CH05: u32 = 32;
-pub const EXTINT_CH06: u32 = 64;
-pub const EXTINT_CH07: u32 = 128;
-pub const EXTINT_CH08: u32 = 256;
-pub const EXTINT_CH09: u32 = 512;
-pub const EXTINT_CH10: u32 = 1024;
-pub const EXTINT_CH11: u32 = 2048;
-pub const EXTINT_CH12: u32 = 4096;
-pub const EXTINT_CH13: u32 = 8192;
-pub const EXTINT_CH14: u32 = 16384;
-pub const EXTINT_CH15: u32 = 32768;
-pub const EXTINT_CH_ALL: u32 = 65535;
-pub const INTC_INT0: u32 = 1;
-pub const INTC_INT1: u32 = 2;
-pub const INTC_INT2: u32 = 4;
-pub const INTC_INT3: u32 = 8;
-pub const INTC_INT4: u32 = 16;
-pub const INTC_INT5: u32 = 32;
-pub const INTC_INT6: u32 = 64;
-pub const INTC_INT7: u32 = 128;
-pub const INTC_INT8: u32 = 256;
-pub const INTC_INT9: u32 = 512;
-pub const INTC_INT10: u32 = 1024;
-pub const INTC_INT11: u32 = 2048;
-pub const INTC_INT12: u32 = 4096;
-pub const INTC_INT13: u32 = 8192;
-pub const INTC_INT14: u32 = 16384;
-pub const INTC_INT15: u32 = 32768;
-pub const INTC_INT16: u32 = 65536;
-pub const INTC_INT17: u32 = 131072;
-pub const INTC_INT18: u32 = 262144;
-pub const INTC_INT19: u32 = 524288;
-pub const INTC_INT20: u32 = 1048576;
-pub const INTC_INT21: u32 = 2097152;
-pub const INTC_INT22: u32 = 4194304;
-pub const INTC_INT23: u32 = 8388608;
-pub const INTC_INT24: u32 = 16777216;
-pub const INTC_INT25: u32 = 33554432;
-pub const INTC_INT26: u32 = 67108864;
-pub const INTC_INT27: u32 = 134217728;
-pub const INTC_INT28: u32 = 268435456;
-pub const INTC_INT29: u32 = 536870912;
-pub const INTC_INT30: u32 = 1073741824;
-pub const INTC_INT31: u32 = 2147483648;
-pub const INTC_INT_ALL: u32 = 4294967295;
-pub const INTC_EVT0: u32 = 1;
-pub const INTC_EVT1: u32 = 2;
-pub const INTC_EVT2: u32 = 4;
-pub const INTC_EVT3: u32 = 8;
-pub const INTC_EVT4: u32 = 16;
-pub const INTC_EVT5: u32 = 32;
-pub const INTC_EVT6: u32 = 64;
-pub const INTC_EVT7: u32 = 128;
-pub const INTC_EVT8: u32 = 256;
-pub const INTC_EVT9: u32 = 512;
-pub const INTC_EVT10: u32 = 1024;
-pub const INTC_EVT11: u32 = 2048;
-pub const INTC_EVT12: u32 = 4096;
-pub const INTC_EVT13: u32 = 8192;
-pub const INTC_EVT14: u32 = 16384;
-pub const INTC_EVT15: u32 = 32768;
-pub const INTC_EVT16: u32 = 65536;
-pub const INTC_EVT17: u32 = 131072;
-pub const INTC_EVT18: u32 = 262144;
-pub const INTC_EVT19: u32 = 524288;
-pub const INTC_EVT20: u32 = 1048576;
-pub const INTC_EVT21: u32 = 2097152;
-pub const INTC_EVT22: u32 = 4194304;
-pub const INTC_EVT23: u32 = 8388608;
-pub const INTC_EVT24: u32 = 16777216;
-pub const INTC_EVT25: u32 = 33554432;
-pub const INTC_EVT26: u32 = 67108864;
-pub const INTC_EVT27: u32 = 134217728;
-pub const INTC_EVT28: u32 = 268435456;
-pub const INTC_EVT29: u32 = 536870912;
-pub const INTC_EVT30: u32 = 1073741824;
-pub const INTC_EVT31: u32 = 2147483648;
-pub const INTC_EVT_ALL: u32 = 4294967295;
-pub const SWINT_CH00: u32 = 1;
-pub const SWINT_CH01: u32 = 2;
-pub const SWINT_CH02: u32 = 4;
-pub const SWINT_CH03: u32 = 8;
-pub const SWINT_CH04: u32 = 16;
-pub const SWINT_CH05: u32 = 32;
-pub const SWINT_CH06: u32 = 64;
-pub const SWINT_CH07: u32 = 128;
-pub const SWINT_CH08: u32 = 256;
-pub const SWINT_CH09: u32 = 512;
-pub const SWINT_CH10: u32 = 1024;
-pub const SWINT_CH11: u32 = 2048;
-pub const SWINT_CH12: u32 = 4096;
-pub const SWINT_CH13: u32 = 8192;
-pub const SWINT_CH14: u32 = 16384;
-pub const SWINT_CH15: u32 = 32768;
-pub const SWINT_CH16: u32 = 65536;
-pub const SWINT_CH17: u32 = 131072;
-pub const SWINT_CH18: u32 = 262144;
-pub const SWINT_CH19: u32 = 524288;
-pub const SWINT_CH20: u32 = 1048576;
-pub const SWINT_CH21: u32 = 2097152;
-pub const SWINT_CH22: u32 = 4194304;
-pub const SWINT_CH23: u32 = 8388608;
-pub const SWINT_CH24: u32 = 16777216;
-pub const SWINT_CH25: u32 = 33554432;
-pub const SWINT_CH26: u32 = 67108864;
-pub const SWINT_CH27: u32 = 134217728;
-pub const SWINT_CH28: u32 = 268435456;
-pub const SWINT_CH29: u32 = 536870912;
-pub const SWINT_CH30: u32 = 1073741824;
-pub const SWINT_CH31: u32 = 2147483648;
-pub const SWINT_ALL: u32 = 4294967295;
-pub const EXTINT_FILTER_OFF: u32 = 0;
-pub const EXTINT_FILTER_ON: u32 = 128;
-pub const EXTINT_FCLK_DIV1: u32 = 0;
-pub const EXTINT_FCLK_DIV8: u32 = 16;
-pub const EXTINT_FCLK_DIV32: u32 = 32;
-pub const EXTINT_FCLK_DIV64: u32 = 48;
-pub const EXTINT_TRIG_FALLING: u32 = 0;
-pub const EXTINT_TRIG_RISING: u32 = 1;
-pub const EXTINT_TRIG_BOTH: u32 = 2;
-pub const EXTINT_TRIG_LOW: u32 = 3;
-pub const INTC_STOP_WKUP_EXTINT_CH0: u32 = 1;
-pub const INTC_STOP_WKUP_EXTINT_CH1: u32 = 2;
-pub const INTC_STOP_WKUP_EXTINT_CH2: u32 = 4;
-pub const INTC_STOP_WKUP_EXTINT_CH3: u32 = 8;
-pub const INTC_STOP_WKUP_EXTINT_CH4: u32 = 16;
-pub const INTC_STOP_WKUP_EXTINT_CH5: u32 = 32;
-pub const INTC_STOP_WKUP_EXTINT_CH6: u32 = 64;
-pub const INTC_STOP_WKUP_EXTINT_CH7: u32 = 128;
-pub const INTC_STOP_WKUP_EXTINT_CH8: u32 = 256;
-pub const INTC_STOP_WKUP_EXTINT_CH9: u32 = 512;
-pub const INTC_STOP_WKUP_EXTINT_CH10: u32 = 1024;
-pub const INTC_STOP_WKUP_EXTINT_CH11: u32 = 2048;
-pub const INTC_STOP_WKUP_EXTINT_CH12: u32 = 4096;
-pub const INTC_STOP_WKUP_EXTINT_CH13: u32 = 8192;
-pub const INTC_STOP_WKUP_EXTINT_CH14: u32 = 16384;
-pub const INTC_STOP_WKUP_EXTINT_CH15: u32 = 32768;
-pub const INTC_STOP_WKUP_SWDT: u32 = 65536;
-pub const INTC_STOP_WKUP_LVD1: u32 = 131072;
-pub const INTC_STOP_WKUP_LVD2: u32 = 262144;
-pub const INTC_STOP_WKUP_CMP: u32 = 524288;
-pub const INTC_STOP_WKUP_WKTM: u32 = 1048576;
-pub const INTC_STOP_WKUP_RTC_ALM: u32 = 2097152;
-pub const INTC_STOP_WKUP_RTC_PRD: u32 = 4194304;
-pub const INTC_STOP_WKUP_TMR0_CMP: u32 = 8388608;
-pub const INTC_STOP_WKUP_USART1_RX: u32 = 33554432;
-pub const INTC_WUPEN_ALL: u32 = 50331647;
-pub const KEYSCAN_HIZ_CYCLE_4: u32 = 0;
-pub const KEYSCAN_HIZ_CYCLE_8: u32 = 536870912;
-pub const KEYSCAN_HIZ_CYCLE_16: u32 = 1073741824;
-pub const KEYSCAN_HIZ_CYCLE_32: u32 = 1610612736;
-pub const KEYSCAN_HIZ_CYCLE_64: u32 = 2147483648;
-pub const KEYSCAN_HIZ_CYCLE_256: u32 = 2684354560;
-pub const KEYSCAN_HIZ_CYCLE_512: u32 = 3221225472;
-pub const KEYSCAN_HIZ_CYCLE_1024: u32 = 3758096384;
-pub const KEYSCAN_LOW_CYCLE_4: u32 = 33554432;
-pub const KEYSCAN_LOW_CYCLE_8: u32 = 50331648;
-pub const KEYSCAN_LOW_CYCLE_16: u32 = 67108864;
-pub const KEYSCAN_LOW_CYCLE_32: u32 = 83886080;
-pub const KEYSCAN_LOW_CYCLE_64: u32 = 100663296;
-pub const KEYSCAN_LOW_CYCLE_128: u32 = 117440512;
-pub const KEYSCAN_LOW_CYCLE_256: u32 = 134217728;
-pub const KEYSCAN_LOW_CYCLE_512: u32 = 150994944;
-pub const KEYSCAN_LOW_CYCLE_1K: u32 = 167772160;
-pub const KEYSCAN_LOW_CYCLE_2K: u32 = 184549376;
-pub const KEYSCAN_LOW_CYCLE_4K: u32 = 201326592;
-pub const KEYSCAN_LOW_CYCLE_8K: u32 = 218103808;
-pub const KEYSCAN_LOW_CYCLE_16K: u32 = 234881024;
-pub const KEYSCAN_LOW_CYCLE_32K: u32 = 251658240;
-pub const KEYSCAN_LOW_CYCLE_64K: u32 = 268435456;
-pub const KEYSCAN_LOW_CYCLE_128K: u32 = 285212672;
-pub const KEYSCAN_LOW_CYCLE_256K: u32 = 301989888;
-pub const KEYSCAN_LOW_CYCLE_512K: u32 = 318767104;
-pub const KEYSCAN_LOW_CYCLE_1M: u32 = 335544320;
-pub const KEYSCAN_LOW_CYCLE_2M: u32 = 352321536;
-pub const KEYSCAN_LOW_CYCLE_4M: u32 = 369098752;
-pub const KEYSCAN_LOW_CYCLE_8M: u32 = 385875968;
-pub const KEYSCAN_LOW_CYCLE_16M: u32 = 402653184;
-pub const KEYSCAN_CLK_HCLK: u32 = 0;
-pub const KEYSCAN_CLK_LRC: u32 = 1048576;
-pub const KEYSCAN_CLK_XTAL32: u32 = 2097152;
-pub const KEYSCAN_OUT_0T1: u32 = 65536;
-pub const KEYSCAN_OUT_0T2: u32 = 131072;
-pub const KEYSCAN_OUT_0T3: u32 = 196608;
-pub const KEYSCAN_OUT_0T4: u32 = 262144;
-pub const KEYSCAN_OUT_0T5: u32 = 327680;
-pub const KEYSCAN_OUT_0T6: u32 = 393216;
-pub const KEYSCAN_OUT_0T7: u32 = 458752;
-pub const KEYSCAN_IN_0: u32 = 1;
-pub const KEYSCAN_IN_1: u32 = 2;
-pub const KEYSCAN_IN_2: u32 = 4;
-pub const KEYSCAN_IN_3: u32 = 8;
-pub const KEYSCAN_IN_4: u32 = 16;
-pub const KEYSCAN_IN_5: u32 = 32;
-pub const KEYSCAN_IN_6: u32 = 64;
-pub const KEYSCAN_IN_7: u32 = 128;
-pub const KEYSCAN_IN_8: u32 = 256;
-pub const KEYSCAN_IN_9: u32 = 512;
-pub const KEYSCAN_IN_10: u32 = 1024;
-pub const KEYSCAN_IN_11: u32 = 2048;
-pub const KEYSCAN_IN_12: u32 = 4096;
-pub const KEYSCAN_IN_13: u32 = 8192;
-pub const KEYSCAN_IN_14: u32 = 16384;
-pub const KEYSCAN_IN_15: u32 = 32768;
-pub const KEYSCAN_IN_ALL: u32 = 65535;
-pub const MPU_UNIT_DMA2: u32 = 1;
-pub const MPU_UNIT_DMA1: u32 = 2;
-pub const MPU_UNIT_USBFS_DMA: u32 = 4;
-pub const MPU_UNIT_ALL: u32 = 7;
-pub const MPU_REGION_NUM0: u32 = 0;
-pub const MPU_REGION_NUM1: u32 = 1;
-pub const MPU_REGION_NUM2: u32 = 2;
-pub const MPU_REGION_NUM3: u32 = 3;
-pub const MPU_REGION_NUM4: u32 = 4;
-pub const MPU_REGION_NUM5: u32 = 5;
-pub const MPU_REGION_NUM6: u32 = 6;
-pub const MPU_REGION_NUM7: u32 = 7;
-pub const MPU_REGION_NUM8: u32 = 8;
-pub const MPU_REGION_NUM9: u32 = 9;
-pub const MPU_REGION_NUM10: u32 = 10;
-pub const MPU_REGION_NUM11: u32 = 11;
-pub const MPU_REGION_NUM12: u32 = 12;
-pub const MPU_REGION_NUM13: u32 = 13;
-pub const MPU_REGION_NUM14: u32 = 14;
-pub const MPU_REGION_NUM15: u32 = 15;
-pub const MPU_BACKGROUND_WR_DISABLE: u32 = 2;
-pub const MPU_BACKGROUND_WR_ENABLE: u32 = 0;
-pub const MPU_BACKGROUND_RD_DISABLE: u32 = 1;
-pub const MPU_BACKGROUND_RD_ENABLE: u32 = 0;
-pub const MPU_UNIT_DISABLE: u32 = 0;
-pub const MPU_EXP_TYPE_NONE: u32 = 0;
-pub const MPU_EXP_TYPE_BUS_ERR: u32 = 4;
-pub const MPU_EXP_TYPE_NMI: u32 = 8;
-pub const MPU_EXP_TYPE_RST: u32 = 12;
-pub const MPU_REGION_WR_DISABLE: u32 = 2;
-pub const MPU_REGION_WR_ENABLE: u32 = 0;
-pub const MPU_REGION_RD_DISABLE: u32 = 1;
-pub const MPU_REGION_RD_ENABLE: u32 = 0;
-pub const MPU_REGION_SIZE_32BYTE: u32 = 4;
-pub const MPU_REGION_SIZE_64BYTE: u32 = 5;
-pub const MPU_REGION_SIZE_128BYTE: u32 = 6;
-pub const MPU_REGION_SIZE_256BYTE: u32 = 7;
-pub const MPU_REGION_SIZE_512BYTE: u32 = 8;
-pub const MPU_REGION_SIZE_1KBYTE: u32 = 9;
-pub const MPU_REGION_SIZE_2KBYTE: u32 = 10;
-pub const MPU_REGION_SIZE_4KBYTE: u32 = 11;
-pub const MPU_REGION_SIZE_8KBYTE: u32 = 12;
-pub const MPU_REGION_SIZE_16KBYTE: u32 = 13;
-pub const MPU_REGION_SIZE_32KBYTE: u32 = 14;
-pub const MPU_REGION_SIZE_64KBYTE: u32 = 15;
-pub const MPU_REGION_SIZE_128KBYTE: u32 = 16;
-pub const MPU_REGION_SIZE_256KBYTE: u32 = 17;
-pub const MPU_REGION_SIZE_512KBYTE: u32 = 18;
-pub const MPU_REGION_SIZE_1MBYTE: u32 = 19;
-pub const MPU_REGION_SIZE_2MBYTE: u32 = 20;
-pub const MPU_REGION_SIZE_4MBYTE: u32 = 21;
-pub const MPU_REGION_SIZE_8MBYTE: u32 = 22;
-pub const MPU_REGION_SIZE_16MBYTE: u32 = 23;
-pub const MPU_REGION_SIZE_32MBYTE: u32 = 24;
-pub const MPU_REGION_SIZE_64MBYTE: u32 = 25;
-pub const MPU_REGION_SIZE_128MBYTE: u32 = 26;
-pub const MPU_REGION_SIZE_256MBYTE: u32 = 27;
-pub const MPU_REGION_SIZE_512MBYTE: u32 = 28;
-pub const MPU_REGION_SIZE_1GBYTE: u32 = 29;
-pub const MPU_REGION_SIZE_2GBYTE: u32 = 30;
-pub const MPU_REGION_SIZE_4GBYTE: u32 = 31;
-pub const MPU_FLAG_DMA1: u32 = 256;
-pub const MPU_FLAG_DMA2: u32 = 1;
-pub const MPU_FLAG_USBFS_DMA: u32 = 65536;
-pub const MPU_FLAG_ALL: u32 = 65793;
-pub const MPU_IP_AES: u32 = 1;
-pub const MPU_IP_HASH: u32 = 4;
-pub const MPU_IP_TRNG: u32 = 16;
-pub const MPU_IP_CRC: u32 = 64;
-pub const MPU_IP_EFM: u32 = 256;
-pub const MPU_IP_WDT: u32 = 4096;
-pub const MPU_IP_SWDT: u32 = 16384;
-pub const MPU_IP_BKSRAM: u32 = 65536;
-pub const MPU_IP_RTC: u32 = 262144;
-pub const MPU_IP_MPU: u32 = 1048576;
-pub const MPU_IP_SRAMC: u32 = 4194304;
-pub const MPU_IP_INTC: u32 = 16777216;
-pub const MPU_IP_RMU_CMU_PWC: u32 = 67108864;
-pub const MPU_IP_FCG: u32 = 268435456;
-pub const MPU_IP_ALL: u32 = 357912917;
-pub const MPU_IP_EXP_TYPE_NONE: u32 = 0;
-pub const MPU_IP_EXP_TYPE_BUS_ERR: u32 = 2147483648;
-pub const MPU_REG_LOCK_KEY: u32 = 38564;
-pub const MPU_REG_UNLOCK_KEY: u32 = 38565;
-pub const OTS_CLK_XTAL: u32 = 0;
-pub const OTS_CLK_HRC: u32 = 2;
-pub const OTS_AUTO_OFF_DISABLE: u32 = 0;
-pub const OTS_AUTO_OFF_ENABLE: u32 = 8;
-pub const OTS_PARAM_TEMP_COND_TN40: u32 = 0;
-pub const OTS_PARAM_TEMP_COND_T25: u32 = 1;
-pub const OTS_PARAM_TEMP_COND_T125: u32 = 2;
-pub const PWC_PD_MD1: u32 = 0;
-pub const PWC_PD_MD2: u32 = 1;
-pub const PWC_PD_MD3: u32 = 2;
-pub const PWC_PD_MD4: u32 = 3;
-pub const PWC_PD_IO_KEEP1: u32 = 0;
-pub const PWC_PD_IO_KEEP2: u32 = 16;
-pub const PWC_PD_IO_HIZ: u32 = 32;
-pub const PWC_PD_VCAP_0P1UF: u32 = 0;
-pub const PWC_PD_VCAP_0P047UF: u32 = 1;
-pub const PWC_STOP_DRV_HIGH: u32 = 0;
-pub const PWC_STOP_DRV_LOW: u32 = 192;
-pub const PWC_STOP_CLK_KEEP: u32 = 0;
-pub const PWC_STOP_CLK_MRC: u32 = 2;
-pub const PWC_STOP_FLASH_WAIT_ON: u32 = 0;
-pub const PWC_STOP_FLASH_WAIT_OFF: u32 = 1;
-pub const PWC_STOP_WFI: u32 = 0;
-pub const PWC_STOP_WFE_INT: u32 = 1;
-pub const PWC_STOP_WFE_EVT: u32 = 2;
-pub const PWC_SLEEP_WFI: u32 = 0;
-pub const PWC_SLEEP_WFE_INT: u32 = 1;
-pub const PWC_SLEEP_WFE_EVT: u32 = 2;
-pub const PWC_RAM_HIGH_SPEED: u32 = 32835;
-pub const PWC_RAM_ULOW_SPEED: u32 = 36962;
-pub const PWC_RAM_PD_SRAM1: u32 = 1;
-pub const PWC_RAM_PD_SRAM2: u32 = 2;
-pub const PWC_RAM_PD_SRAM3: u32 = 4;
-pub const PWC_RAM_PD_SRAMH: u32 = 8;
-pub const PWC_RAM_PD_USBFS: u32 = 16;
-pub const PWC_RAM_PD_SDIO0: u32 = 32;
-pub const PWC_RAM_PD_SDIO1: u32 = 64;
-pub const PWC_RAM_PD_CACHE: u32 = 256;
-pub const PWC_RAM_PD_CAN: u32 = 128;
-pub const PWC_RAM_PD_ALL: u32 = 511;
-pub const PWC_LVD_CH1: u32 = 0;
-pub const PWC_LVD_CH2: u32 = 1;
-pub const PWC_LVD_ON: u32 = 32;
-pub const PWC_LVD_OFF: u32 = 0;
-pub const PWC_LVD_EXP_TYPE_NONE: u32 = 0;
-pub const PWC_LVD_EXP_TYPE_INT: u32 = 257;
-pub const PWC_LVD_EXP_TYPE_NMI: u32 = 1;
-pub const PWC_LVD_EXP_TYPE_RST: u32 = 3;
-pub const PWC_LVD_CMP_OFF: u32 = 0;
-pub const PWC_LVD_CMP_ON: u32 = 4;
-pub const PWC_LVD_FILTER_ON: u32 = 0;
-pub const PWC_LVD_FILTER_OFF: u32 = 1;
-pub const PWC_LVD_FILTER_LRC_DIV4: u32 = 0;
-pub const PWC_LVD_FILTER_LRC_DIV2: u32 = 2;
-pub const PWC_LVD_FILTER_LRC_DIV1: u32 = 4;
-pub const PWC_LVD_FILTER_LRC_MUL2: u32 = 6;
-pub const PWC_LVD_THRESHOLD_LVL0: u32 = 0;
-pub const PWC_LVD_THRESHOLD_LVL1: u32 = 1;
-pub const PWC_LVD_THRESHOLD_LVL2: u32 = 2;
-pub const PWC_LVD_THRESHOLD_LVL3: u32 = 3;
-pub const PWC_LVD_THRESHOLD_LVL4: u32 = 4;
-pub const PWC_LVD_THRESHOLD_LVL5: u32 = 5;
-pub const PWC_LVD_THRESHOLD_LVL6: u32 = 6;
-pub const PWC_LVD_THRESHOLD_LVL7: u32 = 7;
-pub const PWC_LVD_EXTVCC: u32 = 7;
-pub const PWC_LVD1_FLAG_DETECT: u32 = 2;
-pub const PWC_LVD2_FLAG_DETECT: u32 = 32;
-pub const PWC_LVD1_FLAG_MON: u32 = 1;
-pub const PWC_LVD2_FLAG_MON: u32 = 16;
-pub const PWC_PD_WKUP0_POS: u32 = 0;
-pub const PWC_PD_WKUP1_POS: u32 = 8;
-pub const PWC_PD_WKUP2_POS: u32 = 16;
-pub const PWC_PD_WKUP_WKUP00: u32 = 1;
-pub const PWC_PD_WKUP_WKUP01: u32 = 2;
-pub const PWC_PD_WKUP_WKUP02: u32 = 4;
-pub const PWC_PD_WKUP_WKUP03: u32 = 8;
-pub const PWC_PD_WKUP_WKUP10: u32 = 16;
-pub const PWC_PD_WKUP_WKUP11: u32 = 32;
-pub const PWC_PD_WKUP_WKUP12: u32 = 64;
-pub const PWC_PD_WKUP_WKUP13: u32 = 128;
-pub const PWC_PD_WKUP_WKUP20: u32 = 256;
-pub const PWC_PD_WKUP_WKUP21: u32 = 512;
-pub const PWC_PD_WKUP_WKUP22: u32 = 1024;
-pub const PWC_PD_WKUP_WKUP23: u32 = 2048;
-pub const PWC_PD_WKUP_WKUP30: u32 = 4096;
-pub const PWC_PD_WKUP_WKUP31: u32 = 8192;
-pub const PWC_PD_WKUP_WKUP32: u32 = 16384;
-pub const PWC_PD_WKUP_WKUP33: u32 = 32768;
-pub const PWC_PD_WKUP_LVD1: u32 = 65536;
-pub const PWC_PD_WKUP_LVD2: u32 = 131072;
-pub const PWC_PD_WKUP_NMI: u32 = 262144;
-pub const PWC_PD_WKUP_RTCPRD: u32 = 1048576;
-pub const PWC_PD_WKUP_RTCALM: u32 = 2097152;
-pub const PWC_PD_WKUP_WKTM: u32 = 8388608;
-pub const PWC_PD_WKUP_TRIG_LVD1: u32 = 16;
-pub const PWC_PD_WKUP_TRIG_LVD2: u32 = 32;
-pub const PWC_PD_WKUP_TRIG_WKUP0: u32 = 1;
-pub const PWC_PD_WKUP_TRIG_WKUP1: u32 = 2;
-pub const PWC_PD_WKUP_TRIG_WKUP2: u32 = 4;
-pub const PWC_PD_WKUP_TRIG_WKUP3: u32 = 8;
-pub const PWC_PD_WKUP_TRIG_NMI: u32 = 64;
-pub const PWC_PD_WKUP_TRIG_ALL: u32 = 127;
-pub const PWC_PD_WKUP_TRIG_FALLING: u32 = 0;
-pub const PWC_PD_WKUP_TRIG_RISING: u32 = 1;
-pub const PWC_PD_WKUP_FLAG0_POS: u32 = 0;
-pub const PWC_PD_WKUP_FLAG1_POS: u32 = 8;
-pub const PWC_PD_WKUP_FLAG_WKUP0: u32 = 1;
-pub const PWC_PD_WKUP_FLAG_WKUP1: u32 = 2;
-pub const PWC_PD_WKUP_FLAG_WKUP2: u32 = 4;
-pub const PWC_PD_WKUP_FLAG_WKUP3: u32 = 8;
-pub const PWC_PD_WKUP_FLAG_LVD1: u32 = 16;
-pub const PWC_PD_WKUP_FLAG_LVD2: u32 = 32;
-pub const PWC_PD_WKUP_FLAG_NMI: u32 = 64;
-pub const PWC_PD_WKUP_FLAG_RTCPRD: u32 = 4096;
-pub const PWC_PD_WKUP_FLAG_RTCALM: u32 = 8192;
-pub const PWC_PD_WKUP_FLAG_WKTM: u32 = 32768;
-pub const PWC_PD_WKUP_FLAG_ALL: u32 = 45183;
-pub const PWC_WKT_OFF: u32 = 0;
-pub const PWC_WKT_ON: u32 = 32768;
-pub const PWC_WKT_CLK_SRC_64HZ: u32 = 0;
-pub const PWC_WKT_CLK_SRC_XTAL32: u32 = 8192;
-pub const PWC_WKT_CLK_SRC_LRC: u32 = 16384;
-pub const PWC_LDO_HRC: u32 = 2;
-pub const PWC_LDO_PLL: u32 = 1;
-pub const PWC_LDO_MASK: u32 = 3;
-pub const PWC_WRITE_ENABLE: u32 = 42240;
-pub const PWC_UNLOCK_CODE0: u32 = 42241;
-pub const PWC_UNLOCK_CODE1: u32 = 42242;
-pub const PWC_UNLOCK_CODE2: u32 = 42248;
-pub const PWC_FCG0_REG_UNLOCK_KEY: u32 = 2779054081;
-pub const PWC_FCG0_REG_LOCK_KEY: u32 = 2779054080;
-pub const QSPI_ROM_BASE: u32 = 2550136832;
-pub const QSPI_ROM_END: u32 = 2617245695;
-pub const QSPI_CLK_DIV2: u32 = 65536;
-pub const QSPI_CLK_DIV3: u32 = 131072;
-pub const QSPI_CLK_DIV4: u32 = 196608;
-pub const QSPI_CLK_DIV5: u32 = 262144;
-pub const QSPI_CLK_DIV6: u32 = 327680;
-pub const QSPI_CLK_DIV7: u32 = 393216;
-pub const QSPI_CLK_DIV8: u32 = 458752;
-pub const QSPI_CLK_DIV9: u32 = 524288;
-pub const QSPI_CLK_DIV10: u32 = 589824;
-pub const QSPI_CLK_DIV11: u32 = 655360;
-pub const QSPI_CLK_DIV12: u32 = 720896;
-pub const QSPI_CLK_DIV13: u32 = 786432;
-pub const QSPI_CLK_DIV14: u32 = 851968;
-pub const QSPI_CLK_DIV15: u32 = 917504;
-pub const QSPI_CLK_DIV16: u32 = 983040;
-pub const QSPI_CLK_DIV17: u32 = 1048576;
-pub const QSPI_CLK_DIV18: u32 = 1114112;
-pub const QSPI_CLK_DIV19: u32 = 1179648;
-pub const QSPI_CLK_DIV20: u32 = 1245184;
-pub const QSPI_CLK_DIV21: u32 = 1310720;
-pub const QSPI_CLK_DIV22: u32 = 1376256;
-pub const QSPI_CLK_DIV23: u32 = 1441792;
-pub const QSPI_CLK_DIV24: u32 = 1507328;
-pub const QSPI_CLK_DIV25: u32 = 1572864;
-pub const QSPI_CLK_DIV26: u32 = 1638400;
-pub const QSPI_CLK_DIV27: u32 = 1703936;
-pub const QSPI_CLK_DIV28: u32 = 1769472;
-pub const QSPI_CLK_DIV29: u32 = 1835008;
-pub const QSPI_CLK_DIV30: u32 = 1900544;
-pub const QSPI_CLK_DIV31: u32 = 1966080;
-pub const QSPI_CLK_DIV32: u32 = 2031616;
-pub const QSPI_CLK_DIV33: u32 = 2097152;
-pub const QSPI_CLK_DIV34: u32 = 2162688;
-pub const QSPI_CLK_DIV35: u32 = 2228224;
-pub const QSPI_CLK_DIV36: u32 = 2293760;
-pub const QSPI_CLK_DIV37: u32 = 2359296;
-pub const QSPI_CLK_DIV38: u32 = 2424832;
-pub const QSPI_CLK_DIV39: u32 = 2490368;
-pub const QSPI_CLK_DIV40: u32 = 2555904;
-pub const QSPI_CLK_DIV41: u32 = 2621440;
-pub const QSPI_CLK_DIV42: u32 = 2686976;
-pub const QSPI_CLK_DIV43: u32 = 2752512;
-pub const QSPI_CLK_DIV44: u32 = 2818048;
-pub const QSPI_CLK_DIV45: u32 = 2883584;
-pub const QSPI_CLK_DIV46: u32 = 2949120;
-pub const QSPI_CLK_DIV47: u32 = 3014656;
-pub const QSPI_CLK_DIV48: u32 = 3080192;
-pub const QSPI_CLK_DIV49: u32 = 3145728;
-pub const QSPI_CLK_DIV50: u32 = 3211264;
-pub const QSPI_CLK_DIV51: u32 = 3276800;
-pub const QSPI_CLK_DIV52: u32 = 3342336;
-pub const QSPI_CLK_DIV53: u32 = 3407872;
-pub const QSPI_CLK_DIV54: u32 = 3473408;
-pub const QSPI_CLK_DIV55: u32 = 3538944;
-pub const QSPI_CLK_DIV56: u32 = 3604480;
-pub const QSPI_CLK_DIV57: u32 = 3670016;
-pub const QSPI_CLK_DIV58: u32 = 3735552;
-pub const QSPI_CLK_DIV59: u32 = 3801088;
-pub const QSPI_CLK_DIV60: u32 = 3866624;
-pub const QSPI_CLK_DIV61: u32 = 3932160;
-pub const QSPI_CLK_DIV62: u32 = 3997696;
-pub const QSPI_CLK_DIV63: u32 = 4063232;
-pub const QSPI_CLK_DIV64: u32 = 4128768;
-pub const QSPI_SPI_MD0: u32 = 0;
-pub const QSPI_SPI_MD3: u32 = 128;
-pub const QSPI_PREFETCH_MD_INVD: u32 = 0;
-pub const QSPI_PREFETCH_MD_EDGE_STOP: u32 = 8;
-pub const QSPI_PREFETCH_MD_IMMED_STOP: u32 = 24;
-pub const QSPI_RD_MD_STD_RD: u32 = 0;
-pub const QSPI_RD_MD_FAST_RD: u32 = 1;
-pub const QSPI_RD_MD_DUAL_OUTPUT_FAST_RD: u32 = 2;
-pub const QSPI_RD_MD_DUAL_IO_FAST_RD: u32 = 3;
-pub const QSPI_RD_MD_QUAD_OUTPUT_FAST_RD: u32 = 4;
-pub const QSPI_RD_MD_QUAD_IO_FAST_RD: u32 = 5;
-pub const QSPI_RD_MD_CUSTOM_STANDARD_RD: u32 = 6;
-pub const QSPI_RD_MD_CUSTOM_FAST_RD: u32 = 7;
-pub const QSPI_DUMMY_CYCLE3: u32 = 0;
-pub const QSPI_DUMMY_CYCLE4: u32 = 256;
-pub const QSPI_DUMMY_CYCLE5: u32 = 512;
-pub const QSPI_DUMMY_CYCLE6: u32 = 768;
-pub const QSPI_DUMMY_CYCLE7: u32 = 1024;
-pub const QSPI_DUMMY_CYCLE8: u32 = 1280;
-pub const QSPI_DUMMY_CYCLE9: u32 = 1536;
-pub const QSPI_DUMMY_CYCLE10: u32 = 1792;
-pub const QSPI_DUMMY_CYCLE11: u32 = 2048;
-pub const QSPI_DUMMY_CYCLE12: u32 = 2304;
-pub const QSPI_DUMMY_CYCLE13: u32 = 2560;
-pub const QSPI_DUMMY_CYCLE14: u32 = 2816;
-pub const QSPI_DUMMY_CYCLE15: u32 = 3072;
-pub const QSPI_DUMMY_CYCLE16: u32 = 3328;
-pub const QSPI_DUMMY_CYCLE17: u32 = 3584;
-pub const QSPI_DUMMY_CYCLE18: u32 = 3840;
-pub const QSPI_ADDR_WIDTH_8BIT: u32 = 0;
-pub const QSPI_ADDR_WIDTH_16BIT: u32 = 1;
-pub const QSPI_ADDR_WIDTH_24BIT: u32 = 2;
-pub const QSPI_ADDR_WIDTH_32BIT_INSTR_24BIT: u32 = 3;
-pub const QSPI_ADDR_WIDTH_32BIT_INSTR_32BIT: u32 = 7;
-pub const QSPI_QSSN_SETUP_ADVANCE_QSCK0P5: u32 = 0;
-pub const QSPI_QSSN_SETUP_ADVANCE_QSCK1P5: u32 = 32;
-pub const QSPI_QSSN_RELEASE_DELAY_QSCK0P5: u32 = 0;
-pub const QSPI_QSSN_RELEASE_DELAY_QSCK1P5: u32 = 16;
-pub const QSPI_QSSN_RELEASE_DELAY_QSCK32: u32 = 4096;
-pub const QSPI_QSSN_RELEASE_DELAY_QSCK128: u32 = 8192;
-pub const QSPI_QSSN_RELEASE_DELAY_INFINITE: u32 = 12288;
-pub const QSPI_QSSN_INTERVAL_QSCK1: u32 = 0;
-pub const QSPI_QSSN_INTERVAL_QSCK2: u32 = 1;
-pub const QSPI_QSSN_INTERVAL_QSCK3: u32 = 2;
-pub const QSPI_QSSN_INTERVAL_QSCK4: u32 = 3;
-pub const QSPI_QSSN_INTERVAL_QSCK5: u32 = 4;
-pub const QSPI_QSSN_INTERVAL_QSCK6: u32 = 5;
-pub const QSPI_QSSN_INTERVAL_QSCK7: u32 = 6;
-pub const QSPI_QSSN_INTERVAL_QSCK8: u32 = 7;
-pub const QSPI_QSSN_INTERVAL_QSCK9: u32 = 8;
-pub const QSPI_QSSN_INTERVAL_QSCK10: u32 = 9;
-pub const QSPI_QSSN_INTERVAL_QSCK11: u32 = 10;
-pub const QSPI_QSSN_INTERVAL_QSCK12: u32 = 11;
-pub const QSPI_QSSN_INTERVAL_QSCK13: u32 = 12;
-pub const QSPI_QSSN_INTERVAL_QSCK14: u32 = 13;
-pub const QSPI_QSSN_INTERVAL_QSCK15: u32 = 14;
-pub const QSPI_QSSN_INTERVAL_QSCK16: u32 = 15;
-pub const QSPI_INSTR_PROTOCOL_1LINE: u32 = 0;
-pub const QSPI_INSTR_PROTOCOL_2LINE: u32 = 256;
-pub const QSPI_INSTR_PROTOCOL_4LINE: u32 = 512;
-pub const QSPI_ADDR_PROTOCOL_1LINE: u32 = 0;
-pub const QSPI_ADDR_PROTOCOL_2LINE: u32 = 1024;
-pub const QSPI_ADDR_PROTOCOL_4LINE: u32 = 2048;
-pub const QSPI_DATA_PROTOCOL_1LINE: u32 = 0;
-pub const QSPI_DATA_PROTOCOL_2LINE: u32 = 4096;
-pub const QSPI_DATA_PROTOCOL_4LINE: u32 = 8192;
-pub const QSPI_WP_PIN_LOW: u32 = 0;
-pub const QSPI_WP_PIN_HIGH: u32 = 64;
-pub const QSPI_FLAG_DIRECT_COMM_BUSY: u32 = 1;
-pub const QSPI_FLAG_XIP_MD: u32 = 64;
-pub const QSPI_FLAG_ROM_ACCESS_ERR: u32 = 128;
-pub const QSPI_FLAG_PREFETCH_BUF_FULL: u32 = 16384;
-pub const QSPI_FLAG_PREFETCH_STOP: u32 = 32768;
-pub const QSPI_FLAG_ALL: u32 = 49345;
-pub const QSPI_FLAG_CLR_ALL: u32 = 128;
-pub const RMU_FLAG_PWR_ON: u32 = 1;
-pub const RMU_FLAG_PIN: u32 = 2;
-pub const RMU_FLAG_BROWN_OUT: u32 = 4;
-pub const RMU_FLAG_PVD1: u32 = 8;
-pub const RMU_FLAG_PVD2: u32 = 16;
-pub const RMU_FLAG_WDT: u32 = 32;
-pub const RMU_FLAG_SWDT: u32 = 64;
-pub const RMU_FLAG_PWR_DOWN: u32 = 128;
-pub const RMU_FLAG_SW: u32 = 256;
-pub const RMU_FLAG_MPU_ERR: u32 = 512;
-pub const RMU_FLAG_RAM_PARITY_ERR: u32 = 1024;
-pub const RMU_FLAG_RAM_ECC: u32 = 2048;
-pub const RMU_FLAG_CLK_ERR: u32 = 4096;
-pub const RMU_FLAG_XTAL_ERR: u32 = 8192;
-pub const RMU_FLAG_MX: u32 = 16384;
-pub const RMU_FLAG_ALL: u32 = 32767;
-pub const RTC_DATA_FMT_DEC: u32 = 0;
-pub const RTC_DATA_FMT_BCD: u32 = 1;
-pub const RTC_CLK_SRC_XTAL32: u32 = 0;
-pub const RTC_CLK_SRC_LRC: u32 = 144;
-pub const RTC_HOUR_FMT_12H: u32 = 0;
-pub const RTC_HOUR_FMT_24H: u32 = 8;
-pub const RTC_INT_PERIOD_INVD: u32 = 0;
-pub const RTC_INT_PERIOD_PER_HALF_SEC: u32 = 1;
-pub const RTC_INT_PERIOD_PER_SEC: u32 = 2;
-pub const RTC_INT_PERIOD_PER_MINUTE: u32 = 3;
-pub const RTC_INT_PERIOD_PER_HOUR: u32 = 4;
-pub const RTC_INT_PERIOD_PER_DAY: u32 = 5;
-pub const RTC_INT_PERIOD_PER_MONTH: u32 = 6;
-pub const RTC_CLK_COMPEN_DISABLE: u32 = 0;
-pub const RTC_CLK_COMPEN_ENABLE: u32 = 128;
-pub const RTC_CLK_COMPEN_MD_DISTRIBUTED: u32 = 0;
-pub const RTC_CLK_COMPEN_MD_UNIFORM: u32 = 64;
-pub const RTC_HOUR_24H: u32 = 0;
-pub const RTC_HOUR_12H_AM: u32 = 0;
-pub const RTC_HOUR_12H_PM: u32 = 32;
-pub const RTC_MONTH_JANUARY: u32 = 1;
-pub const RTC_MONTH_FEBRUARY: u32 = 2;
-pub const RTC_MONTH_MARCH: u32 = 3;
-pub const RTC_MONTH_APRIL: u32 = 4;
-pub const RTC_MONTH_MAY: u32 = 5;
-pub const RTC_MONTH_JUNE: u32 = 6;
-pub const RTC_MONTH_JULY: u32 = 7;
-pub const RTC_MONTH_AUGUST: u32 = 8;
-pub const RTC_MONTH_SEPTEMBER: u32 = 9;
-pub const RTC_MONTH_OCTOBER: u32 = 10;
-pub const RTC_MONTH_NOVEMBER: u32 = 11;
-pub const RTC_MONTH_DECEMBER: u32 = 12;
-pub const RTC_WEEKDAY_SUNDAY: u32 = 0;
-pub const RTC_WEEKDAY_MONDAY: u32 = 1;
-pub const RTC_WEEKDAY_TUESDAY: u32 = 2;
-pub const RTC_WEEKDAY_WEDNESDAY: u32 = 3;
-pub const RTC_WEEKDAY_THURSDAY: u32 = 4;
-pub const RTC_WEEKDAY_FRIDAY: u32 = 5;
-pub const RTC_WEEKDAY_SATURDAY: u32 = 6;
-pub const RTC_ALARM_WEEKDAY_SUNDAY: u32 = 1;
-pub const RTC_ALARM_WEEKDAY_MONDAY: u32 = 2;
-pub const RTC_ALARM_WEEKDAY_TUESDAY: u32 = 4;
-pub const RTC_ALARM_WEEKDAY_WEDNESDAY: u32 = 8;
-pub const RTC_ALARM_WEEKDAY_THURSDAY: u32 = 16;
-pub const RTC_ALARM_WEEKDAY_FRIDAY: u32 = 32;
-pub const RTC_ALARM_WEEKDAY_SATURDAY: u32 = 64;
-pub const RTC_ALARM_WEEKDAY_EVERYDAY: u32 = 127;
-pub const RTC_FLAG_RD_WR: u32 = 2;
-pub const RTC_FLAG_ALARM: u32 = 8;
-pub const RTC_FLAG_ALL: u32 = 10;
-pub const RTC_FLAG_CLR_ALL: u32 = 8;
-pub const RTC_INT_PERIOD: u32 = 32;
-pub const RTC_INT_ALARM: u32 = 64;
-pub const RTC_INT_ALL: u32 = 96;
-pub const SDIOC_MD_SD: u32 = 0;
-pub const SDIOC_MD_MMC: u32 = 1;
-pub const SDIOC_CARD_DETECT_CD_PIN_LVL: u32 = 0;
-pub const SDIOC_CARD_DETECT_TEST_SIGNAL: u32 = 128;
-pub const SDIOC_CARD_DETECT_TEST_LVL_LOW: u32 = 0;
-pub const SDIOC_CARD_DETECT_TEST_LVL_HIGH: u32 = 64;
-pub const SDIOC_SPEED_MD_NORMAL: u32 = 0;
-pub const SDIOC_SPEED_MD_HIGH: u32 = 4;
-pub const SDIOC_BUS_WIDTH_1BIT: u32 = 0;
-pub const SDIOC_BUS_WIDTH_4BIT: u32 = 2;
-pub const SDIOC_BUS_WIDTH_8BIT: u32 = 32;
-pub const SDIOC_CLK_DIV1: u32 = 0;
-pub const SDIOC_CLK_DIV2: u32 = 256;
-pub const SDIOC_CLK_DIV4: u32 = 512;
-pub const SDIOC_CLK_DIV8: u32 = 1024;
-pub const SDIOC_CLK_DIV16: u32 = 2048;
-pub const SDIOC_CLK_DIV32: u32 = 4096;
-pub const SDIOC_CLK_DIV64: u32 = 8192;
-pub const SDIOC_CLK_DIV128: u32 = 16384;
-pub const SDIOC_CLK_DIV256: u32 = 32768;
-pub const SDIOC_CMD_TYPE_NORMAL: u32 = 0;
-pub const SDIOC_CMD_TYPE_SUSPEND: u32 = 64;
-pub const SDIOC_CMD_TYPE_RESUME: u32 = 128;
-pub const SDIOC_CMD_TYPE_ABORT: u32 = 192;
-pub const SDIOC_DATA_LINE_DISABLE: u32 = 0;
-pub const SDIOC_DATA_LINE_ENABLE: u32 = 32;
-pub const SDIOC_TRANS_DIR_TO_CARD: u32 = 0;
-pub const SDIOC_TRANS_DIR_TO_HOST: u32 = 16;
-pub const SDIOC_AUTO_SEND_CMD12_DISABLE: u32 = 0;
-pub const SDIOC_AUTO_SEND_CMD12_ENABLE: u32 = 4;
-pub const SDIOC_TRANS_MD_SINGLE: u32 = 0;
-pub const SDIOC_TRANS_MD_INFINITE: u32 = 32;
-pub const SDIOC_TRANS_MD_MULTI: u32 = 34;
-pub const SDIOC_TRANS_MD_STOP_MULTI: u32 = 32802;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E13: u32 = 0;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E14: u32 = 1;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E15: u32 = 2;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E16: u32 = 3;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E17: u32 = 4;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E18: u32 = 5;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E19: u32 = 6;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E20: u32 = 7;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E21: u32 = 8;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E22: u32 = 9;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E23: u32 = 10;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E24: u32 = 11;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E25: u32 = 12;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E26: u32 = 13;
-pub const SDIOC_DATA_TIMEOUT_CLK_2E27: u32 = 14;
-pub const SDIOC_RESP_REG_BIT0_31: u32 = 0;
-pub const SDIOC_RESP_REG_BIT32_63: u32 = 4;
-pub const SDIOC_RESP_REG_BIT64_95: u32 = 8;
-pub const SDIOC_RESP_REG_BIT96_127: u32 = 12;
-pub const SDIOC_SW_RST_DATA_LINE: u32 = 4;
-pub const SDIOC_SW_RST_CMD_LINE: u32 = 2;
-pub const SDIOC_SW_RST_ALL: u32 = 1;
-pub const SDIOC_OUTPUT_CLK_FREQ_400K: u32 = 400000;
-pub const SDIOC_OUTPUT_CLK_FREQ_25M: u32 = 25000000;
-pub const SDIOC_OUTPUT_CLK_FREQ_26M: u32 = 26000000;
-pub const SDIOC_OUTPUT_CLK_FREQ_50M: u32 = 50000000;
-pub const SDIOC_OUTPUT_CLK_FREQ_52M: u32 = 52000000;
-pub const SDIOC_HOST_FLAG_CMDL: u32 = 16777216;
-pub const SDIOC_HOST_FLAG_DATL: u32 = 15728640;
-pub const SDIOC_HOST_FLAG_DATL_D0: u32 = 1048576;
-pub const SDIOC_HOST_FLAG_DATL_D1: u32 = 2097152;
-pub const SDIOC_HOST_FLAG_DATL_D2: u32 = 4194304;
-pub const SDIOC_HOST_FLAG_DATL_D3: u32 = 8388608;
-pub const SDIOC_HOST_FLAG_WPL: u32 = 524288;
-pub const SDIOC_HOST_FLAG_CDL: u32 = 262144;
-pub const SDIOC_HOST_FLAG_CSS: u32 = 131072;
-pub const SDIOC_HOST_FLAG_CIN: u32 = 65536;
-pub const SDIOC_HOST_FLAG_BRE: u32 = 2048;
-pub const SDIOC_HOST_FLAG_BWE: u32 = 1024;
-pub const SDIOC_HOST_FLAG_RTA: u32 = 512;
-pub const SDIOC_HOST_FLAG_WTA: u32 = 256;
-pub const SDIOC_HOST_FLAG_DA: u32 = 4;
-pub const SDIOC_HOST_FLAG_CID: u32 = 2;
-pub const SDIOC_HOST_FLAG_CIC: u32 = 1;
-pub const SDIOC_HOST_FLAG_ALL: u32 = 33492743;
-pub const SDIOC_INT_FLAG_EI: u32 = 32768;
-pub const SDIOC_INT_FLAG_CINT: u32 = 256;
-pub const SDIOC_INT_FLAG_CRM: u32 = 128;
-pub const SDIOC_INT_FLAG_CIST: u32 = 64;
-pub const SDIOC_INT_FLAG_BRR: u32 = 32;
-pub const SDIOC_INT_FLAG_BWR: u32 = 16;
-pub const SDIOC_INT_FLAG_BGE: u32 = 4;
-pub const SDIOC_INT_FLAG_TC: u32 = 2;
-pub const SDIOC_INT_FLAG_CC: u32 = 1;
-pub const SDIOC_NORMAL_INT_FLAG_ALL: u32 = 33271;
-pub const SDIOC_INT_CINTSEN: u32 = 256;
-pub const SDIOC_INT_CRMSEN: u32 = 128;
-pub const SDIOC_INT_CISTSEN: u32 = 64;
-pub const SDIOC_INT_BRRSEN: u32 = 32;
-pub const SDIOC_INT_BWRSEN: u32 = 16;
-pub const SDIOC_INT_BGESEN: u32 = 4;
-pub const SDIOC_INT_TCSEN: u32 = 2;
-pub const SDIOC_INT_CCSEN: u32 = 1;
-pub const SDIOC_NORMAL_INT_ALL: u32 = 503;
-pub const SDIOC_AUTO_CMD_ERR_FLAG_CMDE: u32 = 128;
-pub const SDIOC_AUTO_CMD_ERR_FLAG_IE: u32 = 16;
-pub const SDIOC_AUTO_CMD_ERR_FLAG_EBE: u32 = 8;
-pub const SDIOC_AUTO_CMD_ERR_FLAG_CE: u32 = 4;
-pub const SDIOC_AUTO_CMD_ERR_FLAG_TOE: u32 = 2;
-pub const SDIOC_AUTO_CMD_ERR_FLAG_NE: u32 = 1;
-pub const SDIOC_AUTO_CMD_ERR_FLAG_ALL: u32 = 159;
-pub const SDIOC_FORCE_AUTO_CMD_ERR_FCMDE: u32 = 128;
-pub const SDIOC_FORCE_AUTO_CMD_ERR_FIE: u32 = 16;
-pub const SDIOC_FORCE_AUTO_CMD_ERR_FEBE: u32 = 8;
-pub const SDIOC_FORCE_AUTO_CMD_ERR_FCE: u32 = 4;
-pub const SDIOC_FORCE_AUTO_CMD_ERR_FTOE: u32 = 2;
-pub const SDIOC_FORCE_AUTO_CMD_ERR_FNE: u32 = 1;
-pub const SDIOC_FORCE_AUTO_CMD_ERR_ALL: u32 = 159;
-pub const SDIOC_FORCE_ERR_INT_FACE: u32 = 256;
-pub const SDIOC_FORCE_ERR_INT_FDEBE: u32 = 64;
-pub const SDIOC_FORCE_ERR_INT_FDCE: u32 = 32;
-pub const SDIOC_FORCE_ERR_INT_FDTOE: u32 = 16;
-pub const SDIOC_FORCE_ERR_INT_FCIE: u32 = 8;
-pub const SDIOC_FORCE_ERR_INT_FCEBE: u32 = 4;
-pub const SDIOC_FORCE_ERR_INT_FCCE: u32 = 2;
-pub const SDIOC_FORCE_ERR_INT_FCTOE: u32 = 1;
-pub const SDIOC_FORCE_ERR_INT_ALL: u32 = 383;
-pub const SDIOC_RESP_TYPE_NO: u32 = 0;
-pub const SDIOC_RESP_TYPE_R2: u32 = 1;
-pub const SDIOC_RESP_TYPE_R3_R4: u32 = 2;
-pub const SDIOC_RESP_TYPE_R1_R5_R6_R7: u32 = 26;
-pub const SDIOC_RESP_TYPE_R1B_R5B: u32 = 27;
-pub const SDIOC_CMD0_GO_IDLE_STATE: u32 = 0;
-pub const SDIOC_CMD1_SEND_OP_COND: u32 = 1;
-pub const SDIOC_CMD2_ALL_SEND_CID: u32 = 2;
-pub const SDIOC_CMD3_SEND_RELATIVE_ADDR: u32 = 3;
-pub const SDIOC_CMD4_SET_DSR: u32 = 4;
-pub const SDIOC_CMD5_IO_SEND_OP_COND: u32 = 5;
-pub const SDIOC_CMD6_SWITCH_FUNC: u32 = 6;
-pub const SDIOC_CMD7_SELECT_DESELECT_CARD: u32 = 7;
-pub const SDIOC_CMD8_SEND_IF_COND: u32 = 8;
-pub const SDIOC_CMD9_SEND_CSD: u32 = 9;
-pub const SDIOC_CMD10_SEND_CID: u32 = 10;
-pub const SDIOC_CMD11_READ_DAT_UNTIL_STOP: u32 = 11;
-pub const SDIOC_CMD12_STOP_TRANSMISSION: u32 = 12;
-pub const SDIOC_CMD13_SEND_STATUS: u32 = 13;
-pub const SDIOC_CMD14_HS_BUSTEST_READ: u32 = 14;
-pub const SDIOC_CMD15_GO_INACTIVE_STATE: u32 = 15;
-pub const SDIOC_CMD16_SET_BLOCKLEN: u32 = 16;
-pub const SDIOC_CMD17_READ_SINGLE_BLOCK: u32 = 17;
-pub const SDIOC_CMD18_READ_MULTI_BLOCK: u32 = 18;
-pub const SDIOC_CMD19_HS_BUSTEST_WRITE: u32 = 19;
-pub const SDIOC_CMD20_WRITE_DAT_UNTIL_STOP: u32 = 20;
-pub const SDIOC_CMD23_SET_BLOCK_COUNT: u32 = 23;
-pub const SDIOC_CMD24_WRITE_SINGLE_BLOCK: u32 = 24;
-pub const SDIOC_CMD25_WRITE_MULTI_BLOCK: u32 = 25;
-pub const SDIOC_CMD26_PROGRAM_CID: u32 = 26;
-pub const SDIOC_CMD27_PROGRAM_CSD: u32 = 27;
-pub const SDIOC_CMD28_SET_WRITE_PROT: u32 = 28;
-pub const SDIOC_CMD29_CLR_WRITE_PROT: u32 = 29;
-pub const SDIOC_CMD30_SEND_WRITE_PROT: u32 = 30;
-pub const SDIOC_CMD32_ERASE_WR_BLK_START: u32 = 32;
-pub const SDIOC_CMD33_ERASE_WR_BLK_END: u32 = 33;
-pub const SDIOC_CMD35_ERASE_GROUP_START: u32 = 35;
-pub const SDIOC_CMD36_ERASE_GROUP_END: u32 = 36;
-pub const SDIOC_CMD38_ERASE: u32 = 38;
-pub const SDIOC_CMD39_FAST_IO: u32 = 39;
-pub const SDIOC_CMD40_GO_IRQ_STATE: u32 = 40;
-pub const SDIOC_CMD42_LOCK_UNLOCK: u32 = 42;
-pub const SDIOC_CMD52_IO_RW_DIRECT: u32 = 52;
-pub const SDIOC_CMD53_IO_RW_EXTENDED: u32 = 53;
-pub const SDIOC_CMD55_APP_CMD: u32 = 55;
-pub const SDIOC_CMD56_GEN_CMD: u32 = 56;
-pub const SDIOC_CMD64_NO_CMD: u32 = 64;
-pub const SDIOC_ACMD6_SET_BUS_WIDTH: u32 = 6;
-pub const SDIOC_ACMD13_SD_STATUS: u32 = 13;
-pub const SDIOC_ACMD22_SEND_NUM_WR_BLOCKS: u32 = 22;
-pub const SDIOC_ACMD23_SET_WR_BLK_ERASE_COUNT: u32 = 23;
-pub const SDIOC_ACMD41_SD_APP_OP_COND: u32 = 41;
-pub const SDIOC_ACMD42_SET_CLR_CARD_DETECT: u32 = 42;
-pub const SDIOC_ACMD51_SEND_SCR: u32 = 51;
-pub const SDIOC_ACMD43_GET_MKB: u32 = 43;
-pub const SDIOC_ACMD44_GET_MID: u32 = 44;
-pub const SDIOC_ACMD45_SET_CER_RN1: u32 = 45;
-pub const SDIOC_ACMD46_GET_CER_RN2: u32 = 46;
-pub const SDIOC_ACMD47_SET_CER_RES2: u32 = 47;
-pub const SDIOC_ACMD48_GET_CER_RES1: u32 = 48;
-pub const SDIOC_ACMD18_SECURE_READ_MULTI_BLOCK: u32 = 18;
-pub const SDIOC_ACMD25_SECURE_WRITE_MULTI_BLOCK: u32 = 25;
-pub const SDIOC_ACMD38_SECURE_ERASE: u32 = 38;
-pub const SDIOC_ACMD49_CHANGE_SECURE_AREA: u32 = 49;
-pub const SDIOC_ACMD48_SECURE_WRITE_MKB: u32 = 48;
-pub const SDMMC_ERR_NONE: u32 = 0;
-pub const SDMMC_ERR_ADDR_OUT_OF_RANGE: u32 = 2147483648;
-pub const SDMMC_ERR_ADDR_MISALIGNED: u32 = 1073741824;
-pub const SDMMC_ERR_BLOCK_LEN_ERR: u32 = 536870912;
-pub const SDMMC_ERR_ERASE_SEQ_ERR: u32 = 268435456;
-pub const SDMMC_ERR_BAD_ERASE_PARAM: u32 = 134217728;
-pub const SDMMC_ERR_WR_PROT_VIOLATION: u32 = 67108864;
-pub const SDMMC_ERR_LOCK_UNLOCK_FAILED: u32 = 16777216;
-pub const SDMMC_ERR_COM_CRC_FAILED: u32 = 8388608;
-pub const SDMMC_ERR_ILLEGAL_CMD: u32 = 4194304;
-pub const SDMMC_ERR_CARD_ECC_FAILED: u32 = 2097152;
-pub const SDMMC_ERR_CC_ERR: u32 = 1048576;
-pub const SDMMC_ERR_GENERAL_UNKNOWN_ERR: u32 = 524288;
-pub const SDMMC_ERR_STREAM_RD_UNDERRUN: u32 = 262144;
-pub const SDMMC_ERR_STREAM_WR_OVERRUN: u32 = 131072;
-pub const SDMMC_ERR_CID_CSD_OVERWRITE: u32 = 65536;
-pub const SDMMC_ERR_WP_ERASE_SKIP: u32 = 32768;
-pub const SDMMC_ERR_CARD_ECC_DISABLED: u32 = 16384;
-pub const SDMMC_ERR_ERASE_RST: u32 = 8192;
-pub const SDMMC_ERR_CMD_AUTO_SEND: u32 = 4096;
-pub const SDMMC_ERR_CMD_INDEX: u32 = 2048;
-pub const SDMMC_ERR_CMD_STOP_BIT: u32 = 1024;
-pub const SDMMC_ERR_CMD_CRC_FAIL: u32 = 512;
-pub const SDMMC_ERR_CMD_TIMEOUT: u32 = 256;
-pub const SDMMC_ERR_SWITCH_ERR: u32 = 128;
-pub const SDMMC_ERR_DATA_STOP_BIT: u32 = 64;
-pub const SDMMC_ERR_DATA_CRC_FAIL: u32 = 32;
-pub const SDMMC_ERR_DATA_TIMEOUT: u32 = 16;
-pub const SDMMC_ERR_AKE_SEQ_ERR: u32 = 8;
-pub const SDMMC_ERR_INVD_VOLT: u32 = 4;
-pub const SDMMC_ERR_REQ_NOT_APPLICABLE: u32 = 2;
-pub const SDMMC_ERR_UNSUPPORT_FEATURE: u32 = 1;
-pub const SDMMC_ERR_BITS_MASK: u32 = 4261404744;
-pub const SDMMC_STATUS_CARD_IS_LOCKED_POS: u32 = 24;
-pub const SDMMC_STATUS_CARD_IS_LOCKED: u32 = 33554432;
-pub const SDMMC_STATUS_CURR_STATE_POS: u32 = 9;
-pub const SDMMC_STATUS_CURR_STATE: u32 = 7680;
-pub const SDMMC_STATUS_RDY_FOR_DATA_POS: u32 = 8;
-pub const SDMMC_STATUS_RDY_FOR_DATA: u32 = 256;
-pub const SDMMC_STATUS_APP_CMD_POS: u32 = 5;
-pub const SDMMC_STATUS_APP_CMD: u32 = 32;
-pub const SDMMC_SCR_PHY_SPEC_VER_1P0: u32 = 0;
-pub const SDMMC_SCR_PHY_SPEC_VER_1P1: u32 = 16777216;
-pub const SDMMC_SCR_PHY_SPEC_VER_2P0: u32 = 33554432;
-pub const SDMMC_SCR_BUS_WIDTH_4BIT: u32 = 262144;
-pub const SDMMC_SCR_BUS_WIDTH_1BIT: u32 = 65536;
-pub const SDMMC_OCR_HIGH_CAPACITY: u32 = 1073741824;
-pub const SDMMC_OCR_STD_CAPACITY: u32 = 0;
-pub const SDMMC_CSD_SUPPORT_CLASS5_ERASE: u32 = 32;
-pub const SDMMC_DATA_TIMEOUT: u32 = 65535;
-pub const SDMMC_MAX_VOLT_TRIAL: u32 = 65535;
-pub const SDIO_CMD52_ARG_RD: u32 = 0;
-pub const SDIO_CMD52_ARG_WR: u32 = 2147483648;
-pub const SDIO_CMD52_ARG_RAW_FLAG_0: u32 = 0;
-pub const SDIO_CMD52_ARG_RAW_FLAG_1: u32 = 134217728;
-pub const SDIO_CMD53_ARG_RD: u32 = 0;
-pub const SDIO_CMD53_ARG_WR: u32 = 2147483648;
-pub const SDIO_CMD53_ARG_TRANS_MD_BYTE: u32 = 0;
-pub const SDIO_CMD53_ARG_TRANS_MD_BLOCK: u32 = 134217728;
-pub const SDIO_CMD53_ARG_OP_CODE_ADDR_FIX: u32 = 0;
-pub const SDIO_CMD53_ARG_OP_CODE_ADDR_INC: u32 = 67108864;
-pub const SPI_4_WIRE: u32 = 0;
-pub const SPI_3_WIRE: u32 = 1;
-pub const SPI_FULL_DUPLEX: u32 = 0;
-pub const SPI_SEND_ONLY: u32 = 2;
-pub const SPI_SLAVE: u32 = 0;
-pub const SPI_MASTER: u32 = 8;
-pub const SPI_LOOPBACK_INVD: u32 = 0;
-pub const SPI_LOOPBACK_MOSI_INVT: u32 = 16;
-pub const SPI_LOOPBACK_MOSI: u32 = 32;
-pub const SPI_INT_ERR: u32 = 256;
-pub const SPI_INT_TX_BUF_EMPTY: u32 = 512;
-pub const SPI_INT_RX_BUF_FULL: u32 = 1024;
-pub const SPI_INT_IDLE: u32 = 2048;
-pub const SPI_INT_ALL: u32 = 3840;
-pub const SPI_MD_FAULT_DETECT_DISABLE: u32 = 0;
-pub const SPI_MD_FAULT_DETECT_ENABLE: u32 = 4096;
-pub const SPI_PARITY_INVD: u32 = 0;
-pub const SPI_PARITY_EVEN: u32 = 32768;
-pub const SPI_PARITY_ODD: u32 = 49152;
-pub const SPI_PIN_SS0: u32 = 256;
-pub const SPI_PIN_SS1: u32 = 512;
-pub const SPI_PIN_SS2: u32 = 1024;
-pub const SPI_PIN_SS3: u32 = 2048;
-pub const SPI_SS_VALID_LVL_HIGH: u32 = 1;
-pub const SPI_SS_VALID_LVL_LOW: u32 = 0;
-pub const SPI_RD_TARGET_RD_BUF: u32 = 0;
-pub const SPI_RD_TARGET_WR_BUF: u32 = 64;
-pub const SPI_1_FRAME: u32 = 0;
-pub const SPI_2_FRAME: u32 = 1;
-pub const SPI_3_FRAME: u32 = 2;
-pub const SPI_4_FRAME: u32 = 3;
-pub const SPI_INTERVAL_TIME_1SCK: u32 = 0;
-pub const SPI_INTERVAL_TIME_2SCK: u32 = 268435456;
-pub const SPI_INTERVAL_TIME_3SCK: u32 = 536870912;
-pub const SPI_INTERVAL_TIME_4SCK: u32 = 805306368;
-pub const SPI_INTERVAL_TIME_5SCK: u32 = 1073741824;
-pub const SPI_INTERVAL_TIME_6SCK: u32 = 1342177280;
-pub const SPI_INTERVAL_TIME_7SCK: u32 = 1610612736;
-pub const SPI_INTERVAL_TIME_8SCK: u32 = 1879048192;
-pub const SPI_RELEASE_TIME_1SCK: u32 = 0;
-pub const SPI_RELEASE_TIME_2SCK: u32 = 16777216;
-pub const SPI_RELEASE_TIME_3SCK: u32 = 33554432;
-pub const SPI_RELEASE_TIME_4SCK: u32 = 50331648;
-pub const SPI_RELEASE_TIME_5SCK: u32 = 67108864;
-pub const SPI_RELEASE_TIME_6SCK: u32 = 83886080;
-pub const SPI_RELEASE_TIME_7SCK: u32 = 100663296;
-pub const SPI_RELEASE_TIME_8SCK: u32 = 117440512;
-pub const SPI_SETUP_TIME_1SCK: u32 = 0;
-pub const SPI_SETUP_TIME_2SCK: u32 = 1048576;
-pub const SPI_SETUP_TIME_3SCK: u32 = 2097152;
-pub const SPI_SETUP_TIME_4SCK: u32 = 3145728;
-pub const SPI_SETUP_TIME_5SCK: u32 = 4194304;
-pub const SPI_SETUP_TIME_6SCK: u32 = 5242880;
-pub const SPI_SETUP_TIME_7SCK: u32 = 6291456;
-pub const SPI_SETUP_TIME_8SCK: u32 = 7340032;
-pub const SPI_COM_SUSP_FUNC_OFF: u32 = 0;
-pub const SPI_COM_SUSP_FUNC_ON: u32 = 128;
-pub const SPI_MD_0: u32 = 0;
-pub const SPI_MD_1: u32 = 1;
-pub const SPI_MD_2: u32 = 2;
-pub const SPI_MD_3: u32 = 3;
-pub const SPI_SCK_POLARITY_LOW: u32 = 0;
-pub const SPI_SCK_POLARITY_HIGH: u32 = 2;
-pub const SPI_SCK_PHASE_ODD_EDGE_SAMPLE: u32 = 0;
-pub const SPI_SCK_PHASE_EVEN_EDGE_SAMPLE: u32 = 1;
-pub const SPI_BR_CLK_DIV2: u32 = 0;
-pub const SPI_BR_CLK_DIV4: u32 = 4;
-pub const SPI_BR_CLK_DIV8: u32 = 8;
-pub const SPI_BR_CLK_DIV16: u32 = 12;
-pub const SPI_BR_CLK_DIV32: u32 = 16;
-pub const SPI_BR_CLK_DIV64: u32 = 20;
-pub const SPI_BR_CLK_DIV128: u32 = 24;
-pub const SPI_BR_CLK_DIV256: u32 = 28;
-pub const SPI_DATA_SIZE_4BIT: u32 = 0;
-pub const SPI_DATA_SIZE_5BIT: u32 = 256;
-pub const SPI_DATA_SIZE_6BIT: u32 = 512;
-pub const SPI_DATA_SIZE_7BIT: u32 = 768;
-pub const SPI_DATA_SIZE_8BIT: u32 = 1024;
-pub const SPI_DATA_SIZE_9BIT: u32 = 1280;
-pub const SPI_DATA_SIZE_10BIT: u32 = 1536;
-pub const SPI_DATA_SIZE_11BIT: u32 = 1792;
-pub const SPI_DATA_SIZE_12BIT: u32 = 2048;
-pub const SPI_DATA_SIZE_13BIT: u32 = 2304;
-pub const SPI_DATA_SIZE_14BIT: u32 = 2560;
-pub const SPI_DATA_SIZE_15BIT: u32 = 2816;
-pub const SPI_DATA_SIZE_16BIT: u32 = 3072;
-pub const SPI_DATA_SIZE_20BIT: u32 = 3328;
-pub const SPI_DATA_SIZE_24BIT: u32 = 3584;
-pub const SPI_DATA_SIZE_32BIT: u32 = 3840;
-pub const SPI_FIRST_MSB: u32 = 0;
-pub const SPI_FIRST_LSB: u32 = 4096;
-pub const SPI_FLAG_OVERRUN: u32 = 1;
-pub const SPI_FLAG_IDLE: u32 = 2;
-pub const SPI_FLAG_MD_FAULT: u32 = 4;
-pub const SPI_FLAG_PARITY_ERR: u32 = 8;
-pub const SPI_FLAG_UNDERRUN: u32 = 16;
-pub const SPI_FLAG_TX_BUF_EMPTY: u32 = 32;
-pub const SPI_FLAG_RX_BUF_FULL: u32 = 128;
-pub const SPI_FLAG_CLR_ALL: u32 = 29;
-pub const SPI_FLAG_ALL: u32 = 191;
-pub const SRAM_SRAMH: u32 = 4;
-pub const SRAM_SRAM12: u32 = 1;
-pub const SRAM_SRAM3: u32 = 2;
-pub const SRAM_SRAMR: u32 = 8;
-pub const SRAM_SRAM_ALL: u32 = 15;
-pub const SRAM_ECC_SRAM3: u32 = 1;
-pub const SRAM_ECC_SRAM_ALL: u32 = 1;
-pub const SRAM_WAIT_CYCLE0: u32 = 0;
-pub const SRAM_WAIT_CYCLE1: u32 = 1;
-pub const SRAM_WAIT_CYCLE2: u32 = 2;
-pub const SRAM_WAIT_CYCLE3: u32 = 3;
-pub const SRAM_WAIT_CYCLE4: u32 = 4;
-pub const SRAM_WAIT_CYCLE5: u32 = 5;
-pub const SRAM_WAIT_CYCLE6: u32 = 6;
-pub const SRAM_WAIT_CYCLE7: u32 = 7;
-pub const SRAM_EXP_TYPE_NMI: u32 = 0;
-pub const SRAM_EXP_TYPE_RST: u32 = 1;
-pub const SRAM_CHECK_SRAM3: u32 = 65536;
-pub const SRAM_CHECK_SRAMH_1_2_B: u32 = 1;
-pub const SRAM_CHECK_SRAM_ALL: u32 = 65537;
-pub const SRAM_SRAM3_ECC_INVD: u32 = 0;
-pub const SRAM_SRAM3_ECC_MD1: u32 = 16777216;
-pub const SRAM_SRAM3_ECC_MD2: u32 = 33554432;
-pub const SRAM_SRAM3_ECC_MD3: u32 = 50331648;
-pub const SRAM_ECC_MD_INVD: u32 = 0;
-pub const SRAM_FLAG_SRAM3_1ERR: u32 = 1;
-pub const SRAM_FLAG_SRAM3_2ERR: u32 = 2;
-pub const SRAM_FLAG_SRAM12_PYERR: u32 = 4;
-pub const SRAM_FLAG_SRAMH_PYERR: u32 = 8;
-pub const SRAM_FLAG_SRAMR_PYERR: u32 = 16;
-pub const SRAM_FLAG_ALL: u32 = 31;
-pub const SRAM_REG_LOCK_KEY: u32 = 118;
-pub const SRAM_REG_UNLOCK_KEY: u32 = 119;
-pub const SWDT_FLAG_UDF: u32 = 65536;
-pub const SWDT_FLAG_REFRESH: u32 = 131072;
-pub const SWDT_FLAG_ALL: u32 = 196608;
-pub const TMR0_CH_A: u32 = 0;
-pub const TMR0_CH_B: u32 = 1;
-pub const TMR0_CLK_SRC_INTERN_CLK: u32 = 0;
-pub const TMR0_CLK_SRC_SPEC_EVT: u32 = 512;
-pub const TMR0_CLK_SRC_LRC: u32 = 256;
-pub const TMR0_CLK_SRC_XTAL32: u32 = 1280;
-pub const TMR0_CLK_DIV1: u32 = 0;
-pub const TMR0_CLK_DIV2: u32 = 16;
-pub const TMR0_CLK_DIV4: u32 = 32;
-pub const TMR0_CLK_DIV8: u32 = 48;
-pub const TMR0_CLK_DIV16: u32 = 64;
-pub const TMR0_CLK_DIV32: u32 = 80;
-pub const TMR0_CLK_DIV64: u32 = 96;
-pub const TMR0_CLK_DIV128: u32 = 112;
-pub const TMR0_CLK_DIV256: u32 = 128;
-pub const TMR0_CLK_DIV512: u32 = 144;
-pub const TMR0_CLK_DIV1024: u32 = 160;
-pub const TMR0_FUNC_CMP: u32 = 0;
-pub const TMR0_FUNC_CAPT: u32 = 32770;
-pub const TMR0_INT_CMP_A: u32 = 4;
-pub const TMR0_INT_CMP_B: u32 = 262144;
-pub const TMR0_INT_ALL: u32 = 262148;
-pub const TMR0_FLAG_CMP_A: u32 = 1;
-pub const TMR0_FLAG_CMP_B: u32 = 65536;
-pub const TMR0_FLAG_ALL: u32 = 65537;
-pub const TMR4_CLK_SRC_INTERNCLK: u32 = 0;
-pub const TMR4_CLK_SRC_EXTCLK: u32 = 32768;
-pub const TMR4_CLK_DIV1: u32 = 0;
-pub const TMR4_CLK_DIV2: u32 = 1;
-pub const TMR4_CLK_DIV4: u32 = 2;
-pub const TMR4_CLK_DIV8: u32 = 3;
-pub const TMR4_CLK_DIV16: u32 = 4;
-pub const TMR4_CLK_DIV32: u32 = 5;
-pub const TMR4_CLK_DIV64: u32 = 6;
-pub const TMR4_CLK_DIV128: u32 = 7;
-pub const TMR4_CLK_DIV256: u32 = 8;
-pub const TMR4_CLK_DIV512: u32 = 9;
-pub const TMR4_CLK_DIV1024: u32 = 10;
-pub const TMR4_MD_SAWTOOTH: u32 = 0;
-pub const TMR4_MD_TRIANGLE: u32 = 32;
-pub const TMR4_FLAG_RELOAD_TMR_U: u32 = 1;
-pub const TMR4_FLAG_RELOAD_TMR_V: u32 = 16;
-pub const TMR4_FLAG_RELOAD_TMR_W: u32 = 256;
-pub const TMR4_FLAG_OC_CMP_UH: u32 = 65536;
-pub const TMR4_FLAG_OC_CMP_UL: u32 = 131072;
-pub const TMR4_FLAG_OC_CMP_VH: u32 = 262144;
-pub const TMR4_FLAG_OC_CMP_VL: u32 = 524288;
-pub const TMR4_FLAG_OC_CMP_WH: u32 = 1048576;
-pub const TMR4_FLAG_OC_CMP_WL: u32 = 2097152;
-pub const TMR4_INT_RELOAD_TMR_U: u32 = 1;
-pub const TMR4_INT_RELOAD_TMR_V: u32 = 2;
-pub const TMR4_INT_RELOAD_TMR_W: u32 = 4;
-pub const TMR4_INT_OC_CMP_UH: u32 = 65536;
-pub const TMR4_INT_OC_CMP_UL: u32 = 131072;
-pub const TMR4_INT_OC_CMP_VH: u32 = 262144;
-pub const TMR4_INT_OC_CMP_VL: u32 = 524288;
-pub const TMR4_INT_OC_CMP_WH: u32 = 1048576;
-pub const TMR4_INT_OC_CMP_WL: u32 = 2097152;
-pub const TMR4_INT_CNT_MASK0: u32 = 0;
-pub const TMR4_INT_CNT_MASK1: u32 = 1;
-pub const TMR4_INT_CNT_MASK2: u32 = 2;
-pub const TMR4_INT_CNT_MASK3: u32 = 3;
-pub const TMR4_INT_CNT_MASK4: u32 = 4;
-pub const TMR4_INT_CNT_MASK5: u32 = 5;
-pub const TMR4_INT_CNT_MASK6: u32 = 6;
-pub const TMR4_INT_CNT_MASK7: u32 = 7;
-pub const TMR4_INT_CNT_MASK8: u32 = 8;
-pub const TMR4_INT_CNT_MASK9: u32 = 9;
-pub const TMR4_INT_CNT_MASK10: u32 = 10;
-pub const TMR4_INT_CNT_MASK11: u32 = 11;
-pub const TMR4_INT_CNT_MASK12: u32 = 12;
-pub const TMR4_INT_CNT_MASK13: u32 = 13;
-pub const TMR4_INT_CNT_MASK14: u32 = 14;
-pub const TMR4_INT_CNT_MASK15: u32 = 15;
-pub const TMR4_OC_CH_UH: u32 = 0;
-pub const TMR4_OC_CH_UL: u32 = 1;
-pub const TMR4_OC_CH_VH: u32 = 2;
-pub const TMR4_OC_CH_VL: u32 = 3;
-pub const TMR4_OC_CH_WH: u32 = 4;
-pub const TMR4_OC_CH_WL: u32 = 5;
-pub const TMR4_OC_INVD_LOW: u32 = 0;
-pub const TMR4_OC_INVD_HIGH: u32 = 4;
-pub const TMR4_OC_PORT_LOW: u32 = 0;
-pub const TMR4_OC_PORT_HIGH: u32 = 4;
-pub const TMR4_OC_BUF_NONE: u32 = 0;
-pub const TMR4_OC_BUF_CMP_VALUE: u32 = 1;
-pub const TMR4_OC_BUF_CMP_MD: u32 = 2;
-pub const TMR4_OC_BUF_COND_IMMED: u32 = 0;
-pub const TMR4_OC_BUF_COND_VALLEY: u32 = 1;
-pub const TMR4_OC_BUF_COND_PEAK: u32 = 2;
-pub const TMR4_OC_BUF_COND_PEAK_VALLEY: u32 = 3;
-pub const TMR4_OC_OCF_HOLD: u32 = 0;
-pub const TMR4_OC_OCF_SET: u32 = 1;
-pub const TMR4_OC_HOLD: u32 = 0;
-pub const TMR4_OC_HIGH: u32 = 1;
-pub const TMR4_OC_LOW: u32 = 2;
-pub const TMR4_OC_INVT: u32 = 3;
-pub const TMR4_PWM_CH_U: u32 = 0;
-pub const TMR4_PWM_CH_V: u32 = 1;
-pub const TMR4_PWM_CH_W: u32 = 2;
-pub const TMR4_PWM_PIN_OUH: u32 = 0;
-pub const TMR4_PWM_PIN_OUL: u32 = 1;
-pub const TMR4_PWM_PIN_OVH: u32 = 2;
-pub const TMR4_PWM_PIN_OVL: u32 = 3;
-pub const TMR4_PWM_PIN_OWH: u32 = 4;
-pub const TMR4_PWM_PIN_OWL: u32 = 5;
-pub const TMR4_PWM_CLK_DIV1: u32 = 0;
-pub const TMR4_PWM_CLK_DIV2: u32 = 1;
-pub const TMR4_PWM_CLK_DIV4: u32 = 2;
-pub const TMR4_PWM_CLK_DIV8: u32 = 3;
-pub const TMR4_PWM_CLK_DIV16: u32 = 4;
-pub const TMR4_PWM_CLK_DIV32: u32 = 5;
-pub const TMR4_PWM_CLK_DIV64: u32 = 6;
-pub const TMR4_PWM_CLK_DIV128: u32 = 7;
-pub const TMR4_PWM_MD_THROUGH: u32 = 0;
-pub const TMR4_PWM_MD_DEAD_TMR: u32 = 16;
-pub const TMR4_PWM_MD_DEAD_TMR_FILTER: u32 = 32;
-pub const TMR4_PWM_OXH_HOLD_OXL_HOLD: u32 = 0;
-pub const TMR4_PWM_OXH_INVT_OXL_INVT: u32 = 64;
-pub const TMR4_PWM_OXH_INVT_OXL_HOLD: u32 = 128;
-pub const TMR4_PWM_OXH_HOLD_OXL_INVT: u32 = 192;
-pub const TMR4_PWM_PDAR_IDX: u32 = 0;
-pub const TMR4_PWM_PDBR_IDX: u32 = 1;
-pub const TMR4_PWM_ABNORMAL_PIN_NORMAL: u32 = 0;
-pub const TMR4_PWM_ABNORMAL_PIN_HIZ: u32 = 1;
-pub const TMR4_PWM_ABNORMAL_PIN_LOW: u32 = 2;
-pub const TMR4_PWM_ABNORMAL_PIN_HIGH: u32 = 3;
-pub const TMR4_PWM_ABNORMAL_PIN_HOLD: u32 = 4;
-pub const TMR4_EVT_CH_UH: u32 = 0;
-pub const TMR4_EVT_CH_UL: u32 = 1;
-pub const TMR4_EVT_CH_VH: u32 = 2;
-pub const TMR4_EVT_CH_VL: u32 = 3;
-pub const TMR4_EVT_CH_WH: u32 = 4;
-pub const TMR4_EVT_CH_WL: u32 = 5;
-pub const TMR4_EVT_MATCH_CNT_UP: u32 = 16384;
-pub const TMR4_EVT_MATCH_CNT_DOWN: u32 = 4096;
-pub const TMR4_EVT_MATCH_CNT_PEAK: u32 = 8192;
-pub const TMR4_EVT_MATCH_CNT_VALLEY: u32 = 32768;
-pub const TMR4_EVT_MATCH_CNT_ALL: u32 = 61440;
-pub const TMR4_EVT_MASK_PEAK: u32 = 128;
-pub const TMR4_EVT_MASK_VALLEY: u32 = 64;
-pub const TMR4_EVT_MASK_TYPE_ALL: u32 = 192;
-pub const TMR4_EVT_BUF_COND_IMMED: u32 = 0;
-pub const TMR4_EVT_BUF_COND_VALLEY: u32 = 1;
-pub const TMR4_EVT_BUF_COND_PEAK: u32 = 2;
-pub const TMR4_EVT_BUF_COND_PEAK_VALLEY: u32 = 3;
-pub const TMR4_EVT_MD_CMP: u32 = 0;
-pub const TMR4_EVT_MD_DELAY: u32 = 256;
-pub const TMR4_EVT_DELAY_OCCRXH: u32 = 0;
-pub const TMR4_EVT_DELAY_OCCRXL: u32 = 512;
-pub const TMR4_EVT_MASK0: u32 = 0;
-pub const TMR4_EVT_MASK1: u32 = 1;
-pub const TMR4_EVT_MASK2: u32 = 2;
-pub const TMR4_EVT_MASK3: u32 = 3;
-pub const TMR4_EVT_MASK4: u32 = 4;
-pub const TMR4_EVT_MASK5: u32 = 5;
-pub const TMR4_EVT_MASK6: u32 = 6;
-pub const TMR4_EVT_MASK7: u32 = 7;
-pub const TMR4_EVT_MASK8: u32 = 8;
-pub const TMR4_EVT_MASK9: u32 = 9;
-pub const TMR4_EVT_MASK10: u32 = 10;
-pub const TMR4_EVT_MASK11: u32 = 11;
-pub const TMR4_EVT_MASK12: u32 = 12;
-pub const TMR4_EVT_MASK13: u32 = 13;
-pub const TMR4_EVT_MASK14: u32 = 14;
-pub const TMR4_EVT_MASK15: u32 = 15;
-pub const TMR4_EVT_OUTPUT_EVT0: u32 = 0;
-pub const TMR4_EVT_OUTPUT_EVT1: u32 = 4;
-pub const TMR4_EVT_OUTPUT_EVT2: u32 = 8;
-pub const TMR4_EVT_OUTPUT_EVT3: u32 = 12;
-pub const TMR4_EVT_OUTPUT_EVT4: u32 = 16;
-pub const TMR4_EVT_OUTPUT_EVT5: u32 = 20;
-pub const TMR4_EVT_OUTPUT_NONE: u32 = 0;
-pub const TMR4_EVT_OUTPUT_EVT0_SIGNAL: u32 = 1;
-pub const TMR4_EVT_OUTPUT_EVT1_SIGNAL: u32 = 2;
-pub const TMR4_EVT_OUTPUT_EVT2_SIGNAL: u32 = 3;
-pub const TMR4_EVT_OUTPUT_EVT3_SIGNAL: u32 = 4;
-pub const TMR4_EVT_OUTPUT_EVT4_SIGNAL: u32 = 5;
-pub const TMR4_EVT_OUTPUT_EVT5_SIGNAL: u32 = 6;
-pub const TMR6_CNT_SRC_SW: u32 = 0;
-pub const TMR6_CNT_SRC_HW: u32 = 1;
-pub const TMR6_FLAG_MATCH_A: u32 = 1;
-pub const TMR6_FLAG_MATCH_B: u32 = 2;
-pub const TMR6_FLAG_MATCH_C: u32 = 4;
-pub const TMR6_FLAG_MATCH_D: u32 = 8;
-pub const TMR6_FLAG_MATCH_E: u32 = 16;
-pub const TMR6_FLAG_MATCH_F: u32 = 32;
-pub const TMR6_FLAG_OVF: u32 = 64;
-pub const TMR6_FLAG_UDF: u32 = 128;
-pub const TMR6_FLAG_DEAD_TIME_ERR: u32 = 256;
-pub const TMR6_FLAG_UP_CNT_SPECIAL_MATCH_A: u32 = 512;
-pub const TMR6_FLAG_DOWN_CNT_SPECIAL_MATCH_A: u32 = 1024;
-pub const TMR6_FLAG_UP_CNT_SPECIAL_MATCH_B: u32 = 2048;
-pub const TMR6_FLAG_DOWN_CNT_SPECIAL_MATCH_B: u32 = 4096;
-pub const TMR6_FLAG_CNT_DIR: u32 = 2147483648;
-pub const TMR6_FLAG_CLR_ALL: u32 = 7935;
-pub const TMR6_FLAG_ALL: u32 = 2147491839;
-pub const TMR6_INT_MATCH_A: u32 = 1;
-pub const TMR6_INT_MATCH_B: u32 = 2;
-pub const TMR6_INT_MATCH_C: u32 = 4;
-pub const TMR6_INT_MATCH_D: u32 = 8;
-pub const TMR6_INT_MATCH_E: u32 = 16;
-pub const TMR6_INT_MATCH_F: u32 = 32;
-pub const TMR6_INT_OVF: u32 = 64;
-pub const TMR6_INT_UDF: u32 = 128;
-pub const TMR6_INT_DEAD_TIME_ERR: u32 = 256;
-pub const TMR6_INT_UP_CNT_SPECIAL_MATCH_A: u32 = 65536;
-pub const TMR6_INT_DOWN_CNT_SPECIAL_MATCH_A: u32 = 131072;
-pub const TMR6_INT_UP_CNT_SPECIAL_MATCH_B: u32 = 262144;
-pub const TMR6_INT_DOWN_CNT_SPECIAL_MATCH_B: u32 = 524288;
-pub const TMR6_INT_ALL: u32 = 983551;
-pub const TMR6_PERIOD_REG_A: u32 = 0;
-pub const TMR6_PERIOD_REG_B: u32 = 1;
-pub const TMR6_PERIOD_REG_C: u32 = 2;
-pub const TMR6_CMP_REG_A: u32 = 0;
-pub const TMR6_CMP_REG_B: u32 = 1;
-pub const TMR6_CMP_REG_C: u32 = 2;
-pub const TMR6_CMP_REG_D: u32 = 3;
-pub const TMR6_CMP_REG_E: u32 = 4;
-pub const TMR6_CMP_REG_F: u32 = 5;
-pub const TMR6_CH_A: u32 = 0;
-pub const TMR6_CH_B: u32 = 1;
-pub const TMR6_BUF_SINGLE: u32 = 0;
-pub const TMR6_BUF_DUAL: u32 = 2;
-pub const TMR6_BUF_TRANS_INVD: u32 = 0;
-pub const TMR6_BUF_TRANS_OVF: u32 = 4;
-pub const TMR6_BUF_TRANS_UDF: u32 = 8;
-pub const TMR6_BUF_TRANS_OVF_UDF: u32 = 12;
-pub const TMR6_VALID_PERIOD_INVD: u32 = 0;
-pub const TMR6_VALID_PERIOD_CNT_COND_VALLEY: u32 = 65536;
-pub const TMR6_VALID_PERIOD_CNT_COND_PEAK: u32 = 131072;
-pub const TMR6_VALID_PERIOD_CNT_COND_VALLEY_PEAK: u32 = 196608;
-pub const TMR6_VALID_PERIOD_CNT_INVD: u32 = 0;
-pub const TMR6_VALID_PERIOD_CNT1: u32 = 262144;
-pub const TMR6_VALID_PERIOD_CNT2: u32 = 524288;
-pub const TMR6_VALID_PERIOD_CNT3: u32 = 786432;
-pub const TMR6_VALID_PERIOD_CNT4: u32 = 1048576;
-pub const TMR6_VALID_PERIOD_CNT5: u32 = 1310720;
-pub const TMR6_VALID_PERIOD_CNT6: u32 = 1572864;
-pub const TMR6_VALID_PERIOD_CNT7: u32 = 1835008;
-pub const TMR6_DEADTIME_REG_UP_A: u32 = 0;
-pub const TMR6_DEADTIME_REG_DOWN_A: u32 = 1;
-pub const TMR6_DEADTIME_REG_UP_B: u32 = 2;
-pub const TMR6_DEADTIME_REG_DOWN_B: u32 = 3;
-pub const TMR6_IO_PWMA: u32 = 0;
-pub const TMR6_IO_PWMB: u32 = 1;
-pub const TMR6_INPUT_TRIGA: u32 = 2;
-pub const TMR6_INPUT_TRIGB: u32 = 3;
-pub const TMR6_FILTER_CLK_DIV1: u32 = 0;
-pub const TMR6_FILTER_CLK_DIV4: u32 = 1;
-pub const TMR6_FILTER_CLK_DIV16: u32 = 2;
-pub const TMR6_FILTER_CLK_DIV64: u32 = 3;
-pub const TMR6_PIN_CMP_OUTPUT: u32 = 0;
-pub const TMR6_PIN_CAPT_INPUT: u32 = 1;
-pub const TMR6_STAT_START: u32 = 0;
-pub const TMR6_STAT_STOP: u32 = 1;
-pub const TMR6_STAT_MATCH_CMP: u32 = 2;
-pub const TMR6_STAT_MATCH_PERIOD: u32 = 3;
-pub const TMR6_PWM_LOW: u32 = 0;
-pub const TMR6_PWM_HIGH: u32 = 1;
-pub const TMR6_PWM_HOLD: u32 = 2;
-pub const TMR6_PWM_INVT: u32 = 3;
-pub const TMR6_PWM_START_STOP_HOLD: u32 = 8;
-pub const TMR6_PWM_START_STOP_CHANGE: u32 = 0;
-pub const TMR6_EMB_PIN_NORMAL: u32 = 0;
-pub const TMR6_EMB_PIN_HIZ: u32 = 2048;
-pub const TMR6_EMB_PIN_LOW: u32 = 4096;
-pub const TMR6_EMB_PIN_HIGH: u32 = 6144;
-pub const TMR6_DEADTIME_CNT_UP_BUF_OFF: u32 = 0;
-pub const TMR6_DEADTIME_CNT_UP_BUF_ON: u32 = 16;
-pub const TMR6_DEADTIME_CNT_DOWN_BUF_OFF: u32 = 0;
-pub const TMR6_DEADTIME_CNT_DOWN_BUF_ON: u32 = 32;
-pub const TMR6_DEADTIME_EQUAL_OFF: u32 = 0;
-pub const TMR6_DEADTIME_EQUAL_ON: u32 = 256;
-pub const TMR6_SW_SYNC_U1: u32 = 1;
-pub const TMR6_SW_SYNC_U2: u32 = 2;
-pub const TMR6_SW_SYNC_U3: u32 = 4;
-pub const TMR6_SW_SYNC_ALL: u32 = 7;
-pub const TMR6_START_COND_EVT0: u32 = 1;
-pub const TMR6_START_COND_EVT1: u32 = 2;
-pub const TMR6_START_COND_PWMA_RISING: u32 = 16;
-pub const TMR6_START_COND_PWMA_FALLING: u32 = 32;
-pub const TMR6_START_COND_PWMB_RISING: u32 = 64;
-pub const TMR6_START_COND_PWMB_FALLING: u32 = 128;
-pub const TMR6_START_COND_TRIGA_RISING: u32 = 256;
-pub const TMR6_START_COND_TRIGA_FALLING: u32 = 512;
-pub const TMR6_START_COND_TRIGB_RISING: u32 = 1024;
-pub const TMR6_START_COND_TRIGB_FALLING: u32 = 2048;
-pub const TMR6_START_COND_ALL: u32 = 4083;
-pub const TMR6_STOP_COND_EVT0: u32 = 1;
-pub const TMR6_STOP_COND_EVT1: u32 = 2;
-pub const TMR6_STOP_COND_PWMA_RISING: u32 = 16;
-pub const TMR6_STOP_COND_PWMA_FALLING: u32 = 32;
-pub const TMR6_STOP_COND_PWMB_RISING: u32 = 64;
-pub const TMR6_STOP_COND_PWMB_FALLING: u32 = 128;
-pub const TMR6_STOP_COND_TRIGA_RISING: u32 = 256;
-pub const TMR6_STOP_COND_TRIGA_FALLING: u32 = 512;
-pub const TMR6_STOP_COND_TRIGB_RISING: u32 = 1024;
-pub const TMR6_STOP_COND_TRIGB_FALLING: u32 = 2048;
-pub const TMR6_STOP_COND_ALL: u32 = 4083;
-pub const TMR6_CLR_COND_EVT0: u32 = 1;
-pub const TMR6_CLR_COND_EVT1: u32 = 2;
-pub const TMR6_CLR_COND_PWMA_RISING: u32 = 16;
-pub const TMR6_CLR_COND_PWMA_FALLING: u32 = 32;
-pub const TMR6_CLR_COND_PWMB_RISING: u32 = 64;
-pub const TMR6_CLR_COND_PWMB_FALLING: u32 = 128;
-pub const TMR6_CLR_COND_TRIGA_RISING: u32 = 256;
-pub const TMR6_CLR_COND_TRIGA_FALLING: u32 = 512;
-pub const TMR6_CLR_COND_TRIGB_RISING: u32 = 1024;
-pub const TMR6_CLR_COND_TRIGB_FALLING: u32 = 2048;
-pub const TMR6_CLR_COND_ALL: u32 = 4083;
-pub const TMR6_CAPT_COND_EVT0: u32 = 1;
-pub const TMR6_CAPT_COND_EVT1: u32 = 2;
-pub const TMR6_CAPT_COND_PWMA_RISING: u32 = 16;
-pub const TMR6_CAPT_COND_PWMA_FALLING: u32 = 32;
-pub const TMR6_CAPT_COND_PWMB_RISING: u32 = 64;
-pub const TMR6_CAPT_COND_PWMB_FALLING: u32 = 128;
-pub const TMR6_CAPT_COND_TRIGA_RISING: u32 = 256;
-pub const TMR6_CAPT_COND_TRIGA_FALLING: u32 = 512;
-pub const TMR6_CAPT_COND_TRIGB_RISING: u32 = 1024;
-pub const TMR6_CAPT_COND_TRIGB_FALLING: u32 = 2048;
-pub const TMR6_CAPT_COND_ALL: u32 = 4083;
-pub const TMR6_CNT_UP_COND_INVD: u32 = 0;
-pub const TMR6_CNT_UP_COND_PWMA_LOW_PWMB_RISING: u32 = 1;
-pub const TMR6_CNT_UP_COND_PWMA_LOW_PWMB_FALLING: u32 = 2;
-pub const TMR6_CNT_UP_COND_PWMA_HIGH_PWMB_RISING: u32 = 4;
-pub const TMR6_CNT_UP_COND_PWMA_HIGH_PWMB_FALLING: u32 = 8;
-pub const TMR6_CNT_UP_COND_PWMB_LOW_PWMA_RISING: u32 = 16;
-pub const TMR6_CNT_UP_COND_PWMB_LOW_PWMA_FALLING: u32 = 32;
-pub const TMR6_CNT_UP_COND_PWMB_HIGH_PWMA_RISING: u32 = 64;
-pub const TMR6_CNT_UP_COND_PWMB_HIGH_PWMA_FALLING: u32 = 128;
-pub const TMR6_CNT_UP_COND_TRIGA_RISING: u32 = 256;
-pub const TMR6_CNT_UP_COND_TRIGA_FALLING: u32 = 512;
-pub const TMR6_CNT_UP_COND_TRIGB_RISING: u32 = 1024;
-pub const TMR6_CNT_UP_COND_TRIGB_FALLING: u32 = 2048;
-pub const TMR6_CNT_UP_COND_EVT0: u32 = 65536;
-pub const TMR6_CNT_UP_COND_EVT1: u32 = 131072;
-pub const TMR6_CNT_UP_COND_ALL: u32 = 200703;
-pub const TMR6_CNT_DOWN_COND_INVD: u32 = 0;
-pub const TMR6_CNT_DOWN_COND_PWMA_LOW_PWMB_RISING: u32 = 1;
-pub const TMR6_CNT_DOWN_COND_PWMA_LOW_PWMB_FALLING: u32 = 2;
-pub const TMR6_CNT_DOWN_COND_PWMA_HIGH_PWMB_RISING: u32 = 4;
-pub const TMR6_CNT_DOWN_COND_PWMA_HIGH_PWMB_FALLING: u32 = 8;
-pub const TMR6_CNT_DOWN_COND_PWMB_LOW_PWMA_RISING: u32 = 16;
-pub const TMR6_CNT_DOWN_COND_PWMB_LOW_PWMA_FALLING: u32 = 32;
-pub const TMR6_CNT_DOWN_COND_PWMB_HIGH_PWMA_RISING: u32 = 64;
-pub const TMR6_CNT_DOWN_COND_PWMB_HIGH_PWMA_FALLING: u32 = 128;
-pub const TMR6_CNT_DOWN_COND_TRIGA_RISING: u32 = 256;
-pub const TMR6_CNT_DOWN_COND_TRIGA_FALLING: u32 = 512;
-pub const TMR6_CNT_DOWN_COND_TRIGB_RISING: u32 = 1024;
-pub const TMR6_CNT_DOWN_COND_TRIGB_FALLING: u32 = 2048;
-pub const TMR6_CNT_DOWN_COND_EVT0: u32 = 65536;
-pub const TMR6_CNT_DOWN_COND_EVT1: u32 = 131072;
-pub const TMR6_CNT_DOWN_COND_ALL: u32 = 200703;
-pub const TMR6_CNT_UP: u32 = 256;
-pub const TMR6_CNT_DOWN: u32 = 0;
-pub const TMR6_STAT_CNT_UP: u32 = 2147483648;
-pub const TMR6_STAT_CNT_DOWN: u32 = 0;
-pub const TMR6_MD_SAWTOOTH: u32 = 0;
-pub const TMR6_MD_TRIANGLE_A: u32 = 8;
-pub const TMR6_MD_TRIANGLE_B: u32 = 10;
-pub const TMR6_CLK_DIV1: u32 = 0;
-pub const TMR6_CLK_DIV2: u32 = 16;
-pub const TMR6_CLK_DIV4: u32 = 32;
-pub const TMR6_CLK_DIV8: u32 = 48;
-pub const TMR6_CLK_DIV16: u32 = 64;
-pub const TMR6_CLK_DIV64: u32 = 80;
-pub const TMR6_CLK_DIV256: u32 = 96;
-pub const TMR6_CLK_DIV1024: u32 = 112;
-pub const TMR6_ZMASK_FUNC_INVD: u32 = 0;
-pub const TMR6_ZMASK_CYCLE_4: u32 = 262144;
-pub const TMR6_ZMASK_CYCLE_8: u32 = 524288;
-pub const TMR6_ZMASK_CYCLE_16: u32 = 786432;
-pub const TMR6_POS_CLR_ZMASK_FUNC_OFF: u32 = 0;
-pub const TMR6_POS_CLR_ZMASK_FUNC_ON: u32 = 131072;
-pub const TMR6_REVO_CNT_ZMASK_FUNC_OFF: u32 = 0;
-pub const TMR6_REVO_CNT_ZMASK_FUNC_ON: u32 = 65536;
-pub const TMRA_CNT_SRC_SW: u32 = 0;
-pub const TMRA_CNT_SRC_HW: u32 = 1;
-pub const TMRA_CH1: u32 = 0;
-pub const TMRA_CH2: u32 = 1;
-pub const TMRA_CH3: u32 = 2;
-pub const TMRA_CH4: u32 = 3;
-pub const TMRA_CH5: u32 = 4;
-pub const TMRA_CH6: u32 = 5;
-pub const TMRA_CH7: u32 = 6;
-pub const TMRA_CH8: u32 = 7;
-pub const TMRA_DIR_DOWN: u32 = 0;
-pub const TMRA_DIR_UP: u32 = 2;
-pub const TMRA_MD_SAWTOOTH: u32 = 0;
-pub const TMRA_MD_TRIANGLE: u32 = 4;
-pub const TMRA_FUNC_CMP: u32 = 0;
-pub const TMRA_FUNC_CAPT: u32 = 1;
-pub const TMRA_CLK_DIV1: u32 = 0;
-pub const TMRA_CLK_DIV2: u32 = 16;
-pub const TMRA_CLK_DIV4: u32 = 32;
-pub const TMRA_CLK_DIV8: u32 = 48;
-pub const TMRA_CLK_DIV16: u32 = 64;
-pub const TMRA_CLK_DIV32: u32 = 80;
-pub const TMRA_CLK_DIV64: u32 = 96;
-pub const TMRA_CLK_DIV128: u32 = 112;
-pub const TMRA_CLK_DIV256: u32 = 128;
-pub const TMRA_CLK_DIV512: u32 = 144;
-pub const TMRA_CLK_DIV1024: u32 = 160;
-pub const TMRA_PIN_TRIG: u32 = 0;
-pub const TMRA_PIN_CLKA: u32 = 1;
-pub const TMRA_PIN_CLKB: u32 = 2;
-pub const TMRA_PIN_PWM1: u32 = 3;
-pub const TMRA_PIN_PWM2: u32 = 4;
-pub const TMRA_PIN_PWM3: u32 = 5;
-pub const TMRA_PIN_PWM4: u32 = 6;
-pub const TMRA_PIN_PWM5: u32 = 7;
-pub const TMRA_PIN_PWM6: u32 = 8;
-pub const TMRA_PIN_PWM7: u32 = 9;
-pub const TMRA_PIN_PWM8: u32 = 10;
-pub const TMRA_CNT_UP_COND_INVD: u32 = 0;
-pub const TMRA_CNT_UP_COND_CLKA_LOW_CLKB_RISING: u32 = 1;
-pub const TMRA_CNT_UP_COND_CLKA_LOW_CLKB_FALLING: u32 = 2;
-pub const TMRA_CNT_UP_COND_CLKA_HIGH_CLKB_RISING: u32 = 4;
-pub const TMRA_CNT_UP_COND_CLKA_HIGH_CLKB_FALLING: u32 = 8;
-pub const TMRA_CNT_UP_COND_CLKB_LOW_CLKA_RISING: u32 = 16;
-pub const TMRA_CNT_UP_COND_CLKB_LOW_CLKA_FALLING: u32 = 32;
-pub const TMRA_CNT_UP_COND_CLKB_HIGH_CLKA_RISING: u32 = 64;
-pub const TMRA_CNT_UP_COND_CLKB_HIGH_CLKA_FALLING: u32 = 128;
-pub const TMRA_CNT_UP_COND_TRIG_RISING: u32 = 256;
-pub const TMRA_CNT_UP_COND_TRIG_FALLING: u32 = 512;
-pub const TMRA_CNT_UP_COND_EVT: u32 = 1024;
-pub const TMRA_CNT_UP_COND_SYM_OVF: u32 = 2048;
-pub const TMRA_CNT_UP_COND_SYM_UDF: u32 = 4096;
-pub const TMRA_CNT_UP_COND_ALL: u32 = 8191;
-pub const TMRA_CNT_DOWN_COND_INVD: u32 = 0;
-pub const TMRA_CNT_DOWN_COND_CLKA_LOW_CLKB_RISING: u32 = 1;
-pub const TMRA_CNT_DOWN_COND_CLKA_LOW_CLKB_FALLING: u32 = 2;
-pub const TMRA_CNT_DOWN_COND_CLKA_HIGH_CLKB_RISING: u32 = 4;
-pub const TMRA_CNT_DOWN_COND_CLKA_HIGH_CLKB_FALLING: u32 = 8;
-pub const TMRA_CNT_DOWN_COND_CLKB_LOW_CLKA_RISING: u32 = 16;
-pub const TMRA_CNT_DOWN_COND_CLKB_LOW_CLKA_FALLING: u32 = 32;
-pub const TMRA_CNT_DOWN_COND_CLKB_HIGH_CLKA_RISING: u32 = 64;
-pub const TMRA_CNT_DOWN_COND_CLKB_HIGH_CLKA_FALLING: u32 = 128;
-pub const TMRA_CNT_DOWN_COND_TRIG_RISING: u32 = 256;
-pub const TMRA_CNT_DOWN_COND_TRIG_FALLING: u32 = 512;
-pub const TMRA_CNT_DOWN_COND_EVT: u32 = 1024;
-pub const TMRA_CNT_DOWN_COND_SYM_OVF: u32 = 2048;
-pub const TMRA_CNT_DOWN_COND_SYM_UDF: u32 = 4096;
-pub const TMRA_CNT_DOWN_COND_ALL: u32 = 8191;
-pub const TMRA_INT_OVF: u32 = 16;
-pub const TMRA_INT_UDF: u32 = 32;
-pub const TMRA_INT_CMP_CH1: u32 = 65536;
-pub const TMRA_INT_CMP_CH2: u32 = 131072;
-pub const TMRA_INT_CMP_CH3: u32 = 262144;
-pub const TMRA_INT_CMP_CH4: u32 = 524288;
-pub const TMRA_INT_CMP_CH5: u32 = 1048576;
-pub const TMRA_INT_CMP_CH6: u32 = 2097152;
-pub const TMRA_INT_CMP_CH7: u32 = 4194304;
-pub const TMRA_INT_CMP_CH8: u32 = 8388608;
-pub const TMRA_INT_ALL: u32 = 16711728;
-pub const TMRA_EVT_CMP_CH1: u32 = 1;
-pub const TMRA_EVT_CMP_CH2: u32 = 2;
-pub const TMRA_EVT_CMP_CH3: u32 = 4;
-pub const TMRA_EVT_CMP_CH4: u32 = 8;
-pub const TMRA_EVT_CMP_CH5: u32 = 16;
-pub const TMRA_EVT_CMP_CH6: u32 = 32;
-pub const TMRA_EVT_CMP_CH7: u32 = 64;
-pub const TMRA_EVT_CMP_CH8: u32 = 128;
-pub const TMRA_EVT_ALL: u32 = 255;
-pub const TMRA_FLAG_OVF: u32 = 64;
-pub const TMRA_FLAG_UDF: u32 = 128;
-pub const TMRA_FLAG_CMP_CH1: u32 = 65536;
-pub const TMRA_FLAG_CMP_CH2: u32 = 131072;
-pub const TMRA_FLAG_CMP_CH3: u32 = 262144;
-pub const TMRA_FLAG_CMP_CH4: u32 = 524288;
-pub const TMRA_FLAG_CMP_CH5: u32 = 1048576;
-pub const TMRA_FLAG_CMP_CH6: u32 = 2097152;
-pub const TMRA_FLAG_CMP_CH7: u32 = 4194304;
-pub const TMRA_FLAG_CMP_CH8: u32 = 8388608;
-pub const TMRA_FLAG_ALL: u32 = 16711872;
-pub const TMRA_CAPT_COND_INVD: u32 = 0;
-pub const TMRA_CAPT_COND_PWM_RISING: u32 = 16;
-pub const TMRA_CAPT_COND_PWM_FALLING: u32 = 32;
-pub const TMRA_CAPT_COND_EVT: u32 = 64;
-pub const TMRA_CAPT_COND_TRIG_RISING: u32 = 256;
-pub const TMRA_CAPT_COND_TRIG_FALLING: u32 = 512;
-pub const TMRA_CAPT_COND_ALL: u32 = 880;
-pub const TMRA_BUF_TRANS_COND_OVF_UDF_CLR: u32 = 0;
-pub const TMRA_BUF_TRANS_COND_PEAK: u32 = 2;
-pub const TMRA_BUF_TRANS_COND_VALLEY: u32 = 4;
-pub const TMRA_BUF_TRANS_COND_PEAK_VALLEY: u32 = 6;
-pub const TMRA_FILTER_CLK_DIV1: u32 = 0;
-pub const TMRA_FILTER_CLK_DIV4: u32 = 1;
-pub const TMRA_FILTER_CLK_DIV16: u32 = 2;
-pub const TMRA_FILTER_CLK_DIV64: u32 = 3;
-pub const TMRA_CNT_STAT_START: u32 = 0;
-pub const TMRA_CNT_STAT_STOP: u32 = 1;
-pub const TMRA_CNT_STAT_MATCH_CMP: u32 = 2;
-pub const TMRA_CNT_STAT_MATCH_PERIOD: u32 = 3;
-pub const TMRA_PWM_LOW: u32 = 0;
-pub const TMRA_PWM_HIGH: u32 = 1;
-pub const TMRA_PWM_HOLD: u32 = 2;
-pub const TMRA_PWM_INVT: u32 = 3;
-pub const TMRA_PWM_FORCE_INVD: u32 = 0;
-pub const TMRA_PWM_FORCE_LOW: u32 = 512;
-pub const TMRA_PWM_FORCE_HIGH: u32 = 768;
-pub const TMRA_START_COND_INVD: u32 = 0;
-pub const TMRA_START_COND_TRIG_RISING: u32 = 1;
-pub const TMRA_START_COND_TRIG_FALLING: u32 = 2;
-pub const TMRA_START_COND_EVT: u32 = 4;
-pub const TMRA_START_COND_ALL: u32 = 7;
-pub const TMRA_STOP_COND_INVD: u32 = 0;
-pub const TMRA_STOP_COND_TRIG_RISING: u32 = 16;
-pub const TMRA_STOP_COND_TRIG_FALLING: u32 = 32;
-pub const TMRA_STOP_COND_EVT: u32 = 64;
-pub const TMRA_STOP_COND_ALL: u32 = 112;
-pub const TMRA_CLR_COND_INVD: u32 = 0;
-pub const TMRA_CLR_COND_TRIG_RISING: u32 = 256;
-pub const TMRA_CLR_COND_TRIG_FALLING: u32 = 512;
-pub const TMRA_CLR_COND_EVT: u32 = 1024;
-pub const TMRA_CLR_COND_SYM_TRIG_RISING: u32 = 4096;
-pub const TMRA_CLR_COND_SYM_TRIG_FALLING: u32 = 8192;
-pub const TMRA_CLR_COND_PWM3_RISING: u32 = 16384;
-pub const TMRA_CLR_COND_PWM3_FALLING: u32 = 32768;
-pub const TMRA_CLR_COND_ALL: u32 = 63232;
-pub const TRNG_RELOAD_INIT_VAL_ENABLE: u32 = 1;
-pub const TRNG_RELOAD_INIT_VAL_DISABLE: u32 = 0;
-pub const TRNG_SHIFT_CNT32: u32 = 12;
-pub const TRNG_SHIFT_CNT64: u32 = 16;
-pub const TRNG_SHIFT_CNT128: u32 = 20;
-pub const TRNG_SHIFT_CNT256: u32 = 24;
-pub const USART_FLAG_RX_FULL: u32 = 32;
-pub const USART_FLAG_OVERRUN: u32 = 8;
-pub const USART_FLAG_TX_CPLT: u32 = 64;
-pub const USART_FLAG_TX_EMPTY: u32 = 128;
-pub const USART_FLAG_FRAME_ERR: u32 = 2;
-pub const USART_FLAG_PARITY_ERR: u32 = 1;
-pub const USART_FLAG_MX_PROCESSOR: u32 = 65536;
-pub const USART_FLAG_RX_TIMEOUT: u32 = 256;
-pub const USART_FLAG_ALL: u32 = 66027;
-pub const USART_TRANS_DATA: u32 = 0;
-pub const USART_TRANS_ID: u32 = 512;
-pub const USART_TX: u32 = 8;
-pub const USART_RX: u32 = 4;
-pub const USART_INT_RX: u32 = 32;
-pub const USART_INT_TX_CPLT: u32 = 64;
-pub const USART_INT_TX_EMPTY: u32 = 128;
-pub const USART_RX_TIMEOUT: u32 = 1;
-pub const USART_INT_RX_TIMEOUT: u32 = 2;
-pub const USART_FUNC_ALL: u32 = 239;
-pub const USART_PARITY_NONE: u32 = 0;
-pub const USART_PARITY_EVEN: u32 = 1024;
-pub const USART_PARITY_ODD: u32 = 1536;
-pub const USART_DATA_WIDTH_8BIT: u32 = 0;
-pub const USART_DATA_WIDTH_9BIT: u32 = 4096;
-pub const USART_OVER_SAMPLE_16BIT: u32 = 0;
-pub const USART_OVER_SAMPLE_8BIT: u32 = 32768;
-pub const USART_FIRST_BIT_LSB: u32 = 0;
-pub const USART_FIRST_BIT_MSB: u32 = 268435456;
-pub const USART_START_BIT_LOW: u32 = 0;
-pub const USART_START_BIT_FALLING: u32 = 2147483648;
-pub const USART_CLK_SRC_INTERNCLK: u32 = 0;
-pub const USART_CLK_SRC_EXTCLK: u32 = 4096;
-pub const USART_CK_OUTPUT_DISABLE: u32 = 0;
-pub const USART_CK_OUTPUT_ENABLE: u32 = 2048;
-pub const USART_STOPBIT_1BIT: u32 = 0;
-pub const USART_STOPBIT_2BIT: u32 = 8192;
-pub const USART_HW_FLOWCTRL_CTS: u32 = 512;
-pub const USART_HW_FLOWCTRL_RTS: u32 = 256;
-pub const USART_CLK_DIV1: u32 = 0;
-pub const USART_CLK_DIV4: u32 = 1;
-pub const USART_CLK_DIV16: u32 = 2;
-pub const USART_CLK_DIV64: u32 = 3;
-pub const USART_MAX_TIMEOUT: u32 = 4294967295;
-pub const USART_SC_ETU_CLK32: u32 = 0;
-pub const USART_SC_ETU_CLK64: u32 = 2097152;
-pub const USART_SC_ETU_CLK128: u32 = 6291456;
-pub const USART_SC_ETU_CLK256: u32 = 10485760;
-pub const USART_SC_ETU_CLK372: u32 = 12582912;
-pub const WDT_CNT_PERIOD256: u32 = 0;
-pub const WDT_CNT_PERIOD4096: u32 = 1;
-pub const WDT_CNT_PERIOD16384: u32 = 2;
-pub const WDT_CNT_PERIOD65536: u32 = 3;
-pub const WDT_CLK_DIV4: u32 = 32;
-pub const WDT_CLK_DIV64: u32 = 96;
-pub const WDT_CLK_DIV128: u32 = 112;
-pub const WDT_CLK_DIV256: u32 = 128;
-pub const WDT_CLK_DIV512: u32 = 144;
-pub const WDT_CLK_DIV1024: u32 = 160;
-pub const WDT_CLK_DIV2048: u32 = 176;
-pub const WDT_CLK_DIV8192: u32 = 208;
-pub const WDT_RANGE_0TO25PCT: u32 = 256;
-pub const WDT_RANGE_25TO50PCT: u32 = 512;
-pub const WDT_RANGE_0TO50PCT: u32 = 768;
-pub const WDT_RANGE_50TO75PCT: u32 = 1024;
-pub const WDT_RANGE_0TO25PCT_50TO75PCT: u32 = 1280;
-pub const WDT_RANGE_25TO75PCT: u32 = 1536;
-pub const WDT_RANGE_0TO75PCT: u32 = 1792;
-pub const WDT_RANGE_75TO100PCT: u32 = 2048;
-pub const WDT_RANGE_0TO25PCT_75TO100PCT: u32 = 2304;
-pub const WDT_RANGE_25TO50PCT_75TO100PCT: u32 = 2560;
-pub const WDT_RANGE_0TO50PCT_75TO100PCT: u32 = 2816;
-pub const WDT_RANGE_50TO100PCT: u32 = 3072;
-pub const WDT_RANGE_0TO25PCT_50TO100PCT: u32 = 3328;
-pub const WDT_RANGE_25TO100PCT: u32 = 3584;
-pub const WDT_RANGE_0TO100PCT: u32 = 3840;
-pub const WDT_LPM_CNT_CONT: u32 = 0;
-pub const WDT_LPM_CNT_STOP: u32 = 65536;
-pub const WDT_EXP_TYPE_INT: u32 = 0;
-pub const WDT_EXP_TYPE_RST: u32 = 2147483648;
-pub const WDT_FLAG_UDF: u32 = 65536;
-pub const WDT_FLAG_REFRESH: u32 = 131072;
-pub const WDT_FLAG_ALL: u32 = 196608;
-pub const IRQn_Type_NMI_IRQn: IRQn_Type = -14;
-pub const IRQn_Type_HardFault_IRQn: IRQn_Type = -13;
-pub const IRQn_Type_MemManageFault_IRQn: IRQn_Type = -12;
-pub const IRQn_Type_BusFault_IRQn: IRQn_Type = -11;
-pub const IRQn_Type_UsageFault_IRQn: IRQn_Type = -10;
-pub const IRQn_Type_SVC_IRQn: IRQn_Type = -5;
-pub const IRQn_Type_DebugMonitor_IRQn: IRQn_Type = -4;
-pub const IRQn_Type_PendSV_IRQn: IRQn_Type = -2;
-pub const IRQn_Type_SysTick_IRQn: IRQn_Type = -1;
-pub const IRQn_Type_INT000_IRQn: IRQn_Type = 0;
-pub const IRQn_Type_INT001_IRQn: IRQn_Type = 1;
-pub const IRQn_Type_INT002_IRQn: IRQn_Type = 2;
-pub const IRQn_Type_INT003_IRQn: IRQn_Type = 3;
-pub const IRQn_Type_INT004_IRQn: IRQn_Type = 4;
-pub const IRQn_Type_INT005_IRQn: IRQn_Type = 5;
-pub const IRQn_Type_INT006_IRQn: IRQn_Type = 6;
-pub const IRQn_Type_INT007_IRQn: IRQn_Type = 7;
-pub const IRQn_Type_INT008_IRQn: IRQn_Type = 8;
-pub const IRQn_Type_INT009_IRQn: IRQn_Type = 9;
-pub const IRQn_Type_INT010_IRQn: IRQn_Type = 10;
-pub const IRQn_Type_INT011_IRQn: IRQn_Type = 11;
-pub const IRQn_Type_INT012_IRQn: IRQn_Type = 12;
-pub const IRQn_Type_INT013_IRQn: IRQn_Type = 13;
-pub const IRQn_Type_INT014_IRQn: IRQn_Type = 14;
-pub const IRQn_Type_INT015_IRQn: IRQn_Type = 15;
-pub const IRQn_Type_INT016_IRQn: IRQn_Type = 16;
-pub const IRQn_Type_INT017_IRQn: IRQn_Type = 17;
-pub const IRQn_Type_INT018_IRQn: IRQn_Type = 18;
-pub const IRQn_Type_INT019_IRQn: IRQn_Type = 19;
-pub const IRQn_Type_INT020_IRQn: IRQn_Type = 20;
-pub const IRQn_Type_INT021_IRQn: IRQn_Type = 21;
-pub const IRQn_Type_INT022_IRQn: IRQn_Type = 22;
-pub const IRQn_Type_INT023_IRQn: IRQn_Type = 23;
-pub const IRQn_Type_INT024_IRQn: IRQn_Type = 24;
-pub const IRQn_Type_INT025_IRQn: IRQn_Type = 25;
-pub const IRQn_Type_INT026_IRQn: IRQn_Type = 26;
-pub const IRQn_Type_INT027_IRQn: IRQn_Type = 27;
-pub const IRQn_Type_INT028_IRQn: IRQn_Type = 28;
-pub const IRQn_Type_INT029_IRQn: IRQn_Type = 29;
-pub const IRQn_Type_INT030_IRQn: IRQn_Type = 30;
-pub const IRQn_Type_INT031_IRQn: IRQn_Type = 31;
-pub const IRQn_Type_INT032_IRQn: IRQn_Type = 32;
-pub const IRQn_Type_INT033_IRQn: IRQn_Type = 33;
-pub const IRQn_Type_INT034_IRQn: IRQn_Type = 34;
-pub const IRQn_Type_INT035_IRQn: IRQn_Type = 35;
-pub const IRQn_Type_INT036_IRQn: IRQn_Type = 36;
-pub const IRQn_Type_INT037_IRQn: IRQn_Type = 37;
-pub const IRQn_Type_INT038_IRQn: IRQn_Type = 38;
-pub const IRQn_Type_INT039_IRQn: IRQn_Type = 39;
-pub const IRQn_Type_INT040_IRQn: IRQn_Type = 40;
-pub const IRQn_Type_INT041_IRQn: IRQn_Type = 41;
-pub const IRQn_Type_INT042_IRQn: IRQn_Type = 42;
-pub const IRQn_Type_INT043_IRQn: IRQn_Type = 43;
-pub const IRQn_Type_INT044_IRQn: IRQn_Type = 44;
-pub const IRQn_Type_INT045_IRQn: IRQn_Type = 45;
-pub const IRQn_Type_INT046_IRQn: IRQn_Type = 46;
-pub const IRQn_Type_INT047_IRQn: IRQn_Type = 47;
-pub const IRQn_Type_INT048_IRQn: IRQn_Type = 48;
-pub const IRQn_Type_INT049_IRQn: IRQn_Type = 49;
-pub const IRQn_Type_INT050_IRQn: IRQn_Type = 50;
-pub const IRQn_Type_INT051_IRQn: IRQn_Type = 51;
-pub const IRQn_Type_INT052_IRQn: IRQn_Type = 52;
-pub const IRQn_Type_INT053_IRQn: IRQn_Type = 53;
-pub const IRQn_Type_INT054_IRQn: IRQn_Type = 54;
-pub const IRQn_Type_INT055_IRQn: IRQn_Type = 55;
-pub const IRQn_Type_INT056_IRQn: IRQn_Type = 56;
-pub const IRQn_Type_INT057_IRQn: IRQn_Type = 57;
-pub const IRQn_Type_INT058_IRQn: IRQn_Type = 58;
-pub const IRQn_Type_INT059_IRQn: IRQn_Type = 59;
-pub const IRQn_Type_INT060_IRQn: IRQn_Type = 60;
-pub const IRQn_Type_INT061_IRQn: IRQn_Type = 61;
-pub const IRQn_Type_INT062_IRQn: IRQn_Type = 62;
-pub const IRQn_Type_INT063_IRQn: IRQn_Type = 63;
-pub const IRQn_Type_INT064_IRQn: IRQn_Type = 64;
-pub const IRQn_Type_INT065_IRQn: IRQn_Type = 65;
-pub const IRQn_Type_INT066_IRQn: IRQn_Type = 66;
-pub const IRQn_Type_INT067_IRQn: IRQn_Type = 67;
-pub const IRQn_Type_INT068_IRQn: IRQn_Type = 68;
-pub const IRQn_Type_INT069_IRQn: IRQn_Type = 69;
-pub const IRQn_Type_INT070_IRQn: IRQn_Type = 70;
-pub const IRQn_Type_INT071_IRQn: IRQn_Type = 71;
-pub const IRQn_Type_INT072_IRQn: IRQn_Type = 72;
-pub const IRQn_Type_INT073_IRQn: IRQn_Type = 73;
-pub const IRQn_Type_INT074_IRQn: IRQn_Type = 74;
-pub const IRQn_Type_INT075_IRQn: IRQn_Type = 75;
-pub const IRQn_Type_INT076_IRQn: IRQn_Type = 76;
-pub const IRQn_Type_INT077_IRQn: IRQn_Type = 77;
-pub const IRQn_Type_INT078_IRQn: IRQn_Type = 78;
-pub const IRQn_Type_INT079_IRQn: IRQn_Type = 79;
-pub const IRQn_Type_INT080_IRQn: IRQn_Type = 80;
-pub const IRQn_Type_INT081_IRQn: IRQn_Type = 81;
-pub const IRQn_Type_INT082_IRQn: IRQn_Type = 82;
-pub const IRQn_Type_INT083_IRQn: IRQn_Type = 83;
-pub const IRQn_Type_INT084_IRQn: IRQn_Type = 84;
-pub const IRQn_Type_INT085_IRQn: IRQn_Type = 85;
-pub const IRQn_Type_INT086_IRQn: IRQn_Type = 86;
-pub const IRQn_Type_INT087_IRQn: IRQn_Type = 87;
-pub const IRQn_Type_INT088_IRQn: IRQn_Type = 88;
-pub const IRQn_Type_INT089_IRQn: IRQn_Type = 89;
-pub const IRQn_Type_INT090_IRQn: IRQn_Type = 90;
-pub const IRQn_Type_INT091_IRQn: IRQn_Type = 91;
-pub const IRQn_Type_INT092_IRQn: IRQn_Type = 92;
-pub const IRQn_Type_INT093_IRQn: IRQn_Type = 93;
-pub const IRQn_Type_INT094_IRQn: IRQn_Type = 94;
-pub const IRQn_Type_INT095_IRQn: IRQn_Type = 95;
-pub const IRQn_Type_INT096_IRQn: IRQn_Type = 96;
-pub const IRQn_Type_INT097_IRQn: IRQn_Type = 97;
-pub const IRQn_Type_INT098_IRQn: IRQn_Type = 98;
-pub const IRQn_Type_INT099_IRQn: IRQn_Type = 99;
-pub const IRQn_Type_INT100_IRQn: IRQn_Type = 100;
-pub const IRQn_Type_INT101_IRQn: IRQn_Type = 101;
-pub const IRQn_Type_INT102_IRQn: IRQn_Type = 102;
-pub const IRQn_Type_INT103_IRQn: IRQn_Type = 103;
-pub const IRQn_Type_INT104_IRQn: IRQn_Type = 104;
-pub const IRQn_Type_INT105_IRQn: IRQn_Type = 105;
-pub const IRQn_Type_INT106_IRQn: IRQn_Type = 106;
-pub const IRQn_Type_INT107_IRQn: IRQn_Type = 107;
-pub const IRQn_Type_INT108_IRQn: IRQn_Type = 108;
-pub const IRQn_Type_INT109_IRQn: IRQn_Type = 109;
-pub const IRQn_Type_INT110_IRQn: IRQn_Type = 110;
-pub const IRQn_Type_INT111_IRQn: IRQn_Type = 111;
-pub const IRQn_Type_INT112_IRQn: IRQn_Type = 112;
-pub const IRQn_Type_INT113_IRQn: IRQn_Type = 113;
-pub const IRQn_Type_INT114_IRQn: IRQn_Type = 114;
-pub const IRQn_Type_INT115_IRQn: IRQn_Type = 115;
-pub const IRQn_Type_INT116_IRQn: IRQn_Type = 116;
-pub const IRQn_Type_INT117_IRQn: IRQn_Type = 117;
-pub const IRQn_Type_INT118_IRQn: IRQn_Type = 118;
-pub const IRQn_Type_INT119_IRQn: IRQn_Type = 119;
-pub const IRQn_Type_INT120_IRQn: IRQn_Type = 120;
-pub const IRQn_Type_INT121_IRQn: IRQn_Type = 121;
-pub const IRQn_Type_INT122_IRQn: IRQn_Type = 122;
-pub const IRQn_Type_INT123_IRQn: IRQn_Type = 123;
-pub const IRQn_Type_INT124_IRQn: IRQn_Type = 124;
-pub const IRQn_Type_INT125_IRQn: IRQn_Type = 125;
-pub const IRQn_Type_INT126_IRQn: IRQn_Type = 126;
-pub const IRQn_Type_INT127_IRQn: IRQn_Type = 127;
-pub const IRQn_Type_INT128_IRQn: IRQn_Type = 128;
-pub const IRQn_Type_INT129_IRQn: IRQn_Type = 129;
-pub const IRQn_Type_INT130_IRQn: IRQn_Type = 130;
-pub const IRQn_Type_INT131_IRQn: IRQn_Type = 131;
-pub const IRQn_Type_INT132_IRQn: IRQn_Type = 132;
-pub const IRQn_Type_INT133_IRQn: IRQn_Type = 133;
-pub const IRQn_Type_INT134_IRQn: IRQn_Type = 134;
-pub const IRQn_Type_INT135_IRQn: IRQn_Type = 135;
-pub const IRQn_Type_INT136_IRQn: IRQn_Type = 136;
-pub const IRQn_Type_INT137_IRQn: IRQn_Type = 137;
-pub const IRQn_Type_INT138_IRQn: IRQn_Type = 138;
-pub const IRQn_Type_INT139_IRQn: IRQn_Type = 139;
-pub const IRQn_Type_INT140_IRQn: IRQn_Type = 140;
-pub const IRQn_Type_INT141_IRQn: IRQn_Type = 141;
-pub const IRQn_Type_INT142_IRQn: IRQn_Type = 142;
-pub const IRQn_Type_INT143_IRQn: IRQn_Type = 143;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ0: en_event_src_t = 0;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ1: en_event_src_t = 1;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ2: en_event_src_t = 2;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ3: en_event_src_t = 3;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ4: en_event_src_t = 4;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ5: en_event_src_t = 5;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ6: en_event_src_t = 6;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ7: en_event_src_t = 7;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ8: en_event_src_t = 8;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ9: en_event_src_t = 9;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ10: en_event_src_t = 10;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ11: en_event_src_t = 11;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ12: en_event_src_t = 12;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ13: en_event_src_t = 13;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ14: en_event_src_t = 14;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ15: en_event_src_t = 15;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ16: en_event_src_t = 16;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ17: en_event_src_t = 17;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ18: en_event_src_t = 18;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ19: en_event_src_t = 19;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ20: en_event_src_t = 20;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ21: en_event_src_t = 21;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ22: en_event_src_t = 22;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ23: en_event_src_t = 23;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ24: en_event_src_t = 24;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ25: en_event_src_t = 25;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ26: en_event_src_t = 26;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ27: en_event_src_t = 27;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ28: en_event_src_t = 28;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ29: en_event_src_t = 29;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ30: en_event_src_t = 30;
-pub const en_event_src_t_EVT_SRC_SWI_IRQ31: en_event_src_t = 31;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ0: en_event_src_t = 0;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ1: en_event_src_t = 1;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ2: en_event_src_t = 2;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ3: en_event_src_t = 3;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ4: en_event_src_t = 4;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ5: en_event_src_t = 5;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ6: en_event_src_t = 6;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ7: en_event_src_t = 7;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ8: en_event_src_t = 8;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ9: en_event_src_t = 9;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ10: en_event_src_t = 10;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ11: en_event_src_t = 11;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ12: en_event_src_t = 12;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ13: en_event_src_t = 13;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ14: en_event_src_t = 14;
-pub const en_event_src_t_EVT_SRC_PORT_EIRQ15: en_event_src_t = 15;
-pub const en_event_src_t_EVT_SRC_DMA1_TC0: en_event_src_t = 32;
-pub const en_event_src_t_EVT_SRC_DMA1_TC1: en_event_src_t = 33;
-pub const en_event_src_t_EVT_SRC_DMA1_TC2: en_event_src_t = 34;
-pub const en_event_src_t_EVT_SRC_DMA1_TC3: en_event_src_t = 35;
-pub const en_event_src_t_EVT_SRC_DMA2_TC0: en_event_src_t = 36;
-pub const en_event_src_t_EVT_SRC_DMA2_TC1: en_event_src_t = 37;
-pub const en_event_src_t_EVT_SRC_DMA2_TC2: en_event_src_t = 38;
-pub const en_event_src_t_EVT_SRC_DMA2_TC3: en_event_src_t = 39;
-pub const en_event_src_t_EVT_SRC_DMA1_BTC0: en_event_src_t = 40;
-pub const en_event_src_t_EVT_SRC_DMA1_BTC1: en_event_src_t = 41;
-pub const en_event_src_t_EVT_SRC_DMA1_BTC2: en_event_src_t = 42;
-pub const en_event_src_t_EVT_SRC_DMA1_BTC3: en_event_src_t = 43;
-pub const en_event_src_t_EVT_SRC_DMA2_BTC0: en_event_src_t = 44;
-pub const en_event_src_t_EVT_SRC_DMA2_BTC1: en_event_src_t = 45;
-pub const en_event_src_t_EVT_SRC_DMA2_BTC2: en_event_src_t = 46;
-pub const en_event_src_t_EVT_SRC_DMA2_BTC3: en_event_src_t = 47;
-pub const en_event_src_t_EVT_SRC_EFM_OPTEND: en_event_src_t = 52;
-pub const en_event_src_t_EVT_SRC_USBFS_SOF: en_event_src_t = 53;
-pub const en_event_src_t_EVT_SRC_DCU1: en_event_src_t = 55;
-pub const en_event_src_t_EVT_SRC_DCU2: en_event_src_t = 56;
-pub const en_event_src_t_EVT_SRC_DCU3: en_event_src_t = 57;
-pub const en_event_src_t_EVT_SRC_DCU4: en_event_src_t = 58;
-pub const en_event_src_t_EVT_SRC_TMR0_1_CMP_A: en_event_src_t = 64;
-pub const en_event_src_t_EVT_SRC_TMR0_1_CMP_B: en_event_src_t = 65;
-pub const en_event_src_t_EVT_SRC_TMR0_2_CMP_A: en_event_src_t = 66;
-pub const en_event_src_t_EVT_SRC_TMR0_2_CMP_B: en_event_src_t = 67;
-pub const en_event_src_t_EVT_SRC_RTC_ALM: en_event_src_t = 81;
-pub const en_event_src_t_EVT_SRC_RTC_PRD: en_event_src_t = 82;
-pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_A: en_event_src_t = 96;
-pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_B: en_event_src_t = 97;
-pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_C: en_event_src_t = 98;
-pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_D: en_event_src_t = 99;
-pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_E: en_event_src_t = 100;
-pub const en_event_src_t_EVT_SRC_TMR6_1_GCMP_F: en_event_src_t = 101;
-pub const en_event_src_t_EVT_SRC_TMR6_1_OVF: en_event_src_t = 102;
-pub const en_event_src_t_EVT_SRC_TMR6_1_UDF: en_event_src_t = 103;
-pub const en_event_src_t_EVT_SRC_TMR6_1_SCMP_A: en_event_src_t = 107;
-pub const en_event_src_t_EVT_SRC_TMR6_1_SCMP_B: en_event_src_t = 108;
-pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_A: en_event_src_t = 112;
-pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_B: en_event_src_t = 113;
-pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_C: en_event_src_t = 114;
-pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_D: en_event_src_t = 115;
-pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_E: en_event_src_t = 116;
-pub const en_event_src_t_EVT_SRC_TMR6_2_GCMP_F: en_event_src_t = 117;
-pub const en_event_src_t_EVT_SRC_TMR6_2_OVF: en_event_src_t = 118;
-pub const en_event_src_t_EVT_SRC_TMR6_2_UDF: en_event_src_t = 119;
-pub const en_event_src_t_EVT_SRC_TMR6_2_SCMP_A: en_event_src_t = 123;
-pub const en_event_src_t_EVT_SRC_TMR6_2_SCMP_B: en_event_src_t = 124;
-pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_A: en_event_src_t = 128;
-pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_B: en_event_src_t = 129;
-pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_C: en_event_src_t = 130;
-pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_D: en_event_src_t = 131;
-pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_E: en_event_src_t = 132;
-pub const en_event_src_t_EVT_SRC_TMR6_3_GCMP_F: en_event_src_t = 133;
-pub const en_event_src_t_EVT_SRC_TMR6_3_OVF: en_event_src_t = 134;
-pub const en_event_src_t_EVT_SRC_TMR6_3_UDF: en_event_src_t = 135;
-pub const en_event_src_t_EVT_SRC_TMR6_3_SCMP_A: en_event_src_t = 139;
-pub const en_event_src_t_EVT_SRC_TMR6_3_SCMP_B: en_event_src_t = 140;
-pub const en_event_src_t_EVT_SRC_TMRA_1_OVF: en_event_src_t = 256;
-pub const en_event_src_t_EVT_SRC_TMRA_1_UDF: en_event_src_t = 257;
-pub const en_event_src_t_EVT_SRC_TMRA_1_CMP: en_event_src_t = 258;
-pub const en_event_src_t_EVT_SRC_TMRA_2_OVF: en_event_src_t = 259;
-pub const en_event_src_t_EVT_SRC_TMRA_2_UDF: en_event_src_t = 260;
-pub const en_event_src_t_EVT_SRC_TMRA_2_CMP: en_event_src_t = 261;
-pub const en_event_src_t_EVT_SRC_TMRA_3_OVF: en_event_src_t = 262;
-pub const en_event_src_t_EVT_SRC_TMRA_3_UDF: en_event_src_t = 263;
-pub const en_event_src_t_EVT_SRC_TMRA_3_CMP: en_event_src_t = 264;
-pub const en_event_src_t_EVT_SRC_TMRA_4_OVF: en_event_src_t = 265;
-pub const en_event_src_t_EVT_SRC_TMRA_4_UDF: en_event_src_t = 266;
-pub const en_event_src_t_EVT_SRC_TMRA_4_CMP: en_event_src_t = 267;
-pub const en_event_src_t_EVT_SRC_TMRA_5_OVF: en_event_src_t = 268;
-pub const en_event_src_t_EVT_SRC_TMRA_5_UDF: en_event_src_t = 269;
-pub const en_event_src_t_EVT_SRC_TMRA_5_CMP: en_event_src_t = 270;
-pub const en_event_src_t_EVT_SRC_TMRA_6_OVF: en_event_src_t = 272;
-pub const en_event_src_t_EVT_SRC_TMRA_6_UDF: en_event_src_t = 273;
-pub const en_event_src_t_EVT_SRC_TMRA_6_CMP: en_event_src_t = 274;
-pub const en_event_src_t_EVT_SRC_USART1_EI: en_event_src_t = 278;
-pub const en_event_src_t_EVT_SRC_USART1_RI: en_event_src_t = 279;
-pub const en_event_src_t_EVT_SRC_USART1_TI: en_event_src_t = 280;
-pub const en_event_src_t_EVT_SRC_USART1_TCI: en_event_src_t = 281;
-pub const en_event_src_t_EVT_SRC_USART1_RTO: en_event_src_t = 282;
-pub const en_event_src_t_EVT_SRC_USART2_EI: en_event_src_t = 283;
-pub const en_event_src_t_EVT_SRC_USART2_RI: en_event_src_t = 284;
-pub const en_event_src_t_EVT_SRC_USART2_TI: en_event_src_t = 285;
-pub const en_event_src_t_EVT_SRC_USART2_TCI: en_event_src_t = 286;
-pub const en_event_src_t_EVT_SRC_USART2_RTO: en_event_src_t = 287;
-pub const en_event_src_t_EVT_SRC_USART3_EI: en_event_src_t = 288;
-pub const en_event_src_t_EVT_SRC_USART3_RI: en_event_src_t = 289;
-pub const en_event_src_t_EVT_SRC_USART3_TI: en_event_src_t = 290;
-pub const en_event_src_t_EVT_SRC_USART3_TCI: en_event_src_t = 291;
-pub const en_event_src_t_EVT_SRC_USART3_RTO: en_event_src_t = 292;
-pub const en_event_src_t_EVT_SRC_USART4_EI: en_event_src_t = 293;
-pub const en_event_src_t_EVT_SRC_USART4_RI: en_event_src_t = 294;
-pub const en_event_src_t_EVT_SRC_USART4_TI: en_event_src_t = 295;
-pub const en_event_src_t_EVT_SRC_USART4_TCI: en_event_src_t = 296;
-pub const en_event_src_t_EVT_SRC_USART4_RTO: en_event_src_t = 297;
-pub const en_event_src_t_EVT_SRC_SPI1_SPRI: en_event_src_t = 299;
-pub const en_event_src_t_EVT_SRC_SPI1_SPTI: en_event_src_t = 300;
-pub const en_event_src_t_EVT_SRC_SPI1_SPII: en_event_src_t = 301;
-pub const en_event_src_t_EVT_SRC_SPI1_SPEI: en_event_src_t = 302;
-pub const en_event_src_t_EVT_SRC_SPI1_SPTEND: en_event_src_t = 303;
-pub const en_event_src_t_EVT_SRC_SPI2_SPRI: en_event_src_t = 304;
-pub const en_event_src_t_EVT_SRC_SPI2_SPTI: en_event_src_t = 305;
-pub const en_event_src_t_EVT_SRC_SPI2_SPII: en_event_src_t = 306;
-pub const en_event_src_t_EVT_SRC_SPI2_SPEI: en_event_src_t = 307;
-pub const en_event_src_t_EVT_SRC_SPI2_SPTEND: en_event_src_t = 308;
-pub const en_event_src_t_EVT_SRC_SPI3_SPRI: en_event_src_t = 309;
-pub const en_event_src_t_EVT_SRC_SPI3_SPTI: en_event_src_t = 310;
-pub const en_event_src_t_EVT_SRC_SPI3_SPII: en_event_src_t = 311;
-pub const en_event_src_t_EVT_SRC_SPI3_SPEI: en_event_src_t = 312;
-pub const en_event_src_t_EVT_SRC_SPI3_SPTEND: en_event_src_t = 313;
-pub const en_event_src_t_EVT_SRC_SPI4_SPRI: en_event_src_t = 314;
-pub const en_event_src_t_EVT_SRC_SPI4_SPTI: en_event_src_t = 315;
-pub const en_event_src_t_EVT_SRC_SPI4_SPII: en_event_src_t = 316;
-pub const en_event_src_t_EVT_SRC_SPI4_SPEI: en_event_src_t = 317;
-pub const en_event_src_t_EVT_SRC_SPI4_SPTEND: en_event_src_t = 318;
-pub const en_event_src_t_EVT_SRC_AOS_STRG: en_event_src_t = 319;
-pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP0: en_event_src_t = 368;
-pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP1: en_event_src_t = 369;
-pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP2: en_event_src_t = 370;
-pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP3: en_event_src_t = 371;
-pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP4: en_event_src_t = 372;
-pub const en_event_src_t_EVT_SRC_TMR4_1_SCMP5: en_event_src_t = 373;
-pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP0: en_event_src_t = 374;
-pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP1: en_event_src_t = 375;
-pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP2: en_event_src_t = 376;
-pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP3: en_event_src_t = 377;
-pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP4: en_event_src_t = 378;
-pub const en_event_src_t_EVT_SRC_TMR4_2_SCMP5: en_event_src_t = 379;
-pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP0: en_event_src_t = 384;
-pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP1: en_event_src_t = 385;
-pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP2: en_event_src_t = 386;
-pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP3: en_event_src_t = 387;
-pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP4: en_event_src_t = 388;
-pub const en_event_src_t_EVT_SRC_TMR4_3_SCMP5: en_event_src_t = 389;
-pub const en_event_src_t_EVT_SRC_EVENT_PORT1: en_event_src_t = 394;
-pub const en_event_src_t_EVT_SRC_EVENT_PORT2: en_event_src_t = 395;
-pub const en_event_src_t_EVT_SRC_EVENT_PORT3: en_event_src_t = 396;
-pub const en_event_src_t_EVT_SRC_EVENT_PORT4: en_event_src_t = 397;
-pub const en_event_src_t_EVT_SRC_I2S1_TXIRQOUT: en_event_src_t = 400;
-pub const en_event_src_t_EVT_SRC_I2S1_RXIRQOUT: en_event_src_t = 401;
-pub const en_event_src_t_EVT_SRC_I2S2_TXIRQOUT: en_event_src_t = 403;
-pub const en_event_src_t_EVT_SRC_I2S2_RXIRQOUT: en_event_src_t = 404;
-pub const en_event_src_t_EVT_SRC_I2S3_TXIRQOUT: en_event_src_t = 406;
-pub const en_event_src_t_EVT_SRC_I2S3_RXIRQOUT: en_event_src_t = 407;
-pub const en_event_src_t_EVT_SRC_I2S4_TXIRQOUT: en_event_src_t = 409;
-pub const en_event_src_t_EVT_SRC_I2S4_RXIRQOUT: en_event_src_t = 410;
-pub const en_event_src_t_EVT_SRC_CMP1: en_event_src_t = 416;
-pub const en_event_src_t_EVT_SRC_CMP2: en_event_src_t = 417;
-pub const en_event_src_t_EVT_SRC_CMP3: en_event_src_t = 418;
-pub const en_event_src_t_EVT_SRC_I2C1_RXI: en_event_src_t = 420;
-pub const en_event_src_t_EVT_SRC_I2C1_TXI: en_event_src_t = 421;
-pub const en_event_src_t_EVT_SRC_I2C1_TEI: en_event_src_t = 422;
-pub const en_event_src_t_EVT_SRC_I2C1_EEI: en_event_src_t = 423;
-pub const en_event_src_t_EVT_SRC_I2C2_RXI: en_event_src_t = 424;
-pub const en_event_src_t_EVT_SRC_I2C2_TXI: en_event_src_t = 425;
-pub const en_event_src_t_EVT_SRC_I2C2_TEI: en_event_src_t = 426;
-pub const en_event_src_t_EVT_SRC_I2C2_EEI: en_event_src_t = 427;
-pub const en_event_src_t_EVT_SRC_I2C3_RXI: en_event_src_t = 428;
-pub const en_event_src_t_EVT_SRC_I2C3_TXI: en_event_src_t = 429;
-pub const en_event_src_t_EVT_SRC_I2C3_TEI: en_event_src_t = 430;
-pub const en_event_src_t_EVT_SRC_I2C3_EEI: en_event_src_t = 431;
-pub const en_event_src_t_EVT_SRC_LVD1: en_event_src_t = 433;
-pub const en_event_src_t_EVT_SRC_LVD2: en_event_src_t = 434;
-pub const en_event_src_t_EVT_SRC_OTS: en_event_src_t = 435;
-pub const en_event_src_t_EVT_SRC_WDT_REFUDF: en_event_src_t = 439;
-pub const en_event_src_t_EVT_SRC_ADC1_EOCA: en_event_src_t = 448;
-pub const en_event_src_t_EVT_SRC_ADC1_EOCB: en_event_src_t = 449;
-pub const en_event_src_t_EVT_SRC_ADC1_CHCMP: en_event_src_t = 450;
-pub const en_event_src_t_EVT_SRC_ADC1_SEQCMP: en_event_src_t = 451;
-pub const en_event_src_t_EVT_SRC_ADC2_EOCA: en_event_src_t = 452;
-pub const en_event_src_t_EVT_SRC_ADC2_EOCB: en_event_src_t = 453;
-pub const en_event_src_t_EVT_SRC_ADC2_CHCMP: en_event_src_t = 454;
-pub const en_event_src_t_EVT_SRC_ADC2_SEQCMP: en_event_src_t = 455;
-pub const en_event_src_t_EVT_SRC_TRNG_END: en_event_src_t = 456;
-pub const en_event_src_t_EVT_SRC_SDIOC1_DMAR: en_event_src_t = 480;
-pub const en_event_src_t_EVT_SRC_SDIOC1_DMAW: en_event_src_t = 481;
-pub const en_event_src_t_EVT_SRC_SDIOC2_DMAR: en_event_src_t = 483;
-pub const en_event_src_t_EVT_SRC_SDIOC2_DMAW: en_event_src_t = 484;
-pub const en_event_src_t_EVT_SRC_MAX: en_event_src_t = 511;
-pub const en_int_src_t_INT_SRC_SWI_IRQ0: en_int_src_t = 0;
-pub const en_int_src_t_INT_SRC_SWI_IRQ1: en_int_src_t = 1;
-pub const en_int_src_t_INT_SRC_SWI_IRQ2: en_int_src_t = 2;
-pub const en_int_src_t_INT_SRC_SWI_IRQ3: en_int_src_t = 3;
-pub const en_int_src_t_INT_SRC_SWI_IRQ4: en_int_src_t = 4;
-pub const en_int_src_t_INT_SRC_SWI_IRQ5: en_int_src_t = 5;
-pub const en_int_src_t_INT_SRC_SWI_IRQ6: en_int_src_t = 6;
-pub const en_int_src_t_INT_SRC_SWI_IRQ7: en_int_src_t = 7;
-pub const en_int_src_t_INT_SRC_SWI_IRQ8: en_int_src_t = 8;
-pub const en_int_src_t_INT_SRC_SWI_IRQ9: en_int_src_t = 9;
-pub const en_int_src_t_INT_SRC_SWI_IRQ10: en_int_src_t = 10;
-pub const en_int_src_t_INT_SRC_SWI_IRQ11: en_int_src_t = 11;
-pub const en_int_src_t_INT_SRC_SWI_IRQ12: en_int_src_t = 12;
-pub const en_int_src_t_INT_SRC_SWI_IRQ13: en_int_src_t = 13;
-pub const en_int_src_t_INT_SRC_SWI_IRQ14: en_int_src_t = 14;
-pub const en_int_src_t_INT_SRC_SWI_IRQ15: en_int_src_t = 15;
-pub const en_int_src_t_INT_SRC_SWI_IRQ16: en_int_src_t = 16;
-pub const en_int_src_t_INT_SRC_SWI_IRQ17: en_int_src_t = 17;
-pub const en_int_src_t_INT_SRC_SWI_IRQ18: en_int_src_t = 18;
-pub const en_int_src_t_INT_SRC_SWI_IRQ19: en_int_src_t = 19;
-pub const en_int_src_t_INT_SRC_SWI_IRQ20: en_int_src_t = 20;
-pub const en_int_src_t_INT_SRC_SWI_IRQ21: en_int_src_t = 21;
-pub const en_int_src_t_INT_SRC_SWI_IRQ22: en_int_src_t = 22;
-pub const en_int_src_t_INT_SRC_SWI_IRQ23: en_int_src_t = 23;
-pub const en_int_src_t_INT_SRC_SWI_IRQ24: en_int_src_t = 24;
-pub const en_int_src_t_INT_SRC_SWI_IRQ25: en_int_src_t = 25;
-pub const en_int_src_t_INT_SRC_SWI_IRQ26: en_int_src_t = 26;
-pub const en_int_src_t_INT_SRC_SWI_IRQ27: en_int_src_t = 27;
-pub const en_int_src_t_INT_SRC_SWI_IRQ28: en_int_src_t = 28;
-pub const en_int_src_t_INT_SRC_SWI_IRQ29: en_int_src_t = 29;
-pub const en_int_src_t_INT_SRC_SWI_IRQ30: en_int_src_t = 30;
-pub const en_int_src_t_INT_SRC_SWI_IRQ31: en_int_src_t = 31;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ0: en_int_src_t = 0;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ1: en_int_src_t = 1;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ2: en_int_src_t = 2;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ3: en_int_src_t = 3;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ4: en_int_src_t = 4;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ5: en_int_src_t = 5;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ6: en_int_src_t = 6;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ7: en_int_src_t = 7;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ8: en_int_src_t = 8;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ9: en_int_src_t = 9;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ10: en_int_src_t = 10;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ11: en_int_src_t = 11;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ12: en_int_src_t = 12;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ13: en_int_src_t = 13;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ14: en_int_src_t = 14;
-pub const en_int_src_t_INT_SRC_PORT_EIRQ15: en_int_src_t = 15;
-pub const en_int_src_t_INT_SRC_DMA1_TC0: en_int_src_t = 32;
-pub const en_int_src_t_INT_SRC_DMA1_TC1: en_int_src_t = 33;
-pub const en_int_src_t_INT_SRC_DMA1_TC2: en_int_src_t = 34;
-pub const en_int_src_t_INT_SRC_DMA1_TC3: en_int_src_t = 35;
-pub const en_int_src_t_INT_SRC_DMA2_TC0: en_int_src_t = 36;
-pub const en_int_src_t_INT_SRC_DMA2_TC1: en_int_src_t = 37;
-pub const en_int_src_t_INT_SRC_DMA2_TC2: en_int_src_t = 38;
-pub const en_int_src_t_INT_SRC_DMA2_TC3: en_int_src_t = 39;
-pub const en_int_src_t_INT_SRC_DMA1_BTC0: en_int_src_t = 40;
-pub const en_int_src_t_INT_SRC_DMA1_BTC1: en_int_src_t = 41;
-pub const en_int_src_t_INT_SRC_DMA1_BTC2: en_int_src_t = 42;
-pub const en_int_src_t_INT_SRC_DMA1_BTC3: en_int_src_t = 43;
-pub const en_int_src_t_INT_SRC_DMA2_BTC0: en_int_src_t = 44;
-pub const en_int_src_t_INT_SRC_DMA2_BTC1: en_int_src_t = 45;
-pub const en_int_src_t_INT_SRC_DMA2_BTC2: en_int_src_t = 46;
-pub const en_int_src_t_INT_SRC_DMA2_BTC3: en_int_src_t = 47;
-pub const en_int_src_t_INT_SRC_DMA1_ERR: en_int_src_t = 48;
-pub const en_int_src_t_INT_SRC_DMA2_ERR: en_int_src_t = 49;
-pub const en_int_src_t_INT_SRC_EFM_PEERR: en_int_src_t = 50;
-pub const en_int_src_t_INT_SRC_EFM_COLERR: en_int_src_t = 51;
-pub const en_int_src_t_INT_SRC_EFM_OPTEND: en_int_src_t = 52;
-pub const en_int_src_t_INT_SRC_QSPI_INTR: en_int_src_t = 54;
-pub const en_int_src_t_INT_SRC_DCU1: en_int_src_t = 55;
-pub const en_int_src_t_INT_SRC_DCU2: en_int_src_t = 56;
-pub const en_int_src_t_INT_SRC_DCU3: en_int_src_t = 57;
-pub const en_int_src_t_INT_SRC_DCU4: en_int_src_t = 58;
-pub const en_int_src_t_INT_SRC_TMR0_1_CMP_A: en_int_src_t = 64;
-pub const en_int_src_t_INT_SRC_TMR0_1_CMP_B: en_int_src_t = 65;
-pub const en_int_src_t_INT_SRC_TMR0_2_CMP_A: en_int_src_t = 66;
-pub const en_int_src_t_INT_SRC_TMR0_2_CMP_B: en_int_src_t = 67;
-pub const en_int_src_t_INT_SRC_RTC_ALM: en_int_src_t = 81;
-pub const en_int_src_t_INT_SRC_RTC_PRD: en_int_src_t = 82;
-pub const en_int_src_t_INT_SRC_XTAL32_STOP: en_int_src_t = 84;
-pub const en_int_src_t_INT_SRC_XTAL_STOP: en_int_src_t = 85;
-pub const en_int_src_t_INT_SRC_WKTM_PRD: en_int_src_t = 86;
-pub const en_int_src_t_INT_SRC_SWDT_REFUDF: en_int_src_t = 87;
-pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_A: en_int_src_t = 96;
-pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_B: en_int_src_t = 97;
-pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_C: en_int_src_t = 98;
-pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_D: en_int_src_t = 99;
-pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_E: en_int_src_t = 100;
-pub const en_int_src_t_INT_SRC_TMR6_1_GCMP_F: en_int_src_t = 101;
-pub const en_int_src_t_INT_SRC_TMR6_1_OVF: en_int_src_t = 102;
-pub const en_int_src_t_INT_SRC_TMR6_1_UDF: en_int_src_t = 103;
-pub const en_int_src_t_INT_SRC_TMR6_1_DTE: en_int_src_t = 104;
-pub const en_int_src_t_INT_SRC_TMR6_1_SCMP_A: en_int_src_t = 107;
-pub const en_int_src_t_INT_SRC_TMR6_1_SCMP_B: en_int_src_t = 108;
-pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_A: en_int_src_t = 112;
-pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_B: en_int_src_t = 113;
-pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_C: en_int_src_t = 114;
-pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_D: en_int_src_t = 115;
-pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_E: en_int_src_t = 116;
-pub const en_int_src_t_INT_SRC_TMR6_2_GCMP_F: en_int_src_t = 117;
-pub const en_int_src_t_INT_SRC_TMR6_2_OVF: en_int_src_t = 118;
-pub const en_int_src_t_INT_SRC_TMR6_2_UDF: en_int_src_t = 119;
-pub const en_int_src_t_INT_SRC_TMR6_2_DTE: en_int_src_t = 120;
-pub const en_int_src_t_INT_SRC_TMR6_2_SCMP_A: en_int_src_t = 123;
-pub const en_int_src_t_INT_SRC_TMR6_2_SCMP_B: en_int_src_t = 124;
-pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_A: en_int_src_t = 128;
-pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_B: en_int_src_t = 129;
-pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_C: en_int_src_t = 130;
-pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_D: en_int_src_t = 131;
-pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_E: en_int_src_t = 132;
-pub const en_int_src_t_INT_SRC_TMR6_3_GCMP_F: en_int_src_t = 133;
-pub const en_int_src_t_INT_SRC_TMR6_3_OVF: en_int_src_t = 134;
-pub const en_int_src_t_INT_SRC_TMR6_3_UDF: en_int_src_t = 135;
-pub const en_int_src_t_INT_SRC_TMR6_3_DTE: en_int_src_t = 136;
-pub const en_int_src_t_INT_SRC_TMR6_3_SCMP_A: en_int_src_t = 139;
-pub const en_int_src_t_INT_SRC_TMR6_3_SCMP_B: en_int_src_t = 140;
-pub const en_int_src_t_INT_SRC_TMRA_1_OVF: en_int_src_t = 256;
-pub const en_int_src_t_INT_SRC_TMRA_1_UDF: en_int_src_t = 257;
-pub const en_int_src_t_INT_SRC_TMRA_1_CMP: en_int_src_t = 258;
-pub const en_int_src_t_INT_SRC_TMRA_2_OVF: en_int_src_t = 259;
-pub const en_int_src_t_INT_SRC_TMRA_2_UDF: en_int_src_t = 260;
-pub const en_int_src_t_INT_SRC_TMRA_2_CMP: en_int_src_t = 261;
-pub const en_int_src_t_INT_SRC_TMRA_3_OVF: en_int_src_t = 262;
-pub const en_int_src_t_INT_SRC_TMRA_3_UDF: en_int_src_t = 263;
-pub const en_int_src_t_INT_SRC_TMRA_3_CMP: en_int_src_t = 264;
-pub const en_int_src_t_INT_SRC_TMRA_4_OVF: en_int_src_t = 265;
-pub const en_int_src_t_INT_SRC_TMRA_4_UDF: en_int_src_t = 266;
-pub const en_int_src_t_INT_SRC_TMRA_4_CMP: en_int_src_t = 267;
-pub const en_int_src_t_INT_SRC_TMRA_5_OVF: en_int_src_t = 268;
-pub const en_int_src_t_INT_SRC_TMRA_5_UDF: en_int_src_t = 269;
-pub const en_int_src_t_INT_SRC_TMRA_5_CMP: en_int_src_t = 270;
-pub const en_int_src_t_INT_SRC_TMRA_6_OVF: en_int_src_t = 272;
-pub const en_int_src_t_INT_SRC_TMRA_6_UDF: en_int_src_t = 273;
-pub const en_int_src_t_INT_SRC_TMRA_6_CMP: en_int_src_t = 274;
-pub const en_int_src_t_INT_SRC_USBFS_GLB: en_int_src_t = 275;
-pub const en_int_src_t_INT_SRC_USART1_EI: en_int_src_t = 278;
-pub const en_int_src_t_INT_SRC_USART1_RI: en_int_src_t = 279;
-pub const en_int_src_t_INT_SRC_USART1_TI: en_int_src_t = 280;
-pub const en_int_src_t_INT_SRC_USART1_TCI: en_int_src_t = 281;
-pub const en_int_src_t_INT_SRC_USART1_RTO: en_int_src_t = 282;
-pub const en_int_src_t_INT_SRC_USART1_WUPI: en_int_src_t = 432;
-pub const en_int_src_t_INT_SRC_USART2_EI: en_int_src_t = 283;
-pub const en_int_src_t_INT_SRC_USART2_RI: en_int_src_t = 284;
-pub const en_int_src_t_INT_SRC_USART2_TI: en_int_src_t = 285;
-pub const en_int_src_t_INT_SRC_USART2_TCI: en_int_src_t = 286;
-pub const en_int_src_t_INT_SRC_USART2_RTO: en_int_src_t = 287;
-pub const en_int_src_t_INT_SRC_USART3_EI: en_int_src_t = 288;
-pub const en_int_src_t_INT_SRC_USART3_RI: en_int_src_t = 289;
-pub const en_int_src_t_INT_SRC_USART3_TI: en_int_src_t = 290;
-pub const en_int_src_t_INT_SRC_USART3_TCI: en_int_src_t = 291;
-pub const en_int_src_t_INT_SRC_USART3_RTO: en_int_src_t = 292;
-pub const en_int_src_t_INT_SRC_USART4_EI: en_int_src_t = 293;
-pub const en_int_src_t_INT_SRC_USART4_RI: en_int_src_t = 294;
-pub const en_int_src_t_INT_SRC_USART4_TI: en_int_src_t = 295;
-pub const en_int_src_t_INT_SRC_USART4_TCI: en_int_src_t = 296;
-pub const en_int_src_t_INT_SRC_USART4_RTO: en_int_src_t = 297;
-pub const en_int_src_t_INT_SRC_SPI1_SPRI: en_int_src_t = 299;
-pub const en_int_src_t_INT_SRC_SPI1_SPTI: en_int_src_t = 300;
-pub const en_int_src_t_INT_SRC_SPI1_SPII: en_int_src_t = 301;
-pub const en_int_src_t_INT_SRC_SPI1_SPEI: en_int_src_t = 302;
-pub const en_int_src_t_INT_SRC_SPI2_SPRI: en_int_src_t = 304;
-pub const en_int_src_t_INT_SRC_SPI2_SPTI: en_int_src_t = 305;
-pub const en_int_src_t_INT_SRC_SPI2_SPII: en_int_src_t = 306;
-pub const en_int_src_t_INT_SRC_SPI2_SPEI: en_int_src_t = 307;
-pub const en_int_src_t_INT_SRC_SPI3_SPRI: en_int_src_t = 309;
-pub const en_int_src_t_INT_SRC_SPI3_SPTI: en_int_src_t = 310;
-pub const en_int_src_t_INT_SRC_SPI3_SPII: en_int_src_t = 311;
-pub const en_int_src_t_INT_SRC_SPI3_SPEI: en_int_src_t = 312;
-pub const en_int_src_t_INT_SRC_SPI4_SPRI: en_int_src_t = 314;
-pub const en_int_src_t_INT_SRC_SPI4_SPTI: en_int_src_t = 315;
-pub const en_int_src_t_INT_SRC_SPI4_SPII: en_int_src_t = 316;
-pub const en_int_src_t_INT_SRC_SPI4_SPEI: en_int_src_t = 317;
-pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_UH: en_int_src_t = 320;
-pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_UL: en_int_src_t = 321;
-pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_VH: en_int_src_t = 322;
-pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_VL: en_int_src_t = 323;
-pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_WH: en_int_src_t = 324;
-pub const en_int_src_t_INT_SRC_TMR4_1_GCMP_WL: en_int_src_t = 325;
-pub const en_int_src_t_INT_SRC_TMR4_1_OVF: en_int_src_t = 326;
-pub const en_int_src_t_INT_SRC_TMR4_1_UDF: en_int_src_t = 327;
-pub const en_int_src_t_INT_SRC_TMR4_1_RELOAD_U: en_int_src_t = 328;
-pub const en_int_src_t_INT_SRC_TMR4_1_RELOAD_V: en_int_src_t = 329;
-pub const en_int_src_t_INT_SRC_TMR4_1_RELOAD_W: en_int_src_t = 330;
-pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_UH: en_int_src_t = 336;
-pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_UL: en_int_src_t = 337;
-pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_VH: en_int_src_t = 338;
-pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_VL: en_int_src_t = 339;
-pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_WH: en_int_src_t = 340;
-pub const en_int_src_t_INT_SRC_TMR4_2_GCMP_WL: en_int_src_t = 341;
-pub const en_int_src_t_INT_SRC_TMR4_2_OVF: en_int_src_t = 342;
-pub const en_int_src_t_INT_SRC_TMR4_2_UDF: en_int_src_t = 343;
-pub const en_int_src_t_INT_SRC_TMR4_2_RELOAD_U: en_int_src_t = 344;
-pub const en_int_src_t_INT_SRC_TMR4_2_RELOAD_V: en_int_src_t = 345;
-pub const en_int_src_t_INT_SRC_TMR4_2_RELOAD_W: en_int_src_t = 346;
-pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_UH: en_int_src_t = 352;
-pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_UL: en_int_src_t = 353;
-pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_VH: en_int_src_t = 354;
-pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_VL: en_int_src_t = 355;
-pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_WH: en_int_src_t = 356;
-pub const en_int_src_t_INT_SRC_TMR4_3_GCMP_WL: en_int_src_t = 357;
-pub const en_int_src_t_INT_SRC_TMR4_3_OVF: en_int_src_t = 358;
-pub const en_int_src_t_INT_SRC_TMR4_3_UDF: en_int_src_t = 359;
-pub const en_int_src_t_INT_SRC_TMR4_3_RELOAD_U: en_int_src_t = 360;
-pub const en_int_src_t_INT_SRC_TMR4_3_RELOAD_V: en_int_src_t = 361;
-pub const en_int_src_t_INT_SRC_TMR4_3_RELOAD_W: en_int_src_t = 362;
-pub const en_int_src_t_INT_SRC_EMB_GR0: en_int_src_t = 390;
-pub const en_int_src_t_INT_SRC_EMB_GR1: en_int_src_t = 391;
-pub const en_int_src_t_INT_SRC_EMB_GR2: en_int_src_t = 392;
-pub const en_int_src_t_INT_SRC_EMB_GR3: en_int_src_t = 393;
-pub const en_int_src_t_INT_SRC_EVENT_PORT1: en_int_src_t = 394;
-pub const en_int_src_t_INT_SRC_EVENT_PORT2: en_int_src_t = 395;
-pub const en_int_src_t_INT_SRC_EVENT_PORT3: en_int_src_t = 396;
-pub const en_int_src_t_INT_SRC_EVENT_PORT4: en_int_src_t = 397;
-pub const en_int_src_t_INT_SRC_I2S1_TXIRQOUT: en_int_src_t = 400;
-pub const en_int_src_t_INT_SRC_I2S1_RXIRQOUT: en_int_src_t = 401;
-pub const en_int_src_t_INT_SRC_I2S1_ERRIRQOUT: en_int_src_t = 402;
-pub const en_int_src_t_INT_SRC_I2S2_TXIRQOUT: en_int_src_t = 403;
-pub const en_int_src_t_INT_SRC_I2S2_RXIRQOUT: en_int_src_t = 404;
-pub const en_int_src_t_INT_SRC_I2S2_ERRIRQOUT: en_int_src_t = 405;
-pub const en_int_src_t_INT_SRC_I2S3_TXIRQOUT: en_int_src_t = 406;
-pub const en_int_src_t_INT_SRC_I2S3_RXIRQOUT: en_int_src_t = 407;
-pub const en_int_src_t_INT_SRC_I2S3_ERRIRQOUT: en_int_src_t = 408;
-pub const en_int_src_t_INT_SRC_I2S4_TXIRQOUT: en_int_src_t = 409;
-pub const en_int_src_t_INT_SRC_I2S4_RXIRQOUT: en_int_src_t = 410;
-pub const en_int_src_t_INT_SRC_I2S4_ERRIRQOUT: en_int_src_t = 411;
-pub const en_int_src_t_INT_SRC_CMP1: en_int_src_t = 416;
-pub const en_int_src_t_INT_SRC_CMP2: en_int_src_t = 417;
-pub const en_int_src_t_INT_SRC_CMP3: en_int_src_t = 418;
-pub const en_int_src_t_INT_SRC_I2C1_RXI: en_int_src_t = 420;
-pub const en_int_src_t_INT_SRC_I2C1_TXI: en_int_src_t = 421;
-pub const en_int_src_t_INT_SRC_I2C1_TEI: en_int_src_t = 422;
-pub const en_int_src_t_INT_SRC_I2C1_EEI: en_int_src_t = 423;
-pub const en_int_src_t_INT_SRC_I2C2_RXI: en_int_src_t = 424;
-pub const en_int_src_t_INT_SRC_I2C2_TXI: en_int_src_t = 425;
-pub const en_int_src_t_INT_SRC_I2C2_TEI: en_int_src_t = 426;
-pub const en_int_src_t_INT_SRC_I2C2_EEI: en_int_src_t = 427;
-pub const en_int_src_t_INT_SRC_I2C3_RXI: en_int_src_t = 428;
-pub const en_int_src_t_INT_SRC_I2C3_TXI: en_int_src_t = 429;
-pub const en_int_src_t_INT_SRC_I2C3_TEI: en_int_src_t = 430;
-pub const en_int_src_t_INT_SRC_I2C3_EEI: en_int_src_t = 431;
-pub const en_int_src_t_INT_SRC_LVD1: en_int_src_t = 433;
-pub const en_int_src_t_INT_SRC_LVD2: en_int_src_t = 434;
-pub const en_int_src_t_INT_SRC_OTS: en_int_src_t = 435;
-pub const en_int_src_t_INT_SRC_FCMFERRI: en_int_src_t = 436;
-pub const en_int_src_t_INT_SRC_FCMMENDI: en_int_src_t = 437;
-pub const en_int_src_t_INT_SRC_FCMCOVFI: en_int_src_t = 438;
-pub const en_int_src_t_INT_SRC_WDT_REFUDF: en_int_src_t = 439;
-pub const en_int_src_t_INT_SRC_ADC1_EOCA: en_int_src_t = 448;
-pub const en_int_src_t_INT_SRC_ADC1_EOCB: en_int_src_t = 449;
-pub const en_int_src_t_INT_SRC_ADC1_CHCMP: en_int_src_t = 450;
-pub const en_int_src_t_INT_SRC_ADC1_SEQCMP: en_int_src_t = 451;
-pub const en_int_src_t_INT_SRC_ADC2_EOCA: en_int_src_t = 452;
-pub const en_int_src_t_INT_SRC_ADC2_EOCB: en_int_src_t = 453;
-pub const en_int_src_t_INT_SRC_ADC2_CHCMP: en_int_src_t = 454;
-pub const en_int_src_t_INT_SRC_ADC2_SEQCMP: en_int_src_t = 455;
-pub const en_int_src_t_INT_SRC_TRNG_END: en_int_src_t = 456;
-pub const en_int_src_t_INT_SRC_SDIOC1_SD: en_int_src_t = 482;
-pub const en_int_src_t_INT_SRC_SDIOC2_SD: en_int_src_t = 485;
-pub const en_int_src_t_INT_SRC_CAN_INT: en_int_src_t = 486;
-pub const en_int_src_t_INT_SRC_MAX: en_int_src_t = 511;
-pub const en_functional_state_t_DISABLE: en_functional_state_t = 0;
-pub const en_functional_state_t_ENABLE: en_functional_state_t = 1;
-pub const en_flag_status_t_RESET: en_flag_status_t = 0;
-pub const en_flag_status_t_SET: en_flag_status_t = 1;
-pub const HOST_CH_STATUS_HOST_CH_IDLE: HOST_CH_STATUS = 0;
-pub const HOST_CH_STATUS_HOST_CH_XFERCOMPL: HOST_CH_STATUS = 1;
-pub const HOST_CH_STATUS_HOST_CH_CHHLTD: HOST_CH_STATUS = 2;
-pub const HOST_CH_STATUS_HOST_CH_NAK: HOST_CH_STATUS = 3;
-pub const HOST_CH_STATUS_HOST_CH_NYET: HOST_CH_STATUS = 4;
-pub const HOST_CH_STATUS_HOST_CH_STALL: HOST_CH_STATUS = 5;
-pub const HOST_CH_STATUS_HOST_CH_XACTERR: HOST_CH_STATUS = 6;
-pub const HOST_CH_STATUS_HOST_CH_BBLERR: HOST_CH_STATUS = 7;
-pub const HOST_CH_STATUS_HOST_CH_DATATGLERR: HOST_CH_STATUS = 8;
-pub const HOST_CH_STATUS_HOST_CH_AHBERR: HOST_CH_STATUS = 9;
-pub const HOST_CH_STATUS_HOST_CH_FRMOVRUN: HOST_CH_STATUS = 10;
-pub const HOST_CH_STATUS_HOST_CH_BNAINTR: HOST_CH_STATUS = 11;
-pub const HOST_CH_STATUS_HOST_CH_XCS_XACT_ERR: HOST_CH_STATUS = 12;
-pub const HOST_CH_STATUS_HOST_CH_DESC_LST_ROLLINTR: HOST_CH_STATUS = 13;
-pub const HOST_CH_XFER_STATE_HOST_CH_XFER_IDLE: HOST_CH_XFER_STATE = 0;
-pub const HOST_CH_XFER_STATE_HOST_CH_XFER_DONE: HOST_CH_XFER_STATE = 1;
-pub const HOST_CH_XFER_STATE_HOST_CH_XFER_UNREADY: HOST_CH_XFER_STATE = 2;
-pub const HOST_CH_XFER_STATE_HOST_CH_XFER_ERROR: HOST_CH_XFER_STATE = 3;
-pub const HOST_CH_XFER_STATE_HOST_CH_XFER_STALL: HOST_CH_XFER_STATE = 4;
-pub const CTRL_HANDLE_STATUS_CTRL_START: CTRL_HANDLE_STATUS = 0;
-pub const CTRL_HANDLE_STATUS_CTRL_XFRC: CTRL_HANDLE_STATUS = 1;
-pub const CTRL_HANDLE_STATUS_CTRL_HALTED: CTRL_HANDLE_STATUS = 2;
-pub const CTRL_HANDLE_STATUS_CTRL_NAK: CTRL_HANDLE_STATUS = 3;
-pub const CTRL_HANDLE_STATUS_CTRL_STALL: CTRL_HANDLE_STATUS = 4;
-pub const CTRL_HANDLE_STATUS_CTRL_XACTERR: CTRL_HANDLE_STATUS = 5;
-pub const CTRL_HANDLE_STATUS_CTRL_BBLERR: CTRL_HANDLE_STATUS = 6;
-pub const CTRL_HANDLE_STATUS_CTRL_DATATGLERR: CTRL_HANDLE_STATUS = 7;
-pub const CTRL_HANDLE_STATUS_CTRL_FAIL: CTRL_HANDLE_STATUS = 8;
-#[doc = "< Pin reset"]
-pub const en_ep_state_t_EVT_PIN_RESET: en_ep_state_t = 0;
-#[doc = "< Pin set"]
-pub const en_ep_state_t_EVT_PIN_SET: en_ep_state_t = 1;
-#[doc = "< Pin reset"]
-pub const en_pin_state_t_PIN_RESET: en_pin_state_t = 0;
-#[doc = "< Pin set"]
-pub const en_pin_state_t_PIN_SET: en_pin_state_t = 1;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_1 {
-    pub RPT0: u32,
-    pub RPTB0: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_2 {
-    pub SNSEQCTL0: u32,
-    pub SNSEQCTLB0: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_3 {
-    pub DNSEQCTL0: u32,
-    pub DNSEQCTLB0: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_4 {
-    pub RPT1: u32,
-    pub RPTB1: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_5 {
-    pub SNSEQCTL1: u32,
-    pub SNSEQCTLB1: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_6 {
-    pub DNSEQCTL1: u32,
-    pub DNSEQCTLB1: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_7 {
-    pub RPT2: u32,
-    pub RPTB2: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_8 {
-    pub SNSEQCTL2: u32,
-    pub SNSEQCTLB2: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_9 {
-    pub DNSEQCTL2: u32,
-    pub DNSEQCTLB2: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_10 {
-    pub RPT3: u32,
-    pub RPTB3: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_11 {
-    pub SNSEQCTL3: u32,
-    pub SNSEQCTLB3: u32,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union CM_DMA_TypeDef__bindgen_ty_12 {
-    pub DNSEQCTL3: u32,
-    pub DNSEQCTLB3: u32,
-}
-#[repr(C)]
 #[derive(Copy, Clone)]
 pub union stc_can_tx_frame_t__bindgen_ty_1 {
     pub u32Ctrl: u32,
     pub __bindgen_anon_1: stc_can_tx_frame_t__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union stc_can_rx_frame_t__bindgen_ty_1 {
-    pub u32Ctrl: u32,
-    pub __bindgen_anon_1: stc_can_rx_frame_t__bindgen_ty_1__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union stc_clock_scale_t__bindgen_ty_1 {
-    #[doc = "< clock frequency config register"]
-    pub SCFGR: u32,
-    pub SCFGR_f: stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union stc_clock_pll_init_t__bindgen_ty_1 {
-    #[doc = "< PLL config register"]
-    pub PLLCFGR: u32,
-    pub PLLCFGR_f: stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union stc_clock_pllx_init_t__bindgen_ty_1 {
-    #[doc = "< PLLx config register"]
-    pub PLLCFGR: u32,
-    pub PLLCFGR_f: stc_clock_pllx_init_t__bindgen_ty_1__bindgen_ty_1,
-}
-#[doc = " @brief The configuration of Output-Compare high channel(OUH/OVH/OWH)"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union un_tmr4_oc_ocmrh_t {
-    #[doc = "< OCMRxH(x=U/V/W) register"]
-    pub OCMRx: u16,
-    pub OCMRx_f: un_tmr4_oc_ocmrh_t__bindgen_ty_1,
-}
-#[doc = " @brief The configuration of Output-Compare low channel(OUL/OVL/OWL)"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union un_tmr4_oc_ocmrl_t {
-    #[doc = "< OCMRxL(x=U/V/W) register"]
-    pub OCMRx: u32,
-    pub OCMRx_f: un_tmr4_oc_ocmrl_t__bindgen_ty_1,
-}
-impl<Storage> __BindgenBitfieldUnit<Storage> {
-    #[inline]
-    pub const fn new(storage: Storage) -> Self {
-        Self { storage }
-    }
-}
-impl<Storage> __BindgenBitfieldUnit<Storage>
-where
-    Storage: AsRef<[u8]> + AsMut<[u8]>,
-{
-    #[inline]
-    fn extract_bit(byte: u8, index: usize) -> bool {
-        let bit_index = if cfg!(target_endian = "big") {
-            7 - (index % 8)
-        } else {
-            index % 8
-        };
-        let mask = 1 << bit_index;
-        byte & mask == mask
-    }
-    #[inline]
-    pub fn get_bit(&self, index: usize) -> bool {
-        debug_assert!(index / 8 < self.storage.as_ref().len());
-        let byte_index = index / 8;
-        let byte = self.storage.as_ref()[byte_index];
-        Self::extract_bit(byte, index)
-    }
-    #[inline]
-    pub unsafe fn raw_get_bit(this: *const Self, index: usize) -> bool {
-        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
-        let byte_index = index / 8;
-        let byte = unsafe {
-            *(core::ptr::addr_of!((*this).storage) as *const u8).offset(byte_index as isize)
-        };
-        Self::extract_bit(byte, index)
-    }
-    #[inline]
-    fn change_bit(byte: u8, index: usize, val: bool) -> u8 {
-        let bit_index = if cfg!(target_endian = "big") {
-            7 - (index % 8)
-        } else {
-            index % 8
-        };
-        let mask = 1 << bit_index;
-        if val {
-            byte | mask
-        } else {
-            byte & !mask
-        }
-    }
-    #[inline]
-    pub fn set_bit(&mut self, index: usize, val: bool) {
-        debug_assert!(index / 8 < self.storage.as_ref().len());
-        let byte_index = index / 8;
-        let byte = &mut self.storage.as_mut()[byte_index];
-        *byte = Self::change_bit(*byte, index, val);
-    }
-    #[inline]
-    pub unsafe fn raw_set_bit(this: *mut Self, index: usize, val: bool) {
-        debug_assert!(index / 8 < core::mem::size_of::<Storage>());
-        let byte_index = index / 8;
-        let byte = unsafe {
-            (core::ptr::addr_of_mut!((*this).storage) as *mut u8).offset(byte_index as isize)
-        };
-        unsafe { *byte = Self::change_bit(*byte, index, val) };
-    }
-    #[inline]
-    pub fn get(&self, bit_offset: usize, bit_width: u8) -> u64 {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
-        let mut val = 0;
-        for i in 0..(bit_width as usize) {
-            if self.get_bit(i + bit_offset) {
-                let index = if cfg!(target_endian = "big") {
-                    bit_width as usize - 1 - i
-                } else {
-                    i
-                };
-                val |= 1 << index;
-            }
-        }
-        val
-    }
-    #[inline]
-    pub unsafe fn raw_get(this: *const Self, bit_offset: usize, bit_width: u8) -> u64 {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
-        let mut val = 0;
-        for i in 0..(bit_width as usize) {
-            if unsafe { Self::raw_get_bit(this, i + bit_offset) } {
-                let index = if cfg!(target_endian = "big") {
-                    bit_width as usize - 1 - i
-                } else {
-                    i
-                };
-                val |= 1 << index;
-            }
-        }
-        val
-    }
-    #[inline]
-    pub fn set(&mut self, bit_offset: usize, bit_width: u8, val: u64) {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
-        for i in 0..(bit_width as usize) {
-            let mask = 1 << i;
-            let val_bit_is_set = val & mask == mask;
-            let index = if cfg!(target_endian = "big") {
-                bit_width as usize - 1 - i
-            } else {
-                i
-            };
-            self.set_bit(index + bit_offset, val_bit_is_set);
-        }
-    }
-    #[inline]
-    pub unsafe fn raw_set(this: *mut Self, bit_offset: usize, bit_width: u8, val: u64) {
-        debug_assert!(bit_width <= 64);
-        debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
-        for i in 0..(bit_width as usize) {
-            let mask = 1 << i;
-            let val_bit_is_set = val & mask == mask;
-            let index = if cfg!(target_endian = "big") {
-                bit_width as usize - 1 - i
-            } else {
-                i
-            };
-            unsafe { Self::raw_set_bit(this, index + bit_offset, val_bit_is_set) };
-        }
-    }
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_can_tx_frame_t__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u32; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
 }
 impl stc_can_tx_frame_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
@@ -16035,6 +14660,29 @@ impl stc_can_tx_frame_t__bindgen_ty_1__bindgen_ty_1 {
         });
         __bindgen_bitfield_unit
     }
+}
+#[doc = " @brief CAN RX frame data structure."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct stc_can_rx_frame_t {
+    #[doc = "< 11 bits standard ID or 29 bits extended ID, depending on IDE."]
+    pub u32ID: u32,
+    pub __bindgen_anon_1: stc_can_rx_frame_t__bindgen_ty_1,
+    #[doc = "< RX data payload."]
+    pub au8Data: [u8; 8usize],
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union stc_can_rx_frame_t__bindgen_ty_1 {
+    pub u32Ctrl: u32,
+    pub __bindgen_anon_1: stc_can_rx_frame_t__bindgen_ty_1__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_can_rx_frame_t__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
 }
 impl stc_can_rx_frame_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
@@ -16385,6 +15033,61 @@ impl stc_can_rx_frame_t__bindgen_ty_1__bindgen_ty_1 {
         });
         __bindgen_bitfield_unit
     }
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup CLK_Global_Types CLK Global Types\n @{\n/\n/**\n @brief  CLK XTAL configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_xtal_init_t {
+    #[doc = "< The new state of the XTAL.\nThis parameter can be a value of @ref CLK_XTAL_State"]
+    pub u8State: u8,
+    #[doc = "< The XTAL drive ability.\nThis parameter can be a value of @ref CLK_XTAL_Driver"]
+    pub u8Drv: u8,
+    #[doc = "< The XTAL mode selection osc or exclk.\nThis parameter can be a value of @ref CLK_XTAL_Mode_Selection"]
+    pub u8Mode: u8,
+    #[doc = "< The XTAL super drive on or off.\nThis parameter can be a value of @ref CLK_XTAL_Super_Drive_State"]
+    pub u8SuperDrv: u8,
+    #[doc = "< The XTAL stable time selection.\nThis parameter can be a value of @ref CLK_XTAL_Stable_Time_Selection"]
+    pub u8StableTime: u8,
+}
+#[doc = " @brief  CLK XTAL fault detect configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_xtalstd_init_t {
+    #[doc = "< Specifies the new state of XTALSTD.\nThis parameter can be a value of @ref CLK_XTALSTD_State"]
+    pub u8State: u8,
+    #[doc = "< Specifies the XTALSTD exception type.\nThis parameter can be a value of @ref CLK_XTALSTD_Exception_type"]
+    pub u8ExceptionType: u8,
+}
+#[doc = " @brief  CLK XTAL32 configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_xtal32_init_t {
+    #[doc = "< The new state of the XTAL32 divide.\nThis parameter can be a value of @ref CLK_XTAL32_State"]
+    pub u8State: u8,
+    #[doc = "< The Xtal32 drive ability setting,\nThis parameter can be a value of @ref CLK_XTAL32_Drive"]
+    pub u8Drv: u8,
+    #[doc = "< Xtal32 noise filter setting,\nThis parameter can be a value of@ref CLK_XTAL32_Filter_Selection"]
+    pub u8Filter: u8,
+}
+#[doc = " @brief  CLK clock frequency configuration structure definition"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct stc_clock_scale_t {
+    pub __bindgen_anon_1: stc_clock_scale_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union stc_clock_scale_t__bindgen_ty_1 {
+    #[doc = "< clock frequency config register"]
+    pub SCFGR: u32,
+    pub SCFGR_f: stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
 }
 impl stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
@@ -16926,6 +15629,28 @@ impl stc_clock_scale_t__bindgen_ty_1__bindgen_ty_1 {
         __bindgen_bitfield_unit
     }
 }
+#[doc = " @brief  CLK PLL configuration structure definition\n @note   PLL for MPLL"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct stc_clock_pll_init_t {
+    #[doc = "< PLL new state, @ref CLK_PLL_State for details"]
+    pub u8PLLState: u8,
+    pub __bindgen_anon_1: stc_clock_pll_init_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union stc_clock_pll_init_t__bindgen_ty_1 {
+    #[doc = "< PLL config register"]
+    pub PLLCFGR: u32,
+    pub PLLCFGR_f: stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
 impl stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
     pub fn PLLM(&self) -> u32 {
@@ -17238,6 +15963,28 @@ impl stc_clock_pll_init_t__bindgen_ty_1__bindgen_ty_1 {
         __bindgen_bitfield_unit
     }
 }
+#[doc = " @brief  CLK PLLx configuration structure definition\n @note   PLLx for UPLL"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct stc_clock_pllx_init_t {
+    #[doc = "< PLLx new state, @ref CLK_PLLx_State for details"]
+    pub u8PLLState: u8,
+    pub __bindgen_anon_1: stc_clock_pllx_init_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union stc_clock_pllx_init_t__bindgen_ty_1 {
+    #[doc = "< PLLx config register"]
+    pub PLLCFGR: u32,
+    pub PLLCFGR_f: stc_clock_pllx_init_t__bindgen_ty_1__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_pllx_init_t__bindgen_ty_1__bindgen_ty_1 {
+    pub _bitfield_align_1: [u16; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
 impl stc_clock_pllx_init_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
     pub fn PLLM(&self) -> u32 {
@@ -17511,6 +16258,830 @@ impl stc_clock_pllx_init_t__bindgen_ty_1__bindgen_ty_1 {
         });
         __bindgen_bitfield_unit
     }
+}
+#[doc = " @brief  CLK bus frequency structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_clock_freq_t {
+    #[doc = "< System clock frequency."]
+    pub u32SysclkFreq: u32,
+    #[doc = "< Hclk frequency."]
+    pub u32HclkFreq: u32,
+    #[doc = "< Pclk0 frequency."]
+    pub u32Pclk0Freq: u32,
+    #[doc = "< Pclk1 frequency."]
+    pub u32Pclk1Freq: u32,
+    #[doc = "< Pclk2 frequency."]
+    pub u32Pclk2Freq: u32,
+    #[doc = "< Pclk3 frequency."]
+    pub u32Pclk3Freq: u32,
+    #[doc = "< Pclk4 frequency."]
+    pub u32Pclk4Freq: u32,
+    #[doc = "< Exclk frequency."]
+    pub u32ExclkFreq: u32,
+}
+#[doc = " @brief  CLK PLL clock frequency structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pll_clock_freq_t {
+    #[doc = "< PLL vcin clock frequency."]
+    pub u32PllVcin: u32,
+    #[doc = "< PLL vco clock frequency."]
+    pub u32PllVco: u32,
+    #[doc = "< PLLp clock frequency."]
+    pub u32PllP: u32,
+    #[doc = "< PLLq clock frequency."]
+    pub u32PllQ: u32,
+    #[doc = "< PLLr clock frequency."]
+    pub u32PllR: u32,
+    #[doc = "< pllx vcin clock frequency."]
+    pub u32PllxVcin: u32,
+    #[doc = "< pllx vco clock frequency."]
+    pub u32PllxVco: u32,
+    #[doc = "< pllxp clock frequency."]
+    pub u32PllxP: u32,
+    #[doc = "< pllxq clock frequency."]
+    pub u32PllxQ: u32,
+    #[doc = "< pllxr clock frequency."]
+    pub u32PllxR: u32,
+}
+#[doc = " @brief CMP normal mode configuration structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_cmp_init_t {
+    #[doc = "< Positive(compare voltage) input @ref CMP_Positive_Input_Select"]
+    pub u16PositiveInput: u16,
+    #[doc = "< Negative(Reference voltage) input @ref CMP_Negative_Input_Select"]
+    pub u16NegativeInput: u16,
+    #[doc = "< Output polarity select, @ref CMP_Out_Polarity_Select"]
+    pub u16OutPolarity: u16,
+    #[doc = "< Output detect edge, @ref CMP_Out_Detect_Edge_Select"]
+    pub u16OutDetectEdge: u16,
+    #[doc = "< Output Filter, @ref CMP_Out_Filter"]
+    pub u16OutFilter: u16,
+}
+#[doc = " @brief CRC initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_crc_init_t {
+    #[doc = "< Specifies CRC Protocol.\nThis parameter can be a value of @ref CRC_Protocol_Control_Bit"]
+    pub u32Protocol: u32,
+    #[doc = "< Specifies initial CRC value.\nThis parameter can be CRC_INIT_VALUE_DEFAULT @ref CRC_Init_Value_Default"]
+    pub u32InitValue: u32,
+    #[doc = "< Specifies CRC Retroflexion Input.\nThis parameter can be a value of @ref CRC_Retroflexion_Input"]
+    pub u32RefIn: u32,
+    #[doc = "< Specifies CRC Retroflexion Output.\nThis parameter can be a value of @ref CRC_Retroflexion_Output"]
+    pub u32RefOut: u32,
+    #[doc = "< Specifies CRC XOR Output.\nThis parameter can be a value of @ref CRC_XOR_Output"]
+    pub u32XorOut: u32,
+}
+#[doc = " @brief DCU initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dcu_init_t {
+    #[doc = "< Specifies DCU operation.\nThis parameter can be a value of @ref DCU_Mode"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies DCU data width.\nThis parameter can be a value of @ref DCU_Data_Width"]
+    pub u32DataWidth: u32,
+}
+#[doc = " @brief  DMA basic configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_init_t {
+    #[doc = "< Specifies the DMA interrupt function.\nThis parameter can be a value of @ref DMA_Int_Config"]
+    pub u32IntEn: u32,
+    #[doc = "< Specifies the DMA source address."]
+    pub u32SrcAddr: u32,
+    #[doc = "< Specifies the DMA destination address."]
+    pub u32DestAddr: u32,
+    #[doc = "< Specifies the DMA transfer data width.\nThis parameter can be a value of @ref DMA_DataWidth_Sel"]
+    pub u32DataWidth: u32,
+    #[doc = "< Specifies the DMA block size."]
+    pub u32BlockSize: u32,
+    #[doc = "< Specifies the DMA transfer count."]
+    pub u32TransCount: u32,
+    #[doc = "< Specifies the source address increment mode.\nThis parameter can be a value of @ref DMA_SrcAddr_Incremented_Mode"]
+    pub u32SrcAddrInc: u32,
+    #[doc = "< Specifies the destination address increment mode.\nThis parameter can be a value of @ref DMA_DesAddr_Incremented_Mode"]
+    pub u32DestAddrInc: u32,
+}
+#[doc = " @brief  DMA repeat mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_repeat_init_t {
+    #[doc = "< Specifies the DMA source repeat function.\nThis parameter can be a value of @ref DMA_Repeat_Config"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA source repeat size."]
+    pub u32SrcCount: u32,
+    #[doc = "< Specifies the DMA destination repeat size."]
+    pub u32DestCount: u32,
+}
+#[doc = " @brief  DMA non-sequence mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_nonseq_init_t {
+    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA source non-sequence function count."]
+    pub u32SrcCount: u32,
+    #[doc = "< Specifies the DMA source non-sequence function offset."]
+    pub u32SrcOffset: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function count."]
+    pub u32DestCount: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function offset."]
+    pub u32DestOffset: u32,
+}
+#[doc = " @brief  DMA Link List Pointer (LLP) mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_llp_init_t {
+    #[doc = "< Specifies the DMA LLP function.\nThis parameter can be a value of @ref DMA_Llp_En"]
+    pub u32State: u32,
+    #[doc = "< Specifies the DMA LLP auto or wait REQ.\nThis parameter can be a value of @ref DMA_Llp_Mode"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA list pointer address for LLP function."]
+    pub u32Addr: u32,
+}
+#[doc = " @brief  DMA re-config function configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_reconfig_init_t {
+    #[doc = "< Specifies the DMA reconfig function count mode.\nThis parameter can be a value of @ref DMA_Reconfig_Count_Sel"]
+    pub u32CountMode: u32,
+    #[doc = "< Specifies the DMA reconfig function destination address mode.\nThis parameter can be a value of @ref DMA_Reconfig_DestAddr_Sel"]
+    pub u32DestAddrMode: u32,
+    #[doc = "< Specifies the DMA reconfig function source address mode.\nThis parameter can be a value of @ref DMA_Reconfig_SrcAddr_Sel"]
+    pub u32SrcAddrMode: u32,
+}
+#[doc = " @brief  DMA re-config non-sequence mode configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_rc_nonseq_init_t {
+    #[doc = "< Specifies the DMA source non-sequence function.\nThis parameter can be a value of @ref DMA_NonSeq_Config"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the DMA source non-sequence function count."]
+    pub u32SrcCount: u32,
+    #[doc = "< Specifies the DMA source non-sequence function distance."]
+    pub u32SrcDist: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function count."]
+    pub u32DestCount: u32,
+    #[doc = "< Specifies the DMA destination non-sequence function distance."]
+    pub u32DestDist: u32,
+}
+#[doc = " @brief  Dma LLP(linked list pointer) descriptor structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_dma_llp_descriptor_t {
+    #[doc = "< LLP source address"]
+    pub SARx: u32,
+    #[doc = "< LLP destination address"]
+    pub DARx: u32,
+    #[doc = "< LLP transfer count and block size"]
+    pub DTCTLx: u32,
+    #[doc = "< LLP source & destination repeat size"]
+    pub RPTx: u32,
+    #[doc = "< LLP source non-seq count and offset"]
+    pub SNSEQCTLx: u32,
+    #[doc = "< LLP destination non-seq count and offset"]
+    pub DNSEQCTLx: u32,
+    #[doc = "< LLP next list pointer"]
+    pub LLPx: u32,
+    #[doc = "< LLP channel control"]
+    pub CHCTLx: u32,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup EFM_Global_Types EFM Global Types\n @{\n/\n/**\n @brief EFM unique ID definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_unique_id_t {
+    #[doc = "< unique ID 0."]
+    pub u32UniqueID0: u32,
+    #[doc = "< unique ID 1."]
+    pub u32UniqueID1: u32,
+    #[doc = "< unique ID 2."]
+    pub u32UniqueID2: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_efm_remap_init_t {
+    pub u32State: u32,
+    pub u32Addr: u32,
+    pub u32Size: u32,
+}
+#[doc = " @brief EMB monitor OSC failure configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_osc_t {
+    #[doc = "< Enable or disable EMB detect OSC failure function\nThis parameter can be a value of @ref EMB_OSC_Selection"]
+    pub u32OscState: u32,
+}
+#[doc = " @brief EMB monitor EMB port configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_port_config_t {
+    #[doc = "< Enable or disable EMB detect port in control function\nThis parameter can be a value of @ref EMB_Port_Selection"]
+    pub u32PortState: u32,
+    #[doc = "< EMB detect port level\nThis parameter can be a value of @ref EMB_Detect_Port_Level"]
+    pub u32PortLevel: u32,
+    #[doc = "< EMB port filter division\nThis parameter can be a value of @ref EMB_Port_Filter_Clock_Division"]
+    pub u32PortFilterDiv: u32,
+    #[doc = "< Enable or disable EMB detect port filter in control function\nThis parameter can be a value of @ref EMB_Port_Filter_Selection"]
+    pub u32PortFilterState: u32,
+}
+#[doc = " @brief EMB monitor PWM configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_tmr_pwm_t {
+    #[doc = "< Enable or disable EMB detect timer same phase function\nThis parameter can be a value of @ref EMB_Detect_PWM state."]
+    pub u32PwmState: u32,
+    #[doc = "< Detect timer polarity level\nThis parameter can be a value of @ref EMB_Detect_PWM level"]
+    pub u32PwmLevel: u32,
+}
+#[doc = " @brief EMB monitor port in configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_port_t {
+    #[doc = "< EMB detect EMB port in function\nThis parameter details refer @ref stc_emb_monitor_port_config_t structure"]
+    pub stcPort1: stc_emb_monitor_port_config_t,
+}
+#[doc = " @brief EMB monitor CMP configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_cmp_t {
+    #[doc = "< Enable or disable EMB detect CMP1 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
+    pub u32Cmp1State: u32,
+    #[doc = "< Enable or disable EMB detect CMP2 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
+    pub u32Cmp2State: u32,
+    #[doc = "< Enable or disable EMB detect CMP3 result function\nThis parameter can be a value of @ref EMB_CMP_Selection"]
+    pub u32Cmp3State: u32,
+}
+#[doc = " @brief EMB monitor TMR4 configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_tmr4_t {
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr4PwmU: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr4PwmV: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr4PwmW: stc_emb_monitor_tmr_pwm_t,
+}
+#[doc = " @brief EMB control TMR4 initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_tmr4_init_t {
+    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
+    pub stcCmp: stc_emb_monitor_cmp_t,
+    #[doc = "< EMB detect OSC function\nThis parameter details refer @ref stc_emb_monitor_osc_t structure"]
+    pub stcOsc: stc_emb_monitor_osc_t,
+    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
+    pub stcPort: stc_emb_monitor_port_t,
+    #[doc = "< EMB detect TMR4 function\nThis parameter details refer @ref stc_emb_monitor_tmr4_t structure"]
+    pub stcTmr4: stc_emb_monitor_tmr4_t,
+}
+#[doc = " @brief EMB monitor TMR6 configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_monitor_tmr6_t {
+    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr6_1: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr6_2: stc_emb_monitor_tmr_pwm_t,
+    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure"]
+    pub stcTmr6_3: stc_emb_monitor_tmr_pwm_t,
+}
+#[doc = " @brief EMB control TMR6 initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_emb_tmr6_init_t {
+    #[doc = "< EMB detect CMP function\nThis parameter details refer @ref stc_emb_monitor_cmp_t structure"]
+    pub stcCmp: stc_emb_monitor_cmp_t,
+    #[doc = "< EMB detect OSC function\nThis parameter details refer @ref stc_emb_monitor_osc_t structure"]
+    pub stcOsc: stc_emb_monitor_osc_t,
+    #[doc = "< EMB detect EMB port function\nThis parameter details refer @ref stc_emb_monitor_port_t structure"]
+    pub stcPort: stc_emb_monitor_port_t,
+    #[doc = "< EMB detect TMR6 function\nThis parameter details refer @ref stc_emb_monitor_tmr6_t structure"]
+    pub stcTmr6: stc_emb_monitor_tmr6_t,
+}
+#[doc = "< Pin reset"]
+pub const en_ep_state_t_EVT_PIN_RESET: en_ep_state_t = 0;
+#[doc = "< Pin set"]
+pub const en_ep_state_t_EVT_PIN_SET: en_ep_state_t = 1;
+#[doc = " @brief  Event Pin Set and Reset enumeration"]
+pub type en_ep_state_t = ::core::ffi::c_uint;
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_ep_init_t {
+    #[doc = "< Input/Output setting, @ref EP_PinDirection_Sel for details"]
+    pub u32PinDir: u32,
+    #[doc = "< Corresponding pin initial state, @ref en_ep_state_t for details"]
+    pub enPinState: en_ep_state_t,
+    #[doc = "< Corresponding pin state after triggered, @ref EP_TriggerOps_Sel for details"]
+    pub u32PinTriggerOps: u32,
+    #[doc = "< Event port trigger edge, @ref EP_Trigger_Sel for details"]
+    pub u32Edge: u32,
+    #[doc = "< Filter clock function setting, @ref EP_FilterClock_Sel for details"]
+    pub u32Filter: u32,
+    #[doc = "< Filter clock, ref@ EP_FilterClock_Div for details"]
+    pub u32FilterClock: u32,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup FCM_Global_Types FCM Global Types\n @{\n/\n/**\n @brief  FCM Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_fcm_init_t {
+    #[doc = "< FCM lower limit value"]
+    pub u16LowerLimit: u16,
+    #[doc = "< FCM upper limit value"]
+    pub u16UpperLimit: u16,
+    #[doc = "< FCM target clock source selection, @ref FCM_Target_Clock_Src"]
+    pub u32TargetClock: u32,
+    #[doc = "< FCM target clock source division selection, @ref FCM_Target_Clock_Div"]
+    pub u32TargetClockDiv: u32,
+    #[doc = "< FCM external reference clock function config, @ref FCM_Ext_Ref_Clock_Config"]
+    pub u32ExtRefClockEnable: u32,
+    #[doc = "< FCM reference clock trigger edge selection, @ref FCM_Ref_Clock_Edge"]
+    pub u32RefClockEdge: u32,
+    #[doc = "< FCM digital filter function config, @ref FCM_Digital_Filter_Config"]
+    pub u32DigitalFilter: u32,
+    #[doc = "< FCM reference clock source selection, @ref FCM_Ref_Clock_Src"]
+    pub u32RefClock: u32,
+    #[doc = "< FCM reference clock source division selection, @ref FCM_Ref_Clock_Div"]
+    pub u32RefClockDiv: u32,
+    #[doc = "< FCM exception type select,  @ref FCM_Exception_Type"]
+    pub u32ExceptionType: u32,
+}
+#[doc = "< Pin reset"]
+pub const en_pin_state_t_PIN_RESET: en_pin_state_t = 0;
+#[doc = "< Pin set"]
+pub const en_pin_state_t_PIN_SET: en_pin_state_t = 1;
+#[doc = " @brief  GPIO Pin Set and Reset enumeration"]
+pub type en_pin_state_t = ::core::ffi::c_uint;
+#[doc = " @brief  GPIO Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_gpio_init_t {
+    #[doc = "< Set pin state to High or Low, @ref GPIO_PinState_Sel for details"]
+    pub u16PinState: u16,
+    #[doc = "< Pin mode setting, @ref GPIO_PinDirection_Sel for details"]
+    pub u16PinDir: u16,
+    #[doc = "< Output type setting, @ref GPIO_PinOutType_Sel for details"]
+    pub u16PinOutputType: u16,
+    #[doc = "< Pin drive capacity setting, @ref GPIO_PinDrv_Sel for details"]
+    pub u16PinDrv: u16,
+    #[doc = "< Pin latch setting, @ref GPIO_PinLatch_Sel for details"]
+    pub u16Latch: u16,
+    #[doc = "< Internal pull-up resistor setting, @ref GPIO_PinPU_Sel for details"]
+    pub u16PullUp: u16,
+    #[doc = "< Pin input/output invert setting, @ref GPIO_PinInvert_Sel for details"]
+    pub u16Invert: u16,
+    #[doc = "< External interrupt pin setting, @ref GPIO_PinExtInt_Sel for details"]
+    pub u16ExtInt: u16,
+    #[doc = "< Digital or analog attribute setting, @ref GPIO_PinMode_Sel for details"]
+    pub u16PinAttr: u16,
+}
+#[doc = " @brief I2c configuration structure"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2c_init_t {
+    #[doc = "< I2C clock division for i2c source clock"]
+    pub u32ClockDiv: u32,
+    #[doc = "< I2C baudrate config"]
+    pub u32Baudrate: u32,
+    #[doc = "< The SCL rising and falling time, count of T(i2c source clock after frequency divider)"]
+    pub u32SclTime: u32,
+}
+#[doc = " @brief I2S Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_i2s_init_t {
+    #[doc = "< Specifies the clock source of I2S.\nThis parameter can be a value of @ref I2S_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Specifies the master/slave mode of I2S.\nThis parameter can be a value of @ref I2S_Mode"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the communication protocol of I2S.\nThis parameter can be a value of @ref I2S_Protocol"]
+    pub u32Protocol: u32,
+    #[doc = "< Specifies the transmission mode for the I2S communication.\nThis parameter can be a value of @ref I2S_Trans_Mode"]
+    pub u32TransMode: u32,
+    #[doc = "< Specifies the frequency selected for the I2S communication.\nThis parameter can be a value of @ref I2S_Audio_Frequency"]
+    pub u32AudioFreq: u32,
+    #[doc = "< Specifies the channel length for the I2S communication.\nThis parameter can be a value of @ref I2S_Channel_Length"]
+    pub u32ChWidth: u32,
+    #[doc = "< Specifies the data length for the I2S communication.\nThis parameter can be a value of @ref I2S_Data_Length"]
+    pub u32DataWidth: u32,
+    #[doc = "< Specifies the validity of the MCK output for I2S.\nThis parameter can be a value of @ref I2S_MCK_Output"]
+    pub u32MCKOutput: u32,
+    #[doc = "< Specifies the level of transfer FIFO.\nThis parameter can be a value of @ref I2S_Trans_Level"]
+    pub u32TransFIFOLevel: u32,
+    #[doc = "< Specifies the level of receive FIFO.\nThis parameter can be a value of @ref I2S_Receive_Level"]
+    pub u32ReceiveFIFOLevel: u32,
+}
+#[doc = " @brief  Interrupt registration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_irq_signin_config_t {
+    #[doc = "< Peripheral interrupt number, can be any value @ref en_int_src_t"]
+    pub enIntSrc: en_int_src_t,
+    #[doc = "< Peripheral IRQ type, can be INT000_IRQn~INT127_IRQn @ref IRQn_Type"]
+    pub enIRQn: IRQn_Type,
+    #[doc = "< Callback function for corresponding peripheral IRQ"]
+    pub pfnCallback: func_ptr_t,
+}
+#[doc = " @brief  NMI initialize configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_nmi_init_t {
+    #[doc = "< NMI trigger source, @ref NMI_TriggerSrc_Sel for details"]
+    pub u32Src: u32,
+    #[doc = "< NMI pin trigger edge, @ref NMI_Trigger_level_Sel for details"]
+    pub u32Edge: u32,
+    #[doc = "< NMI filter function setting, @ref NMI_FilterClock_Sel for details"]
+    pub u32Filter: u32,
+    #[doc = "< NMI filter clock division, @ref NMI_FilterClock_Div for details"]
+    pub u32FilterClock: u32,
+}
+#[doc = " @brief  EXTINT initialize configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_extint_init_t {
+    #[doc = "< ExtInt filter (A) function setting, @ref EXTINT_FilterClock_Sel for details"]
+    pub u32Filter: u32,
+    #[doc = "< ExtInt filter (A) clock division, @ref EXTINT_FilterClock_Div for details"]
+    pub u32FilterClock: u32,
+    #[doc = "< ExtInt trigger edge, @ref EXTINT_Trigger_Sel for details"]
+    pub u32Edge: u32,
+}
+#[doc = " @brief  KEYSCAN configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_keyscan_init_t {
+    #[doc = "< Specifies the KEYSCAN Hiz cycles.\nThis parameter can be a value of @ref KEYSCAN_Hiz_Cycle_Sel"]
+    pub u32HizCycle: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Low_Cycle_Sel"]
+    pub u32LowCycle: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Clock_Sel"]
+    pub u32KeyClock: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyout_Sel"]
+    pub u32KeyOut: u32,
+    #[doc = "< Specifies the KEYSCAN low cycles.\nThis parameter can be a value of @ref KEYSCAN_Keyin_Sel"]
+    pub u32KeyIn: u32,
+}
+#[doc = " @brief MPU Unit configure structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_unit_config_t {
+    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
+    pub u32ExceptionType: u32,
+    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
+    pub u32BackgroundWrite: u32,
+    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
+    pub u32BackgroundRead: u32,
+}
+#[doc = " @brief MPU Unit initialize structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_unit_init_t {
+    #[doc = "< Specifies the unit's state of mpu\nThis parameter can be a value of @ref MPU_Unit_State"]
+    pub u32MpuState: u32,
+    #[doc = "< Specifies the type of exception that occurs when the unit accesses a protected region.\nThis parameter can be a value of @ref MPU_Exception_Type"]
+    pub u32ExceptionType: u32,
+    #[doc = "< Specifies the unit's write permission for the background space.\nThis parameter can be a value of @ref MPU_Background_Write_Permission"]
+    pub u32BackgroundWrite: u32,
+    #[doc = "< Specifies the unit's read permission for the background space\nThis parameter can be a value of @ref MPU_Background_Read_Permission"]
+    pub u32BackgroundRead: u32,
+}
+#[doc = " @brief MPU Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_init_t {
+    #[doc = "< Configure storage protection unit of DMA1"]
+    pub stcDma1: stc_mpu_unit_config_t,
+    #[doc = "< Configure storage protection unit of DMA2"]
+    pub stcDma2: stc_mpu_unit_config_t,
+    #[doc = "< Configure storage protection unit of USBFS_DMA"]
+    pub stcUsbFSDma: stc_mpu_unit_config_t,
+}
+#[doc = " @brief MPU Region Permission structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_region_permission_t {
+    #[doc = "< Specifies the unit's write permission for the region.\nThis parameter can be a value of @ref MPU_Region_Write_Permission"]
+    pub u32RegionWrite: u32,
+    #[doc = "< Specifies the unit's read permission  for the region.\nThis parameter can be a value of @ref MPU_Region_Read_Permission"]
+    pub u32RegionRead: u32,
+}
+#[doc = " @brief MPU region initialization structure definition\n @note  The effective bits of the 'u32BaseAddr' are related to the 'u32Size' of the region,\n        and the low 'u32Size+1' bits are fixed at 0."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_mpu_region_init_t {
+    #[doc = "< Specifies the base address of the region.\nThis parameter can be a number between 0UL and 0xFFFFFFE0UL"]
+    pub u32BaseAddr: u32,
+    #[doc = "< Specifies the size of the region.\nThis parameter can be a value of @ref MPU_Region_Size"]
+    pub u32Size: u32,
+    #[doc = "< Specifies the DMA1 access permission for the region"]
+    pub stcDma1: stc_mpu_region_permission_t,
+    #[doc = "< Specifies the DMA2 access permission for the region"]
+    pub stcDma2: stc_mpu_region_permission_t,
+    #[doc = "< Specifies the USBFS_DMA access permission for the region"]
+    pub stcUsbFSDma: stc_mpu_region_permission_t,
+}
+#[doc = " @brief OTS initialization structure."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_ots_init_t {
+    #[doc = "< Specifies clock source for OTS.\nThis parameter can be a value of @ref OTS_Clock_Source"]
+    pub u16ClockSrc: u16,
+    #[doc = "< Enable or disable OTS automatic-off(after sampled temperature).\nThis parameter can be a value of @ref OTS_Auto_Off_En"]
+    pub u16AutoOffEn: u16,
+    #[doc = "< K: Temperature slope (calculated by calibration experiment).\nIf you want to use the default parameters(slope K and offset M),\nspecify both 'f32SlopeK' and 'f32OffsetM' as ZERO."]
+    pub f32SlopeK: float32_t,
+    #[doc = "< M: Temperature offset (calculated by calibration experiment).\nIf you want to use the default parameters(slope K and offset M),\nspecify both 'f32SlopeK' and 'f32OffsetM' as ZERO."]
+    pub f32OffsetM: float32_t,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup PWC_Global_Types PWC Global Types\n @{\n/\n/**\n @brief PWC LVD Init"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_lvd_init_t {
+    #[doc = "< LVD function setting, @ref PWC_LVD_Config for details"]
+    pub u32State: u32,
+    #[doc = "< LVD compare output function setting, @ref PWC_LVD_CMP_Config for details"]
+    pub u32CompareOutputState: u32,
+    #[doc = "< LVD interrupt or reset selection, @ref PWC_LVD_Exception_Type_Sel for details"]
+    pub u32ExceptionType: u32,
+    #[doc = "< LVD digital filter function setting, @ref PWC_LVD_DF_Config for details"]
+    pub u32Filter: u32,
+    #[doc = "< LVD digital filter clock setting, @ref PWC_LVD_DFS_Clk_Sel for details"]
+    pub u32FilterClock: u32,
+    #[doc = "< LVD detect voltage setting, @ref PWC_LVD_Detection_Voltage_Sel for details"]
+    pub u32ThresholdVoltage: u32,
+}
+#[doc = " @brief PWC power down mode innit"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_pd_mode_config_t {
+    #[doc = "< Power down mode, @ref PWC_PDMode_Sel for details."]
+    pub u8Mode: u8,
+    #[doc = "< IO state in power down mode, @ref PWC_PDMode_IO_Sel for details."]
+    pub u8IOState: u8,
+    #[doc = "< Power down Wakeup time control, @ref PWC_PD_VCAP_Sel for details."]
+    pub u8VcapCtrl: u8,
+}
+#[doc = " @brief PWC Stop mode Init"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_pwc_stop_mode_config_t {
+    #[doc = "< System clock setting after wake-up from stop mode,\n@ref PWC_STOP_CLK_Sel for details."]
+    pub u16Clock: u16,
+    #[doc = "< Stop mode drive capacity,\n@ref PWC_STOP_DRV_Sel for details."]
+    pub u8StopDrv: u8,
+    #[doc = "< Waiting flash stable after wake-up from stop mode,\n@ref PWC_STOP_Flash_Wait_Sel for details."]
+    pub u16FlashWait: u16,
+}
+#[doc = " @brief QSPI initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_qspi_init_t {
+    #[doc = "< Specifies the clock division.\nThis parameter can be a value of @ref QSPI_Clock_Division"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Specifies the SPI mode.\nThis parameter can be a value of @ref QSPI_SPI_Mode"]
+    pub u32SpiMode: u32,
+    #[doc = "< Specifies the prefetch mode.\nThis parameter can be a value of @ref QSPI_Prefetch_Mode"]
+    pub u32PrefetchMode: u32,
+    #[doc = "< Specifies the read mode.\nThis parameter can be a value of @ref QSPI_Read_Mode"]
+    pub u32ReadMode: u32,
+    #[doc = "< Specifies the number of dummy cycles.\nThis parameter can be a value of @ref QSPI_Dummy_Cycle"]
+    pub u32DummyCycle: u32,
+    #[doc = "< Specifies the address width.\nThis parameter can be a value of @ref QSPI_Addr_Width"]
+    pub u32AddrWidth: u32,
+    #[doc = "< Specifies the advance time of QSSN setup.\nThis parameter can be a value of @ref QSPI_QSSN_Setup_Time"]
+    pub u32SetupTime: u32,
+    #[doc = "< Specifies the delay time of QSSN release.\nThis parameter can be a value of @ref QSPI_QSSN_Release_Time"]
+    pub u32ReleaseTime: u32,
+    #[doc = "< Specifies the minimum interval time of QSSN.\nThis parameter can be a value of @ref QSPI_QSSN_Interval_Time"]
+    pub u32IntervalTime: u32,
+}
+#[doc = " @brief QSPI Custom read mode structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_qspi_custom_mode_t {
+    #[doc = "< Specifies the instruction stage protocol.\nThis parameter can be a value of @ref QSPI_Instruction_Protocol"]
+    pub u32InstrProtocol: u32,
+    #[doc = "< Specifies the address stage protocol.\nThis parameter can be a value of @ref QSPI_Addr_Protocol"]
+    pub u32AddrProtocol: u32,
+    #[doc = "< Specifies the data stage protocol.\nThis parameter can be a value of @ref QSPI_Data_Protocol"]
+    pub u32DataProtocol: u32,
+    #[doc = "< Specifies the instruction code in custom read mode.\nThis parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFF"]
+    pub u8InstrCode: u8,
+}
+#[doc = " @brief RTC Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_init_t {
+    #[doc = "< Specifies the RTC clock source.\nThis parameter can be a value of @ref RTC_Clock_Source"]
+    pub u8ClockSrc: u8,
+    #[doc = "< Specifies the RTC hour format.\nThis parameter can be a value of @ref RTC_Hour_Format"]
+    pub u8HourFormat: u8,
+    #[doc = "< Specifies the RTC interrupt period.\nThis parameter can be a value of @ref RTC_Interrupt_Period"]
+    pub u8IntPeriod: u8,
+    #[doc = "< Specifies the validity of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation"]
+    pub u8ClockCompen: u8,
+    #[doc = "< Specifies the mode of RTC clock compensation.\nThis parameter can be a value of @ref RTC_Clock_Compensation_Mode"]
+    pub u8CompenMode: u8,
+    #[doc = "< Specifies the value of RTC clock compensation.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 0x1FF"]
+    pub u16CompenValue: u16,
+}
+#[doc = " @brief RTC Date structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_date_t {
+    #[doc = "< Specifies the RTC Year.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 99"]
+    pub u8Year: u8,
+    #[doc = "< Specifies the RTC Month (in Decimal format).\nThis parameter can be a value of @ref RTC_Month"]
+    pub u8Month: u8,
+    #[doc = "< Specifies the RTC Day.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 31"]
+    pub u8Day: u8,
+    #[doc = "< Specifies the RTC Weekday.\nThis parameter can be a value of @ref RTC_Weekday"]
+    pub u8Weekday: u8,
+}
+#[doc = " @brief RTC Time structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_time_t {
+    #[doc = "< Specifies the RTC Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
+    pub u8Hour: u8,
+    #[doc = "< Specifies the RTC Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
+    pub u8Minute: u8,
+    #[doc = "< Specifies the RTC Second.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
+    pub u8Second: u8,
+    #[doc = "< Specifies the RTC Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
+    pub u8AmPm: u8,
+}
+#[doc = " @brief RTC Alarm structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_rtc_alarm_t {
+    #[doc = "< Specifies the RTC Alarm Hour.\nThis parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected"]
+    pub u8AlarmHour: u8,
+    #[doc = "< Specifies the RTC Alarm Minute.\nThis parameter can be a number between Min_Data = 0 and Max_Data = 59"]
+    pub u8AlarmMinute: u8,
+    #[doc = "< Specifies the RTC Alarm Weekday.\nThis parameter can be a value of @ref RTC_Alarm_Weekday"]
+    pub u8AlarmWeekday: u8,
+    #[doc = "< Specifies the RTC Alarm Am/Pm Time (in RTC_HOUR_FMT_12H mode).\nThis parameter can be a value of @ref RTC_Hour12_AM_PM"]
+    pub u8AlarmAmPm: u8,
+}
+#[doc = " @brief SDIOC Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sdioc_init_t {
+    #[doc = "< Specifies the SDIOC work mode.\nThis parameter can be a value of @ref SDIOC_Mode"]
+    pub u32Mode: u32,
+    #[doc = "< Specifies the SDIOC card detect way.\nThis parameter can be a value of @ref SDIOC_Card_Detect_Way"]
+    pub u8CardDetect: u8,
+    #[doc = "< Specifies the SDIOC speed mode.\nThis parameter can be a value of @ref SDIOC_Speed_Mode"]
+    pub u8SpeedMode: u8,
+    #[doc = "< Specifies the SDIOC bus width.\nThis parameter can be a value of @ref SDIOC_Bus_Width"]
+    pub u8BusWidth: u8,
+    #[doc = "< Specifies the SDIOC clock division.\nThis parameter can be a value of @ref SDIOC_Clock_Division"]
+    pub u16ClockDiv: u16,
+}
+#[doc = " @brief SDIOC Command Configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sdioc_cmd_config_t {
+    #[doc = "< Specifies the SDIOC command argument."]
+    pub u32Argument: u32,
+    #[doc = "< Specifies the SDIOC command index.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 63"]
+    pub u16CmdIndex: u16,
+    #[doc = "< Specifies the SDIOC command type.\nThis parameter can be a value of @ref SDIOC_Command_Type"]
+    pub u16CmdType: u16,
+    #[doc = "< Specifies whether SDIOC uses data lines in current command.\nThis parameter can be a value of @ref SDIOC_Data_Line_Valid"]
+    pub u16DataLine: u16,
+    #[doc = "< Specifies the SDIOC response type.\nThis parameter can be a value of @ref SDIOC_Response_Type"]
+    pub u16ResponseType: u16,
+}
+#[doc = " @brief SDIOC Data Configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sdioc_data_config_t {
+    #[doc = "< Specifies the SDIOC data block size.\nThis parameter must be a number between Min_Data = 1 and Max_Data = 512"]
+    pub u16BlockSize: u16,
+    #[doc = "< Specifies the SDIOC data block count.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0xFFFF"]
+    pub u16BlockCount: u16,
+    #[doc = "< Specifies the SDIOC data transfer direction.\nThis parameter can be a value of @ref SDIOC_Transfer_Direction"]
+    pub u16TransDir: u16,
+    #[doc = "< Specifies the validity of the SDIOC Auto Send CMD12.\nThis parameter can be a value of @ref SDIOC_Auto_Send_CMD12"]
+    pub u16AutoCmd12: u16,
+    #[doc = "< Specifies the SDIOC data transfer mode.\nThis parameter can be a value of @ref SDIOC_Transfer_Mode"]
+    pub u16TransMode: u16,
+    #[doc = "< Specifies the SDIOC data timeout time.\nThis parameter can be a value of @ref SDIOC_Data_Timeout_Time"]
+    pub u16DataTimeout: u8,
+}
+#[doc = " @brief SDIO CMD52 arguments structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sdio_cmd52_arg_t {
+    #[doc = "< Specifies the number of the function within the I/O card.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 7"]
+    pub u8FuncNum: u8,
+    #[doc = "< Specifies the direction of the I/O operation.\nThis parameter can be a value of @ref SDIO_CMD52_Arguments_RW_Flag"]
+    pub u32RwFlag: u32,
+    #[doc = "< Specifies the address of the byte of data inside of the selected function.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0x1FFFF"]
+    pub u32RegAddr: u32,
+    #[doc = "< Specifies the direction of the I/O operation.\nThis parameter can be a value of @ref SDIO_CMD52_Arguments_RAW_Flag"]
+    pub u32RawFlag: u32,
+}
+#[doc = " @brief SDIO CMD53 arguments structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_sdio_cmd53_arg_t {
+    #[doc = "< Specifies the number of the function within the I/O card.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 7"]
+    pub u8FuncNum: u8,
+    #[doc = "< Specifies the direction of the I/O operation.\nThis parameter can be a value of @ref SDIO_CMD53_Arguments_RW_Flag"]
+    pub u32RwFlag: u32,
+    #[doc = "< Specifies the address of the byte of data inside of the selected function.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0x1FFFF"]
+    pub u32RegAddr: u32,
+    #[doc = "< Specifies the operation code.\nThis parameter can be a value of @ref SDIO_CMD53_Arguments_Operate_Code"]
+    pub u32OperateCode: u32,
+    #[doc = "< Specifies the operation code.\nThis parameter can be a value of @ref SDIO_CMD53_Arguments_Block_Mode"]
+    pub u32BlockMode: u32,
+    #[doc = "< Specifies the byte/block count.\nThis parameter must be a number between Min_Data = 0 and Max_Data = 0x1FF"]
+    pub u32Count: u32,
+}
+#[doc = " @brief Structure definition of SPI initialization.\n @note The parameter u32BaudRatePrescaler is invalid while slave mode"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_init_t {
+    #[doc = "< SPI wire mode, 3 wire mode or 4 wire mode.\nThis parameter can be a value of @ref SPI_Wire_Mode_Define"]
+    pub u32WireMode: u32,
+    #[doc = "< SPI transfer mode, send only or full duplex.\nThis parameter can be a value of @ref SPI_Trans_Mode_Define"]
+    pub u32TransMode: u32,
+    #[doc = "< SPI master/slave mode.\nThis parameter can be a value of @ref SPI_Master_Slave_Mode_Define"]
+    pub u32MasterSlave: u32,
+    #[doc = "< SPI mode fault detect command.\nThis parameter can be a value of @ref SPI_Mode_Fault_Detect_Command_Define"]
+    pub u32ModeFaultDetect: u32,
+    #[doc = "< SPI parity check selection.\nThis parameter can be a value of @ref SPI_Parity_Check_Define"]
+    pub u32Parity: u32,
+    #[doc = "< SPI mode.\nThis parameter can be a value of @ref SPI_Mode_Define"]
+    pub u32SpiMode: u32,
+    #[doc = "< SPI baud rate prescaler.\nThis parameter can be a value of @ref SPI_Baud_Rate_Prescaler_Define"]
+    pub u32BaudRatePrescaler: u32,
+    #[doc = "< SPI data bits, 4 bits ~ 32 bits.\nThis parameter can be a value of @ref SPI_Data_Size_Define"]
+    pub u32DataBits: u32,
+    #[doc = "< MSB first or LSB first.\nThis parameter can be a value of @ref SPI_First_Bit_Define"]
+    pub u32FirstBit: u32,
+    #[doc = "< SPI communication suspend function.\nThis parameter can be a value of @ref SPI_Com_Suspend_Func_Define"]
+    pub u32SuspendMode: u32,
+    #[doc = "< SPI frame level, SPI_1_FRAME ~ SPI_4_FRAME.\nThis parameter can be a value of @ref SPI_Frame_Level_Define"]
+    pub u32FrameLevel: u32,
+}
+#[doc = " @brief Structure definition of SPI delay time configuration."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_spi_delay_t {
+    #[doc = "< SPI interval time delay (Next access delay time)\nThis parameter can be a value of @ref SPI_Interval_Delay_Time_define"]
+    pub u32IntervalDelay: u32,
+    #[doc = "< SPI release time delay (SCK invalid delay time)\nThis parameter can be a value of @ref SPI_Release_Delay_Time_define"]
+    pub u32ReleaseDelay: u32,
+    #[doc = "< SPI Setup time delay (SCK valid delay time) define\nThis parameter can be a value of @ref SPI_Setup_Delay_Time_define"]
+    pub u32SetupDelay: u32,
+}
+#[doc = " @brief TMR0 initialization structure definition\n @note  The 'u32ClockDiv' is invalid when the value of 'u32ClockSrc' is \"TMR0_CLK_SRC_SPEC_EVT\"."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr0_init_t {
+    #[doc = "< Specifies the clock source of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Specifies the clock division of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Clock_Division"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Specifies the function of TMR0 channel.\nThis parameter can be a value of @ref TMR0_Function"]
+    pub u32Func: u32,
+    #[doc = "< Specifies the compare value of TMR0 channel.\nThis parameter can be a value of half-word"]
+    pub u16CompareValue: u16,
+}
+#[doc = " @brief TMR4 Counter function initialization configuration\n @note The TMR4 division(u16ClockDiv) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_init_t {
+    #[doc = "< TMR4 counter clock source.\nThis parameter can be a value of @ref TMR4_Count_Clock_Source"]
+    pub u16ClockSrc: u16,
+    #[doc = "< TMR4 counter internal clock division.\nThis parameter can be a value of @ref TMR4_Count_Clock_Division."]
+    pub u16ClockDiv: u16,
+    #[doc = "< TMR4 counter mode.\nThis parameter can be a value of @ref TMR4_Count_Mode"]
+    pub u16CountMode: u16,
+    #[doc = "< TMR4 counter period value.\nThis parameter can be a value of half-word"]
+    pub u16PeriodValue: u16,
+}
+#[doc = " @brief The configuration of Output-Compare high channel(OUH/OVH/OWH)"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union un_tmr4_oc_ocmrh_t {
+    #[doc = "< OCMRxH(x=U/V/W) register"]
+    pub OCMRx: u16,
+    pub OCMRx_f: un_tmr4_oc_ocmrh_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(2))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
 }
 impl un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
     #[inline]
@@ -17899,6 +17470,21 @@ impl un_tmr4_oc_ocmrh_t__bindgen_ty_1 {
         });
         __bindgen_bitfield_unit
     }
+}
+#[doc = " @brief The configuration of Output-Compare low channel(OUL/OVL/OWL)"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union un_tmr4_oc_ocmrl_t {
+    #[doc = "< OCMRxL(x=U/V/W) register"]
+    pub OCMRx: u32,
+    pub OCMRx_f: un_tmr4_oc_ocmrl_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
+    pub _bitfield_align_1: [u8; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
 }
 impl un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
     #[inline]
@@ -18592,8 +18178,431 @@ impl un_tmr4_oc_ocmrl_t__bindgen_ty_1 {
         __bindgen_bitfield_unit
     }
 }
-#[doc = " @brief Flag status"]
-pub use self::en_flag_status_t as en_int_status_t;
+#[doc = " @brief TMR4 Output-Compare(OC) initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_oc_init_t {
+    #[doc = "< TMR4 OC compare match value.\nThis parameter can be a value of half-word."]
+    pub u16CompareValue: u16,
+    #[doc = "< Port output polarity when OC is disabled.\nThis parameter can be a value of @ref TMR4_OC_Invalid_Output_Polarity."]
+    pub u16OcInvalidPolarity: u16,
+    #[doc = "< Register OCMR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
+    pub u16CompareModeBufCond: u16,
+    #[doc = "< Register OCCR buffer transfer condition.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition."]
+    pub u16CompareValueBufCond: u16,
+    #[doc = "< Enable the specified object(OCMR/OCCR) register buffer linked transfer with the counter interrupt mask.\nThis parameter can be a value of @ref TMR4_OC_Buffer_Object."]
+    pub u16BufLinkTransObject: u16,
+}
+#[doc = " @brief TMR4 PWM initialization configuration\n @note The clock division(u16ClockDiv) is valid when TMR4 clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_pwm_init_t {
+    #[doc = "< Select PWM mode\nThis parameter can be a value of @ref TMR4_PWM_Mode"]
+    pub u16Mode: u16,
+    #[doc = "< The internal clock division of PWM timer.\nThis parameter can be a value of @ref TMR4_PWM_Clock_Division."]
+    pub u16ClockDiv: u16,
+    #[doc = "< TMR4 PWM polarity\nThis parameter can be a value of @ref TMR4_PWM_Polarity"]
+    pub u16Polarity: u16,
+}
+#[doc = " @brief TMR4 Special-Event(EVT) initialization configuration"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr4_evt_init_t {
+    #[doc = "< TMR4 event mode\nThis parameter can be a value of @ref TMR4_Event_Mode"]
+    pub u16Mode: u16,
+    #[doc = "< TMR4 event compare match value.\nThis parameter can be a value of half-word"]
+    pub u16CompareValue: u16,
+    #[doc = "< TMR4 event output event when match count compare condition.\nThis parameter can be a value of @ref TMR4_Event_Output_Event"]
+    pub u16OutputEvent: u16,
+    #[doc = "< Enable the specified count compare type with counter count to generate event.\nThis parameter can be a value of @ref TMR4_Event_Match_Condition"]
+    pub u16MatchCond: u16,
+}
+#[doc = " @brief Timer6 count function structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_init_t {
+    #[doc = "< Specifies the count source @ref TMR6_Count_Src_Define"]
+    pub u8CountSrc: u8,
+    pub sw_count: stc_tmr6_init_t__bindgen_ty_1,
+    pub hw_count: stc_tmr6_init_t__bindgen_ty_2,
+    #[doc = "< The period reference value. (0x00 ~ 0xFFFF) or (0x00 ~ 0xFFFFFFFF)"]
+    pub u32PeriodValue: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_init_t__bindgen_ty_1 {
+    #[doc = "< Count clock division select, @ref TMR6_Count_Clock_Define"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Count mode, @ref TMR6_Count_Mode_Define"]
+    pub u32CountMode: u32,
+    #[doc = "< Count direction, @ref TMR6_Count_Dir_Define"]
+    pub u32CountDir: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_init_t__bindgen_ty_2 {
+    #[doc = "< Hardware count up condition. @ref TMR6_HW_Count_Up_Cond_Define"]
+    pub u32CountUpCond: u32,
+    #[doc = "< Hardware count down condition. @ref TMR6_HW_Count_Down_Cond_Define"]
+    pub u32CountDownCond: u32,
+}
+#[doc = " @brief Timer6 pwm output function structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_pwm_init_t {
+    #[doc = "< Range (0 ~ 0xFFFF) or (0 ~ 0xFFFFFFFF)"]
+    pub u32CompareValue: u32,
+    #[doc = "< Pin polarity when count start @ref TMR6_Pin_Polarity_Define"]
+    pub u32StartPolarity: u32,
+    #[doc = "< Pin polarity when count stop @ref TMR6_Pin_Polarity_Define"]
+    pub u32StopPolarity: u32,
+    pub u32CompareMatchPolarity: u32,
+    #[doc = " Pin polarity when compare register @ref TMR6_Pin_Polarity_Define"]
+    pub u32PeriodMatchPolarity: u32,
+    #[doc = " Pin polarity when period register @ref TMR6_Pin_Polarity_Define"]
+    pub u32StartStopHold: u32,
+}
+#[doc = " @brief Timer6 buffer function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_buf_config_t {
+    #[doc = "< The buffer number, and this parameter can be a value of \\\n@ref TMR6_Buf_Num_Define"]
+    pub u32BufNum: u32,
+    #[doc = "< The buffer send time, and this parameter can be a value of \\\n@ref TMR6_Buf_Trans_Cond_Define"]
+    pub u32BufTransCond: u32,
+}
+#[doc = " @brief Timer6 Valid period function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_valid_period_config_t {
+    #[doc = "< The count condition, and this parameter can be a value of \\\n@ref TMR6_Valid_Period_Count_Cond_Define"]
+    pub u32CountCond: u32,
+    #[doc = "< The interval of the valid period @ref TMR6_Valid_Period_Count_Define"]
+    pub u32PeriodInterval: u32,
+}
+#[doc = " @brief Timer6 EMB configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_emb_config_t {
+    #[doc = "< Pin output status when EMB event valid @ref TMR6_Emb_Pin_Status_Define"]
+    pub u32PinStatus: u32,
+}
+#[doc = " @brief Timer6 Dead time function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_deadtime_config_t {
+    #[doc = "< Enable down count dead time register equal to up count DT register \\\n@ref TMR6_DeadTime_Reg_Equal_Func_Define"]
+    pub u32EqualUpDown: u32,
+    #[doc = "< Enable buffer transfer for up count dead time register (DTUBR-->DTUAR) \\\n@ref TMR6_DeadTime_CountUp_Buf_Func_Define"]
+    pub u32BufUp: u32,
+    #[doc = "< Enable buffer transfer for down count dead time register (DTDBR-->DTDAR) \\\n@ref TMR6_DeadTime_CountDown_Buf_Func_Define"]
+    pub u32BufDown: u32,
+}
+#[doc = " @brief Timer6 Dead time function configuration structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmr6_zmask_config_t {
+    #[doc = "< Z phase input mask periods selection @ref TMR6_Zmask_Cycle_Define"]
+    pub u32ZMaskCycle: u32,
+    #[doc = "< As position count timer, clear function enable(TRUE) or disable(FALSE) during \\\nthe time of Z phase input mask @ref TMR6_Zmask_Pos_Unit_Clear_Func_Define"]
+    pub u32PosCountMaskFunc: u32,
+    #[doc = "< As revolution count timer, the counter function enable(TRUE) or disable(FALSE) \\\nduring the time of Z phase input mask \\\n@ref TMR6_Zmask_Revo_Unit_Count_Func_Define"]
+    pub u32RevoCountMaskFunc: u32,
+}
+#[doc = " Global type definitions ('typedef')\n/\n/**\n @defgroup TMRA_Global_Types TMRA Global Types\n @{\n/\n/**\n @brief TMRA initialization structure."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_init_t {
+    #[doc = "< Specifies the count source of TMRA.\nThis parameter can be a value of @ref TMRA_Count_Src"]
+    pub u8CountSrc: u8,
+    pub sw_count: stc_tmra_init_t__bindgen_ty_1,
+    pub hw_count: stc_tmra_init_t__bindgen_ty_2,
+    #[doc = "< Specifies the period reference value.\nThis parameter can be a number between 0U and 0xFFFFU, inclusive."]
+    pub u32PeriodValue: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_init_t__bindgen_ty_1 {
+    #[doc = "< Specifies the divider of software clock source.\nThis parameter can be a value of @ref TMRA_Clock_Divider"]
+    pub u8ClockDiv: u8,
+    #[doc = "< Specifies count mode.\nThis parameter can be a value of @ref TMRA_Count_Mode"]
+    pub u8CountMode: u8,
+    #[doc = "< Specifies count direction.\nThis parameter can be a value of @ref TMRA_Count_Dir"]
+    pub u8CountDir: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_init_t__bindgen_ty_2 {
+    #[doc = "< Hardware count up condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Up_Condition"]
+    pub u16CountUpCond: u16,
+    #[doc = "< Hardware count down condition.\nThis parameter can be a value of @ref TMRA_Hard_Count_Down_Condition"]
+    pub u16CountDownCond: u16,
+}
+#[doc = " @brief TMRA PWM configuration structure."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_tmra_pwm_init_t {
+    #[doc = "< Specifies compare value of the TMRA channel.\nThis parameter can be a number between:\n0UL and 0xFFFFFFFFUL for 32-bit TimerA units.\n0UL and 0xFFFFUL for 16-bit TimerA units."]
+    pub u32CompareValue: u32,
+    #[doc = "< Specifies the polarity when the counter start counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity\nNOTE: CAN NOT be specified as TMRA_PWM_LOW or TMRA_PWM_HIGH when\nsw_count.u16ClockDiv of @ref stc_tmra_init_t is NOT specified\nas @ref TMRA_CLK_DIV1"]
+    pub u16StartPolarity: u16,
+    #[doc = "< Specifies the polarity when the counter stop counting.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
+    pub u16StopPolarity: u16,
+    #[doc = "< Specifies the polarity when the counter matches the compare register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
+    pub u16CompareMatchPolarity: u16,
+    #[doc = "< Specifies the polarity when the counter matches the period register.\nThis parameter can be a value of @ref TMRA_PWM_Polarity"]
+    pub u16PeriodMatchPolarity: u16,
+}
+#[doc = " @brief clock synchronization mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_clocksync_init_t {
+    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
+    pub u32HWFlowControl: u32,
+}
+#[doc = " @brief UART multiple-processor initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_multiprocessor_init_t {
+    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
+    pub u32CKOutput: u32,
+    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
+    pub u32DataWidth: u32,
+    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
+    pub u32StopBit: u32,
+    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
+    pub u32OverSampleBit: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
+    pub u32StartBitPolarity: u32,
+    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
+    pub u32HWFlowControl: u32,
+}
+#[doc = " @brief UART mode initialization structure definition\n @note The parameter(u32ClockDiv/u32CKOutput/u32Baudrate) is valid when clock source is the internal clock."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_uart_init_t {
+    #[doc = "< Clock Source.\nThis parameter can be a value of @ref USART_Clock_Source"]
+    pub u32ClockSrc: u32,
+    #[doc = "< Clock division.\nThis parameter can be a value of @ref USART_Clock_Division."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART_CK output selection.\nThis parameter can be a value of @ref USART_CK_Output_Selection."]
+    pub u32CKOutput: u32,
+    #[doc = "< USART baudrate.\nThis parameter is valid when clock source is the internal clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Data width.\nThis parameter can be a value of @ref USART_Data_Width_Bit"]
+    pub u32DataWidth: u32,
+    #[doc = "< Stop Bits.\nThis parameter can be a value of @ref USART_Stop_Bit"]
+    pub u32StopBit: u32,
+    #[doc = "< Parity format.\nThis parameter can be a value of @ref USART_Parity_Control"]
+    pub u32Parity: u32,
+    #[doc = "< Oversampling Bits.\nThis parameter can be a value of @ref USART_Over_Sample_Bit"]
+    pub u32OverSampleBit: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+    #[doc = "< Start Bit Detect Polarity.\nThis parameter can be a value of @ref USART_Start_Bit_Polarity"]
+    pub u32StartBitPolarity: u32,
+    #[doc = "< Hardware flow control.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
+    pub u32HWFlowControl: u32,
+}
+#[doc = " @brief Smartcard mode initialization structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usart_smartcard_init_t {
+    #[doc = "< Clock division. This parameter can be a value of @ref USART_Clock_Division.\n@note This parameter is valid when clock source is the internal clock."]
+    pub u32ClockDiv: u32,
+    #[doc = "< USART_CK output selection. This parameter can be a value of @ref USART_CK_Output_Selection.\n@note This parameter is valid when clock source is the internal clock."]
+    pub u32CKOutput: u32,
+    #[doc = "< USART baudrate.\nThis parameter is calculated according with smartcard default ETU and clock."]
+    pub u32Baudrate: u32,
+    #[doc = "< Significant bit.\nThis parameter can be a value of @ref USART_First_Bit"]
+    pub u32FirstBit: u32,
+}
+#[doc = " @}\n/\n/*******************************************************************************\n Global type definitions ('typedef')\n/\n/**\n @defgroup USB_Global_Types USB Global Types\n @{"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_CORE_GREGS {
+    pub GVBUSCFG: u32,
+    pub Reserved04: u32,
+    pub GAHBCFG: u32,
+    pub GUSBCFG: u32,
+    pub GRSTCTL: u32,
+    pub GINTSTS: u32,
+    pub GINTMSK: u32,
+    pub GRXSTSR: u32,
+    pub GRXSTSP: u32,
+    pub GRXFSIZ: u32,
+    pub HNPTXFSIZ: u32,
+    pub HNPTXSTS: u32,
+    pub Reserved30: [u32; 3usize],
+    pub CID: u32,
+    pub Reserved40: [u32; 5usize],
+    pub GLPMCFG: u32,
+    pub Reserved58: [u32; 42usize],
+    pub HPTXFSIZ: u32,
+    pub DIEPTXF: [u32; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_CORE_DREGS {
+    pub DCFG: u32,
+    pub DCTL: u32,
+    pub DSTS: u32,
+    pub Reserved0C: u32,
+    pub DIEPMSK: u32,
+    pub DOEPMSK: u32,
+    pub DAINT: u32,
+    pub DAINTMSK: u32,
+    pub Reserved20: [u32; 4usize],
+    pub DTHRCTL: u32,
+    pub DIEPEMPMSK: u32,
+    pub DEACHINT: u32,
+    pub DEACHINTMSK: u32,
+    pub Reserved40: u32,
+    pub DIEPEACHMSK1: u32,
+    pub Reserved48: [u32; 15usize],
+    pub DOEPEACHMSK1: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_CORE_INEPREGS {
+    pub DIEPCTL: u32,
+    pub Reserved04: u32,
+    pub DIEPINT: u32,
+    pub Reserved0C: u32,
+    pub DIEPTSIZ: u32,
+    pub DIEPDMA: u32,
+    pub DTXFSTS: u32,
+    pub Reserved18: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_CORE_OUTEPREGS {
+    pub DOEPCTL: u32,
+    pub Reserved04: u32,
+    pub DOEPINT: u32,
+    pub Reserved0C: u32,
+    pub DOEPTSIZ: u32,
+    pub DOEPDMA: u32,
+    pub Reserved18: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_CORE_HREGS {
+    pub HCFG: u32,
+    pub HFIR: u32,
+    pub HFNUM: u32,
+    pub Reserved40C: u32,
+    pub HPTXSTS: u32,
+    pub HAINT: u32,
+    pub HAINTMSK: u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_CORE_HC_REGS {
+    pub HCCHAR: u32,
+    pub HCSPLT: u32,
+    pub HCINT: u32,
+    pub HCINTMSK: u32,
+    pub HCTSIZ: u32,
+    pub HCDMA: u32,
+    pub Reserved: [u32; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct LL_USB_TypeDef {
+    pub GREGS: *mut USB_CORE_GREGS,
+    pub DREGS: *mut USB_CORE_DREGS,
+    pub HREGS: *mut USB_CORE_HREGS,
+    pub INEP_REGS: [*mut USB_CORE_INEPREGS; 6usize],
+    pub OUTEP_REGS: [*mut USB_CORE_OUTEPREGS; 6usize],
+    pub HC_REGS: [*mut USB_CORE_HC_REGS; 12usize],
+    pub HPRT: *mut u32,
+    pub DFIFO: [*mut u32; 6usize],
+    pub GCCTL: *mut u32,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_CORE_BASIC_CFGS {
+    pub host_chnum: u8,
+    pub dev_epnum: u8,
+    pub dmaen: u8,
+    pub low_power: u8,
+    pub phy_type: u8,
+    pub core_type: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_HOST_CH {
+    pub dev_addr: u8,
+    pub ep_idx: u8,
+    pub is_epin: u8,
+    pub ch_speed: u8,
+    pub do_ping: u8,
+    pub ep_type: u8,
+    pub max_packet: u16,
+    pub pid_type: u8,
+    pub in_toggle: u8,
+    pub out_toggle: u8,
+    pub dma_addr: u32,
+    pub xfer_len: u32,
+    pub xfer_count: u32,
+    pub xfer_buff: *mut u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct USB_DEV_EP {
+    pub epidx: u8,
+    pub ep_dir: u8,
+    pub trans_type: u8,
+    pub ep_stall: u8,
+    pub data_pid_start: u8,
+    pub datax_pid: u8,
+    pub tx_fifo_num: u16,
+    pub maxpacket: u32,
+    pub rem_data_len: u32,
+    pub total_data_len: u32,
+    pub ctl_data_len: u32,
+    pub dma_addr: u32,
+    pub xfer_len: u32,
+    pub xfer_count: u32,
+    pub xfer_buff: *mut u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_usb_port_identify {
+    pub u8CoreID: u8,
+}
+#[doc = " @brief WDT Init structure definition"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct stc_wdt_init_t {
+    #[doc = "< Specifies the counting period of WDT.\nThis parameter can be a value of @ref WDT_Count_Period"]
+    pub u32CountPeriod: u32,
+    #[doc = "< Specifies the clock division factor of WDT.\nThis parameter can be a value of @ref WDT_Clock_Division"]
+    pub u32ClockDiv: u32,
+    #[doc = "< Specifies the allow refresh range of WDT.\nThis parameter can be a value of @ref WDT_Refresh_Range"]
+    pub u32RefreshRange: u32,
+    #[doc = "< Specifies the count state in Low Power Mode (Sleep Mode).\nThis parameter can be a value of @ref WDT_LPM_Count"]
+    pub u32LPMCount: u32,
+    #[doc = "< Specifies the type of exception response for WDT.\nThis parameter can be a value of @ref WDT_Exception_Type"]
+    pub u32ExceptionType: u32,
+}
 unsafe extern "C" {
     #[doc = "< External high speed OSC freq."]
     pub static mut XTAL_VALUE: u32;
@@ -18606,47 +18615,6 @@ unsafe extern "C" {
     #[doc = " Global function prototypes (definition in C source)\n/\n/**\n @addtogroup HC32F460_System_Global_Functions\n @{"]
     pub fn SystemInit();
     pub fn SystemCoreClockUpdate();
-    pub fn usb_initusbcore(USBx: *mut LL_USB_TypeDef, basic_cfgs: *mut USB_CORE_BASIC_CFGS);
-    pub fn usb_setregaddr(
-        USBx: *mut LL_USB_TypeDef,
-        pstcPortIdentify: *mut stc_usb_port_identify,
-        basic_cfgs: *mut USB_CORE_BASIC_CFGS,
-    );
-    pub fn usb_rdpkt(USBx: *mut LL_USB_TypeDef, pu8dest: *mut u8, len: u16);
-    pub fn usb_wrpkt(
-        USBx: *mut LL_USB_TypeDef,
-        pu8src: *const u8,
-        ch_ep_num: u8,
-        len: u16,
-        u8DmaEn: u8,
-    );
-    pub fn usb_txfifoflush(USBx: *mut LL_USB_TypeDef, num: u32);
-    pub fn usb_rxfifoflush(USBx: *mut LL_USB_TypeDef);
-    pub fn usb_modeset(USBx: *mut LL_USB_TypeDef, mode: u8);
-    pub fn usb_coresoftrst(USBx: *mut LL_USB_TypeDef);
-    pub fn usb_devmodeinit(USBx: *mut LL_USB_TypeDef, basic_cfgs: *mut USB_CORE_BASIC_CFGS);
-    pub fn usb_devinten(USBx: *mut LL_USB_TypeDef, u8DmaEn: u8);
-    pub fn usb_ep0activate(USBx: *mut LL_USB_TypeDef);
-    pub fn usb_epactive(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
-    pub fn usb_epdeactive(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
-    pub fn usb_epntransbegin(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP, u8DmaEn: u8);
-    pub fn usb_ep0transbegin(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP, u8DmaEn: u8);
-    pub fn usb_setepstall(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
-    pub fn usb_clearepstall(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
-    pub fn usb_ep0revcfg(USBx: *mut LL_USB_TypeDef, u8DmaEn: u8, u8RevBuf: *mut u8);
-    pub fn usb_remotewakeupen(USBx: *mut LL_USB_TypeDef);
-    pub fn usb_epstatusset(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP, Status: u32);
-    pub fn usb_epstatusget(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP) -> u32;
-    pub fn usb_devepdis(USBx: *mut LL_USB_TypeDef, u8EpNum: u8);
-    pub fn usb_ctrldevconnect(USBx: *mut LL_USB_TypeDef, link: u8);
-    #[doc = " Global function prototypes (definition in C source)\n/\n/**\n @addtogroup LL_Global_Functions\n @{"]
-    pub fn LL_PERIPH_WE(u32Peripheral: u32);
-    pub fn LL_PERIPH_WP(u32Peripheral: u32);
-    #[doc = "Global function prototypes (definition in C source)"]
-    pub fn usb_bsp_init(pdev: *mut usb_core_instance, pstcPortIdentify: *mut stc_usb_port_identify);
-    pub fn usb_udelay(usec: u32);
-    pub fn usb_mdelay(msec: u32);
-    pub fn usb_bsp_nvicconfig(pdev: *mut usb_core_instance);
     #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup Share_Interrupts_Global_Functions\n @{"]
     pub fn INTC_ShareIrqCmd(enIntSrc: en_int_src_t, enNewState: en_functional_state_t) -> i32;
     pub fn IRQ128_Handler();
@@ -20529,8 +20497,44 @@ unsafe extern "C" {
     pub fn SysTick_GetTick() -> u32;
     pub fn SysTick_Suspend();
     pub fn SysTick_Resume();
+    pub fn usb_initusbcore(USBx: *mut LL_USB_TypeDef, basic_cfgs: *mut USB_CORE_BASIC_CFGS);
+    pub fn usb_setregaddr(
+        USBx: *mut LL_USB_TypeDef,
+        pstcPortIdentify: *mut stc_usb_port_identify,
+        basic_cfgs: *mut USB_CORE_BASIC_CFGS,
+    );
+    pub fn usb_rdpkt(USBx: *mut LL_USB_TypeDef, pu8dest: *mut u8, len: u16);
+    pub fn usb_wrpkt(
+        USBx: *mut LL_USB_TypeDef,
+        pu8src: *const u8,
+        ch_ep_num: u8,
+        len: u16,
+        u8DmaEn: u8,
+    );
+    pub fn usb_txfifoflush(USBx: *mut LL_USB_TypeDef, num: u32);
+    pub fn usb_rxfifoflush(USBx: *mut LL_USB_TypeDef);
+    pub fn usb_modeset(USBx: *mut LL_USB_TypeDef, mode: u8);
+    pub fn usb_coresoftrst(USBx: *mut LL_USB_TypeDef);
+    pub fn usb_devmodeinit(USBx: *mut LL_USB_TypeDef, basic_cfgs: *mut USB_CORE_BASIC_CFGS);
+    pub fn usb_devinten(USBx: *mut LL_USB_TypeDef, u8DmaEn: u8);
+    pub fn usb_ep0activate(USBx: *mut LL_USB_TypeDef);
+    pub fn usb_epactive(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
+    pub fn usb_epdeactive(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
+    pub fn usb_epntransbegin(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP, u8DmaEn: u8);
+    pub fn usb_ep0transbegin(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP, u8DmaEn: u8);
+    pub fn usb_setepstall(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
+    pub fn usb_clearepstall(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP);
+    pub fn usb_ep0revcfg(USBx: *mut LL_USB_TypeDef, u8DmaEn: u8, u8RevBuf: *mut u8);
+    pub fn usb_remotewakeupen(USBx: *mut LL_USB_TypeDef);
+    pub fn usb_epstatusset(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP, Status: u32);
+    pub fn usb_epstatusget(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP) -> u32;
+    pub fn usb_devepdis(USBx: *mut LL_USB_TypeDef, u8EpNum: u8);
+    pub fn usb_ctrldevconnect(USBx: *mut LL_USB_TypeDef, link: u8);
     pub fn WDT_Init(pstcWdtInit: *const stc_wdt_init_t) -> i32;
     pub fn WDT_FeedDog();
     pub fn WDT_GetStatus(u32Flag: u32) -> en_flag_status_t;
     pub fn WDT_ClearStatus(u32Flag: u32) -> i32;
+    #[doc = " Global function prototypes (definition in C source)\n/\n/**\n @addtogroup LL_Global_Functions\n @{"]
+    pub fn LL_PERIPH_WE(u32Peripheral: u32);
+    pub fn LL_PERIPH_WP(u32Peripheral: u32);
 }
