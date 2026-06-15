@@ -27,4 +27,5 @@ version = "1.2.63"
 version = "0.72.1"
 
 [dependencies.lang-c]
-path = "../lang-c"
+git = "https://github.com/823984418/lang-c"
+branch = "hack-for-bindgen"

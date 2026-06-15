@@ -127,6 +127,7 @@ dependencies = [
 [[package]]
 name = "lang-c"
 version = "0.15.1"
+source = "git+https://github.com/823984418/lang-c?branch=hack-for-bindgen#d27c987bcec86c2724b5942707f567b84b49c3f9"
 dependencies = [
  "bindgen",
  "cexpr",
