@@ -1,6 +1,6 @@
 [package]
 name = "hc32f448_driver_sys"
-version = "0.2.2"
+version = "0.3.0"
 edition = "2024"
 description = "Provide driver function binding for HDSC's HC32F448 MCU."
 keywords = ["HC32", "bindgen", "no_std", "bare-metal"]
@@ -17,5 +17,6 @@ exclude = [
 [dependencies]
 
 [lints.rust]
+unused = "allow"
 nonstandard_style = "allow"
 unpredictable_function_pointer_comparisons = "allow"

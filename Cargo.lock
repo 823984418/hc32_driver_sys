@@ -104,15 +104,16 @@ dependencies = [
  "anyhow",
  "bindgen",
  "cc",
+ "lang-c",
 ]
 
 [[package]]
 name = "hc32f448_driver_sys"
-version = "0.2.2"
+version = "0.3.0"
 
 [[package]]
 name = "hc32f460_driver_sys"
-version = "0.2.2"
+version = "0.3.0"
 
 [[package]]
 name = "itertools"
@@ -121,6 +122,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186"
 dependencies = [
  "either",
+]
+
+[[package]]
+name = "lang-c"
+version = "0.15.1"
+dependencies = [
+ "bindgen",
+ "cexpr",
+ "regex",
 ]
 
 [[package]]
