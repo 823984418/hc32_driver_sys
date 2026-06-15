@@ -34,6 +34,7 @@ fn bindgen_base() -> anyhow::Result<bindgen::Builder> {
     bindgen = bindgen.layout_tests(false);
     bindgen = bindgen.derive_partialeq(true);
     bindgen = bindgen.merge_extern_blocks(true);
+    bindgen = bindgen.prepend_enum_name(false);
     bindgen = bindgen.raw_line("#![no_std]");
     bindgen = bindgen.allowlist_file(".*hc32[^\\\\/]*");
 
