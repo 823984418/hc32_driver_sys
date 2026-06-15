@@ -1,4 +1,4 @@
-use lang_c::hack_bindgen::{HackBindgenCallbacks, HackBindgenContext};
+use lang_c::hack_bindgen::{HackBindgenCallbacks, HackBindgenContext, MacroItem, RustExpression};
 use std::collections::HashSet;
 use std::path::PathBuf;
 
@@ -72,16 +72,59 @@ fn hc32f448() -> anyhow::Result<()> {
 
     let mut bindgen = bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F448");
-    bindgen = bindgen.blocklist_item("AOS_DCU[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_DMA[0-9]_[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_DMA_RC");
-    bindgen = bindgen.blocklist_item("AOS_TMR[0-9A-Z]_[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_EVTPORT12");
-    bindgen = bindgen.blocklist_item("AOS_EVTPORT34");
-    bindgen = bindgen.blocklist_item("AOS_TMR0");
-    bindgen = bindgen.blocklist_item("AOS_ADC[0-9]_[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_COMM_[0-9]");
-    let ctx = HackBindgenContext::default();
+    let mut ctx = HackBindgenContext::default();
+    let pre_define = {
+        [
+            ("AOS_DCU1", "DCU_TRGSEL1"),
+            ("AOS_DCU2", "DCU_TRGSEL2"),
+            ("AOS_DCU3", "DCU_TRGSEL3"),
+            ("AOS_DCU4", "DCU_TRGSEL4"),
+            ("AOS_DMA1_0", "DMA1_TRGSEL0"),
+            ("AOS_DMA1_1", "DMA1_TRGSEL1"),
+            ("AOS_DMA1_2", "DMA1_TRGSEL2"),
+            ("AOS_DMA1_3", "DMA1_TRGSEL3"),
+            ("AOS_DMA1_4", "DMA1_TRGSEL4"),
+            ("AOS_DMA1_5", "DMA1_TRGSEL5"),
+            ("AOS_DMA2_0", "DMA2_TRGSEL0"),
+            ("AOS_DMA2_1", "DMA2_TRGSEL1"),
+            ("AOS_DMA2_2", "DMA2_TRGSEL2"),
+            ("AOS_DMA2_3", "DMA2_TRGSEL3"),
+            ("AOS_DMA2_4", "DMA2_TRGSEL4"),
+            ("AOS_DMA2_5", "DMA2_TRGSEL5"),
+            ("AOS_DMA_RC", "DMA_RC_TRGSEL"),
+            ("AOS_TMR6_0", "TMR6_TRGSEL0"),
+            ("AOS_TMR6_1", "TMR6_TRGSEL1"),
+            ("AOS_TMR4_0", "TMR4_TRGSEL0"),
+            ("AOS_TMR4_1", "TMR4_TRGSEL1"),
+            ("AOS_TMR4_2", "TMR4_TRGSEL2"),
+            ("AOS_EVTPORT12", "PEVNT_TRGSEL12"),
+            ("AOS_EVTPORT34", "PEVNT_TRGSEL34"),
+            ("AOS_TMR0", "TMR0_TRGSEL"),
+            ("AOS_TMRA_0", "TMRA_TRGSEL0"),
+            ("AOS_TMRA_1", "TMRA_TRGSEL1"),
+            ("AOS_TMRA_2", "TMRA_TRGSEL2"),
+            ("AOS_TMRA_3", "TMRA_TRGSEL3"),
+            ("AOS_ADC1_0", "ADC1_TRGSEL0"),
+            ("AOS_ADC1_1", "ADC1_TRGSEL1"),
+            ("AOS_ADC2_0", "ADC2_TRGSEL0"),
+            ("AOS_ADC2_1", "ADC2_TRGSEL1"),
+            ("AOS_ADC3_0", "ADC3_TRGSEL0"),
+            ("AOS_ADC3_1", "ADC3_TRGSEL1"),
+            ("AOS_COMM_1", "COMTRGSEL1"),
+            ("AOS_COMM_2", "COMTRGSEL2"),
+        ]
+    };
+    for (name, field) in pre_define {
+        ctx.define_macro(
+            name,
+            MacroItem::Expression(RustExpression::from_str(
+                &format!(
+                    "CM_AOS_BASE + core::mem::offset_of!(CM_AOS_TypeDef, {field}) as uint32_t"
+                ),
+                "uint32_t",
+            )),
+        );
+    }
     let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
@@ -104,18 +147,49 @@ fn hc32f460() -> anyhow::Result<()> {
 
     let mut bindgen = bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F460");
-    bindgen = bindgen.allowlist_file(".*usb[^\\\\/]*");
-    bindgen = bindgen.blocklist_item("AOS_DCU[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_DMA[0-9]_[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_DMA_RC");
-    bindgen = bindgen.blocklist_item("AOS_TMR[0-9A-Z]_[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_EVTPORT12");
-    bindgen = bindgen.blocklist_item("AOS_EVTPORT34");
-    bindgen = bindgen.blocklist_item("AOS_TMR0");
-    bindgen = bindgen.blocklist_item("AOS_ADC[0-9]_[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_COMM_[0-9]");
-    bindgen = bindgen.blocklist_item("AOS_OTS");
-    let ctx = HackBindgenContext::default();
+    let mut ctx = HackBindgenContext::default();
+    let pre_define = {
+        [
+            ("AOS_DCU1", "DCU_TRGSEL1"),
+            ("AOS_DCU2", "DCU_TRGSEL2"),
+            ("AOS_DCU3", "DCU_TRGSEL3"),
+            ("AOS_DCU4", "DCU_TRGSEL4"),
+            ("AOS_DMA1_0", "DMA1_TRGSEL0"),
+            ("AOS_DMA1_1", "DMA1_TRGSEL1"),
+            ("AOS_DMA1_2", "DMA1_TRGSEL2"),
+            ("AOS_DMA1_3", "DMA1_TRGSEL3"),
+            ("AOS_DMA2_0", "DMA2_TRGSEL0"),
+            ("AOS_DMA2_1", "DMA2_TRGSEL1"),
+            ("AOS_DMA2_2", "DMA2_TRGSEL2"),
+            ("AOS_DMA2_3", "DMA2_TRGSEL3"),
+            ("AOS_DMA_RC", "DMA_RC_TRGSEL"),
+            ("AOS_TMR6_0", "TMR6_TRGSEL0"),
+            ("AOS_TMR6_1", "TMR6_TRGSEL1"),
+            ("AOS_TMR0", "TMR0_TRGSEL"),
+            ("AOS_EVTPORT12", "PEVNT_TRGSEL12"),
+            ("AOS_EVTPORT34", "PEVNT_TRGSEL34"),
+            ("AOS_TMRA_0", "TMRA_TRGSEL0"),
+            ("AOS_TMRA_1", "TMRA_TRGSEL1"),
+            ("AOS_OTS", "OTS_TRGSEL"),
+            ("AOS_ADC1_0", "ADC1_TRGSEL0"),
+            ("AOS_ADC1_1", "ADC1_TRGSEL1"),
+            ("AOS_ADC2_0", "ADC2_TRGSEL0"),
+            ("AOS_ADC2_1", "ADC2_TRGSEL1"),
+            ("AOS_COMM_1", "COMTRG1"),
+            ("AOS_COMM_2", "COMTRG2"),
+        ]
+    };
+    for (name, field) in pre_define {
+        ctx.define_macro(
+            name,
+            MacroItem::Expression(RustExpression::from_str(
+                &format!(
+                    "CM_AOS_BASE + core::mem::offset_of!(CM_AOS_TypeDef, {field}) as uint32_t"
+                ),
+                "uint32_t",
+            )),
+        );
+    }
     let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 

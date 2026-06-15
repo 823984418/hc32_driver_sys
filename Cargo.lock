@@ -109,11 +109,11 @@ dependencies = [
 
 [[package]]
 name = "hc32f448_driver_sys"
-version = "0.4.0"
+version = "0.4.1"
 
 [[package]]
 name = "hc32f460_driver_sys"
-version = "0.4.0"
+version = "0.4.1"
 
 [[package]]
 name = "itertools"
@@ -127,7 +127,7 @@ dependencies = [
 [[package]]
 name = "lang-c"
 version = "0.15.1"
-source = "git+https://github.com/823984418/lang-c?branch=hack-for-bindgen#2c9c1dc83496abeb4b59a10e09cbd47aa40b410e"
+source = "git+https://github.com/823984418/lang-c?branch=hack-for-bindgen#583757f751060fc452466d442a44999d749b9a53"
 dependencies = [
  "bindgen",
  "cexpr",
