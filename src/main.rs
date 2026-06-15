@@ -1,4 +1,4 @@
-use lang_c::hack_bindgen::HackBindgenCallbacks;
+use lang_c::hack_bindgen::{HackBindgenCallbacks, HackBindgenContext};
 use std::collections::HashSet;
 use std::path::PathBuf;
 
@@ -80,10 +80,9 @@ fn hc32f448() -> anyhow::Result<()> {
     bindgen = bindgen.blocklist_item("AOS_TMR0");
     bindgen = bindgen.blocklist_item("AOS_ADC[0-9]_[0-9]");
     bindgen = bindgen.blocklist_item("AOS_COMM_[0-9]");
-    std::fs::write(
-        "src/lib.rs",
-        HackBindgenCallbacks::generate(bindgen).unwrap(),
-    )?;
+    let ctx = HackBindgenContext::default();
+    let callback = HackBindgenCallbacks::new(ctx);
+    std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     Ok(())
 }
@@ -115,10 +114,9 @@ fn hc32f460() -> anyhow::Result<()> {
     bindgen = bindgen.blocklist_item("AOS_ADC[0-9]_[0-9]");
     bindgen = bindgen.blocklist_item("AOS_COMM_[0-9]");
     bindgen = bindgen.blocklist_item("AOS_OTS");
-    std::fs::write(
-        "src/lib.rs",
-        HackBindgenCallbacks::generate(bindgen).unwrap(),
-    )?;
+    let ctx = HackBindgenContext::default();
+    let callback = HackBindgenCallbacks::new(ctx);
+    std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     Ok(())
 }
