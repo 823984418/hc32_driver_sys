@@ -19653,6 +19653,9 @@ unsafe extern "C" {
         pu8Plaintext: *mut u8,
     ) -> i32;
     pub fn AES_DeInit() -> i32;
+    #[doc = " @brief  AOS software trigger.\n @param  None\n @retval None"]
+    #[link_name = "AOS_SW_Trigger__extern"]
+    pub fn AOS_SW_Trigger();
     pub fn AOS_DeInit() -> i32;
     pub fn AOS_CommonTriggerCmd(
         u32Target: u32,
@@ -19791,6 +19794,12 @@ unsafe extern "C" {
         u32ExpectValue: u32,
     ) -> en_flag_status_t;
     pub fn CRC_CRC32_GetCheckResult(u32ExpectValue: u32) -> en_flag_status_t;
+    #[doc = " @brief  Start CTC trimming.\n @param  None\n @retval None"]
+    #[link_name = "CTC_Start__extern"]
+    pub fn CTC_Start();
+    #[doc = " @brief  Stop CTC trimming.\n @param  None\n @retval None"]
+    #[link_name = "CTC_Stop__extern"]
+    pub fn CTC_Stop();
     pub fn CTC_CT_StructInit(pstcCtcInit: *mut stc_ctc_ct_init_t) -> i32;
     pub fn CTC_CT_Init(pstcCtcInit: *const stc_ctc_ct_init_t) -> i32;
     pub fn CTC_ST_StructInit(pstcCtcInit: *mut stc_ctc_st_init_t) -> i32;
@@ -19956,6 +19965,24 @@ unsafe extern "C" {
     );
     pub fn DMA_MxChSWTrigger(DMAx: *mut CM_DMA_TypeDef, u8MxCh: u8);
     pub fn DMA_SWReconfig(DMAx: *mut CM_DMA_TypeDef);
+    #[doc = " @brief  EFM Protect Unlock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REG_Unlock__extern"]
+    pub fn EFM_REG_Unlock();
+    #[doc = " @brief  EFM Protect Lock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REG_Lock__extern"]
+    pub fn EFM_REG_Lock();
+    #[doc = " @brief  EFM remap Unlock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REMAP_Unlock__extern"]
+    pub fn EFM_REMAP_Unlock();
+    #[doc = " @brief  EFM remap Lock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REMAP_Lock__extern"]
+    pub fn EFM_REMAP_Lock();
+    #[doc = " @brief  EFM OTP reg unlock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_OTP_REG_Unlock__extern"]
+    pub fn EFM_OTP_REG_Unlock();
+    #[doc = " @brief  EFM OTP reg Lock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_OTP_REG_Lock__extern"]
+    pub fn EFM_OTP_REG_Lock();
     #[doc = " BASE"]
     pub fn EFM_Cmd(u32Flash: u32, enNewState: en_functional_state_t);
     pub fn EFM_FWMC_Cmd(enNewState: en_functional_state_t);
@@ -20049,6 +20076,12 @@ unsafe extern "C" {
     pub fn FCG_Fcg1PeriphClockCmd(u32Fcg1Periph: u32, enNewState: en_functional_state_t);
     pub fn FCG_Fcg2PeriphClockCmd(u32Fcg2Periph: u32, enNewState: en_functional_state_t);
     pub fn FCG_Fcg3PeriphClockCmd(u32Fcg3Periph: u32, enNewState: en_functional_state_t);
+    #[doc = " @brief  Set FCM upper limit value.\n @param  [in] FCMx FCM unit instance.\n   @arg  CM_FCMx or CM_FCM\n @param  u16Limit\n @retval None."]
+    #[link_name = "FCM_SetUpperLimit__extern"]
+    pub fn FCM_SetUpperLimit(FCMx: *mut CM_FCM_TypeDef, u16Limit: u16);
+    #[doc = " @brief  Set FCM lower limit value.\n @param  [in] FCMx FCM unit instance.\n   @arg  CM_FCMx or CM_FCM\n @param  u16Limit\n @retval None"]
+    #[link_name = "FCM_SetLowerLimit__extern"]
+    pub fn FCM_SetLowerLimit(FCMx: *mut CM_FCM_TypeDef, u16Limit: u16);
     pub fn FCM_Init(FCMx: *mut CM_FCM_TypeDef, pstcFcmInit: *const stc_fcm_init_t) -> i32;
     pub fn FCM_StructInit(pstcFcmInit: *mut stc_fcm_init_t) -> i32;
     pub fn FCM_DeInit(FCMx: *mut CM_FCM_TypeDef) -> i32;
@@ -20064,6 +20097,12 @@ unsafe extern "C" {
         enNewState: en_functional_state_t,
     );
     pub fn FCM_Cmd(FCMx: *mut CM_FCM_TypeDef, enNewState: en_functional_state_t);
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup GPIO_Global_Functions\n @{\n/\n/**\n @brief  GPIO lock. PSPCR, PCCR, PINAER, PCRxy, PFSRxy write disable\n @param  None\n @retval None"]
+    #[link_name = "GPIO_REG_Lock__extern"]
+    pub fn GPIO_REG_Lock();
+    #[doc = " @brief  GPIO unlock. PSPCR, PCCR, PINAER, PCRxy, PFSRxy write enable\n @param  None\n @retval None"]
+    #[link_name = "GPIO_REG_Unlock__extern"]
+    pub fn GPIO_REG_Unlock();
     pub fn GPIO_Init(u8Port: u8, u32Pin: u32, pstcGpioInit: *const stc_gpio_init_t) -> i32;
     pub fn GPIO_DeInit();
     pub fn GPIO_StructInit(pstcGpioInit: *mut stc_gpio_init_t) -> i32;
@@ -20248,6 +20287,9 @@ unsafe extern "C" {
     pub fn IRQ013_Handler();
     pub fn IRQ014_Handler();
     pub fn IRQ015_Handler();
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup KEYSCAN_Global_Functions\n @{\n/\n/**\n @brief  Get KEYOUT index.\n @param  None\n @retval uint32_t: KEYOUT index 0~7."]
+    #[link_name = "KEYSCAN_GetKeyoutIdx__extern"]
+    pub fn KEYSCAN_GetKeyoutIdx() -> u32;
     pub fn KEYSCAN_StructInit(pstcKeyscanInit: *mut stc_keyscan_init_t) -> i32;
     pub fn KEYSCAN_Init(pstcKeyscanInit: *const stc_keyscan_init_t) -> i32;
     pub fn KEYSCAN_Cmd(enNewState: en_functional_state_t);
@@ -20375,6 +20417,12 @@ unsafe extern "C" {
         u32Notification: u32,
         enNewState: en_functional_state_t,
     );
+    #[doc = " @brief  MPU write protect unlock.\n @param  None\n @retval None"]
+    #[link_name = "MPU_REG_Unlock__extern"]
+    pub fn MPU_REG_Unlock();
+    #[doc = " @brief  MPU write protect lock.\n @param  None\n @retval None"]
+    #[link_name = "MPU_REG_Lock__extern"]
+    pub fn MPU_REG_Lock();
     pub fn MPU_DeInit();
     pub fn MPU_Init(pstcMpuInit: *const stc_mpu_init_t) -> i32;
     pub fn MPU_StructInit(pstcMpuInit: *mut stc_mpu_init_t) -> i32;
@@ -20402,6 +20450,18 @@ unsafe extern "C" {
     pub fn MPU_IP_SetExceptionType(u32Type: u32);
     pub fn MPU_IP_WriteCmd(u32Periph: u32, enNewState: en_functional_state_t);
     pub fn MPU_IP_ReadCmd(u32Periph: u32, enNewState: en_functional_state_t);
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup PWC_Global_Functions\n @{\n/\n/**\n @brief  Lock PWC, CLK, RMU register.\n @param  [in] u16Module Lock code for each module.\n   @arg  PWC_UNLOCK_CODE0\n   @arg  PWC_UNLOCK_CODE1\n   @arg  PWC_UNLOCK_CODE2\n @retval None"]
+    #[link_name = "PWC_REG_Lock__extern"]
+    pub fn PWC_REG_Lock(u16Module: u16);
+    #[doc = " @brief  Unlock PWC, CLK, RMU register.\n @param  [in] u16Module Unlock code for each module.\n   @arg  PWC_UNLOCK_CODE0\n   @arg  PWC_UNLOCK_CODE1\n   @arg  PWC_UNLOCK_CODE2\n @retval None"]
+    #[link_name = "PWC_REG_Unlock__extern"]
+    pub fn PWC_REG_Unlock(u16Module: u16);
+    #[doc = " @brief  Lock PWC_FCG0 register .\n @param  None\n @retval None"]
+    #[link_name = "PWC_FCG0_REG_Lock__extern"]
+    pub fn PWC_FCG0_REG_Lock();
+    #[doc = " @brief  Unlock PWR_FCG0 register.\n @param  None\n @retval None\n @note Call this function before FCG_Fcg0PeriphClockCmd()"]
+    #[link_name = "PWC_FCG0_REG_Unlock__extern"]
+    pub fn PWC_FCG0_REG_Unlock();
     pub fn PWC_PD_Enter() -> i32;
     pub fn PWC_PD_StructInit(pstcPDModeConfig: *mut stc_pwc_pd_mode_config_t) -> i32;
     pub fn PWC_PD_Config(pstcPDModeConfig: *const stc_pwc_pd_mode_config_t) -> i32;
@@ -20447,6 +20507,9 @@ unsafe extern "C" {
     pub fn PWC_XTAL32_PowerCmd(enNewState: en_functional_state_t);
     pub fn PWC_RetSram_PowerCmd(enNewState: en_functional_state_t);
     pub fn PWC_SetRtcClock(u8Clock: u8);
+    #[doc = " @brief  Read data in direct communication mode.\n @param  None\n @retval uint8_t                      Byte data."]
+    #[link_name = "QSPI_ReadDirectCommValue__extern"]
+    pub fn QSPI_ReadDirectCommValue() -> u8;
     pub fn QSPI_DeInit() -> i32;
     pub fn QSPI_Init(pstcQspiInit: *const stc_qspi_init_t) -> i32;
     pub fn QSPI_StructInit(pstcQspiInit: *mut stc_qspi_init_t) -> i32;
@@ -20495,6 +20558,15 @@ unsafe extern "C" {
     pub fn RTC_IntCmd(u32IntType: u32, enNewState: en_functional_state_t);
     pub fn RTC_GetStatus(u32Flag: u32) -> en_flag_status_t;
     pub fn RTC_ClearStatus(u32Flag: u32);
+    #[doc = " @brief  SMC entry low power state\n @param  None\n @retval None"]
+    #[link_name = "EXMC_SMC_EntryLowPower__extern"]
+    pub fn EXMC_SMC_EntryLowPower();
+    #[doc = " @brief  SMC exit low power state\n @param  None\n @retval None"]
+    #[link_name = "EXMC_SMC_ExitLowPower__extern"]
+    pub fn EXMC_SMC_ExitLowPower();
+    #[doc = " @brief  Get SMC status\n @param  None\n @retval Returned value can be one of the macros group @ref EXMC_SMC_Status\n           - EXMC_SMC_READY: SMC is ready\n           - EXMC_SMC_LOWPOWER: SMC is low power"]
+    #[link_name = "EXMC_SMC_GetStatus__extern"]
+    pub fn EXMC_SMC_GetStatus() -> u32;
     pub fn EXMC_SMC_StructInit(pstcSmcInit: *mut stc_exmc_smc_init_t) -> i32;
     pub fn EXMC_SMC_Init(u32Chip: u32, pstcSmcInit: *const stc_exmc_smc_init_t) -> i32;
     pub fn EXMC_SMC_DeInit() -> i32;
@@ -20559,6 +20631,12 @@ unsafe extern "C" {
         u32Len: u32,
         u32Timeout: u32,
     ) -> i32;
+    #[doc = " @brief  Lock SRAM registers, write protect.\n @param  None\n @retval None"]
+    #[link_name = "SRAM_REG_Lock__extern"]
+    pub fn SRAM_REG_Lock();
+    #[doc = " @brief  Unlock SRAM registers, write enable.\n @param  None\n @retval None"]
+    #[link_name = "SRAM_REG_Unlock__extern"]
+    pub fn SRAM_REG_Unlock();
     pub fn SRAM_Init();
     pub fn SRAM_DeInit();
     pub fn SRAM_SetEccMode(u32EccSram: u32, u32EccMode: u32);
@@ -20572,6 +20650,9 @@ unsafe extern "C" {
         enNewState: en_functional_state_t,
     );
     pub fn SRAM_GetEccErrorAddr(u32EccSram: u32) -> u32;
+    #[doc = " @brief  Get SWDT count value.\n @param  None\n @retval uint16_t                     Count value"]
+    #[link_name = "SWDT_GetCountValue__extern"]
+    pub fn SWDT_GetCountValue() -> u16;
     pub fn SWDT_Init(pstcSwdtInit: *const stc_swdt_init_t) -> i32;
     pub fn SWDT_FeedDog();
     pub fn SWDT_GetStatus(u32Flag: u32) -> en_flag_status_t;
@@ -20759,6 +20840,9 @@ unsafe extern "C" {
         enNewState: en_functional_state_t,
     );
     pub fn TMR4_EVT_SetOutputEventSignal(TMR4x: *mut CM_TMR4_TypeDef, u16Signal: u16);
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup TMR6_Global_Functions\n @{\n/\n/**\n @brief  Get Software Sync start status\n @param  None\n @retval uint32_t                 Data indicate the read status."]
+    #[link_name = "TMR6_GetSWSyncStartStatus__extern"]
+    pub fn TMR6_GetSWSyncStartStatus() -> u32;
     pub fn TMR6_StructInit(pstcTmr6Init: *mut stc_tmr6_init_t) -> i32;
     pub fn TMR6_Init(TMR6x: *mut CM_TMR6_TypeDef, pstcTmr6Init: *const stc_tmr6_init_t) -> i32;
     pub fn TMR6_SetCountMode(TMR6x: *mut CM_TMR6_TypeDef, u32Mode: u32);
@@ -21147,6 +21231,9 @@ unsafe extern "C" {
     pub fn SysTick_GetTick() -> u32;
     pub fn SysTick_Suspend();
     pub fn SysTick_Resume();
+    #[doc = " @brief  Get WDT count value.\n @param  None\n @retval uint16_t                     Count value"]
+    #[link_name = "WDT_GetCountValue__extern"]
+    pub fn WDT_GetCountValue() -> u16;
     pub fn WDT_Init(pstcWdtInit: *const stc_wdt_init_t) -> i32;
     pub fn WDT_FeedDog();
     pub fn WDT_GetStatus(u32Flag: u32) -> en_flag_status_t;

@@ -2,32 +2,6 @@ use lang_c::hack_bindgen::{HackBindgenCallbacks, HackBindgenContext, MacroItem, 
 use std::collections::HashSet;
 use std::path::PathBuf;
 
-fn cc_base() -> anyhow::Result<cc::Build> {
-    let mut cc = cc::Build::new();
-    cc.host(env!("HOST"));
-    cc.compiler("clang");
-    cc.archiver("llvm-ar");
-    cc.opt_level(3);
-    cc.target("thumbv7em-none-eabihf");
-
-    cc.flag("--target=thumbv7m-none-eabihf");
-    cc.flag("-mcpu=cortex-m4");
-
-    cc.define("USE_DDL_DRIVER", None);
-
-    cc.include("drivers");
-    cc.include("drivers/cmsis/Include");
-    cc.include("drivers/hc32_ll_driver/inc");
-    cc.include("drivers/cmsis/Device/HDSC/hc32f4xx/Include");
-
-    for i in std::fs::read_dir("drivers/hc32_ll_driver/src")? {
-        cc.file(i?.path());
-    }
-
-    cc.out_dir("build");
-    Ok(cc)
-}
-
 fn bindgen_base() -> anyhow::Result<bindgen::Builder> {
     let mut bindgen = bindgen::builder();
     bindgen = bindgen.use_core();
@@ -47,6 +21,8 @@ fn bindgen_base() -> anyhow::Result<bindgen::Builder> {
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Include");
     bindgen = bindgen.clang_arg("-Idrivers/hc32_ll_driver/inc");
     bindgen = bindgen.clang_arg("-Idrivers/cmsis/Device/HDSC/hc32f4xx/Include");
+    bindgen = bindgen.wrap_static_fns(true);
+    bindgen = bindgen.wrap_static_fns_path("drivers/bindgen");
 
     bindgen = bindgen.header("drivers/cmsis/Device/HDSC/hc32f4xx/Include/hc32f4xx.h");
     for i in std::fs::read_dir("drivers/hc32_ll_driver/inc")? {
@@ -56,19 +32,40 @@ fn bindgen_base() -> anyhow::Result<bindgen::Builder> {
     Ok(bindgen)
 }
 
+fn cc_base() -> anyhow::Result<cc::Build> {
+    let mut cc = cc::Build::new();
+    cc.host(env!("HOST"));
+    cc.compiler("clang");
+    cc.archiver("llvm-ar");
+    cc.opt_level(3);
+    cc.target("thumbv7em-none-eabihf");
+
+    cc.flag("--target=thumbv7m-none-eabihf");
+    cc.flag("-mcpu=cortex-m4");
+
+    cc.define("USE_DDL_DRIVER", None);
+
+    cc.include(".");
+    cc.include("drivers");
+    cc.include("drivers/cmsis/Include");
+    cc.include("drivers/hc32_ll_driver/inc");
+    cc.include("drivers/cmsis/Device/HDSC/hc32f4xx/Include");
+
+    cc.file("drivers/bindgen.c");
+    for i in std::fs::read_dir("drivers/hc32_ll_driver/src")? {
+        cc.file(i?.path());
+    }
+
+    cc.out_dir("build");
+    Ok(cc)
+}
+
 fn hc32f448() -> anyhow::Result<()> {
     std::env::set_current_dir(PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("hc32f448"))?;
 
     _ = std::fs::remove_dir_all("build");
     _ = std::fs::remove_dir_all("src");
     std::fs::create_dir_all("src")?;
-
-    let mut cc = cc_base()?;
-    cc.define("HC32F448", None);
-    cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f448.c");
-    cc.compile("hc32_driver");
-
-    std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
     let mut bindgen = bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F448");
@@ -128,6 +125,13 @@ fn hc32f448() -> anyhow::Result<()> {
     let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
+    let mut cc = cc_base()?;
+    cc.define("HC32F448", None);
+    cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f448.c");
+    cc.compile("hc32_driver");
+
+    std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
+
     Ok(())
 }
 
@@ -137,13 +141,6 @@ fn hc32f460() -> anyhow::Result<()> {
     _ = std::fs::remove_dir_all("build");
     _ = std::fs::remove_dir_all("src");
     std::fs::create_dir_all("src")?;
-
-    let mut cc = cc_base()?;
-    cc.define("HC32F460", None);
-    cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f460.c");
-    cc.compile("hc32_driver");
-
-    std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
     let mut bindgen = bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F460");
@@ -192,6 +189,13 @@ fn hc32f460() -> anyhow::Result<()> {
     }
     let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
+
+    let mut cc = cc_base()?;
+    cc.define("HC32F460", None);
+    cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f460.c");
+    cc.compile("hc32_driver");
+
+    std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
     Ok(())
 }

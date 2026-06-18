@@ -19057,6 +19057,9 @@ unsafe extern "C" {
         pu8Plaintext: *mut u8,
     ) -> i32;
     pub fn AES_DeInit() -> i32;
+    #[doc = " @brief  AOS software trigger.\n @param  None\n @retval None"]
+    #[link_name = "AOS_SW_Trigger__extern"]
+    pub fn AOS_SW_Trigger();
     pub fn AOS_CommonTriggerCmd(
         u32Target: u32,
         u32CommonTrigger: u32,
@@ -19346,6 +19349,18 @@ unsafe extern "C" {
     pub fn DMA_GetNonSeqDestOffset(DMAx: *const CM_DMA_TypeDef, u8Ch: u8) -> u32;
     pub fn DMA_MxChSWTrigger(DMAx: *mut CM_DMA_TypeDef, u8MxCh: u8);
     pub fn DMA_SWReconfig(DMAx: *mut CM_DMA_TypeDef);
+    #[doc = " @brief  EFM Protect Unlock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REG_Unlock__extern"]
+    pub fn EFM_REG_Unlock();
+    #[doc = " @brief  EFM Protect Lock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REG_Lock__extern"]
+    pub fn EFM_REG_Lock();
+    #[doc = " @brief  EFM remap Unlock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REMAP_Unlock__extern"]
+    pub fn EFM_REMAP_Unlock();
+    #[doc = " @brief  EFM remap Lock.\n @param  None\n @retval None"]
+    #[link_name = "EFM_REMAP_Lock__extern"]
+    pub fn EFM_REMAP_Lock();
     pub fn EFM_Cmd(u32Flash: u32, enNewState: en_functional_state_t);
     pub fn EFM_FWMC_Cmd(enNewState: en_functional_state_t);
     pub fn EFM_SetBusStatus(u32Status: u32);
@@ -19417,6 +19432,12 @@ unsafe extern "C" {
     pub fn FCG_Fcg1PeriphClockCmd(u32Fcg1Periph: u32, enNewState: en_functional_state_t);
     pub fn FCG_Fcg2PeriphClockCmd(u32Fcg2Periph: u32, enNewState: en_functional_state_t);
     pub fn FCG_Fcg3PeriphClockCmd(u32Fcg3Periph: u32, enNewState: en_functional_state_t);
+    #[doc = " @brief  Set FCM upper limit value.\n @param  [in] FCMx FCM unit instance.\n   @arg  CM_FCMx or CM_FCM\n @param  u16Limit\n @retval None."]
+    #[link_name = "FCM_SetUpperLimit__extern"]
+    pub fn FCM_SetUpperLimit(FCMx: *mut CM_FCM_TypeDef, u16Limit: u16);
+    #[doc = " @brief  Set FCM lower limit value.\n @param  [in] FCMx FCM unit instance.\n   @arg  CM_FCMx or CM_FCM\n @param  u16Limit\n @retval None"]
+    #[link_name = "FCM_SetLowerLimit__extern"]
+    pub fn FCM_SetLowerLimit(FCMx: *mut CM_FCM_TypeDef, u16Limit: u16);
     pub fn FCM_Init(FCMx: *mut CM_FCM_TypeDef, pstcFcmInit: *const stc_fcm_init_t) -> i32;
     pub fn FCM_StructInit(pstcFcmInit: *mut stc_fcm_init_t) -> i32;
     pub fn FCM_DeInit(FCMx: *mut CM_FCM_TypeDef) -> i32;
@@ -19432,6 +19453,12 @@ unsafe extern "C" {
         enNewState: en_functional_state_t,
     );
     pub fn FCM_Cmd(FCMx: *mut CM_FCM_TypeDef, enNewState: en_functional_state_t);
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup GPIO_Global_Functions\n @{\n/\n/**\n @brief  GPIO lock. PSPCR, PCCR, PINAER, PCRxy, PFSRxy write disable\n @param  None\n @retval None"]
+    #[link_name = "GPIO_REG_Lock__extern"]
+    pub fn GPIO_REG_Lock();
+    #[doc = " @brief  GPIO unlock. PSPCR, PCCR, PINAER, PCRxy, PFSRxy write enable\n @param  None\n @retval None"]
+    #[link_name = "GPIO_REG_Unlock__extern"]
+    pub fn GPIO_REG_Unlock();
     pub fn GPIO_Init(u8Port: u8, u16Pin: u16, pstcGpioInit: *const stc_gpio_init_t) -> i32;
     pub fn GPIO_DeInit();
     pub fn GPIO_StructInit(pstcGpioInit: *mut stc_gpio_init_t) -> i32;
@@ -19736,10 +19763,19 @@ unsafe extern "C" {
     pub fn IRQ125_Handler();
     pub fn IRQ126_Handler();
     pub fn IRQ127_Handler();
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup KEYSCAN_Global_Functions\n @{\n/\n/**\n @brief  Get KEYOUT index.\n @param  None\n @retval uint32_t: KEYOUT index 0~7."]
+    #[link_name = "KEYSCAN_GetKeyoutIdx__extern"]
+    pub fn KEYSCAN_GetKeyoutIdx() -> u32;
     pub fn KEYSCAN_StructInit(pstcKeyscanInit: *mut stc_keyscan_init_t) -> i32;
     pub fn KEYSCAN_Init(pstcKeyscanInit: *const stc_keyscan_init_t) -> i32;
     pub fn KEYSCAN_Cmd(enNewState: en_functional_state_t);
     pub fn KEYSCAN_DeInit() -> i32;
+    #[doc = " @brief  MPU write protect unlock.\n @param  None\n @retval None"]
+    #[link_name = "MPU_REG_Unlock__extern"]
+    pub fn MPU_REG_Unlock();
+    #[doc = " @brief  MPU write protect lock.\n @param  None\n @retval None"]
+    #[link_name = "MPU_REG_Lock__extern"]
+    pub fn MPU_REG_Lock();
     pub fn MPU_DeInit();
     pub fn MPU_Init(pstcMpuInit: *const stc_mpu_init_t) -> i32;
     pub fn MPU_StructInit(pstcMpuInit: *mut stc_mpu_init_t) -> i32;
@@ -19761,6 +19797,12 @@ unsafe extern "C" {
     pub fn MPU_IP_SetExceptionType(u32Type: u32);
     pub fn MPU_IP_WriteCmd(u32Periph: u32, enNewState: en_functional_state_t);
     pub fn MPU_IP_ReadCmd(u32Periph: u32, enNewState: en_functional_state_t);
+    #[doc = " @brief  Start OTS.\n @param  None\n @retval None"]
+    #[link_name = "OTS_Start__extern"]
+    pub fn OTS_Start();
+    #[doc = " @brief  Stop OTS.\n @param  None\n @retval None"]
+    #[link_name = "OTS_Stop__extern"]
+    pub fn OTS_Stop();
     pub fn OTS_Init(pstcOTSInit: *const stc_ots_init_t) -> i32;
     pub fn OTS_StructInit(pstcOTSInit: *mut stc_ots_init_t) -> i32;
     pub fn OTS_DeInit() -> i32;
@@ -19774,6 +19816,18 @@ unsafe extern "C" {
         u32Timeout: u32,
     ) -> i32;
     pub fn OTS_CalculateTemp() -> float32_t;
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup PWC_Global_Functions\n @{\n/\n/**\n @brief  Lock PWC, CLK, RMU register.\n @param  [in] u16Module Lock code for each module.\n   @arg  PWC_UNLOCK_CODE0\n   @arg  PWC_UNLOCK_CODE1\n   @arg  PWC_UNLOCK_CODE2\n @retval None"]
+    #[link_name = "PWC_REG_Lock__extern"]
+    pub fn PWC_REG_Lock(u16Module: u16);
+    #[doc = " @brief  Unlock PWC, CLK, RMU register.\n @param  [in] u16Module Unlock code for each module.\n   @arg  PWC_UNLOCK_CODE0\n   @arg  PWC_UNLOCK_CODE1\n   @arg  PWC_UNLOCK_CODE2\n @retval None"]
+    #[link_name = "PWC_REG_Unlock__extern"]
+    pub fn PWC_REG_Unlock(u16Module: u16);
+    #[doc = " @brief  Lock PWC_FCG0 register .\n @param  None\n @retval None"]
+    #[link_name = "PWC_FCG0_REG_Lock__extern"]
+    pub fn PWC_FCG0_REG_Lock();
+    #[doc = " @brief  Unlock PWR_FCG0 register.\n @param  None\n @retval None\n @note Call this function before FCG_Fcg0PeriphClockCmd()"]
+    #[link_name = "PWC_FCG0_REG_Unlock__extern"]
+    pub fn PWC_FCG0_REG_Unlock();
     pub fn PWC_PD_Enter() -> i32;
     pub fn PWC_PD_StructInit(pstcPDModeConfig: *mut stc_pwc_pd_mode_config_t) -> i32;
     pub fn PWC_PD_Config(pstcPDModeConfig: *const stc_pwc_pd_mode_config_t) -> i32;
@@ -19826,6 +19880,12 @@ unsafe extern "C" {
     pub fn PWC_PowerMonitorCmd(enNewState: en_functional_state_t);
     pub fn PWC_XTAL32_PowerCmd(enNewState: en_functional_state_t);
     pub fn PWC_RetSram_PowerCmd(enNewState: en_functional_state_t);
+    #[doc = " @brief  Write data in direct communication mode.\n @param  [in] u8Value                 Byte data.\n @retval None"]
+    #[link_name = "QSPI_WriteDirectCommValue__extern"]
+    pub fn QSPI_WriteDirectCommValue(u8Value: u8);
+    #[doc = " @brief  Read data in direct communication mode.\n @param  None\n @retval uint8_t                      Byte data."]
+    #[link_name = "QSPI_ReadDirectCommValue__extern"]
+    pub fn QSPI_ReadDirectCommValue() -> u8;
     pub fn QSPI_DeInit() -> i32;
     pub fn QSPI_Init(pstcQspiInit: *const stc_qspi_init_t) -> i32;
     pub fn QSPI_StructInit(pstcQspiInit: *mut stc_qspi_init_t) -> i32;
@@ -20093,6 +20153,12 @@ unsafe extern "C" {
         u32Len: u32,
         u32Timeout: u32,
     ) -> i32;
+    #[doc = " @brief  Lock SRAM registers, write protect.\n @param  None\n @retval None"]
+    #[link_name = "SRAM_REG_Lock__extern"]
+    pub fn SRAM_REG_Lock();
+    #[doc = " @brief  Unlock SRAM registers, write enable.\n @param  None\n @retval None"]
+    #[link_name = "SRAM_REG_Unlock__extern"]
+    pub fn SRAM_REG_Unlock();
     pub fn SRAM_Init();
     pub fn SRAM_DeInit();
     pub fn SRAM_SetWaitCycle(u32SramSel: u32, u32WriteCycle: u32, u32ReadCycle: u32);
@@ -20100,6 +20166,9 @@ unsafe extern "C" {
     pub fn SRAM_SetExceptionType(u32CheckSram: u32, u32ExceptionType: u32);
     pub fn SRAM_GetStatus(u32Flag: u32) -> en_flag_status_t;
     pub fn SRAM_ClearStatus(u32Flag: u32);
+    #[doc = " @brief  Get SWDT count value.\n @param  None\n @retval uint16_t                     Count value"]
+    #[link_name = "SWDT_GetCountValue__extern"]
+    pub fn SWDT_GetCountValue() -> u16;
     pub fn SWDT_FeedDog();
     pub fn SWDT_GetStatus(u32Flag: u32) -> en_flag_status_t;
     pub fn SWDT_ClearStatus(u32Flag: u32) -> i32;
@@ -20275,6 +20344,9 @@ unsafe extern "C" {
         u16Cond: u16,
         enNewState: en_functional_state_t,
     );
+    #[doc = "Global function prototypes (definition in C source)\n/\n/**\n @addtogroup TMR6_Global_Functions\n @{\n/\n/**\n @brief  Get Software Sync start status\n @param  None\n @retval uint32_t                 Data indicate the read status."]
+    #[link_name = "TMR6_GetSWSyncStartStatus__extern"]
+    pub fn TMR6_GetSWSyncStartStatus() -> u32;
     pub fn TMR6_StructInit(pstcTmr6Init: *mut stc_tmr6_init_t) -> i32;
     pub fn TMR6_Init(TMR6x: *mut CM_TMR6_TypeDef, pstcTmr6Init: *const stc_tmr6_init_t) -> i32;
     pub fn TMR6_SetCountMode(TMR6x: *mut CM_TMR6_TypeDef, u32Mode: u32);
@@ -20614,6 +20686,57 @@ unsafe extern "C" {
     pub fn SysTick_GetTick() -> u32;
     pub fn SysTick_Suspend();
     pub fn SysTick_Resume();
+    #[doc = " @brief  get the current mode of the usb core from the corresponding register\n @param  [in] USBx        usb instance\n @retval current mode     1: host mode   0: device mode"]
+    #[link_name = "usb_getcurmod__extern"]
+    pub fn usb_getcurmod(USBx: *mut LL_USB_TypeDef) -> u8;
+    #[doc = " @brief  Initializes the normal interrupts\n @param  [in] USBx        usb instance\n @retval None"]
+    #[link_name = "usb_normalinten__extern"]
+    pub fn usb_normalinten(USBx: *mut LL_USB_TypeDef);
+    #[doc = " @brief  clear all the pending device interrupt bits and mask the IN and OUT\n         endpoint interrupts.\n @param  [in] USBx        usb instance\n @retval None"]
+    #[link_name = "usb_clrandmskepint__extern"]
+    pub fn usb_clrandmskepint(USBx: *mut LL_USB_TypeDef);
+    #[doc = " @brief  generate a device connect signal to the USB host\n @param  [in] USBx        usb instance\n @retval None"]
+    #[link_name = "usb_coreconn__extern"]
+    pub fn usb_coreconn(USBx: *mut LL_USB_TypeDef);
+    #[doc = " @brief  test of mode processing\n @param  [in] USBx        usb instance\n @param  [in] reg         Register write\n @retval None"]
+    #[link_name = "usb_runtestmode__extern"]
+    pub fn usb_runtestmode(USBx: *mut LL_USB_TypeDef, reg: u32);
+    #[doc = " @brief  Enables the controller's Global interrupts in the AHB Configuration\n         registers.\n @param  [in] USBx        usb instance\n @retval None"]
+    #[link_name = "usb_ginten__extern"]
+    pub fn usb_ginten(USBx: *mut LL_USB_TypeDef);
+    #[doc = " @brief  Disable the controller's Global interrupt in the AHB Configuration\n         register.\n @param  [in] USBx        usb instance\n @retval None"]
+    #[link_name = "usb_gintdis__extern"]
+    pub fn usb_gintdis(USBx: *mut LL_USB_TypeDef);
+    #[doc = " @brief  Get the Core Interrupt bits from the interrupt register not including\n         the bits that are masked.\n @param  [in] USBx        usb instance\n @retval status[32bits]"]
+    #[link_name = "usb_getcoreintr__extern"]
+    pub fn usb_getcoreintr(USBx: *mut LL_USB_TypeDef) -> u32;
+    #[doc = " @brief  Get the out endpoint interrupt bits from the all endpoint interrupt\n         register not including the bits masked.\n @param  [in] USBx        usb instance\n @retval The status that shows which OUT EP have interrupted."]
+    #[link_name = "usb_getalloepintr__extern"]
+    pub fn usb_getalloepintr(USBx: *mut LL_USB_TypeDef) -> u32;
+    #[doc = " @brief  Get the Device OUT EP Interrupt register(DOEPINT) not including the\n         interrupt bits that are masked.\n @param  [in] USBx        usb instance\n @param  [in] epnum       end point index\n @retval all the interrupt bits on DOEPINTn while n = epnum"]
+    #[link_name = "usb_getoepintbit__extern"]
+    pub fn usb_getoepintbit(USBx: *mut LL_USB_TypeDef, epnum: u8) -> u32;
+    #[doc = " @brief  Get the IN endpoint interrupt bits from the all endpoint interrupt\n         register not including the bits masked.\n @param  [in] USBx        usb instance\n @retval The status that shows which IN EP have interrupted."]
+    #[link_name = "usb_getalliepintr__extern"]
+    pub fn usb_getalliepintr(USBx: *mut LL_USB_TypeDef) -> u32;
+    #[doc = " @brief  Set the device a new address.\n @param  [in] USBx        usb instance\n @param  [in] address     device address which will be set to the corresponding register.\n @retval None"]
+    #[link_name = "usb_devaddrset__extern"]
+    pub fn usb_devaddrset(USBx: *mut LL_USB_TypeDef, address: u8);
+    #[doc = " @brief  Select the USB PHY.\n @param  [in] USBx        usb instance\n @param  [in] PhyType      USB phy, 1 select external ULPI PHY, 0 select internal FS PHY\n @retval None"]
+    #[link_name = "usb_PhySelect__extern"]
+    pub fn usb_PhySelect(USBx: *mut LL_USB_TypeDef, PhyType: u8);
+    #[doc = " @brief  Select the USB device PHY.\n @param  [in] USBx        usb instance\n @param  [in] PhyType      USB phy, 1 select external ULPI PHY, 0 select internal FS PHY\n @retval None"]
+    #[link_name = "usb_DevPhySelect__extern"]
+    pub fn usb_DevPhySelect(USBx: *mut LL_USB_TypeDef, PhyType: u8);
+    #[doc = " @brief  USB DMA function command.\n @param  [in] USBx        usb instance\n @param  [in] DmaCmd       USB DMA command status, 0 disable, 1 enable\n @retval None"]
+    #[link_name = "usb_DmaCmd__extern"]
+    pub fn usb_DmaCmd(USBx: *mut LL_USB_TypeDef, DmaCmd: u8);
+    #[doc = " @brief  USB burst length config.\n @param  [in] USBx        usb instance\n @param  [in] len         Burst length\n @retval None"]
+    #[link_name = "usb_BurstLenConfig__extern"]
+    pub fn usb_BurstLenConfig(USBx: *mut LL_USB_TypeDef, len: u8);
+    #[doc = " @brief  USB frame interval config\n @param  [in] USBx        usb instance\n @param  [in] interval    Frame interval\n @retval None"]
+    #[link_name = "usb_FrameIntervalConfig__extern"]
+    pub fn usb_FrameIntervalConfig(USBx: *mut LL_USB_TypeDef, interval: u32);
     pub fn usb_initusbcore(USBx: *mut LL_USB_TypeDef, basic_cfgs: *mut USB_CORE_BASIC_CFGS);
     pub fn usb_setregaddr(
         USBx: *mut LL_USB_TypeDef,
@@ -20647,6 +20770,9 @@ unsafe extern "C" {
     pub fn usb_epstatusget(USBx: *mut LL_USB_TypeDef, ep: *mut USB_DEV_EP) -> u32;
     pub fn usb_devepdis(USBx: *mut LL_USB_TypeDef, u8EpNum: u8);
     pub fn usb_ctrldevconnect(USBx: *mut LL_USB_TypeDef, link: u8);
+    #[doc = " @brief  Get WDT count value.\n @param  None\n @retval uint16_t                     Count value"]
+    #[link_name = "WDT_GetCountValue__extern"]
+    pub fn WDT_GetCountValue() -> u16;
     pub fn WDT_Init(pstcWdtInit: *const stc_wdt_init_t) -> i32;
     pub fn WDT_FeedDog();
     pub fn WDT_GetStatus(u32Flag: u32) -> en_flag_status_t;
