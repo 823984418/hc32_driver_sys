@@ -3,6 +3,7 @@ resolver = "3"
 members = [
     "hc32f448",
     "hc32f460",
+    "hc32f4a0",
 ]
 
 [package]
