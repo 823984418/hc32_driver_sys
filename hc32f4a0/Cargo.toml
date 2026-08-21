@@ -20,3 +20,4 @@ exclude = [
 unused = "allow"
 nonstandard_style = "allow"
 unpredictable_function_pointer_comparisons = "allow"
+unsafe_op_in_unsafe_fn = "allow"

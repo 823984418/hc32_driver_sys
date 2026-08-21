@@ -123,6 +123,10 @@ fn hc32f448() -> anyhow::Result<()> {
         );
     }
     let callback = HackBindgenCallbacks::new(ctx);
+    bindgen = bindgen.raw_line("pub unsafe fn HCLK_VALUE() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_HCLKS))) >> ((CMU_SCFGR_HCLKS_POS) as i32))) as i32))}");
+    bindgen = bindgen.raw_line("pub unsafe fn I2C_SRC_CLK() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_PCLK0S))) >> ((CMU_SCFGR_PCLK0S_POS) as i32))) as i32))}");
+    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
+    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     let mut cc = hc32f4xx_cc_base()?;
@@ -188,6 +192,10 @@ fn hc32f460() -> anyhow::Result<()> {
         );
     }
     let callback = HackBindgenCallbacks::new(ctx);
+    bindgen = bindgen.raw_line("pub unsafe fn HCLK_VALUE() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_HCLKS))) >> ((CMU_SCFGR_HCLKS_POS) as i32))) as i32))}");
+    bindgen = bindgen.raw_line("pub unsafe fn I2C_SRC_CLK() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_PCLK3S))) >> ((CMU_SCFGR_PCLK0S_POS) as i32))) as i32))}");
+    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
+    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     let mut cc = hc32f4xx_cc_base()?;
@@ -269,7 +277,57 @@ fn hc32f4a0() -> anyhow::Result<()> {
             )),
         );
     }
+
+    let pre_define = {
+        [
+            ("HASH_TRIG_EVT_DMA1_TC0", "EVT_SRC_DMA1_TC0"),
+            ("HASH_TRIG_EVT_DMA1_TC1", "EVT_SRC_DMA1_TC1"),
+            ("HASH_TRIG_EVT_DMA1_TC2", "EVT_SRC_DMA1_TC2"),
+            ("HASH_TRIG_EVT_DMA1_TC3", "EVT_SRC_DMA1_TC3"),
+            ("HASH_TRIG_EVT_DMA1_TC4", "EVT_SRC_DMA1_TC4"),
+            ("HASH_TRIG_EVT_DMA1_TC5", "EVT_SRC_DMA1_TC5"),
+            ("HASH_TRIG_EVT_DMA1_TC6", "EVT_SRC_DMA1_TC6"),
+            ("HASH_TRIG_EVT_DMA1_TC7", "EVT_SRC_DMA1_TC7"),
+            ("HASH_TRIG_EVT_DMA1_BTC0", "EVT_SRC_DMA1_BTC0"),
+            ("HASH_TRIG_EVT_DMA1_BTC1", "EVT_SRC_DMA1_BTC1"),
+            ("HASH_TRIG_EVT_DMA1_BTC2", "EVT_SRC_DMA1_BTC2"),
+            ("HASH_TRIG_EVT_DMA1_BTC3", "EVT_SRC_DMA1_BTC3"),
+            ("HASH_TRIG_EVT_DMA1_BTC4", "EVT_SRC_DMA1_BTC4"),
+            ("HASH_TRIG_EVT_DMA1_BTC5", "EVT_SRC_DMA1_BTC5"),
+            ("HASH_TRIG_EVT_DMA1_BTC6", "EVT_SRC_DMA1_BTC6"),
+            ("HASH_TRIG_EVT_DMA1_BTC7", "EVT_SRC_DMA1_BTC7"),
+            ("HASH_TRIG_EVT_DMA2_TC0", "EVT_SRC_DMA2_TC0"),
+            ("HASH_TRIG_EVT_DMA2_TC1", "EVT_SRC_DMA2_TC1"),
+            ("HASH_TRIG_EVT_DMA2_TC2", "EVT_SRC_DMA2_TC2"),
+            ("HASH_TRIG_EVT_DMA2_TC3", "EVT_SRC_DMA2_TC3"),
+            ("HASH_TRIG_EVT_DMA2_TC4", "EVT_SRC_DMA2_TC4"),
+            ("HASH_TRIG_EVT_DMA2_TC5", "EVT_SRC_DMA2_TC5"),
+            ("HASH_TRIG_EVT_DMA2_TC6", "EVT_SRC_DMA2_TC6"),
+            ("HASH_TRIG_EVT_DMA2_TC7", "EVT_SRC_DMA2_TC7"),
+            ("HASH_TRIG_EVT_DMA2_BTC0", "EVT_SRC_DMA2_BTC0"),
+            ("HASH_TRIG_EVT_DMA2_BTC1", "EVT_SRC_DMA2_BTC1"),
+            ("HASH_TRIG_EVT_DMA2_BTC2", "EVT_SRC_DMA2_BTC2"),
+            ("HASH_TRIG_EVT_DMA2_BTC3", "EVT_SRC_DMA2_BTC3"),
+            ("HASH_TRIG_EVT_DMA2_BTC4", "EVT_SRC_DMA2_BTC4"),
+            ("HASH_TRIG_EVT_DMA2_BTC5", "EVT_SRC_DMA2_BTC5"),
+            ("HASH_TRIG_EVT_DMA2_BTC6", "EVT_SRC_DMA2_BTC6"),
+            ("HASH_TRIG_EVT_DMA2_BTC7", "EVT_SRC_DMA2_BTC7"),
+        ]
+    };
+    for (name, field) in pre_define {
+        ctx.define_macro(
+            name,
+            MacroItem::Expression(RustExpression::from_str(field, "en_event_src_t")),
+        );
+    }
+
     let callback = HackBindgenCallbacks::new(ctx);
+    bindgen = bindgen.raw_line("pub unsafe fn HCLK_VALUE() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_HCLKS))) >> ((CMU_SCFGR_HCLKS_POS) as i32))) as i32))}");
+    bindgen = bindgen.raw_line("pub unsafe fn I2C_SRC_CLK() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_PCLK3S))) >> ((CMU_SCFGR_PCLK0S_POS) as i32))) as i32))}");
+    bindgen = bindgen.raw_line("pub unsafe fn MAU_SQRT_TIMEOUT() -> core::ffi::c_ulong {(HCLK_VALUE()) / (10000 as core::ffi::c_ulong)}");
+    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
+    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
+    bindgen = bindgen.blocklist_item("MAU_SQRT_TIMEOUT");
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     let mut cc = hc32f4xx_cc_base()?;

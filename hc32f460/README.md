@@ -4,3 +4,4 @@
 
 * 静态库使用 clang target=thumbv7m-none-eabihf mcpu=cortex-m4 opt_level=3 进行编译
 * 部分宏定义（如晶振频率）修改为全局变量以适应不同的硬件配置
+* 修复了MPU_UNIT_ENABLE的值

@@ -109,11 +109,11 @@ dependencies = [
 
 [[package]]
 name = "hc32f448_driver_sys"
-version = "0.4.2"
+version = "0.4.3"
 
 [[package]]
 name = "hc32f460_driver_sys"
-version = "0.4.2"
+version = "0.4.3"
 
 [[package]]
 name = "hc32f4a0_driver_sys"

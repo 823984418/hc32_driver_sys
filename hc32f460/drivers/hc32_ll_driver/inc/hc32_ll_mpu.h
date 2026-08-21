@@ -190,7 +190,7 @@ typedef struct {
  * @defgroup MPU_Unit_State MPU unit state
  * @{
  */
-#define MPU_UNIT_ENABLE                         (MPU_SCR_SMPUE)
+#define MPU_UNIT_ENABLE                         (MPU_CR_SMPU2E)
 #define MPU_UNIT_DISABLE                        (0UL)
 /**
  * @}
