@@ -64,8 +64,7 @@ fn hc32f448() -> anyhow::Result<()> {
     std::env::set_current_dir(PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("hc32f448"))?;
 
     _ = std::fs::remove_dir_all("build");
-    _ = std::fs::remove_dir_all("src");
-    std::fs::create_dir_all("src")?;
+    _ = std::fs::remove_file("src/lib.rs");
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F448");
@@ -123,8 +122,8 @@ fn hc32f448() -> anyhow::Result<()> {
         );
     }
     let callback = HackBindgenCallbacks::new(ctx);
-    bindgen = bindgen.raw_line("pub unsafe fn HCLK_VALUE() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_HCLKS))) >> ((CMU_SCFGR_HCLKS_POS) as i32))) as i32))}");
-    bindgen = bindgen.raw_line("pub unsafe fn I2C_SRC_CLK() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_PCLK0S))) >> ((CMU_SCFGR_PCLK0S_POS) as i32))) as i32))}");
+    bindgen = bindgen.raw_line("mod patch;");
+    bindgen = bindgen.raw_line("pub use patch::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
@@ -143,8 +142,7 @@ fn hc32f460() -> anyhow::Result<()> {
     std::env::set_current_dir(PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("hc32f460"))?;
 
     _ = std::fs::remove_dir_all("build");
-    _ = std::fs::remove_dir_all("src");
-    std::fs::create_dir_all("src")?;
+    _ = std::fs::remove_file("src/lib.rs");
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F460");
@@ -192,8 +190,8 @@ fn hc32f460() -> anyhow::Result<()> {
         );
     }
     let callback = HackBindgenCallbacks::new(ctx);
-    bindgen = bindgen.raw_line("pub unsafe fn HCLK_VALUE() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_HCLKS))) >> ((CMU_SCFGR_HCLKS_POS) as i32))) as i32))}");
-    bindgen = bindgen.raw_line("pub unsafe fn I2C_SRC_CLK() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_PCLK3S))) >> ((CMU_SCFGR_PCLK0S_POS) as i32))) as i32))}");
+    bindgen = bindgen.raw_line("mod patch;");
+    bindgen = bindgen.raw_line("pub use patch::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
@@ -212,8 +210,7 @@ fn hc32f4a0() -> anyhow::Result<()> {
     std::env::set_current_dir(PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("hc32f4a0"))?;
 
     _ = std::fs::remove_dir_all("build");
-    _ = std::fs::remove_dir_all("src");
-    std::fs::create_dir_all("src")?;
+    _ = std::fs::remove_file("src/lib.rs");
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F4A0");
@@ -322,9 +319,8 @@ fn hc32f4a0() -> anyhow::Result<()> {
     }
 
     let callback = HackBindgenCallbacks::new(ctx);
-    bindgen = bindgen.raw_line("pub unsafe fn HCLK_VALUE() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_HCLKS))) >> ((CMU_SCFGR_HCLKS_POS) as i32))) as i32))}");
-    bindgen = bindgen.raw_line("pub unsafe fn I2C_SRC_CLK() -> core::ffi::c_ulong {((SystemCoreClock) >> (((((((*(CM_CMU)).SCFGR) & (CMU_SCFGR_PCLK3S))) >> ((CMU_SCFGR_PCLK0S_POS) as i32))) as i32))}");
-    bindgen = bindgen.raw_line("pub unsafe fn MAU_SQRT_TIMEOUT() -> core::ffi::c_ulong {(HCLK_VALUE()) / (10000 as core::ffi::c_ulong)}");
+    bindgen = bindgen.raw_line("mod patch;");
+    bindgen = bindgen.raw_line("pub use patch::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     bindgen = bindgen.blocklist_item("MAU_SQRT_TIMEOUT");
