@@ -1,6 +1,6 @@
 [package]
 name = "hc32f4a0_driver_sys"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 description = "Provide driver function binding for HDSC's HC32F4A0 MCU."
 keywords = ["HC32", "bindgen", "no_std", "bare-metal"]
@@ -16,8 +16,26 @@ exclude = [
 
 [dependencies]
 
+[dependencies.cortex-m]
+version = "0.7"
+default-features = false
+optional = true
+
+[dependencies.cortex-m-rt]
+version = "0.7"
+default-features = false
+optional = true
+
+[features]
+rt = ["dep:cortex-m", "cortex-m-rt/device"]
+
 [lints.rust]
 unused = "allow"
 nonstandard_style = "allow"
 unpredictable_function_pointer_comparisons = "allow"
 unsafe_op_in_unsafe_fn = "allow"
+
+[package.metadata.docs.rs]
+targets = [
+    "thumbv7em-none-eabihf",
+]

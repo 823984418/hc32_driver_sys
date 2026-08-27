@@ -1,6 +1,94 @@
+use anyhow::anyhow;
 use lang_c::hack_bindgen::{HackBindgenCallbacks, HackBindgenContext, MacroItem, RustExpression};
 use std::collections::HashSet;
 use std::path::PathBuf;
+
+fn hc32f4xx_interrupt(name: &str) -> anyhow::Result<()> {
+    let startup_s = std::fs::read_to_string(format!(
+        "drivers/cmsis/Device/HDSC/hc32f4xx/Source/GCC/startup_{}.S",
+        name
+    ))?;
+    let start = startup_s.find("Interrupts").ok_or(anyhow!("error"))?;
+    let end = start
+        + startup_s[start..]
+            .find("__Vectors_End")
+            .ok_or(anyhow!("error"))?;
+    let reg = regex::Regex::new(r##"\.long\s+(\w+)"##)?;
+    let interrupts = reg
+        .captures_iter(&startup_s[start..end])
+        .map(|cap| cap[1].to_string())
+        .collect::<Vec<_>>();
+
+    fn is_interrupt_name(x: &str) -> bool {
+        x.len() > 1
+    }
+
+    let device_x = interrupts
+        .iter()
+        .filter(|i| is_interrupt_name(i))
+        .map(|i| format!("PROVIDE({} = DefaultHandler);", i))
+        .collect::<Vec<_>>()
+        .join("\n")
+        + "\n";
+    std::fs::write("device.x", device_x)?;
+
+    let mut rt_mod = String::new();
+    rt_mod += r#"unsafe extern "C" {"#;
+    rt_mod += r#"fn DefaultHandler();"#;
+    rt_mod += &interrupts
+        .iter()
+        .filter(|i| is_interrupt_name(i))
+        .map(|i| format!("fn {}();", i))
+        .collect::<Vec<_>>()
+        .join("\n");
+    rt_mod += r#"}"#;
+    rt_mod += r#"#[cfg(feature = "rt")]"#;
+    rt_mod += r#"#[doc(hidden)]"#;
+    rt_mod += r#"#[unsafe(link_section = ".vector_table.interrupts")]"#;
+    rt_mod += r#"#[unsafe(no_mangle)]"#;
+    rt_mod += &format!(
+        "pub static __INTERRUPTS: [unsafe extern \"C\" fn(); {}] = [",
+        interrupts.len()
+    );
+    rt_mod += &interrupts
+        .iter()
+        .map(|i| {
+            if is_interrupt_name(i) {
+                i.to_string()
+            } else {
+                "DefaultHandler".to_string()
+            }
+        })
+        .collect::<Vec<_>>()
+        .join(",\n");
+    rt_mod += r#"];"#;
+    rt_mod += r#"#[doc = r"Enumeration of all the interrupts."]"#;
+    rt_mod += r#"#[derive(Copy, Clone, Debug, PartialEq, Eq)]"#;
+    rt_mod += r#"#[repr(u16)]"#;
+    rt_mod += r#"pub enum Interrupt {"#;
+    rt_mod += &interrupts
+        .iter()
+        .enumerate()
+        .filter(|(_, i)| is_interrupt_name(i))
+        .map(|(v, i)| format!("{} = {},", i, v))
+        .collect::<Vec<_>>()
+        .join("");
+    rt_mod += r#"}"#;
+    rt_mod += r#"unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {"#;
+    rt_mod += r#"#[inline(always)]"#;
+    rt_mod += r#"fn number(self) -> u16 {"#;
+    rt_mod += r#"self as u16"#;
+    rt_mod += r#"}"#;
+    rt_mod += r#"}"#;
+
+    std::fs::write("src/rt.rs", rt_mod)?;
+
+    std::process::Command::new("cargo")
+        .args(["fmt", "--", "src/rt.rs"])
+        .status()?;
+
+    Ok(())
+}
 
 fn hc32f4xx_bindgen_base() -> anyhow::Result<bindgen::Builder> {
     let mut bindgen = bindgen::builder();
@@ -65,6 +153,7 @@ fn hc32f448() -> anyhow::Result<()> {
 
     _ = std::fs::remove_dir_all("build");
     _ = std::fs::remove_file("src/lib.rs");
+    _ = std::fs::remove_file("src/rt.rs");
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F448");
@@ -124,6 +213,10 @@ fn hc32f448() -> anyhow::Result<()> {
     let callback = HackBindgenCallbacks::new(ctx);
     bindgen = bindgen.raw_line("mod patch;");
     bindgen = bindgen.raw_line("pub use patch::*;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("mod rt;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("pub use rt::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
@@ -135,6 +228,7 @@ fn hc32f448() -> anyhow::Result<()> {
 
     std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
+    hc32f4xx_interrupt("hc32f448")?;
     Ok(())
 }
 
@@ -143,6 +237,7 @@ fn hc32f460() -> anyhow::Result<()> {
 
     _ = std::fs::remove_dir_all("build");
     _ = std::fs::remove_file("src/lib.rs");
+    _ = std::fs::remove_file("src/rt.rs");
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F460");
@@ -192,6 +287,10 @@ fn hc32f460() -> anyhow::Result<()> {
     let callback = HackBindgenCallbacks::new(ctx);
     bindgen = bindgen.raw_line("mod patch;");
     bindgen = bindgen.raw_line("pub use patch::*;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("mod rt;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("pub use rt::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
@@ -203,6 +302,7 @@ fn hc32f460() -> anyhow::Result<()> {
 
     std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
+    hc32f4xx_interrupt("hc32f460")?;
     Ok(())
 }
 
@@ -211,6 +311,7 @@ fn hc32f4a0() -> anyhow::Result<()> {
 
     _ = std::fs::remove_dir_all("build");
     _ = std::fs::remove_file("src/lib.rs");
+    _ = std::fs::remove_file("src/rt.rs");
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F4A0");
@@ -321,6 +422,10 @@ fn hc32f4a0() -> anyhow::Result<()> {
     let callback = HackBindgenCallbacks::new(ctx);
     bindgen = bindgen.raw_line("mod patch;");
     bindgen = bindgen.raw_line("pub use patch::*;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("mod rt;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("pub use rt::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     bindgen = bindgen.blocklist_item("MAU_SQRT_TIMEOUT");
@@ -333,6 +438,7 @@ fn hc32f4a0() -> anyhow::Result<()> {
 
     std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
+    hc32f4xx_interrupt("hc32f4a0")?;
     Ok(())
 }
 
