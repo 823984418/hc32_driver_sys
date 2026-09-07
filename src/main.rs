@@ -157,7 +157,16 @@ fn hc32f448() -> anyhow::Result<()> {
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F448");
+    bindgen = bindgen.raw_line("mod patch;");
+    bindgen = bindgen.raw_line("pub use patch::*;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("mod rt;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("pub use rt::*;");
+    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
+    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     let mut ctx = HackBindgenContext::default();
+    ctx.env.hack_is_typename = Some(true);
     let pre_define = {
         [
             ("AOS_DCU1", "DCU_TRGSEL1"),
@@ -210,14 +219,6 @@ fn hc32f448() -> anyhow::Result<()> {
             )),
         );
     }
-    bindgen = bindgen.raw_line("mod patch;");
-    bindgen = bindgen.raw_line("pub use patch::*;");
-    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
-    bindgen = bindgen.raw_line("mod rt;");
-    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
-    bindgen = bindgen.raw_line("pub use rt::*;");
-    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
-    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
@@ -240,7 +241,16 @@ fn hc32f460() -> anyhow::Result<()> {
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F460");
+    bindgen = bindgen.raw_line("mod patch;");
+    bindgen = bindgen.raw_line("pub use patch::*;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("mod rt;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("pub use rt::*;");
+    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
+    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     let mut ctx = HackBindgenContext::default();
+    ctx.env.hack_is_typename = Some(true);
     let pre_define = {
         [
             ("AOS_DCU1", "DCU_TRGSEL1"),
@@ -283,14 +293,6 @@ fn hc32f460() -> anyhow::Result<()> {
             )),
         );
     }
-    bindgen = bindgen.raw_line("mod patch;");
-    bindgen = bindgen.raw_line("pub use patch::*;");
-    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
-    bindgen = bindgen.raw_line("mod rt;");
-    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
-    bindgen = bindgen.raw_line("pub use rt::*;");
-    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
-    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
@@ -313,7 +315,17 @@ fn hc32f4a0() -> anyhow::Result<()> {
 
     let mut bindgen = hc32f4xx_bindgen_base()?;
     bindgen = bindgen.clang_arg("-DHC32F4A0");
+    bindgen = bindgen.raw_line("mod patch;");
+    bindgen = bindgen.raw_line("pub use patch::*;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("mod rt;");
+    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
+    bindgen = bindgen.raw_line("pub use rt::*;");
+    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
+    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
+    bindgen = bindgen.blocklist_item("MAU_SQRT_TIMEOUT");
     let mut ctx = HackBindgenContext::default();
+    ctx.env.hack_is_typename = Some(true);
     let pre_define = {
         [
             ("AOS_DCU1", "DCU_TRGSEL1"),
@@ -415,15 +427,6 @@ fn hc32f4a0() -> anyhow::Result<()> {
             MacroItem::Expression(RustExpression::from_str(field, "en_event_src_t")),
         );
     }
-    bindgen = bindgen.raw_line("mod patch;");
-    bindgen = bindgen.raw_line("pub use patch::*;");
-    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
-    bindgen = bindgen.raw_line("mod rt;");
-    bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
-    bindgen = bindgen.raw_line("pub use rt::*;");
-    // bindgen = bindgen.blocklist_item("HCLK_VALUE");
-    // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
-    bindgen = bindgen.blocklist_item("MAU_SQRT_TIMEOUT");
     let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 

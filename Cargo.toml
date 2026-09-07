@@ -22,14 +22,14 @@ repository = "https://github.com/823984418/hc32_driver_sys"
 version = "1.0.104"
 
 [dependencies.cc]
-version = "1.4.4"
+version = "1.4.5"
 
 [dependencies.regex]
 version = "1.13.1"
 
 [dependencies.bindgen]
-version = "0.72.1"
+version = "0.73.1"
 
 [dependencies.lang-c]
 git = "https://github.com/823984418/lang-c"
-rev = "583757f751060fc452466d442a44999d749b9a53"
+rev = "461377aadafc1bc8edfbbf6413c6f18fd826cc26"
