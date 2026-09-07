@@ -32,4 +32,4 @@ version = "0.72.1"
 
 [dependencies.lang-c]
 git = "https://github.com/823984418/lang-c"
-branch = "hack-for-bindgen"
+rev = "583757f751060fc452466d442a44999d749b9a53"

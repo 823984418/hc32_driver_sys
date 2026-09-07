@@ -210,7 +210,6 @@ fn hc32f448() -> anyhow::Result<()> {
             )),
         );
     }
-    let callback = HackBindgenCallbacks::new(ctx);
     bindgen = bindgen.raw_line("mod patch;");
     bindgen = bindgen.raw_line("pub use patch::*;");
     bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
@@ -219,13 +218,13 @@ fn hc32f448() -> anyhow::Result<()> {
     bindgen = bindgen.raw_line("pub use rt::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
+    let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     let mut cc = hc32f4xx_cc_base()?;
     cc.define("HC32F448", None);
     cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f448.c");
     cc.compile("hc32_driver");
-
     std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
     hc32f4xx_interrupt("hc32f448")?;
@@ -284,7 +283,6 @@ fn hc32f460() -> anyhow::Result<()> {
             )),
         );
     }
-    let callback = HackBindgenCallbacks::new(ctx);
     bindgen = bindgen.raw_line("mod patch;");
     bindgen = bindgen.raw_line("pub use patch::*;");
     bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
@@ -293,13 +291,13 @@ fn hc32f460() -> anyhow::Result<()> {
     bindgen = bindgen.raw_line("pub use rt::*;");
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
+    let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     let mut cc = hc32f4xx_cc_base()?;
     cc.define("HC32F460", None);
     cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f460.c");
     cc.compile("hc32_driver");
-
     std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
     hc32f4xx_interrupt("hc32f460")?;
@@ -375,7 +373,6 @@ fn hc32f4a0() -> anyhow::Result<()> {
             )),
         );
     }
-
     let pre_define = {
         [
             ("HASH_TRIG_EVT_DMA1_TC0", "EVT_SRC_DMA1_TC0"),
@@ -418,8 +415,6 @@ fn hc32f4a0() -> anyhow::Result<()> {
             MacroItem::Expression(RustExpression::from_str(field, "en_event_src_t")),
         );
     }
-
-    let callback = HackBindgenCallbacks::new(ctx);
     bindgen = bindgen.raw_line("mod patch;");
     bindgen = bindgen.raw_line("pub use patch::*;");
     bindgen = bindgen.raw_line("#[cfg(feature = \"rt\")]");
@@ -429,13 +424,13 @@ fn hc32f4a0() -> anyhow::Result<()> {
     // bindgen = bindgen.blocklist_item("HCLK_VALUE");
     // bindgen = bindgen.blocklist_item("I2C_SRC_CLK");
     bindgen = bindgen.blocklist_item("MAU_SQRT_TIMEOUT");
+    let callback = HackBindgenCallbacks::new(ctx);
     std::fs::write("src/lib.rs", callback.generate(bindgen).unwrap())?;
 
     let mut cc = hc32f4xx_cc_base()?;
     cc.define("HC32F4A0", None);
     cc.file("drivers/cmsis/Device/HDSC/hc32f4xx/Source/system_hc32f4a0.c");
     cc.compile("hc32_driver");
-
     std::fs::copy("build/libhc32_driver.a", "libhc32_driver.a")?;
 
     hc32f4xx_interrupt("hc32f4a0")?;
